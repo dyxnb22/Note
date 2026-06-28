@@ -1,0 +1,16 @@
+# 08_Valuation
+
+这个模块回答“企业值多少钱”，重点在估值框架、适用边界和失效条件，而不是追求单一公式万能。
+
+## 先修关系
+
+- 建议先看 `03_Stocks`
+- 建议配合 `07_Corporate_Finance`
+
+## 文档
+
+- [DCF估值](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/08_Valuation/DCF估值.md)
+- [PE_PB_PS_EV_EBITDA](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/08_Valuation/PE_PB_PS_EV_EBITDA.md)
+- [相对估值框架](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/08_Valuation/相对估值框架.md)
+- [安全边际](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/08_Valuation/安全边际.md)
+- [估值为什么会失效](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/08_Valuation/估值为什么会失效.md)
