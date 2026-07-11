@@ -30,10 +30,10 @@
 import requests
 
 response = requests.get(
-    "https://httpbin.org/get",             # 请求地址
-    params={"name": "Tom", "age": 18},   # query 参数，会拼到 URL 后面
-    headers={"User-Agent": "python-client"}, # 请求头
-    timeout=10,                            # 最多等待 10 秒
+"https://httpbin.org/get",             # 请求地址
+params={"name": "Tom", "age": 18},   # query 参数，会拼到 URL 后面
+headers={"User-Agent": "python-client"}, # 请求头
+timeout=10,                            # 最多等待 10 秒
 )
 
 print(response.status_code)                # HTTP 状态码，例如 200
@@ -55,14 +55,14 @@ POST JSON：
 
 ```python
 payload = {
-    "name": "Tom",
-    "age": 18,
+"name": "Tom",
+"age": 18,
 }
 
 response = requests.post(
-    "https://httpbin.org/post",
-    json=payload,       # requests 会自动序列化成 JSON，并设置 Content-Type
-    timeout=10,
+"https://httpbin.org/post",
+json=payload,       # requests 会自动序列化成 JSON，并设置 Content-Type
+timeout=10,
 )
 
 response.raise_for_status()
@@ -76,58 +76,40 @@ print(response.json())
 ```python
 import requests
 
-
 def fetch_json(url: str) -> dict:
-    try:
-        response = requests.get(url, timeout=10)
-        response.raise_for_status()
-        return response.json()
+try:
+    response = requests.get(url, timeout=10)
+    response.raise_for_status()
+    return response.json()
 
-    except requests.Timeout:
-        # 请求超过 timeout 时间还没完成
-        print("请求超时")
+except requests.Timeout:
+## 请求超过 timeout 时间还没完成
+    print("请求超时")
 
-    except requests.HTTPError as e:
-        # 状态码是 4xx / 5xx
-        print(f"HTTP 状态码错误：{e}")
+except requests.HTTPError as e:
+## 状态码是 4xx / 5xx
+    print(f"HTTP 状态码错误：{e}")
 
-    except requests.RequestException as e:
-        # requests 的网络相关异常基类，例如连接失败、DNS 失败
-        print(f"网络请求失败：{e}")
+except requests.RequestException as e:
+## requests 的网络相关异常基类，例如连接失败、DNS 失败
+    print(f"网络请求失败：{e}")
 
-    except ValueError:
-        # response.json() 解析失败，说明响应不是合法 JSON
-        print("响应不是合法 JSON")
+except ValueError:
+## response.json() 解析失败，说明响应不是合法 JSON
+    print("响应不是合法 JSON")
 
-    return {}
+return {}
 ```
 
 ## 4. httpx：同步 + 异步 HTTP
 
 `httpx` 是更现代的 HTTP 客户端，既支持同步也支持异步。FastAPI / Agent 项目里更常用。
 
-<table header-row="true">
-<tr>
-<td>能力</td>
-<td>requests</td>
-<td>httpx</td>
-</tr>
-<tr>
-<td>同步请求</td>
-<td>支持</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>异步请求</td>
-<td>不支持</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>连接复用</td>
-<td>可用但不突出</td>
-<td>`Client / AsyncClient` 更清晰</td>
-</tr>
-</table>
+| 能力 | requests | httpx |
+| --- | --- | --- |
+| 同步请求 | 支持 | 支持 |
+| 异步请求 | 不支持 | 支持 |
+| 连接复用 | 可用但不突出 | `Client / AsyncClient` 更清晰 |
 
 同步写法：
 
@@ -135,13 +117,13 @@ def fetch_json(url: str) -> dict:
 import httpx
 
 with httpx.Client(
-    base_url="https://httpbin.org",
-    timeout=10.0,
-    headers={"User-Agent": "my-agent"},
+base_url="https://httpbin.org",
+timeout=10.0,
+headers={"User-Agent": "my-agent"},
 ) as client:
-    response = client.get("/get", params={"name": "Tom"})
-    response.raise_for_status()
-    print(response.json())
+response = client.get("/get", params={"name": "Tom"})
+response.raise_for_status()
+print(response.json())
 ```
 
 异步写法：
@@ -151,10 +133,10 @@ import asyncio
 import httpx
 
 async def main():
-    async with httpx.AsyncClient(timeout=10.0) as client:
-        response = await client.get("https://httpbin.org/get")
-        response.raise_for_status()
-        print(response.json())
+async with httpx.AsyncClient(timeout=10.0) as client:
+    response = await client.get("https://httpbin.org/get")
+    response.raise_for_status()
+    print(response.json())
 
 asyncio.run(main())
 ```

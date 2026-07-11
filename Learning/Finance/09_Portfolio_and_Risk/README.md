@@ -15,3 +15,4 @@
 - [仓位管理](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/09_Portfolio_and_Risk/仓位管理.md)
 - [风险预算](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/09_Portfolio_and_Risk/风险预算.md)
 - [再平衡](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/09_Portfolio_and_Risk/再平衡.md)
+- [黄金、商品与另类资产](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/09_Portfolio_and_Risk/黄金、商品与另类资产.md)

@@ -78,10 +78,10 @@ version = "0.1.0"                       # 版本号
 description = "A simple Python agent demo"
 requires-python = ">=3.11"              # 要求 Python 版本
 dependencies = [                         # 正式运行需要的依赖
-    "httpx",
-    "openai",
-    "pydantic",
-    "python-dotenv",
+"httpx",
+"openai",
+"pydantic",
+"python-dotenv",
 ]
 
 [project.optional-dependencies]
@@ -184,43 +184,14 @@ uv run python main.py
 
 可以这样理解：
 
-<table header-row="true">
-<tr>
-<td>传统工具</td>
-<td>uv 对应能力</td>
-<td>说明</td>
-</tr>
-<tr>
-<td>`python -m venv .venv`</td>
-<td>`uv venv`</td>
-<td>创建虚拟环境</td>
-</tr>
-<tr>
-<td>`pip install requests`</td>
-<td>`uv pip install requests` 或 `uv add requests`</td>
-<td>安装依赖</td>
-</tr>
-<tr>
-<td>`pip freeze`</td>
-<td>`uv lock` / `uv export`</td>
-<td>锁定或导出依赖</td>
-</tr>
-<tr>
-<td>`python main.py`</td>
-<td>`uv run python main.py`</td>
-<td>在项目环境中运行脚本</td>
-</tr>
-<tr>
-<td>`pipx run ruff`</td>
-<td>`uvx ruff`</td>
-<td>临时运行命令行工具</td>
-</tr>
-<tr>
-<td>`pyenv install 3.12`</td>
-<td>`uv python install 3.12`</td>
-<td>安装 Python 版本</td>
-</tr>
-</table>
+| 传统工具 | uv 对应能力 | 说明 |
+| --- | --- | --- |
+| `python -m venv .venv` | `uv venv` | 创建虚拟环境 |
+| `pip install requests` | `uv pip install requests` 或 `uv add requests` | 安装依赖 |
+| `pip freeze` | `uv lock` / `uv export` | 锁定或导出依赖 |
+| `python main.py` | `uv run python main.py` | 在项目环境中运行脚本 |
+| `pipx run ruff` | `uvx ruff` | 临时运行命令行工具 |
+| `pyenv install 3.12` | `uv python install 3.12` | 安装 Python 版本 |
 
 ### 4.5.5 两种使用方式：项目模式 vs pip 兼容模式
 
@@ -382,21 +353,20 @@ load_dotenv()  # 把 .env 文件里的配置加载到环境变量
 
 @dataclass(frozen=True)
 class Settings:
-    openai_api_key: str             # 必填配置
-    model_name: str = "gpt-5"       # 有默认值
-    timeout_seconds: float = 30.0
-
+openai_api_key: str             # 必填配置
+model_name: str = "gpt-5"       # 有默认值
+timeout_seconds: float = 30.0
 
 def load_settings() -> Settings:
-    api_key = os.getenv("OPENAI_API_KEY")  # 从环境变量读取 API Key
-    if not api_key:
-        raise RuntimeError("OPENAI_API_KEY is missing")
+api_key = os.getenv("OPENAI_API_KEY")  # 从环境变量读取 API Key
+if not api_key:
+    raise RuntimeError("OPENAI_API_KEY is missing")
 
-    return Settings(
-        openai_api_key=api_key,
-        model_name=os.getenv("MODEL_NAME", "gpt-5"),
-        timeout_seconds=float(os.getenv("TIMEOUT_SECONDS", "30")),
-    )
+return Settings(
+    openai_api_key=api_key,
+    model_name=os.getenv("MODEL_NAME", "gpt-5"),
+    timeout_seconds=float(os.getenv("TIMEOUT_SECONDS", "30")),
+)
 ```
 
 原则：
@@ -456,32 +426,30 @@ tests/
 
 ```python
 def run_agent():
-    # 读取配置
-    # 拼 prompt
-    # 调 OpenAI
-    # 调工具
-    # 写日志
-    # 处理异常
-    # 返回结果
-    pass
+## 读取配置
+## 拼 prompt
+## 调 OpenAI
+## 调工具
+## 写日志
+## 处理异常
+## 返回结果
+pass
 ```
 
 更好的拆法：
 
 ```python
 def build_messages(user_input: str) -> list[dict]:
-    return [{"role": "user", "content": user_input}]
-
+return [{"role": "user", "content": user_input}]
 
 def call_llm(messages: list[dict]) -> str:
-    # 只负责调用模型
-    ...
-
+## 只负责调用模型
+...
 
 def run_agent(user_input: str) -> str:
-    # 只负责编排流程
-    messages = build_messages(user_input)
-    return call_llm(messages)
+## 只负责编排流程
+messages = build_messages(user_input)
+return call_llm(messages)
 ```
 
 ## 8. logging 日志
@@ -494,8 +462,8 @@ def run_agent(user_input: str) -> str:
 import logging
 
 logging.basicConfig(
-    level=logging.INFO,  # INFO 及以上级别会输出
-    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+level=logging.INFO,  # INFO 及以上级别会输出
+format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
 )
 
 logger = logging.getLogger("agent-demo")
@@ -514,32 +482,13 @@ logger.exception("调用外部 API 失败")   # 在 except 中记录完整异常
 
 日志等级：
 
-<table header-row="true">
-<tr>
-<td>等级</td>
-<td>用途</td>
-</tr>
-<tr>
-<td>DEBUG</td>
-<td>调试细节，最详细</td>
-</tr>
-<tr>
-<td>INFO</td>
-<td>正常运行信息</td>
-</tr>
-<tr>
-<td>WARNING</td>
-<td>可恢复的异常情况</td>
-</tr>
-<tr>
-<td>ERROR</td>
-<td>操作失败</td>
-</tr>
-<tr>
-<td>CRITICAL</td>
-<td>程序可能无法继续</td>
-</tr>
-</table>
+| 等级 | 用途 |
+| --- | --- |
+| DEBUG | 调试细节，最详细 |
+| INFO | 正常运行信息 |
+| WARNING | 可恢复的异常情况 |
+| ERROR | 操作失败 |
+| CRITICAL | 程序可能无法继续 |
 
 不要记录：
 
@@ -557,21 +506,21 @@ user_name = "Tom"          # 变量 / 函数：snake_case
 DEFAULT_MODEL = "gpt-5"    # 常量：UPPER_CASE
 
 class AgentRunner:          # 类名：PascalCase
-    pass
+pass
 ```
 
 import 顺序：
 
 ```python
-# 1. 标准库
+## 1. 标准库
 import json
 import logging
 
-# 2. 第三方库
+## 2. 第三方库
 import httpx
 from openai import OpenAI
 
-# 3. 本项目模块
+## 3. 本项目模块
 from app.config import load_settings
 from app.logger import logger
 ```
@@ -580,10 +529,10 @@ from app.logger import logger
 
 ```python
 def get_weather(city: str) -> dict[str, str]:
-    return {
-        "city": city,
-        "temperature": "24°C",
-    }
+return {
+    "city": city,
+    "temperature": "24°C",
+}
 ```
 
 类型注解的好处：
@@ -599,20 +548,20 @@ def get_weather(city: str) -> dict[str, str]:
 
 ```python
 try:
-    result = call_api()
+result = call_api()
 except Exception:
-    logger.exception("调用 API 失败")  # 记录完整错误栈
-    raise                              # 继续抛出，让上层决定怎么处理
+logger.exception("调用 API 失败")  # 记录完整错误栈
+raise                              # 继续抛出，让上层决定怎么处理
 ```
 
 如果是面向用户的接口，可以转成友好错误：
 
 ```python
 try:
-    result = call_api()
+result = call_api()
 except Exception:
-    logger.exception("调用 API 失败")
-    return "服务暂时不可用，请稍后重试。"
+logger.exception("调用 API 失败")
+return "服务暂时不可用，请稍后重试。"
 ```
 
 注意：
@@ -626,18 +575,17 @@ except Exception:
 测试不一定一开始很多，但核心函数要能测。
 
 ```python
-# app/tools.py
+## app/tools.py
 def add(a: int, b: int) -> int:
-    return a + b
+return a + b
 ```
 
 ```python
-# tests/test_tools.py
+## tests/test_tools.py
 from app.tools import add
 
-
 def test_add():
-    assert add(1, 2) == 3
+assert add(1, 2) == 3
 ```
 
 运行：
@@ -674,7 +622,7 @@ python -m pytest -q
 ## 13. README 模板
 
 ```markdown
-# 项目名称
+## 项目名称
 
 ## 项目简介
 说明这个项目解决什么问题。
@@ -747,8 +695,8 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Settings:
-    app_name: str
-    log_level: str
+app_name: str
+log_level: str
 ```
 
 `dataclass` 自动生成初始化方法；`frozen=True` 表示创建后不允许随便改字段，适合配置对象。
@@ -769,11 +717,11 @@ load_dotenv(BASE_DIR / ".env")
 import logging
 
 def setup_logger(level: str = "INFO") -> logging.Logger:
-    logging.basicConfig(
-        level=getattr(logging, level.upper(), logging.INFO),
-        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-    )
-    return logging.getLogger("project-template")
+logging.basicConfig(
+    level=getattr(logging, level.upper(), logging.INFO),
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+)
+return logging.getLogger("project-template")
 ```
 
 含义：把字符串 `"INFO" / "DEBUG"` 转成 logging 模块里的常量。第三个参数 `logging.INFO` 是默认值，避免用户传错配置时程序直接崩。

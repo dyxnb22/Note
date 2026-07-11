@@ -66,19 +66,18 @@ grep -rn "timeout" /var/log/
 - `nohup java -jar app.jar > app.log 2>&1 &`
 
 ### 8. 高频问法
-<details>
-<summary>如何排查 Linux 服务器磁盘满了？</summary>
-	先用 `df -h` 找到满的挂载点，再用 `du -h --max-depth=1` 逐层定位大目录；必要时用 `lsof | grep deleted` 看是否有文件删了但仍被进程占用。
-</details>
-<details>
-<summary>如何查找某个端口被哪个进程占用？</summary>
-	优先使用 `ss -tulnp | grep <port>`，也可以 `lsof -i :<port>`。
-</details>
-<details>
-<summary>如何实时查看日志并过滤关键字？</summary>
-	`tail -f app.log | grep --line-buffered "ERROR"`。
-</details>
-<details>
-<summary>如何排查 CPU 使用率过高？</summary>
-	先用 `top` 找高 CPU 进程，再结合 `ps -ef`、线程级排查和应用日志继续定位。
-</details>
+### 如何排查 Linux 服务器磁盘满了？
+
+先用 `df -h` 找到满的挂载点，再用 `du -h --max-depth=1` 逐层定位大目录；必要时用 `lsof | grep deleted` 看是否有文件删了但仍被进程占用。
+
+### 如何查找某个端口被哪个进程占用？
+
+优先使用 `ss -tulnp | grep <port>`，也可以 `lsof -i :<port>`。
+
+### 如何实时查看日志并过滤关键字？
+
+`tail -f app.log | grep --line-buffered "ERROR"`。
+
+### 如何排查 CPU 使用率过高？
+
+先用 `top` 找高 CPU 进程，再结合 `ps -ef`、线程级排查和应用日志继续定位。

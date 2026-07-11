@@ -50,15 +50,15 @@ import json
 redis_client = redis.Redis(host="localhost", port=6379)
 
 def save_session_state(session_id: str, state: dict, ttl: int = 3600):
-    redis_client.setex(
-        f"session:{session_id}",
-        ttl,
-        json.dumps(state, ensure_ascii=False),
-    )
+redis_client.setex(
+    f"session:{session_id}",
+    ttl,
+    json.dumps(state, ensure_ascii=False),
+)
 
 def load_session_state(session_id: str) -> dict:
-    data = redis_client.get(f"session:{session_id}")
-    return json.loads(data) if data else {}
+data = redis_client.get(f"session:{session_id}")
+return json.loads(data) if data else {}
 ```
 
 适合：跨请求的会话状态（当前任务进度、临时用户偏好）。
@@ -77,29 +77,29 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class UserMemoryItem(BaseModel):
-    content: str
-    category: str  # preference / fact / feedback / goal
-    source_session: str
-    created_at: datetime
-    importance: float  # 0-1
+content: str
+category: str  # preference / fact / feedback / goal
+source_session: str
+created_at: datetime
+importance: float  # 0-1
 
 async def extract_memories_from_session(
-    session_messages: list[dict],
-    user_id: str,
+session_messages: list[dict],
+user_id: str,
 ) -> list[UserMemoryItem]:
-    """从会话中提取值得长期记住的信息"""
-    
-    prompt = """从以下对话中提取用户的长期偏好、重要事实、明确目标。
+"""从会话中提取值得长期记住的信息"""
+
+prompt = """从以下对话中提取用户的长期偏好、重要事实、明确目标。
 不要提取临时信息、一次性问题。以 JSON 数组格式返回。"""
-    
-    memories = await llm_call_structured(
-        prompt=prompt,
-        context=format_messages(session_messages),
-        output_schema=list[UserMemoryItem],
-    )
-    
-    await store_user_memories(user_id, memories)
-    return memories
+
+memories = await llm_call_structured(
+    prompt=prompt,
+    context=format_messages(session_messages),
+    output_schema=list[UserMemoryItem],
+)
+
+await store_user_memories(user_id, memories)
+return memories
 ```
 
 适合：用户画像、长期偏好、用户表达的目标。
@@ -117,21 +117,21 @@ from enum import Enum
 from pydantic import BaseModel
 
 class TaskStatus(Enum):
-    PENDING = "pending"
-    RUNNING = "running"
-    WAITING_HUMAN = "waiting_human"
-    COMPLETED = "completed"
-    FAILED = "failed"
+PENDING = "pending"
+RUNNING = "running"
+WAITING_HUMAN = "waiting_human"
+COMPLETED = "completed"
+FAILED = "failed"
 
 class WorkflowState(BaseModel):
-    task_id: str
-    status: TaskStatus
-    steps_completed: list[str] = []
-    current_step: str = ""
-    artifacts: dict = {}        # 中间产出物
-    error_log: list[str] = []
-    created_at: datetime
-    updated_at: datetime
+task_id: str
+status: TaskStatus
+steps_completed: list[str] = []
+current_step: str = ""
+artifacts: dict = {}        # 中间产出物
+error_log: list[str] = []
+created_at: datetime
+updated_at: datetime
 ```
 
 适合：长任务（代码生成、报告撰写、多步骤审批）的状态追踪。
@@ -149,28 +149,28 @@ class WorkflowState(BaseModel):
 
 ```python
 async def retrieve_relevant_memories(
-    user_id: str,
-    current_query: str,
-    top_k: int = 5,
+user_id: str,
+current_query: str,
+top_k: int = 5,
 ) -> list[UserMemoryItem]:
-    query_embedding = await embed(current_query)
-    
-    results = await vector_store.search(
-        collection=f"user_memory_{user_id}",
-        vector=query_embedding,
-        top_k=top_k,
-    )
-    
-    # 加时间权重（最近的记忆更重要）
-    scored = []
-    for item in results:
-        days_ago = (datetime.utcnow() - item.created_at).days
-        recency_score = max(0, 1 - days_ago / 365)
-        combined = 0.7 * item.relevance_score + 0.3 * recency_score
-        scored.append((combined, item))
-    
-    scored.sort(reverse=True)
-    return [item for _, item in scored[:top_k]]
+query_embedding = await embed(current_query)
+
+results = await vector_store.search(
+    collection=f"user_memory_{user_id}",
+    vector=query_embedding,
+    top_k=top_k,
+)
+
+## 加时间权重（最近的记忆更重要）
+scored = []
+for item in results:
+    days_ago = (datetime.utcnow() - item.created_at).days
+    recency_score = max(0, 1 - days_ago / 365)
+    combined = 0.7 * item.relevance_score + 0.3 * recency_score
+    scored.append((combined, item))
+
+scored.sort(reverse=True)
+return [item for _, item in scored[:top_k]]
 ```
 
 ---
@@ -192,21 +192,21 @@ async def retrieve_relevant_memories(
 
 ```python
 async def handle_memory_conflict(
-    existing: UserMemoryItem,
-    new_info: str,
+existing: UserMemoryItem,
+new_info: str,
 ) -> str:
-    """判断如何处理新旧记忆的冲突"""
-    resolution = await llm_call([
-        {
-            "role": "system",
-            "content": "判断两条用户信息是否矛盾。如果矛盾，判断新信息是否应该覆盖旧信息。",
-        },
-        {
-            "role": "user",
-            "content": f"旧信息（{existing.created_at.date()}）：{existing.content}\n新信息：{new_info}\n\n判断：覆盖/合并/保留两者",
-        },
-    ])
-    return resolution
+"""判断如何处理新旧记忆的冲突"""
+resolution = await llm_call([
+    {
+        "role": "system",
+        "content": "判断两条用户信息是否矛盾。如果矛盾，判断新信息是否应该覆盖旧信息。",
+    },
+    {
+        "role": "user",
+        "content": f"旧信息（{existing.created_at.date()}）：{existing.content}\n新信息：{new_info}\n\n判断：覆盖/合并/保留两者",
+    },
+])
+return resolution
 ```
 
 **实践原则**：
@@ -220,16 +220,250 @@ async def handle_memory_conflict(
 
 ```python
 async def resume_workflow(task_id: str) -> WorkflowState:
-    state = await db.get_workflow_state(task_id)
-    
-    if state.status == TaskStatus.FAILED:
-        last_success = state.steps_completed[-1] if state.steps_completed else None
-        if last_success:
-            state.status = TaskStatus.RUNNING
-            state.current_step = get_next_step(last_success)
-            await db.save_workflow_state(state)
-    
-    return state
+state = await db.get_workflow_state(task_id)
+
+if state.status == TaskStatus.FAILED:
+    last_success = state.steps_completed[-1] if state.steps_completed else None
+    if last_success:
+        state.status = TaskStatus.RUNNING
+        state.current_step = get_next_step(last_success)
+        await db.save_workflow_state(state)
+
+return state
+```
+
+---
+
+## 6. 文件型 Memory：MEMORY.md 索引模式
+
+对于 CLI/本地 Agent，向量数据库往往过重。一种轻量可行的方案：文件系统 + MEMORY.md 索引。
+
+```
+memory/
+├── MEMORY.md              ← 索引文件，每行一个指针（始终注入 System Prompt）
+├── user_preferences.md    ← 具体记忆文件
+├── feedback_testing.md
+└── project_context.md
+```
+
+**MEMORY.md 格式**：
+
+```markdown
+# Memory Index
+- [用户偏好](user_preferences.md) — 用户是高级 Go 工程师，React 新手
+- [测试反馈](feedback_testing.md) — 集成测试必须用真实数据库，不用 mock
+- [项目背景](project_context.md) — 当前重构由合规要求驱动，不是技术债
+```
+
+**每个记忆文件的结构**（frontmatter + 正文）：
+
+```markdown
+---
+name: feedback-testing
+description: 关于测试策略的用户反馈
+metadata:
+  type: feedback
+---
+
+集成测试必须用真实数据库，不用 mock。
+
+**Why:** 上季度发生过 mock 测试通过但生产 migration 失败的事故。
+**How to apply:** 每次写测试时检查：有没有 mock 了数据库？
+```
+
+**记忆类型**：
+| 类型 | 存什么 | 示例 |
+|------|--------|------|
+| `user` | 用户角色、技能水平、偏好 | "是 Go 专家，React 新手" |
+| `feedback` | 用户对行为的修正或肯定 | "不要在回答末尾总结你刚做了什么" |
+| `project` | 当前工作的背景和决策 | "重构由合规要求驱动，截止日期 2026-07-01" |
+| `reference` | 外部系统的位置指针 | "bug 追踪在 Linear 项目 INGEST" |
+
+**注入时机**：
+
+```python
+def build_system(memory_dir: Path) -> str:
+    """每次用户消息到来时调用一次，重新构建 System Prompt"""
+    index = read_memory_index(memory_dir / "MEMORY.md")
+    # 只把 MEMORY.md 注入，不全量加载每个记忆文件
+    return f"{BASE_PROMPT}\n\n## 记忆索引\n{index}"
+```
+
+关键时序：`build_system()` 在 `while True` 之前调用（每次用户消息一次），意味着**本次对话中新写入的记忆，要到下一条用户消息才能进入 System Prompt**。
+
+---
+
+## 8. 对话摘要作为 Memory 压缩
+
+长对话不能全量保存，但全量摘要又损失细节。分层摘要是生产可行的方案：
+
+```python
+async def compress_conversation_to_memory(
+    messages: list[dict],
+    keep_recent_n: int = 6,
+) -> tuple[str, list[dict]]:
+    """
+    把旧对话压缩成摘要 memory，保留最近 N 轮原文
+    返回：(摘要字符串, 保留的最近消息)
+    """
+    if len(messages) <= keep_recent_n * 2:
+        return "", messages   # 不需要压缩
+
+    to_compress = messages[:-keep_recent_n * 2]
+    recent = messages[-keep_recent_n * 2:]
+
+    summary = await llm_call([
+        {
+            "role": "system",
+            "content": (
+                "请把以下对话摘要成一段话，保留：\n"
+                "1. 用户的核心诉求和目标\n"
+                "2. 已经完成的关键决策\n"
+                "3. 用户表达的重要偏好或约束\n"
+                "不需要保留：聊天寒暄、重复的确认、临时性讨论"
+            )
+        },
+        {
+            "role": "user",
+            "content": "\n".join(
+                f"{m['role']}: {m['content']}" for m in to_compress
+            )
+        }
+    ])
+
+    return summary, recent
+
+
+async def build_messages_with_memory(
+    new_input: str,
+    conversation_id: str,
+    system_prompt: str,
+) -> list[dict]:
+    """构建带历史摘要的 messages 列表"""
+    raw_history = await load_conversation(conversation_id)
+    summary, recent = await compress_conversation_to_memory(raw_history)
+
+    messages = []
+
+    # 如果有历史摘要，注入到 system prompt 末尾
+    if summary:
+        messages.append({
+            "role": "user",
+            "content": f"[之前对话摘要]\n{summary}\n[/之前对话摘要]"
+        })
+        messages.append({"role": "assistant", "content": "好的，我已了解之前的对话背景。"})
+
+    # 追加最近几轮原文
+    messages.extend(recent)
+    # 追加当前输入
+    messages.append({"role": "user", "content": new_input})
+    return messages
+```
+
+**分层策略**：
+
+```
+Level 1（最近 6 轮）：原文保留，模型能精确引用
+Level 2（之前的对话）：LLM 摘要，保留关键信息
+Level 3（更早/跨会话）：关键 fact 提取，存入向量 memory
+```
+
+---
+
+## 9. Memory 注入模式
+
+Memory 怎么放进 context 影响模型的注意力分配：
+
+```python
+# 模式一：放在 system prompt 末尾（推荐，优先级高）
+system_prompt = f"""
+你是用户的个人助手。
+
+## 关于用户的记忆
+{user_memories}
+
+## 你的能力和限制
+{capabilities}
+"""
+
+# 模式二：作为 user/assistant 对话预填充（模拟"之前聊过"）
+def inject_as_history(memories: list[str]) -> list[dict]:
+    return [
+        {"role": "user", "content": "（回顾一下我们之前讨论的内容）"},
+        {"role": "assistant", "content": "\n".join(f"- {m}" for m in memories)},
+    ]
+
+# 模式三：XML 标签标注（清晰区分 memory 和对话内容）
+memory_block = "<memory>\n" + "\n".join(memories) + "\n</memory>"
+```
+
+**注入位置对质量的影响**：
+
+| 位置 | 模型注意力 | 适合 |
+|------|-----------|------|
+| System prompt 开头 | 最高 | 永久规则、身份定义 |
+| System prompt 末尾 | 高 | 用户 memory、当前任务背景 |
+| 历史消息开头 | 中 | 长期 memory（模拟历史对话）|
+| 历史消息末尾（紧挨当前输入）| 高 | 短期工作记忆 |
+
+**按 token 预算分配 memory**：
+
+```python
+def select_memories_for_budget(
+    all_memories: list[dict],
+    budget_tokens: int = 2000,
+) -> list[dict]:
+    """按重要性+相关性排序，贪心填入 budget"""
+    selected, used = [], 0
+    for m in sorted(all_memories, key=lambda x: x["score"], reverse=True):
+        cost = len(m["content"]) // 4   # 粗估 token 数
+        if used + cost > budget_tokens:
+            break
+        selected.append(m)
+        used += cost
+    return selected
+```
+
+---
+
+## 7. 企业级 Memory 生命周期管理
+
+文件型 Memory 无法满足多用户、合规、审计要求时，需要完整的 Memory 治理：
+
+```
+Memory 的生命周期：
+  Admission（准入）→ Active（活跃）→ Revocation（撤销）→ Expiry（过期）
+
+准入控制：
+- 新记忆必须经过策略审查，不能直接写入
+- 涉及敏感数据的记忆需要管理员批准
+
+撤销机制：
+- 记忆可以被明确撤销（用户主动或管理员操作）
+- 撤销后不立即删除，而是标记为 revoked，保留审计轨迹
+
+过期机制：
+- 设置 TTL，过期记忆不再注入 context
+- 重要记忆可以定期让用户确认续期
+```
+
+```python
+class ManagedMemory:
+    content: str
+    category: str
+    admitted_at: datetime
+    admitted_by: str  # 谁批准的
+    expires_at: datetime | None
+    revoked_at: datetime | None = None
+    revoked_by: str | None = None
+
+def get_active_memories(user_id: str) -> list[ManagedMemory]:
+    now = datetime.utcnow()
+    return [
+        m for m in load_memories(user_id)
+        if m.revoked_at is None
+        and (m.expires_at is None or m.expires_at > now)
+    ]
 ```
 
 ---

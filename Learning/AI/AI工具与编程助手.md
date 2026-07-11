@@ -70,8 +70,8 @@ AI 的质量上限 = 你给它的 context 质量。
 ```
 坏的：帮我做一个完整的 RAG 系统
 好的：帮我写一个 chunking 函数，输入是 markdown 文本，
-      按标题切块，每块最大 800 token，
-      返回 List[Dict[str, str]]，包含 content 和 heading
+  按标题切块，每块最大 800 token，
+  返回 List[Dict[str, str]]，包含 content 和 heading
 ```
 
 任务越小越精确，质量越高，越容易验证。
@@ -112,7 +112,7 @@ AI 的质量上限 = 你给它的 context 质量。
 Claude Code 通过 `CLAUDE.md` 给 AI 持久化项目上下文（放在项目根目录，每次对话自动加载）：
 
 ```markdown
-# CLAUDE.md 示例
+## CLAUDE.md 示例
 
 ## 项目说明
 FastAPI + LangGraph 的客服 Agent。

@@ -53,7 +53,7 @@ Tools 是最常用的，Resources 和 Prompts 是补充能力。
 用官方 SDK 实现一个简单的 MCP Server：
 
 ```python
-# pip install mcp
+## pip install mcp
 
 from mcp.server import Server
 from mcp.server.models import InitializationOptions
@@ -64,57 +64,57 @@ app = Server("my-tools-server")
 
 @app.list_tools()
 async def list_tools() -> list[Tool]:
-    """声明这个 Server 提供哪些工具"""
-    return [
-        Tool(
-            name="search_docs",
-            description="搜索项目文档。输入关键词，返回相关文档片段。",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "query": {
-                        "type": "string",
-                        "description": "搜索关键词",
-                    },
-                    "top_k": {
-                        "type": "integer",
-                        "description": "返回结果数量，默认 5",
-                        "default": 5,
-                    },
+"""声明这个 Server 提供哪些工具"""
+return [
+    Tool(
+        name="search_docs",
+        description="搜索项目文档。输入关键词，返回相关文档片段。",
+        inputSchema={
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "搜索关键词",
                 },
-                "required": ["query"],
+                "top_k": {
+                    "type": "integer",
+                    "description": "返回结果数量，默认 5",
+                    "default": 5,
+                },
             },
-        ),
-    ]
+            "required": ["query"],
+        },
+    ),
+]
 
 @app.call_tool()
 async def call_tool(name: str, arguments: dict) -> list[TextContent]:
-    """处理工具调用"""
-    if name == "search_docs":
-        query = arguments["query"]
-        top_k = arguments.get("top_k", 5)
-        
-        # 实际的搜索逻辑
-        results = await search_vector_store(query, top_k)
-        
-        return [
-            TextContent(
-                type="text",
-                text=f"找到 {len(results)} 条相关文档：\n\n" + 
-                     "\n\n".join([r["content"] for r in results]),
-            )
-        ]
-    
-    raise ValueError(f"未知工具: {name}")
+"""处理工具调用"""
+if name == "search_docs":
+    query = arguments["query"]
+    top_k = arguments.get("top_k", 5)
 
-# 启动 Server（stdio 模式，供 Claude Desktop 等使用）
-async def main():
-    async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
-        await app.run(
-            read_stream,
-            write_stream,
-            InitializationOptions(server_name="my-tools", server_version="0.1.0"),
+## 实际的搜索逻辑
+    results = await search_vector_store(query, top_k)
+
+    return [
+        TextContent(
+            type="text",
+            text=f"找到 {len(results)} 条相关文档：\n\n" +
+                 "\n\n".join([r["content"] for r in results]),
         )
+    ]
+
+raise ValueError(f"未知工具: {name}")
+
+## 启动 Server（stdio 模式，供 Claude Desktop 等使用）
+async def main():
+async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
+    await app.run(
+        read_stream,
+        write_stream,
+        InitializationOptions(server_name="my-tools", server_version="0.1.0"),
+    )
 ```
 
 ---
@@ -128,26 +128,26 @@ from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
 async def use_mcp_tools():
-    server_params = StdioServerParameters(
-        command="python",
-        args=["my_mcp_server.py"],
-    )
-    
-    async with stdio_client(server_params) as (read, write):
-        async with ClientSession(read, write) as session:
-            # 初始化
-            await session.initialize()
-            
-            # 列出可用工具
-            tools = await session.list_tools()
-            print("可用工具:", [t.name for t in tools.tools])
-            
-            # 调用工具
-            result = await session.call_tool(
-                "search_docs",
-                arguments={"query": "RAG 实现", "top_k": 3},
-            )
-            print("结果:", result.content[0].text)
+server_params = StdioServerParameters(
+    command="python",
+    args=["my_mcp_server.py"],
+)
+
+async with stdio_client(server_params) as (read, write):
+    async with ClientSession(read, write) as session:
+## 初始化
+        await session.initialize()
+
+## 列出可用工具
+        tools = await session.list_tools()
+        print("可用工具:", [t.name for t in tools.tools])
+
+## 调用工具
+        result = await session.call_tool(
+            "search_docs",
+            arguments={"query": "RAG 实现", "top_k": 3},
+        )
+        print("结果:", result.content[0].text)
 ```
 
 ---
@@ -160,17 +160,17 @@ Claude Desktop 是最常用的 MCP Client，配置方式：
 // ~/Library/Application Support/Claude/claude_desktop_config.json
 {
   "mcpServers": {
-    "my-tools": {
-      "command": "python",
-      "args": ["/path/to/my_mcp_server.py"],
-      "env": {
-        "DATABASE_URL": "postgresql://localhost/mydb"
-      }
-    },
-    "filesystem": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/workspace"]
-    }
+"my-tools": {
+  "command": "python",
+  "args": ["/path/to/my_mcp_server.py"],
+  "env": {
+    "DATABASE_URL": "postgresql://localhost/mydb"
+  }
+},
+"filesystem": {
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/workspace"]
+}
   }
 }
 ```
@@ -225,15 +225,15 @@ MCP 支持两种传输方式，使用场景不同：
 | **SSE / HTTP** | Server 是独立 HTTP 服务，通过 Server-Sent Events 推送 | 远程服务；多 Client 共享；需要认证的场景 |
 
 ```python
-# SSE 模式启动（替代 stdio）
+## SSE 模式启动（替代 stdio）
 from mcp.server.sse import SseServerTransport
 from starlette.applications import Starlette
 
 sse = SseServerTransport("/messages")
 
 async def handle_sse(request):
-    async with sse.connect_sse(request.scope, request.receive, request._send) as streams:
-        await app.run(streams[0], streams[1], app.create_initialization_options())
+async with sse.connect_sse(request.scope, request.receive, request._send) as streams:
+    await app.run(streams[0], streams[1], app.create_initialization_options())
 
 starlette_app = Starlette(routes=[Route("/sse", endpoint=handle_sse)])
 ```
@@ -245,15 +245,15 @@ MCP Server 收到工具调用时，通常需要知道"谁在调用"：
 ```python
 @app.call_tool()
 async def call_tool(name: str, arguments: dict) -> list[TextContent]:
-    # 从 arguments 或 request context 里取 user token
-    user_token = arguments.get("_auth_token")  # 一种约定
-    
-    if name == "query_user_data":
-        # 用 token 验证权限再执行
-        user = await verify_token(user_token)
-        if not user.has_permission("read_data"):
-            return [TextContent(type="text", text="权限不足")]
-        ...
+## 从 arguments 或 request context 里取 user token
+user_token = arguments.get("_auth_token")  # 一种约定
+
+if name == "query_user_data":
+## 用 token 验证权限再执行
+    user = await verify_token(user_token)
+    if not user.has_permission("read_data"):
+        return [TextContent(type="text", text="权限不足")]
+    ...
 ```
 
 **实践注意**：MCP 协议本身不规定认证方式。常见做法：
@@ -267,20 +267,20 @@ async def call_tool(name: str, arguments: dict) -> list[TextContent]:
 ```python
 @app.list_tools()
 async def list_tools() -> list[Tool]:
-    return [
-        Tool(
-            name="search_docs",
-            description="v2: 支持 filters 参数（v1 不支持）",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "query": {"type": "string"},
-                    "filters": {"type": "object", "description": "可选，v2 新增"},
-                },
-                "required": ["query"],
+return [
+    Tool(
+        name="search_docs",
+        description="v2: 支持 filters 参数（v1 不支持）",
+        inputSchema={
+            "type": "object",
+            "properties": {
+                "query": {"type": "string"},
+                "filters": {"type": "object", "description": "可选，v2 新增"},
             },
-        ),
-    ]
+            "required": ["query"],
+        },
+    ),
+]
 ```
 
 向后兼容原则：新增字段设为 optional；不要修改已有字段含义；重大变更用新工具名（`search_docs_v2`）。
@@ -297,8 +297,8 @@ async def list_tools() -> list[Tool]:
 
 有协议层（MCP）：
   CRM MCP Server ← 客服 Agent
-                 ← 代码 Agent
-                 ← 分析 Agent
+             ← 代码 Agent
+             ← 分析 Agent
 ```
 
 工具集成逻辑收敛到 Server 端，权限控制、审计、错误处理统一维护，每个 AI 应用只需要做 Client 调用。这是团队规模增长后自然演化的方向。
@@ -314,6 +314,234 @@ async def list_tools() -> list[Tool]:
 | `@modelcontextprotocol/server-postgres` | PostgreSQL 查询 |
 | `@modelcontextprotocol/server-brave-search` | 网络搜索 |
 | `@modelcontextprotocol/server-puppeteer` | 浏览器自动化 |
+
+---
+
+## 9. MCP 工具的企业级治理
+
+当 Agent 系统集成了多个外部 MCP Server 时，不能无条件信任所有 Server 提供的工具：
+
+**工具命名约定**：
+
+```
+mcp__{server_name}__{tool_name}
+
+示例：
+  mcp__github__create_pull_request
+  mcp__jira__create_issue
+  mcp__filesystem__write_file
+```
+
+这个命名约定让 Agent 和审计系统能区分"内置工具"和"MCP 工具"，并知道工具来自哪个 Server。
+
+**allowlist 控制哪些 MCP Server 可以连接**：
+
+```python
+MCP_ALLOWLIST = {
+    "filesystem": {
+        "allowed_tools": ["read_file", "list_dir"],  # 只允许读，不允许写
+        "trusted": True,
+    },
+    "github": {
+        "allowed_tools": ["get_pr", "list_issues", "create_comment"],
+        "write_tools": ["create_pr", "push_branch"],  # 写操作需要 Grant
+        "trusted": False,  # 外部服务，内容视为 untrusted
+    },
+}
+
+def assemble_tool_pool(active_mcp_sessions: dict) -> list[dict]:
+    """每次 LLM 调用前重新组装工具池"""
+    tools = list(BUILTIN_TOOLS)  # 内置工具
+    for server_name, session in active_mcp_sessions.items():
+        config = MCP_ALLOWLIST.get(server_name, {})
+        mcp_tools = session.list_tools()
+        for tool in mcp_tools:
+            if tool.name in config.get("allowed_tools", []):
+                # 重命名为 mcp__{server}__{tool} 格式
+                tools.append(rename_tool(tool, f"mcp__{server_name}__{tool.name}"))
+    return tools
+```
+
+**写操作的 Grant 门控**：
+
+```python
+def execute_mcp_tool(tool_name: str, args: dict, context: ExecutionContext) -> str:
+    server, tool = parse_mcp_tool_name(tool_name)  # "github", "create_pr"
+    config = MCP_ALLOWLIST[server]
+
+    if tool in config.get("write_tools", []):
+        # 写操作：必须有有效的 Grant
+        grant = context.find_grant(action=tool_name, proposal=args)
+        if not grant or not consume_grant(grant.id, proposal=args):
+            return "Error: 写操作需要人工审批 Grant"
+
+    # 执行工具，但把结果视为 untrusted（可能含 prompt injection）
+    result = session.call_tool(tool, args)
+    return redact_secrets(result)  # 脱敏后返回
+```
+
+---
+
+## 11. Streamable HTTP Transport（2025 新标准）
+
+2025 年 MCP 推出了 Streamable HTTP Transport，替代原来的 SSE 模式，成为远程 MCP Server 的主要传输方式：
+
+```
+旧方式（SSE）：
+  Client → POST /messages    ← 发送请求
+  Client ← GET /sse          ← 监听服务器推送（两个端点）
+
+新方式（Streamable HTTP）：
+  Client ↔ POST /mcp         ← 单一端点，支持流式响应
+  支持：普通 HTTP response + 流式 SSE response（同一端点）
+```
+
+**Server 实现（FastAPI）**：
+
+```python
+from fastapi import FastAPI, Request
+from fastapi.responses import StreamingResponse
+from mcp.server.fastmcp import FastMCP
+import json
+
+mcp = FastMCP("my-server")
+app = FastAPI()
+
+@mcp.tool()
+async def search_docs(query: str) -> str:
+    results = await vector_store.search(query)
+    return json.dumps(results)
+
+# Streamable HTTP 端点
+@app.post("/mcp")
+async def handle_mcp(request: Request):
+    body = await request.json()
+
+    # 判断是否需要流式响应
+    if body.get("method") in ["tools/call"] and body.get("stream"):
+        async def generate():
+            async for chunk in mcp.handle_streaming(body):
+                yield f"data: {json.dumps(chunk)}\n\n"
+        return StreamingResponse(generate(), media_type="text/event-stream")
+
+    # 普通 HTTP 响应
+    result = await mcp.handle(body)
+    return result
+
+# Client 连接
+from mcp import ClientSession
+from mcp.client.streamable_http import streamablehttp_client
+
+async def connect_remote_server():
+    async with streamablehttp_client("https://my-server.com/mcp") as (read, write, _):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            tools = await session.list_tools()
+            result = await session.call_tool("search_docs", {"query": "退款政策"})
+```
+
+**与 stdio 的选择**：本地进程用 stdio（简单、低延迟）；远程服务用 Streamable HTTP（支持网络部署、多客户端）。
+
+---
+
+## 12. OAuth 2.0 for MCP
+
+2025 年 MCP 规范新增了 OAuth 2.0 作为标准化认证方式，用于远程 MCP Server 的用户身份验证：
+
+```python
+# MCP Server 端：声明 OAuth 配置
+from mcp.server.auth import OAuthProvider
+
+oauth_config = {
+    "issuer": "https://auth.mycompany.com",
+    "authorization_endpoint": "https://auth.mycompany.com/oauth/authorize",
+    "token_endpoint": "https://auth.mycompany.com/oauth/token",
+    "scopes_supported": ["mcp:read", "mcp:write", "mcp:admin"],
+}
+
+# Server 验证 Bearer Token
+from fastapi import HTTPException, Depends
+from fastapi.security import HTTPBearer
+
+security = HTTPBearer()
+
+async def verify_token(credentials = Depends(security)) -> dict:
+    token = credentials.credentials
+    # 验证 JWT token
+    payload = jwt.decode(token, PUBLIC_KEY, algorithms=["RS256"])
+    return payload
+
+@app.post("/mcp")
+async def handle_mcp(request: Request, user: dict = Depends(verify_token)):
+    # user 包含 sub（用户 ID）和 scopes
+    if "mcp:write" not in user.get("scopes", []):
+        raise HTTPException(status_code=403, detail="需要 mcp:write 权限")
+    ...
+
+# Client 端：使用 OAuth token
+async def connect_with_oauth():
+    token = await get_oauth_token(
+        client_id="my-agent-app",
+        scopes=["mcp:read"],
+        auth_url="https://auth.mycompany.com/oauth/authorize",
+    )
+    async with streamablehttp_client(
+        "https://my-server.com/mcp",
+        headers={"Authorization": f"Bearer {token}"},
+    ) as (read, write, _):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+```
+
+---
+
+## 13. MCP Sampling — Server 回调 LLM
+
+MCP 有一个不常见但重要的特性：Server 可以请求 Client 调用 LLM（Sampling）。
+
+```
+普通 Tool Use：Client（Agent）→ 调用工具 → Server 执行 → 返回结果
+
+MCP Sampling：Server 执行工具时 → 发现需要 LLM 判断 → 请求 Client 调 LLM → 结果返回 Server
+```
+
+**用途**：Server 做 LLM 辅助决策（如判断检索到的内容是否相关），但不自己管理 API key——由 Client 代劳，Client 可以控制用哪个模型、费用怎么算。
+
+```python
+# Server 端：发起 sampling 请求
+from mcp.types import SamplingMessage, CreateMessageRequestParams
+
+@mcp.tool()
+async def smart_search(query: str, context) -> str:
+    raw_results = await search(query)
+
+    # 请求 Client 用 LLM 过滤结果
+    sampling_result = await context.session.create_message(
+        CreateMessageRequestParams(
+            messages=[
+                SamplingMessage(
+                    role="user",
+                    content=f"以下哪些搜索结果和'{query}'最相关？\n{raw_results}"
+                )
+            ],
+            max_tokens=512,
+            model_preferences={"hints": [{"name": "claude-haiku"}]},  # 建议用便宜模型
+        )
+    )
+    return sampling_result.content.text
+
+# Client 端：需要实现 sampling handler
+async def handle_sampling(params) -> str:
+    # Client 决定用哪个模型、是否允许这个 sampling 请求
+    response = await client.messages.create(
+        model="claude-haiku-4-5-20251001",   # 用便宜模型做辅助判断
+        messages=[{"role": m.role, "content": m.content.text} for m in params.messages],
+        max_tokens=params.max_tokens,
+    )
+    return response.content[0].text
+```
+
+**工程意义**：Sampling 让 MCP Server 可以构建"会思考"的工具，同时把 LLM 的控制权和成本留在 Client 端。
 
 ---
 

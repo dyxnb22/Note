@@ -32,83 +32,23 @@
 6. `Python代码组织与设计模式`
 目标：把能力做成服务，能部署，能排错，能组织成可维护项目。
 ## 页面职责边界
-<table header-row="true">
-<tr>
-<td>页面</td>
-<td>只负责什么</td>
-<td>不重复什么</td>
-</tr>
-<tr>
-<td>Python核心语法</td>
-<td>语言基础、标准库、类型注解基础</td>
-<td>不讲项目结构和 CLI 工具封装</td>
-</tr>
-<tr>
-<td>Python工程化</td>
-<td>环境、依赖、配置、日志、测试、项目启动方式、简单 CLI 入口</td>
-<td>不深入讲 Service / Client / Repository 等架构模式</td>
-</tr>
-<tr>
-<td>HTTP与API调用</td>
-<td>requests/httpx、timeout、retry、client 封装</td>
-<td>不讲 OpenAI SDK 专属用法</td>
-</tr>
-<tr>
-<td>OpenAI SDK与LLM调用</td>
-<td>模型调用、多轮、stream、结构化输出</td>
-<td>不展开完整 Tool Calling 执行循环</td>
-</tr>
-<tr>
-<td>Tool Calling</td>
-<td>工具 schema、tool_map、执行工具、安全边界</td>
-<td>不讲 LangGraph 图编排</td>
-</tr>
-<tr>
-<td>Agent基础架构</td>
-<td>Agent Loop、State、Memory、Planning</td>
-<td>不深入讲具体框架 API</td>
-</tr>
-<tr>
-<td>RAG</td>
-<td>chunk、embedding、retrieval、rerank、评估</td>
-<td>不讲通用 HTTP 和 FastAPI 基础</td>
-</tr>
-<tr>
-<td>LangGraph</td>
-<td>StateGraph、Node、Edge、checkpoint、interrupt</td>
-<td>不重复 Agent 基础概念太多</td>
-</tr>
-<tr>
-<td>FastAPI</td>
-<td>路由、请求响应模型、Depends、服务化</td>
-<td>不讲 Agent 内部实现</td>
-</tr>
-<tr>
-<td>Python代码组织与设计模式</td>
-<td>Service、Client、Repository、Registry、Pipeline</td>
-<td>不重复基础项目结构</td>
-</tr>
-<tr>
-<td>错误与Debug</td>
-<td>排错顺序、常见错误、最小复现</td>
-<td>不替代各页面的具体概念学习</td>
-</tr>
-<tr>
-<td>Prompt Engineering</td>
-<td>prompt 结构、边界、输出格式</td>
-<td>不讲 Python 语法和 API 细节</td>
-</tr>
-<tr>
-<td>部署与上线</td>
-<td>Docker、环境变量、日志、运行稳定性</td>
-<td>不讲本地开发基础</td>
-</tr>
-<tr>
-<td>项目实战</td>
-<td>串联路线，分阶段做项目</td>
-<td>不把所有理论重新讲一遍</td>
-</tr>
-</table>
+| 页面 | 只负责什么 | 不重复什么 |
+| --- | --- | --- |
+| Python核心语法 | 语言基础、标准库、类型注解基础 | 不讲项目结构和 CLI 工具封装 |
+| Python工程化 | 环境、依赖、配置、日志、测试、项目启动方式、简单 CLI 入口 | 不深入讲 Service / Client / Repository 等架构模式 |
+| HTTP与API调用 | requests/httpx、timeout、retry、client 封装 | 不讲 OpenAI SDK 专属用法 |
+| OpenAI SDK与LLM调用 | 模型调用、多轮、stream、结构化输出 | 不展开完整 Tool Calling 执行循环 |
+| Tool Calling | 工具 schema、tool_map、执行工具、安全边界 | 不讲 LangGraph 图编排 |
+| Agent基础架构 | Agent Loop、State、Memory、Planning | 不深入讲具体框架 API |
+| RAG | chunk、embedding、retrieval、rerank、评估 | 不讲通用 HTTP 和 FastAPI 基础 |
+| LangGraph | StateGraph、Node、Edge、checkpoint、interrupt | 不重复 Agent 基础概念太多 |
+| FastAPI | 路由、请求响应模型、Depends、服务化 | 不讲 Agent 内部实现 |
+| Python代码组织与设计模式 | Service、Client、Repository、Registry、Pipeline | 不重复基础项目结构 |
+| 错误与Debug | 排错顺序、常见错误、最小复现 | 不替代各页面的具体概念学习 |
+| Prompt Engineering | prompt 结构、边界、输出格式 | 不讲 Python 语法和 API 细节 |
+| 部署与上线 | Docker、环境变量、日志、运行稳定性 | 不讲本地开发基础 |
+| 项目实战 | 串联路线，分阶段做项目 | 不把所有理论重新讲一遍 |
+
 ## 子页面
 
 - [[Python核心语法]]

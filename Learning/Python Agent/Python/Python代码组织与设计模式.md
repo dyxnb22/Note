@@ -44,16 +44,16 @@ Service 负责业务流程，不直接关心 HTTP 细节，也不直接关心页
 
 ```python
 class AgentService:
-    def __init__(self, llm_client, tool_registry):
-        self.llm_client = llm_client
-        self.tool_registry = tool_registry
+def __init__(self, llm_client, tool_registry):
+    self.llm_client = llm_client
+    self.tool_registry = tool_registry
 
-    def answer(self, question: str) -> str:
-        # 1. 构造 messages
-        # 2. 调用 LLM
-        # 3. 如果有工具调用，执行工具
-        # 4. 返回最终答案
-        return "answer"
+def answer(self, question: str) -> str:
+## 1. 构造 messages
+## 2. 调用 LLM
+## 3. 如果有工具调用，执行工具
+## 4. 返回最终答案
+    return "answer"
 ```
 
 FastAPI 路由里只调用 service：
@@ -61,8 +61,8 @@ FastAPI 路由里只调用 service：
 ```python
 @app.post("/chat")
 def chat(req: ChatRequest) -> ChatResponse:
-    answer = agent_service.answer(req.message)
-    return ChatResponse(answer=answer)
+answer = agent_service.answer(req.message)
+return ChatResponse(answer=answer)
 ```
 
 好处：路由函数很薄，Service 可以单独测试，CLI、FastAPI、定时任务都能复用同一个 Service。
@@ -73,12 +73,12 @@ Client 封装外部系统调用，例如 OpenAI、Notion、GitHub、向量数据
 
 ```python
 class WeatherClient:
-    def __init__(self, base_url: str, api_key: str):
-        self.base_url = base_url
-        self.api_key = api_key
+def __init__(self, base_url: str, api_key: str):
+    self.base_url = base_url
+    self.api_key = api_key
 
-    def get_weather(self, city: str) -> dict:
-        return {"city": city, "temperature": "26°C"}
+def get_weather(self, city: str) -> dict:
+    return {"city": city, "temperature": "26°C"}
 ```
 
 业务代码只调用：
@@ -95,11 +95,11 @@ Repository 负责数据读写。常用于数据库、文件、向量库、Notion
 
 ```python
 class NoteRepository:
-    def search(self, query: str) -> list[dict]:
-        ...
+def search(self, query: str) -> list[dict]:
+    ...
 
-    def save(self, note: dict) -> None:
-        ...
+def save(self, note: dict) -> None:
+    ...
 ```
 
 Service 不需要知道数据到底存在 Markdown、Notion、SQLite 还是向量库里。
@@ -110,16 +110,14 @@ Tool Calling 里最重要的组织方式之一就是注册表。
 
 ```python
 def get_weather(city: str) -> dict:
-    return {"city": city, "temperature": "26°C"}
-
+return {"city": city, "temperature": "26°C"}
 
 def get_current_time() -> dict:
-    return {"time": "2026-05-19T10:00:00"}
-
+return {"time": "2026-05-19T10:00:00"}
 
 tool_map = {
-    "get_weather": get_weather,
-    "get_current_time": get_current_time,
+"get_weather": get_weather,
+"get_current_time": get_current_time,
 }
 ```
 
@@ -127,10 +125,10 @@ tool_map = {
 
 ```python
 def run_tool(name: str, args: dict) -> dict:
-    tool = tool_map.get(name)
-    if tool is None:
-        return {"error": f"unknown tool: {name}"}
-    return tool(**args)
+tool = tool_map.get(name)
+if tool is None:
+    return {"error": f"unknown tool: {name}"}
+return tool(**args)
 ```
 
 不要用：
@@ -147,18 +145,18 @@ Factory 负责创建对象，尤其是对象创建过程比较复杂时。
 
 ```python
 def create_llm_client(settings: Settings):
-    return OpenAI(api_key=settings.openai_api_key)
+return OpenAI(api_key=settings.openai_api_key)
 ```
 
 或者：
 
 ```python
 def create_vector_store(kind: str):
-    if kind == "chroma":
-        return ChromaStore()
-    if kind == "memory":
-        return InMemoryStore()
-    raise ValueError(f"unknown vector store: {kind}")
+if kind == "chroma":
+    return ChromaStore()
+if kind == "memory":
+    return InMemoryStore()
+raise ValueError(f"unknown vector store: {kind}")
 ```
 
 好处：创建逻辑集中管理；替换实现更容易；测试时可以换成 fake client。
@@ -169,11 +167,11 @@ Pipeline 把流程拆成多个连续步骤。RAG、Agent、数据清洗都常见
 
 ```python
 def run_rag_pipeline(question: str) -> str:
-    query = rewrite_query(question)
-    chunks = retrieve(query)
-    context = build_context(chunks)
-    answer = call_llm(question, context)
-    return answer
+query = rewrite_query(question)
+chunks = retrieve(query)
+context = build_context(chunks)
+answer = call_llm(question, context)
+return answer
 ```
 
 对应 RAG：
@@ -190,19 +188,19 @@ Adapter 用来统一不同外部系统的接口。
 
 ```python
 class OpenAIAdapter:
-    def chat(self, messages: list[dict]) -> str:
-        ...
+def chat(self, messages: list[dict]) -> str:
+    ...
 
 class DeepSeekAdapter:
-    def chat(self, messages: list[dict]) -> str:
-        ...
+def chat(self, messages: list[dict]) -> str:
+    ...
 ```
 
 业务层只依赖统一接口：
 
 ```python
 def ask_model(client, messages: list[dict]) -> str:
-    return client.chat(messages)
+return client.chat(messages)
 ```
 
 好处：模型提供商可以换，但业务代码不用到处改。
@@ -215,15 +213,15 @@ def ask_model(client, messages: list[dict]) -> str:
 
 ```python
 def answer(question: str) -> str:
-    client = OpenAI()
-    return client.responses.create(...)
+client = OpenAI()
+return client.responses.create(...)
 ```
 
 推荐：
 
 ```python
 def answer(question: str, llm_client) -> str:
-    return llm_client.ask(question)
+return llm_client.ask(question)
 ```
 
 FastAPI 里的 `Depends` 就是依赖注入的一种形式。

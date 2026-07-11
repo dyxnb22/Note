@@ -43,14 +43,14 @@ loss = 模型输出与正确答案的差距
 
 ```python
 for epoch in range(num_epochs):
-    for batch in train_loader:
-        optimizer.zero_grad()          # 清空上一步梯度
-        outputs = model(batch["input"])
-        loss = loss_fn(outputs, batch["label"])
-        loss.backward()                # 反向传播，计算梯度
-        optimizer.step()               # 更新参数
-    
-    val_loss = evaluate(model, val_loader)
+for batch in train_loader:
+    optimizer.zero_grad()          # 清空上一步梯度
+    outputs = model(batch["input"])
+    loss = loss_fn(outputs, batch["label"])
+    loss.backward()                # 反向传播，计算梯度
+    optimizer.step()               # 更新参数
+
+val_loss = evaluate(model, val_loader)
 ```
 
 ### 关键组件
@@ -171,16 +171,16 @@ Validation 指标（metric + 数值）：
 ```python
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
-# 最简单的方式
+## 最简单的方式
 pipe = pipeline("text-generation", model="gpt2")
 result = pipe("Tell me about", max_new_tokens=50)
 
-# 手动加载（更灵活）
+## 手动加载（更灵活）
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b")
 model = AutoModelForCausalLM.from_pretrained(
-    "meta-llama/Llama-2-7b",
-    torch_dtype=torch.float16,
-    device_map="auto",  # 自动分配到可用 GPU
+"meta-llama/Llama-2-7b",
+torch_dtype=torch.float16,
+device_map="auto",  # 自动分配到可用 GPU
 )
 ```
 
@@ -190,21 +190,31 @@ model = AutoModelForCausalLM.from_pretrained(
 from peft import get_peft_model, LoraConfig, TaskType
 
 lora_config = LoraConfig(
-    task_type=TaskType.CAUSAL_LM,
-    r=16,           # rank
-    lora_alpha=32,  # scaling factor
-    lora_dropout=0.1,
-    target_modules=["q_proj", "v_proj"],  # 要加 LoRA 的层
+task_type=TaskType.CAUSAL_LM,
+r=16,           # rank
+lora_alpha=32,  # scaling factor
+lora_dropout=0.1,
+target_modules=["q_proj", "v_proj"],  # 要加 LoRA 的层
 )
 
 model = get_peft_model(base_model, lora_config)
 model.print_trainable_parameters()
-# 通常显示 < 1% 参数可训练
+## 通常显示 < 1% 参数可训练
 ```
 
 ---
 
 ## 6. 面试自测
+
+---
+
+## D2L 系统学习入口
+
+本页保留为深度学习概念总览；若要按“动手学深度学习”的实践路线学习，请从 [DeepLearning/README.md](DeepLearning/README.md) 开始。
+
+建议顺序：预备知识 → 线性网络 → MLP → 深度学习计算 → CNN → RNN/Seq2Seq → 注意力与 Transformer → 优化与性能 → CV/NLP。每完成一个模块，都应运行最小实验、修改一个超参数并记录现象。
+
+与 `LLM基础.md` 的边界：本目录解释模型训练与架构基础；`LLM基础.md` 聚焦现代大语言模型的 token、生成、对齐与应用边界。
 
 - [ ] 能解释反向传播的流程（梯度是什么、怎么流）
 - [ ] 能说清楚 Dropout 的作用和推理时要关闭的原因

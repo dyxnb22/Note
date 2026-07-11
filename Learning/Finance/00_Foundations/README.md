@@ -14,3 +14,5 @@
 - [风险与收益的基本关系](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/00_Foundations/风险与收益的基本关系.md)
 - [机会成本与边际思维](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/00_Foundations/机会成本与边际思维.md)
 - [概率直觉与统计基础](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/00_Foundations/概率直觉与统计基础.md)
+- [个人资产负债表与现金流](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/00_Foundations/个人资产负债表与现金流.md)
+- [保险、负债与风险转移](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/00_Foundations/保险、负债与风险转移.md)

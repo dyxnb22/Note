@@ -11,7 +11,7 @@
 | 文档 | 定位 | 适合什么时候看 |
 |------|------|----------------|
 | `LLM基础.md` | LLM 工作原理全链路：从 token 到 generation 到 alignment | 进入 AI 应用开发前必读；面试前复习 |
-| `DeepLearning.md` | 深度学习核心：训练原理、Transformer、微调技术 | 需要理解模型训练或做 fine-tuning 时 |
+| `DeepLearning.md` + `DeepLearning/` | 以 D2L 路线学习训练原理、CNN、RNN、Transformer、视觉与 NLP | 需要系统补模型训练基础时 |
 | `AI工具与编程助手.md` | AI 编程工具的能力、边界、协作方式、风险 | 开始使用 AI Coding Agent 时；思考人机协作时 |
 
 ## 与 Python Agent 目录的边界
@@ -24,7 +24,7 @@
 
 **准备面试**
 → 必读 `LLM基础.md`（全篇，尤其是面试高频部分）
-→ 按需 `DeepLearning.md`（岗位涉及模型训练/微调时读）
+→ 按需按 `DeepLearning/README.md` 顺序学习
 → 然后去 `Python Agent/Agent/` 看工程应用文档
 
 **开始做 AI 项目**
@@ -32,7 +32,7 @@
 → 再直接进 `Python Agent/Agent/LLM调用基础.md`
 
 **补 LLM 理论短板**
-→ 顺序读：`LLM基础.md` → `DeepLearning.md`
+→ 顺序读：`DeepLearning/README.md` → `LLM基础.md`
 → 侧重理解，不追求手推公式
 
 **开始用 AI 编程工具**
@@ -43,7 +43,7 @@
 | 文档 | 分类 | 说明 |
 |------|------|------|
 | `LLM基础.md` | **必读** | 做 AI 应用工程的理论地基，面试高频来源 |
-| `DeepLearning.md` | 按需 | 需要做 fine-tuning 或理解训练过程时读 |
+| `DeepLearning/` | 按需 | 需要系统理解训练过程、Transformer 或微调时读 |
 | `AI工具与编程助手.md` | 按需 | 开始用 AI Coding Agent 时读 |
 
 ## 常见混淆边界

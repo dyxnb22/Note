@@ -14,7 +14,7 @@ pip install openai anthropic python-dotenv
 
 密钥管理：
 ```python
-# .env 文件（不提交 git）
+## .env 文件（不提交 git）
 OPENAI_API_KEY=sk-...
 ANTHROPIC_API_KEY=sk-ant-...
 ```
@@ -46,17 +46,17 @@ client = OpenAI()  # 自动从环境变量读取
 
 ```python
 messages = [
-    # system 设定稳定规则，不要把动态内容放这里
-    {"role": "system", "content": "你是一个代码审查助手。只分析 Python 代码。"},
-    
-    # user 是当前输入
-    {"role": "user", "content": "帮我看看这段代码有没有问题"},
-    
-    # 多轮时追加 assistant 历史
-    {"role": "assistant", "content": "这段代码有个问题：..."},
-    
-    # 用户继续
-    {"role": "user", "content": "那如果我改成这样呢？"},
+## system 设定稳定规则，不要把动态内容放这里
+{"role": "system", "content": "你是一个代码审查助手。只分析 Python 代码。"},
+
+## user 是当前输入
+{"role": "user", "content": "帮我看看这段代码有没有问题"},
+
+## 多轮时追加 assistant 历史
+{"role": "assistant", "content": "这段代码有个问题：..."},
+
+## 用户继续
+{"role": "user", "content": "那如果我改成这样呢？"},
 ]
 ```
 
@@ -72,13 +72,13 @@ from openai import OpenAI
 client = OpenAI()
 
 response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[
-        {"role": "system", "content": "你是一个 Python 助手。"},
-        {"role": "user", "content": "解释一下 Python 的 GIL"},
-    ],
-    temperature=0.3,
-    max_tokens=1000,
+model="gpt-4o",
+messages=[
+    {"role": "system", "content": "你是一个 Python 助手。"},
+    {"role": "user", "content": "解释一下 Python 的 GIL"},
+],
+temperature=0.3,
+max_tokens=1000,
 )
 
 content = response.choices[0].message.content
@@ -88,21 +88,21 @@ content = response.choices[0].message.content
 
 ```python
 class Conversation:
-    def __init__(self, system_prompt: str, model: str = "gpt-4o"):
-        self.model = model
-        self.messages = [{"role": "system", "content": system_prompt}]
-    
-    def chat(self, user_input: str) -> str:
-        self.messages.append({"role": "user", "content": user_input})
-        
-        response = client.chat.completions.create(
-            model=self.model,
-            messages=self.messages,
-        )
-        
-        assistant_msg = response.choices[0].message.content
-        self.messages.append({"role": "assistant", "content": assistant_msg})
-        return assistant_msg
+def __init__(self, system_prompt: str, model: str = "gpt-4o"):
+    self.model = model
+    self.messages = [{"role": "system", "content": system_prompt}]
+
+def chat(self, user_input: str) -> str:
+    self.messages.append({"role": "user", "content": user_input})
+
+    response = client.chat.completions.create(
+        model=self.model,
+        messages=self.messages,
+    )
+
+    assistant_msg = response.choices[0].message.content
+    self.messages.append({"role": "assistant", "content": assistant_msg})
+    return assistant_msg
 ```
 
 **注意**：messages 列表会无限增长，长对话需要截断策略（见 `Context工程.md`）。
@@ -113,38 +113,38 @@ class Conversation:
 
 ```python
 def stream_response(prompt: str):
-    stream = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": prompt}],
-        stream=True,
-    )
-    
-    full_content = ""
-    for chunk in stream:
-        delta = chunk.choices[0].delta.content
-        if delta:
-            print(delta, end="", flush=True)
-            full_content += delta
-    
-    print()
-    return full_content
+stream = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": prompt}],
+    stream=True,
+)
+
+full_content = ""
+for chunk in stream:
+    delta = chunk.choices[0].delta.content
+    if delta:
+        print(delta, end="", flush=True)
+        full_content += delta
+
+print()
+return full_content
 ```
 
 **async 版本（FastAPI / async 服务）**：
 
 ```python
 async def stream_response_async(prompt: str):
-    async_client = AsyncOpenAI()
-    stream = await async_client.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": prompt}],
-        stream=True,
-    )
-    
-    async for chunk in stream:
-        delta = chunk.choices[0].delta.content
-        if delta:
-            yield delta
+async_client = AsyncOpenAI()
+stream = await async_client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": prompt}],
+    stream=True,
+)
+
+async for chunk in stream:
+    delta = chunk.choices[0].delta.content
+    if delta:
+        yield delta
 ```
 
 ---
@@ -155,12 +155,12 @@ async def stream_response_async(prompt: str):
 
 ```python
 response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[
-        {"role": "system", "content": "总是返回 JSON。"},
-        {"role": "user", "content": "从这段文本里提取：姓名、年龄、职业"},
-    ],
-    response_format={"type": "json_object"},
+model="gpt-4o",
+messages=[
+    {"role": "system", "content": "总是返回 JSON。"},
+    {"role": "user", "content": "从这段文本里提取：姓名、年龄、职业"},
+],
+response_format={"type": "json_object"},
 )
 
 import json
@@ -174,17 +174,17 @@ from pydantic import BaseModel
 from typing import Optional
 
 class ExtractedPerson(BaseModel):
-    name: str
-    age: Optional[int]
-    occupation: str
-    confidence: float
+name: str
+age: Optional[int]
+occupation: str
+confidence: float
 
 response = client.beta.chat.completions.parse(
-    model="gpt-4o",
-    messages=[
-        {"role": "user", "content": "John Smith, 35 岁，软件工程师"},
-    ],
-    response_format=ExtractedPerson,
+model="gpt-4o",
+messages=[
+    {"role": "user", "content": "John Smith, 35 岁，软件工程师"},
+],
+response_format=ExtractedPerson,
 )
 
 person = response.choices[0].message.parsed
@@ -203,7 +203,7 @@ response = client.chat.completions.create(...)
 print(response.usage.prompt_tokens)      # 输入 token
 print(response.usage.completion_tokens)  # 输出 token
 
-# 估算成本（以 gpt-4o 为例，价格会变化）
+## 估算成本（以 gpt-4o 为例，价格会变化）
 input_cost = response.usage.prompt_tokens * 2.5 / 1_000_000
 output_cost = response.usage.completion_tokens * 10 / 1_000_000
 ```
@@ -219,29 +219,29 @@ import openai
 from tenacity import retry, wait_exponential, stop_after_attempt
 
 @retry(
-    wait=wait_exponential(multiplier=1, min=2, max=10),
-    stop=stop_after_attempt(3),
-    reraise=True,
+wait=wait_exponential(multiplier=1, min=2, max=10),
+stop=stop_after_attempt(3),
+reraise=True,
 )
 def call_llm(messages: list) -> str:
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4o",
-            messages=messages,
-        )
-        return response.choices[0].message.content
-    
-    except openai.RateLimitError:
-        raise  # tenacity 会自动重试
-    
-    except openai.APIConnectionError:
-        raise  # 重试
-    
-    except openai.AuthenticationError:
-        raise RuntimeError("API Key 无效，请检查 OPENAI_API_KEY")
-    
-    except openai.BadRequestError as e:
-        raise ValueError(f"请求格式错误: {e}")
+try:
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=messages,
+    )
+    return response.choices[0].message.content
+
+except openai.RateLimitError:
+    raise  # tenacity 会自动重试
+
+except openai.APIConnectionError:
+    raise  # 重试
+
+except openai.AuthenticationError:
+    raise RuntimeError("API Key 无效，请检查 OPENAI_API_KEY")
+
+except openai.BadRequestError as e:
+    raise ValueError(f"请求格式错误: {e}")
 ```
 
 ### 常见错误对照表
@@ -262,61 +262,270 @@ def call_llm(messages: list) -> str:
 from typing import Protocol
 
 class LLMProvider(Protocol):
-    def complete(self, messages: list[dict], **kwargs) -> str: ...
+def complete(self, messages: list[dict], **kwargs) -> str: ...
 
 class OpenAIProvider:
-    def __init__(self, model: str = "gpt-4o"):
-        self.client = OpenAI()
-        self.model = model
-    
-    def complete(self, messages, **kwargs) -> str:
-        response = self.client.chat.completions.create(
-            model=self.model, messages=messages, **kwargs,
-        )
-        return response.choices[0].message.content
+def __init__(self, model: str = "gpt-4o"):
+    self.client = OpenAI()
+    self.model = model
+
+def complete(self, messages, **kwargs) -> str:
+    response = self.client.chat.completions.create(
+        model=self.model, messages=messages, **kwargs,
+    )
+    return response.choices[0].message.content
 
 class AnthropicProvider:
-    def __init__(self, model: str = "claude-3-5-sonnet-20241022"):
-        import anthropic
-        self.client = anthropic.Anthropic()
-        self.model = model
-    
-    def complete(self, messages, **kwargs) -> str:
-        system = next((m["content"] for m in messages if m["role"] == "system"), None)
-        user_messages = [m for m in messages if m["role"] != "system"]
-        response = self.client.messages.create(
-            model=self.model, system=system,
-            messages=user_messages, max_tokens=kwargs.get("max_tokens", 1024),
-        )
-        return response.content[0].text
+def __init__(self, model: str = "claude-3-5-sonnet-20241022"):
+    import anthropic
+    self.client = anthropic.Anthropic()
+    self.model = model
+
+def complete(self, messages, **kwargs) -> str:
+    system = next((m["content"] for m in messages if m["role"] == "system"), None)
+    user_messages = [m for m in messages if m["role"] != "system"]
+    response = self.client.messages.create(
+        model=self.model, system=system,
+        messages=user_messages, max_tokens=kwargs.get("max_tokens", 1024),
+    )
+    return response.content[0].text
 
 def get_provider(name: str) -> LLMProvider:
-    providers = {
-        "gpt-4o": OpenAIProvider("gpt-4o"),
-        "gpt-4o-mini": OpenAIProvider("gpt-4o-mini"),
-        "claude-sonnet": AnthropicProvider(),
-    }
-    return providers[name]
+providers = {
+    "gpt-4o": OpenAIProvider("gpt-4o"),
+    "gpt-4o-mini": OpenAIProvider("gpt-4o-mini"),
+    "claude-sonnet": AnthropicProvider(),
+}
+return providers[name]
 ```
 
 ---
 
-## 9. Prompt Caching（成本优化）
+## 8.5 Fallback Model 切换（容灾）
+
+生产环境主模型过载（529）时，自动切换到备用模型：
+
+```python
+PRIMARY_MODEL  = "claude-sonnet-4-6"
+FALLBACK_MODEL = "claude-haiku-4-5"  # 更便宜、更快，质量略低
+
+class ModelSelector:
+    def __init__(self):
+        self.current = PRIMARY_MODEL
+        self.consecutive_529 = 0
+        self.MAX_CONSECUTIVE_529 = 3
+
+    def on_overloaded(self):
+        self.consecutive_529 += 1
+        if self.consecutive_529 >= self.MAX_CONSECUTIVE_529:
+            if self.current == PRIMARY_MODEL:
+                print(f"[429/529 x{self.MAX_CONSECUTIVE_529}] switching to fallback")
+                self.current = FALLBACK_MODEL
+                self.consecutive_529 = 0
+
+    def on_success(self):
+        self.consecutive_529 = 0
+        # 可选：成功多次后切回主模型
+        # self.current = PRIMARY_MODEL
+
+selector = ModelSelector()
+
+def call_with_fallback(messages: list, **kwargs):
+    for attempt in range(10):
+        try:
+            resp = client.messages.create(model=selector.current, messages=messages, **kwargs)
+            selector.on_success()
+            return resp
+        except Exception as e:
+            if "overloaded" in str(e).lower() or "529" in str(e):
+                selector.on_overloaded()
+                wait = min(0.5 * (2 ** attempt), 32)
+                time.sleep(wait)
+                continue
+            raise  # 非过载错误直接抛出
+    raise RuntimeError("Max retries exceeded")
+```
+
+---
+
+## 9. 多模态输入（Vision + PDF）
+
+### 图片输入
+
+Agent 可以接受图片作为输入（截图分析、图表理解、UI 检查等）：
+
+```python
+import base64
+import anthropic
+
+client = anthropic.Anthropic()
+
+# 方式一：base64 编码（本地文件）
+with open("screenshot.png", "rb") as f:
+    image_data = base64.standard_b64encode(f.read()).decode("utf-8")
+
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=1024,
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "image",
+                    "source": {
+                        "type": "base64",
+                        "media_type": "image/png",   # image/jpeg, image/gif, image/webp
+                        "data": image_data,
+                    },
+                },
+                {
+                    "type": "text",
+                    "text": "这张截图里有什么错误？",
+                },
+            ],
+        }
+    ],
+)
+
+# 方式二：URL（公开可访问的图片）
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=1024,
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "image",
+                    "source": {
+                        "type": "url",
+                        "url": "https://example.com/chart.png",
+                    },
+                },
+                {"type": "text", "text": "分析这个图表的趋势"},
+            ],
+        }
+    ],
+)
+```
+
+**图片规格**：
+- 支持格式：JPEG、PNG、GIF、WebP
+- 单张最大：5 MB（base64 前）
+- 每次请求最多 20 张图
+- 图片按 token 计费（约 1000-2000 token/张，取决于尺寸）
+
+### PDF 文档输入
+
+Claude 原生支持 PDF，不需要先提取文本：
+
+```python
+with open("technical_report.pdf", "rb") as f:
+    pdf_data = base64.standard_b64encode(f.read()).decode("utf-8")
+
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=4096,
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "document",
+                    "source": {
+                        "type": "base64",
+                        "media_type": "application/pdf",
+                        "data": pdf_data,
+                    },
+                },
+                {"type": "text", "text": "总结这份报告的核心结论"},
+            ],
+        }
+    ],
+)
+```
+
+**PDF 使用场景**：
+- 合同、法律文件分析（保留原始格式和布局）
+- 技术文档 QA
+- 财务报告提取（包含图表和表格）
+- 比先 OCR 再传文本质量更高（模型直接看 PDF 原始渲染）
+
+### 多模态在 Agent Pipeline 中的应用
+
+```python
+def analyze_ui_screenshot(screenshot_path: str) -> dict:
+    """Agent 工具：分析 UI 截图，返回结构化分析结果"""
+    with open(screenshot_path, "rb") as f:
+        img_data = base64.standard_b64encode(f.read()).decode("utf-8")
+
+    response = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=1024,
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "image",
+                        "source": {"type": "base64", "media_type": "image/png", "data": img_data},
+                    },
+                    {
+                        "type": "text",
+                        "text": """分析这个界面截图，返回 JSON：
+{
+  "errors": ["可见的错误信息列表"],
+  "current_state": "当前界面状态描述",
+  "suggested_action": "建议的下一步操作"
+}""",
+                    },
+                ],
+            }
+        ],
+    )
+    import json
+    return json.loads(response.content[0].text)
+```
+
+---
+
+## 9.5 当前主流模型命名参考（2026 年）
+
+笔记里其他地方可能出现旧版模型名，以此为准：
+
+| 用途 | 当前模型 ID | 特点 |
+|------|-----------|------|
+| 主力（复杂任务） | `claude-sonnet-4-6` | 性能均衡，主力选择 |
+| 旗舰（最强）| `claude-opus-4-7` | 最强，最贵 |
+| 轻量（高吞吐）| `claude-haiku-4-5-20251001` | 最便宜，延迟低 |
+| 推理任务 | `claude-sonnet-4-6` + `thinking` | Extended Thinking 场景 |
+
+```python
+# 推荐写法：用变量管理模型名，便于统一升级
+PRIMARY_MODEL  = "claude-sonnet-4-6"
+FLAGSHIP_MODEL = "claude-opus-4-7"
+FAST_MODEL     = "claude-haiku-4-5-20251001"
+```
+
+---
+
+## 10. Prompt Caching（成本优化）
 
 Anthropic 和 OpenAI 支持对 system prompt 的 KV Cache 跨请求复用：
 
 ```python
 response = anthropic_client.messages.create(
-    model="claude-3-5-sonnet-20241022",
-    system=[
-        {
-            "type": "text",
-            "text": very_long_system_prompt,
-            "cache_control": {"type": "ephemeral"},
-        }
-    ],
-    messages=[{"role": "user", "content": user_input}],
-    max_tokens=1024,
+model="claude-3-5-sonnet-20241022",
+system=[
+    {
+        "type": "text",
+        "text": very_long_system_prompt,
+        "cache_control": {"type": "ephemeral"},
+    }
+],
+messages=[{"role": "user", "content": user_input}],
+max_tokens=1024,
 )
 
 print(response.usage.cache_read_input_tokens)   # 命中的 token 数

@@ -51,7 +51,7 @@ token ID → embedding 层 → 浮点向量（如 d=4096）
 
 ```python
 similarity = dot(a, b) / (norm(a) * norm(b))
-# 值域 [-1, 1]，越接近 1 越相似
+## 值域 [-1, 1]，越接近 1 越相似
 ```
 
 RAG 的向量检索、语义搜索的基础都是 embedding 相似度。

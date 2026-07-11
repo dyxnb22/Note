@@ -19,3 +19,4 @@
 - [经济周期](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/01_Economics/经济周期.md)
 - [失业与劳动力市场](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/01_Economics/失业与劳动力市场.md)
 - [市场效率与市场失灵](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/01_Economics/市场效率与市场失灵.md)
+- [信用周期与资产价格](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/01_Economics/信用周期与资产价格.md)
