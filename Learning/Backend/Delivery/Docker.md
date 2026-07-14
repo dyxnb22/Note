@@ -1,402 +1,258 @@
 # Docker
 
-## 1. Docker 核心概念
-Docker 的核心目标是把应用和它依赖的运行环境一起打包，让应用在不同机器上都能以相同方式运行。
+Docker 的核心目标是把应用和它依赖的运行环境一起打包，让应用在不同机器上以相近方式运行。
 
-| 概念 | 作用 | 面试表达 |
-| --- | --- | --- |
-| 镜像 (Image) | 静态模板，包含代码、依赖、环境和启动配置 | 类似“安装包”或“类” |
-| 容器 (Container) | 镜像运行后的实例，有自己的进程、文件系统和网络空间 | 类似“进程”或“对象实例” |
-| 仓库 (Repository) | 存放镜像的地方，例如 Docker Hub、私有镜像仓库 | 用于拉取和分发镜像 |
-| Dockerfile | 构建镜像的脚本 | 描述镜像怎么从基础镜像一步步构建出来 |
-| Docker Compose | 多容器编排工具 | 用一个 `docker-compose.yml` 管理多个服务 |
+# 核心概念
 
-镜像是只读模板，容器是运行时实例。一个镜像可以启动多个容器，容器删除后不会影响镜像。
+## 镜像、容器、仓库和 Dockerfile 有什么区别？
 
-镜像采用分层存储（Union File System），每条 Dockerfile 指令生成一个只读层，多个容器共享相同的底层，节省磁盘空间。容器在镜像层之上叠加一个可写层，容器删除后该层消失，数据不持久化。
+| 概念              | 作用                                               | 面试表达                         |
+| ----------------- | -------------------------------------------------- | -------------------------------- |
+| 镜像 Image        | 静态模板，包含代码、依赖、环境和启动配置           | 类似安装包或类                   |
+| 容器 Container    | 镜像运行后的实例，有自己的进程、文件系统和网络空间 | 类似进程或对象实例               |
+| 仓库 Repository   | 存放和分发镜像的地方                               | 例如 Docker Hub、私有镜像仓库    |
+| Dockerfile        | 描述镜像如何从基础镜像构建                         | 镜像构建脚本                     |
+| Docker Compose    | 管理多容器应用的工具                               | 用配置文件统一管理多个服务       |
 
-Docker 底层依赖两个 Linux 内核特性：namespace 负责隔离（进程、网络、文件系统、用户等资源视图各自独立），cgroup 负责限制（CPU、内存、磁盘 IO 等资源的使用上限）。这也是容器比虚拟机轻量的根本原因：没有 Hypervisor 和 Guest OS，直接共享宿主机内核。
+镜像是只读模板，容器是运行时实例。一个镜像可以启动多个容器，删除容器不会影响镜像；但容器运行期间写入的数据，如果没有挂载卷，删除容器后通常会丢失。
 
----
+## Docker 镜像分层和容器可写层是什么？
 
-## 2. Docker 常用命令速查
+镜像采用分层存储。Dockerfile 中会产生文件系统变化的构建步骤通常会形成可复用的镜像层，多个容器可以共享相同的只读底层。
 
-### 2.1 镜像管理
-| 命令 | 用途 |
-| --- | --- |
-| `docker pull nginx` | 从仓库拉取镜像 |
-| `docker images` | 查看本地镜像 |
-| `docker build -t my-app:1.0 .` | 根据当前目录的 Dockerfile 构建镜像 |
-| `docker rmi <image_id>` | 删除镜像 |
+容器启动后会在镜像层之上叠加可写层。容器删除后，可写层也会消失；需要持久化的数据应使用 bind mount 或 named volume。
 
-### 2.2 容器管理
-| 命令 | 用途 |
-| --- | --- |
-| `docker run -d --name web -p 8080:80 nginx` | 后台启动 nginx 容器，并把宿主机 8080 映射到容器 80 |
-| `docker ps` | 查看正在运行的容器 |
-| `docker ps -a` | 查看所有容器，包括已停止的容器 |
-| `docker logs -f <container_name>` | 持续查看容器日志 |
-| `docker stop <container_name>` | 停止容器 |
-| `docker rm <container_name>` | 删除已停止的容器 |
+## Docker 为什么比虚拟机轻量？
 
-### 2.3 进入容器执行命令
-`docker exec` 用于在运行中的容器内执行命令。
+Docker 主要依赖 Linux 内核的两个特性：
 
-```bash
-docker exec -it mysql bash
-docker exec -it redis redis-cli
-```
+- namespace：隔离进程、网络、文件系统、用户等资源视图。
+- cgroup：限制和统计 CPU、内存、块设备 I/O 等资源使用。
 
-常见参数：
-- `-i`：保持标准输入打开。
-- `-t`：分配伪终端。
-- `-it`：交互式进入容器。
+虚拟机需要虚拟出完整操作系统，每台虚拟机通常都有自己的内核，资源开销较大。容器共享宿主机内核，只隔离进程和运行环境，因此通常启动更快、部署密度更高。但容器与虚拟机的隔离边界不同，安全性不能简单等同。
 
-如果容器没有 `bash`，可以改用 `sh`：
+# Dockerfile
 
-```bash
-docker exec -it alpine sh
-```
+## Dockerfile 常用指令有哪些？
 
-### 2.4 数据卷与文件拷贝
-| 命令 | 用途 |
-| --- | --- |
-| `docker volume ls` | 查看数据卷 |
-| `docker volume rm <volume>` | 删除数据卷 |
-| `docker cp a.txt web:/tmp/a.txt` | 把宿主机文件复制到容器 |
-| `docker cp web:/var/log/nginx/access.log .` | 把容器文件复制到宿主机 |
+| 指令       | 作用                                                         |
+| ---------- | ------------------------------------------------------------ |
+| FROM       | 指定基础镜像，通常是 Dockerfile 的第一条构建指令             |
+| RUN        | 构建镜像时执行命令，安装依赖或生成文件                       |
+| COPY       | 将构建上下文中的文件复制到镜像，通常优先使用                 |
+| ADD        | COPY 的扩展，支持部分远程资源和归档处理；无特殊需求时优先 COPY |
+| WORKDIR    | 设置后续指令和容器默认使用的工作目录                         |
+| ENV        | 设置环境变量，容器运行时也可以读取                           |
+| EXPOSE     | 声明容器监听端口，只是元数据，不会自动发布到宿主机           |
+| CMD        | 提供容器启动时的默认命令或参数，可被运行时命令覆盖           |
+| ENTRYPOINT | 定义容器的固定入口，运行时参数通常会追加到入口之后           |
 
----
+Docker build 会按顺序执行 Dockerfile。构建缓存会复用没有变化的步骤；并不是每条指令都一定对应一个独立的文件系统层。
 
-## 3. Dockerfile 核心知识
+## CMD 和 ENTRYPOINT 有什么区别？
 
-Dockerfile 是镜像构建脚本，本质上是一系列有顺序的指令。
-
-### 3.1 常见指令
-| 指令 | 作用 |
-| --- | --- |
-| `FROM` | 指定基础镜像 |
-| `WORKDIR` | 设置工作目录 |
-| `COPY` | 复制文件到镜像中 |
-| `ADD` | 功能类似 COPY，但支持自动解压和远程 URL |
-| `RUN` | 构建阶段执行命令，生成新镜像层 |
-| `ENV` | 设置环境变量 |
-| `EXPOSE` | 声明容器暴露端口 |
-| `CMD` | 指定容器默认启动命令 |
-| `ENTRYPOINT` | 指定容器入口命令 |
-
-### 3.2 一个常见 Dockerfile 示例
-```dockerfile
-FROM openjdk:17-jdk-slim
-WORKDIR /app
-COPY target/demo.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
-```
-
-执行逻辑：
-1. 以 `openjdk:17-jdk-slim` 为基础镜像。
-2. 工作目录切到 `/app`。
-3. 把本地 `target/demo.jar` 复制到镜像中，命名为 `app.jar`。
-4. 声明应用使用 8080 端口。
-5. 容器启动时执行 `java -jar app.jar`。
-
-### 3.3 CMD 和 ENTRYPOINT 区别
-这是面试高频问题。
-
-`CMD`：提供默认命令，如果 `docker run` 后面追加命令，会覆盖它。
-
-`ENTRYPOINT`：定义主命令，`docker run` 后追加内容通常会作为参数传给它，不会完全替换。
+- CMD 提供默认命令或默认参数，运行容器时可以覆盖。
+- ENTRYPOINT 定义相对固定的入口程序，运行时传入的参数通常会追加到入口之后。
+- 两者可以组合：ENTRYPOINT 定义程序，CMD 提供默认参数。
 
 示例：
 
-```dockerfile
-CMD ["echo", "hello"]
-```
-
-运行：
-
-```bash
-docker run my-image
-```
-
-输出：
-
-```bash
-hello
-```
-
-如果运行：
-
-```bash
-docker run my-image ls
-```
-
-则 `CMD` 会被 `ls` 覆盖。
-
-而如果写成：
-
-```dockerfile
-ENTRYPOINT ["echo", "hello"]
-```
-
-运行：
-
-```bash
-docker run my-image world
-```
-
-实际执行接近：
-
-```bash
-echo hello world
-```
-
-所以：
-- `CMD` 更适合“默认参数/默认命令”。
-- `ENTRYPOINT` 更适合“固定入口程序”。
-- 两者也可以组合使用：`ENTRYPOINT` 定义主程序，`CMD` 提供默认参数。
-
----
-
-## 4. 如何减少镜像体积
-
-这是实际开发和面试都会问到的问题。
-
-常见优化手段：
-
-### 4.1 选择更小的基础镜像
-例如：
-- `openjdk:17-jdk` 很大。
-- `openjdk:17-jdk-slim` 更轻量。
-- Alpine 系列更小，但某些库兼容性要注意。
-
-### 4.2 合并 RUN 指令
-减少镜像层数量：
-
-```dockerfile
-RUN apt-get update && apt-get install -y curl vim && rm -rf /var/lib/apt/lists/*
-```
-
-### 4.3 清理构建缓存
-安装依赖后删除临时文件、包缓存，否则它们会跟着进入镜像层。
-
-### 4.4 使用多阶段构建
-典型做法是前一阶段编译，后一阶段只复制最终产物：
-
-```dockerfile
-FROM maven:3.9-eclipse-temurin-17 AS builder
-WORKDIR /build
-COPY . .
-RUN mvn clean package -DskipTests
-
-FROM eclipse-temurin:17-jre
+~~~dockerfile
+FROM python:3.11-slim
 WORKDIR /app
-COPY --from=builder /build/target/demo.jar app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
-```
+COPY app.py .
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+~~~
 
-优点：
-- 构建工具和源码不进入最终镜像。
-- 镜像更小。
-- 更安全。
+~~~bash
+docker build -t myimage .
+docker run myimage
+docker run myimage main.py
+~~~
 
-### 4.5 使用 `.dockerignore`
-避免把无关文件复制进镜像：
+第一条运行命令执行 python app.py，第二条会使用 main.py 作为参数。
 
-```gitignore
-.git
-node_modules
-target
-logs
-*.md
-```
+## 如何减小 Docker 镜像体积？
 
----
+- 根据兼容性选择 slim、alpine 或 distroless；alpine 使用 musl libc，部分程序可能存在兼容性差异。
+- 合并相关 RUN 指令，并在同一层清理 apt 缓存。
+- 使用 .dockerignore 排除 node_modules、.git、日志和构建产物。
+- 使用多阶段构建：在 builder 阶段编译，最终镜像只复制构建产物。
+- 使用固定版本 tag 或 digest，避免 latest 随时间变化导致构建不可复现。
+- 只安装运行时依赖，不把编译工具链带入最终镜像。
 
-## 5. Docker Compose
+# Docker Compose
 
-Compose 用于定义和运行多个相互关联的容器。比如一个项目里同时有：
-- `app`
-- `mysql`
-- `redis`
-- `nginx`
+## Docker Compose 解决什么问题？
 
-如果只用 `docker run`，命令会很长，还不好维护。Compose 可以把这些信息写进一个 YAML 文件里统一管理。
+单个容器可以直接使用 docker run；真实项目通常有 Web、数据库、Redis、消息队列等多个服务，逐个手动启动容易出错。
 
-### 5.1 一个典型示例
-```yaml
+Compose 用一份 docker-compose.yml 描述多个服务，统一管理容器、网络、卷和环境变量，常见于：
+
+- 本地开发环境一键启动。
+- Web + PostgreSQL + Redis 等多服务依赖管理。
+- 测试环境快速拉起临时服务。
+
+## 如何编写 docker-compose.yml？
+
+YAML 对缩进敏感，只能使用空格，不能使用 Tab。下面是一个 Web + PostgreSQL + Redis 示例：
+
+~~~yaml
 services:
-  mysql:
-image: mysql:8.0
-container_name: mysql
-restart: always
-environment:
-  MYSQL_ROOT_PASSWORD: 123456
-  MYSQL_DATABASE: demo
-ports:
-  - "3306:3306"
+  web-app:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./code:/app
+    env_file:
+      - .env
+    depends_on:
+      - postgres-db
+      - redis-db
+    networks:
+      - app-network
+
+  postgres-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: app_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  redis-db:
+    image: redis:alpine
+    networks:
+      - app-network
+
 volumes:
-  - mysql_data:/var/lib/mysql
+  postgres-data:
 
-  redis:
-image: redis:7
-container_name: redis
-restart: always
-ports:
-  - "6379:6379"
+networks:
+  app-network:
+~~~
 
-  app:
-build: .
-container_name: demo-app
-depends_on:
-  - mysql
-  - redis
-ports:
-  - "8080:8080"
+## image、build、ports、volumes 等字段有什么作用？
 
-volumes:
-  mysql_data:
-```
+| 字段          | 含义                                   | 注意点                                      |
+| ------------- | -------------------------------------- | ------------------------------------------- |
+| image         | 指定服务使用的现成镜像                 | 例如 redis:alpine、postgres:16-alpine       |
+| build         | 根据 Dockerfile 构建镜像               | 常用于自己的后端或前端项目                  |
+| ports         | 端口映射，格式为宿主机端口:容器端口     | 8080:80 表示访问本机 8080 转到容器 80       |
+| volumes       | 挂载目录或命名卷                       | 用于代码同步和数据持久化                    |
+| environment   | 设置环境变量                           | 不建议把生产密码直接写死                    |
+| env_file      | 从 .env 文件读取环境变量               | 适合管理本地配置                            |
+| depends_on    | 控制服务启动顺序                       | 短语法不保证依赖服务已经可用                |
+| networks      | 指定服务加入哪个网络                   | 同一网络内可通过服务名互相访问              |
 
-### 5.2 常见字段解释
-| 字段 | 作用 |
-| --- | --- |
-| `services` | 定义所有服务 |
-| `image` | 直接使用现成镜像 |
-| `build` | 根据当前目录 Dockerfile 构建镜像 |
-| `container_name` | 指定容器名称 |
-| `ports` | 端口映射 |
-| `volumes` | 挂载目录或数据卷 |
-| `environment` | 设置环境变量 |
-| `depends_on` | 定义启动依赖关系 |
-| `restart` | 定义重启策略 |
+## Compose 网络如何通信？localhost 为什么不对？
 
-### 5.3 Compose 常用命令
-| 命令 | 用途 |
-| --- | --- |
-| `docker compose up -d` | 后台启动所有服务 |
-| `docker compose down` | 停止并删除容器、网络 |
-| `docker compose ps` | 查看服务状态 |
-| `docker compose logs -f` | 查看日志 |
-| `docker compose up -d --build` | 重新构建并启动 |
+同一个 Compose 项目的服务通常会加入同一个网络，Docker 内部 DNS 会把服务名解析到对应容器 IP。
 
-### 5.4 `depends_on` 的注意点
-`depends_on` 只保证“启动顺序”，不保证“服务已经真正可用”。
+例如后端连接 Redis 和 PostgreSQL：
 
-例如 app 依赖 mysql，mysql 容器虽然先启动了，但数据库可能还在初始化，此时 app 仍然可能连接失败。
+~~~text
+redis-db:6379
+postgres-db:5432
+~~~
 
-解决方式：
-- 应用里增加重试机制。
-- 配置健康检查（healthcheck）。
-- 启动脚本等待依赖服务 ready。
+这里不要写 localhost。容器内部的 localhost 指向当前容器自己，不是宿主机，也不是其他容器。容器之间在同一网络中通信通常不依赖 expose，expose 主要用于声明或记录容器端口；需要从宿主机或外部访问时使用 ports。
 
----
+## ports 和 expose 有什么区别？
 
-## 6. Docker 网络
+- ports：把容器端口发布并映射到宿主机，外部可以通过宿主机端口访问。
+- expose：声明容器提供的端口，不发布到宿主机；同一网络中的服务通常可以直接通过服务名和端口通信。
 
-Docker 容器之间可以通过网络互通。
+## depends_on 能保证数据库已经启动完成吗？
 
-常见网络模式：
-- `bridge`：默认模式，同一 bridge 网络内的容器可以互通。
-- `host`：直接使用宿主机网络，没有独立网络命名空间。
-- `none`：没有网络。
+短语法 depends_on 只能保证依赖容器先启动，不能保证数据库已经初始化并可以接受连接。
 
-在 Compose 中，同一个 `docker-compose.yml` 下的服务默认就在同一个网络，可以直接通过服务名访问。
+更可靠的做法是：
 
-例如：
-- `app` 连接 MySQL 时主机名写 `mysql`
-- `app` 连接 Redis 时主机名写 `redis`
+- 给数据库配置 healthcheck，并在支持的 Compose 配置中使用 service_healthy 条件。
+- 应用侧增加连接重试和退避。
+- 或在启动脚本中等待依赖服务真正可用。
 
-而不是 `127.0.0.1`。
+## Compose 的 version 字段还需要写吗？
 
-这是很多新手最容易犯的错误。
+老教程常写：
 
----
+~~~yaml
+version: "3.8"
+~~~
 
-## 7. 数据持久化
+现在 Docker Compose v2 通常不强制要求 version，直接写 services、volumes、networks 等顶层配置即可。具体行为仍以当前 Compose 版本文档为准。
 
-容器本身是临时的，删除容器后，其可写层数据也会丢失。
+# 运行与最佳实践
 
-所以数据库、日志、上传文件等需要持久化。
+## 如何进入容器或执行容器内命令？
 
-两种常见方式：
+docker exec 是在正在运行的容器中执行命令，不是必须先进入 shell。
 
-### 7.1 Bind Mount
-把宿主机目录挂到容器里：
+~~~bash
+docker exec -it container_name sh
+docker exec -it container_name bash
+docker exec -it postgres_container psql -U username -d database
+~~~
 
-```bash
-docker run -v /data/mysql:/var/lib/mysql mysql:8
-```
+- -i：保持标准输入打开。
+- -t：分配伪终端，方便交互。
+- sh / bash：具体使用哪个取决于镜像是否安装 bash。
 
-优点：直观、方便直接查看宿主机文件。
+## Docker 数据如何持久化？
 
-### 7.2 Volume
-使用 Docker 管理的数据卷：
+容器本身是临时的，删除容器后容器内写入的数据可能丢失。可以使用：
 
-```bash
-docker volume create mysql_data
-docker run -v mysql_data:/var/lib/mysql mysql:8
-```
+- bind mount：把宿主机目录或文件挂载到容器，适合本地开发和需要直接管理宿主机文件的场景。
+- named volume：由 Docker 管理存储位置，适合数据库等持久化数据。
+- 外部存储：生产环境可以使用对象存储、云盘或数据库等独立存储服务。
 
-优点：更适合生产，和宿主机目录解耦。
+数据库数据应放到 volume 或外部存储中，不要只写入容器可写层。
 
----
+## 常见避坑和最佳实践有哪些？
 
-## 8. 常见问题与面试高频题
+- YAML 缩进只能用空格，不能用 Tab。
+- 敏感信息不要直接提交到 Git，可以使用 .env、环境变量、密钥管理服务或 Docker secrets。
+- 生产镜像尽量小，固定版本 tag 或 digest，避免直接使用 latest。
+- 日志优先输出到标准输出和标准错误，方便 docker logs 或日志系统采集。
+- 为数据库和关键依赖配置 healthcheck，并在应用侧实现重试和退避。
+- 容器只运行一个主要进程，服务组合交给 Compose 或其他编排工具管理。
+- 不要把容器当成虚拟机使用；需要调试时优先查看日志、配置和容器状态。
 
-### 8.1 Docker 和虚拟机有什么区别
-Docker 容器共享宿主机内核，只隔离进程和资源；虚拟机是完整虚拟出一套硬件，再跑一个独立操作系统。
+docker-compose 是旧版命令形式，现在更推荐 Docker Compose v2 的 docker compose。
 
-所以：
-- 容器更轻量。
-- 启动更快。
-- 资源开销更小。
-- 部署密度更高。
+# 命令速查
 
-但虚拟机隔离更彻底。
+## 初始化、镜像和容器
 
-### 8.2 Docker 为什么启动快
-因为容器本质上是宿主机上的一个受隔离进程，不需要像虚拟机那样额外启动 Guest OS。
+~~~bash
+docker pull nginx
+docker images
+docker build -t my-app:1.0 .
+docker rmi image_id
+docker run -d --name web -p 8080:80 nginx
+docker ps
+docker ps -a
+docker logs -f container_name
+docker stop container_name
+docker rm container_name
+docker exec -it container_name sh
+~~~
 
-### 8.3 容器删除后数据为什么会丢
-因为数据默认写在容器可写层，容器删除后这层也没了。要想持久化，必须挂载 volume 或宿主机目录。
+## Compose
 
-### 8.4 Dockerfile 中 `COPY` 和 `ADD` 区别
-`COPY` 更纯粹，只负责复制文件。
-`ADD` 除了复制，还支持自动解压压缩包和下载 URL。
-
-实际开发通常优先使用 `COPY`，除非明确需要 `ADD` 的额外能力。
-
-### 8.5 一个镜像可以启动多个容器吗
-可以。镜像是模板，容器是实例。就像一个类可以创建多个对象。
-
-### 8.6 为什么说 Docker Compose 适合开发环境
-因为它非常适合在单机上统一编排多个服务，便于本地联调和测试。
-
-如果是大规模生产环境编排，通常会进一步使用 Kubernetes。
-
----
-
-## 9. 实战经验总结
-
-开发中常见建议：
-
-1. 应用、数据库、缓存尽量用 Compose 管理，方便一键启动。
-2. 数据库、Redis 等有状态服务一定挂载 volume。
-3. 不要在容器里直接存重要业务文件而不做持久化。
-4. 镜像尽量精简，减少体积和攻击面。
-5. 使用多阶段构建，把编译环境和运行环境分离。
-6. 容器之间通信优先使用服务名，不要误写成 `localhost`。
-7. `depends_on` 不能代替健康检查。
-8. 生产环境不要把 root 密码、密钥直接写死在镜像里。
-
----
-
-## 10. 面试简答模板
-
-如果面试官问：“你怎么理解 Docker？”
-
-可以这样答：
-
-Docker 是一种容器化技术，它把应用和运行依赖一起打包成镜像，再以容器方式运行，解决环境不一致问题。它底层依赖 Linux 的 namespace 和 cgroup 实现资源隔离和限制。相比虚拟机，Docker 更轻量、启动更快、资源利用率更高。实际开发里我通常会用 Dockerfile 构建应用镜像，用 Docker Compose 管理应用、MySQL、Redis 等多服务联调，并通过 volume 做数据持久化。
+~~~bash
+docker compose up -d
+docker compose up --build -d
+docker compose ps
+docker compose logs -f
+docker compose logs -f web-app
+docker compose stop
+docker compose down
+docker compose down -v
+~~~
