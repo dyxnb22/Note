@@ -11,6 +11,17 @@
 - `Architecture`：分布式、系统设计
 - `Delivery`：Git、Linux、Docker、部署上线
 
+补充：[调试与问题定位](./Java/调试与问题定位.md)。
+
+系统设计新增主线：
+
+- [DDD 与领域建模](./Architecture/DDD与领域建模.md)
+- [可靠性与一致性](./Architecture/可靠性与一致性.md)
+- [任务、消息与补偿](./Architecture/任务、消息与补偿.md)
+- [网关、接口治理与 SDK](./Architecture/网关、接口治理与SDK.md)
+- [组件化与中间件设计](./Architecture/组件化与中间件设计.md)
+- [场景方案库](./Architecture/场景方案库.md)
+
 ## 建议使用原则
 
 - 写业务代码时碰到的语言和框架问题，放 `Java`

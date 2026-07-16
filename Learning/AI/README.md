@@ -14,6 +14,12 @@
 | `DeepLearning.md` + `DeepLearning/` | 以 D2L 路线学习训练原理、CNN、RNN、Transformer、视觉与 NLP | 需要系统补模型训练基础时 |
 | `AI工具与编程助手.md` | AI 编程工具的能力、边界、协作方式、风险 | 开始使用 AI Coding Agent 时；思考人机协作时 |
 
+## 与 xfg-planet 案例的连接
+
+- [AI MCP Gateway](../Case_Studies/AI/AI-MCP-Gateway.md)：协议转换、JSON-RPC、Session 和工具治理。
+- [WaLiSSH](../Case_Studies/AI/WaLiSSH.md)：工具化执行、Agent Loop、SSH 和安全边界。
+- [Agent 脚手架与可编排 RAG](../Case_Studies/AI/Agent脚手架与可编排RAG.md)：Workflow、MCP、Skills、Session 和知识库配置。
+
 ## 与 Python Agent 目录的边界
 
 - 模型是什么、怎么工作、为什么这样设计 → 放这里

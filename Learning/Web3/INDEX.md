@@ -100,7 +100,6 @@
 
 ## 完整目录
 
-- 根说明：[README.md](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/README.md)
 - 共同语言：[00_Foundations](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/00_Foundations/README.md)
 - 链与共识：[01_Blockchain_and_Consensus](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/01_Blockchain_and_Consensus/README.md)
 - 钱包与交易：[02_Wallets_Transactions_and_RPC](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/02_Wallets_Transactions_and_RPC/README.md)
