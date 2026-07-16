@@ -13,6 +13,8 @@
 
 - [MySQL](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Data/MySQL.md)：关系型数据库、索引、事务、锁、日志、调优
 - [Redis](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Data/Redis.md)：数据结构、缓存设计、持久化、高可用、集群
+- [MongoDB](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Data/MongoDB.md)：文档模型、索引、复制、分片与聚合
+- [大数据基础](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Data/大数据基础.md)：HDFS、MapReduce、Hive、HBase、Spark、YARN
 - [消息队列](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Data/消息队列.md)：异步、削峰、解耦、可靠性、顺序性、幂等
 
 ## 建议顺序

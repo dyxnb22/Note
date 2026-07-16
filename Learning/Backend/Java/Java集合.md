@@ -27,6 +27,12 @@
 - `Collections`：`java.util` 下的工具类，提供排序、查找、同步包装、不可变包装等静态方法。
 - `Map` 不继承 `Collection`，因为它表示 key-value 映射，而不是单值元素集合。
 
+## 集合使用有哪些常见陷阱？
+
+- `Arrays.asList(array)` 返回的是数组的定长视图：可以 `set()`，但不能 `add()`/`remove()`；需要可变列表时使用 `new ArrayList<>(Arrays.asList(array))`。
+- 遍历时删除元素使用 `Iterator.remove()` 或 `removeIf()`，不要直接调用集合的 `remove()`；否则可能触发 `ConcurrentModificationException` 或跳过元素。
+- 避免使用原始类型集合（如 `List list`），使用泛型让类型错误尽早暴露，并减少强制类型转换。
+
 ## 集合有哪些遍历方式？
 
 - 普通 `for`：适合 `List` 按下标遍历。
