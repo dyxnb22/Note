@@ -209,6 +209,17 @@
 - [高压阶段如何保住节奏感](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/高压阶段如何保住节奏感.md)
 - [专注力训练和环境设计](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/专注力训练和环境设计.md)
 
+## 通用实践框架
+
+不同主题都可以用同一顺序复习和实践：
+
+1. 先观察真实状态，不用单次感受下结论。
+2. 找最上游、最影响全局的变量。
+3. 只做一个低摩擦、可持续的最小调整。
+4. 连续观察几天到一两周，再判断是否有效。
+
+共同关注：稳定性、恢复质量、环境摩擦和总负荷。常见误区是把问题全归因于意志力、一次改太多，或把短期拉满当成长期方案。
+
 ---
 
 `#health #energy #index`

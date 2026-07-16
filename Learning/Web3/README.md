@@ -55,12 +55,12 @@
 |------|-------------|------|
 | 00_Foundations | ✅ 5 篇 | 共同语言与学习框架 |
 | 01_Blockchain_and_Consensus | ✅ 5 篇 | 链、状态机、共识、扩容、跨链 |
-| 02_Wallets_Transactions_and_RPC | ✅ 5 篇 | 钱包、签名、交易、Gas、RPC |
+| 02_Wallets_Transactions_and_RPC | ✅ 6 篇 | 钱包、签名、交易、Gas、RPC、账户抽象 |
 | 03_Smart_Contracts_and_Development | ✅ 6 篇 | 合约、事件、权限、升级、测试、dApp |
-| 04_DeFi_and_Tokenomics | ✅ 6 篇 | AMM、借贷、稳定币、清算、Token、治理 |
+| 04_DeFi_and_Tokenomics | ✅ 8 篇 | AMM、借贷、稳定币、清算、Token、NFT、MEV、治理 |
 | 05_Security_and_Risks | ✅ 4 篇 | 攻击面与安全框架 |
 | 06_Governance_and_Crypto_Society | ✅ 3 篇 | DAO、监管、社会结构 |
-| 07_Research_and_Build_Workflow | ✅ 4 篇 | 研究、数据、索引、项目路径 |
+| 07_Research_and_Build_Workflow | ✅ 5 篇 | 研究、协议拆解、数据、索引、项目路径 |
 
 ---
 

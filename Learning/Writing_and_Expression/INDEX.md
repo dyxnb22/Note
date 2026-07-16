@@ -210,6 +210,17 @@
 - [如何识别自己论证中的漏洞](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何识别自己论证中的漏洞.md)
 - [表达里的情绪管理与关系维护](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/表达里的情绪管理与关系维护.md)
 
+## 通用表达框架
+
+处理一段表达时，按“对象 → 目标 → 结构 → 压缩”检查：
+
+- 对象是谁，最关心什么？
+- 目标是同步信息、建立共识，还是推动行动？
+- 什么先说，什么是支撑，哪些内容可以删？
+- 是否交代了边界、前提和代价？
+
+准确、简洁、有力不是互相替代：准确减少歧义，简洁降低理解成本，有力让判断和行动更清楚。
+
 ---
 
 `#writing #expression #index`

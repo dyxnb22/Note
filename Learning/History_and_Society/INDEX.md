@@ -186,6 +186,17 @@
 - [高压文化与创新文化的差异](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/高压文化与创新文化的差异.md)
 - [个人在组织中的成长策略](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/个人在组织中的成长策略.md)
 
+## 通用分析框架
+
+读任何历史与社会主题，都先问：
+
+1. 原来的主要约束是什么？
+2. 什么力量改变了旧平衡？
+3. 哪些组织、规则或协作方式被迫调整？
+4. 长期影响落在生产、市场、制度、组织还是分配上？
+
+关键变量通常是成本变化、组织吸收能力、制度配套和分配结果。避免只背结论、用今天反推过去或依赖单一解释。
+
 ---
 
 `#history #society #index`
