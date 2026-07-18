@@ -10,21 +10,21 @@
 
 ## 目录结构
 
-- [00_Foundations](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/00_Foundations/README.md)：基础层，建立时间价值、风险收益、概率思维
-- [01_Economics](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/01_Economics/README.md)：经济学机制、政策工具、经济周期
-- [02_Markets](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/02_Markets/README.md)：金融体系、流动性、利率期限结构
-- [03_Stocks](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/03_Stocks/README.md)：股票机制、财报分析、商业模式
-- [04_Fixed_Income](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/04_Fixed_Income/README.md)：债券定价、利率风险、信用风险
-- [05_Funds_and_ETF](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/05_Funds_and_ETF/README.md)：基金与 ETF 的结构、评价与定投
-- [06_Derivatives](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/06_Derivatives/README.md)：期货、期权、对冲、杠杆
-- [07_Corporate_Finance](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/07_Corporate_Finance/README.md)：资本结构、投融资决策、代理问题
-- [08_Valuation](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/08_Valuation/README.md)：DCF、相对估值、安全边际
-- [09_Portfolio_and_Risk](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/09_Portfolio_and_Risk/README.md)：组合构建、风险控制、再平衡
-- [10_Behavioral_Finance](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/10_Behavioral_Finance/README.md)：认知偏差、情绪管理、纪律建设
-- [11_Quant](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/11_Quant/README.md)：因子、回测、容量、执行归因
-- [12_Math_and_Statistics](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/12_Math_and_Statistics/README.md)：收益率、分布、回归、统计检验
-- [13_Research_Workflow](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/13_Research_Workflow/README.md)：读公司、写备忘录、复盘与研究流程
-- [14_Fraud_and_Pitfalls](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/14_Fraud_and_Pitfalls/README.md)：骗局识别、造假识别、风险陷阱
+- [00_Foundations](../../Learning/Finance/00_Foundations/README.md)：基础层，建立时间价值、风险收益、概率思维
+- [01_Economics](../../Learning/Finance/01_Economics/README.md)：经济学机制、政策工具、经济周期
+- [02_Markets](../../Learning/Finance/02_Markets/README.md)：金融体系、流动性、利率期限结构
+- [03_Stocks](../../Learning/Finance/03_Stocks/README.md)：股票机制、财报分析、商业模式
+- [04_Fixed_Income](../../Learning/Finance/04_Fixed_Income/README.md)：债券定价、利率风险、信用风险
+- [05_Funds_and_ETF](../../Learning/Finance/05_Funds_and_ETF/README.md)：基金与 ETF 的结构、评价与定投
+- [06_Derivatives](../../Learning/Finance/06_Derivatives/README.md)：期货、期权、对冲、杠杆
+- [07_Corporate_Finance](../../Learning/Finance/07_Corporate_Finance/README.md)：资本结构、投融资决策、代理问题
+- [08_Valuation](../../Learning/Finance/08_Valuation/README.md)：DCF、相对估值、安全边际
+- [09_Portfolio_and_Risk](../../Learning/Finance/09_Portfolio_and_Risk/README.md)：组合构建、风险控制、再平衡
+- [10_Behavioral_Finance](../../Learning/Finance/10_Behavioral_Finance/README.md)：认知偏差、情绪管理、纪律建设
+- [11_Quant](../../Learning/Finance/11_Quant/README.md)：因子、回测、容量、执行归因
+- [12_Math_and_Statistics](../../Learning/Finance/12_Math_and_Statistics/README.md)：收益率、分布、回归、统计检验
+- [13_Research_Workflow](../../Learning/Finance/13_Research_Workflow/README.md)：读公司、写备忘录、复盘与研究流程
+- [14_Fraud_and_Pitfalls](../../Learning/Finance/14_Fraud_and_Pitfalls/README.md)：骗局识别、造假识别、风险陷阱
 
 ---
 

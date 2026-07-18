@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[事件为什么是链上和后端之间的桥梁](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/03_Smart_Contracts_and_Development/事件为什么是链上和后端之间的桥梁.md)
-- 平行主题：[RPC、节点和链上读取：应用到底在和谁通信](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/02_Wallets_Transactions_and_RPC/RPC、节点和链上读取：应用到底在和谁通信.md)
-- 下游主题：[从最小 demo 到可展示 Web3 项目](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/07_Research_and_Build_Workflow/从最小%20demo%20到可展示%20Web3%20项目.md)
+- 上游主题：[事件为什么是链上和后端之间的桥梁](../../../Learning/Web3/03_Smart_Contracts_and_Development/事件为什么是链上和后端之间的桥梁.md)
+- 平行主题：[RPC、节点和链上读取：应用到底在和谁通信](../../../Learning/Web3/02_Wallets_Transactions_and_RPC/RPC、节点和链上读取：应用到底在和谁通信.md)
+- 下游主题：[从最小 demo 到可展示 Web3 项目](../../../Learning/Web3/07_Research_and_Build_Workflow/从最小%20demo%20到可展示%20Web3%20项目.md)
 
 ---
 

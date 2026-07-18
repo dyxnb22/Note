@@ -1,81 +1,22 @@
-# Notion Migration Map
+# Notion Migration Map（历史记录）
 
-说明：这份表是旧 Notion 到本地库的映射记录，当前知识库已经改成更简洁的目录结构。下面的映射主要用于追溯，不再代表最新入口。
+这份表用于追溯旧 Notion 目录到本地知识库的迁移关系。当前使用时，请从 [Notes](../../README.md) 或 [Learning](../../Learning/README.md) 进入；本页不再维护旧的 `[[双链]]` 入口。
 
-## Mapped Entrypoints
+## 当前归位
 
-- `Start` -> [[Start]]
-- `Tech` -> `Learning/Engineering`
-- `Projects` -> `Projects`
-- `CityU` -> [[CityU]]
+| 旧 Notion 区域 | 当前入口 |
+|---|---|
+| `Start` | [Notes](../../README.md) |
+| `Projects` | [Projects](../../Projects/README.md) |
+| `BigMarket` | [BigMarket 微服务](../../Projects/BigMarket/微服务.md) |
+| `CS基础`、`算法` | [CS](../../Learning/CS/README.md) |
+| `Java后端`、`工具链` | [Backend](../../Learning/Backend/README.md) |
+| `AI Agent` | [AI](../../Learning/AI/README.md) · [Python Agent](../../Learning/Python%20Agent/README.md) |
+| `金融` | [Finance](../../Learning/Finance/README.md) |
+| `历史与社会` | [History and Society](../../Learning/History_and_Society/INDEX.md) |
 
-## Projects
+## 维护边界
 
-- `DeepSeek AI Agent` -> [[DeepSeek AI Agent]]
-- `SafeCodeAgent` -> [[SafeCodeAgent]]
-- `BigMarket` -> [[BigMarket]]
-
-## Knowledge / Engineering
-
-- `Java后端` -> `Learning/Engineering`
-- `Java基础` -> [[Java基础]]
-- `JUC` -> [[JUC]]
-- `JVM` -> [[JVM]]
-- `Spring` -> [[Spring]]
-- `MySQL` -> [[MySQL]]
-- `Redis` -> [[Redis]]
-- `消息队列` -> [[消息队列]]
-- `分布式` -> [[分布式]]
-- `系统设计` -> [[系统设计]]
-- `CS基础` -> `Learning/CS`
-- `算法` -> [[算法]]
-- `数据结构` -> [[数据结构]]
-- `Network` -> [[Network]]
-- `OS` -> [[OS]]
-- `工具链` -> `Learning/Engineering`
-- `Git` -> [[Git]]
-- `Linux 命令详解指南` -> [[Linux 命令详解指南]]
-- `Docker` -> [[Docker]]
-- `AI Agent` -> `Learning/AI`
-- `AI工程实践` -> [[AI工程实践]]
-- `DeepLearning` -> [[DeepLearning]]
-- `NLP` -> [[NLP]]
-- `Claude Code` -> [[Claude Code]]
-- `OpenAI SDK与LLM调用` -> [[OpenAI SDK与LLM调用]]
-- `LangGraph` -> [[LangGraph]]
-- `Agent基础架构` -> [[Agent基础架构]]
-- `MCP` -> [[MCP]]
-- `Prompt Engineering` -> [[Prompt Engineering]]
-- `项目实战` -> [[项目实战]]
-
-## Knowledge / Algorithms
-
-- `Hash` -> [[Hash]]
-- `双指针` -> [[双指针]]
-- `滑动窗口(done)` -> [[滑动窗口]]
-- `子串` -> [[子串]]
-- `普通数组` -> [[普通数组]]
-- `矩阵` -> [[矩阵]]
-- `字符串` -> [[字符串]]
-- `链表` -> [[链表]]
-- `二叉树` -> [[二叉树]]
-- `图论` -> [[图论]]
-- `回溯（done）` -> [[回溯]]
-- `二分查找` -> [[二分查找]]
-- `栈` -> [[栈]]
-- `堆` -> [[堆]]
-- `贪心` -> [[贪心]]
-- `动态规划` -> [[动态规划]]
-- `多维动态规划` -> [[多维动态规划]]
-- `技巧` -> [[技巧]]
-
-## Areas
-
-- `Life` -> [[Life]]
-- `SemB` -> [[SemB]]
-- `ST` -> [[ST]]
-
-## Status
-
-- 主入口和高置信未完成页已补齐到本地
-- 仍有少量长页和短页在做逐页复核
+- 原始 Notion 目录和页面名称只作为迁移线索，不作为本地链接目标。
+- 主题知识进入 `Learning`，项目证据进入 `Projects` 或 `Learning/Case_Studies`，迁移记录留在本目录。
+- 更详细的来源、证据和归位规则见 [Learning 导航](../../Learning/00_Navigation/README.md) 和 [来源与证据](../../Learning/00_Navigation/来源与证据.md)。

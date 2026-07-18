@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[交易、Gas、Nonce 和链上确认](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/02_Wallets_Transactions_and_RPC/交易、Gas、Nonce%20和链上确认.md)
-- 平行主题：[AMM 为什么能在没有订单簿时完成交易](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/04_DeFi_and_Tokenomics/AMM%20为什么能在没有订单簿时完成交易.md)
-- 下游主题：[私钥、授权和前端钓鱼风险](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/05_Security_and_Risks/私钥、授权和前端钓鱼风险.md)
+- 上游主题：[交易、Gas、Nonce 和链上确认](../../../Learning/Web3/02_Wallets_Transactions_and_RPC/交易、Gas、Nonce%20和链上确认.md)
+- 平行主题：[AMM 为什么能在没有订单簿时完成交易](../../../Learning/Web3/04_DeFi_and_Tokenomics/AMM%20为什么能在没有订单簿时完成交易.md)
+- 下游主题：[私钥、授权和前端钓鱼风险](../../../Learning/Web3/05_Security_and_Risks/私钥、授权和前端钓鱼风险.md)
 
 ---
 

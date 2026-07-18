@@ -18,11 +18,11 @@
 
 ## 模块分工
 
-- [00_Foundations](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/README.md)：建立状态管理框架，解决“到底该先管什么”
-- [01_Sleep_and_Recovery](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/README.md)：建立恢复底盘，解决“为什么睡眠是第一优先级”
-- [02_Exercise_and_Posture](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/README.md)：建立身体活动与体态系统，解决“久坐和低活动如何伤状态”
-- [03_Nutrition_and_Metabolism](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/README.md)：建立日常饮食理解，解决“吃什么会让状态更稳”
-- [04_Focus_and_Stress](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/README.md)：建立专注与压力管理框架，解决“如何在高压期不失控”
+- [00_Foundations](../../Learning/Health_and_Energy/00_Foundations/README.md)：建立状态管理框架，解决“到底该先管什么”
+- [01_Sleep_and_Recovery](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/README.md)：建立恢复底盘，解决“为什么睡眠是第一优先级”
+- [02_Exercise_and_Posture](../../Learning/Health_and_Energy/02_Exercise_and_Posture/README.md)：建立身体活动与体态系统，解决“久坐和低活动如何伤状态”
+- [03_Nutrition_and_Metabolism](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/README.md)：建立日常饮食理解，解决“吃什么会让状态更稳”
+- [04_Focus_and_Stress](../../Learning/Health_and_Energy/04_Focus_and_Stress/README.md)：建立专注与压力管理框架，解决“如何在高压期不失控”
 
 ## 推荐学习路径
 
@@ -56,12 +56,12 @@
 
 建议顺序：
 
-1. [精力管理比时间管理更底层](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/精力管理比时间管理更底层.md)
-2. [影响长期状态的几个关键变量](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/影响长期状态的几个关键变量.md)
-3. [睡眠为什么是第一优先级](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/睡眠为什么是第一优先级.md)
-4. [最小可持续运动方案](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/最小可持续运动方案.md)
-5. [饮食如何影响专注与情绪](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/饮食如何影响专注与情绪.md)
-6. [注意力为什么会碎掉](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/注意力为什么会碎掉.md)
+1. [精力管理比时间管理更底层](../../Learning/Health_and_Energy/00_Foundations/精力管理比时间管理更底层.md)
+2. [影响长期状态的几个关键变量](../../Learning/Health_and_Energy/00_Foundations/影响长期状态的几个关键变量.md)
+3. [睡眠为什么是第一优先级](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/睡眠为什么是第一优先级.md)
+4. [最小可持续运动方案](../../Learning/Health_and_Energy/02_Exercise_and_Posture/最小可持续运动方案.md)
+5. [饮食如何影响专注与情绪](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/饮食如何影响专注与情绪.md)
+6. [注意力为什么会碎掉](../../Learning/Health_and_Energy/04_Focus_and_Stress/注意力为什么会碎掉.md)
 
 ## 复习读法
 
@@ -75,59 +75,59 @@
 
 这些是最值得反复看的母笔记：
 
-- [精力管理比时间管理更底层](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/精力管理比时间管理更底层.md)
-- [睡眠为什么是第一优先级](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/睡眠为什么是第一优先级.md)
-- [最小可持续运动方案](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/最小可持续运动方案.md)
-- [注意力为什么会碎掉](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/注意力为什么会碎掉.md)
+- [精力管理比时间管理更底层](../../Learning/Health_and_Energy/00_Foundations/精力管理比时间管理更底层.md)
+- [睡眠为什么是第一优先级](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/睡眠为什么是第一优先级.md)
+- [最小可持续运动方案](../../Learning/Health_and_Energy/02_Exercise_and_Posture/最小可持续运动方案.md)
+- [注意力为什么会碎掉](../../Learning/Health_and_Energy/04_Focus_and_Stress/注意力为什么会碎掉.md)
 
 ## 第二梯队
 
 这些笔记负责把状态系统补完整：
 
-- [健康管理不是自律比赛，而是系统设计](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/健康管理不是自律比赛，而是系统设计.md)
-- [影响长期状态的几个关键变量](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/影响长期状态的几个关键变量.md)
-- [如何建立自己的状态观察面板](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/如何建立自己的状态观察面板.md)
-- [什么叫可持续的高输出](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/什么叫可持续的高输出.md)
-- [环境、习惯和意志力分别扮演什么角色](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/环境、习惯和意志力分别扮演什么角色.md)
-- [状态差的时候先修什么](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/状态差的时候先修什么.md)
-- [长期主义为什么离不开身体基础](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/长期主义为什么离不开身体基础.md)
-- [睡眠不足会怎样影响认知表现](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/睡眠不足会怎样影响认知表现.md)
-- [如何建立稳定作息](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/如何建立稳定作息.md)
-- [午睡、咖啡因与恢复策略](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/午睡、咖啡因与恢复策略.md)
-- [过劳后的恢复周期如何安排](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/过劳后的恢复周期如何安排.md)
-- [熬夜后的补救策略有什么边界](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/熬夜后的补救策略有什么边界.md)
-- [睡前环境如何影响睡眠质量](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/睡前环境如何影响睡眠质量.md)
-- [周末补觉为什么不总是有效](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/周末补觉为什么不总是有效.md)
-- [工作高峰期如何保住最低睡眠底线](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/工作高峰期如何保住最低睡眠底线.md)
-- [恢复感和实际恢复有什么差别](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/恢复感和实际恢复有什么差别.md)
-- [久坐人群为什么必须运动](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/久坐人群为什么必须运动.md)
-- [力量训练、心肺训练、拉伸各自解决什么问题](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/力量训练、心肺训练、拉伸各自解决什么问题.md)
-- [颈肩腰背问题的日常预防](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/颈肩腰背问题的日常预防.md)
-- [工作型人群的体态管理](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/工作型人群的体态管理.md)
-- [如何把运动嵌入工作日程](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/如何把运动嵌入工作日程.md)
-- [步行为什么比想象中更重要](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/步行为什么比想象中更重要.md)
-- [训练后的酸痛、疲劳和恢复判断](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/训练后的酸痛、疲劳和恢复判断.md)
-- [初学者如何避免运动伤害](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/初学者如何避免运动伤害.md)
-- [运动对情绪和专注的作用](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/运动对情绪和专注的作用.md)
-- [饮食如何影响专注与情绪](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/饮食如何影响专注与情绪.md)
-- [蛋白质、碳水、脂肪的基本角色](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/蛋白质、碳水、脂肪的基本角色.md)
-- [如何理解热量、体重与代谢](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/如何理解热量、体重与代谢.md)
-- [外卖环境下如何吃得更稳](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/外卖环境下如何吃得更稳.md)
-- [血糖波动与下午效率下滑](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/血糖波动与下午效率下滑.md)
-- [高糖、高油、高盐为什么容易让状态变差](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/高糖、高油、高盐为什么容易让状态变差.md)
-- [减脂、维持、增重的基本策略](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/减脂、维持、增重的基本策略.md)
-- [零食、饮料和咖啡如何影响节律](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/零食、饮料和咖啡如何影响节律.md)
-- [忙碌时期的低摩擦饮食方案](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/忙碌时期的低摩擦饮食方案.md)
-- [不要把饮食优化做成额外负担](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/不要把饮食优化做成额外负担.md)
-- [压力是如何积累成失控的](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/压力是如何积累成失控的.md)
-- [如何做深度工作的状态准备](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/如何做深度工作的状态准备.md)
-- [情绪低落时怎么保护执行力](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/情绪低落时怎么保护执行力.md)
-- [休息不是奖励，而是系统的一部分](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/休息不是奖励，而是系统的一部分.md)
-- [任务切换为什么这么伤脑力](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/任务切换为什么这么伤脑力.md)
-- [信息过载如何影响判断质量](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/信息过载如何影响判断质量.md)
-- [焦虑时适合做什么，不适合做什么](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/焦虑时适合做什么，不适合做什么.md)
-- [高压阶段如何保住节奏感](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/高压阶段如何保住节奏感.md)
-- [专注力训练和环境设计](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/专注力训练和环境设计.md)
+- [健康管理不是自律比赛，而是系统设计](../../Learning/Health_and_Energy/00_Foundations/健康管理不是自律比赛，而是系统设计.md)
+- [影响长期状态的几个关键变量](../../Learning/Health_and_Energy/00_Foundations/影响长期状态的几个关键变量.md)
+- [如何建立自己的状态观察面板](../../Learning/Health_and_Energy/00_Foundations/如何建立自己的状态观察面板.md)
+- [什么叫可持续的高输出](../../Learning/Health_and_Energy/00_Foundations/什么叫可持续的高输出.md)
+- [环境、习惯和意志力分别扮演什么角色](../../Learning/Health_and_Energy/00_Foundations/环境、习惯和意志力分别扮演什么角色.md)
+- [状态差的时候先修什么](../../Learning/Health_and_Energy/00_Foundations/状态差的时候先修什么.md)
+- [长期主义为什么离不开身体基础](../../Learning/Health_and_Energy/00_Foundations/长期主义为什么离不开身体基础.md)
+- [睡眠不足会怎样影响认知表现](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/睡眠不足会怎样影响认知表现.md)
+- [如何建立稳定作息](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/如何建立稳定作息.md)
+- [午睡、咖啡因与恢复策略](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/午睡、咖啡因与恢复策略.md)
+- [过劳后的恢复周期如何安排](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/过劳后的恢复周期如何安排.md)
+- [熬夜后的补救策略有什么边界](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/熬夜后的补救策略有什么边界.md)
+- [睡前环境如何影响睡眠质量](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/睡前环境如何影响睡眠质量.md)
+- [周末补觉为什么不总是有效](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/周末补觉为什么不总是有效.md)
+- [工作高峰期如何保住最低睡眠底线](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/工作高峰期如何保住最低睡眠底线.md)
+- [恢复感和实际恢复有什么差别](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/恢复感和实际恢复有什么差别.md)
+- [久坐人群为什么必须运动](../../Learning/Health_and_Energy/02_Exercise_and_Posture/久坐人群为什么必须运动.md)
+- [力量训练、心肺训练、拉伸各自解决什么问题](../../Learning/Health_and_Energy/02_Exercise_and_Posture/力量训练、心肺训练、拉伸各自解决什么问题.md)
+- [颈肩腰背问题的日常预防](../../Learning/Health_and_Energy/02_Exercise_and_Posture/颈肩腰背问题的日常预防.md)
+- [工作型人群的体态管理](../../Learning/Health_and_Energy/02_Exercise_and_Posture/工作型人群的体态管理.md)
+- [如何把运动嵌入工作日程](../../Learning/Health_and_Energy/02_Exercise_and_Posture/如何把运动嵌入工作日程.md)
+- [步行为什么比想象中更重要](../../Learning/Health_and_Energy/02_Exercise_and_Posture/步行为什么比想象中更重要.md)
+- [训练后的酸痛、疲劳和恢复判断](../../Learning/Health_and_Energy/02_Exercise_and_Posture/训练后的酸痛、疲劳和恢复判断.md)
+- [初学者如何避免运动伤害](../../Learning/Health_and_Energy/02_Exercise_and_Posture/初学者如何避免运动伤害.md)
+- [运动对情绪和专注的作用](../../Learning/Health_and_Energy/02_Exercise_and_Posture/运动对情绪和专注的作用.md)
+- [饮食如何影响专注与情绪](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/饮食如何影响专注与情绪.md)
+- [蛋白质、碳水、脂肪的基本角色](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/蛋白质、碳水、脂肪的基本角色.md)
+- [如何理解热量、体重与代谢](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/如何理解热量、体重与代谢.md)
+- [外卖环境下如何吃得更稳](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/外卖环境下如何吃得更稳.md)
+- [血糖波动与下午效率下滑](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/血糖波动与下午效率下滑.md)
+- [高糖、高油、高盐为什么容易让状态变差](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/高糖、高油、高盐为什么容易让状态变差.md)
+- [减脂、维持、增重的基本策略](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/减脂、维持、增重的基本策略.md)
+- [零食、饮料和咖啡如何影响节律](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/零食、饮料和咖啡如何影响节律.md)
+- [忙碌时期的低摩擦饮食方案](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/忙碌时期的低摩擦饮食方案.md)
+- [不要把饮食优化做成额外负担](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/不要把饮食优化做成额外负担.md)
+- [压力是如何积累成失控的](../../Learning/Health_and_Energy/04_Focus_and_Stress/压力是如何积累成失控的.md)
+- [如何做深度工作的状态准备](../../Learning/Health_and_Energy/04_Focus_and_Stress/如何做深度工作的状态准备.md)
+- [情绪低落时怎么保护执行力](../../Learning/Health_and_Energy/04_Focus_and_Stress/情绪低落时怎么保护执行力.md)
+- [休息不是奖励，而是系统的一部分](../../Learning/Health_and_Energy/04_Focus_and_Stress/休息不是奖励，而是系统的一部分.md)
+- [任务切换为什么这么伤脑力](../../Learning/Health_and_Energy/04_Focus_and_Stress/任务切换为什么这么伤脑力.md)
+- [信息过载如何影响判断质量](../../Learning/Health_and_Energy/04_Focus_and_Stress/信息过载如何影响判断质量.md)
+- [焦虑时适合做什么，不适合做什么](../../Learning/Health_and_Energy/04_Focus_and_Stress/焦虑时适合做什么，不适合做什么.md)
+- [高压阶段如何保住节奏感](../../Learning/Health_and_Energy/04_Focus_and_Stress/高压阶段如何保住节奏感.md)
+- [专注力训练和环境设计](../../Learning/Health_and_Energy/04_Focus_and_Stress/专注力训练和环境设计.md)
 
 ## 文档状态
 
@@ -143,71 +143,71 @@
 
 ### 状态管理基础
 
-- 模块说明：[00_Foundations](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/README.md)
-- [健康管理不是自律比赛，而是系统设计](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/健康管理不是自律比赛，而是系统设计.md)
-- [精力管理比时间管理更底层](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/精力管理比时间管理更底层.md)
-- [影响长期状态的几个关键变量](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/影响长期状态的几个关键变量.md)
-- [如何建立自己的状态观察面板](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/如何建立自己的状态观察面板.md)
-- [什么叫可持续的高输出](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/什么叫可持续的高输出.md)
-- [环境、习惯和意志力分别扮演什么角色](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/环境、习惯和意志力分别扮演什么角色.md)
-- [状态差的时候先修什么](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/状态差的时候先修什么.md)
-- [长期主义为什么离不开身体基础](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/00_Foundations/长期主义为什么离不开身体基础.md)
+- 模块说明：[00_Foundations](../../Learning/Health_and_Energy/00_Foundations/README.md)
+- [健康管理不是自律比赛，而是系统设计](../../Learning/Health_and_Energy/00_Foundations/健康管理不是自律比赛，而是系统设计.md)
+- [精力管理比时间管理更底层](../../Learning/Health_and_Energy/00_Foundations/精力管理比时间管理更底层.md)
+- [影响长期状态的几个关键变量](../../Learning/Health_and_Energy/00_Foundations/影响长期状态的几个关键变量.md)
+- [如何建立自己的状态观察面板](../../Learning/Health_and_Energy/00_Foundations/如何建立自己的状态观察面板.md)
+- [什么叫可持续的高输出](../../Learning/Health_and_Energy/00_Foundations/什么叫可持续的高输出.md)
+- [环境、习惯和意志力分别扮演什么角色](../../Learning/Health_and_Energy/00_Foundations/环境、习惯和意志力分别扮演什么角色.md)
+- [状态差的时候先修什么](../../Learning/Health_and_Energy/00_Foundations/状态差的时候先修什么.md)
+- [长期主义为什么离不开身体基础](../../Learning/Health_and_Energy/00_Foundations/长期主义为什么离不开身体基础.md)
 
 ### 睡眠与恢复
 
-- 模块说明：[01_Sleep_and_Recovery](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/README.md)
-- [睡眠为什么是第一优先级](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/睡眠为什么是第一优先级.md)
-- [睡眠不足会怎样影响认知表现](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/睡眠不足会怎样影响认知表现.md)
-- [如何建立稳定作息](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/如何建立稳定作息.md)
-- [午睡、咖啡因与恢复策略](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/午睡、咖啡因与恢复策略.md)
-- [过劳后的恢复周期如何安排](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/过劳后的恢复周期如何安排.md)
-- [熬夜后的补救策略有什么边界](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/熬夜后的补救策略有什么边界.md)
-- [睡前环境如何影响睡眠质量](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/睡前环境如何影响睡眠质量.md)
-- [周末补觉为什么不总是有效](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/周末补觉为什么不总是有效.md)
-- [工作高峰期如何保住最低睡眠底线](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/工作高峰期如何保住最低睡眠底线.md)
-- [恢复感和实际恢复有什么差别](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/01_Sleep_and_Recovery/恢复感和实际恢复有什么差别.md)
+- 模块说明：[01_Sleep_and_Recovery](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/README.md)
+- [睡眠为什么是第一优先级](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/睡眠为什么是第一优先级.md)
+- [睡眠不足会怎样影响认知表现](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/睡眠不足会怎样影响认知表现.md)
+- [如何建立稳定作息](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/如何建立稳定作息.md)
+- [午睡、咖啡因与恢复策略](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/午睡、咖啡因与恢复策略.md)
+- [过劳后的恢复周期如何安排](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/过劳后的恢复周期如何安排.md)
+- [熬夜后的补救策略有什么边界](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/熬夜后的补救策略有什么边界.md)
+- [睡前环境如何影响睡眠质量](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/睡前环境如何影响睡眠质量.md)
+- [周末补觉为什么不总是有效](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/周末补觉为什么不总是有效.md)
+- [工作高峰期如何保住最低睡眠底线](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/工作高峰期如何保住最低睡眠底线.md)
+- [恢复感和实际恢复有什么差别](../../Learning/Health_and_Energy/01_Sleep_and_Recovery/恢复感和实际恢复有什么差别.md)
 
 ### 运动与体态
 
-- 模块说明：[02_Exercise_and_Posture](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/README.md)
-- [久坐人群为什么必须运动](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/久坐人群为什么必须运动.md)
-- [力量训练、心肺训练、拉伸各自解决什么问题](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/力量训练、心肺训练、拉伸各自解决什么问题.md)
-- [最小可持续运动方案](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/最小可持续运动方案.md)
-- [颈肩腰背问题的日常预防](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/颈肩腰背问题的日常预防.md)
-- [工作型人群的体态管理](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/工作型人群的体态管理.md)
-- [如何把运动嵌入工作日程](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/如何把运动嵌入工作日程.md)
-- [步行为什么比想象中更重要](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/步行为什么比想象中更重要.md)
-- [训练后的酸痛、疲劳和恢复判断](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/训练后的酸痛、疲劳和恢复判断.md)
-- [初学者如何避免运动伤害](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/初学者如何避免运动伤害.md)
-- [运动对情绪和专注的作用](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/02_Exercise_and_Posture/运动对情绪和专注的作用.md)
+- 模块说明：[02_Exercise_and_Posture](../../Learning/Health_and_Energy/02_Exercise_and_Posture/README.md)
+- [久坐人群为什么必须运动](../../Learning/Health_and_Energy/02_Exercise_and_Posture/久坐人群为什么必须运动.md)
+- [力量训练、心肺训练、拉伸各自解决什么问题](../../Learning/Health_and_Energy/02_Exercise_and_Posture/力量训练、心肺训练、拉伸各自解决什么问题.md)
+- [最小可持续运动方案](../../Learning/Health_and_Energy/02_Exercise_and_Posture/最小可持续运动方案.md)
+- [颈肩腰背问题的日常预防](../../Learning/Health_and_Energy/02_Exercise_and_Posture/颈肩腰背问题的日常预防.md)
+- [工作型人群的体态管理](../../Learning/Health_and_Energy/02_Exercise_and_Posture/工作型人群的体态管理.md)
+- [如何把运动嵌入工作日程](../../Learning/Health_and_Energy/02_Exercise_and_Posture/如何把运动嵌入工作日程.md)
+- [步行为什么比想象中更重要](../../Learning/Health_and_Energy/02_Exercise_and_Posture/步行为什么比想象中更重要.md)
+- [训练后的酸痛、疲劳和恢复判断](../../Learning/Health_and_Energy/02_Exercise_and_Posture/训练后的酸痛、疲劳和恢复判断.md)
+- [初学者如何避免运动伤害](../../Learning/Health_and_Energy/02_Exercise_and_Posture/初学者如何避免运动伤害.md)
+- [运动对情绪和专注的作用](../../Learning/Health_and_Energy/02_Exercise_and_Posture/运动对情绪和专注的作用.md)
 
 ### 饮食与代谢
 
-- 模块说明：[03_Nutrition_and_Metabolism](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/README.md)
-- [饮食如何影响专注与情绪](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/饮食如何影响专注与情绪.md)
-- [蛋白质、碳水、脂肪的基本角色](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/蛋白质、碳水、脂肪的基本角色.md)
-- [如何理解热量、体重与代谢](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/如何理解热量、体重与代谢.md)
-- [外卖环境下如何吃得更稳](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/外卖环境下如何吃得更稳.md)
-- [血糖波动与下午效率下滑](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/血糖波动与下午效率下滑.md)
-- [高糖、高油、高盐为什么容易让状态变差](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/高糖、高油、高盐为什么容易让状态变差.md)
-- [减脂、维持、增重的基本策略](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/减脂、维持、增重的基本策略.md)
-- [零食、饮料和咖啡如何影响节律](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/零食、饮料和咖啡如何影响节律.md)
-- [忙碌时期的低摩擦饮食方案](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/忙碌时期的低摩擦饮食方案.md)
-- [不要把饮食优化做成额外负担](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/03_Nutrition_and_Metabolism/不要把饮食优化做成额外负担.md)
+- 模块说明：[03_Nutrition_and_Metabolism](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/README.md)
+- [饮食如何影响专注与情绪](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/饮食如何影响专注与情绪.md)
+- [蛋白质、碳水、脂肪的基本角色](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/蛋白质、碳水、脂肪的基本角色.md)
+- [如何理解热量、体重与代谢](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/如何理解热量、体重与代谢.md)
+- [外卖环境下如何吃得更稳](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/外卖环境下如何吃得更稳.md)
+- [血糖波动与下午效率下滑](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/血糖波动与下午效率下滑.md)
+- [高糖、高油、高盐为什么容易让状态变差](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/高糖、高油、高盐为什么容易让状态变差.md)
+- [减脂、维持、增重的基本策略](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/减脂、维持、增重的基本策略.md)
+- [零食、饮料和咖啡如何影响节律](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/零食、饮料和咖啡如何影响节律.md)
+- [忙碌时期的低摩擦饮食方案](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/忙碌时期的低摩擦饮食方案.md)
+- [不要把饮食优化做成额外负担](../../Learning/Health_and_Energy/03_Nutrition_and_Metabolism/不要把饮食优化做成额外负担.md)
 
 ### 专注与压力
 
-- 模块说明：[04_Focus_and_Stress](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/README.md)
-- [注意力为什么会碎掉](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/注意力为什么会碎掉.md)
-- [压力是如何积累成失控的](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/压力是如何积累成失控的.md)
-- [如何做深度工作的状态准备](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/如何做深度工作的状态准备.md)
-- [情绪低落时怎么保护执行力](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/情绪低落时怎么保护执行力.md)
-- [休息不是奖励，而是系统的一部分](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/休息不是奖励，而是系统的一部分.md)
-- [任务切换为什么这么伤脑力](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/任务切换为什么这么伤脑力.md)
-- [信息过载如何影响判断质量](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/信息过载如何影响判断质量.md)
-- [焦虑时适合做什么，不适合做什么](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/焦虑时适合做什么，不适合做什么.md)
-- [高压阶段如何保住节奏感](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/高压阶段如何保住节奏感.md)
-- [专注力训练和环境设计](/Users/diaoyuxuan/Documents/Notes/Learning/Health_and_Energy/04_Focus_and_Stress/专注力训练和环境设计.md)
+- 模块说明：[04_Focus_and_Stress](../../Learning/Health_and_Energy/04_Focus_and_Stress/README.md)
+- [注意力为什么会碎掉](../../Learning/Health_and_Energy/04_Focus_and_Stress/注意力为什么会碎掉.md)
+- [压力是如何积累成失控的](../../Learning/Health_and_Energy/04_Focus_and_Stress/压力是如何积累成失控的.md)
+- [如何做深度工作的状态准备](../../Learning/Health_and_Energy/04_Focus_and_Stress/如何做深度工作的状态准备.md)
+- [情绪低落时怎么保护执行力](../../Learning/Health_and_Energy/04_Focus_and_Stress/情绪低落时怎么保护执行力.md)
+- [休息不是奖励，而是系统的一部分](../../Learning/Health_and_Energy/04_Focus_and_Stress/休息不是奖励，而是系统的一部分.md)
+- [任务切换为什么这么伤脑力](../../Learning/Health_and_Energy/04_Focus_and_Stress/任务切换为什么这么伤脑力.md)
+- [信息过载如何影响判断质量](../../Learning/Health_and_Energy/04_Focus_and_Stress/信息过载如何影响判断质量.md)
+- [焦虑时适合做什么，不适合做什么](../../Learning/Health_and_Energy/04_Focus_and_Stress/焦虑时适合做什么，不适合做什么.md)
+- [高压阶段如何保住节奏感](../../Learning/Health_and_Energy/04_Focus_and_Stress/高压阶段如何保住节奏感.md)
+- [专注力训练和环境设计](../../Learning/Health_and_Energy/04_Focus_and_Stress/专注力训练和环境设计.md)
 
 ## 通用实践框架
 

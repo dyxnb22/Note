@@ -18,9 +18,9 @@
 
 ## 入口
 
-- [Daily](/Users/diaoyuxuan/Documents/Notes/Daily/README.md)
-- [Inbox](/Users/diaoyuxuan/Documents/Notes/Inbox/README.md)
-- [Learning](/Users/diaoyuxuan/Documents/Notes/Learning/README.md)
-- [Projects](/Users/diaoyuxuan/Documents/Notes/Projects/README.md)
-- [Resources](/Users/diaoyuxuan/Documents/Notes/Resources/README.md)
-- [Templates](/Users/diaoyuxuan/Documents/Notes/Templates)
+- [Daily](./Daily/README.md)
+- [Inbox](./Inbox/README.md)
+- [Learning](./Learning/README.md)
+- [Projects](./Projects/README.md)
+- [Resources](./Resources/README.md)
+- [Templates](./Templates)

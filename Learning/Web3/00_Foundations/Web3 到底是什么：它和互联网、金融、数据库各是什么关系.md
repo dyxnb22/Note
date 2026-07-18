@@ -71,9 +71,9 @@
 
 ## 9. 关联主题
 
-- 上游主题：[学习 Web3 时最容易混淆的几层问题](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/00_Foundations/学习%20Web3%20时最容易混淆的几层问题.md)
-- 平行主题：[链上世界里的身份、资产、状态和权限](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/00_Foundations/链上世界里的身份、资产、状态和权限.md)
-- 下游主题：[为什么区块链是状态机而不只是数据库](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/01_Blockchain_and_Consensus/为什么区块链是状态机而不只是数据库.md)
+- 上游主题：[学习 Web3 时最容易混淆的几层问题](../../../Learning/Web3/00_Foundations/学习%20Web3%20时最容易混淆的几层问题.md)
+- 平行主题：[链上世界里的身份、资产、状态和权限](../../../Learning/Web3/00_Foundations/链上世界里的身份、资产、状态和权限.md)
+- 下游主题：[为什么区块链是状态机而不只是数据库](../../../Learning/Web3/01_Blockchain_and_Consensus/为什么区块链是状态机而不只是数据库.md)
 
 ---
 

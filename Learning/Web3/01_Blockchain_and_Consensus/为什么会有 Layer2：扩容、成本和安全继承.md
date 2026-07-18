@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[共识机制在解决什么问题：PoW、PoS 和最终性](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/01_Blockchain_and_Consensus/共识机制在解决什么问题：PoW、PoS%20和最终性.md)
-- 平行主题：[跨链为什么危险：资产桥、消息桥与信任假设](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/01_Blockchain_and_Consensus/跨链为什么危险：资产桥、消息桥与信任假设.md)
-- 下游主题：[Mempool、打包、失败交易和用户体验](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/02_Wallets_Transactions_and_RPC/Mempool、打包、失败交易和用户体验.md)
+- 上游主题：[共识机制在解决什么问题：PoW、PoS 和最终性](../../../Learning/Web3/01_Blockchain_and_Consensus/共识机制在解决什么问题：PoW、PoS%20和最终性.md)
+- 平行主题：[跨链为什么危险：资产桥、消息桥与信任假设](../../../Learning/Web3/01_Blockchain_and_Consensus/跨链为什么危险：资产桥、消息桥与信任假设.md)
+- 下游主题：[Mempool、打包、失败交易和用户体验](../../../Learning/Web3/02_Wallets_Transactions_and_RPC/Mempool、打包、失败交易和用户体验.md)
 
 ---
 

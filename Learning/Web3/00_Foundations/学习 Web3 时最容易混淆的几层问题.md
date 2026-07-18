@@ -56,9 +56,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[Web3 到底是什么：它和互联网、金融、数据库各是什么关系](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/00_Foundations/Web3%20到底是什么：它和互联网、金融、数据库各是什么关系.md)
-- 平行主题：[为什么要从工程和机制两条线同时学 Web3](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/00_Foundations/为什么要从工程和机制两条线同时学%20Web3.md)
-- 下游主题：[如何研究一个协议](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/07_Research_and_Build_Workflow/如何研究一个协议.md)
+- 上游主题：[Web3 到底是什么：它和互联网、金融、数据库各是什么关系](../../../Learning/Web3/00_Foundations/Web3%20到底是什么：它和互联网、金融、数据库各是什么关系.md)
+- 平行主题：[为什么要从工程和机制两条线同时学 Web3](../../../Learning/Web3/00_Foundations/为什么要从工程和机制两条线同时学%20Web3.md)
+- 下游主题：[如何研究一个协议](../../../Learning/Web3/07_Research_and_Build_Workflow/如何研究一个协议.md)
 
 ---
 

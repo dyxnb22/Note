@@ -9,8 +9,8 @@
 
 ## 文档
 
-- [金融体系总览](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/02_Markets/金融体系总览.md)
-- [金融中介与金融市场](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/02_Markets/金融中介与金融市场.md)
-- [市场结构与流动性](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/02_Markets/市场结构与流动性.md)
-- [利率期限结构](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/02_Markets/利率期限结构.md)
-- [中国市场与海外市场差异概览](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/02_Markets/中国市场与海外市场差异概览.md)
+- [金融体系总览](../../../Learning/Finance/02_Markets/金融体系总览.md)
+- [金融中介与金融市场](../../../Learning/Finance/02_Markets/金融中介与金融市场.md)
+- [市场结构与流动性](../../../Learning/Finance/02_Markets/市场结构与流动性.md)
+- [利率期限结构](../../../Learning/Finance/02_Markets/利率期限结构.md)
+- [中国市场与海外市场差异概览](../../../Learning/Finance/02_Markets/中国市场与海外市场差异概览.md)

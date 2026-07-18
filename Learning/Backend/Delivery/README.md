@@ -15,12 +15,12 @@
 
 ## 主题
 
-- [Git](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Delivery/Git.md)：版本控制、分支协作、冲突处理、回退
-- [Linux 命令详解指南](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Delivery/Linux%20命令详解指南.md)：登录服务器后最常用的排查命令
-- [Docker](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Delivery/Docker.md)：镜像、容器、Dockerfile、Compose
-- [Kubernetes](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Delivery/Kubernetes.md)：Pod、Service、发布、探针、资源与弹性
-- [部署与上线](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Delivery/部署与上线.md)：从单服务启动到可回滚上线
-- [CI_CD](/Users/diaoyuxuan/Documents/Notes/Learning/Backend/Delivery/CI_CD.md)：自动构建、自动测试、自动发布
+- [Git](../../../Learning/Backend/Delivery/Git.md)：版本控制、分支协作、冲突处理、回退
+- [Linux 命令详解指南](../../../Learning/Backend/Delivery/Linux%20命令详解指南.md)：登录服务器后最常用的排查命令
+- [Docker](../../../Learning/Backend/Delivery/Docker.md)：镜像、容器、Dockerfile、Compose
+- [Kubernetes](../../../Learning/Backend/Delivery/Kubernetes.md)：Pod、Service、发布、探针、资源与弹性
+- [部署与上线](../../../Learning/Backend/Delivery/部署与上线.md)：从单服务启动到可回滚上线
+- [CI_CD](../../../Learning/Backend/Delivery/CI_CD.md)：自动构建、自动测试、自动发布
 
 ## 建议顺序
 

@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[权限控制、所有权和多签的基本逻辑](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/03_Smart_Contracts_and_Development/权限控制、所有权和多签的基本逻辑.md)
-- 平行主题：[为什么 Foundry 测试不只是单元测试](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/03_Smart_Contracts_and_Development/为什么%20Foundry%20测试不只是单元测试.md)
-- 下游主题：[DAO 在解决什么问题，又解决得怎么样](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/06_Governance_and_Crypto_Society/DAO%20在解决什么问题，又解决得怎么样.md)
+- 上游主题：[权限控制、所有权和多签的基本逻辑](../../../Learning/Web3/03_Smart_Contracts_and_Development/权限控制、所有权和多签的基本逻辑.md)
+- 平行主题：[为什么 Foundry 测试不只是单元测试](../../../Learning/Web3/03_Smart_Contracts_and_Development/为什么%20Foundry%20测试不只是单元测试.md)
+- 下游主题：[DAO 在解决什么问题，又解决得怎么样](../../../Learning/Web3/06_Governance_and_Crypto_Society/DAO%20在解决什么问题，又解决得怎么样.md)
 
 ---
 

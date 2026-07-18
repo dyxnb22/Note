@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[稳定币的几种基本路线](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/04_DeFi_and_Tokenomics/稳定币的几种基本路线.md)
-- 平行主题：[清算机制为什么是 DeFi 的压力测试点](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/04_DeFi_and_Tokenomics/清算机制为什么是%20DeFi%20的压力测试点.md)
-- 下游主题：[如何研究一个协议](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/07_Research_and_Build_Workflow/如何研究一个协议.md)
+- 上游主题：[稳定币的几种基本路线](../../../Learning/Web3/04_DeFi_and_Tokenomics/稳定币的几种基本路线.md)
+- 平行主题：[清算机制为什么是 DeFi 的压力测试点](../../../Learning/Web3/04_DeFi_and_Tokenomics/清算机制为什么是%20DeFi%20的压力测试点.md)
+- 下游主题：[如何研究一个协议](../../../Learning/Web3/07_Research_and_Build_Workflow/如何研究一个协议.md)
 
 ---
 

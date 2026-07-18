@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[Solidity 合约到底在解决什么问题](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)
-- 平行主题：[事件为什么是链上和后端之间的桥梁](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/03_Smart_Contracts_and_Development/事件为什么是链上和后端之间的桥梁.md)
-- 下游主题：[合约升级为什么危险：Proxy、治理和状态一致性](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/03_Smart_Contracts_and_Development/合约升级为什么危险：Proxy、治理和状态一致性.md)
+- 上游主题：[Solidity 合约到底在解决什么问题](../../../Learning/Web3/03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)
+- 平行主题：[事件为什么是链上和后端之间的桥梁](../../../Learning/Web3/03_Smart_Contracts_and_Development/事件为什么是链上和后端之间的桥梁.md)
+- 下游主题：[合约升级为什么危险：Proxy、治理和状态一致性](../../../Learning/Web3/03_Smart_Contracts_and_Development/合约升级为什么危险：Proxy、治理和状态一致性.md)
 
 ---
 

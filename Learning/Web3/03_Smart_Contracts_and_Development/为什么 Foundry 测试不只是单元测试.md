@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[Solidity 合约到底在解决什么问题](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)
-- 平行主题：[重入攻击为什么反复出现](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/05_Security_and_Risks/重入攻击为什么反复出现.md)
-- 下游主题：[审计、模糊测试和不变量测试分别解决什么问题](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/05_Security_and_Risks/审计、模糊测试和不变量测试分别解决什么问题.md)
+- 上游主题：[Solidity 合约到底在解决什么问题](../../../Learning/Web3/03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)
+- 平行主题：[重入攻击为什么反复出现](../../../Learning/Web3/05_Security_and_Risks/重入攻击为什么反复出现.md)
+- 下游主题：[审计、模糊测试和不变量测试分别解决什么问题](../../../Learning/Web3/05_Security_and_Risks/审计、模糊测试和不变量测试分别解决什么问题.md)
 
 ---
 

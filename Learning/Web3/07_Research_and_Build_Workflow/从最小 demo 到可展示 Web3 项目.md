@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[如何研究一个协议](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/07_Research_and_Build_Workflow/如何研究一个协议.md)
-- 平行主题：[事件索引服务为什么是 Web3 后端的关键能力](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/07_Research_and_Build_Workflow/事件索引服务为什么是%20Web3%20后端的关键能力.md)
-- 下游主题：[为什么要从工程和机制两条线同时学 Web3](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/00_Foundations/为什么要从工程和机制两条线同时学%20Web3.md)
+- 上游主题：[如何研究一个协议](../../../Learning/Web3/07_Research_and_Build_Workflow/如何研究一个协议.md)
+- 平行主题：[事件索引服务为什么是 Web3 后端的关键能力](../../../Learning/Web3/07_Research_and_Build_Workflow/事件索引服务为什么是%20Web3%20后端的关键能力.md)
+- 下游主题：[为什么要从工程和机制两条线同时学 Web3](../../../Learning/Web3/00_Foundations/为什么要从工程和机制两条线同时学%20Web3.md)
 
 ---
 

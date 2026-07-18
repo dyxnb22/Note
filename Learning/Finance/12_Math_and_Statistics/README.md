@@ -8,9 +8,9 @@
 
 ## 文档
 
-- [收益率的计算与转换](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/12_Math_and_Statistics/收益率的计算与转换.md)
-- [期望方差与协方差](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/12_Math_and_Statistics/期望方差与协方差.md)
-- [相关性与回归分析](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/12_Math_and_Statistics/相关性与回归分析.md)
-- [常用概率分布](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/12_Math_and_Statistics/常用概率分布.md)
-- [统计检验基础](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/12_Math_and_Statistics/统计检验基础.md)
-- [蒙特卡洛模拟](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/12_Math_and_Statistics/蒙特卡洛模拟.md)
+- [收益率的计算与转换](../../../Learning/Finance/12_Math_and_Statistics/收益率的计算与转换.md)
+- [期望方差与协方差](../../../Learning/Finance/12_Math_and_Statistics/期望方差与协方差.md)
+- [相关性与回归分析](../../../Learning/Finance/12_Math_and_Statistics/相关性与回归分析.md)
+- [常用概率分布](../../../Learning/Finance/12_Math_and_Statistics/常用概率分布.md)
+- [统计检验基础](../../../Learning/Finance/12_Math_and_Statistics/统计检验基础.md)
+- [蒙特卡洛模拟](../../../Learning/Finance/12_Math_and_Statistics/蒙特卡洛模拟.md)

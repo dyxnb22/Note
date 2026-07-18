@@ -18,10 +18,10 @@
 
 ## 模块分工
 
-- [01_History_of_Technology](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/README.md)：看技术如何从工具演化成系统，并改变生产、分发与协作
-- [02_Economic_History](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/README.md)：看增长、危机、全球化和国家发展路径
-- [03_Institutional_Evolution](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/README.md)：看规则、产权、法治、治理能力如何塑造激励
-- [04_Organization_and_Society](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/README.md)：看组织如何处理信息、激励、权力与协作
+- [01_History_of_Technology](../../Learning/History_and_Society/01_History_of_Technology/README.md)：看技术如何从工具演化成系统，并改变生产、分发与协作
+- [02_Economic_History](../../Learning/History_and_Society/02_Economic_History/README.md)：看增长、危机、全球化和国家发展路径
+- [03_Institutional_Evolution](../../Learning/History_and_Society/03_Institutional_Evolution/README.md)：看规则、产权、法治、治理能力如何塑造激励
+- [04_Organization_and_Society](../../Learning/History_and_Society/04_Organization_and_Society/README.md)：看组织如何处理信息、激励、权力与协作
 
 ## 推荐学习路径
 
@@ -54,15 +54,15 @@
 
 建议顺序：
 
-1. [技术史学习方法](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/技术史学习方法.md)
-2. [从工具到系统：技术进步的基本路径](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/从工具到系统：技术进步的基本路径.md)
-3. [工业革命如何改变生产与组织](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/工业革命如何改变生产与组织.md)
-4. [经济史学习方法](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/经济史学习方法.md)
-5. [为什么有些国家先富起来](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/为什么有些国家先富起来.md)
-6. [制度是什么：规则如何塑造行为](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/制度是什么：规则如何塑造行为.md)
-7. [国家能力与经济发展](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/国家能力与经济发展.md)
-8. [组织为什么会出现](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/组织为什么会出现.md)
-9. [激励相容与委托代理问题](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/激励相容与委托代理问题.md)
+1. [技术史学习方法](../../Learning/History_and_Society/01_History_of_Technology/技术史学习方法.md)
+2. [从工具到系统：技术进步的基本路径](../../Learning/History_and_Society/01_History_of_Technology/从工具到系统：技术进步的基本路径.md)
+3. [工业革命如何改变生产与组织](../../Learning/History_and_Society/01_History_of_Technology/工业革命如何改变生产与组织.md)
+4. [经济史学习方法](../../Learning/History_and_Society/02_Economic_History/经济史学习方法.md)
+5. [为什么有些国家先富起来](../../Learning/History_and_Society/02_Economic_History/为什么有些国家先富起来.md)
+6. [制度是什么：规则如何塑造行为](../../Learning/History_and_Society/03_Institutional_Evolution/制度是什么：规则如何塑造行为.md)
+7. [国家能力与经济发展](../../Learning/History_and_Society/03_Institutional_Evolution/国家能力与经济发展.md)
+8. [组织为什么会出现](../../Learning/History_and_Society/04_Organization_and_Society/组织为什么会出现.md)
+9. [激励相容与委托代理问题](../../Learning/History_and_Society/04_Organization_and_Society/激励相容与委托代理问题.md)
 
 ## 复习读法
 
@@ -75,49 +75,49 @@
 
 这些是最值得反复复习的母笔记：
 
-- [技术史学习方法](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/技术史学习方法.md)
-- [从工具到系统：技术进步的基本路径](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/从工具到系统：技术进步的基本路径.md)
-- [工业革命如何改变生产与组织](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/工业革命如何改变生产与组织.md)
-- [互联网如何改变分发与协作](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/互联网如何改变分发与协作.md)
-- [经济史学习方法](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/经济史学习方法.md)
-- [为什么有些国家先富起来](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/为什么有些国家先富起来.md)
-- [制度是什么：规则如何塑造行为](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/制度是什么：规则如何塑造行为.md)
-- [国家能力与经济发展](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/国家能力与经济发展.md)
-- [组织为什么会出现](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/组织为什么会出现.md)
-- [激励相容与委托代理问题](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/激励相容与委托代理问题.md)
+- [技术史学习方法](../../Learning/History_and_Society/01_History_of_Technology/技术史学习方法.md)
+- [从工具到系统：技术进步的基本路径](../../Learning/History_and_Society/01_History_of_Technology/从工具到系统：技术进步的基本路径.md)
+- [工业革命如何改变生产与组织](../../Learning/History_and_Society/01_History_of_Technology/工业革命如何改变生产与组织.md)
+- [互联网如何改变分发与协作](../../Learning/History_and_Society/01_History_of_Technology/互联网如何改变分发与协作.md)
+- [经济史学习方法](../../Learning/History_and_Society/02_Economic_History/经济史学习方法.md)
+- [为什么有些国家先富起来](../../Learning/History_and_Society/02_Economic_History/为什么有些国家先富起来.md)
+- [制度是什么：规则如何塑造行为](../../Learning/History_and_Society/03_Institutional_Evolution/制度是什么：规则如何塑造行为.md)
+- [国家能力与经济发展](../../Learning/History_and_Society/03_Institutional_Evolution/国家能力与经济发展.md)
+- [组织为什么会出现](../../Learning/History_and_Society/04_Organization_and_Society/组织为什么会出现.md)
+- [激励相容与委托代理问题](../../Learning/History_and_Society/04_Organization_and_Society/激励相容与委托代理问题.md)
 
 ## 第二梯队
 
 这些笔记负责把主线补厚、补连贯：
 
-- [铁路、电报与早期网络效应](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/铁路、电报与早期网络效应.md)
-- [电力时代与大企业的形成](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/电力时代与大企业的形成.md)
-- [半导体与摩尔定律背后的产业协同](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/半导体与摩尔定律背后的产业协同.md)
-- [计算机革命与信息社会](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/计算机革命与信息社会.md)
-- [移动互联网时代的平台化](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/移动互联网时代的平台化.md)
-- [AI 时代的生产率想象与现实约束](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/AI%20时代的生产率想象与现实约束.md)
-- [农业社会到工业社会的跃迁](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/农业社会到工业社会的跃迁.md)
-- [商贸扩张、殖民与资本积累](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/商贸扩张、殖民与资本积累.md)
-- [大萧条的机制与影响](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/大萧条的机制与影响.md)
-- [全球化的几次浪潮](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/全球化的几次浪潮.md)
-- [2008 年金融危机复盘](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/2008%20年金融危机复盘.md)
-- [中国改革开放与增长逻辑](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/中国改革开放与增长逻辑.md)
-- [正式制度与非正式制度](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/正式制度与非正式制度.md)
-- [产权保护与长期投资](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/产权保护与长期投资.md)
-- [法治、信用与市场秩序](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/法治、信用与市场秩序.md)
-- [税收、财政与治理能力](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/税收、财政与治理能力.md)
-- [监管为什么常常滞后于创新](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/监管为什么常常滞后于创新.md)
-- [制度路径依赖与改革成本](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/制度路径依赖与改革成本.md)
-- [中央地方关系与政策执行](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/中央地方关系与政策执行.md)
-- [制度变迁中的赢家与阻力](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/制度变迁中的赢家与阻力.md)
-- [公司、市场与科层制](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/公司、市场与科层制.md)
-- [信息如何在组织中失真](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/信息如何在组织中失真.md)
-- [组织中的权力、责任与问责](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/组织中的权力、责任与问责.md)
-- [会议、汇报与决策链条](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/会议、汇报与决策链条.md)
-- [文化是怎么形成的](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/文化是怎么形成的.md)
-- [组织扩张后的沟通成本](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/组织扩张后的沟通成本.md)
-- [高压文化与创新文化的差异](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/高压文化与创新文化的差异.md)
-- [个人在组织中的成长策略](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/个人在组织中的成长策略.md)
+- [铁路、电报与早期网络效应](../../Learning/History_and_Society/01_History_of_Technology/铁路、电报与早期网络效应.md)
+- [电力时代与大企业的形成](../../Learning/History_and_Society/01_History_of_Technology/电力时代与大企业的形成.md)
+- [半导体与摩尔定律背后的产业协同](../../Learning/History_and_Society/01_History_of_Technology/半导体与摩尔定律背后的产业协同.md)
+- [计算机革命与信息社会](../../Learning/History_and_Society/01_History_of_Technology/计算机革命与信息社会.md)
+- [移动互联网时代的平台化](../../Learning/History_and_Society/01_History_of_Technology/移动互联网时代的平台化.md)
+- [AI 时代的生产率想象与现实约束](../../Learning/History_and_Society/01_History_of_Technology/AI%20时代的生产率想象与现实约束.md)
+- [农业社会到工业社会的跃迁](../../Learning/History_and_Society/02_Economic_History/农业社会到工业社会的跃迁.md)
+- [商贸扩张、殖民与资本积累](../../Learning/History_and_Society/02_Economic_History/商贸扩张、殖民与资本积累.md)
+- [大萧条的机制与影响](../../Learning/History_and_Society/02_Economic_History/大萧条的机制与影响.md)
+- [全球化的几次浪潮](../../Learning/History_and_Society/02_Economic_History/全球化的几次浪潮.md)
+- [2008 年金融危机复盘](../../Learning/History_and_Society/02_Economic_History/2008%20年金融危机复盘.md)
+- [中国改革开放与增长逻辑](../../Learning/History_and_Society/02_Economic_History/中国改革开放与增长逻辑.md)
+- [正式制度与非正式制度](../../Learning/History_and_Society/03_Institutional_Evolution/正式制度与非正式制度.md)
+- [产权保护与长期投资](../../Learning/History_and_Society/03_Institutional_Evolution/产权保护与长期投资.md)
+- [法治、信用与市场秩序](../../Learning/History_and_Society/03_Institutional_Evolution/法治、信用与市场秩序.md)
+- [税收、财政与治理能力](../../Learning/History_and_Society/03_Institutional_Evolution/税收、财政与治理能力.md)
+- [监管为什么常常滞后于创新](../../Learning/History_and_Society/03_Institutional_Evolution/监管为什么常常滞后于创新.md)
+- [制度路径依赖与改革成本](../../Learning/History_and_Society/03_Institutional_Evolution/制度路径依赖与改革成本.md)
+- [中央地方关系与政策执行](../../Learning/History_and_Society/03_Institutional_Evolution/中央地方关系与政策执行.md)
+- [制度变迁中的赢家与阻力](../../Learning/History_and_Society/03_Institutional_Evolution/制度变迁中的赢家与阻力.md)
+- [公司、市场与科层制](../../Learning/History_and_Society/04_Organization_and_Society/公司、市场与科层制.md)
+- [信息如何在组织中失真](../../Learning/History_and_Society/04_Organization_and_Society/信息如何在组织中失真.md)
+- [组织中的权力、责任与问责](../../Learning/History_and_Society/04_Organization_and_Society/组织中的权力、责任与问责.md)
+- [会议、汇报与决策链条](../../Learning/History_and_Society/04_Organization_and_Society/会议、汇报与决策链条.md)
+- [文化是怎么形成的](../../Learning/History_and_Society/04_Organization_and_Society/文化是怎么形成的.md)
+- [组织扩张后的沟通成本](../../Learning/History_and_Society/04_Organization_and_Society/组织扩张后的沟通成本.md)
+- [高压文化与创新文化的差异](../../Learning/History_and_Society/04_Organization_and_Society/高压文化与创新文化的差异.md)
+- [个人在组织中的成长策略](../../Learning/History_and_Society/04_Organization_and_Society/个人在组织中的成长策略.md)
 
 ## 文档状态
 
@@ -132,59 +132,59 @@
 
 ### 科技史
 
-- 模块说明：[01_History_of_Technology](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/README.md)
-- [技术史学习方法](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/技术史学习方法.md)
-- [从工具到系统：技术进步的基本路径](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/从工具到系统：技术进步的基本路径.md)
-- [工业革命如何改变生产与组织](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/工业革命如何改变生产与组织.md)
-- [铁路、电报与早期网络效应](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/铁路、电报与早期网络效应.md)
-- [电力时代与大企业的形成](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/电力时代与大企业的形成.md)
-- [半导体与摩尔定律背后的产业协同](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/半导体与摩尔定律背后的产业协同.md)
-- [计算机革命与信息社会](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/计算机革命与信息社会.md)
-- [互联网如何改变分发与协作](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/互联网如何改变分发与协作.md)
-- [移动互联网时代的平台化](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/移动互联网时代的平台化.md)
-- [AI 时代的生产率想象与现实约束](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/01_History_of_Technology/AI%20时代的生产率想象与现实约束.md)
+- 模块说明：[01_History_of_Technology](../../Learning/History_and_Society/01_History_of_Technology/README.md)
+- [技术史学习方法](../../Learning/History_and_Society/01_History_of_Technology/技术史学习方法.md)
+- [从工具到系统：技术进步的基本路径](../../Learning/History_and_Society/01_History_of_Technology/从工具到系统：技术进步的基本路径.md)
+- [工业革命如何改变生产与组织](../../Learning/History_and_Society/01_History_of_Technology/工业革命如何改变生产与组织.md)
+- [铁路、电报与早期网络效应](../../Learning/History_and_Society/01_History_of_Technology/铁路、电报与早期网络效应.md)
+- [电力时代与大企业的形成](../../Learning/History_and_Society/01_History_of_Technology/电力时代与大企业的形成.md)
+- [半导体与摩尔定律背后的产业协同](../../Learning/History_and_Society/01_History_of_Technology/半导体与摩尔定律背后的产业协同.md)
+- [计算机革命与信息社会](../../Learning/History_and_Society/01_History_of_Technology/计算机革命与信息社会.md)
+- [互联网如何改变分发与协作](../../Learning/History_and_Society/01_History_of_Technology/互联网如何改变分发与协作.md)
+- [移动互联网时代的平台化](../../Learning/History_and_Society/01_History_of_Technology/移动互联网时代的平台化.md)
+- [AI 时代的生产率想象与现实约束](../../Learning/History_and_Society/01_History_of_Technology/AI%20时代的生产率想象与现实约束.md)
 
 ### 经济史
 
-- 模块说明：[02_Economic_History](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/README.md)
-- [经济史学习方法](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/经济史学习方法.md)
-- [农业社会到工业社会的跃迁](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/农业社会到工业社会的跃迁.md)
-- [商贸扩张、殖民与资本积累](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/商贸扩张、殖民与资本积累.md)
-- [为什么有些国家先富起来](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/为什么有些国家先富起来.md)
-- [大萧条的机制与影响](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/大萧条的机制与影响.md)
-- [战后重建与布雷顿森林体系](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/战后重建与布雷顿森林体系.md)
-- [布雷顿森林体系的建立与瓦解](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/布雷顿森林体系的建立与瓦解.md)
-- [全球化的几次浪潮](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/全球化的几次浪潮.md)
-- [2008 年金融危机复盘](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/2008%20年金融危机复盘.md)
-- [中国改革开放与增长逻辑](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/02_Economic_History/中国改革开放与增长逻辑.md)
+- 模块说明：[02_Economic_History](../../Learning/History_and_Society/02_Economic_History/README.md)
+- [经济史学习方法](../../Learning/History_and_Society/02_Economic_History/经济史学习方法.md)
+- [农业社会到工业社会的跃迁](../../Learning/History_and_Society/02_Economic_History/农业社会到工业社会的跃迁.md)
+- [商贸扩张、殖民与资本积累](../../Learning/History_and_Society/02_Economic_History/商贸扩张、殖民与资本积累.md)
+- [为什么有些国家先富起来](../../Learning/History_and_Society/02_Economic_History/为什么有些国家先富起来.md)
+- [大萧条的机制与影响](../../Learning/History_and_Society/02_Economic_History/大萧条的机制与影响.md)
+- [战后重建与布雷顿森林体系](../../Learning/History_and_Society/02_Economic_History/战后重建与布雷顿森林体系.md)
+- [布雷顿森林体系的建立与瓦解](../../Learning/History_and_Society/02_Economic_History/布雷顿森林体系的建立与瓦解.md)
+- [全球化的几次浪潮](../../Learning/History_and_Society/02_Economic_History/全球化的几次浪潮.md)
+- [2008 年金融危机复盘](../../Learning/History_and_Society/02_Economic_History/2008%20年金融危机复盘.md)
+- [中国改革开放与增长逻辑](../../Learning/History_and_Society/02_Economic_History/中国改革开放与增长逻辑.md)
 
 ### 制度演化
 
-- 模块说明：[03_Institutional_Evolution](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/README.md)
-- [制度是什么：规则如何塑造行为](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/制度是什么：规则如何塑造行为.md)
-- [正式制度与非正式制度](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/正式制度与非正式制度.md)
-- [产权保护与长期投资](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/产权保护与长期投资.md)
-- [法治、信用与市场秩序](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/法治、信用与市场秩序.md)
-- [国家能力与经济发展](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/国家能力与经济发展.md)
-- [税收、财政与治理能力](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/税收、财政与治理能力.md)
-- [监管为什么常常滞后于创新](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/监管为什么常常滞后于创新.md)
-- [制度路径依赖与改革成本](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/制度路径依赖与改革成本.md)
-- [中央地方关系与政策执行](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/中央地方关系与政策执行.md)
-- [制度变迁中的赢家与阻力](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/03_Institutional_Evolution/制度变迁中的赢家与阻力.md)
+- 模块说明：[03_Institutional_Evolution](../../Learning/History_and_Society/03_Institutional_Evolution/README.md)
+- [制度是什么：规则如何塑造行为](../../Learning/History_and_Society/03_Institutional_Evolution/制度是什么：规则如何塑造行为.md)
+- [正式制度与非正式制度](../../Learning/History_and_Society/03_Institutional_Evolution/正式制度与非正式制度.md)
+- [产权保护与长期投资](../../Learning/History_and_Society/03_Institutional_Evolution/产权保护与长期投资.md)
+- [法治、信用与市场秩序](../../Learning/History_and_Society/03_Institutional_Evolution/法治、信用与市场秩序.md)
+- [国家能力与经济发展](../../Learning/History_and_Society/03_Institutional_Evolution/国家能力与经济发展.md)
+- [税收、财政与治理能力](../../Learning/History_and_Society/03_Institutional_Evolution/税收、财政与治理能力.md)
+- [监管为什么常常滞后于创新](../../Learning/History_and_Society/03_Institutional_Evolution/监管为什么常常滞后于创新.md)
+- [制度路径依赖与改革成本](../../Learning/History_and_Society/03_Institutional_Evolution/制度路径依赖与改革成本.md)
+- [中央地方关系与政策执行](../../Learning/History_and_Society/03_Institutional_Evolution/中央地方关系与政策执行.md)
+- [制度变迁中的赢家与阻力](../../Learning/History_and_Society/03_Institutional_Evolution/制度变迁中的赢家与阻力.md)
 
 ### 组织与社会
 
-- 模块说明：[04_Organization_and_Society](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/README.md)
-- [组织为什么会出现](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/组织为什么会出现.md)
-- [公司、市场与科层制](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/公司、市场与科层制.md)
-- [激励相容与委托代理问题](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/激励相容与委托代理问题.md)
-- [信息如何在组织中失真](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/信息如何在组织中失真.md)
-- [组织中的权力、责任与问责](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/组织中的权力、责任与问责.md)
-- [会议、汇报与决策链条](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/会议、汇报与决策链条.md)
-- [文化是怎么形成的](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/文化是怎么形成的.md)
-- [组织扩张后的沟通成本](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/组织扩张后的沟通成本.md)
-- [高压文化与创新文化的差异](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/高压文化与创新文化的差异.md)
-- [个人在组织中的成长策略](/Users/diaoyuxuan/Documents/Notes/Learning/History_and_Society/04_Organization_and_Society/个人在组织中的成长策略.md)
+- 模块说明：[04_Organization_and_Society](../../Learning/History_and_Society/04_Organization_and_Society/README.md)
+- [组织为什么会出现](../../Learning/History_and_Society/04_Organization_and_Society/组织为什么会出现.md)
+- [公司、市场与科层制](../../Learning/History_and_Society/04_Organization_and_Society/公司、市场与科层制.md)
+- [激励相容与委托代理问题](../../Learning/History_and_Society/04_Organization_and_Society/激励相容与委托代理问题.md)
+- [信息如何在组织中失真](../../Learning/History_and_Society/04_Organization_and_Society/信息如何在组织中失真.md)
+- [组织中的权力、责任与问责](../../Learning/History_and_Society/04_Organization_and_Society/组织中的权力、责任与问责.md)
+- [会议、汇报与决策链条](../../Learning/History_and_Society/04_Organization_and_Society/会议、汇报与决策链条.md)
+- [文化是怎么形成的](../../Learning/History_and_Society/04_Organization_and_Society/文化是怎么形成的.md)
+- [组织扩张后的沟通成本](../../Learning/History_and_Society/04_Organization_and_Society/组织扩张后的沟通成本.md)
+- [高压文化与创新文化的差异](../../Learning/History_and_Society/04_Organization_and_Society/高压文化与创新文化的差异.md)
+- [个人在组织中的成长策略](../../Learning/History_and_Society/04_Organization_and_Society/个人在组织中的成长策略.md)
 
 ## 通用分析框架
 

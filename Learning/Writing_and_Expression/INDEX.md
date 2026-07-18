@@ -18,11 +18,11 @@
 
 ## 模块分工
 
-- [00_Foundations](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/README.md)：建立表达的底层原则，解决“为什么别人听不懂”
-- [01_Structured_Writing](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/README.md)：建立写作结构，解决“怎么把东西写成文”
-- [02_Technical_Communication](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/README.md)：建立技术表达能力，解决“复杂内容怎么讲清”
-- [03_Workplace_Communication](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/README.md)：建立工作场景输出能力，解决“怎么汇报、对齐、面试、协作”
-- [04_Persuasion_and_Argument](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/README.md)：建立论证与说服能力，解决“有分歧时怎么推进”
+- [00_Foundations](../../Learning/Writing_and_Expression/00_Foundations/README.md)：建立表达的底层原则，解决“为什么别人听不懂”
+- [01_Structured_Writing](../../Learning/Writing_and_Expression/01_Structured_Writing/README.md)：建立写作结构，解决“怎么把东西写成文”
+- [02_Technical_Communication](../../Learning/Writing_and_Expression/02_Technical_Communication/README.md)：建立技术表达能力，解决“复杂内容怎么讲清”
+- [03_Workplace_Communication](../../Learning/Writing_and_Expression/03_Workplace_Communication/README.md)：建立工作场景输出能力，解决“怎么汇报、对齐、面试、协作”
+- [04_Persuasion_and_Argument](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/README.md)：建立论证与说服能力，解决“有分歧时怎么推进”
 
 ## 推荐学习路径
 
@@ -56,13 +56,13 @@
 
 建议顺序：
 
-1. [表达的本质：传递信息、建立共识、推动行动](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/表达的本质：传递信息、建立共识、推动行动.md)
-2. [先有结构，再有文采](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/先有结构，再有文采.md)
-3. [读者视角：别人为什么看不懂你的表达](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/读者视角：别人为什么看不懂你的表达.md)
-4. [总结写作的标准框架](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/总结写作的标准框架.md)
-5. [如何写设计文档](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/如何写设计文档.md)
-6. [如何做一次清晰的工作汇报](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/如何做一次清晰的工作汇报.md)
-7. [什么是有效论证](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/什么是有效论证.md)
+1. [表达的本质：传递信息、建立共识、推动行动](../../Learning/Writing_and_Expression/00_Foundations/表达的本质：传递信息、建立共识、推动行动.md)
+2. [先有结构，再有文采](../../Learning/Writing_and_Expression/00_Foundations/先有结构，再有文采.md)
+3. [读者视角：别人为什么看不懂你的表达](../../Learning/Writing_and_Expression/00_Foundations/读者视角：别人为什么看不懂你的表达.md)
+4. [总结写作的标准框架](../../Learning/Writing_and_Expression/01_Structured_Writing/总结写作的标准框架.md)
+5. [如何写设计文档](../../Learning/Writing_and_Expression/02_Technical_Communication/如何写设计文档.md)
+6. [如何做一次清晰的工作汇报](../../Learning/Writing_and_Expression/03_Workplace_Communication/如何做一次清晰的工作汇报.md)
+7. [什么是有效论证](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/什么是有效论证.md)
 
 ## 复习读法
 
@@ -76,59 +76,59 @@
 
 这些是最值得反复练习的母笔记：
 
-- [表达的本质：传递信息、建立共识、推动行动](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/表达的本质：传递信息、建立共识、推动行动.md)
-- [先有结构，再有文采](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/先有结构，再有文采.md)
-- [总结写作的标准框架](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/总结写作的标准框架.md)
-- [如何写设计文档](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/如何写设计文档.md)
-- [如何做一次清晰的工作汇报](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/如何做一次清晰的工作汇报.md)
-- [什么是有效论证](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/什么是有效论证.md)
+- [表达的本质：传递信息、建立共识、推动行动](../../Learning/Writing_and_Expression/00_Foundations/表达的本质：传递信息、建立共识、推动行动.md)
+- [先有结构，再有文采](../../Learning/Writing_and_Expression/00_Foundations/先有结构，再有文采.md)
+- [总结写作的标准框架](../../Learning/Writing_and_Expression/01_Structured_Writing/总结写作的标准框架.md)
+- [如何写设计文档](../../Learning/Writing_and_Expression/02_Technical_Communication/如何写设计文档.md)
+- [如何做一次清晰的工作汇报](../../Learning/Writing_and_Expression/03_Workplace_Communication/如何做一次清晰的工作汇报.md)
+- [什么是有效论证](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/什么是有效论证.md)
 
 ## 第二梯队
 
 这些笔记负责把表达能力从“知道原则”补成“场景可用”：
 
-- [读者视角：别人为什么看不懂你的表达](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/读者视角：别人为什么看不懂你的表达.md)
-- [常见表达问题：散、空、绕、弱](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/常见表达问题：散、空、绕、弱.md)
-- [如何把复杂问题讲简单](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/如何把复杂问题讲简单.md)
-- [信息密度和可读性如何平衡](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/信息密度和可读性如何平衡.md)
-- [表达中的抽象层级控制](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/表达中的抽象层级控制.md)
-- [准确、简洁、有力分别是什么意思](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/准确、简洁、有力分别是什么意思.md)
-- [复盘怎么写得具体而不空泛](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/复盘怎么写得具体而不空泛.md)
-- [一篇好文章的结构骨架](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/一篇好文章的结构骨架.md)
-- [如何写出有信息密度的笔记](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/如何写出有信息密度的笔记.md)
-- [从材料到提纲：写作前的整理方法](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/从材料到提纲：写作前的整理方法.md)
-- [开头、过渡、结尾的常见写法](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/开头、过渡、结尾的常见写法.md)
-- [例子、比喻和定义如何穿插](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/例子、比喻和定义如何穿插.md)
-- [如何把长文写得有节奏](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/如何把长文写得有节奏.md)
-- [如何压缩一篇文章而不丢核心信息](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/如何压缩一篇文章而不丢核心信息.md)
-- [从想到写：降低动笔阻力的方法](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/从想到写：降低动笔阻力的方法.md)
-- [技术文档为什么总是难读](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/技术文档为什么总是难读.md)
-- [如何写接口文档](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/如何写接口文档.md)
-- [技术方案怎么讲清 trade-off](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/技术方案怎么讲清%20trade-off.md)
-- [写给工程师和写给老板有什么不同](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/写给工程师和写给老板有什么不同.md)
-- [把系统设计写成别人能复用的知识](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/把系统设计写成别人能复用的知识.md)
-- [事故复盘怎么写得客观有效](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/事故复盘怎么写得客观有效.md)
-- [复杂流程如何用文字解释清楚](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/复杂流程如何用文字解释清楚.md)
-- [什么时候该画图，什么时候该写字](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/什么时候该画图，什么时候该写字.md)
-- [技术表达里的边界、假设与风险提示](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/技术表达里的边界、假设与风险提示.md)
-- [周报、月报、汇报的区别](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/周报、月报、汇报的区别.md)
-- [会议表达：如何在短时间说清重点](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/会议表达：如何在短时间说清重点.md)
-- [跨团队沟通中的对齐方法](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/跨团队沟通中的对齐方法.md)
-- [面试中的项目表达框架](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/面试中的项目表达框架.md)
-- [如何讲自己的贡献而不显得飘](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/如何讲自己的贡献而不显得飘.md)
-- [向上汇报时要站在什么视角](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/向上汇报时要站在什么视角.md)
-- [如何向下传达任务和标准](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/如何向下传达任务和标准.md)
-- [冲突沟通中如何不把话说死](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/冲突沟通中如何不把话说死.md)
-- [一对一沟通怎么更有效](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/一对一沟通怎么更有效.md)
-- [说服不是赢辩论，而是推动行动](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/说服不是赢辩论，而是推动行动.md)
-- [如何回应质疑与反对意见](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何回应质疑与反对意见.md)
-- [如何在不确定中表达判断](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何在不确定中表达判断.md)
-- [数据、故事与类比怎么配合使用](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/数据、故事与类比怎么配合使用.md)
-- [观点太强和观点太弱都有什么问题](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/观点太强和观点太弱都有什么问题.md)
-- [论点、论据、假设如何区分](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/论点、论据、假设如何区分.md)
-- [什么时候该坚持，什么时候该让步](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/什么时候该坚持，什么时候该让步.md)
-- [如何识别自己论证中的漏洞](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何识别自己论证中的漏洞.md)
-- [表达里的情绪管理与关系维护](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/表达里的情绪管理与关系维护.md)
+- [读者视角：别人为什么看不懂你的表达](../../Learning/Writing_and_Expression/00_Foundations/读者视角：别人为什么看不懂你的表达.md)
+- [常见表达问题：散、空、绕、弱](../../Learning/Writing_and_Expression/00_Foundations/常见表达问题：散、空、绕、弱.md)
+- [如何把复杂问题讲简单](../../Learning/Writing_and_Expression/00_Foundations/如何把复杂问题讲简单.md)
+- [信息密度和可读性如何平衡](../../Learning/Writing_and_Expression/00_Foundations/信息密度和可读性如何平衡.md)
+- [表达中的抽象层级控制](../../Learning/Writing_and_Expression/00_Foundations/表达中的抽象层级控制.md)
+- [准确、简洁、有力分别是什么意思](../../Learning/Writing_and_Expression/00_Foundations/准确、简洁、有力分别是什么意思.md)
+- [复盘怎么写得具体而不空泛](../../Learning/Writing_and_Expression/01_Structured_Writing/复盘怎么写得具体而不空泛.md)
+- [一篇好文章的结构骨架](../../Learning/Writing_and_Expression/01_Structured_Writing/一篇好文章的结构骨架.md)
+- [如何写出有信息密度的笔记](../../Learning/Writing_and_Expression/01_Structured_Writing/如何写出有信息密度的笔记.md)
+- [从材料到提纲：写作前的整理方法](../../Learning/Writing_and_Expression/01_Structured_Writing/从材料到提纲：写作前的整理方法.md)
+- [开头、过渡、结尾的常见写法](../../Learning/Writing_and_Expression/01_Structured_Writing/开头、过渡、结尾的常见写法.md)
+- [例子、比喻和定义如何穿插](../../Learning/Writing_and_Expression/01_Structured_Writing/例子、比喻和定义如何穿插.md)
+- [如何把长文写得有节奏](../../Learning/Writing_and_Expression/01_Structured_Writing/如何把长文写得有节奏.md)
+- [如何压缩一篇文章而不丢核心信息](../../Learning/Writing_and_Expression/01_Structured_Writing/如何压缩一篇文章而不丢核心信息.md)
+- [从想到写：降低动笔阻力的方法](../../Learning/Writing_and_Expression/01_Structured_Writing/从想到写：降低动笔阻力的方法.md)
+- [技术文档为什么总是难读](../../Learning/Writing_and_Expression/02_Technical_Communication/技术文档为什么总是难读.md)
+- [如何写接口文档](../../Learning/Writing_and_Expression/02_Technical_Communication/如何写接口文档.md)
+- [技术方案怎么讲清 trade-off](../../Learning/Writing_and_Expression/02_Technical_Communication/技术方案怎么讲清%20trade-off.md)
+- [写给工程师和写给老板有什么不同](../../Learning/Writing_and_Expression/02_Technical_Communication/写给工程师和写给老板有什么不同.md)
+- [把系统设计写成别人能复用的知识](../../Learning/Writing_and_Expression/02_Technical_Communication/把系统设计写成别人能复用的知识.md)
+- [事故复盘怎么写得客观有效](../../Learning/Writing_and_Expression/02_Technical_Communication/事故复盘怎么写得客观有效.md)
+- [复杂流程如何用文字解释清楚](../../Learning/Writing_and_Expression/02_Technical_Communication/复杂流程如何用文字解释清楚.md)
+- [什么时候该画图，什么时候该写字](../../Learning/Writing_and_Expression/02_Technical_Communication/什么时候该画图，什么时候该写字.md)
+- [技术表达里的边界、假设与风险提示](../../Learning/Writing_and_Expression/02_Technical_Communication/技术表达里的边界、假设与风险提示.md)
+- [周报、月报、汇报的区别](../../Learning/Writing_and_Expression/03_Workplace_Communication/周报、月报、汇报的区别.md)
+- [会议表达：如何在短时间说清重点](../../Learning/Writing_and_Expression/03_Workplace_Communication/会议表达：如何在短时间说清重点.md)
+- [跨团队沟通中的对齐方法](../../Learning/Writing_and_Expression/03_Workplace_Communication/跨团队沟通中的对齐方法.md)
+- [面试中的项目表达框架](../../Learning/Writing_and_Expression/03_Workplace_Communication/面试中的项目表达框架.md)
+- [如何讲自己的贡献而不显得飘](../../Learning/Writing_and_Expression/03_Workplace_Communication/如何讲自己的贡献而不显得飘.md)
+- [向上汇报时要站在什么视角](../../Learning/Writing_and_Expression/03_Workplace_Communication/向上汇报时要站在什么视角.md)
+- [如何向下传达任务和标准](../../Learning/Writing_and_Expression/03_Workplace_Communication/如何向下传达任务和标准.md)
+- [冲突沟通中如何不把话说死](../../Learning/Writing_and_Expression/03_Workplace_Communication/冲突沟通中如何不把话说死.md)
+- [一对一沟通怎么更有效](../../Learning/Writing_and_Expression/03_Workplace_Communication/一对一沟通怎么更有效.md)
+- [说服不是赢辩论，而是推动行动](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/说服不是赢辩论，而是推动行动.md)
+- [如何回应质疑与反对意见](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何回应质疑与反对意见.md)
+- [如何在不确定中表达判断](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何在不确定中表达判断.md)
+- [数据、故事与类比怎么配合使用](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/数据、故事与类比怎么配合使用.md)
+- [观点太强和观点太弱都有什么问题](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/观点太强和观点太弱都有什么问题.md)
+- [论点、论据、假设如何区分](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/论点、论据、假设如何区分.md)
+- [什么时候该坚持，什么时候该让步](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/什么时候该坚持，什么时候该让步.md)
+- [如何识别自己论证中的漏洞](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何识别自己论证中的漏洞.md)
+- [表达里的情绪管理与关系维护](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/表达里的情绪管理与关系维护.md)
 
 ## 文档状态
 
@@ -144,71 +144,71 @@
 
 ### 表达基础
 
-- 模块说明：[00_Foundations](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/README.md)
-- [表达的本质：传递信息、建立共识、推动行动](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/表达的本质：传递信息、建立共识、推动行动.md)
-- [先有结构，再有文采](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/先有结构，再有文采.md)
-- [读者视角：别人为什么看不懂你的表达](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/读者视角：别人为什么看不懂你的表达.md)
-- [常见表达问题：散、空、绕、弱](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/常见表达问题：散、空、绕、弱.md)
-- [如何把复杂问题讲简单](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/如何把复杂问题讲简单.md)
-- [信息密度和可读性如何平衡](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/信息密度和可读性如何平衡.md)
-- [表达中的抽象层级控制](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/表达中的抽象层级控制.md)
-- [准确、简洁、有力分别是什么意思](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/00_Foundations/准确、简洁、有力分别是什么意思.md)
+- 模块说明：[00_Foundations](../../Learning/Writing_and_Expression/00_Foundations/README.md)
+- [表达的本质：传递信息、建立共识、推动行动](../../Learning/Writing_and_Expression/00_Foundations/表达的本质：传递信息、建立共识、推动行动.md)
+- [先有结构，再有文采](../../Learning/Writing_and_Expression/00_Foundations/先有结构，再有文采.md)
+- [读者视角：别人为什么看不懂你的表达](../../Learning/Writing_and_Expression/00_Foundations/读者视角：别人为什么看不懂你的表达.md)
+- [常见表达问题：散、空、绕、弱](../../Learning/Writing_and_Expression/00_Foundations/常见表达问题：散、空、绕、弱.md)
+- [如何把复杂问题讲简单](../../Learning/Writing_and_Expression/00_Foundations/如何把复杂问题讲简单.md)
+- [信息密度和可读性如何平衡](../../Learning/Writing_and_Expression/00_Foundations/信息密度和可读性如何平衡.md)
+- [表达中的抽象层级控制](../../Learning/Writing_and_Expression/00_Foundations/表达中的抽象层级控制.md)
+- [准确、简洁、有力分别是什么意思](../../Learning/Writing_and_Expression/00_Foundations/准确、简洁、有力分别是什么意思.md)
 
 ### 结构化写作
 
-- 模块说明：[01_Structured_Writing](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/README.md)
-- [总结写作的标准框架](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/总结写作的标准框架.md)
-- [复盘怎么写得具体而不空泛](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/复盘怎么写得具体而不空泛.md)
-- [一篇好文章的结构骨架](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/一篇好文章的结构骨架.md)
-- [如何写出有信息密度的笔记](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/如何写出有信息密度的笔记.md)
-- [从材料到提纲：写作前的整理方法](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/从材料到提纲：写作前的整理方法.md)
-- [开头、过渡、结尾的常见写法](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/开头、过渡、结尾的常见写法.md)
-- [例子、比喻和定义如何穿插](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/例子、比喻和定义如何穿插.md)
-- [如何把长文写得有节奏](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/如何把长文写得有节奏.md)
-- [如何压缩一篇文章而不丢核心信息](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/如何压缩一篇文章而不丢核心信息.md)
-- [从想到写：降低动笔阻力的方法](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/01_Structured_Writing/从想到写：降低动笔阻力的方法.md)
+- 模块说明：[01_Structured_Writing](../../Learning/Writing_and_Expression/01_Structured_Writing/README.md)
+- [总结写作的标准框架](../../Learning/Writing_and_Expression/01_Structured_Writing/总结写作的标准框架.md)
+- [复盘怎么写得具体而不空泛](../../Learning/Writing_and_Expression/01_Structured_Writing/复盘怎么写得具体而不空泛.md)
+- [一篇好文章的结构骨架](../../Learning/Writing_and_Expression/01_Structured_Writing/一篇好文章的结构骨架.md)
+- [如何写出有信息密度的笔记](../../Learning/Writing_and_Expression/01_Structured_Writing/如何写出有信息密度的笔记.md)
+- [从材料到提纲：写作前的整理方法](../../Learning/Writing_and_Expression/01_Structured_Writing/从材料到提纲：写作前的整理方法.md)
+- [开头、过渡、结尾的常见写法](../../Learning/Writing_and_Expression/01_Structured_Writing/开头、过渡、结尾的常见写法.md)
+- [例子、比喻和定义如何穿插](../../Learning/Writing_and_Expression/01_Structured_Writing/例子、比喻和定义如何穿插.md)
+- [如何把长文写得有节奏](../../Learning/Writing_and_Expression/01_Structured_Writing/如何把长文写得有节奏.md)
+- [如何压缩一篇文章而不丢核心信息](../../Learning/Writing_and_Expression/01_Structured_Writing/如何压缩一篇文章而不丢核心信息.md)
+- [从想到写：降低动笔阻力的方法](../../Learning/Writing_and_Expression/01_Structured_Writing/从想到写：降低动笔阻力的方法.md)
 
 ### 技术表达
 
-- 模块说明：[02_Technical_Communication](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/README.md)
-- [技术文档为什么总是难读](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/技术文档为什么总是难读.md)
-- [如何写设计文档](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/如何写设计文档.md)
-- [如何写接口文档](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/如何写接口文档.md)
-- [技术方案怎么讲清 trade-off](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/技术方案怎么讲清%20trade-off.md)
-- [写给工程师和写给老板有什么不同](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/写给工程师和写给老板有什么不同.md)
-- [把系统设计写成别人能复用的知识](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/把系统设计写成别人能复用的知识.md)
-- [事故复盘怎么写得客观有效](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/事故复盘怎么写得客观有效.md)
-- [复杂流程如何用文字解释清楚](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/复杂流程如何用文字解释清楚.md)
-- [什么时候该画图，什么时候该写字](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/什么时候该画图，什么时候该写字.md)
-- [技术表达里的边界、假设与风险提示](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/02_Technical_Communication/技术表达里的边界、假设与风险提示.md)
+- 模块说明：[02_Technical_Communication](../../Learning/Writing_and_Expression/02_Technical_Communication/README.md)
+- [技术文档为什么总是难读](../../Learning/Writing_and_Expression/02_Technical_Communication/技术文档为什么总是难读.md)
+- [如何写设计文档](../../Learning/Writing_and_Expression/02_Technical_Communication/如何写设计文档.md)
+- [如何写接口文档](../../Learning/Writing_and_Expression/02_Technical_Communication/如何写接口文档.md)
+- [技术方案怎么讲清 trade-off](../../Learning/Writing_and_Expression/02_Technical_Communication/技术方案怎么讲清%20trade-off.md)
+- [写给工程师和写给老板有什么不同](../../Learning/Writing_and_Expression/02_Technical_Communication/写给工程师和写给老板有什么不同.md)
+- [把系统设计写成别人能复用的知识](../../Learning/Writing_and_Expression/02_Technical_Communication/把系统设计写成别人能复用的知识.md)
+- [事故复盘怎么写得客观有效](../../Learning/Writing_and_Expression/02_Technical_Communication/事故复盘怎么写得客观有效.md)
+- [复杂流程如何用文字解释清楚](../../Learning/Writing_and_Expression/02_Technical_Communication/复杂流程如何用文字解释清楚.md)
+- [什么时候该画图，什么时候该写字](../../Learning/Writing_and_Expression/02_Technical_Communication/什么时候该画图，什么时候该写字.md)
+- [技术表达里的边界、假设与风险提示](../../Learning/Writing_and_Expression/02_Technical_Communication/技术表达里的边界、假设与风险提示.md)
 
 ### 工作表达
 
-- 模块说明：[03_Workplace_Communication](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/README.md)
-- [周报、月报、汇报的区别](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/周报、月报、汇报的区别.md)
-- [如何做一次清晰的工作汇报](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/如何做一次清晰的工作汇报.md)
-- [会议表达：如何在短时间说清重点](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/会议表达：如何在短时间说清重点.md)
-- [跨团队沟通中的对齐方法](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/跨团队沟通中的对齐方法.md)
-- [面试中的项目表达框架](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/面试中的项目表达框架.md)
-- [如何讲自己的贡献而不显得飘](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/如何讲自己的贡献而不显得飘.md)
-- [向上汇报时要站在什么视角](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/向上汇报时要站在什么视角.md)
-- [如何向下传达任务和标准](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/如何向下传达任务和标准.md)
-- [冲突沟通中如何不把话说死](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/冲突沟通中如何不把话说死.md)
-- [一对一沟通怎么更有效](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/03_Workplace_Communication/一对一沟通怎么更有效.md)
+- 模块说明：[03_Workplace_Communication](../../Learning/Writing_and_Expression/03_Workplace_Communication/README.md)
+- [周报、月报、汇报的区别](../../Learning/Writing_and_Expression/03_Workplace_Communication/周报、月报、汇报的区别.md)
+- [如何做一次清晰的工作汇报](../../Learning/Writing_and_Expression/03_Workplace_Communication/如何做一次清晰的工作汇报.md)
+- [会议表达：如何在短时间说清重点](../../Learning/Writing_and_Expression/03_Workplace_Communication/会议表达：如何在短时间说清重点.md)
+- [跨团队沟通中的对齐方法](../../Learning/Writing_and_Expression/03_Workplace_Communication/跨团队沟通中的对齐方法.md)
+- [面试中的项目表达框架](../../Learning/Writing_and_Expression/03_Workplace_Communication/面试中的项目表达框架.md)
+- [如何讲自己的贡献而不显得飘](../../Learning/Writing_and_Expression/03_Workplace_Communication/如何讲自己的贡献而不显得飘.md)
+- [向上汇报时要站在什么视角](../../Learning/Writing_and_Expression/03_Workplace_Communication/向上汇报时要站在什么视角.md)
+- [如何向下传达任务和标准](../../Learning/Writing_and_Expression/03_Workplace_Communication/如何向下传达任务和标准.md)
+- [冲突沟通中如何不把话说死](../../Learning/Writing_and_Expression/03_Workplace_Communication/冲突沟通中如何不把话说死.md)
+- [一对一沟通怎么更有效](../../Learning/Writing_and_Expression/03_Workplace_Communication/一对一沟通怎么更有效.md)
 
 ### 说服与论证
 
-- 模块说明：[04_Persuasion_and_Argument](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/README.md)
-- [什么是有效论证](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/什么是有效论证.md)
-- [说服不是赢辩论，而是推动行动](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/说服不是赢辩论，而是推动行动.md)
-- [如何回应质疑与反对意见](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何回应质疑与反对意见.md)
-- [如何在不确定中表达判断](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何在不确定中表达判断.md)
-- [数据、故事与类比怎么配合使用](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/数据、故事与类比怎么配合使用.md)
-- [观点太强和观点太弱都有什么问题](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/观点太强和观点太弱都有什么问题.md)
-- [论点、论据、假设如何区分](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/论点、论据、假设如何区分.md)
-- [什么时候该坚持，什么时候该让步](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/什么时候该坚持，什么时候该让步.md)
-- [如何识别自己论证中的漏洞](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何识别自己论证中的漏洞.md)
-- [表达里的情绪管理与关系维护](/Users/diaoyuxuan/Documents/Notes/Learning/Writing_and_Expression/04_Persuasion_and_Argument/表达里的情绪管理与关系维护.md)
+- 模块说明：[04_Persuasion_and_Argument](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/README.md)
+- [什么是有效论证](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/什么是有效论证.md)
+- [说服不是赢辩论，而是推动行动](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/说服不是赢辩论，而是推动行动.md)
+- [如何回应质疑与反对意见](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何回应质疑与反对意见.md)
+- [如何在不确定中表达判断](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何在不确定中表达判断.md)
+- [数据、故事与类比怎么配合使用](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/数据、故事与类比怎么配合使用.md)
+- [观点太强和观点太弱都有什么问题](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/观点太强和观点太弱都有什么问题.md)
+- [论点、论据、假设如何区分](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/论点、论据、假设如何区分.md)
+- [什么时候该坚持，什么时候该让步](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/什么时候该坚持，什么时候该让步.md)
+- [如何识别自己论证中的漏洞](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/如何识别自己论证中的漏洞.md)
+- [表达里的情绪管理与关系维护](../../Learning/Writing_and_Expression/04_Persuasion_and_Argument/表达里的情绪管理与关系维护.md)
 
 ## 通用表达框架
 

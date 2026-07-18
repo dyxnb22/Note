@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[借贷协议为什么离不开超额抵押](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/04_DeFi_and_Tokenomics/借贷协议为什么离不开超额抵押.md)
-- 平行主题：[Oracle 为什么是 DeFi 的高风险入口](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/05_Security_and_Risks/Oracle%20为什么是%20DeFi%20的高风险入口.md)
-- 下游主题：[如何研究一个协议](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/07_Research_and_Build_Workflow/如何研究一个协议.md)
+- 上游主题：[借贷协议为什么离不开超额抵押](../../../Learning/Web3/04_DeFi_and_Tokenomics/借贷协议为什么离不开超额抵押.md)
+- 平行主题：[Oracle 为什么是 DeFi 的高风险入口](../../../Learning/Web3/05_Security_and_Risks/Oracle%20为什么是%20DeFi%20的高风险入口.md)
+- 下游主题：[如何研究一个协议](../../../Learning/Web3/07_Research_and_Build_Workflow/如何研究一个协议.md)
 
 ---
 

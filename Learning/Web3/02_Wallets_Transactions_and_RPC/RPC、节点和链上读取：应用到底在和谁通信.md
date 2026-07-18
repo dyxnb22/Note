@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[交易、Gas、Nonce 和链上确认](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/02_Wallets_Transactions_and_RPC/交易、Gas、Nonce%20和链上确认.md)
-- 平行主题：[事件索引服务为什么是 Web3 后端的关键能力](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/07_Research_and_Build_Workflow/事件索引服务为什么是%20Web3%20后端的关键能力.md)
-- 下游主题：[Mempool、打包、失败交易和用户体验](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/02_Wallets_Transactions_and_RPC/Mempool、打包、失败交易和用户体验.md)
+- 上游主题：[交易、Gas、Nonce 和链上确认](../../../Learning/Web3/02_Wallets_Transactions_and_RPC/交易、Gas、Nonce%20和链上确认.md)
+- 平行主题：[事件索引服务为什么是 Web3 后端的关键能力](../../../Learning/Web3/07_Research_and_Build_Workflow/事件索引服务为什么是%20Web3%20后端的关键能力.md)
+- 下游主题：[Mempool、打包、失败交易和用户体验](../../../Learning/Web3/02_Wallets_Transactions_and_RPC/Mempool、打包、失败交易和用户体验.md)
 
 ---
 

@@ -56,9 +56,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[Web3 到底是什么：它和互联网、金融、数据库各是什么关系](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/00_Foundations/Web3%20到底是什么：它和互联网、金融、数据库各是什么关系.md)
-- 平行主题：[链上世界里的身份、资产、状态和权限](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/00_Foundations/链上世界里的身份、资产、状态和权限.md)
-- 下游主题：[RPC、节点和链上读取：应用到底在和谁通信](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/02_Wallets_Transactions_and_RPC/RPC、节点和链上读取：应用到底在和谁通信.md)
+- 上游主题：[Web3 到底是什么：它和互联网、金融、数据库各是什么关系](../../../Learning/Web3/00_Foundations/Web3%20到底是什么：它和互联网、金融、数据库各是什么关系.md)
+- 平行主题：[链上世界里的身份、资产、状态和权限](../../../Learning/Web3/00_Foundations/链上世界里的身份、资产、状态和权限.md)
+- 下游主题：[RPC、节点和链上读取：应用到底在和谁通信](../../../Learning/Web3/02_Wallets_Transactions_and_RPC/RPC、节点和链上读取：应用到底在和谁通信.md)
 
 ---
 

@@ -9,8 +9,8 @@
 
 ## 文档
 
-- [基金类型总览](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/05_Funds_and_ETF/基金类型总览.md)
-- [主动与被动投资](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/05_Funds_and_ETF/主动与被动投资.md)
-- [跟踪误差](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/05_Funds_and_ETF/跟踪误差.md)
-- [基金评价指标](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/05_Funds_and_ETF/基金评价指标.md)
-- [定投的逻辑与误区](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/05_Funds_and_ETF/定投的逻辑与误区.md)
+- [基金类型总览](../../../Learning/Finance/05_Funds_and_ETF/基金类型总览.md)
+- [主动与被动投资](../../../Learning/Finance/05_Funds_and_ETF/主动与被动投资.md)
+- [跟踪误差](../../../Learning/Finance/05_Funds_and_ETF/跟踪误差.md)
+- [基金评价指标](../../../Learning/Finance/05_Funds_and_ETF/基金评价指标.md)
+- [定投的逻辑与误区](../../../Learning/Finance/05_Funds_and_ETF/定投的逻辑与误区.md)

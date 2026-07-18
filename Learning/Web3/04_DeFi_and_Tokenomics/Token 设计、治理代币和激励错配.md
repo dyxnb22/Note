@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[滑点、深度和无常损失到底在讲什么](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/04_DeFi_and_Tokenomics/滑点、深度和无常损失到底在讲什么.md)
-- 平行主题：[链上治理为什么常常落到少数人手里](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/06_Governance_and_Crypto_Society/链上治理为什么常常落到少数人手里.md)
-- 下游主题：[如何研究一个协议](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/07_Research_and_Build_Workflow/如何研究一个协议.md)
+- 上游主题：[滑点、深度和无常损失到底在讲什么](../../../Learning/Web3/04_DeFi_and_Tokenomics/滑点、深度和无常损失到底在讲什么.md)
+- 平行主题：[链上治理为什么常常落到少数人手里](../../../Learning/Web3/06_Governance_and_Crypto_Society/链上治理为什么常常落到少数人手里.md)
+- 下游主题：[如何研究一个协议](../../../Learning/Web3/07_Research_and_Build_Workflow/如何研究一个协议.md)
 
 ---
 

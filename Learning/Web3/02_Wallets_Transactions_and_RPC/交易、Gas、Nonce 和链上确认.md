@@ -71,9 +71,9 @@
 
 ## 9. 关联主题
 
-- 上游主题：[账户模型、状态转换和链上执行](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/01_Blockchain_and_Consensus/账户模型、状态转换和链上执行.md)
-- 平行主题：[Mempool、打包、失败交易和用户体验](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/02_Wallets_Transactions_and_RPC/Mempool、打包、失败交易和用户体验.md)
-- 下游主题：[AMM 为什么能在没有订单簿时完成交易](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/04_DeFi_and_Tokenomics/AMM%20为什么能在没有订单簿时完成交易.md)
+- 上游主题：[账户模型、状态转换和链上执行](../../../Learning/Web3/01_Blockchain_and_Consensus/账户模型、状态转换和链上执行.md)
+- 平行主题：[Mempool、打包、失败交易和用户体验](../../../Learning/Web3/02_Wallets_Transactions_and_RPC/Mempool、打包、失败交易和用户体验.md)
+- 下游主题：[AMM 为什么能在没有订单簿时完成交易](../../../Learning/Web3/04_DeFi_and_Tokenomics/AMM%20为什么能在没有订单簿时完成交易.md)
 
 ---
 

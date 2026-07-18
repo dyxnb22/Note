@@ -71,9 +71,9 @@
 
 ## 9. 关联主题
 
-- 上游主题：[为什么区块链是状态机而不只是数据库](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/01_Blockchain_and_Consensus/为什么区块链是状态机而不只是数据库.md)
-- 平行主题：[状态变量、函数、事件、modifier 分别扮演什么角色](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/03_Smart_Contracts_and_Development/状态变量、函数、事件、modifier%20分别扮演什么角色.md)
-- 下游主题：[重入攻击为什么反复出现](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/05_Security_and_Risks/重入攻击为什么反复出现.md)
+- 上游主题：[为什么区块链是状态机而不只是数据库](../../../Learning/Web3/01_Blockchain_and_Consensus/为什么区块链是状态机而不只是数据库.md)
+- 平行主题：[状态变量、函数、事件、modifier 分别扮演什么角色](../../../Learning/Web3/03_Smart_Contracts_and_Development/状态变量、函数、事件、modifier%20分别扮演什么角色.md)
+- 下游主题：[重入攻击为什么反复出现](../../../Learning/Web3/05_Security_and_Risks/重入攻击为什么反复出现.md)
 
 ---
 

@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[Token 设计、治理代币和激励错配](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/04_DeFi_and_Tokenomics/Token%20设计、治理代币和激励错配.md)
-- 平行主题：[链上治理为什么常常落到少数人手里](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/06_Governance_and_Crypto_Society/链上治理为什么常常落到少数人手里.md)
-- 下游主题：[监管、合规和去中心化叙事的张力](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/06_Governance_and_Crypto_Society/监管、合规和去中心化叙事的张力.md)
+- 上游主题：[Token 设计、治理代币和激励错配](../../../Learning/Web3/04_DeFi_and_Tokenomics/Token%20设计、治理代币和激励错配.md)
+- 平行主题：[链上治理为什么常常落到少数人手里](../../../Learning/Web3/06_Governance_and_Crypto_Society/链上治理为什么常常落到少数人手里.md)
+- 下游主题：[监管、合规和去中心化叙事的张力](../../../Learning/Web3/06_Governance_and_Crypto_Society/监管、合规和去中心化叙事的张力.md)
 
 ---
 

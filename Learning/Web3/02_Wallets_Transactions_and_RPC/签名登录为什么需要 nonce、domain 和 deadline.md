@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[钱包、私钥、签名和地址](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/02_Wallets_Transactions_and_RPC/钱包、私钥、签名和地址.md)
-- 平行主题：[私钥、授权和前端钓鱼风险](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/05_Security_and_Risks/私钥、授权和前端钓鱼风险.md)
-- 下游主题：[Mempool、打包、失败交易和用户体验](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/02_Wallets_Transactions_and_RPC/Mempool、打包、失败交易和用户体验.md)
+- 上游主题：[钱包、私钥、签名和地址](../../../Learning/Web3/02_Wallets_Transactions_and_RPC/钱包、私钥、签名和地址.md)
+- 平行主题：[私钥、授权和前端钓鱼风险](../../../Learning/Web3/05_Security_and_Risks/私钥、授权和前端钓鱼风险.md)
+- 下游主题：[Mempool、打包、失败交易和用户体验](../../../Learning/Web3/02_Wallets_Transactions_and_RPC/Mempool、打包、失败交易和用户体验.md)
 
 ---
 

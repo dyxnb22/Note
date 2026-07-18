@@ -54,9 +54,9 @@
 
 ## 8. 关联主题
 
-- 上游主题：[为什么区块链是状态机而不只是数据库](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/01_Blockchain_and_Consensus/为什么区块链是状态机而不只是数据库.md)
-- 平行主题：[为什么会有 Layer2：扩容、成本和安全继承](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/01_Blockchain_and_Consensus/为什么会有%20Layer2：扩容、成本和安全继承.md)
-- 下游主题：[跨链为什么危险：资产桥、消息桥与信任假设](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/01_Blockchain_and_Consensus/跨链为什么危险：资产桥、消息桥与信任假设.md)
+- 上游主题：[为什么区块链是状态机而不只是数据库](../../../Learning/Web3/01_Blockchain_and_Consensus/为什么区块链是状态机而不只是数据库.md)
+- 平行主题：[为什么会有 Layer2：扩容、成本和安全继承](../../../Learning/Web3/01_Blockchain_and_Consensus/为什么会有%20Layer2：扩容、成本和安全继承.md)
+- 下游主题：[跨链为什么危险：资产桥、消息桥与信任假设](../../../Learning/Web3/01_Blockchain_and_Consensus/跨链为什么危险：资产桥、消息桥与信任假设.md)
 
 ---
 

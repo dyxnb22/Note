@@ -9,11 +9,11 @@
 
 ## 文档
 
-- [量化投资是什么](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/11_Quant/量化投资是什么.md)
-- [因子投资框架](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/11_Quant/因子投资框架.md)
-- [Alpha与Beta](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/11_Quant/Alpha与Beta.md)
-- [回测原则](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/11_Quant/回测原则.md)
-- [回测偏差](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/11_Quant/回测偏差.md)
-- [滑点交易成本与容量](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/11_Quant/滑点交易成本与容量.md)
-- [信号组合执行归因](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/11_Quant/信号组合执行归因.md)
-- [数据清洗与预处理](/Users/diaoyuxuan/Documents/Notes/Learning/Finance/11_Quant/数据清洗与预处理.md)
+- [量化投资是什么](../../../Learning/Finance/11_Quant/量化投资是什么.md)
+- [因子投资框架](../../../Learning/Finance/11_Quant/因子投资框架.md)
+- [Alpha与Beta](../../../Learning/Finance/11_Quant/Alpha与Beta.md)
+- [回测原则](../../../Learning/Finance/11_Quant/回测原则.md)
+- [回测偏差](../../../Learning/Finance/11_Quant/回测偏差.md)
+- [滑点交易成本与容量](../../../Learning/Finance/11_Quant/滑点交易成本与容量.md)
+- [信号组合执行归因](../../../Learning/Finance/11_Quant/信号组合执行归因.md)
+- [数据清洗与预处理](../../../Learning/Finance/11_Quant/数据清洗与预处理.md)

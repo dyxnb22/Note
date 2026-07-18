@@ -71,9 +71,9 @@
 
 ## 9. 关联主题
 
-- 上游主题：[Web3 到底是什么：它和互联网、金融、数据库各是什么关系](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/00_Foundations/Web3%20到底是什么：它和互联网、金融、数据库各是什么关系.md)
-- 平行主题：[学习 Web3 时最容易混淆的几层问题](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/00_Foundations/学习%20Web3%20时最容易混淆的几层问题.md)
-- 下游主题：[Token 设计、治理代币和激励错配](/Users/diaoyuxuan/Documents/Notes/Learning/Web3/04_DeFi_and_Tokenomics/Token%20设计、治理代币和激励错配.md)
+- 上游主题：[Web3 到底是什么：它和互联网、金融、数据库各是什么关系](../../../Learning/Web3/00_Foundations/Web3%20到底是什么：它和互联网、金融、数据库各是什么关系.md)
+- 平行主题：[学习 Web3 时最容易混淆的几层问题](../../../Learning/Web3/00_Foundations/学习%20Web3%20时最容易混淆的几层问题.md)
+- 下游主题：[Token 设计、治理代币和激励错配](../../../Learning/Web3/04_DeFi_and_Tokenomics/Token%20设计、治理代币和激励错配.md)
 
 ---
 
