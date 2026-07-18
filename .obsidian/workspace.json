@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Learning/CS/算法/普通数组_done.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -183,32 +183,32 @@
       "bases:新建数据库": false
     }
   },
-  "active": "4d17fae8f14bb8e9",
+  "active": "b55c65997e2b1b75",
   "lastOpenFiles": [
-    "Learning/CS/算法/链表.md",
+    "Learning/CS/算法/普通数组_done.md",
+    "Learning/CS/算法/技巧.md",
+    "Learning/CS/算法/矩阵_done.md",
     "Learning/CS/算法/题型速查.md",
+    "Learning/CS/算法/Hash_done.md",
+    "Learning/CS/算法/海量数据处理.md",
+    "Learning/CS/算法/多维动态规划.md",
+    "Learning/CS/算法/堆.md",
+    "Learning/CS/算法/动态规划_done.md",
+    "Learning/CS/算法/链表.md",
     "Learning/CS/算法/贪心_done.md",
     "Learning/CS/算法/算法.md",
-    "Learning/CS/算法/矩阵_done.md",
     "Learning/CS/算法/矩阵.md",
     "Learning/CS/算法/滑动窗口_done.md",
     "Learning/CS/算法/滑动窗口.md",
-    "Learning/CS/算法/普通数组_done.md",
     "Learning/CS/算法/子串_done.md",
     "Learning/CS/算法/回溯_done.md",
     "Learning/CS/算法/回溯.md",
     "Learning/CS/算法/双指针_done.md",
-    "Learning/CS/算法/动态规划_done.md",
-    "Learning/CS/算法/Hash_done.md",
-    "Learning/CS/算法/技巧.md",
     "Learning/CS/算法/二叉树.md",
-    "Learning/CS/算法/多维动态规划.md",
     "Learning/CS/算法/栈.md",
     "Learning/CS/算法/图论.md",
     "Learning/CS/算法/字符串.md",
-    "Learning/CS/算法/海量数据处理.md",
     "Learning/CS/算法/二分查找.md",
-    "Learning/CS/算法/堆.md",
     "Projects/BigMarket/微服务.md"
   ]
 }
