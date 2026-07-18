@@ -1,0 +1,7 @@
+# 滑动窗口
+
+**LeetCode 209. 长度最小的子数组（全正整数，sum≥target）**
+
+**LeetCode 3. 无重复字符的最长子串**。用一个HashSet记录。遇到重复就left++，否则right++
+
+**LeetCode 438. 找到字符串中所有字母异位词**(找到 `s` 中所有 `p` 的 异位词 的子串)用一个定长划窗（s.len - p.len）。**用两个数组记录字符数量**，然后Arrays.equals 比较数组是否相同
