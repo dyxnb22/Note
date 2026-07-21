@@ -32,6 +32,19 @@ Integer result = futureTask.get();
 
 生产环境一般不频繁手动 `new Thread()`，而是使用自定义 `ThreadPoolExecutor`。
 
+## 直接调用 `run()` 和调用 `start()` 有什么区别？
+
+- `run()` 只是普通方法调用，在当前线程中同步执行，不会创建新线程。
+- `start()` 才会创建并启动新线程，由 JVM 在新线程中调用 `run()`；同一个 `Thread` 只能成功调用一次 `start()`。
+
+```java
+Thread t = new Thread(() -> System.out.println(Thread.currentThread().getName()));
+t.run();   // 当前线程执行
+t.start(); // 新线程执行；只能调用一次
+```
+
+线程已经结束后再次调用 `start()` 会抛出 `IllegalThreadStateException`。
+
 ## Java 线程有哪些状态？
 
 | 状态 | 含义 |

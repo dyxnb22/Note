@@ -345,6 +345,31 @@ int result = ((Calculator) (a, b) -> a + b).calculate(3, 5);
 
 Lambda 可以减少匿名内部类的样板代码，但嵌套过深时会降低可读性和调试体验。
 
+## 常见函数式接口有哪些？
+
+`@FunctionalInterface` 用于让编译器检查接口是否只有一个抽象方法（`default`、`static` 方法不计入）。常见接口可以这样记：
+
+| 接口 | 输入/输出 | 典型用途 |
+| --- | --- | --- |
+| `Predicate<T>` | `T -> boolean` | 条件判断、过滤 |
+| `Function<T, R>` | `T -> R` | 转换、映射 |
+| `Consumer<T>` | `T -> void` | 消费、遍历处理 |
+| `Supplier<T>` | `() -> T` | 延迟提供对象或数据 |
+
+它们常与 Stream、集合处理和异步任务组合使用。
+
+## `java.time` 相比 `Date`/`Calendar` 有什么优势？
+
+`java.time` 类型不可变且线程安全，职责更清晰，适合替代旧日期 API：
+
+- `LocalDate`、`LocalTime`、`LocalDateTime`：不含时区的日期和时间。
+- `Instant`：时间线上的瞬时点，适合记录时间戳。
+- `ZonedDateTime`、`ZoneId`：需要时区时使用。
+- `Duration`、`Period`：分别表示时间量和日期量。
+- `DateTimeFormatter`：线程安全的格式化工具。
+
+涉及跨时区或系统边界时，不要把 `LocalDateTime` 当作时间戳；应明确使用 `Instant` 或带时区的类型。
+
 ## Stream API 如何使用？
 
 Stream 用于对数据进行过滤、映射、排序、聚合等链式处理：

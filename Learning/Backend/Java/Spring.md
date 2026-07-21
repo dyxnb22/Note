@@ -478,6 +478,21 @@ META-INF/spring.factories
 | `@RestController`               | REST 接口控制器                                              |
 | `@GetMapping` / `@PostMapping`  | HTTP 请求映射                                                |
 
+# JPA 与 ORM
+
+## JPA 和 MyBatis 应该怎么选？
+
+JPA 是 ORM 规范，Hibernate 是常见实现；它通过实体映射、`EntityManager`、JPQL 和脏检查减少 CRUD 样板代码。MyBatis 更接近 SQL，开发者直接控制查询和映射。
+
+| 对比项 | JPA/Hibernate | MyBatis |
+|---|---|---|
+| 抽象层次 | 面向实体和对象关系 | 面向 SQL 和结果映射 |
+| 优点 | CRUD 快、关系映射和脏检查方便 | SQL 可控，复杂查询和调优更直接 |
+| 风险 | 懒加载、级联、脏检查可能产生隐式 SQL | SQL、映射和分页需要自行维护 |
+| 适合 | 领域模型稳定、标准 CRUD 较多 | 查询复杂、SQL 需要精细控制的系统 |
+
+JPA 使用时应把事务边界放在 Service 层，避免在事务外访问懒加载关联；注意 N+1 查询、批量写入和实体与 API DTO 的边界。选 JPA 不是“不写 SQL”，遇到复杂查询仍应通过明确的查询、投影或原生 SQL 控制性能。
+
 # MyBatis
 
 MyBatis 是半自动 ORM 框架：开发者自己编写 SQL，框架负责参数映射、结果集映射、执行流程封装和与 Spring 集成。

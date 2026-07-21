@@ -185,6 +185,7 @@
   },
   "active": "4d17fae8f14bb8e9",
   "lastOpenFiles": [
+    "Learning/Backend/Data/海量数据处理.md",
     "Learning/CS/算法/多维动态规划.md",
     "Learning/CS/算法/多维动态规划_done.md",
     "Learning/CS/算法/多维动态规划~.md",
@@ -209,7 +210,6 @@
     "Learning/CS/算法/滑动窗口.md",
     "Learning/CS/算法/子串_done.md",
     "Learning/CS/算法/回溯_done.md",
-    "Learning/CS/算法/回溯.md",
-    "Learning/CS/算法/双指针_done.md"
+    "Learning/CS/算法/回溯.md"
   ]
 }
