@@ -11,7 +11,7 @@
 | `BigMarket` | [BigMarket 微服务](../../Projects/BigMarket/微服务.md) |
 | `CS基础`、`算法` | [CS](../../Learning/CS/README.md) |
 | `Java后端`、`工具链` | [Backend](../../Learning/Backend/README.md) |
-| `AI Agent` | [AI](../../Learning/AI/README.md) · [Python Agent](../../Learning/Python%20Agent/README.md) |
+| `AI Agent` | [AI](../../Learning/AI/README.md) · [Python](../../Learning/Python/README.md) · [Agent](../../Learning/Agent/README.md) |
 | `金融` | [Finance](../../Learning/Finance/README.md) |
 | `历史与社会` | [History and Society](../../Learning/History_and_Society/INDEX.md) |
 

@@ -4,7 +4,7 @@
 
 - `Inbox`：快速捕捉，先收进来再整理
 - `Daily`：日记、碎片记录、当天进展
-- `Learning`：长期学习内容，按 `CS / Backend / Python Agent / AI / Finance` 分类
+- `Learning`：长期学习内容，按 `CS / Backend / Python / Agent / AI / Finance` 分类
 - `Projects`：正在推进或已经归档的项目
 - `Resources`：不适合放进知识正文的参考资料和迁移记录
 - `Templates`：常用模板

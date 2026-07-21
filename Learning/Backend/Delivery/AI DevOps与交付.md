@@ -29,6 +29,6 @@ Docker 负责环境和服务编排，Linux/SSH 负责运行边界，CI/CD 负责
 
 Ollama 适合本地验证和低成本开发。模型适配应通过统一接口隔离，评估上下文长度、推理速度、显存/内存、输出稳定性和安全边界，不把本地验证结果直接等同于生产能力。
 
-相关：[部署与生产化](../../Python%20Agent/Agent/部署与生产化.md)、[安全与可控性](../../Python%20Agent/Agent/安全与可控性.md)、[Linux 与服务器](../Delivery/README.md)。
+相关：[部署与生产化](../../Agent/部署与生产化.md)、[安全与可控性](../../Agent/安全与可控性.md)、[Linux 与服务器](../Delivery/README.md)。
 
 来源：`xfg-planet/03-AI工程实践/AI DevOps/AI新范式-课程提炼.md`、`07-工程化与部署`。

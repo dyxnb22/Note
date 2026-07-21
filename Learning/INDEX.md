@@ -15,7 +15,7 @@
 | 补计算机底座 | [CS](./CS/README.md) |
 | 做 Java/Go/Rust 后端 | [Backend](./Backend/README.md) |
 | 学 LLM 原理 | [AI](./AI/README.md) |
-| 做 Agent、RAG、MCP | [Python Agent](./Python%20Agent/README.md) |
+| 做 Agent、RAG、MCP | [Python](./Python/README.md) → [Agent](./Agent/README.md) |
 | 练系统设计 | [Backend/Architecture](./Backend/Architecture/README.md) |
 | 看真实项目取舍 | [Case Studies](./Case_Studies/README.md) |
 | 查术语、产品和技术资料 | [References](./References/README.md) |
@@ -32,7 +32,7 @@
 2. [来源与证据](./00_Navigation/来源与证据.md)：确认来源和完成度。
 3. [Backend](./Backend/README.md) 和 [CS](./CS/README.md)：补底层和工程基础。
 4. [系统设计](./Backend/Architecture/系统设计.md)、[DDD 与领域建模](./Backend/Architecture/DDD与领域建模.md)、[可靠性与一致性](./Backend/Architecture/可靠性与一致性.md)：形成设计主线。
-5. [Python Agent/Agent](./Python%20Agent/Agent/README.md)：学习模型调用、工具、状态、工作流和生产化。
+5. [Python](./Python/README.md) → [Agent](./Agent/README.md)：学习模型调用、工具、状态、工作流和生产化。
 6. [案例](./Case_Studies/README.md)：用项目和源码验证抽象。
 7. [Career](./Career/README.md) 与 [Writing and Expression](./Writing_and_Expression/INDEX.md)：把能力转成可验证的表达。
 

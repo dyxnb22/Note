@@ -17,8 +17,8 @@
 |---|---|---|
 | `00-学习导航` | `INDEX.md`、`00_Navigation` | 合并导航、来源和进度 |
 | `01-基础能力` | `CS`、`Backend` | 合并基础、DDD、调试、消息和分布式边界 |
-| `02-AI应用范式` | `AI`、`Python Agent`、`Case_Studies/AI` | 主题归纳，项目单列案例 |
-| `03-AI工程实践` | `Backend/Delivery`、`Python Agent`、`Case_Studies/AI` | 合并交付、部署和安全边界 |
+| `02-AI应用范式` | `AI`、`Agent`、`Case_Studies/AI` | 主题归纳，项目单列案例 |
+| `03-AI工程实践` | `Backend/Delivery`、`Python`、`Agent`、`Case_Studies/AI` | 合并交付、部署和安全边界 |
 | `04-系统设计与组件` | `Backend/Architecture`、`Backend/Data` | 提炼通用设计和 98 条场景索引 |
 | `05-业务场景` | `Case_Studies/Backend` | 项目案例化，设计结论回链主题 |
 | `06-源码与案例` | `Case_Studies/Source_Audits`、`Case_Studies/AI` | 保留源码链路、构建、测试和运行边界 |

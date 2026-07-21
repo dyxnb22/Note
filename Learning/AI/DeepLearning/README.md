@@ -9,7 +9,7 @@
 ## 与其他目录的边界
 
 - 这里学习模型训练、表示、架构和实验；`../LLM基础.md` 解释现代 LLM 的工作全链路。
-- 这里的 NLP 止于理解 BERT/Transformer；RAG、Agent、评测和部署在 `Learning/Python Agent/Agent/`。
+- 这里的 NLP 止于理解 BERT/Transformer；RAG、Agent、评测和部署在 `Learning/Agent/`。
 - 默认采用 PyTorch。每个实验记录数据集、随机种子、指标、超参数和失败原因。
 
 ## 完成标准

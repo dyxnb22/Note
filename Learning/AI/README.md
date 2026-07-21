@@ -20,22 +20,23 @@
 - [WaLiSSH](../Case_Studies/AI/WaLiSSH.md)：工具化执行、Agent Loop、SSH 和安全边界。
 - [Agent 脚手架与可编排 RAG](../Case_Studies/AI/Agent脚手架与可编排RAG.md)：Workflow、MCP、Skills、Session 和知识库配置。
 
-## 与 Python Agent 目录的边界
+## 与 Python / Agent 目录的边界
 
 - 模型是什么、怎么工作、为什么这样设计 → 放这里
-- 如何调用模型、如何构建 Agent、如何做 RAG → 放 `Learning/Python Agent/`
-- 边界案例：context window 的原理（这里）vs 如何管理 context 窗口（Python Agent）
+- Python 语言和服务工程 → 放 `Learning/Python/`
+- 如何调用模型、如何构建 Agent、如何做 RAG → 放 `Learning/Agent/`
+- 边界案例：context window 的原理（这里）vs 如何管理 context 窗口（Agent）
 
 ## 按场景选文档
 
 **准备面试**
 → 必读 `LLM基础.md`（全篇，尤其是面试高频部分）
 → 按需按 `DeepLearning/README.md` 顺序学习
-→ 然后去 `Python Agent/Agent/` 看工程应用文档
+→ 然后去 `Agent/` 看工程应用文档
 
 **开始做 AI 项目**
 → 先读 `LLM基础.md` 的 tokenization、context window、generation 参数章节
-→ 再直接进 `Python Agent/Agent/LLM调用基础.md`
+→ 再直接进 `Agent/LLM调用基础.md`
 
 **补 LLM 理论短板**
 → 顺序读：`DeepLearning/README.md` → `LLM基础.md`
@@ -56,7 +57,7 @@
 
 | 问题 | 答案 |
 |------|------|
-| context window 放哪里？ | 原理放这里（`LLM基础.md`）；如何在代码里管理放 `Python Agent/Context工程.md` |
-| tokenization 放哪里？ | 放这里；tiktoken 的实际用法放 `Python Agent/Context工程.md` |
-| fine-tuning 放哪里？ | 原理（LoRA 数学、训练流程）放这里；什么场景选 fine-tuning vs RAG 的工程判断放 `Python Agent/RAG与知识系统.md` |
-| RAG 是理论还是工程？ | RAG 的工程实现放 `Python Agent/RAG与知识系统.md`；为什么 RAG 能减少幻觉的原理放 `LLM基础.md` |
+| context window 放哪里？ | 原理放这里（`LLM基础.md`）；如何在代码里管理放 `Agent/Context工程.md` |
+| tokenization 放哪里？ | 放这里；tiktoken 的实际用法放 `Agent/Context工程.md` |
+| fine-tuning 放哪里？ | 原理（LoRA 数学、训练流程）放这里；什么场景选 fine-tuning vs RAG 的工程判断放 `Agent/RAG与知识系统.md` |
+| RAG 是理论还是工程？ | RAG 的工程实现放 `Agent/RAG与知识系统.md`；为什么 RAG 能减少幻觉的原理放 `LLM基础.md` |

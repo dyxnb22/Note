@@ -36,6 +36,6 @@ Infrastructure: JSch / SFTP / LLM / 持久化
 
 已核对服务端 Maven 多模块、README、提交演进、Agent/SSH 领域包、配置和测试入口；SSH、模型 API、MCP 等外部依赖未在本机联调。课程视频和课程帖中不可读的图片内容不纳入结论。
 
-相关：[Agent 架构与设计](../../Python%20Agent/Agent/Agent架构与设计.md)、[安全与可控性](../../Python%20Agent/Agent/安全与可控性.md)。
+相关：[Agent 架构与设计](../../Agent/Agent架构与设计.md)、[安全与可控性](../../Agent/安全与可控性.md)。
 
 来源：`xfg-planet/02-AI应用范式/Agent与工作流/WaLiSSH-智能体知识提炼.md`、`06-源码与案例/源码阅读/WaLiSSH-服务端源码阅读.md`。

@@ -10,7 +10,8 @@
 |---|---|
 | `CS` | 算法、数据结构、网络、操作系统 |
 | `Backend` | Java、数据、架构、交付和排障 |
-| `Python Agent` | Python、模型调用、Agent、RAG 和工具 |
+| `Python` | Python 语言、工程化、HTTP 和服务化 |
+| `Agent` | 模型调用、Agent、RAG、MCP、工具和生产交付 |
 | `AI` | 模型理解、研究基础和 AI 工具认知 |
 | `Case_Studies` | 业务项目、AI 项目和源码审计证据 |
 | `References` | 产品文档、术语、小册、开源项目和科技资料 |
@@ -18,5 +19,7 @@
 | 其他主题 | `Finance`、`History_and_Society`、`Writing_and_Expression`、`Health_and_Energy`、`Web3`、`TypeScript` |
 
 新增内容遵循三条规则：主题只保留一个主文档，案例回链主题；结论标注来源和证据边界；课程目录、视频入口和重复背景不单独维护。
+
+`Python/` 与 `Agent/` 保持分开：前者是可复用的语言和服务基础，后者是建立在其上的 AI 应用运行时与交付知识。两者通过 [Python Agent 工程化补充](./Python/Python%20Agent工程化补充.md) 连接。
 
 导航：[知识地图](./00_Navigation/知识地图.md) · [迁移清单](./00_Navigation/xfg-planet迁移清单.md)
