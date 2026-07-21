@@ -234,7 +234,7 @@ return state
 
 ---
 
-## 6. 文件型 Memory：MEMORY.md 索引模式
+## 7. 文件型 Memory：MEMORY.md 索引模式
 
 对于 CLI/本地 Agent，向量数据库往往过重。一种轻量可行的方案：文件系统 + MEMORY.md 索引。
 
@@ -426,7 +426,7 @@ def select_memories_for_budget(
 
 ---
 
-## 7. 企业级 Memory 生命周期管理
+## 10. 企业级 Memory 生命周期管理
 
 文件型 Memory 无法满足多用户、合规、审计要求时，需要完整的 Memory 治理：
 
@@ -468,7 +468,7 @@ def get_active_memories(user_id: str) -> list[ManagedMemory]:
 
 ---
 
-## 7. 面试高频
+## 附录：面试高频
 
 **Q：Memory 的几种类型，分别适合什么场景？**
 

@@ -317,7 +317,7 @@ return [
 
 ---
 
-## 9. MCP 工具的企业级治理
+## 10. MCP 工具的企业级治理
 
 当 Agent 系统集成了多个外部 MCP Server 时，不能无条件信任所有 Server 提供的工具：
 
@@ -382,9 +382,9 @@ def execute_mcp_tool(tool_name: str, args: dict, context: ExecutionContext) -> s
 
 ---
 
-## 11. Streamable HTTP Transport（2025 新标准）
+## 11. Streamable HTTP Transport（版本化协议示例）
 
-2025 年 MCP 推出了 Streamable HTTP Transport，替代原来的 SSE 模式，成为远程 MCP Server 的主要传输方式：
+MCP 的远程传输规范和 SDK 会随版本演进。本节用 Streamable HTTP 展示远程 Server 的设计思路；端点、会话、流式响应和安全要求在实际实现前应以[官方 Transports 规范](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports)及对应 SDK 文档为准。下面的 FastAPI 代码是教学示意，不是可直接复制的完整协议实现：
 
 ```
 旧方式（SSE）：
@@ -444,9 +444,9 @@ async def connect_remote_server():
 
 ---
 
-## 12. OAuth 2.0 for MCP
+## 12. MCP Authorization（OAuth / 版本化示例）
 
-2025 年 MCP 规范新增了 OAuth 2.0 作为标准化认证方式，用于远程 MCP Server 的用户身份验证：
+远程 MCP Server 通常需要把 OAuth、Bearer Token、scope 和资源访问控制组合起来。本节代码只演示认证边界；发现流程、元数据、token audience 和客户端注册等细节应以[官方 Authorization 规范](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)为准：
 
 ```python
 # MCP Server 端：声明 OAuth 配置
@@ -545,7 +545,7 @@ async def handle_sampling(params) -> str:
 
 ---
 
-## 10. 面试高频
+## 附录：面试高频
 
 **Q：MCP 是什么，解决什么问题？**
 

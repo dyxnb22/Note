@@ -331,7 +331,7 @@ config = {
 
 ---
 
-## 9. 后台任务 + 通知注入模式
+## 10. 后台任务 + 通知注入模式
 
 Agent 在处理用户请求的同时，需要运行耗时的后台工作（文件分析、远程 API 调用）：
 
@@ -384,7 +384,7 @@ t=35s: 下一次 while True 迭代 → 通知作为 user 消息注入 → 模型
 
 ---
 
-## 10. Agent Teams：Mailbox 协议
+## 11. Agent Teams：Mailbox 协议
 
 多个 Agent 协作时，使用文件系统 mailbox 实现解耦通信：
 
@@ -438,7 +438,7 @@ Worker-2: 分析 B 模块（3s）→ send_message("lead", "B 模块结果：..."
 
 ---
 
-## 11. 变更工作流的检查点与回滚
+## 12. 变更工作流的检查点与回滚
 
 对于会产生真实副作用的 Agent 工作流（写文件、改数据库、推 PR），必须支持回滚或补偿操作：
 
@@ -484,7 +484,7 @@ def resume_workflow(task_id: str):
 
 ---
 
-## 12. 工作流节点注册表模式
+## 13. 工作流节点注册表模式
 
 替代大量 if-else 分支，用注册表统一管理工作流节点：
 
@@ -554,7 +554,7 @@ def apply_patch(state: WorkflowState, patch: NodePatch) -> WorkflowState:
 
 ---
 
-## 13. 任务依赖图（Task Dependency Graph）
+## 14. 任务依赖图（Task Dependency Graph）
 
 复杂项目的任务有依赖关系，不能并行启动所有任务：
 
@@ -624,7 +624,7 @@ def complete_task(task_id: str, tasks_dir: Path) -> str:
 
 ---
 
-## 14. `Send` API — 动态并行 Fan-out
+## 15. `Send` API — 动态并行 Fan-out
 
 当你需要把同一个节点并行执行多次（每次输入不同），用 `Send`：
 
@@ -672,7 +672,7 @@ print(result["summaries"])  # 3 个摘要
 
 ---
 
-## 15. `Command` 对象 — 在节点内部路由
+## 16. `Command` 对象 — 在节点内部路由
 
 传统做法：路由逻辑写在 `add_conditional_edges` 的函数里（节点外）。
 
@@ -730,7 +730,7 @@ return Command(
 
 ---
 
-## 16. `interrupt()` — 新版 Human-in-the-loop
+## 17. `interrupt()` — 新版 Human-in-the-loop
 
 旧版（编译时静态）：`compile(interrupt_before=["node_name"])`
 ——在图编译时就固定了哪些节点前中断，灵活性差。
@@ -784,7 +784,7 @@ result = graph.invoke(
 
 ---
 
-## 17. Multi-agent Supervisor 模式
+## 18. Multi-agent Supervisor 模式
 
 Orchestrator-Worker 是 LangGraph 中最常见的多 Agent 架构：
 
@@ -855,7 +855,7 @@ Supervisor（分析任务）
 
 ---
 
-## 18. 时间旅行（Time Travel）
+## 19. 时间旅行（Time Travel）
 
 LangGraph 的 Checkpoint 不只是为了容错——还可以回到任意历史状态重新执行：
 
@@ -905,7 +905,7 @@ result = graph.invoke(None, config=step5.config)
 
 ---
 
-## 19. Functional API（轻量写法）
+## 20. Functional API（轻量写法）
 
 2025 年 LangGraph 新增 Functional API，比 StateGraph 更轻量，适合简单流程：
 
@@ -953,7 +953,7 @@ result = process_docs.invoke(["文档1...", "文档2...", "文档3..."], config=
 
 ---
 
-## 20. 面试高频
+## 附录：面试高频
 
 **Q：LangGraph 和 LangChain 的区别是什么？**
 

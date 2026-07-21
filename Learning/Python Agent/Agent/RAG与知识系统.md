@@ -808,7 +808,7 @@ async def robust_retrieve(question: str) -> list[dict]:
 
 ---
 
-## 8. 面试高频
+## 附录：面试高频
 
 **Q：RAG 和 Fine-tuning 怎么选？**
 

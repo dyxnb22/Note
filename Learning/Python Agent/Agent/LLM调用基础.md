@@ -203,7 +203,7 @@ response = client.chat.completions.create(...)
 print(response.usage.prompt_tokens)      # 输入 token
 print(response.usage.completion_tokens)  # 输出 token
 
-## 估算成本（以 gpt-4o 为例，价格会变化）
+# 估算成本（示例价格会变化，生产环境读取版本化配置）
 input_cost = response.usage.prompt_tokens * 2.5 / 1_000_000
 output_cost = response.usage.completion_tokens * 10 / 1_000_000
 ```
@@ -216,32 +216,35 @@ output_cost = response.usage.completion_tokens * 10 / 1_000_000
 
 ```python
 import openai
+import os
 from tenacity import retry, wait_exponential, stop_after_attempt
 
+MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")  # 示例默认值；生产环境从配置读取
+
 @retry(
-wait=wait_exponential(multiplier=1, min=2, max=10),
-stop=stop_after_attempt(3),
-reraise=True,
+    wait=wait_exponential(multiplier=1, min=2, max=10),
+    stop=stop_after_attempt(3),
+    reraise=True,
 )
 def call_llm(messages: list) -> str:
-try:
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        messages=messages,
-    )
-    return response.choices[0].message.content
+    try:
+        response = client.chat.completions.create(
+            model=MODEL,
+            messages=messages,
+        )
+        return response.choices[0].message.content
 
-except openai.RateLimitError:
-    raise  # tenacity 会自动重试
+    except openai.RateLimitError:
+        raise  # tenacity 会自动重试
 
-except openai.APIConnectionError:
-    raise  # 重试
+    except openai.APIConnectionError:
+        raise  # 重试
 
-except openai.AuthenticationError:
-    raise RuntimeError("API Key 无效，请检查 OPENAI_API_KEY")
+    except openai.AuthenticationError:
+        raise RuntimeError("API Key 无效，请检查 OPENAI_API_KEY")
 
-except openai.BadRequestError as e:
-    raise ValueError(f"请求格式错误: {e}")
+    except openai.BadRequestError as e:
+        raise ValueError(f"请求格式错误: {e}")
 ```
 
 ### 常见错误对照表
@@ -490,9 +493,9 @@ def analyze_ui_screenshot(screenshot_path: str) -> dict:
 
 ---
 
-## 9.5 当前主流模型命名参考（2026 年）
+## 9.5 模型 ID 记录（需定期核对）
 
-笔记里其他地方可能出现旧版模型名，以此为准：
+以下只是某次整理时的示例记录，不是稳定事实，也不应覆盖 Provider 官方文档。模型 ID、能力、价格和可用区域发生变化时，只修改这一节或外部配置，不要把它们散落到核心代码示例中。
 
 | 用途 | 当前模型 ID | 特点 |
 |------|-----------|------|
@@ -502,7 +505,7 @@ def analyze_ui_screenshot(screenshot_path: str) -> dict:
 | 推理任务 | `claude-sonnet-4-6` + `thinking` | Extended Thinking 场景 |
 
 ```python
-# 推荐写法：用变量管理模型名，便于统一升级
+# 推荐写法：用变量管理模型名，便于统一升级；生产环境从环境变量/配置中心读取
 PRIMARY_MODEL  = "claude-sonnet-4-6"
 FLAGSHIP_MODEL = "claude-opus-4-7"
 FAST_MODEL     = "claude-haiku-4-5-20251001"
@@ -535,7 +538,7 @@ print(response.usage.cache_read_input_tokens)   # 命中的 token 数
 
 ---
 
-## 10. 面试高频
+## 附录：面试高频
 
 **Q：为什么要把 LLM 调用封装成 service，不直接在业务代码调用？**
 

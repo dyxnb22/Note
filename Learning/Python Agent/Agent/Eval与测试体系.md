@@ -444,7 +444,7 @@ gates={"pass_rate": -0.02, "avg_faithfulness": -0.03},
 
 ---
 
-## 9. 确定性 Mock Provider + Ratchet 基线
+## 10. 确定性 Mock Provider + Ratchet 基线
 
 来自企业级 Agent 平台的测试工程实践——关键思路：**本地 CI 不依赖真实 LLM API**。
 
@@ -573,7 +573,7 @@ def check_safety_invariants(results: dict[str, float]) -> list[str]:
 
 ---
 
-## 10. 合成测试数据生成
+## 11. 合成测试数据生成
 
 手工标注测试集成本高、速度慢。用 LLM 生成合成数据可以快速扩充：
 
@@ -691,7 +691,7 @@ async def filter_synthetic_cases(
 
 ---
 
-## 11. Pairwise 对比评测
+## 12. Pairwise 对比评测
 
 当两个系统都"差不多对"时，绝对打分很难区分好坏。Pairwise 让评委选"哪个更好"：
 
@@ -776,7 +776,7 @@ async def tournament_eval(
 
 ---
 
-## 10. 面试高频
+## 附录：面试高频
 
 **Q：什么是 Eval Harness，为什么 AI 应用需要它？**
 

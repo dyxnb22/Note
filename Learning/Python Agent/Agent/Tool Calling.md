@@ -25,6 +25,17 @@ LLM 理解意图 → 决定调用哪个工具 → 生成工具调用参数（JSO
 
 **关键分工**：模型负责意图理解和参数生成；Python 程序负责真实执行、安全检查、错误处理。
 
+### Provider 协议不是 Agent 原理
+
+Agent Loop 的思想基本相同，但消息协议由 Provider 决定：
+
+| Provider 示例 | 助手工具调用 | 工具结果 |
+|---|---|---|
+| Anthropic Messages | `content` 中的 `tool_use` block | 下一条 `role: "user"` 中的 `tool_result` block |
+| OpenAI Chat Completions | `message.tool_calls` | `role: "tool"`，带 `tool_call_id` |
+
+学习时先掌握“模型提出动作 → 程序执行 → 返回结果”的不变量，再单独记各 SDK 的字段和消息形状。
+
 ---
 
 ## 2. Schema 设计
@@ -86,57 +97,61 @@ tools = [
 
 ```python
 import json
+import os
 from typing import Callable
 
+MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")  # 教学占位值；生产环境从配置读取
+
 def run_tool_loop(
-messages: list[dict],
-tools: list[dict],
-tool_registry: dict[str, Callable],
-max_iterations: int = 10,
+    messages: list[dict],
+    tools: list[dict],
+    tool_registry: dict[str, Callable],
+    max_iterations: int = 10,
 ) -> str:
-for _ in range(max_iterations):
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        messages=messages,
-        tools=tools,
-    )
+    for _ in range(max_iterations):
+        response = client.chat.completions.create(
+            model=MODEL,  # 从配置读取，不要把模型名写死在业务逻辑中
+            messages=messages,
+            tools=tools,
+        )
 
-    choice = response.choices[0]
-    messages.append(choice.message)
+        choice = response.choices[0]
+        assistant_message = choice.message
+        messages.append(assistant_message.model_dump(exclude_none=True))
 
-    if not choice.message.tool_calls:
-        return choice.message.content
+        if not assistant_message.tool_calls:
+            return assistant_message.content or ""
 
-    for tool_call in choice.message.tool_calls:
-        result = execute_tool(tool_call, tool_registry)
-        messages.append({
-            "role": "tool",
-            "tool_call_id": tool_call.id,
-            "content": json.dumps(result, ensure_ascii=False),
-        })
+        for tool_call in assistant_message.tool_calls:
+            result = execute_tool(tool_call, tool_registry)
+            messages.append({
+                "role": "tool",
+                "tool_call_id": tool_call.id,
+                "content": json.dumps(result, ensure_ascii=False),
+            })
 
-return "达到最大迭代次数"
+    return "达到最大迭代次数"
 
 def execute_tool(tool_call, registry: dict[str, Callable]) -> dict:
-name = tool_call.function.name
+    name = tool_call.function.name
 
-try:
-    args = json.loads(tool_call.function.arguments)
-except json.JSONDecodeError:
-    return {"error": "参数解析失败，JSON 格式错误"}
+    try:
+        args = json.loads(tool_call.function.arguments)
+    except json.JSONDecodeError:
+        return {"error": "参数解析失败，JSON 格式错误"}
 
-if name not in registry:
-    return {"error": f"工具 '{name}' 不存在"}
+    if name not in registry:
+        return {"error": f"工具 '{name}' 不存在"}
 
-try:
-    result = registry[name](**args)
-    return {"success": True, "data": result}
-except TypeError as e:
-    return {"error": f"参数错误: {e}"}
-except PermissionError as e:
-    return {"error": f"权限拒绝: {e}", "code": "PERMISSION_DENIED"}
-except Exception as e:
-    return {"error": f"执行失败: {type(e).__name__}: {e}"}
+    try:
+        result = registry[name](**args)
+        return {"success": True, "data": result}
+    except TypeError as e:
+        return {"error": f"参数错误: {e}"}
+    except PermissionError as e:
+        return {"error": f"权限拒绝: {e}", "code": "PERMISSION_DENIED"}
+    except Exception as e:
+        return {"error": f"执行失败: {type(e).__name__}: {e}"}
 ```
 
 ---
@@ -308,7 +323,7 @@ except Exception as e:
 
 ---
 
-## 9. TOOL_HANDLERS dispatch 模式
+## 10. TOOL_HANDLERS dispatch 模式
 
 最简洁的工具分发实现——Strategy Pattern 用 dict 实现：
 
@@ -362,7 +377,7 @@ while True:
 
 ---
 
-## 10. 三关卡权限系统
+## 11. 三关卡权限系统
 
 比单纯"白名单/黑名单"更细粒度的权限模型：
 
@@ -415,7 +430,7 @@ def safe_path(user_input: str, workspace: Path) -> Path:
 
 ---
 
-## 11. 工具参数扩展：`run_in_background`
+## 12. 工具参数扩展：`run_in_background`
 
 不需要新增一个"后台执行"工具，在现有工具 schema 里加一个可选参数即可：
 
@@ -486,7 +501,7 @@ messages.append({"role": "user", "content": user_content})
 
 ---
 
-## 12. 只读工具并行分发
+## 13. 只读工具并行分发
 
 当模型一次发出多个工具调用，读操作之间没有依赖，可以并行执行：
 
@@ -540,7 +555,7 @@ def dispatch_tool_calls(tool_calls: list, handlers: dict) -> list[dict]:
 
 ---
 
-## 13. `tool_choice` — 强制工具调用
+## 14. `tool_choice` — 强制工具调用
 
 默认情况下模型自己决定是否调工具。有时候你需要强制它用某个工具：
 
@@ -613,7 +628,7 @@ print(result["sentiment"], result["confidence"])
 
 ---
 
-## 14. Streaming Tool Use
+## 15. Streaming Tool Use
 
 工具调用也支持流式，适合需要尽快显示部分结果的场景：
 
@@ -679,7 +694,7 @@ for tool_id, tool_data in tool_calls.items():
 
 ---
 
-## 10. 面试高频
+## 附录：面试高频
 
 **Q：Tool Calling 的完整流程是什么？模型真的执行了代码吗？**
 

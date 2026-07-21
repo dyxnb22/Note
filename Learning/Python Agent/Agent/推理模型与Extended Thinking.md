@@ -2,7 +2,7 @@
 
 这篇文档解决一个问题：**什么是推理模型（Reasoning Model），如何在 Agent 里正确使用 Extended Thinking，以及它和普通 LLM 调用的本质区别**。
 
-2025 年以来，Claude 3.7 Sonnet 和 Claude 4 系列让"让模型先想再说"成为主流工程选项。
+不同 Provider 会以不同字段暴露 reasoning / thinking 能力。本笔记用 Anthropic 风格的 Extended Thinking 解释通用工程原则；模型 ID、API 字段、预算限制、可见性和计费规则均属于版本化接口，使用时以 Provider 官方文档为准。
 
 ---
 
@@ -112,7 +112,7 @@ print(response.usage.output_tokens)   # thinking + text 总计
 # 可以通过计算 len(thinking_text) 估算
 ```
 
-**成本估算**（claude-sonnet-4-6，2026 年参考）：
+**成本估算示意**（模型、计费规则和实际 thinking token 会变化；以下数字不能替代 Provider 定价文档）：
 
 | 场景 | budget_tokens | 典型实际 thinking | 额外成本 |
 |------|-------------|-----------------|---------|
