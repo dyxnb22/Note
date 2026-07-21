@@ -15,7 +15,9 @@
 
 最小必修路径是：
 
-`LLM 调用 → Tool Calling → Agent Loop → Context → 权限与验证 → Eval`
+`Python 工程化 → Python Agent 工程化前置 → LLM 调用 → Tool Calling → Agent Loop → Context → 权限与验证 → Eval`
+
+其中 Python 前置内容集中在上级目录的 [[Python Agent工程化补充]]：它连接 Python 的 Pydantic、asyncio、类型系统、重试和测试与本目录的 Agent Runtime。已有 Python 基础时不必重复通读全部语法，直接从该页开始即可。
 
 RAG、Memory、Workflow、MCP、Multi-Agent 和 Computer Use 按项目目标选修；它们不是所有 Agent 的共同前置条件。
 

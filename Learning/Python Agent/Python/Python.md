@@ -9,10 +9,15 @@
 再看 `Python工程化`。
 目标：理解项目为什么要有 `.venv`、`pyproject.toml`、`src/`、`__init__.py`、`python -m`、配置、日志、测试，以及如何把函数暴露成简单 CLI 命令。
 适合练习：从 0 创建一个能运行的 Python package，再加一个 `sac ask ...` 或 `task add ...` 这样的命令入口。
+
+### 阶段 2.5：Agent 工程化前置
+有了 Python 工程基础后，阅读 `Python Agent工程化补充`。
+目标：理解 Pydantic 如何定义数据合同，asyncio 如何安全并发，类型注解如何表达 Tool 接口，以及 timeout、retry、幂等、trace 和测试如何共同约束 Agent Runtime。
+适合练习：为三个假 Tool 定义输入模型，写一个带并发上限和超时的执行器，再用 Mock 测试成功、失败和取消。
 ### 阶段 3：外部 API 与 LLM
 依次看：
 1. `HTTP与API调用`
-2. `OpenAI SDK与LLM调用`
+2. `LLM调用基础`
 3. `Tool Calling`
 目标：能调用 HTTP API，能调用模型，能理解“模型生成工具调用，Python 真正执行工具”。
 ### 阶段 4：Agent 架构
@@ -36,8 +41,9 @@
 | --- | --- | --- |
 | Python核心语法 | 语言基础、标准库、类型注解基础 | 不讲项目结构和 CLI 工具封装 |
 | Python工程化 | 环境、依赖、配置、日志、测试、项目启动方式、简单 CLI 入口 | 不深入讲 Service / Client / Repository 等架构模式 |
+| Python Agent工程化补充 | Pydantic、asyncio、类型边界、重试、并发、测试边界 | 不重复完整的 LLM API 和 Tool Calling 协议 |
 | HTTP与API调用 | requests/httpx、timeout、retry、client 封装 | 不讲 OpenAI SDK 专属用法 |
-| OpenAI SDK与LLM调用 | 模型调用、多轮、stream、结构化输出 | 不展开完整 Tool Calling 执行循环 |
+| LLM调用基础 | 模型调用、多轮、stream、结构化输出 | 不展开完整 Tool Calling 执行循环 |
 | Tool Calling | 工具 schema、tool_map、执行工具、安全边界 | 不讲 LangGraph 图编排 |
 | Agent基础架构 | Agent Loop、State、Memory、Planning | 不深入讲具体框架 API |
 | RAG | chunk、embedding、retrieval、rerank、评估 | 不讲通用 HTTP 和 FastAPI 基础 |
@@ -53,6 +59,7 @@
 
 - [[Python核心语法]]
 - [[Python工程化]]
+- [[Python Agent工程化补充]]
 - [[HTTP与API调用]]
 - [[FastAPI]]
 - [[部署与上线]]
