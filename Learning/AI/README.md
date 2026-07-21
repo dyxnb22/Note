@@ -14,6 +14,11 @@
 | `DeepLearning.md` + `DeepLearning/` | 以 D2L 路线学习训练原理、CNN、RNN、Transformer、视觉与 NLP | 需要系统补模型训练基础时 |
 | `AI工具与编程助手.md` | AI 编程工具的能力、边界、协作方式、风险 | 开始使用 AI Coding Agent 时；思考人机协作时 |
 
+## 配套实践
+
+- [LLM 课程实践](./实践/llm_learning/README.md)：00–11 课程，从深度学习和 Transformer 到 Agent、RAG、评测、微调、生产系统与研究方法。
+- [Agent Runtime 实践](../Agent/实践/learn-claude-code/README.md)：s01–s20 课程，验证 Agent Loop、工具、Context、可靠性和 MCP。
+
 ## 与 xfg-planet 案例的连接
 
 - [AI MCP Gateway](../Case_Studies/AI/AI-MCP-Gateway.md)：协议转换、JSON-RPC、Session 和工具治理。
@@ -25,6 +30,7 @@
 - 模型是什么、怎么工作、为什么这样设计 → 放这里
 - Python 语言和服务工程 → 放 `Learning/Python/`
 - 如何调用模型、如何构建 Agent、如何做 RAG → 放 `Learning/Agent/`
+- 可运行的课程实验、样例输入和实验输出 → 放 `Learning/AI/实践/`
 - 边界案例：context window 的原理（这里）vs 如何管理 context 窗口（Agent）
 
 ## 按场景选文档

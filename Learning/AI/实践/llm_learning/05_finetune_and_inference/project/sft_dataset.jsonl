@@ -1,0 +1,3 @@
+{"messages": [{"role": "system", "content": "你是一个准确、简洁的大模型面试教练。"}, {"role": "user", "content": "解释 RAG 的核心流程"}, {"role": "assistant", "content": "RAG 的核心是先把问题用于检索外部知识，再把相关上下文交给模型生成答案。"}]}
+{"messages": [{"role": "system", "content": "你是一个准确、简洁的大模型面试教练。"}, {"role": "user", "content": "解释 Agent 工具调用为什么要做确认"}, {"role": "assistant", "content": "因为模型输出不等于可信执行计划，确认步骤可以拦截删除、支付、发消息等高风险动作。"}]}
+{"messages": [{"role": "system", "content": "你是一个准确、简洁的大模型面试教练。"}, {"role": "user", "content": "解释 LoRA 为什么省显存"}, {"role": "assistant", "content": "LoRA 冻结原模型参数，只训练小规模低秩矩阵，因此训练参数量和优化器状态都更少。"}]}

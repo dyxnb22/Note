@@ -7,6 +7,17 @@
 - 做出合理的系统设计决策
 - 在面试中清楚解释 tokenization、generation、alignment、fine-tuning
 
+## 配套实践
+
+| 主题 | 实践入口 |
+|---|---|
+| Token、Transformer 与注意力 | [self_attention_demo.py](./实践/llm_learning/00_transformer_foundation/project/self_attention_demo.py) |
+| SFT、LoRA 与推理 | [prepare_sft_dataset.py](./实践/llm_learning/05_finetune_and_inference/project/prepare_sft_dataset.py) |
+| MoE、MLA 与 KV Cache 估算 | [architecture_budget_estimator.py](./实践/llm_learning/07_open_llm_deepseek_study/project/architecture_budget_estimator.py) |
+| DPO 与推理模型 | [tiny_dpo_loss.py](./实践/llm_learning/09_alignment_reasoning_research/project/tiny_dpo_loss.py) |
+
+实践代码用于建立直觉和验证流程；模型规格、API 限制和训练配置仍应以具体 Provider/框架文档为准。
+
 ---
 
 ## 1. 从文本到 Token
@@ -24,6 +35,8 @@
 主流方法是 **BPE（Byte-Pair Encoding）**：从字符出发，不断合并高频字符对，直到达到词表大小。
 
 ### 关键数字感知
+
+> 这里的 token 比例、词表大小、Context Window 和模型名称只用于建立数量级直觉，不是永久不变的产品规格。实际开发前请按具体模型和日期核对 Provider 文档。
 
 - GPT-4 词表约 100K token
 - 英文大约 1 token ≈ 0.75 词

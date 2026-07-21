@@ -1,0 +1,13 @@
+{
+  "method": "LoRA",
+  "base_model": "choose-a-small-instruct-model-for-your-machine",
+  "r": 8,
+  "alpha": 16,
+  "dropout": 0.05,
+  "target_modules": [
+    "q_proj",
+    "v_proj"
+  ],
+  "estimated_training_tokens": 181,
+  "note": "This is a config draft for learning; real training needs a framework such as PEFT/Transformers."
+}
