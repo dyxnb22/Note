@@ -17,6 +17,7 @@
 ## 配套实践
 
 - [LLM 课程实践](./实践/llm_learning/README.md)：00–11 课程，从深度学习和 Transformer 到 Agent、RAG、评测、微调、生产系统与研究方法。
+- [DeepPath Lab](./实践/DeepPathLab/README.md)：以项目制方式从自动微分、线性模型、MLP 和 CNN 开始，逐步走向序列模型、Transformer 与 NLP。
 - [Agent Runtime 实践](../Agent/实践/learn-claude-code/README.md)：s01–s20 课程，验证 Agent Loop、工具、Context、可靠性和 MCP。
 
 ## 与 xfg-planet 案例的连接

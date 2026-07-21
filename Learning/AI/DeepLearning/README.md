@@ -16,6 +16,7 @@
 
 - [深度学习到 LLM 学习文档](../实践/llm_learning/00_deep_learning_for_llm/学习文档.md) 与 [tiny next-token model](../实践/llm_learning/00_deep_learning_for_llm/project/tiny_next_token_model.py)：把 token、logits、softmax、loss 和梯度下降串起来。
 - [Transformer 学习文档](../实践/llm_learning/00_transformer_foundation/学习文档.md) 与 [self-attention demo](../实践/llm_learning/00_transformer_foundation/project/self_attention_demo.py)：运行最小 Q/K/V 注意力实验。
+- [DeepPath Lab 对应关系](../实践/DeepPathLab/与%20Notes%20的对应关系.md)：把本目录的理论章节落到 01–04 四个项目模块，统一记录实现、实验和报告。
 
 这些实验是概念桥接，不替代本目录的 PyTorch/D2L 系统学习。
 
