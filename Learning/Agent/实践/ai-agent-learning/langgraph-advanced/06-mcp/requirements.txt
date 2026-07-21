@@ -1,0 +1,11 @@
+# 核心依赖（MCP 全功能）
+fastmcp>=2.0.0
+langchain-mcp-adapters>=0.1.0
+
+# LLM（三选一即可）
+langchain-anthropic>=0.3.0
+# langchain-openai>=0.3.0
+
+# 基础
+python-dotenv>=1.0.0
+langgraph>=0.4.0

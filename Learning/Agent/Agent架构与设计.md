@@ -809,6 +809,14 @@ def run_validation_and_repair(messages: list, client, max_repair: int = 2):
 
 阅读时重点对比 [s01_agent_loop/code.py](./实践/learn-claude-code/s01_agent_loop/code.py) 与 [s20_comprehensive/code.py](./实践/learn-claude-code/s20_comprehensive/code.py)：前者用于手写最小不变量，后者用于定位每个机制在循环前、循环中和循环后的挂载点。教学实现是 Python 单进程和简化状态，不应直接当作生产级并发、权限或持久化实现。
 
+## ai-agent-learning 配套实践
+
+- [Simple Agent Loop](./实践/ai-agent-learning/agent-learning-projects/05_simple_agent_loop/main.py)：最小 while loop、最大步数和工具观察结果。
+- [LangGraph 基础图](./实践/ai-agent-learning/langgraph-advanced/01-basics/hello_graph.py)：把 Agent 的 State、Node、Edge 和条件路由显式化。
+- [DevPilot 综合项目](./实践/ai-agent-learning/DevPilot/README.md)：把 Router、Analyzer、Fixer、Approval、Reviewer 和 PR Creator 组合成一个可控流程。
+
+阅读 DevPilot 时重点看状态字段、节点职责和审批边界，不要只把它当成一个可以自动改代码的成品。
+
 ## 附录：面试高频
 
 **Q：Agent 和 Workflow 的区别是什么？什么时候用 Agent，什么时候用 Workflow？**

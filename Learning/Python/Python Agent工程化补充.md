@@ -349,3 +349,6 @@ agent-demo/
 
 `/Users/diaoyuxuan/Python-learning/Python-Agent开发学习指南.md`
 
+## 配套实践
+
+如果想把本篇的配置、日志、HTTP 和异步基础直接跑起来，可以按顺序完成 [01 Python 工程模板](../Agent/实践/ai-agent-learning/agent-learning-projects/01_python_project_template/README.md) 和 [02 HTTP API Client](../Agent/实践/ai-agent-learning/agent-learning-projects/02_http_api_client/README.md)。它们是 Agent 开发的工程前置，不需要先接入大模型。

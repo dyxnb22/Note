@@ -478,6 +478,13 @@ s09 的实现把 Memory 分成三个动作：
 
 它采用 `MEMORY.md` 索引 + 类型化 Markdown 文件的轻量存储。这个模式适合本地 Coding Agent，但生产环境还要补并发锁、租户隔离、敏感信息过滤、删除/导出和记忆冲突处理。项目里的 forked extractor、Dream 整理和 side-query 都是实现思路，不是必须照搬的框架。对应实验：[s09_memory/code.py](./实践/learn-claude-code/s09_memory/code.py)。
 
+## ai-agent-learning 配套实践
+
+- [LangGraph Memory Agent](./实践/ai-agent-learning/agent-learning-projects/09_langgraph_memory_agent/README.md)：观察 `messages`、结构化 State、MemorySaver 和 `thread_id` 的关系。
+- [Advanced Memory 实验](./实践/ai-agent-learning/langgraph-advanced/03-memory/memory_agent.py)：对照更小的 Checkpointer 示例，验证同一线程恢复状态、不同线程隔离状态。
+
+这两组代码主要演示短期会话状态；长期 Memory、召回、冲突和生命周期治理仍以本篇理论为准。
+
 ## 附录：面试高频
 
 **Q：Memory 的几种类型，分别适合什么场景？**

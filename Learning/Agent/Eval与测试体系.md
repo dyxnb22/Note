@@ -778,6 +778,13 @@ async def tournament_eval(
 
 ---
 
+## ai-agent-learning 配套实践
+
+- [Agent Eval 实验](./实践/ai-agent-learning/langgraph-advanced/07-eval/eval_agent.py)：包含规则检查、关键词检查、轨迹检查和 LLM-as-Judge 的教学示例。
+- [DevPilot 基础测试](./实践/ai-agent-learning/DevPilot/tests/test_basic.py)：对照确定性工具和 State 的单元测试；它不是完整的 Agent Eval Harness。
+
+建议运行示例后，再把一次失败轨迹加入自己的 regression set，并记录成功率、步骤数、延迟和成本，而不是只看程序是否退出。
+
 ## 附录：面试高频
 
 **Q：什么是 Eval Harness，为什么 AI 应用需要它？**

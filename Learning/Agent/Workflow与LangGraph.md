@@ -974,6 +974,15 @@ s15-s18 展示了 LangGraph 之外的另一种 Harness 协作实现：
 
 这套文件邮箱和线程模型是教学实现；在生产系统中应替换为带锁/事务的任务存储、可靠消息、租约和可审计生命周期。对应实验：[s15_agent_teams/code.py](./实践/learn-claude-code/s15_agent_teams/code.py)、[s16_team_protocols/code.py](./实践/learn-claude-code/s16_team_protocols/code.py)、[s17_autonomous_agents/code.py](./实践/learn-claude-code/s17_autonomous_agents/code.py)、[s18_worktree_isolation/code.py](./实践/learn-claude-code/s18_worktree_isolation/code.py)，工作目录细节另见 [代码 Agent 基础设施](./代码%20Agent%20基础设施.md)。
 
+## ai-agent-learning 配套实践
+
+- [07 LangGraph Basic Workflow](./实践/ai-agent-learning/agent-learning-projects/07_langgraph_basic_workflow/README.md)：从 State、Node、Edge、compile、invoke 开始。
+- [08 LangGraph Tool Agent](./实践/ai-agent-learning/agent-learning-projects/08_langgraph_tool_agent/README.md)：练习 ToolNode 和条件边。
+- [09 LangGraph Memory Agent](./实践/ai-agent-learning/agent-learning-projects/09_langgraph_memory_agent/README.md)：练习 Checkpointer 与 `thread_id`。
+- [LangGraph Advanced](./实践/ai-agent-learning/langgraph-advanced/README.md)：补充多 Agent、人工审批、MCP 和 Eval 对照实验。
+
+建议先完成 07–09，再阅读本篇的持久化、Human-in-the-loop、子图、流式和动态并行章节。
+
 ## 附录：面试高频
 
 **Q：LangGraph 和 LangChain 的区别是什么？**

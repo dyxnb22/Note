@@ -808,6 +808,13 @@ async def robust_retrieve(question: str) -> list[dict]:
 
 ---
 
+## ai-agent-learning 配套实践
+
+- [10 RAG Agent Basic](./实践/ai-agent-learning/agent-learning-projects/10_rag_agent_basic/README.md)：从本地 Markdown、chunk、关键词检索到上下文注入，建立最小可运行闭环。
+- 实践中的 `docs/agent_notes.md` 只是测试知识库，不是新的理论资料；向量检索、混合检索、引用、权限感知和评测仍以本篇为主。
+
+完成基础版本后，建议把关键词检索替换成 embedding，再增加引用来源和 Recall/Precision 评测。
+
 ## 附录：面试高频
 
 **Q：RAG 和 Fine-tuning 怎么选？**

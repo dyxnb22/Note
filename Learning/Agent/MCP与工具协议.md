@@ -551,6 +551,13 @@ s19 用 mock server 演示 MCP 的最小不变量：连接 Server、发现工具
 
 这个实验特别适合补充本篇的协议细节：工具不是静态常量，连接状态、工具描述、权限标注和 prompt/cache 都会随 Server 变化。教学版只模拟 stdio 和 `tools/list`/`tools/call`，省略了多 Transport、OAuth、Server 反向通知、配置优先级和连接生命周期；这些部分不能从 mock 代码直接推断生产行为。对应实验：[s19_mcp_plugin/code.py](./实践/learn-claude-code/s19_mcp_plugin/code.py)、[s20_comprehensive/code.py](./实践/learn-claude-code/s20_comprehensive/code.py)。
 
+## ai-agent-learning 配套实践
+
+- [11 MCP Server](./实践/ai-agent-learning/agent-learning-projects/11_mcp_server/main.py)：用 FastMCP 实现 Note Manager，观察 Tool、Resource、Prompt 的边界。
+- [LangGraph MCP 实验](./实践/ai-agent-learning/langgraph-advanced/06-mcp/mcp_server.py)：对照 MCP Server / Client 和 Mock 模式，理解外部工具如何进入 Agent 工具池。
+
+实践代码适合学习协议和调用路径，不代表生产环境已经具备认证、租户隔离、生命周期管理和供应链治理。
+
 ## 附录：面试高频
 
 **Q：MCP 是什么，解决什么问题？**
