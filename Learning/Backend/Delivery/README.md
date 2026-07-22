@@ -1,9 +1,5 @@
 # Delivery
 
-## 主题
-
-- [AI DevOps 与交付](./AI%20DevOps与交付.md)：环境、容器、远程操作、压测、观测和本地模型。
-
 这里放把服务跑起来、交付出去、稳定维护时会用到的内容。
 
 ## 这个目录解决什么问题
@@ -15,7 +11,9 @@
 
 ## 主题
 
+- [AI DevOps 与交付](./AI%20DevOps与交付.md)：环境、容器、远程操作、压测、观测和本地模型
 - [Git](../../../Learning/Backend/Delivery/Git.md)：版本控制、分支协作、冲突处理、回退
+- [Maven](../../../Learning/Backend/Delivery/Maven.md)：依赖、生命周期、多模块和私服
 - [Linux 命令详解指南](../../../Learning/Backend/Delivery/Linux%20命令详解指南.md)：登录服务器后最常用的排查命令
 - [Docker](../../../Learning/Backend/Delivery/Docker.md)：镜像、容器、Dockerfile、Compose
 - [日志与可观测性](../../../Learning/Backend/Delivery/日志与可观测性.md)：日志门面、结构化日志、TraceId 和集中采集
@@ -26,10 +24,11 @@
 ## 建议顺序
 
 1. 先掌握 `Git`
-2. 再熟悉 `Linux 命令详解指南`
-3. 然后看 `Docker`
-4. 再读 `部署与上线`
-5. 最后补 `CI_CD`
+2. 再掌握 `Maven`
+3. 再熟悉 `Linux 命令详解指南`
+4. 然后看 `Docker`
+5. 再读 `部署与上线`
+6. 最后补 `CI_CD`
 
 ## 边界
 

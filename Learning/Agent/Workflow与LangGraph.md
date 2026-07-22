@@ -454,7 +454,7 @@ class WorkflowCheckpoint:
     artifacts: dict          # 已产生的中间产物（文件路径、patch 等）
     saved_at: str
 
-# 使用方式
+# 保存检查点示例
 def run_workflow_node(node_fn, state, task_id: str, node_name: str):
     try:
         new_state = node_fn(state)
@@ -758,7 +758,7 @@ def approval_node(state: AgentState) -> dict:
     # 低风险直接执行，不中断
     return {"status": "approved"}
 
-# 使用方式
+# 动态恢复示例
 graph = builder.compile(checkpointer=checkpointer)  # 必须有 checkpointer
 config = {"configurable": {"thread_id": "task-789"}}
 

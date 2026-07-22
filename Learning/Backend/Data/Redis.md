@@ -16,6 +16,14 @@ Redis 是 key-value 数据库，但 value 支持多种数据结构。
 | GEO | 附近的人、门店距离查询 |
 | Stream | 带消息 ID、消费组和 ACK 的轻量消息队列 |
 
+## Java 客户端与 Spring Data Redis 怎么选？
+
+- Jedis 的连接对象不是线程安全的，并发使用时应通过连接池管理，不能把单个 Jedis 实例作为全局共享对象。
+- Spring Data Redis 的常见 Spring Boot 配置使用 Lettuce；具体客户端由依赖和连接工厂决定，选型时要看版本和线程模型。
+- `RedisTemplate` 默认的对象序列化通常是 JDK 序列化，可读性差、体积也可能较大。
+- 生产环境要显式统一 key 和 value 的序列化策略：可以自定义 `RedisTemplate` 使用 JSON，也可以使用 `StringRedisTemplate`，由业务显式完成 JSON 序列化和反序列化。
+- 序列化策略一旦确定，应在不同服务之间统一；修改类型信息或字段结构时要考虑旧缓存的兼容和淘汰。
+
 ## Redis 底层有哪些核心数据结构？
 
 Redis 会根据数据规模和编码条件，在节省内存与操作效率之间做权衡。

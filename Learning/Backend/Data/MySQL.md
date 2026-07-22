@@ -69,6 +69,12 @@ JOIN 优化
 -   `VARCHAR(n)` 中 `n` 表示字符数量，不是字节数量。
 -   字符实际占用字节数由字符集决定，例如 `utf8mb4` 一个字符最多占 4 字节。
 
+## DECIMAL、FLOAT 和 DOUBLE 怎么选？
+
+- `DECIMAL(p,s)` 以十进制精确表示，适合金额、利率和需要可重复小数结果的业务；`p` 是总精度，`s` 是小数位数。
+- `FLOAT` 和 `DOUBLE` 使用二进制浮点表示，范围大、计算快，但存在舍入误差，适合测量、统计和科学计算等允许近似的场景。
+- 金额字段不要使用 `FLOAT`/`DOUBLE`；即使使用 `DECIMAL`，也要明确精度、舍入规则和超范围处理。
+
 ## INT(1) 和 INT(10) 区别
 
 | 项目      | 说明                             |
@@ -152,6 +158,34 @@ FROM / JOIN / ON → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → O
 ```
 
 因此，`WHERE` 中不能使用 `SELECT` 中定义的别名，而 `ORDER BY` 通常可以使用别名。聚合函数在分组后参与计算，不需要单独作为一个执行阶段记忆。
+
+## 常用管理命令和删除风险
+
+```sql
+SELECT VERSION();
+SHOW ENGINES;
+SHOW DATABASES;
+USE app_db;
+SHOW TABLES;
+DESCRIBE orders;
+SHOW CREATE TABLE orders;
+SHOW INDEX FROM orders;
+```
+
+逻辑备份和恢复可以使用：
+
+```bash
+mysqldump -u user -p app_db > app_db.sql
+mysql -u user -p app_db < app_db.sql
+```
+
+不要把数据库密码直接写在命令行参数中，避免进入 Shell 历史或进程列表。删除数据前先确认备份、事务和影响范围：`DELETE` 可带 `WHERE` 并通常可回滚；`TRUNCATE` 快速清空表但会重置自增等行为，不能当作普通行删除；`DROP` 会删除表结构，风险最高。
+
+## 视图、存储过程和触发器适合什么场景？
+
+- 视图是保存起来的查询定义，可隐藏列、简化复杂 JOIN 或做权限隔离；普通视图不等于物化结果，查询性能仍取决于底层 SQL 和索引。
+- 存储过程把多步 SQL 放在数据库端执行，适合数据距离近、批量性强的操作；但版本管理、测试、调试和跨数据库迁移成本较高，不宜把所有业务逻辑都塞进数据库。
+- 触发器在 INSERT、UPDATE、DELETE 等事件发生时自动执行，适合审计、简单约束和派生字段维护；隐式副作用会增加排障和迁移难度，核心业务流程通常应由应用服务显式编排。
 
 # 执行流程与存储引擎
 
@@ -566,6 +600,18 @@ Serializable 通过加锁让事务串行化执行。
 
 在 InnoDB 中，普通 `SELECT` 也会变成加共享锁的当前读，写操作需要排他锁，因此读写、写写之间会互相阻塞。
 
+## InnoDB 一致性备份怎么做？
+
+`FLUSH TABLES WITH READ LOCK` 会让整个实例进入只读式备份窗口，影响业务写入；它适合需要全局一致视图且能接受停写的场景。
+
+对于以 InnoDB 为主的事务表，逻辑备份通常优先考虑：
+
+```bash
+mysqldump --single-transaction -u root -p database_name > backup.sql
+```
+
+`--single-transaction` 通过一致性快照减少全局读锁影响，但不等于所有对象都无锁：非事务表、并发 DDL、存储对象和备份权限仍需单独评估。不要把数据库密码直接写在命令行或笔记中。
+
 # 日志
 
 ## MySQL 日志
@@ -688,6 +734,13 @@ redo log 的特点：记录数据页物理修改、顺序写入，并通过 chec
 | Extra | 额外信息，如 Using index、Using where、Using filesort、Using temporary |
 
 常见优化目标：避免全表扫描，减少扫描行数，减少回表，避免临时表和文件排序。
+
+## 批量写入和大批量导入怎么做？
+
+- 多行 `INSERT`、合理分批和手动事务提交可以减少网络往返与提交开销，但单个事务不能无限增大，否则会占用锁、undo 和 redo 资源。
+- InnoDB 按聚簇索引组织数据，主键顺序插入通常比 UUID 等无序值更少发生页分裂；这也是主键设计需要考虑写入顺序的原因。
+- 大量本地文件导入可以考虑 `LOAD DATA [LOCAL] INFILE`，但要确认服务端和客户端开关、文件来源、字段分隔符与权限策略，不能把不可信路径直接交给数据库执行。
+- 批量导入前后都应检查唯一键、数据类型、字符集、失败行和事务边界；不要为了导入速度无条件关闭约束或日志。
 
 ## 发现一张表查询很慢，怎么排查和优化？
 
