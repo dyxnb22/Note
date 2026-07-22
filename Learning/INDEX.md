@@ -49,4 +49,4 @@
 
 ## 本次迁移
 
-`xfg-planet` 的内容已按主题、案例、参考和职业四类归位。迁移清单见 [xfg-planet 迁移清单](./00_Navigation/xfg-planet迁移清单.md)，原始整理库仍保留在 `/Users/diaoyuxuan/xfg-planet`。
+`xfg-planet` 的内容已按主题、案例、参考和职业四类归位。迁移清单见 [xfg-planet 迁移清单](./00_Navigation/xfg-planet迁移清单.md)，原始整理库仍保留在外部源库 `xfg-planet`。

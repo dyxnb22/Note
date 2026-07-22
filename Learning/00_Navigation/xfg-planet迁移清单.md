@@ -1,6 +1,6 @@
 # xfg-planet 迁移清单
 
-源库：`/Users/diaoyuxuan/xfg-planet`，共 95 份 Markdown。目标库只维护归类后的主题、案例、参考和职业文档，不复制原目录结构。
+源库：`xfg-planet`，共 95 份 Markdown。目标库只维护归类后的主题、案例、参考和职业文档，不复制原目录结构。
 
 ## 处理规则
 

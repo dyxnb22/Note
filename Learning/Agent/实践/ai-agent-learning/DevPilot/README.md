@@ -30,7 +30,7 @@ START
 ## 运行
 
 ```bash
-cd "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Learning/Agent/实践/ai-agent-learning/DevPilot"
+# 在 DevPilot/ 目录下执行
 cp .env.example .env       # 如果需要接入真实模型
 python src/main.py
 ```

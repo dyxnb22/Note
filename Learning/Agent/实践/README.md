@@ -9,6 +9,19 @@
 - [ai-agent-learning](./ai-agent-learning/README.md)：从 Python 工程、HTTP/API、Provider SDK、Tool Calling、Agent Loop 开始，逐步进入 FastAPI、LangGraph、Memory、RAG、MCP 和 DevPilot，适合作为入门主线。
 - [learn-claude-code](./learn-claude-code/README.md)：s01–s20，重点学习 Agent Harness 的工具、权限、Hook、Context、Memory、Task、后台任务、团队、Worktree 和 MCP 机制。
 
+## 目录结构
+
+```text
+实践/
+├── ai-agent-learning/       # 01–12 主学习路线
+│   ├── agent-learning-projects/  # 逐步项目
+│   ├── langgraph-advanced/      # 框架专项
+│   └── DevPilot/                # 综合项目
+└── learn-claude-code/       # s01–s20 Harness 实验
+```
+
+新增 Agent 实践优先归入已有路线，不在此层继续创建平行目录。
+
 ## 选择建议
 
 第一次系统学习 Agent：先完成 `ai-agent-learning/agent-learning-projects/01–09`，再按目标选择 RAG、MCP 或 LangGraph 专项。

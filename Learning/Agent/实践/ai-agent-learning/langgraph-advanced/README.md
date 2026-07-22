@@ -15,7 +15,7 @@
 ## 运行
 
 ```bash
-cd "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Learning/Agent/实践/ai-agent-learning"
+# 在 ai-agent-learning/ 目录下执行
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r langgraph-advanced/requirements.txt

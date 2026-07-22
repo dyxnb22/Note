@@ -347,7 +347,7 @@ agent-demo/
 
 回到原始资料查看完整章节和练习：
 
-`/Users/diaoyuxuan/Python-learning/Python-Agent开发学习指南.md`
+外部参考：`Python-Agent开发学习指南.md`
 
 ## 配套实践
 
