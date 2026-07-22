@@ -2,7 +2,7 @@
 
 这里是按主题沉淀的长期学习库；案例、资料和职业文档分别承担证据、参考和输出职责。
 
-总入口：[Learning 总索引](./INDEX.md)。迁移来源、覆盖范围和证据等级统一看[来源与证据](./00_Navigation/来源与证据.md)。
+本页（`README.md`）只负责目录结构、内容边界和维护规则；[Learning 总索引](./INDEX.md) 负责按目标导航、推荐学习顺序和主题入口。迁移来源、覆盖范围和证据等级统一看[来源与证据](./00_Navigation/来源与证据.md)。
 
 AI 应用学习主线见：[Python → AI → Agent 学习地图](./00_Navigation/AI-Python-Agent学习地图.md)。
 

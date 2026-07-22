@@ -49,15 +49,7 @@ The original project description had a strong learning philosophy that is worth 
 
 AI tooling can help with scaffolding, tests, refactors, and documentation, but it should not replace understanding or invent conclusions.
 
-## Main Learning Tracks
-
-- Track A: Foundations
-- Track B: Deep Learning Core
-- Track C: Sequence Models and Transformers
-- Track D: Computer Vision
-- Track E: NLP and Representation Learning
-- Track F: Recommender Systems and Reinforcement Learning
-- Track G: Modern Extensions
+The complete track definitions and staged learning route live in [docs/roadmap.md](./docs/roadmap.md). This README focuses on the project scope, workflow, and current module state.
 
 ## Current Modules
 
