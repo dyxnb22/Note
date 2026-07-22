@@ -13,7 +13,7 @@
 | HTTP、timeout、retry、httpx | [HTTP 与 API 调用](HTTP与API调用.md) | 异步调用的并发控制 |
 | LLM、多轮、stream、结构化输出 | [LLM 调用基础](../Agent/LLM调用基础.md) | Pydantic 模型作为系统边界 |
 | Tool schema、并行调用、权限和重试 | [Tool Calling](../Agent/Tool%20Calling.md) | Tool 执行器的统一实现方式 |
-| Agent Loop、State、Memory、Workflow | [Agent 架构与设计](../Agent/Agent架构与设计.md)、[Workflow 与 LangGraph](../Agent/Workflow与LangGraph.md) | Python 能力在运行时中的落点 |
+| Agent Loop、State、Memory、Workflow | [Agent 架构与设计](../Agent/Agent架构与设计.md)、[Workflow 与编排](../Agent/Workflow与编排.md)、[LangGraph](../Agent/LangGraph.md) | Python 能力在运行时中的落点 |
 
 ## 最短学习路径
 

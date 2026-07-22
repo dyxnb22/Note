@@ -430,77 +430,11 @@ Parallel Stream 会把数据拆成多个子任务，使用通用 `ForkJoinPool` 
 
 Java 21 的虚拟线程主要降低大量阻塞 I/O 任务的线程创建和调度成本，不用于提升 CPU 密集型计算性能。
 
-## 序列化与 I/O
+## 专题延伸
 
-## 如何把一个对象从一个 JVM 转移到另一个 JVM？
-
-- Java 序列化：使用 `ObjectOutputStream` 和 `ObjectInputStream` 传输字节流。
-- 消息传递：通过 MQ 或网络协议传输序列化后的数据。
-- RPC：使用 gRPC 等框架调用另一个 JVM 的服务。
-- 共享存储：将数据写入数据库或 Redis，由另一个 JVM 读取。
-
-跨服务传输时通常使用明确的跨语言协议，而不是直接传输 Java 对象。
-
-## 为什么通常不推荐 Java 原生序列化？
-
-Java 原生序列化的问题包括：
-
-- 跨语言能力差。
-- 数据体积和性能通常不如专用协议。
-- 反序列化存在安全风险，不能对不可信输入直接调用 `readObject()`。
-
-实际项目通常根据场景使用 JSON 或 Protobuf 等协议。Protobuf 需要 `.proto` 定义，体积小、编解码性能好，适合服务间通信。
-
-## BIO、NIO、AIO 有什么区别？
-
-| 模型 | 特点 | 核心概念 |
-| --- | --- | --- |
-| BIO | 同步阻塞，代码简单，但连接数较多时扩展性差 | Stream |
-| NIO | 同步非阻塞，可通过多路复用监听多个连接 | Channel、Buffer、Selector |
-| AIO | 异步非阻塞，应用发起操作后等待完成通知 | CompletionHandler 等 |
-
-NIO 的“非阻塞”指读写调用不会一直等待；“同步”指应用线程仍需主动获取就绪事件并处理读写。AIO 则由异步操作完成后通知应用。
-
-## 设计模式
-
-## volatile 和 synchronized 如何实现双重检查锁单例？
-
-```java
-public class Singleton {
-    private static volatile Singleton instance;
-
-    private Singleton() {}
-
-    public static Singleton getInstance() {
-        if (instance == null) {
-            synchronized (Singleton.class) {
-                if (instance == null) {
-                    instance = new Singleton();
-                }
-            }
-        }
-        return instance;
-    }
-}
-```
-
-`volatile` 有两个作用：保证可见性，并禁止对象初始化过程中的危险指令重排序。没有延迟加载要求时，也可以使用枚举单例，降低反射和反序列化破坏风险。
-
-## 动态代理和反射有什么关系？
-
-反射提供运行时获取类信息和调用方法的能力，动态代理利用这些能力在不修改原对象的情况下增强方法行为，常用于 AOP、事务、日志和权限校验。
-
-- JDK 动态代理基于接口，使用 `Proxy.newProxyInstance()` 和 `InvocationHandler`。
-- CGLIB 基于目标类生成子类，不要求目标类实现接口。
-- Spring AOP 会根据目标类型选择合适的代理方式。
-
-## 代理模式和适配器模式有什么区别？
-
-| 对比项 | 代理模式 | 适配器模式 |
-| --- | --- | --- |
-| 目的 | 控制访问或增加额外行为 | 转换接口，使不兼容的类协同工作 |
-| 结构 | 抽象主题、真实主题、代理 | 目标接口、适配器、被适配者 |
-| 常见场景 | 日志、权限、事务、缓存 | 兼容第三方 SDK、旧接口和新接口 |
+- 序列化、BIO/NIO/AIO、文件和网络服务线程模型见 [Java I/O 与网络编程](JavaIO与网络编程.md)。
+- 可见性、锁、双重检查和并发工具见 [JUC](JUC.md)。
+- 代理、适配器等职责设计见 [Java 设计模式](设计模式.md)。
 
 ## Java 面试题
 

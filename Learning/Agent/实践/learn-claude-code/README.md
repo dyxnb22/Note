@@ -41,9 +41,9 @@ python s02_tool_use/code.py
 | s12 | [Task System](./s12_task_system/code.py) | [Durable Execution 与分布式可靠性](../../Durable%20Execution与分布式可靠性.md) |
 | s13 | [Background Tasks](./s13_background_tasks/code.py) | [Durable Execution 与分布式可靠性](../../Durable%20Execution与分布式可靠性.md) |
 | s14 | [Cron Scheduler](./s14_cron_scheduler/code.py) | [Durable Execution 与分布式可靠性](../../Durable%20Execution与分布式可靠性.md) |
-| s15 | [Agent Teams](./s15_agent_teams/code.py) | [Workflow 与 LangGraph](../../Workflow与LangGraph.md) |
-| s16 | [Team Protocols](./s16_team_protocols/code.py) | [Workflow 与 LangGraph](../../Workflow与LangGraph.md) |
-| s17 | [Autonomous Agents](./s17_autonomous_agents/code.py) | [Workflow 与 LangGraph](../../Workflow与LangGraph.md) |
+| s15 | [Agent Teams](./s15_agent_teams/code.py) | [Workflow 与编排](../../Workflow与编排.md)、[LangGraph](../../LangGraph.md) |
+| s16 | [Team Protocols](./s16_team_protocols/code.py) | [Workflow 与编排](../../Workflow与编排.md)、[LangGraph](../../LangGraph.md) |
+| s17 | [Autonomous Agents](./s17_autonomous_agents/code.py) | [Workflow 与编排](../../Workflow与编排.md)、[LangGraph](../../LangGraph.md) |
 | s18 | [Worktree Isolation](./s18_worktree_isolation/code.py) | [代码 Agent 基础设施](../../代码%20Agent%20基础设施.md) |
 | s19 | [MCP Plugin](./s19_mcp_plugin/code.py) | [MCP 与工具协议](../../MCP与工具协议.md) |
 | s20 | [Comprehensive Harness](./s20_comprehensive/code.py) | [Agent 架构与设计](../../Agent架构与设计.md) |

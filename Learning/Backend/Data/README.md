@@ -13,6 +13,7 @@
 
 - [SQL](SQL.md)：查询、聚合、JOIN、子查询、窗口函数与关系建模
 - [MySQL](MySQL.md)：存储引擎、索引、事务、锁、日志与调优
+- [PostgreSQL](PostgreSQL.md)：MVCC、VACUUM、WAL、扩展索引、复制与 MySQL 差异
 - [Redis](Redis.md)：数据结构、缓存设计、持久化、高可用、集群
 - [MongoDB](MongoDB.md)：文档模型、索引、复制、分片与聚合
 - [Cassandra](Cassandra.md)：宽列模型、分区键、复制、Gossip 和读写路径
@@ -27,6 +28,12 @@
 2. 再看 `MySQL`，理解具体实现和性能机制
 3. 然后看 `Redis`
 4. 最后看 `消息队列`
+
+## 学习层级
+
+- 核心主线：`SQL`、`MySQL`、`Redis`、`消息队列`，内容覆盖原理、工程使用和排障。
+- 关系数据库扩展：`PostgreSQL`，用于补齐另一套主流 MVCC、日志、索引和复制模型。
+- 选型概览：`MongoDB`、`Cassandra`、`搜索与 Elasticsearch`、`大数据基础`、`海量数据处理`。这些文档当前用于建立边界和选型认知，不代表已经达到核心主线的深度。
 
 ## 边界
 

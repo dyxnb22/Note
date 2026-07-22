@@ -29,6 +29,6 @@ PostgreSQL 可保存向量数据，Redis 适合标签、配置和快速状态；
 - RAG 解决知识缺失和更新问题；不能替代权限校验、业务规则和结果验证。
 - 动态配置必须有版本、发布、回滚、权限和审计，不应把所有逻辑藏在拖拉拽流程里。
 
-相关：[Agent 架构与设计](../../Agent/Agent架构与设计.md)、[RAG 与知识系统](../../Agent/RAG与知识系统.md)、[Workflow 与 LangGraph](../../Agent/Workflow与LangGraph.md)。
+相关：[Agent 架构与设计](../../Agent/Agent架构与设计.md)、[RAG](../../Agent/RAG.md)、[知识系统](../../Agent/知识系统.md)、[Workflow 与编排](../../Agent/Workflow与编排.md)、[LangGraph](../../Agent/LangGraph.md)。
 
 来源：`xfg-planet/02-AI应用范式/Agent与工作流/AI-Agent脚手架-知识提炼.md`、`RAG与知识库/可编排Agent-知识提炼.md`。

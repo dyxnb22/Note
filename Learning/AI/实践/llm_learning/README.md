@@ -47,8 +47,8 @@ export LLM_MODEL="deepseek-chat"
 | 00 深度学习 | [tiny_next_token_model.py](./00_deep_learning_for_llm/project/tiny_next_token_model.py) | [DeepLearning](../../DeepLearning/README.md) |
 | 00 Transformer | [self_attention_demo.py](./00_transformer_foundation/project/self_attention_demo.py) | [Transformer 从结构到实现](../../DeepLearning/09_注意力与Transformer/注意力与Transformer.md) |
 | 01 Agent | [simple_agent.py](./01_agent_basics/project/simple_agent.py) | [Agent 架构与设计](../../../Agent/Agent架构与设计.md) |
-| 02 RAG | [mini_rag.py](./02_rag_knowledge_base/project/mini_rag.py) | [RAG 与知识系统](../../../Agent/RAG与知识系统.md) |
-| 03 Workflow | [workflow_agent.py](./03_tool_calling_workflow/project/workflow_agent.py) | [Workflow 与 LangGraph](../../../Agent/Workflow与LangGraph.md) |
+| 02 RAG | [mini_rag.py](./02_rag_knowledge_base/project/mini_rag.py) | [RAG](../../../Agent/RAG.md)、[知识系统](../../../Agent/知识系统.md) |
+| 03 Workflow | [workflow_agent.py](./03_tool_calling_workflow/project/workflow_agent.py) | [Workflow 与编排](../../../Agent/Workflow与编排.md)、[LangGraph](../../../Agent/LangGraph.md) |
 | 04 评测 | [prompt_eval.py](./04_llm_evaluation/project/prompt_eval.py) | [Agent Eval 实验方法](../../../Agent/Agent%20Eval实验方法.md) |
 | 05 微调与推理 | [prepare_sft_dataset.py](./05_finetune_and_inference/project/prepare_sft_dataset.py) | [LLM 基础](../../LLM基础.md) |
 | 06 生产系统 | [llm_gateway.py](./06_production_llm_system/project/llm_gateway.py) | [部署与生产化](../../../Agent/部署与生产化.md) |

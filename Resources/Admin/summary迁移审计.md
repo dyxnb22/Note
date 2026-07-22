@@ -13,13 +13,13 @@
 | `JVM.md` | `Learning/Backend/Java/JVM.md` | 已覆盖 | 目标笔记已覆盖对象分配、TLAB、GC、类加载、OOM 和诊断；源文件中的图片和旧表述不保留。 |
 | `MySQL.md` | `Learning/Backend/Data/MySQL.md` | 已合并 | 补入 DECIMAL/FLOAT/DOUBLE、视图/存储过程/触发器、管理命令和删除风险；理论主体目标笔记已覆盖。 |
 | `Redis.md` | `Learning/Backend/Data/Redis.md` | 已覆盖 | 目标笔记已覆盖持久化、事务、数据结构、集群、缓存问题和实战方案。 |
-| `Spring.md` | `Learning/Backend/Java/Spring.md` | 已覆盖 | IoC、AOP、事务、生命周期、循环依赖和扩展点目标笔记已更系统。 |
-| `SpringBoot.md` | `Learning/Backend/Java/Spring.md` | 已覆盖 | 自动配置、Starter、注解和跨域内容已归入 Spring 主文档。 |
-| `SpringMVC.md` | `Learning/Backend/Java/Spring.md` | 已覆盖 | 请求流程、组件和注解已归入 Spring MVC 章节。 |
-| `SpringCloud.md` | `Learning/Backend/Java/Spring.md`、`Learning/Backend/Architecture/分布式.md` | 已筛选 | 只保留微服务、网关、注册发现和服务治理共性；Eureka/Zuul/Ribbon/Hystrix 等旧技术不作为当前主线重复维护。 |
-| `MyBatis.md` | `Learning/Backend/Java/Spring.md` | 已覆盖 | 配置、映射、缓存、插件、事务和运行原理已归入 MyBatis 章节。 |
-| `Network.md` | `Learning/CS/Network.md` | 已覆盖 | HTTP、TCP、DNS、TLS、I/O 和网络排障目标笔记已更完整。 |
-| `Nginx.md` | `Learning/CS/Network.md` | 已合并 | 补入请求匹配、Master/Worker、被动故障探测和 502/503/504 排障；不迁移图片和零散配置问答。 |
+| `Spring.md` | `Learning/Backend/Java/Spring核心.md` | 已覆盖 | IoC、AOP、事务、生命周期、循环依赖和扩展点目标笔记已更系统。 |
+| `SpringBoot.md` | `Learning/Backend/Java/SpringWeb与Boot.md` | 已覆盖 | 自动配置、Starter、注解和 Web 工程内容已归入 Spring Web/Boot 文档。 |
+| `SpringMVC.md` | `Learning/Backend/Java/SpringWeb与Boot.md` | 已覆盖 | 请求流程、组件、参数绑定和异常处理已归入 Spring Web/Boot 文档。 |
+| `SpringCloud.md` | `Learning/Backend/Java/SpringCloud.md`、`Learning/Backend/Architecture/分布式.md` | 已筛选 | 具体集成归 Spring Cloud，通用故障模型和共识归分布式基础；旧技术不作为当前主线重复维护。 |
+| `MyBatis.md` | `Learning/Backend/Java/Java数据访问.md` | 已覆盖 | JDBC、MyBatis、JPA、连接池、事务和迁移边界集中维护。 |
+| `Network.md` | `Learning/CS/Network.md`、`Learning/CS/HTTP与Web协议.md` | 已覆盖 | TCP/IP 底座与 HTTP、DNS、TLS、会话协议已经拆分。 |
+| `Nginx.md` | `Learning/Backend/Architecture/网关、接口治理与SDK.md` | 已合并 | 请求链路、Master/Worker 和 502/503/504 排障归入网关主题。 |
 | `OS.md` | `Learning/CS/OS.md` | 已覆盖 | 进程、内存、文件系统、中断、I/O 多路复用和零拷贝目标笔记已覆盖。 |
 | `Linux.md` | `Learning/Backend/Delivery/Linux 命令详解指南.md` | 已覆盖 | 命令内容目标笔记已更完整。 |
 | `数据结构.md` | `Learning/CS/数据结构.md`、`Learning/CS/算法/` | 已覆盖 | 基础概念和算法题型已有对应主题笔记。 |
@@ -27,9 +27,9 @@
 | `设计模式.md` | `Learning/Backend/Java/设计模式.md` | 已覆盖 | 目标笔记已按变化点、模式边界和落地场景重写，优于源文件的逐模式速记。 |
 | `Kafka.md` | `Learning/Backend/Data/消息队列.md` | 已覆盖 | Kafka 核心模型、性能、分区、ISR、ACK 和 Rebalance 已覆盖；源文件的图片和空标题不保留。 |
 | `RabbitMQ.md` | `Learning/Backend/Data/消息队列.md` | 已合并 | 补入交换器选择、Publisher Confirm、持久化、手动 ACK、幂等、重试和死信。 |
-| `ZooKeeper.md` | `Learning/Backend/Architecture/分布式.md` | 已覆盖 | 注册中心、ZAB、角色和分布式协调已有更完整主题；源文件仅保留少量重复介绍。 |
+| `ZooKeeper.md` | `Learning/Backend/Architecture/分布式协调.md` | 已覆盖 | 注册中心、租约、选主、锁和 ZooKeeper 协调边界已有独立主题。 |
 | `Docker.md` | `Learning/Backend/Delivery/Docker.md` | 空文件，跳过 | 目标笔记已有完整 Docker 内容，源文件没有正文。 |
-| `Netty.md` | `Learning/CS/Network.md` | 空文件，跳过 | 目标笔记已有 Netty 线程模型、拆包和性能章节，源文件没有正文。 |
+| `Netty.md` | `Learning/Backend/Java/JavaIO与网络编程.md` | 空文件，跳过 | Java I/O 文档已有事件循环、拆包、背压和网络服务线程模型；源文件没有正文。 |
 | `Tomcat.md` | `Learning/Backend/Java/Tomcat.md` | 空文件，跳过 | 目标笔记已有 Tomcat 层次、线程、Servlet 和集群章节，源文件没有正文。 |
 
 ## 删除前检查
@@ -63,7 +63,7 @@
 
 | 源文件 | 目标位置 | 状态 | 处理说明 |
 | --- | --- | --- | --- |
-| `Javaweb.md` | `Learning/Backend/Java/Spring.md`、`Learning/Backend/Delivery/Maven.md` | 已精选合并 | 补入 Spring MVC 参数绑定、REST 接口约定、文件/配置/全局异常处理、MyBatis 动态 SQL；Maven 单独整理依赖、生命周期、多模块和私服。 |
+| `Javaweb.md` | `Learning/Backend/Java/SpringWeb与Boot.md`、`Learning/Backend/Java/Java数据访问.md`、`Learning/Backend/Delivery/Maven.md` | 已精选合并 | Web 请求与异常处理、数据访问、构建工具已经按职责拆分。 |
 | `MySQL.md` | `Learning/Backend/Data/MySQL.md` | 已精选合并 | 补入批量写入/导入边界和 InnoDB 一致性备份；索引、事务、锁和 SQL 优化主体已由目标笔记覆盖。 |
 | `Redis.md` | `Learning/Backend/Data/Redis.md`、`Learning/Backend/Architecture/认证、授权与多租户.md` | 已精选合并 | 补入客户端与序列化策略、Token 续租拦截器边界；缓存、分布式锁、秒杀和队列主体已由目标笔记覆盖。 |
 | `Untitled.md` | — | 跳过 | 仅有两行，无独立价值。 |

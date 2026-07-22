@@ -33,8 +33,8 @@ Python 基础和工程化完成后，进入 [AI Agent 工程知识库](../Agent/
 
 按目标再选择：
 
-- 知识库问答：加 [RAG 与知识系统](../Agent/RAG与知识系统.md)；
-- 固定流程或可恢复编排：加 [Workflow 与 LangGraph](../Agent/Workflow与LangGraph.md)；
+- 知识库问答：加 [RAG](../Agent/RAG.md) 和 [知识系统](../Agent/知识系统.md)；
+- 固定流程或可恢复编排：先看 [Workflow 与编排](../Agent/Workflow与编排.md)，再按需使用 [LangGraph](../Agent/LangGraph.md)；
 - 外部工具生态：加 [MCP 与工具协议](../Agent/MCP与工具协议.md)；
 - API 交付：回到 [FastAPI](./FastAPI.md)，再看 Agent 的部署文档。
 

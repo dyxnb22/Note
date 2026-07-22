@@ -4,7 +4,7 @@
 
 | 目录 | 重点 | 配套理论 |
 |---|---|---|
-| `01-basics` | State、Node、Edge、条件路由 | [Workflow 与 LangGraph](../../../Workflow与LangGraph.md) |
+| `01-basics` | State、Node、Edge、条件路由 | [Workflow 与编排](../../../Workflow与编排.md)、[LangGraph](../../../LangGraph.md) |
 | `02-tools` | Tool、ToolNode、ReAct 闭环 | [Tool Calling](../../../Tool%20Calling.md) |
 | `03-memory` | MemorySaver、thread_id、状态恢复 | [Memory 与状态管理](../../../Memory与状态管理.md) |
 | `04-multi-agent` | 子图、共享 State、职责拆分 | [多 Agent 协作的边界与模式](../../../多Agent协作的边界与模式.md) |

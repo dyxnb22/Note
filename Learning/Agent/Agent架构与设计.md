@@ -4,7 +4,7 @@
 
 不是概念科普，而是要能回答：什么时候用 Agent、什么时候不用、各种模式的权衡是什么。
 
-> **职责边界**：本文讲 Agent 的工程定义、核心循环、状态和运行时模式；工具 schema/执行细节集中在 [Tool Calling](./Tool%20Calling.md)，图式编排集中在 [Workflow 与 LangGraph](./Workflow与LangGraph.md)，上下文压缩集中在 [Context 工程](./Context工程.md)。
+> **职责边界**：本文讲 Agent 的工程定义、核心循环、状态和运行时模式；工具 schema/执行细节集中在 [Tool Calling](./Tool%20Calling.md)，通用编排见 [Workflow 与编排](./Workflow与编排.md)，LangGraph API 见 [LangGraph](./LangGraph.md)，上下文压缩集中在 [Context 工程](./Context工程.md)。
 
 ---
 
@@ -231,7 +231,7 @@ Human-in-the-loop 的典型触发条件：
 - 处理敏感数据或个人信息
 
 ```python
-### LangGraph 里的中断示例（详见 Workflow与LangGraph.md）
+### LangGraph 里的中断示例（详见 LangGraph.md）
 from langgraph.graph import StateGraph
 from langgraph.checkpoint.memory import MemorySaver
 

@@ -10,6 +10,7 @@
 - [Data](Data/README.md)：数据库、缓存、消息队列
 - [Architecture](Architecture/README.md)：分布式、系统设计
 - [Delivery](Delivery/README.md)：Git、Linux、Docker、部署上线
+- [后端测试体系](Testing.md)：单元、集成、契约、端到端、性能与韧性测试
 
 补充：[调试与问题定位](./Java/调试与问题定位.md)。
 

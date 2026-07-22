@@ -469,3 +469,26 @@ handle(task);
 - 强一致业务计数：数据库事务、行锁或版本号。
 
 `LongAdder` 的吞吐量通常高于 `AtomicLong`，但 `sum()` 是多个分段的汇总，不适合要求每次读取都具备严格线性一致性的场景。
+
+## 双重检查锁为什么需要 volatile？
+
+```java
+public final class Singleton {
+    private static volatile Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
+
+`volatile` 保证实例引用的可见性，并禁止“分配内存、初始化对象、发布引用”发生危险重排序。没有延迟加载要求时，可直接使用静态初始化或枚举单例，减少实现和反序列化风险。
