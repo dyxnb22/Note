@@ -64,31 +64,31 @@ messages = [
 
 ## 3. 基础调用
 
+新项目优先使用 Responses API；下文较长的 Chat Completions 片段保留为兼容参考。模型 ID 不在教程里固定，统一通过环境变量显式指定；当前选型基线见 [版本与来源](./版本与来源.md)。
+
 ### 单轮调用
 
 ```python
+import os
 from openai import OpenAI
 
 client = OpenAI()
+model = os.environ["OPENAI_MODEL"]
 
-response = client.chat.completions.create(
-model="gpt-4o",
-messages=[
-    {"role": "system", "content": "你是一个 Python 助手。"},
-    {"role": "user", "content": "解释一下 Python 的 GIL"},
-],
-temperature=0.3,
-max_tokens=1000,
+response = client.responses.create(
+    model=model,
+    instructions="你是一个 Python 助手。",
+    input="解释一下 Python 的 GIL",
 )
 
-content = response.choices[0].message.content
+content = response.output_text
 ```
 
 ### 多轮对话（维护历史）
 
 ```text
 class Conversation:
-def __init__(self, system_prompt: str, model: str = "gpt-4o"):
+def __init__(self, system_prompt: str, model: str):
     self.model = model
     self.messages = [{"role": "system", "content": system_prompt}]
 
@@ -114,7 +114,7 @@ def chat(self, user_input: str) -> str:
 ```text
 def stream_response(prompt: str):
 stream = client.chat.completions.create(
-    model="gpt-4o",
+    model=MODEL,
     messages=[{"role": "user", "content": prompt}],
     stream=True,
 )
@@ -136,7 +136,7 @@ return full_content
 async def stream_response_async(prompt: str):
 async_client = AsyncOpenAI()
 stream = await async_client.chat.completions.create(
-    model="gpt-4o",
+    model=MODEL,
     messages=[{"role": "user", "content": prompt}],
     stream=True,
 )
@@ -155,7 +155,7 @@ async for chunk in stream:
 
 ```python
 response = client.chat.completions.create(
-model="gpt-4o",
+model=MODEL,
 messages=[
     {"role": "system", "content": "总是返回 JSON。"},
     {"role": "user", "content": "从这段文本里提取：姓名、年龄、职业"},
@@ -180,7 +180,7 @@ occupation: str
 confidence: float
 
 response = client.beta.chat.completions.parse(
-model="gpt-4o",
+model=MODEL,
 messages=[
     {"role": "user", "content": "John Smith, 35 岁，软件工程师"},
 ],
@@ -219,7 +219,7 @@ import openai
 import os
 from tenacity import retry, wait_exponential, stop_after_attempt
 
-MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")  # 示例默认值；生产环境从配置读取
+MODEL = os.environ["OPENAI_MODEL"]  # 显式配置，避免无意使用过期默认值
 
 @retry(
     wait=wait_exponential(multiplier=1, min=2, max=10),
@@ -268,7 +268,7 @@ class LLMProvider(Protocol):
 def complete(self, messages: list[dict], **kwargs) -> str: ...
 
 class OpenAIProvider:
-def __init__(self, model: str = "gpt-4o"):
+def __init__(self, model: str):
     self.client = OpenAI()
     self.model = model
 
@@ -279,7 +279,7 @@ def complete(self, messages, **kwargs) -> str:
     return response.choices[0].message.content
 
 class AnthropicProvider:
-def __init__(self, model: str = "claude-3-5-sonnet-20241022"):
+def __init__(self, model: str):
     import anthropic
     self.client = anthropic.Anthropic()
     self.model = model
@@ -295,9 +295,9 @@ def complete(self, messages, **kwargs) -> str:
 
 def get_provider(name: str) -> LLMProvider:
 providers = {
-    "gpt-4o": OpenAIProvider("gpt-4o"),
-    "gpt-4o-mini": OpenAIProvider("gpt-4o-mini"),
-    "claude-sonnet": AnthropicProvider(),
+    "primary": OpenAIProvider(settings.primary_model),
+    "fast": OpenAIProvider(settings.fast_model),
+    "anthropic": AnthropicProvider(settings.anthropic_model),
 }
 return providers[name]
 ```
@@ -505,7 +505,7 @@ Anthropic 和 OpenAI 支持对 system prompt 的 KV Cache 跨请求复用：
 
 ```python
 response = anthropic_client.messages.create(
-model="claude-3-5-sonnet-20241022",
+model=settings.anthropic_model,
 system=[
     {
         "type": "text",

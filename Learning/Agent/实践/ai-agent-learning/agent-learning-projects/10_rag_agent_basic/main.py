@@ -76,7 +76,7 @@ def answer_without_llm(question: str, contexts: list[dict[str, str]]) -> str:
 def answer_with_openai(question: str, contexts: list[dict[str, str]]) -> str:
     """Context Injection：把检索到的 chunk 塞进 prompt。"""
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-    model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    model = os.environ["OPENAI_MODEL"]
     context_text = "\n\n".join(
         f"[{item['source']}]\n{item['text']}" for item in contexts
     )

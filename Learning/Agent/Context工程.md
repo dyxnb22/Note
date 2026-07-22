@@ -132,11 +132,11 @@ def build_context(
 ```text
 import tiktoken
 
-def count_tokens(text: str, model: str = "gpt-4o") -> int:
+def count_tokens(text: str, model: str) -> int:
 enc = tiktoken.encoding_for_model(model)
 return len(enc.encode(text))
 
-def count_messages_tokens(messages: list[dict], model: str = "gpt-4o") -> int:
+def count_messages_tokens(messages: list[dict], model: str) -> int:
 total = 0
 for msg in messages:
     total += count_tokens(msg.get("content", ""), model)
@@ -299,7 +299,7 @@ recommendations: list[str] = Field(description="改进建议列表")
 summary: str = Field(description="一句话总结")
 
 result = client.beta.chat.completions.parse(
-model="gpt-4o",
+model=settings.openai_model,
 messages=messages,
 response_format=ReviewResult,
 )

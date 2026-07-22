@@ -418,7 +418,7 @@ Parallel Stream 会把数据拆成多个子任务，使用通用 `ForkJoinPool` 
 - 会使用公共线程池，阻塞或任务过重可能影响进程中的其他并行任务。
 - 需要注意线程安全、顺序、拆分和合并成本，不能默认比串行 Stream 快。
 
-## Java 9 到 Java 21 有哪些常见新特性？
+## Java 9 到 Java 25 有哪些常见新特性？
 
 | 版本 | 代表特性 |
 | --- | --- |
@@ -427,8 +427,9 @@ Parallel Stream 会把数据拆成多个子任务，使用通用 `ForkJoinPool` 
 | Java 14/16 | Record |
 | Java 17 LTS | Sealed Class、模式匹配持续演进 |
 | Java 21 LTS | 虚拟线程、Record Pattern、Pattern Matching for switch、Sequenced Collections |
+| Java 25（多数发行商 LTS） | Scoped Values、Module Import Declarations、Compact Source Files、Flexible Constructor Bodies |
 
-Java 21 的虚拟线程主要降低大量阻塞 I/O 任务的线程创建和调度成本，不用于提升 CPU 密集型计算性能。
+Java 21 的虚拟线程主要降低大量阻塞 I/O 任务的线程创建和调度成本，不用于提升 CPU 密集型计算性能。JDK 25 于 2025-09-16 GA；具体发行商的支持期限不同，选型时同时核对框架兼容矩阵和发行商支持策略。
 
 ## 专题延伸
 

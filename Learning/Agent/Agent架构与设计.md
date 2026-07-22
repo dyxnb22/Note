@@ -58,9 +58,9 @@
 完成 / 失败 / 请求人工介入
 ```
 
-### Python 最小实现（OpenAI Chat Completions 示例）
+### Python 最小实现（Chat Completions 兼容示例）
 
-下面特意把工具 schema 和 handler 分开；不同 Provider 的消息格式请看 [Tool Calling](./Tool%20Calling.md)。
+下面保留 Chat Completions 形状，便于理解既有系统；新项目优先采用 Responses API，当前基线见 [版本与来源](./版本与来源.md)。示例特意把工具 schema 和 handler 分开；不同 Provider 的消息格式请看 [Tool Calling](./Tool%20Calling.md)。
 
 ```python
 from typing import Any, Callable
@@ -71,7 +71,7 @@ import os
 from openai import OpenAI
 
 client = OpenAI()
-MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")  # 教学占位值；实际模型名从配置读取
+MODEL = os.environ["OPENAI_MODEL"]  # 显式配置；实际模型名记录在项目配置中
 
 @dataclass
 class AgentState:

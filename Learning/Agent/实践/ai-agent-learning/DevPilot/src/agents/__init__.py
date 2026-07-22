@@ -42,7 +42,7 @@ def _get_llm(max_tokens: int = 2048):
     try:
         if openai_key:
             from langchain_openai import ChatOpenAI
-            return ChatOpenAI(model="gpt-4o-mini", max_tokens=max_tokens)
+            return ChatOpenAI(model=os.environ["OPENAI_MODEL"], max_tokens=max_tokens)
     except ImportError:
         pass
 

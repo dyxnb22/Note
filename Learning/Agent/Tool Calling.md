@@ -102,7 +102,7 @@ import json
 import os
 from typing import Callable
 
-MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")  # 教学占位值；生产环境从配置读取
+MODEL = os.environ["OPENAI_MODEL"]  # 显式配置；不要让过期模型名悄悄成为默认值
 
 def run_tool_loop(
     messages: list[dict],

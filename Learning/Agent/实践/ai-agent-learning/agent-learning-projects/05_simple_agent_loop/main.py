@@ -76,7 +76,7 @@ def run_tool(name: str, args: dict[str, Any]) -> dict[str, Any]:
 
 def main() -> None:
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-    model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    model = os.environ["OPENAI_MODEL"]
 
     messages: list[dict[str, Any]] = [
         {"role": "system", "content": "你是一个会使用工具解决问题的 Agent。"}

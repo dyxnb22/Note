@@ -49,7 +49,7 @@ def execute_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
 
 def main() -> None:
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-    model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    model = os.environ["OPENAI_MODEL"]
 
     messages: list[dict[str, Any]] = [
         {"role": "system", "content": "你是一个会在需要时调用工具的助手。"},

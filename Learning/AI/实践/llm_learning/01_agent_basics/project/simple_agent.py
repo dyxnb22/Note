@@ -71,7 +71,7 @@ def call_llm(messages: list[dict[str, str]]) -> str:
         return mock_model(messages[-1]["content"])
 
     base_url = os.getenv("LLM_BASE_URL", "https://api.openai.com").rstrip("/")
-    model = os.getenv("LLM_MODEL", "gpt-4.1-mini")
+    model = os.environ["LLM_MODEL"]
     payload = json.dumps({"model": model, "messages": messages, "temperature": 0}).encode()
     request = urllib.request.Request(
         f"{base_url}/v1/chat/completions",

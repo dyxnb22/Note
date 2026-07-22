@@ -27,7 +27,7 @@ Agent：模型调用、工具、状态、编排、治理和交付
 
 适合 Python 不熟或希望补工程基础时：
 
-1. [Python 学习路径](../Python/Python.md)
+1. [Python 工程基础与学习路径](../Python/README.md)
 2. [Python 核心语法](../Python/Python核心语法.md)
 3. [Python 工程化](../Python/Python工程化.md)
 4. [HTTP 与 API 调用](../Python/HTTP与API调用.md)

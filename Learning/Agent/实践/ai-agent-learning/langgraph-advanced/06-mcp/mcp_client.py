@@ -103,7 +103,7 @@ def _get_llm():
     if anthropic_key and HAS_ANTHROPIC:
         return ChatAnthropic(model="claude-sonnet-4-6", max_tokens=1024)
     if openai_key and HAS_OPENAI:
-        return ChatOpenAI(model="gpt-4o-mini", max_tokens=1024)
+        return ChatOpenAI(model=os.environ["OPENAI_MODEL"], max_tokens=1024)
     if deepseek_key and HAS_OPENAI:
         return ChatOpenAI(
             model=os.getenv("DEEPSEEK_MODEL", "deepseek-chat"),

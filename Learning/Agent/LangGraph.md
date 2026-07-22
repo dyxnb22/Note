@@ -71,7 +71,7 @@ error_log: list[str]
 def call_llm_node(state: AgentState) -> dict:
 """调用 LLM，返回下一个 message"""
 response = client.chat.completions.create(
-    model="gpt-4o",
+    model=settings.openai_model,
     messages=state["messages"],
     tools=tools,
 )

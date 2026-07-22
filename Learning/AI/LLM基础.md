@@ -224,13 +224,9 @@ LLM 的本质是：**在训练分布上预测最可能的下一个 token**，不
 
 ## 8. Context Window 与长文档处理
 
-### 常见模型 Context Window
+### Context Window 不是固定知识
 
-| 模型 | Context Window |
-|------|---------------|
-| GPT-4o | 128K token |
-| Claude 3.5 Sonnet | 200K token |
-| Gemini 1.5 Pro | 1M token |
+不同模型、版本和接口支持的窗口会变化，运行前应查 Provider 官方模型页，并把实际限制写入项目配置。不要根据系列名称猜窗口，也不要把“最大可输入 token”误当作长文档都能被同等可靠利用。
 
 ### 长 Context 的实际问题
 

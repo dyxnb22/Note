@@ -37,7 +37,7 @@ def call_model(message: str) -> str:
         return f"[mock] 你问的是：{message}。生产网关应包含重试、缓存、限流、日志和安全检查。"
 
     base_url = os.getenv("LLM_BASE_URL", "https://api.openai.com").rstrip("/")
-    model = os.getenv("LLM_MODEL", "gpt-4.1-mini")
+    model = os.environ["LLM_MODEL"]
     payload = json.dumps(
         {
             "model": model,
@@ -107,4 +107,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -69,5 +69,5 @@
 |------|------|
 | context window 放哪里？ | 原理放这里（`LLM基础.md`）；如何在代码里管理放 `Agent/Context工程.md` |
 | tokenization 放哪里？ | 放这里；tiktoken 的实际用法放 `Agent/Context工程.md` |
-| fine-tuning 放哪里？ | 原理（LoRA 数学、训练流程）放这里；什么场景选 fine-tuning vs RAG 的工程判断放 `Agent/RAG与知识系统.md` |
-| RAG 是理论还是工程？ | RAG 的工程实现放 `Agent/RAG与知识系统.md`；为什么 RAG 能减少幻觉的原理放 `LLM基础.md` |
+| fine-tuning 放哪里？ | 原理（LoRA 数学、训练流程）放这里；什么场景选 fine-tuning vs RAG 的工程判断放 [RAG](../Agent/RAG.md) |
+| RAG 是理论还是工程？ | 检索与生成链路放 [RAG](../Agent/RAG.md)，来源、权限和版本治理放 [知识系统](../Agent/知识系统.md)；为什么 RAG 能减少幻觉的原理放 `LLM基础.md` |

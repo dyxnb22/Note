@@ -64,7 +64,7 @@ def call_llm(question: str, contexts: list[dict[str, str]]) -> str:
         return "未配置 LLM_API_KEY，返回检索上下文：\n\n" + context_text
 
     base_url = os.getenv("LLM_BASE_URL", "https://api.openai.com").rstrip("/")
-    model = os.getenv("LLM_MODEL", "gpt-4.1-mini")
+    model = os.environ["LLM_MODEL"]
     messages = [
         {"role": "system", "content": "Answer using only the provided context. Cite sources."},
         {"role": "user", "content": f"Context:\n{context_text}\n\nQuestion: {question}"},
@@ -116,4 +116,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

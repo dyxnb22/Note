@@ -37,7 +37,7 @@ def call_llm(system_prompt: str, question: str) -> str:
         return f"{question} 的核心是检索外部知识、控制执行风险，并通过低秩参数适配减少训练成本。"
 
     base_url = os.getenv("LLM_BASE_URL", "https://api.openai.com").rstrip("/")
-    model = os.getenv("LLM_MODEL", "gpt-4.1-mini")
+    model = os.environ["LLM_MODEL"]
     payload = json.dumps(
         {
             "model": model,
@@ -78,4 +78,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

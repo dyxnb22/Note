@@ -11,7 +11,7 @@ load_dotenv(BASE_DIR / ".env")
 
 def main() -> None:
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-    model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    model = os.environ["OPENAI_MODEL"]
 
     # messages 是对话上下文。
     # system 定义助手行为，user 是用户输入，assistant 是模型历史回答。
