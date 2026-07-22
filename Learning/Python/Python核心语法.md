@@ -157,7 +157,7 @@ path = r"C:\test\demo"  # r 表示 raw string，反斜杠不用重复转义
 
 ## 4. 条件判断
 
-```python
+```text
 score = 85
 
 if score >= 90:
@@ -174,7 +174,7 @@ print(level)
 
 常见判断：
 
-```python
+```text
 name = "Tom"
 age = 18
 
@@ -215,7 +215,7 @@ status = "成年" if age >= 18 else "未成年"
 
 ## 5. 循环与推导式
 
-```python
+```text
 for i in range(1, 6):     # 生成 1,2,3,4,5；右边界 6 不包含
 print(i)
 
@@ -237,7 +237,7 @@ even_nums = [i for i in range(10) if i % 2 == 0]  # 只保留偶数
 
 `while`：
 
-```python
+```text
 count = 3
 while count > 0:
 print(count)
@@ -246,7 +246,7 @@ count -= 1          # 每次循环减 1，否则容易死循环
 
 控制循环：
 
-```python
+```text
 for i in range(10):
 if i == 3:
     continue        # 跳过本次循环，继续下一次
@@ -311,7 +311,7 @@ del user["age"]              # 删除 key
 
 遍历：
 
-```python
+```text
 for key in user:
 print(key, user[key])
 
@@ -375,7 +375,7 @@ x, y = point           # 解包
 
 函数用来把逻辑拆小，让代码可复用、可测试。
 
-```python
+```text
 def add(a: int, b: int) -> int:
 """返回两个整数之和。"""
 return a + b
@@ -386,7 +386,7 @@ print(result)
 
 返回多个值：
 
-```python
+```text
 def get_user() -> tuple[str, int]:
 return "Tom", 18       # 本质返回 tuple
 
@@ -395,7 +395,7 @@ name, age = get_user()     # 解包
 
 默认参数和命名参数：
 
-```python
+```text
 def hello(name: str = "Tom") -> None:
 print(f"hello {name}")
 
@@ -406,7 +406,7 @@ hello(name="Lucy")         # 传命名参数，可读性更好
 
 `*args` 和 `**kwargs`：
 
-```python
+```text
 def debug(*args, **kwargs):
 print(args)     # 多个位置参数组成 tuple
 print(kwargs)   # 多个 key=value 参数组成 dict
@@ -416,7 +416,7 @@ debug(1, 2, name="Tom", age=18)
 
 函数也是对象：
 
-```python
+```text
 def hello():
 print("hello")
 
@@ -469,7 +469,7 @@ print(loaded["name"])
 
 文件读写小工具对应的是最基础的文本状态：
 
-```python
+```text
 from pathlib import Path
 from datetime import datetime
 import shutil
@@ -497,7 +497,7 @@ return backup_file
 
 JSON task tracker 对应的是结构化状态：
 
-```python
+```text
 import json
 from pathlib import Path
 
@@ -535,7 +535,7 @@ TASK_FILE.write_text(
 
 异常处理不是为了隐藏错误，而是为了在可预期错误发生时给出清晰处理。
 
-```python
+```text
 try:
 age = int(input("age: "))   # 可能 ValueError
 result = 10 / age            # 可能 ZeroDivisionError
@@ -551,7 +551,7 @@ print("结束")               # 无论是否异常都会执行
 
 主动抛异常：
 
-```python
+```text
 age = -1
 if age < 0:
 raise ValueError("年龄不能小于 0")
@@ -559,7 +559,7 @@ raise ValueError("年龄不能小于 0")
 
 自定义异常：
 
-```python
+```text
 class BusinessError(Exception):
 pass
 
@@ -576,7 +576,7 @@ raise BusinessError("业务规则不允许这样操作")
 
 类适合表达“有状态的数据 + 行为”。小脚本不必强行写类，但项目里会经常用类封装 client、service、配置对象。
 
-```python
+```text
 class User:
 count = 0  # 类变量，所有对象共享
 
@@ -593,7 +593,7 @@ user.hello()
 
 继承：
 
-```python
+```text
 class Admin(User):
 def __init__(self, name: str, age: int, role: str):
     super().__init__(name, age)  # 调用父类构造函数
@@ -605,7 +605,7 @@ def hello(self) -> None:         # 方法重写
 
 `dataclass` 适合纯数据对象：
 
-```python
+```text
 from dataclasses import dataclass
 
 @dataclass
@@ -630,7 +630,7 @@ project/
 └── main.py
 ```
 
-```python
+```text
 from app.services import call_api
 
 if __name__ == "__main__":
@@ -673,7 +673,7 @@ counts = Counter(["a", "b", "a"])     # 统计次数：Counter({'a': 2, 'b': 1})
 
 `asyncio` 是单线程并发：遇到等待就切换去做别的任务，适合网络请求、API 调用、数据库查询等等待型任务。
 
-```python
+```text
 import asyncio
 
 async def work(name: str) -> str:

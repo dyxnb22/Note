@@ -1,4 +1,6 @@
-# 线程基础
+# Java 并发编程
+
+## 线程基础
 
 ## Java 线程和操作系统线程是什么关系？
 
@@ -85,7 +87,7 @@ t.start(); // 新线程执行；只能调用一次
 
 线程未捕获异常时，该线程会终止，可以通过 `Thread.UncaughtExceptionHandler` 记录和告警。在线程池中还要注意：`execute()` 的异常通常会交给线程的未捕获异常处理器，而 `submit()` 会把异常封装在 `Future` 中，需要调用 `Future.get()` 才能观察到。
 
-# Java 内存模型与线程安全
+## Java 内存模型与线程安全
 
 ## 如何保证多线程安全？
 
@@ -149,7 +151,7 @@ CAS（Compare And Swap）包含内存值 V、预期值 A 和新值 B：只有 V 
 | 优点 | 逻辑简单，适合强互斥 | 无阻塞，低冲突时性能好 |
 | 缺点 | 可能阻塞和上下文切换 | 冲突高时重试成本高 |
 
-# 锁机制与 AQS
+## 锁机制与 AQS
 
 ## synchronized 的工作原理是什么？
 
@@ -270,7 +272,7 @@ protected boolean tryAcquire(int acquires) {
 }
 ```
 
-# 线程协作与 ThreadLocal
+## 线程协作与 ThreadLocal
 
 ## sleep、wait 和 notify 有什么区别？
 
@@ -328,7 +330,7 @@ try {
 }
 ```
 
-# 线程池与异步编程
+## 线程池与异步编程
 
 ## ThreadPoolExecutor 提交任务的流程是什么？
 
@@ -429,7 +431,7 @@ CompletableFuture<Integer> future = CompletableFuture
 
 默认异步任务可能使用公共 `ForkJoinPool.commonPool()`。生产环境应根据任务类型指定自定义线程池，尤其要避免阻塞 I/O 任务耗尽公共线程池。
 
-# 并发场景题
+## 并发场景题
 
 ## 什么情况下会产生死锁？如何避免？
 

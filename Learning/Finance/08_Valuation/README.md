@@ -9,8 +9,8 @@
 
 ## 文档
 
-- [DCF估值](../../../Learning/Finance/08_Valuation/DCF估值.md)
-- [PE_PB_PS_EV_EBITDA](../../../Learning/Finance/08_Valuation/PE_PB_PS_EV_EBITDA.md)
-- [相对估值框架](../../../Learning/Finance/08_Valuation/相对估值框架.md)
-- [安全边际](../../../Learning/Finance/08_Valuation/安全边际.md)
-- [估值为什么会失效](../../../Learning/Finance/08_Valuation/估值为什么会失效.md)
+- [DCF估值](DCF估值.md)
+- [PE_PB_PS_EV_EBITDA](PE_PB_PS_EV_EBITDA.md)
+- [相对估值框架](相对估值框架.md)
+- [安全边际](安全边际.md)
+- [估值为什么会失效](估值为什么会失效.md)

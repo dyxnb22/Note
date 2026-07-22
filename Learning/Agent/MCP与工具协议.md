@@ -52,7 +52,7 @@ Tools 是最常用的，Resources 和 Prompts 是补充能力。
 
 用官方 SDK 实现一个简单的 MCP Server：
 
-```python
+```text
 ## pip install mcp
 
 from mcp.server import Server
@@ -123,7 +123,7 @@ async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
 
 AI 应用作为 MCP Client，连接到 MCP Server：
 
-```python
+```text
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
@@ -224,7 +224,7 @@ MCP 支持两种传输方式，使用场景不同：
 | **stdio** | Server 是子进程，通过标准输入输出通信 | 本地工具（文件系统、本地数据库）；Claude Desktop 集成 |
 | **SSE / HTTP** | Server 是独立 HTTP 服务，通过 Server-Sent Events 推送 | 远程服务；多 Client 共享；需要认证的场景 |
 
-```python
+```text
 ## SSE 模式启动（替代 stdio）
 from mcp.server.sse import SseServerTransport
 from starlette.applications import Starlette
@@ -242,7 +242,7 @@ starlette_app = Starlette(routes=[Route("/sse", endpoint=handle_sse)])
 
 MCP Server 收到工具调用时，通常需要知道"谁在调用"：
 
-```python
+```text
 @app.call_tool()
 async def call_tool(name: str, arguments: dict) -> list[TextContent]:
 ## 从 arguments 或 request context 里取 user token
@@ -264,7 +264,7 @@ if name == "query_user_data":
 
 `list_tools()` 就是 capability discovery 的机制——Client 启动时拉取工具列表，不需要 hardcode。版本兼容靠工具描述和 schema：
 
-```python
+```text
 @app.list_tools()
 async def list_tools() -> list[Tool]:
 return [
@@ -534,7 +534,7 @@ async def smart_search(query: str, context) -> str:
 async def handle_sampling(params) -> str:
     # Client 决定用哪个模型、是否允许这个 sampling 请求
     response = await client.messages.create(
-        model="claude-haiku-4-5-20251001",   # 用便宜模型做辅助判断
+        model=FAST_MODEL,   # 用便宜模型做辅助判断
         messages=[{"role": m.role, "content": m.content.text} for m in params.messages],
         max_tokens=params.max_tokens,
     )

@@ -9,12 +9,12 @@
 
 ## 文档
 
-- [股票是什么](../../../Learning/Finance/03_Stocks/股票是什么.md)
-- [股东权益与公司价值](../../../Learning/Finance/03_Stocks/股东权益与公司价值.md)
-- [财报分析](../../../Learning/Finance/03_Stocks/财报分析.md)
-- [关键财务指标](../../../Learning/Finance/03_Stocks/关键财务指标.md)
-- [基本面分析框架](../../../Learning/Finance/03_Stocks/基本面分析框架.md)
-- [护城河与商业模式](../../../Learning/Finance/03_Stocks/护城河与商业模式.md)
-- [指数行业与风格](../../../Learning/Finance/03_Stocks/指数行业与风格.md)
-- [A股港股美股差异](../../../Learning/Finance/03_Stocks/A股港股美股差异.md)
-- [股票投资常见误区](../../../Learning/Finance/03_Stocks/股票投资常见误区.md)
+- [股票是什么](股票是什么.md)
+- [股东权益与公司价值](股东权益与公司价值.md)
+- [财报分析](财报分析.md)
+- [关键财务指标](关键财务指标.md)
+- [基本面分析框架](基本面分析框架.md)
+- [护城河与商业模式](护城河与商业模式.md)
+- [指数行业与风格](指数行业与风格.md)
+- [A股港股美股差异](A股港股美股差异.md)
+- [股票投资常见误区](股票投资常见误区.md)

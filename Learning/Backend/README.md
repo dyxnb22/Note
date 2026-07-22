@@ -4,12 +4,12 @@
 
 ## 目录
 
-- `Java`：语言、集合、并发、JVM、Spring；补充 [Tomcat](../../Learning/Backend/Java/Tomcat.md) 和 [正则表达式](../../Learning/Backend/Java/正则表达式.md)
-- `Go`：并发服务、Context、HTTP、性能与测试
+- [Java](Java/README.md)：语言、集合、并发、JVM、Spring 与工程工具
+- [Go](Go/README.md)：并发服务、Context、HTTP、性能与测试
 - `Rust`：所有权、并发安全、异步服务与性能模型
-- `Data`：数据库、缓存、消息队列
-- `Architecture`：分布式、系统设计
-- `Delivery`：Git、Linux、Docker、部署上线
+- [Data](Data/README.md)：数据库、缓存、消息队列
+- [Architecture](Architecture/README.md)：分布式、系统设计
+- [Delivery](Delivery/README.md)：Git、Linux、Docker、部署上线
 
 补充：[调试与问题定位](./Java/调试与问题定位.md)。
 

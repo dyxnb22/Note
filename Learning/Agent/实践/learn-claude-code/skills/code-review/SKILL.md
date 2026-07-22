@@ -90,7 +90,7 @@ Check for:
 ## Common Patterns to Flag
 
 ### Python
-```python
+```text
 # Bad: SQL injection
 cursor.execute(f"SELECT * FROM users WHERE id = {user_id}")
 # Good:

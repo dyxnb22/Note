@@ -9,11 +9,11 @@
 
 ## 文档
 
-- [如何读一家公司](../../../Learning/Finance/13_Research_Workflow/如何读一家公司.md)
-- [投资备忘录写作](../../../Learning/Finance/13_Research_Workflow/投资备忘录写作.md)
-- [信息源与研究工作流](../../../Learning/Finance/13_Research_Workflow/信息源与研究工作流.md)
-- [投资复盘方法](../../../Learning/Finance/13_Research_Workflow/投资复盘方法.md)
-- [行业研究方法](../../../Learning/Finance/13_Research_Workflow/行业研究方法.md)
-- [观察清单管理](../../../Learning/Finance/13_Research_Workflow/观察清单管理.md)
-- [研究观点与交易决策的区分](../../../Learning/Finance/13_Research_Workflow/研究观点与交易决策的区分.md)
-- [如何避免信息过载](../../../Learning/Finance/13_Research_Workflow/如何避免信息过载.md)
+- [如何读一家公司](如何读一家公司.md)
+- [投资备忘录写作](投资备忘录写作.md)
+- [信息源与研究工作流](信息源与研究工作流.md)
+- [投资复盘方法](投资复盘方法.md)
+- [行业研究方法](行业研究方法.md)
+- [观察清单管理](观察清单管理.md)
+- [研究观点与交易决策的区分](研究观点与交易决策的区分.md)
+- [如何避免信息过载](如何避免信息过载.md)

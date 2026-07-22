@@ -129,7 +129,7 @@ def build_context(
 
 ### Token 计算
 
-```python
+```text
 import tiktoken
 
 def count_tokens(text: str, model: str = "gpt-4o") -> int:
@@ -146,7 +146,7 @@ return total
 
 ### 截断策略
 
-```python
+```text
 def trim_messages_to_limit(
 messages: list[dict],
 max_tokens: int,
@@ -170,7 +170,7 @@ return system_msgs + other_msgs
 
 ### 摘要压缩（比截断更好）
 
-```python
+```text
 async def compress_history(
 messages: list[dict],
 keep_recent: int = 4,
@@ -234,7 +234,7 @@ user_message = f"<user_input>{sanitized_user_input}</user_input>"
 
 **RAG 内容标注**：
 
-```python
+```text
 def wrap_retrieved_context(docs: list[str]) -> str:
 wrapped = []
 for i, doc in enumerate(docs):
@@ -249,7 +249,7 @@ return (
 
 **工具调用验证**：
 
-```python
+```text
 def validate_tool_call(tool_name: str, allowed_tools: list[str]) -> bool:
 if tool_name not in allowed_tools:
     log.error("unauthorized_tool_call_attempt", tool=tool_name)
@@ -289,7 +289,7 @@ return True
 | JSON Mode | 高 | 需要 JSON |
 | Pydantic 结构化 | 最高 | 需要类型安全的场景 |
 
-```python
+```text
 from pydantic import BaseModel, Field
 
 class ReviewResult(BaseModel):
@@ -576,7 +576,7 @@ SUB_TOOLS = [bash_tool, read_file_tool, write_file_tool, edit_file_tool, glob_to
 
 向模型展示"好答案长什么样"，比用文字描述格式要求有效得多：
 
-```python
+```text
 FEW_SHOT_EXAMPLES = [
     {
         "input": "分析这段 Python 代码的问题：\n```python\ndef get_user(id):\n    return db.query(f'SELECT * FROM users WHERE id={id}')\n```",

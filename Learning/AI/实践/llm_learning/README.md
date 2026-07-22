@@ -45,7 +45,7 @@ export LLM_MODEL="deepseek-chat"
 | 课程 | 实践入口 | 对齐笔记 |
 |---|---|---|
 | 00 深度学习 | [tiny_next_token_model.py](./00_deep_learning_for_llm/project/tiny_next_token_model.py) | [DeepLearning](../../DeepLearning/README.md) |
-| 00 Transformer | [self_attention_demo.py](./00_transformer_foundation/project/self_attention_demo.py) | [Transformer 从结构到实现](../../DeepLearning/09_注意力与Transformer/Transformer从结构到实现.md) |
+| 00 Transformer | [self_attention_demo.py](./00_transformer_foundation/project/self_attention_demo.py) | [Transformer 从结构到实现](../../DeepLearning/09_注意力与Transformer/注意力与Transformer.md) |
 | 01 Agent | [simple_agent.py](./01_agent_basics/project/simple_agent.py) | [Agent 架构与设计](../../../Agent/Agent架构与设计.md) |
 | 02 RAG | [mini_rag.py](./02_rag_knowledge_base/project/mini_rag.py) | [RAG 与知识系统](../../../Agent/RAG与知识系统.md) |
 | 03 Workflow | [workflow_agent.py](./03_tool_calling_workflow/project/workflow_agent.py) | [Workflow 与 LangGraph](../../../Agent/Workflow与LangGraph.md) |

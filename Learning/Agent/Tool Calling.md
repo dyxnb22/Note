@@ -162,7 +162,7 @@ def execute_tool(tool_call, registry: dict[str, Callable]) -> dict:
 
 模型可以在一次响应里发出多个工具调用（并行意图）：
 
-```python
+```text
 import asyncio
 
 async def execute_tools_parallel(tool_calls, registry):
@@ -179,7 +179,7 @@ return results
 
 生产系统用注册表统一管理工具：
 
-```python
+```text
 from dataclasses import dataclass
 from typing import Callable, Optional
 
@@ -247,7 +247,7 @@ def execute(self, name: str, args: dict, user_permission: str = "read") -> dict:
 
 ### 超时设置
 
-```python
+```text
 import httpx
 
 async def call_external_api(url: str, timeout: float = 10.0):
@@ -275,7 +275,7 @@ async with httpx.AsyncClient(timeout=timeout) as client:
 
 ### 审计日志
 
-```python
+```text
 import structlog
 from datetime import datetime
 
@@ -564,7 +564,7 @@ def dispatch_tool_calls(tool_calls: list, handlers: dict) -> list[dict]:
 ```python
 # 强制调用任意一个工具（不允许模型直接文字回答）
 response = client.messages.create(
-    model="claude-sonnet-4-6",
+    model=PRIMARY_MODEL,
     tools=tools,
     tool_choice={"type": "any"},          # 必须调用某个工具
     messages=messages,
@@ -573,7 +573,7 @@ response = client.messages.create(
 
 # 强制调用特定工具
 response = client.messages.create(
-    model="claude-sonnet-4-6",
+    model=PRIMARY_MODEL,
     tools=tools,
     tool_choice={"type": "tool", "name": "search_knowledge_base"},
     messages=messages,
@@ -582,7 +582,7 @@ response = client.messages.create(
 
 # 让模型自己决定（默认行为）
 response = client.messages.create(
-    model="claude-sonnet-4-6",
+    model=PRIMARY_MODEL,
     tools=tools,
     tool_choice={"type": "auto"},         # 默认，可省略
     messages=messages,
@@ -617,7 +617,7 @@ classify_tool = {
 }
 
 response = client.messages.create(
-    model="claude-sonnet-4-6",
+    model=PRIMARY_MODEL,
     tools=[classify_tool],
     tool_choice={"type": "tool", "name": "classify_sentiment"},
     messages=[{"role": "user", "content": f"分类：{text}"}],
@@ -645,7 +645,7 @@ def stream_with_tools(messages: list, tools: list):
     text_buffer = ""
 
     with client.messages.stream(
-        model="claude-sonnet-4-6",
+        model=PRIMARY_MODEL,
         tools=tools,
         messages=messages,
         max_tokens=2048,

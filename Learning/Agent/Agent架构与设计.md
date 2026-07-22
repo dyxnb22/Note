@@ -452,15 +452,17 @@ CRON_JOBS: dict[str, CronJob] = {}
 def cron_matches(cron_expr: str, now: datetime) -> bool:
     """检查当前时间是否匹配 5 字段 cron 表达式"""
     minute, hour, dom, month, dow = cron_expr.split()
-    checks = [
-        _field_match(minute, now.minute),
-        _field_match(hour, now.hour),
-        _field_match(dom, now.day),
-        _field_match(month, now.month),
-        _field_match(dow, now.weekday()),
-    ]
-    # DOM 和 DOW 用 OR 语义（标准 cron 行为）
-    return all(checks[:4]) and checks[4]
+    cron_dow = (now.weekday() + 1) % 7  # Python: Monday=0；cron: Sunday=0
+    base_match = (
+        _field_match(minute, now.minute)
+        and _field_match(hour, now.hour)
+        and _field_match(month, now.month)
+    )
+    dom_match = _field_match(dom, now.day)
+    dow_match = _field_match(dow, cron_dow)
+    # 两个字段都受限时采用 OR；任一为 * 时，另一个字段必须匹配。
+    day_match = (dom_match or dow_match) if dom != "*" and dow != "*" else (dom_match and dow_match)
+    return base_match and day_match
 
 def cron_scheduler_loop():
     """Layer 1: 守护线程，每秒轮询一次"""
@@ -476,8 +478,7 @@ def cron_scheduler_loop():
                 if not job.recurring:
                     del CRON_JOBS[job_id]
         # 清理过期的 fired 记录（防内存泄漏）
-        current_prefix = now.strftime("%Y%m%d%H")
-        fired = {k for k in fired if k.endswith(current_prefix[:10])}
+        fired = {k for k in fired if k.endswith(minute_key)}
         time.sleep(1)
 
 # 启动守护线程
@@ -683,7 +684,7 @@ def clarify_if_needed(goal: str, llm_client) -> ClarificationResult:
 
     # 启发式认为模糊，再调用 LLM 确认（1次 API 调用，用便宜模型）
     response = llm_client.messages.create(
-        model="claude-haiku-...",  # 用便宜模型做分类
+        model=FAST_MODEL,  # 用便宜模型做分类
         system=(
             "判断任务是否足够具体可执行。"
             "返回 JSON: {\"needs_clarification\": bool, \"questions\": [最多2个问题]}"

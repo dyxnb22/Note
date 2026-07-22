@@ -86,7 +86,7 @@ content = response.choices[0].message.content
 
 ### 多轮对话（维护历史）
 
-```python
+```text
 class Conversation:
 def __init__(self, system_prompt: str, model: str = "gpt-4o"):
     self.model = model
@@ -111,7 +111,7 @@ def chat(self, user_input: str) -> str:
 
 ## 4. 流式输出（Streaming）
 
-```python
+```text
 def stream_response(prompt: str):
 stream = client.chat.completions.create(
     model="gpt-4o",
@@ -132,7 +132,7 @@ return full_content
 
 **async 版本（FastAPI / async 服务）**：
 
-```python
+```text
 async def stream_response_async(prompt: str):
 async_client = AsyncOpenAI()
 stream = await async_client.chat.completions.create(
@@ -169,7 +169,7 @@ data = json.loads(response.choices[0].message.content)
 
 ### 方法二：Pydantic 结构化（推荐）
 
-```python
+```text
 from pydantic import BaseModel
 from typing import Optional
 
@@ -261,7 +261,7 @@ def call_llm(messages: list) -> str:
 
 ## 8. 多 Provider 设计
 
-```python
+```text
 from typing import Protocol
 
 class LLMProvider(Protocol):
@@ -309,8 +309,8 @@ return providers[name]
 生产环境主模型过载（529）时，自动切换到备用模型：
 
 ```python
-PRIMARY_MODEL  = "claude-sonnet-4-6"
-FALLBACK_MODEL = "claude-haiku-4-5"  # 更便宜、更快，质量略低
+PRIMARY_MODEL = settings.primary_model
+FALLBACK_MODEL = settings.fallback_model  # 更便宜、更快，质量略低
 
 class ModelSelector:
     def __init__(self):
@@ -368,7 +368,7 @@ with open("screenshot.png", "rb") as f:
     image_data = base64.standard_b64encode(f.read()).decode("utf-8")
 
 response = client.messages.create(
-    model="claude-sonnet-4-6",
+    model=PRIMARY_MODEL,
     max_tokens=1024,
     messages=[
         {
@@ -393,7 +393,7 @@ response = client.messages.create(
 
 # 方式二：URL（公开可访问的图片）
 response = client.messages.create(
-    model="claude-sonnet-4-6",
+    model=PRIMARY_MODEL,
     max_tokens=1024,
     messages=[
         {
@@ -428,7 +428,7 @@ with open("technical_report.pdf", "rb") as f:
     pdf_data = base64.standard_b64encode(f.read()).decode("utf-8")
 
 response = client.messages.create(
-    model="claude-sonnet-4-6",
+    model=PRIMARY_MODEL,
     max_tokens=4096,
     messages=[
         {
@@ -464,7 +464,7 @@ def analyze_ui_screenshot(screenshot_path: str) -> dict:
         img_data = base64.standard_b64encode(f.read()).decode("utf-8")
 
     response = client.messages.create(
-        model="claude-sonnet-4-6",
+        model=PRIMARY_MODEL,
         max_tokens=1024,
         messages=[
             {
@@ -493,23 +493,9 @@ def analyze_ui_screenshot(screenshot_path: str) -> dict:
 
 ---
 
-## 9.5 模型 ID 记录（需定期核对）
+## 9.5 模型选择与版本管理
 
-以下只是某次整理时的示例记录，不是稳定事实，也不应覆盖 Provider 官方文档。模型 ID、能力、价格和可用区域发生变化时，只修改这一节或外部配置，不要把它们散落到核心代码示例中。
-
-| 用途 | 当前模型 ID | 特点 |
-|------|-----------|------|
-| 主力（复杂任务） | `claude-sonnet-4-6` | 性能均衡，主力选择 |
-| 旗舰（最强）| `claude-opus-4-7` | 最强，最贵 |
-| 轻量（高吞吐）| `claude-haiku-4-5-20251001` | 最便宜，延迟低 |
-| 推理任务 | `claude-sonnet-4-6` + `thinking` | Extended Thinking 场景 |
-
-```python
-# 推荐写法：用变量管理模型名，便于统一升级；生产环境从环境变量/配置中心读取
-PRIMARY_MODEL  = "claude-sonnet-4-6"
-FLAGSHIP_MODEL = "claude-opus-4-7"
-FAST_MODEL     = "claude-haiku-4-5-20251001"
-```
+模型 ID、能力、价格和可用区域不是稳定知识，不在正文维护“当前最佳模型”榜单。把主力、轻量和回退模型作为部署配置，并对每次替换运行同一套质量、安全、延迟与成本回归。官方入口与升级检查见 [版本与来源](版本与来源.md)。
 
 ---
 

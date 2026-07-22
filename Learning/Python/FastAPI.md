@@ -22,7 +22,7 @@ uvicorn main:app --reload              # main:app = main.py 文件里的 app 对
 ## --reload 表示开发模式热重载，代码保存后自动重启；正式部署一般不用
 ```
 
-```python
+```text
 ## main.py
 from fastapi import FastAPI
 
@@ -43,7 +43,7 @@ return {"status": "ok"}       # 返回 dict，会自动转成 JSON
 
 GET 通常用于查询，POST 通常用于提交数据或触发动作。
 
-```python
+```text
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -81,7 +81,7 @@ curl -X POST http://127.0.0.1:8000/chat \
 
 Pydantic 用来做请求校验、类型转换、响应结构定义和文档生成。
 
-```python
+```text
 from pydantic import BaseModel, Field
 
 class SearchRequest(BaseModel):
@@ -115,7 +115,7 @@ score: float
 - body：POST JSON。
 - header：认证、trace id、客户端信息。
 
-```python
+```text
 from fastapi import Header, HTTPException
 
 @app.get("/me")
@@ -132,7 +132,7 @@ return {"ok": True}
 
 如果接口里有网络请求、数据库查询、LLM 调用、RAG 检索，通常适合 `async def`。
 
-```python
+```text
 import httpx
 
 @app.get("/external")
@@ -154,7 +154,7 @@ async with httpx.AsyncClient(timeout=10.0) as client:
 
 依赖注入用来复用认证、配置、数据库连接、service 对象。
 
-```python
+```text
 from fastapi import Depends, HTTPException
 
 class Settings:

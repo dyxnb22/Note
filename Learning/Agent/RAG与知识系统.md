@@ -43,7 +43,7 @@ RAG 的质量 80% 决定于 ingestion 阶段，不是检索阶段。
 | HTML/网页 | `trafilatura`, `BeautifulSoup` | 要去掉导航栏/广告 |
 | 代码 | 按语法结构切割 | 保持函数完整性 |
 
-```python
+```text
 import fitz  # pymupdf
 
 def parse_pdf(file_path: str) -> list[dict]:
@@ -62,7 +62,7 @@ return pages
 
 ### Cleaning
 
-```python
+```text
 import re
 
 def clean_text(text: str) -> str:
@@ -102,7 +102,7 @@ chunks = splitter.split_text(cleaned_text)
 
 ### Embedding
 
-```python
+```text
 from openai import OpenAI
 
 def embed_chunks(chunks: list[str], batch_size: int = 100) -> list[list[float]]:
@@ -134,7 +134,7 @@ return all_embeddings
 
 ### 基础向量检索
 
-```python
+```text
 import qdrant_client
 from qdrant_client.models import Distance, VectorParams, PointStruct
 
@@ -180,7 +180,7 @@ return [
 Hybrid Search = 向量检索（语义）+ BM25（关键词）→ RRF 融合排序
 ```
 
-```python
+```text
 from rank_bm25 import BM25Okapi
 import numpy as np
 
@@ -226,7 +226,7 @@ def retrieve(self, query: str, top_k: int = 10, alpha: float = 0.7) -> list[dict
 
 ### Query Rewriting
 
-```python
+```text
 async def rewrite_query(original_query: str) -> list[str]:
 response = await llm_call([
     {
@@ -246,7 +246,7 @@ return [original_query] + data["queries"]
 
 向量检索的 top-k 不代表最相关，Reranker 做精排：
 
-```python
+```text
 from sentence_transformers import CrossEncoder
 
 reranker = CrossEncoder("BAAI/bge-reranker-v2-m3")
@@ -262,7 +262,7 @@ return [item for _, item in ranked[:top_k]]
 
 下面是一个**可直接运行**的完整例子，用 Qdrant in-memory + BM25 + RRF，不依赖外部服务：
 
-```python
+```text
 ## pip install qdrant-client rank-bm25 openai
 import asyncio
 import qdrant_client
@@ -338,7 +338,7 @@ asyncio.run(main())
 
 ## 5. Generation 与 Grounding
 
-```python
+```text
 def generate_with_context(query: str, docs: list[dict]) -> str:
 context = "\n\n".join([
     f"[来源: {d['source']}]\n{d['content']}"

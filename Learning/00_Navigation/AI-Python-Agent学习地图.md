@@ -65,7 +65,7 @@ Agent：模型调用、工具、状态、编排、治理和交付
 | 核心运行时 | [LLM 调用基础](../Agent/LLM调用基础.md)、[Tool Calling](../Agent/Tool%20Calling.md)、[Agent 架构与设计](../Agent/Agent架构与设计.md) | 模型调用、工具合同、Agent Loop、状态和终止 |
 | Harness 工程 | [Context 工程](../Agent/Context工程.md)、[代码 Agent 基础设施](../Agent/代码%20Agent%20基础设施.md)、[Durable Execution](../Agent/Durable%20Execution与分布式可靠性.md) | 上下文、代码库操作、验证、Checkpoint、恢复和隔离 |
 | 知识与编排 | [RAG 与知识系统](../Agent/RAG与知识系统.md)、[Memory 与状态管理](../Agent/Memory与状态管理.md)、[Workflow 与 LangGraph](../Agent/Workflow与LangGraph.md)、[MCP 与工具协议](../Agent/MCP与工具协议.md)、[多 Agent 协作](../Agent/多Agent协作的边界与模式.md) | 检索、持久记忆、固定流程、外部工具协议和协作边界 |
-| 产品与协同 | [AI 应用产品设计](../Agent/AI应用产品设计.md)、[Agent 产品与人机协同](../Agent/Agent产品与人机协同.md) | 是否适合 AI、自主性、澄清、审批、接管和产品指标 |
+| 产品与协同 | [Agent 产品与人机协同](../Agent/Agent产品与人机协同.md) | 是否适合 AI、自主性、澄清、审批、接管和产品指标 |
 | 质量与治理 | [Agent 安全与威胁建模](../Agent/Agent安全与威胁建模.md)、[安全与可控性](../Agent/安全与可控性.md)、[Agent 身份与数据治理](../Agent/Agent身份与数据治理.md) | 威胁分析、防御实现、身份、租户和数据生命周期 |
 | 评测与运维 | [Agent Eval 实验方法](../Agent/Agent%20Eval实验方法.md)、[Eval 与测试体系](../Agent/Eval与测试体系.md)、[可观测性与调试](../Agent/可观测性与调试.md)、[Agent 运维与事故响应](../Agent/Agent运维与事故响应.md) | Task/Trajectory、Harness、CI、Trace、发布、告警和事故 |
 | 生产交付 | [成本与性能工程](../Agent/成本与性能工程.md)、[部署与生产化](../Agent/部署与生产化.md) | 预算、延迟、限流、部署、灰度和回滚 |

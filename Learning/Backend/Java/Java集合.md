@@ -1,4 +1,6 @@
-# 集合总览
+# Java 集合
+
+## 集合总览
 
 ## 数组和集合有什么区别？常用集合有哪些？
 
@@ -62,7 +64,7 @@ map.forEach((key, value) ->
 - 并发集合迭代器通常是弱一致的：允许并发修改，不保证一定看到所有最新数据。
 - `CopyOnWriteArrayList` 的迭代器基于创建时的数组快照，不会看到之后的修改。
 
-# List
+## List
 
 ## ArrayList、LinkedList、Vector 和 CopyOnWriteArrayList 有什么区别？
 
@@ -106,7 +108,7 @@ map.forEach((key, value) ->
 - 添加或双向修改：使用 `ListIterator.add()`、`set()`。
 - 直接使用集合的 `add()`/`remove()`：增强 `for` 遍历时通常会触发 fail-fast。
 
-# Map
+## Map
 
 ## HashMap、LinkedHashMap、TreeMap 和 Hashtable 有什么区别？
 
@@ -180,7 +182,7 @@ HashMap 不是线程安全的。并发写入可能出现数据覆盖、数据丢
 
 它们使用自然排序或 `Comparator` 排序。对 `TreeSet` 来说，如果 `compareTo()` 或 `compare()` 返回 0，就会被视为重复元素，即使 `equals()` 不一定返回 true。因此比较器应与 equals 语义保持一致。
 
-# Set
+## Set
 
 ## HashSet、LinkedHashSet 和 TreeSet 有什么区别？
 
@@ -192,7 +194,7 @@ HashMap 不是线程安全的。并发写入可能出现数据覆盖、数据丢
 
 “有序”要区分：`TreeSet` 是排序有序，`LinkedHashSet` 是插入有序。
 
-# 并发集合
+## 并发集合
 
 ## Java 中有哪些线程安全集合？
 
@@ -240,7 +242,7 @@ JDK 1.8：
 - `ConcurrentLinkedDeque`：非阻塞并发双端队列。
 - `LinkedBlockingDeque`：阻塞双端队列。
 
-# Queue 与 Deque
+## Queue 与 Deque
 
 ## Queue、Deque、ArrayDeque 和 PriorityQueue 有什么区别？
 

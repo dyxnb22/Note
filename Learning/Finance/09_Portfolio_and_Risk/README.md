@@ -9,10 +9,10 @@
 
 ## 文档
 
-- [分散化与相关性](../../../Learning/Finance/09_Portfolio_and_Risk/分散化与相关性.md)
-- [波动率与最大回撤](../../../Learning/Finance/09_Portfolio_and_Risk/波动率与最大回撤.md)
-- [夏普比率与绩效指标](../../../Learning/Finance/09_Portfolio_and_Risk/夏普比率与绩效指标.md)
-- [仓位管理](../../../Learning/Finance/09_Portfolio_and_Risk/仓位管理.md)
-- [风险预算](../../../Learning/Finance/09_Portfolio_and_Risk/风险预算.md)
-- [再平衡](../../../Learning/Finance/09_Portfolio_and_Risk/再平衡.md)
-- [黄金、商品与另类资产](../../../Learning/Finance/09_Portfolio_and_Risk/黄金、商品与另类资产.md)
+- [分散化与相关性](分散化与相关性.md)
+- [波动率与最大回撤](波动率与最大回撤.md)
+- [夏普比率与绩效指标](夏普比率与绩效指标.md)
+- [仓位管理](仓位管理.md)
+- [风险预算](风险预算.md)
+- [再平衡](再平衡.md)
+- [黄金、商品与另类资产](黄金、商品与另类资产.md)

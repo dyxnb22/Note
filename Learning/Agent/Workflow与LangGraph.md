@@ -8,7 +8,7 @@
 
 简单 Agent 可以自己写 while loop：
 
-```python
+```text
 while not done:
 response = llm.call(messages)
 if response.tool_calls:
@@ -44,7 +44,7 @@ State → Node → Edge → Node → END
 
 状态是整个图的数据中心，所有节点共享同一个 state：
 
-```python
+```text
 from typing import TypedDict, Annotated
 from langgraph.graph.message import add_messages
 
@@ -65,7 +65,7 @@ error_log: list[str]
 
 节点是函数，接受 state，返回对 state 的更新：
 
-```python
+```text
 def call_llm_node(state: AgentState) -> dict:
 """调用 LLM，返回下一个 message"""
 response = client.chat.completions.create(
@@ -103,7 +103,7 @@ return {
 
 边控制节点之间的跳转：
 
-```python
+```text
 from langgraph.graph import StateGraph, END
 
 ## 无条件边
@@ -239,7 +239,7 @@ graph.invoke(None, config=config)
 
 ## 6. 条件路由与分支
 
-```python
+```text
 def route_by_intent(state: AgentState) -> str:
 """根据用户意图路由到不同处理路径"""
 intent = state.get("classified_intent", "unknown")
@@ -292,7 +292,7 @@ main_builder.add_edge("research", "write_report")
 
 ## 8. 流式输出（Streaming）
 
-```python
+```text
 ## 流式接收图的执行过程
 for chunk in graph.stream(initial_input, config=config):
 for node_name, node_output in chunk.items():
@@ -855,13 +855,7 @@ Supervisor（分析任务）
 
 ### 18.1 何时值得引入多 Agent
 
-多 Agent 不是能力叠加器。只有在任务可分解、子任务相对独立、并行收益超过协调成本，或确实需要不同工具/权限隔离时，才值得引入；否则单 Agent 加明确 Workflow 通常更稳定、更便宜。
-
-常见模式包括 manager-worker、planner-executor、reviewer 和同类候选的 swarm。每个 Agent 都应有输入契约、输出 schema、预算、工具白名单和终止条件。
-
-共享状态时默认传递压缩后的显式产物，不共享无限对话历史。写操作必须串行化或使用事务/幂等键；子 Agent 不继承父 Agent 的全部权限。协调者还要处理超时、重复、冲突、低质量结果和递归派生。
-
-评估多 Agent 是否值得保留时，至少和单 Agent/单 Workflow 比较端到端质量、成本、延迟和失败率；如果没有可量化提升，就删掉协作层。
+Supervisor 是一种实现模式，不等于任务值得使用多 Agent。引入条件、常见协作模式、共享状态、安全与对照评测统一见 [多 Agent 协作的边界与模式](./多Agent协作的边界与模式.md)。
 
 ---
 

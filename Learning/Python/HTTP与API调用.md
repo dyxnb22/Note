@@ -73,7 +73,7 @@ print(response.json())
 
 真实项目不要只写 happy path，要处理常见失败。
 
-```python
+```text
 import requests
 
 def fetch_json(url: str) -> dict:
@@ -113,7 +113,7 @@ return {}
 
 同步写法：
 
-```python
+```text
 import httpx
 
 with httpx.Client(
@@ -128,7 +128,7 @@ print(response.json())
 
 异步写法：
 
-```python
+```text
 import asyncio
 import httpx
 

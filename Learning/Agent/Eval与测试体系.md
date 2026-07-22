@@ -45,7 +45,7 @@ Eval Harness 是一套自动化评测基础设施：
 
 ### 最小可用实现
 
-```python
+```text
 from dataclasses import dataclass
 from typing import Callable
 import time
@@ -135,7 +135,7 @@ def summary(self, results: list[EvalResult]) -> dict:
 
 ### 合成测试集
 
-```python
+```text
 async def generate_synthetic_cases(
 task_description: str,
 existing_cases: list[EvalCase],
@@ -166,7 +166,7 @@ return cases
 
 ### 程序验证（最可靠）
 
-```python
+```text
 def eval_tool_selection(actual: dict, expected: dict, **_) -> float:
 return 1.0 if actual.get("tool_name") == expected.get("tool_name") else 0.0
 
@@ -187,7 +187,7 @@ return hits / len(required_facts)
 
 ### LLM-as-Judge
 
-```python
+```text
 async def llm_judge(
 question: str,
 actual_answer: str,
@@ -234,7 +234,7 @@ except ValueError:
 
 ### Online Eval 采样
 
-```python
+```text
 import random, asyncio
 
 def production_eval_middleware(request, response, user_id: str):
@@ -259,7 +259,7 @@ asyncio.create_task(log_for_eval({
 
 Agent 的路径是动态的，要评过程，不只是最终结果：
 
-```python
+```text
 @dataclass
 class AgentEvalCase:
 task: str
@@ -342,7 +342,7 @@ steps:
 
 整体指标掩盖局部退化。改了一处 prompt，整体分数不变，但某类任务退步了 30%——这在 aggregate 指标里看不出来。
 
-```python
+```text
 @dataclass
 class SlicedEvalResult:
 slice_name: str
@@ -381,7 +381,7 @@ return sorted(output, key=lambda x: x.pass_rate)  # 最差的排前面
 
 每次发布本质上是"candidate 和 baseline 的对比实验"，需要明确的退步阈值：
 
-```python
+```text
 def compare_versions(
 baseline: dict,   # {"pass_rate": 0.82, "avg_faithfulness": 0.91, ...}
 candidate: dict,
@@ -600,7 +600,7 @@ async def generate_synthetic_cases(
     all_cases = []
     for category in categories:
         response = await llm_call(
-            model="claude-sonnet-4-6",   # 用最强模型生成高质量 case
+            model=PRIMARY_MODEL,   # 用最强模型生成高质量 case
             messages=[{
                 "role": "user",
                 "content": f"""为 {domain} 系统生成 {n_per_category} 个测试案例。

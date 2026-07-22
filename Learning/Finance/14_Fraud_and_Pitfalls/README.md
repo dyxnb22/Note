@@ -9,9 +9,9 @@
 
 ## 文档
 
-- [财务造假识别](../../../Learning/Finance/14_Fraud_and_Pitfalls/财务造假识别.md)
-- [杠杆爆仓机制](../../../Learning/Finance/14_Fraud_and_Pitfalls/杠杆爆仓机制.md)
-- [伪量化识别](../../../Learning/Finance/14_Fraud_and_Pitfalls/伪量化识别.md)
-- [常见投资骗局](../../../Learning/Finance/14_Fraud_and_Pitfalls/常见投资骗局.md)
-- [流动性陷阱与概念炒作](../../../Learning/Finance/14_Fraud_and_Pitfalls/流动性陷阱与概念炒作.md)
-- [幸存者叙事识别](../../../Learning/Finance/14_Fraud_and_Pitfalls/幸存者叙事识别.md)
+- [财务造假识别](财务造假识别.md)
+- [杠杆爆仓机制](杠杆爆仓机制.md)
+- [伪量化识别](伪量化识别.md)
+- [常见投资骗局](常见投资骗局.md)
+- [流动性陷阱与概念炒作](流动性陷阱与概念炒作.md)
+- [幸存者叙事识别](幸存者叙事识别.md)

@@ -343,7 +343,7 @@ TIMEOUT_SECONDS=30
 
 `app/config.py`：
 
-```python
+```text
 import os
 from dataclasses import dataclass
 
@@ -424,7 +424,7 @@ tests/
 
 反例：
 
-```python
+```text
 def run_agent():
 ## 读取配置
 ## 拼 prompt
@@ -438,7 +438,7 @@ pass
 
 更好的拆法：
 
-```python
+```text
 def build_messages(user_input: str) -> list[dict]:
 return [{"role": "user", "content": user_input}]
 
@@ -501,7 +501,7 @@ logger.exception("调用外部 API 失败")   # 在 except 中记录完整异常
 
 命名：
 
-```python
+```text
 user_name = "Tom"          # 变量 / 函数：snake_case
 DEFAULT_MODEL = "gpt-5"    # 常量：UPPER_CASE
 
@@ -527,7 +527,7 @@ from app.logger import logger
 
 类型注解：
 
-```python
+```text
 def get_weather(city: str) -> dict[str, str]:
 return {
     "city": city,
@@ -546,7 +546,7 @@ return {
 
 不要吞异常。
 
-```python
+```text
 try:
 result = call_api()
 except Exception:
@@ -556,7 +556,7 @@ raise                              # 继续抛出，让上层决定怎么处理
 
 如果是面向用户的接口，可以转成友好错误：
 
-```python
+```text
 try:
 result = call_api()
 except Exception:
@@ -574,13 +574,13 @@ return "服务暂时不可用，请稍后重试。"
 
 测试不一定一开始很多，但核心函数要能测。
 
-```python
+```text
 ## app/tools.py
 def add(a: int, b: int) -> int:
 return a + b
 ```
 
-```python
+```text
 ## tests/test_tools.py
 from app.tools import add
 
@@ -690,7 +690,7 @@ load_dotenv(BASE_DIR / ".env")
 
 ### 14.2 `@dataclass(frozen=True)`：配置对象不可修改
 
-```python
+```text
 from dataclasses import dataclass
 
 @dataclass(frozen=True)
@@ -713,7 +713,7 @@ load_dotenv(BASE_DIR / ".env")
 
 ### 14.4 `getattr(logging, level.upper(), logging.INFO)`
 
-```python
+```text
 import logging
 
 def setup_logger(level: str = "INFO") -> logging.Logger:

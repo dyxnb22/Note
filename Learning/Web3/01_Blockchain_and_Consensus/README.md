@@ -4,8 +4,5 @@
 
 ## 文档
 
-- [为什么区块链是状态机而不只是数据库](../../../Learning/Web3/01_Blockchain_and_Consensus/为什么区块链是状态机而不只是数据库.md)
-- [账户模型、状态转换和链上执行](../../../Learning/Web3/01_Blockchain_and_Consensus/账户模型、状态转换和链上执行.md)
-- [共识机制在解决什么问题：PoW、PoS 和最终性](../../../Learning/Web3/01_Blockchain_and_Consensus/共识机制在解决什么问题：PoW、PoS%20和最终性.md)
-- [为什么会有 Layer2：扩容、成本和安全继承](../../../Learning/Web3/01_Blockchain_and_Consensus/为什么会有%20Layer2：扩容、成本和安全继承.md)
-- [跨链为什么危险：资产桥、消息桥与信任假设](../../../Learning/Web3/01_Blockchain_and_Consensus/跨链为什么危险：资产桥、消息桥与信任假设.md)
+- [为什么区块链是状态机而不只是数据库](为什么区块链是状态机而不只是数据库.md)
+- [区块链网络机制速查](区块链网络机制速查.md)：账户、共识、Layer2 与跨链。

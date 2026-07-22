@@ -9,10 +9,10 @@
 
 ## 文档
 
-- [债券基础](../../../Learning/Finance/04_Fixed_Income/债券基础.md)
-- [到期收益率](../../../Learning/Finance/04_Fixed_Income/到期收益率.md)
-- [久期与凸性](../../../Learning/Finance/04_Fixed_Income/久期与凸性.md)
-- [利率风险](../../../Learning/Finance/04_Fixed_Income/利率风险.md)
-- [信用风险](../../../Learning/Finance/04_Fixed_Income/信用风险.md)
-- [国债信用债可转债](../../../Learning/Finance/04_Fixed_Income/国债信用债可转债.md)
-- [固收在资产配置中的作用](../../../Learning/Finance/04_Fixed_Income/固收在资产配置中的作用.md)
+- [债券基础](债券基础.md)
+- [到期收益率](到期收益率.md)
+- [久期与凸性](久期与凸性.md)
+- [利率风险](利率风险.md)
+- [信用风险](信用风险.md)
+- [国债信用债可转债](国债信用债可转债.md)
+- [固收在资产配置中的作用](固收在资产配置中的作用.md)

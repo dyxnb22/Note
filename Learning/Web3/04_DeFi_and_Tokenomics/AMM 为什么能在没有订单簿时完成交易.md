@@ -71,9 +71,9 @@
 
 ## 9. 关联主题
 
-- 上游主题：[交易、Gas、Nonce 和链上确认](../../../Learning/Web3/02_Wallets_Transactions_and_RPC/交易、Gas、Nonce%20和链上确认.md)
-- 平行主题：[滑点、深度和无常损失到底在讲什么](../../../Learning/Web3/04_DeFi_and_Tokenomics/滑点、深度和无常损失到底在讲什么.md)
-- 下游主题：[借贷协议为什么离不开超额抵押](../../../Learning/Web3/04_DeFi_and_Tokenomics/借贷协议为什么离不开超额抵押.md)
+- 上游主题：[交易、Gas、Nonce 和链上确认](../02_Wallets_Transactions_and_RPC/交易、Gas、Nonce%20和链上确认.md)
+- 平行主题：[滑点、深度和无常损失到底在讲什么](DeFi机制与风险速查.md)
+- 下游主题：[借贷协议为什么离不开超额抵押](借贷协议为什么离不开超额抵押.md)
 
 ---
 

@@ -34,7 +34,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.messages.create(
-    model="claude-sonnet-4-6",
+    model=PRIMARY_MODEL,
     max_tokens=16000,
     thinking={
         "type": "enabled",
@@ -132,7 +132,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 with client.messages.stream(
-    model="claude-sonnet-4-6",
+    model=PRIMARY_MODEL,
     max_tokens=16000,
     thinking={"type": "enabled", "budget_tokens": 8000},
     messages=[{"role": "user", "content": user_input}],
@@ -169,7 +169,7 @@ messages = [{"role": "user", "content": "帮我分析这个代码库的问题并
 
 while True:
     response = client.messages.create(
-        model="claude-sonnet-4-6",
+        model=PRIMARY_MODEL,
         max_tokens=16000,
         thinking={"type": "enabled", "budget_tokens": 8000},
         tools=tools,

@@ -41,7 +41,7 @@ loss = 模型输出与正确答案的差距
 
 ### 最小 PyTorch 训练循环
 
-```python
+```text
 for epoch in range(num_epochs):
 for batch in train_loader:
     optimizer.zero_grad()          # 清空上一步梯度

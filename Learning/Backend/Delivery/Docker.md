@@ -2,7 +2,7 @@
 
 Docker 的核心目标是把应用和它依赖的运行环境一起打包，让应用在不同机器上以相近方式运行。
 
-# 核心概念
+## 核心概念
 
 ## 镜像、容器、仓库和 Dockerfile 有什么区别？
 
@@ -31,7 +31,7 @@ Docker 主要依赖 Linux 内核的两个特性：
 
 虚拟机需要虚拟出完整操作系统，每台虚拟机通常都有自己的内核，资源开销较大。容器共享宿主机内核，只隔离进程和运行环境，因此通常启动更快、部署密度更高。但容器与虚拟机的隔离边界不同，安全性不能简单等同。
 
-# Dockerfile
+## Dockerfile
 
 ## Dockerfile 常用指令有哪些？
 
@@ -82,7 +82,7 @@ docker run myimage main.py
 - 使用固定版本 tag 或 digest，避免 latest 随时间变化导致构建不可复现。
 - 只安装运行时依赖，不把编译工具链带入最终镜像。
 
-# Docker Compose
+## Docker Compose
 
 ## Docker Compose 解决什么问题？
 
@@ -188,7 +188,7 @@ version: "3.8"
 
 现在 Docker Compose v2 通常不强制要求 version，直接写 services、volumes、networks 等顶层配置即可。具体行为仍以当前 Compose 版本文档为准。
 
-# 运行与最佳实践
+## 运行与最佳实践
 
 ## 如何进入容器或执行容器内命令？
 
@@ -226,7 +226,7 @@ docker exec -it postgres_container psql -U username -d database
 
 docker-compose 是旧版命令形式，现在更推荐 Docker Compose v2 的 docker compose。
 
-# 命令速查
+## 命令速查
 
 ## 初始化、镜像和容器
 

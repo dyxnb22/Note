@@ -8,12 +8,12 @@
 
 | 问题 | 先看 | 本页补充 |
 | --- | --- | --- |
-| Python 语法、dict/list、文件和 JSON | [[Python核心语法]] | 模型响应的安全提取与数据边界 |
-| 虚拟环境、uv、配置、日志和测试 | [[Python工程化]] | Agent 项目的工程化检查点 |
-| HTTP、timeout、retry、httpx | [[HTTP与API调用]] | 异步调用的并发控制 |
-| LLM、多轮、stream、结构化输出 | [[LLM调用基础]] | Pydantic 模型作为系统边界 |
-| Tool schema、并行调用、权限和重试 | [[Tool Calling]] | Tool 执行器的统一实现方式 |
-| Agent Loop、State、Memory、Workflow | [[Agent架构与设计]]、[[Workflow与LangGraph]] | Python 能力在运行时中的落点 |
+| Python 语法、dict/list、文件和 JSON | [Python 核心语法](Python核心语法.md) | 模型响应的安全提取与数据边界 |
+| 虚拟环境、uv、配置、日志和测试 | [Python 工程化](Python工程化.md) | Agent 项目的工程化检查点 |
+| HTTP、timeout、retry、httpx | [HTTP 与 API 调用](HTTP与API调用.md) | 异步调用的并发控制 |
+| LLM、多轮、stream、结构化输出 | [LLM 调用基础](../Agent/LLM调用基础.md) | Pydantic 模型作为系统边界 |
+| Tool schema、并行调用、权限和重试 | [Tool Calling](../Agent/Tool%20Calling.md) | Tool 执行器的统一实现方式 |
+| Agent Loop、State、Memory、Workflow | [Agent 架构与设计](../Agent/Agent架构与设计.md)、[Workflow 与 LangGraph](../Agent/Workflow与LangGraph.md) | Python 能力在运行时中的落点 |
 
 ## 最短学习路径
 
@@ -29,7 +29,7 @@ Python核心语法
   → Eval与测试体系
 ```
 
-如果 Python 还不熟，先完成 [[Python核心语法]] 的复习清单，再回来做本页练习。
+如果 Python 还不熟，先完成 [Python 核心语法](Python核心语法.md) 的复习清单，再回来做本页练习。
 
 ## 1. Agent 的数据边界：先解析，再执行
 
@@ -80,7 +80,7 @@ def tool_call_names(response: Mapping[str, Any]) -> list[str]:
 
 模型可能返回 Markdown 代码块、尾部逗号或空字符串。解析器应该是一个独立、可测试的纯函数。
 
-```python
+```text
 import json
 import re
 from typing import Any
@@ -105,7 +105,7 @@ def parse_model_json(raw: str) -> dict[str, Any]:
 
 不要无条件执行 `raw.replace("'", '"')`：这会破坏字符串中的英文撇号、路径和内容。确实需要容错时，使用专门的 `json-repair`，并把修复结果当作“不可信输入”继续做 schema 校验。
 
-SSE / streaming 的增量事件也应先逐行解析、再根据 Provider 的事件格式取 delta；不要假设所有 Provider 都使用相同的 `choices[0].delta` 结构。完整的调用和流式输出见 [[LLM调用基础]]。
+SSE / streaming 的增量事件也应先逐行解析、再根据 Provider 的事件格式取 delta；不要假设所有 Provider 都使用相同的 `choices[0].delta` 结构。完整的调用和流式输出见 [LLM 调用基础](../Agent/LLM调用基础.md)。
 
 ## 2. Pydantic：把模型输出变成系统合同
 
@@ -182,7 +182,7 @@ async def execute_parallel(
 - 不要用没有上限的 `gather()` 批量打外部 API；用 `Semaphore` 配合 Provider 的 rate limit。
 - `CancelledError` 通常应该继续抛出，让上层能够安全取消；普通工具异常则转为结果，是否终止由 Agent Loop 决定。
 
-详细的 Tool 并行、超时、幂等和权限处理见 [[Tool Calling]]；HTTP 客户端选择见 [[HTTP与API调用]]。
+详细的 Tool 并行、超时、幂等和权限处理见 [Tool Calling](../Agent/Tool%20Calling.md)；HTTP 客户端选择见 [HTTP 与 API 调用](HTTP与API调用.md)。
 
 ## 4. 类型边界：TypedDict、BaseModel 和 Protocol
 
@@ -243,7 +243,7 @@ async def fetch_external_data(client: object, key: str) -> dict[str, object]:
     raise NotImplementedError
 ```
 
-`tenacity` 的装饰器只是机制，重试策略仍应由调用类型决定。更复杂的策略可以在 [[HTTP与API调用]] 和 [[Tool Calling]] 中集中维护，避免每个工具各写一套。
+`tenacity` 的装饰器只是机制，重试策略仍应由调用类型决定。更复杂的策略可以在 [HTTP 与 API 调用](HTTP与API调用.md) 和 [Tool Calling](../Agent/Tool%20Calling.md) 中集中维护，避免每个工具各写一套。
 
 ## 6. 装饰器与上下文管理器：给 Agent 加横切能力
 
@@ -271,7 +271,7 @@ async def tool_span(name: str) -> AsyncIterator[dict[str, float | str]]:
 - 日志默认记录 tool 名、request id、耗时、状态和结果摘要，不记录 API Key、完整消息和敏感文档。
 - 预算、超时和取消应由上层 Agent Runtime 统一控制；Tool 自己只负责正确释放资源。
 
-相关内容见 [[可观测性与调试]]、[[成本与性能工程]] 和 [[安全与可控性]]。
+相关内容见 [可观测性与调试](../Agent/可观测性与调试.md)、[成本与性能工程](../Agent/成本与性能工程.md) 和 [安全与可控性](../Agent/安全与可控性.md)。
 
 ## 7. 线程、进程与异步的选择
 

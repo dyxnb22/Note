@@ -4,9 +4,6 @@
 
 ## 文档
 
-- [Solidity 合约到底在解决什么问题](../../../Learning/Web3/03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)
-- [状态变量、函数、事件、modifier 分别扮演什么角色](../../../Learning/Web3/03_Smart_Contracts_and_Development/状态变量、函数、事件、modifier%20分别扮演什么角色.md)
-- [事件为什么是链上和后端之间的桥梁](../../../Learning/Web3/03_Smart_Contracts_and_Development/事件为什么是链上和后端之间的桥梁.md)
-- [权限控制、所有权和多签的基本逻辑](../../../Learning/Web3/03_Smart_Contracts_and_Development/权限控制、所有权和多签的基本逻辑.md)
-- [合约升级为什么危险：Proxy、治理和状态一致性](../../../Learning/Web3/03_Smart_Contracts_and_Development/合约升级为什么危险：Proxy、治理和状态一致性.md)
-- [为什么 Foundry 测试不只是单元测试](../../../Learning/Web3/03_Smart_Contracts_and_Development/为什么%20Foundry%20测试不只是单元测试.md)
+- [Solidity 合约到底在解决什么问题](Solidity%20合约到底在解决什么问题.md)
+- [权限控制、所有权和多签的基本逻辑](权限控制、所有权和多签的基本逻辑.md)
+- [智能合约工程速查](智能合约工程速查.md)：状态、事件、测试和升级。

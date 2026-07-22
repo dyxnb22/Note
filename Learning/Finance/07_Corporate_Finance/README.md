@@ -9,8 +9,8 @@
 
 ## 文档
 
-- [资本结构](../../../Learning/Finance/07_Corporate_Finance/资本结构.md)
-- [WACC](../../../Learning/Finance/07_Corporate_Finance/WACC.md)
-- [投资决策与资本预算](../../../Learning/Finance/07_Corporate_Finance/投资决策与资本预算.md)
-- [分红回购与再融资](../../../Learning/Finance/07_Corporate_Finance/分红回购与再融资.md)
-- [管理层激励与代理问题](../../../Learning/Finance/07_Corporate_Finance/管理层激励与代理问题.md)
+- [资本结构](资本结构.md)
+- [WACC](WACC.md)
+- [投资决策与资本预算](投资决策与资本预算.md)
+- [分红回购与再融资](分红回购与再融资.md)
+- [管理层激励与代理问题](管理层激励与代理问题.md)

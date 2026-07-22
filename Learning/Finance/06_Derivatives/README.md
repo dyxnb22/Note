@@ -9,9 +9,9 @@
 
 ## 文档
 
-- [期货基础](../../../Learning/Finance/06_Derivatives/期货基础.md)
-- [期权基础](../../../Learning/Finance/06_Derivatives/期权基础.md)
-- [常见期权策略原理](../../../Learning/Finance/06_Derivatives/常见期权策略原理.md)
-- [杠杆与保证金](../../../Learning/Finance/06_Derivatives/杠杆与保证金.md)
-- [对冲与投机](../../../Learning/Finance/06_Derivatives/对冲与投机.md)
-- [衍生品风险](../../../Learning/Finance/06_Derivatives/衍生品风险.md)
+- [期货基础](期货基础.md)
+- [期权基础](期权基础.md)
+- [常见期权策略原理](常见期权策略原理.md)
+- [杠杆与保证金](杠杆与保证金.md)
+- [对冲与投机](对冲与投机.md)
+- [衍生品风险](衍生品风险.md)

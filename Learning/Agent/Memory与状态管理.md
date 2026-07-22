@@ -43,7 +43,7 @@ Memory 是生产系统里容易被低估的难题——入门级实现是"把历
 特点：持久化，不受 context 限制，设 TTL 自动过期
 ```
 
-```python
+```text
 import redis
 import json
 
@@ -72,7 +72,7 @@ return json.loads(data) if data else {}
 更新：会话结束后提取
 ```
 
-```python
+```text
 from pydantic import BaseModel
 from datetime import datetime
 
@@ -112,7 +112,7 @@ return memories
 特点：结构化，有状态机转换
 ```
 
-```python
+```text
 from enum import Enum
 from pydantic import BaseModel
 
@@ -147,7 +147,7 @@ updated_at: datetime
 | 时间窗口 | 加载最近 N 条 | SQL ORDER BY time | 时序重要场景 |
 | 重要性排序 | 加载评分最高的 | 重要性字段 | 混合策略 |
 
-```python
+```text
 async def retrieve_relevant_memories(
 user_id: str,
 current_query: str,
@@ -190,7 +190,7 @@ return [item for _, item in scored[:top_k]]
 
 用户在不同时间说了相互矛盾的话：
 
-```python
+```text
 async def handle_memory_conflict(
 existing: UserMemoryItem,
 new_info: str,
@@ -218,7 +218,7 @@ return resolution
 
 ## 6. 会话恢复
 
-```python
+```text
 async def resume_workflow(task_id: str) -> WorkflowState:
 state = await db.get_workflow_state(task_id)
 
