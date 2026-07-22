@@ -1,9 +1,6 @@
 # From Scratch
 
-Implement the core autograd ideas here.
+## Current Task
 
-Possible outputs:
-
-- scalar `Value` graph
-- backward pass
-- gradient accumulation checks
+Implement the smallest scalar autograd engine in `value.py`: tracked values,
+operator overloads, a topological backward pass, and gradient accumulation.

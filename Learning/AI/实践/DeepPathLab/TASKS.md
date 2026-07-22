@@ -22,6 +22,14 @@ A module has meaningful progress when it contains at least:
 - one experiment, visualization, or diagnostic,
 - a report with concrete observations.
 
+## Module Lifecycle
+
+Only the current module gets the full working layout (`notes.md`,
+`reproduce/`, `from_scratch/`, `experiments/`, and `report.md`). Later modules
+keep a `README.md` scope card until the previous module meets the meaningful
+progress criteria. This is intentional: an empty folder is not progress, and
+the next module should be opened by a concrete implementation task.
+
 ## Active Queue
 
 ### Module 01: Preliminaries & Autograd

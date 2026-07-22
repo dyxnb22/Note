@@ -61,12 +61,18 @@ AI tooling can help with scaffolding, tests, refactors, and documentation, but i
 
 ## Current Modules
 
-- 01 Preliminaries & Autograd
-- 02 Linear Models
-- 03 Multilayer Perceptrons
-- 04 Convolutional Neural Networks
+The first four modules are the foundation route, but only one module should be
+expanded at a time. A queued module keeps a scope card; its working folders are
+created when the previous module has a runnable artifact and a report.
 
-Each module lives under [modules](./modules) and follows the same structure:
+| Module | Status | Practical project | Current boundary |
+|---|---|---|---|
+| 01 Preliminaries & Autograd | **Current iteration** | mini autograd engine | full working scaffold is kept |
+| 02 Linear Models | Queued | linear-model playground | scope card only; starts after 01 |
+| 03 Multilayer Perceptrons | Queued | tiny MLP trainer | scope card only; starts after 02 |
+| 04 Convolutional Neural Networks | Queued | LeNet-style image classifier | scope card only; starts after 03 |
+
+The current module follows the full structure under [modules](./modules):
 
 - `notes.md` for personal notes
 - `report.md` for the final summary
@@ -74,7 +80,12 @@ Each module lives under [modules](./modules) and follows the same structure:
 - `from_scratch/` for original implementations
 - `experiments/` for ablations and analysis
 
-Each module should also have a clear practical project identity. Examples:
+Do not create these folders for a queued module in advance. This keeps the
+project navigable and prevents empty templates from looking like completed
+learning work.
+
+Each module should also have a clear practical project identity. The queued
+scope cards define the next projects:
 
 - `01 Preliminaries & Autograd`: build a mini autograd engine
 - `02 Linear Models`: build a compact linear-model playground

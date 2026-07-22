@@ -1,5 +1,7 @@
 # 01 Preliminaries & Autograd
 
+**Status: Current iteration**
+
 This module studies tensors, automatic differentiation, computational graphs, and gradient flow.
 
 ## Workflow

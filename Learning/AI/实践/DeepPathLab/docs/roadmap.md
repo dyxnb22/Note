@@ -24,14 +24,17 @@ The intent is not just to read through topics in order. Each module should becom
 | Stage 4 | Transformers and Representation Learning | connect attention, embeddings, and scalable sequence modeling |
 | Stage 5 | NLP Projects | apply the foundations to text modeling, classification, retrieval, and fine-tuning |
 
-## Active Modules
+## Foundation Route
 
-| Module | Track | Focus | Practical Project | Expected Outputs |
-|---|---|---|---|---|
-| 01 Preliminaries & Autograd | Track A | tensors, gradients, computational graphs | mini autograd engine | notes, gradient checks, autograd core, short implementation report |
-| 02 Linear Models | Track A | regression, classification, optimization basics | linear-model playground for regression and softmax classification | linear regression, softmax regression, baseline comparison, optimization notes |
-| 03 Multilayer Perceptrons | Track B | nonlinear function approximation, backpropagation | tiny MLP trainer with activation and optimizer diagnostics | MLP implementation, training curves, activation study, training report |
-| 04 Convolutional Neural Networks | Track D | convolutions, pooling, visual pattern extraction | LeNet-style image classifier with feature analysis | CNN from scratch pieces, LeNet reproduction, visual diagnostics, error analysis |
+Only Module 01 is currently active. Modules 02–04 are intentionally kept as
+scope cards until the preceding module has code, experiments, and conclusions.
+
+| Module | Track | Status | Focus | Practical Project | Expected Outputs |
+|---|---|---|---|---|---|
+| 01 Preliminaries & Autograd | Track A | Current | tensors, gradients, computational graphs | mini autograd engine | notes, gradient checks, autograd core, short implementation report |
+| 02 Linear Models | Track A | Queued | regression, classification, optimization basics | linear-model playground for regression and softmax classification | linear regression, softmax regression, baseline comparison, optimization notes |
+| 03 Multilayer Perceptrons | Track B | Queued | nonlinear function approximation, backpropagation | tiny MLP trainer with activation and optimizer diagnostics | MLP implementation, training curves, activation study, training report |
+| 04 Convolutional Neural Networks | Track D | Queued | convolutions, pooling, visual pattern extraction | LeNet-style image classifier with feature analysis | CNN from scratch pieces, LeNet reproduction, visual diagnostics, error analysis |
 
 ## Planned Learning Path
 

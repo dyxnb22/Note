@@ -1,12 +1,18 @@
 # 03 Multilayer Perceptrons
 
+**Status: Queued** · prerequisite: [02 Linear Models](../02_linear_models/README.md)
+
 This module studies nonlinear networks, activations, backpropagation, and training dynamics.
 
-## Workflow
+## Planned Project
 
-- Read the D2L MLP chapters
-- Write original notes in [notes.md](./notes.md)
-- Reproduce a baseline in [reproduce/](./reproduce)
-- Implement the core ideas in [from_scratch/](./from_scratch)
-- Run training experiments in [experiments/](./experiments)
-- Summarize findings in [report.md](./report.md)
+Build a tiny MLP trainer with training diagnostics and an activation or optimizer comparison.
+
+## Planned Outputs
+
+- personal notes on hidden layers, activations, backpropagation, and regularization;
+- a minimal MLP training implementation;
+- a runnable framework baseline;
+- training curves, a comparison experiment, and a short report.
+
+The working folders (`notes.md`, `reproduce/`, `from_scratch/`, `experiments/`, and `report.md`) will be created after Module 02 is complete. See [TASKS.md](../../TASKS.md) for the activation condition.
