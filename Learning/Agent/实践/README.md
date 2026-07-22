@@ -2,6 +2,8 @@
 
 这里集中放 `Learning/Agent` 的可运行代码。理论、边界和生产化判断仍维护在上级目录的章节笔记中，实践目录只保留代码、项目 README、配置示例和测试。
 
+完整的 Python → AI → Agent 学习顺序和实践选择见：[学习地图](../../00_Navigation/AI-Python-Agent学习地图.md)。
+
 ## 两条实践路线
 
 - [ai-agent-learning](./ai-agent-learning/README.md)：从 Python 工程、HTTP/API、Provider SDK、Tool Calling、Agent Loop 开始，逐步进入 FastAPI、LangGraph、Memory、RAG、MCP 和 DevPilot，适合作为入门主线。

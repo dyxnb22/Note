@@ -6,12 +6,15 @@
 2. **解释 LLM 工作原理**：能在面试中清楚讲清 tokenization、generation、fine-tuning、alignment
 3. **为应用工程提供判断依据**：理解模型能力边界，才能做出合理的系统设计决策
 
+三个主题目录的整体关系见：[Python → AI → Agent 学习地图](../00_Navigation/AI-Python-Agent学习地图.md)。
+
 ## 文档地图
 
 | 文档 | 定位 | 适合什么时候看 |
 |------|------|----------------|
 | `LLM基础.md` | LLM 工作原理全链路：从 token 到 generation 到 alignment | 进入 AI 应用开发前必读；面试前复习 |
-| `DeepLearning.md` + `DeepLearning/` | 以 D2L 路线学习训练原理、CNN、RNN、Transformer、视觉与 NLP | 需要系统补模型训练基础时 |
+| `DeepLearning/` | 以 D2L 路线系统学习训练原理、CNN、RNN、Transformer、视觉与 NLP | 需要系统补模型训练基础时 |
+| `DeepLearning.md` | 深度学习到 LLM 的工程桥接速览 | 想快速补训练循环、Transformer、LoRA 和 HuggingFace 时 |
 | `AI工具与编程助手.md` | AI 编程工具的能力、边界、协作方式、风险 | 开始使用 AI Coding Agent 时；思考人机协作时 |
 
 ## 配套实践

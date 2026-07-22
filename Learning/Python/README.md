@@ -2,6 +2,8 @@
 
 这里放做 AI 应用之前必须打牢的 Python 工程基础。
 
+总路线见：[Python → AI → Agent 学习地图](../00_Navigation/AI-Python-Agent学习地图.md)。
+
 ## 文档
 
 | 文档 | 内容 |
@@ -46,3 +48,7 @@
 - Python 语言本身、工程规范、HTTP 调用 → 放这里
 - Pydantic、asyncio、重试、类型边界等 Python 能力如何服务 Agent → 看 `Python Agent工程化补充.md`
 - 一旦涉及 LLM、Agent、RAG、工具协议 → 放 `Agent/`
+
+## 配套实践
+
+- [Python 基础练习](./实践/Python基础练习/README.md)：只用于复习 Python 变量、类型、输出和条件判断，不属于 Agent 主线。

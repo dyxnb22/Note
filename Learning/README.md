@@ -4,6 +4,8 @@
 
 总入口：[Learning 总索引](./INDEX.md)。迁移来源、覆盖范围和证据等级统一看[来源与证据](./00_Navigation/来源与证据.md)。
 
+AI 应用学习主线见：[Python → AI → Agent 学习地图](./00_Navigation/AI-Python-Agent学习地图.md)。
+
 ## 目录
 
 | 入口 | 内容边界 |

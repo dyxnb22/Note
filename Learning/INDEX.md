@@ -15,7 +15,8 @@
 | 补计算机底座 | [CS](./CS/README.md) |
 | 做 Java/Go/Rust 后端 | [Backend](./Backend/README.md) |
 | 学 LLM 原理 | [AI](./AI/README.md) |
-| 做 Agent、RAG、MCP | [Python](./Python/README.md) → [Agent](./Agent/README.md) |
+| 学 Python → AI → Agent | [学习地图](./00_Navigation/AI-Python-Agent学习地图.md) |
+| 做 Agent、RAG、MCP | [Python](./Python/README.md) → [AI](./AI/README.md) → [Agent](./Agent/README.md) |
 | 练系统设计 | [Backend/Architecture](./Backend/Architecture/README.md) |
 | 看真实项目取舍 | [Case Studies](./Case_Studies/README.md) |
 | 查术语、产品和技术资料 | [References](./References/README.md) |
@@ -29,12 +30,13 @@
 ## 推荐阅读顺序
 
 1. [知识地图](./00_Navigation/知识地图.md)：理解主题之间的关系。
-2. [来源与证据](./00_Navigation/来源与证据.md)：确认来源和完成度。
-3. [Backend](./Backend/README.md) 和 [CS](./CS/README.md)：补底层和工程基础。
-4. [系统设计](./Backend/Architecture/系统设计.md)、[DDD 与领域建模](./Backend/Architecture/DDD与领域建模.md)、[可靠性与一致性](./Backend/Architecture/可靠性与一致性.md)：形成设计主线。
-5. [Python](./Python/README.md) → [Agent](./Agent/README.md)：学习模型调用、工具、状态、工作流和生产化。
-6. [案例](./Case_Studies/README.md)：用项目和源码验证抽象。
-7. [Career](./Career/README.md) 与 [Writing and Expression](./Writing_and_Expression/INDEX.md)：把能力转成可验证的表达。
+2. [Python → AI → Agent 学习地图](./00_Navigation/AI-Python-Agent学习地图.md)：确定学习顺序和实践选择。
+3. [来源与证据](./00_Navigation/来源与证据.md)：确认来源和完成度。
+4. [Backend](./Backend/README.md) 和 [CS](./CS/README.md)：补底层和工程基础。
+5. [系统设计](./Backend/Architecture/系统设计.md)、[DDD 与领域建模](./Backend/Architecture/DDD与领域建模.md)、[可靠性与一致性](./Backend/Architecture/可靠性与一致性.md)：形成设计主线。
+6. [Python](./Python/README.md) → [AI](./AI/README.md) → [Agent](./Agent/README.md)：学习模型调用、工具、状态、工作流和生产化。
+7. [案例](./Case_Studies/README.md)：用项目和源码验证抽象。
+8. [Career](./Career/README.md) 与 [Writing and Expression](./Writing_and_Expression/INDEX.md)：把能力转成可验证的表达。
 
 ## 内容边界
 
