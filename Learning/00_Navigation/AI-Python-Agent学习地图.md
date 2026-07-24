@@ -106,17 +106,6 @@ LLM 调用基础
 
 ## 本轮整理清单
 
-- [x] 保留 `Python`、`AI`、`Agent` 三个主题边界，不把语言基础、模型原理和运行时设计混在一起。
-- [x] 建立本地图，统一说明主线、分支和实践项目的选择关系。
-- [x] 将 Python 下名称含糊的单 Notebook 目录和文件改为 `Python基础练习/基础语法与条件判断.ipynb`。
-- [x] 明确 `DeepLearning/`、`DeepLearning.md`、`LLM基础.md` 的不同职责，避免把摘要当成第二套课程。
-- [x] 将 `AI工具与编程助手.md` 定位为 AI 工具使用速查；Agent 运行时和治理仍以 `Learning/Agent/` 为主。
-- [x] 明确两组容易重叠的 Agent 文档：威胁建模 vs 防御实现，Agent Eval 实验方法 vs 通用 Eval Harness。
-- [x] 明确三套 Agent/LLM 实践的分工：应用入门、Harness 深入、LLM 工程宽路线。
-- [x] 保留实践项目内部重复的 `.gitignore`、`.env.example` 和依赖文件；它们是各自项目的隔离配置，不属于知识重复。
-- [x] 为三个主题 README 和 Learning 总索引补充本地图入口。
-- [x] 清理当前 Notes 内的 `.DS_Store`；未来由系统重建的文件由 `.gitignore` 忽略。
-
 ## 后续维护规则
 
 1. 新增理论时先判断是否已有主文档；已有主题只补原文，不新建同义标题。
