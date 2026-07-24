@@ -105,7 +105,7 @@ def chat(self, user_input: str) -> str:
     return assistant_msg
 ```
 
-**注意**：messages 列表会无限增长，长对话需要截断策略（见 `Context工程.md`）。
+**注意**：messages 列表会无限增长，长对话需要截断策略（见 `04_Context工程.md`）。
 
 ---
 

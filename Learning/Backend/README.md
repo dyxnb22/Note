@@ -16,12 +16,12 @@
 
 系统设计新增主线：
 
-- [DDD 与领域建模](./Architecture/DDD与领域建模.md)
-- [可靠性与一致性](./Architecture/可靠性与一致性.md)
-- [任务、消息与补偿](./Architecture/任务、消息与补偿.md)
-- [网关、接口治理与 SDK](./Architecture/网关、接口治理与SDK.md)
-- [组件化与中间件设计](./Architecture/组件化与中间件设计.md)
-- [场景方案库](./Architecture/场景方案库.md)
+- [DDD 与领域建模](./Architecture/02_DDD与领域建模.md)
+- [可靠性与一致性](./Architecture/04_可靠性与一致性.md)
+- [任务、消息与补偿](./Architecture/05_任务、消息与补偿.md)
+- [网关、接口治理与 SDK](./Architecture/06_网关、接口治理与SDK.md)
+- [组件化与中间件设计](./Architecture/07_组件化与中间件设计.md)
+- [场景方案库](./Architecture/08_场景方案库.md)
 
 ## 建议使用原则
 

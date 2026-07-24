@@ -20,7 +20,7 @@ Spring 技术栈包含容器、Web 框架、应用装配、数据访问和微服
 
 ## 边界
 
-- Java 语言、反射和动态代理基础放 [Java](Java.md)。
+- Java 语言、反射和动态代理基础放 [Java](01_Java.md)。
 - SQL 和数据库实现放 [Data](../Data/README.md)。
 - 通用分布式与可靠性方法放 [Architecture](../Architecture/README.md)。
 - 构建、容器和上线放 [Delivery](../Delivery/README.md)。

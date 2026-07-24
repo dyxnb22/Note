@@ -28,14 +28,14 @@ Agent：模型调用、工具、状态、编排、治理和交付
 适合 Python 不熟或希望补工程基础时：
 
 1. [Python 工程基础与学习路径](../Python/README.md)
-2. [Python 核心语法](../Python/Python核心语法.md)
-3. [Python 工程化](../Python/Python工程化.md)
-4. [HTTP 与 API 调用](../Python/HTTP与API调用.md)
+2. [Python 核心语法](../Python/01_Python核心语法.md)
+3. [Python 工程化](../Python/02_Python工程化.md)
+4. [HTTP 与 API 调用](../Python/03_HTTP与API调用.md)
 5. 按需阅读 [FastAPI](../Python/FastAPI.md)、[代码组织与设计模式](../Python/Python代码组织与设计模式.md)、[错误与 Debug](../Python/错误与Debug.md)
 
 ### 1. Python 到 Agent 的桥接
 
-[Python Agent 工程化补充](../Python/Python%20Agent工程化补充.md)是唯一的 Python/Agent 桥接主文档，集中练习：
+[Python Agent 工程化补充](../Python/04_Python%20Agent工程化补充.md)是唯一的 Python/Agent 桥接主文档，集中练习：
 
 - Pydantic、TypedDict、Protocol 和外部数据边界；
 - asyncio、并发上限、取消、超时和重试；
@@ -62,19 +62,19 @@ Agent：模型调用、工具、状态、编排、治理和交付
 
 | 层次 | 主文档 | 负责的问题 |
 |---|---|---|
-| 核心运行时 | [LLM 调用基础](../Agent/LLM调用基础.md)、[Tool Calling](../Agent/Tool%20Calling.md)、[Agent 架构与设计](../Agent/Agent架构与设计.md) | 模型调用、工具合同、Agent Loop、状态和终止 |
-| Harness 工程 | [Context 工程](../Agent/Context工程.md)、[代码 Agent 基础设施](../Agent/代码%20Agent%20基础设施.md)、[Durable Execution](../Agent/Durable%20Execution与分布式可靠性.md) | 上下文、代码库操作、验证、Checkpoint、恢复和隔离 |
+| 核心运行时 | [LLM 调用基础](../Agent/01_LLM调用基础.md)、[Tool Calling](../Agent/02_Tool%20Calling.md)、[Agent 架构与设计](../Agent/03_Agent架构与设计.md) | 模型调用、工具合同、Agent Loop、状态和终止 |
+| Harness 工程 | [Context 工程](../Agent/04_Context工程.md)、[代码 Agent 基础设施](../Agent/05_代码%20Agent%20基础设施.md)、[Durable Execution](../Agent/06_Durable%20Execution与分布式可靠性.md) | 上下文、代码库操作、验证、Checkpoint、恢复和隔离 |
 | 知识与编排 | [RAG](../Agent/RAG.md)、[知识系统](../Agent/知识系统.md)、[Memory 与状态管理](../Agent/Memory与状态管理.md)、[Workflow 与编排](../Agent/Workflow与编排.md)、[LangGraph](../Agent/LangGraph.md)、[MCP 与工具协议](../Agent/MCP与工具协议.md)、[多 Agent 协作](../Agent/多Agent协作的边界与模式.md) | 检索、知识治理、持久记忆、固定流程、框架实现、外部工具协议和协作边界 |
 | 产品与协同 | [Agent 产品与人机协同](../Agent/Agent产品与人机协同.md) | 是否适合 AI、自主性、澄清、审批、接管和产品指标 |
-| 质量与治理 | [Agent 安全与威胁建模](../Agent/Agent安全与威胁建模.md)、[安全与可控性](../Agent/安全与可控性.md)、[Agent 身份与数据治理](../Agent/Agent身份与数据治理.md) | 威胁分析、防御实现、身份、租户和数据生命周期 |
-| 评测与运维 | [Agent Eval 实验方法](../Agent/Agent%20Eval实验方法.md)、[Eval 与测试体系](../Agent/Eval与测试体系.md)、[可观测性与调试](../Agent/可观测性与调试.md)、[Agent 运维与事故响应](../Agent/Agent运维与事故响应.md) | Task/Trajectory、Harness、CI、Trace、发布、告警和事故 |
-| 生产交付 | [成本与性能工程](../Agent/成本与性能工程.md)、[部署与生产化](../Agent/部署与生产化.md) | 预算、延迟、限流、部署、灰度和回滚 |
+| 质量与治理 | [Agent 安全与威胁建模](../Agent/07_Agent安全与威胁建模.md)、[安全与可控性](../Agent/08_安全与可控性.md)、[Agent 身份与数据治理](../Agent/Agent身份与数据治理.md) | 威胁分析、防御实现、身份、租户和数据生命周期 |
+| 评测与运维 | [Agent Eval 实验方法](../Agent/09_Agent%20Eval实验方法.md)、[Eval 与测试体系](../Agent/10_Eval与测试体系.md)、[可观测性与调试](../Agent/11_可观测性与调试.md)、[Agent 运维与事故响应](../Agent/Agent运维与事故响应.md) | Task/Trajectory、Harness、CI、Trace、发布、告警和事故 |
+| 生产交付 | [成本与性能工程](../Agent/成本与性能工程.md)、[部署与生产化](../Agent/12_部署与生产化.md) | 预算、延迟、限流、部署、灰度和回滚 |
 | 扩展与表达 | [推理模型与 Extended Thinking](../Agent/推理模型与Extended%20Thinking.md)、[模型行为与工具调用训练](../Agent/模型行为与工具调用训练.md)、[Computer Use 与 GUI Agent](../Agent/Computer%20Use与GUI%20Agent.md)、[项目表达与面试](../Agent/项目表达与面试.md) | 研究分支、GUI Agent、模型行为实验和项目输出 |
 
 两组重点边界：
 
-- [Agent 安全与威胁建模](../Agent/Agent安全与威胁建模.md)先回答“谁能影响系统、资产是什么、攻击面在哪里”；[安全与可控性](../Agent/安全与可控性.md)再回答“用什么策略、沙箱、脱敏和恢复机制防御”。
-- [Agent Eval 实验方法](../Agent/Agent%20Eval实验方法.md)评估完整任务轨迹、环境副作用和发布门槛；[Eval 与测试体系](../Agent/Eval与测试体系.md)建设通用 Harness、测试集、指标、Mock 和 CI。
+- [Agent 安全与威胁建模](../Agent/07_Agent安全与威胁建模.md)先回答“谁能影响系统、资产是什么、攻击面在哪里”；[安全与可控性](../Agent/08_安全与可控性.md)再回答“用什么策略、沙箱、脱敏和恢复机制防御”。
+- [Agent Eval 实验方法](../Agent/09_Agent%20Eval实验方法.md)评估完整任务轨迹、环境副作用和发布门槛；[Eval 与测试体系](../Agent/10_Eval与测试体系.md)建设通用 Harness、测试集、指标、Mock 和 CI。
 
 ### 3. Agent 核心主线
 
@@ -90,7 +90,7 @@ LLM 调用基础
   → 部署与生产化
 ```
 
-对应入口：[Agent 工程知识库](../Agent/README.md) 和 [Agent 学习路线图](../Agent/学习路线图.md)。
+对应入口：[Agent 工程知识库](../Agent/README.md) 和 [Agent 学习路线图](../Agent/00_学习路线图.md)。
 
 ## 实践项目如何选择
 

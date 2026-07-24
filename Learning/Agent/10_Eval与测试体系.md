@@ -4,7 +4,7 @@
 
 这是 AI 应用工程与传统软件工程最大的差异之一：你不能靠"试几次感觉不错"就发布，但也不能套用单元测试——因为 LLM 的输出是概率性的、多维度的。
 
-> **职责边界**：本文负责通用 Eval Harness、测试集、指标、Mock Provider、合成数据、Pairwise 和 CI。若要评估完整 Agent 的工具轨迹、环境副作用、Replay 与安全发布门槛，转到 [Agent Eval 实验方法](./Agent%20Eval实验方法.md)。
+> **职责边界**：本文负责通用 Eval Harness、测试集、指标、Mock Provider、合成数据、Pairwise 和 CI。若要评估完整 Agent 的工具轨迹、环境副作用、Replay 与安全发布门槛，转到 [Agent Eval 实验方法](./09_Agent%20Eval实验方法.md)。
 
 ---
 

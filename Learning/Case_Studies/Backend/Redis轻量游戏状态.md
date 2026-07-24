@@ -21,6 +21,6 @@
 - 配置、初始化数据、启动和测试步骤是否记录？
 - Redis 故障时是降级、只读、重建还是阻断写入？
 
-相关：[Redis](../../Backend/Data/Redis.md)、[可靠性与一致性](../../Backend/Architecture/可靠性与一致性.md)。
+相关：[Redis](../../Backend/Data/Redis.md)、[可靠性与一致性](../../Backend/Architecture/04_可靠性与一致性.md)。
 
 来源：`xfg-planet/05-业务场景/Redis轻量游戏状态-知识提炼.md`、`06-源码与案例/源码阅读/钓鱼佬网页游戏-源码阅读.md`。当前结论为项目定位和知识提炼，不宣称完整源码复现。

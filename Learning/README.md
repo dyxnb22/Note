@@ -22,6 +22,6 @@ AI 应用学习主线见：[Python → AI → Agent 学习地图](./00_Navigatio
 
 新增内容遵循三条规则：主题只保留一个主文档，案例回链主题；结论标注来源和证据边界；课程目录、视频入口和重复背景不单独维护。
 
-`Python/` 与 `Agent/` 保持分开：前者是可复用的语言和服务基础，后者是建立在其上的 AI 应用运行时与交付知识。两者通过 [Python Agent 工程化补充](./Python/Python%20Agent工程化补充.md) 连接。
+`Python/` 与 `Agent/` 保持分开：前者是可复用的语言和服务基础，后者是建立在其上的 AI 应用运行时与交付知识。两者通过 [Python Agent 工程化补充](./Python/04_Python%20Agent工程化补充.md) 连接。
 
 导航：[知识地图](./00_Navigation/知识地图.md) · [来源与证据](./00_Navigation/来源与证据.md) · [维护规范](./00_Navigation/维护规范.md)

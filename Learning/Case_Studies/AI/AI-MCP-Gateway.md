@@ -46,6 +46,6 @@ Session、鉴权、错误映射、审计
 
 已核对源码、测试类、配置、Mapper、部署文档和核心调用链：306 个文件、224 个 Java 文件、18 个测试 Java 文件、5 个 Mapper XML；Maven JDK 17 构建成功。当前测试报告显示测试类未被执行（`Tests run: 0`），不能把构建成功当作测试通过。MySQL、Redis、LLM Provider、真实 MCP 客户端和云服务器未在本机联调。
 
-相关：[网关、接口治理与 SDK](../../Backend/Architecture/网关、接口治理与SDK.md)、[MCP 与工具协议](../../Agent/MCP与工具协议.md)。
+相关：[网关、接口治理与 SDK](../../Backend/Architecture/06_网关、接口治理与SDK.md)、[MCP 与工具协议](../../Agent/MCP与工具协议.md)。
 
 来源：`xfg-planet/02-AI应用范式/Tool与MCP/AI-MCP-Gateway-知识提炼.md`、`06-源码与案例/源码阅读/AI-MCP-Gateway-逐文件源码审计.md`。

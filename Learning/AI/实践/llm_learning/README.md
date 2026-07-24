@@ -46,16 +46,16 @@ export LLM_MODEL="deepseek-chat"
 |---|---|---|
 | 00 深度学习 | [tiny_next_token_model.py](./00_deep_learning_for_llm/project/tiny_next_token_model.py) | [DeepLearning](../../DeepLearning/README.md) |
 | 00 Transformer | [self_attention_demo.py](./00_transformer_foundation/project/self_attention_demo.py) | [Transformer 从结构到实现](../../DeepLearning/09_注意力与Transformer/注意力与Transformer.md) |
-| 01 Agent | [simple_agent.py](./01_agent_basics/project/simple_agent.py) | [Agent 架构与设计](../../../Agent/Agent架构与设计.md) |
+| 01 Agent | [simple_agent.py](./01_agent_basics/project/simple_agent.py) | [Agent 架构与设计](../../../Agent/03_Agent架构与设计.md) |
 | 02 RAG | [mini_rag.py](./02_rag_knowledge_base/project/mini_rag.py) | [RAG](../../../Agent/RAG.md)、[知识系统](../../../Agent/知识系统.md) |
 | 03 Workflow | [workflow_agent.py](./03_tool_calling_workflow/project/workflow_agent.py) | [Workflow 与编排](../../../Agent/Workflow与编排.md)、[LangGraph](../../../Agent/LangGraph.md) |
-| 04 评测 | [prompt_eval.py](./04_llm_evaluation/project/prompt_eval.py) | [Agent Eval 实验方法](../../../Agent/Agent%20Eval实验方法.md) |
+| 04 评测 | [prompt_eval.py](./04_llm_evaluation/project/prompt_eval.py) | [Agent Eval 实验方法](../../../Agent/09_Agent%20Eval实验方法.md) |
 | 05 微调与推理 | [prepare_sft_dataset.py](./05_finetune_and_inference/project/prepare_sft_dataset.py) | [LLM 基础](../../LLM基础.md) |
-| 06 生产系统 | [llm_gateway.py](./06_production_llm_system/project/llm_gateway.py) | [部署与生产化](../../../Agent/部署与生产化.md) |
+| 06 生产系统 | [llm_gateway.py](./06_production_llm_system/project/llm_gateway.py) | [部署与生产化](../../../Agent/12_部署与生产化.md) |
 | 07 开源 LLM | [architecture_budget_estimator.py](./07_open_llm_deepseek_study/project/architecture_budget_estimator.py) | [LLM 基础](../../LLM基础.md) |
 | 08 研究复现 | [paper_review_generator.py](./08_research_methods_and_reproduction/project/paper_review_generator.py) | [LLM 学习计划](./00_learning_plan/学习计划.md) |
 | 09 对齐与推理 | [tiny_dpo_loss.py](./09_alignment_reasoning_research/project/tiny_dpo_loss.py) | [LLM 基础](../../LLM基础.md) |
-| 10 可解释性与评测 | [eval_significance.py](./10_interpretability_and_evaluation/project/eval_significance.py) | [Agent Eval 实验方法](../../../Agent/Agent%20Eval实验方法.md) |
+| 10 可解释性与评测 | [eval_significance.py](./10_interpretability_and_evaluation/project/eval_significance.py) | [Agent Eval 实验方法](../../../Agent/09_Agent%20Eval实验方法.md) |
 | 11 研究作品集 | [research_idea_scorer.py](./11_phd_research_portfolio/project/research_idea_scorer.py) | [项目表达与面试](../../../Agent/项目表达与面试.md) |
 
 课程中的 `workflow_report.md`、`sft_dataset.jsonl`、`lora_config.json` 和论文模板是实验产物/示例，不是理论主文档；重新运行脚本可能覆盖它们。

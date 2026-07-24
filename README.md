@@ -18,6 +18,7 @@
 
 ## 入口
 
+- [总阅读清单](./阅读清单.md)
 - [Daily](./Daily/README.md)
 - [Inbox](./Inbox/README.md)
 - [Learning](./Learning/README.md)

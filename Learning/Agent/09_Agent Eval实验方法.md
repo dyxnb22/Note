@@ -1,6 +1,6 @@
 # Agent Eval 实验方法
 
-本文只处理 Agent 特有的评测对象：完整任务、工具轨迹、环境副作用、隔离场景和 Replay。通用测试集、指标、Judge、Mock、Baseline 与 CI 实现统一见 [Eval 与测试体系](./Eval与测试体系.md)。
+本文只处理 Agent 特有的评测对象：完整任务、工具轨迹、环境副作用、隔离场景和 Replay。通用测试集、指标、Judge、Mock、Baseline 与 CI 实现统一见 [Eval 与测试体系](./10_Eval与测试体系.md)。
 
 ## 1. 评测对象是完整任务
 

@@ -2,7 +2,7 @@
 
 Workflow 把一个目标拆成可观察、可控制、可恢复的步骤。它关心的是任务之间的关系、状态如何流动以及失败后怎样继续，不依赖 LangGraph 或某个具体框架。
 
-具体的 LangGraph API、Checkpoint、`Send`、`Command`、`interrupt()` 和 Time Travel 见 [LangGraph](./LangGraph.md)。开放式 Agent 的自主决策循环见 [Agent 架构与设计](./Agent架构与设计.md)，跨进程可靠执行见 [Durable Execution 与分布式可靠性](./Durable%20Execution与分布式可靠性.md)。
+具体的 LangGraph API、Checkpoint、`Send`、`Command`、`interrupt()` 和 Time Travel 见 [LangGraph](./LangGraph.md)。开放式 Agent 的自主决策循环见 [Agent 架构与设计](./03_Agent架构与设计.md)，跨进程可靠执行见 [Durable Execution 与分布式可靠性](./06_Durable%20Execution与分布式可靠性.md)。
 
 ## Workflow、Agent 与普通代码
 

@@ -1,6 +1,6 @@
 # Java I/O 与网络编程
 
-本页负责 Java 中的数据传输、序列化和 I/O 模型。TCP、HTTP 等协议原理见 [计算机网络](../../CS/Network.md)，Netty 等框架应建立在本页的 Stream、Channel、Buffer、Selector 和线程模型之上。
+本页负责 Java 中的数据传输、序列化和 I/O 模型。TCP、HTTP 等协议原理见 [计算机网络](../../CS/03_Network.md)，Netty 等框架应建立在本页的 Stream、Channel、Buffer、Selector 和线程模型之上。
 
 ## 对象如何跨 JVM 传输
 

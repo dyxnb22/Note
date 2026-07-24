@@ -8,12 +8,12 @@
 
 | 阶段 | 实践目录 | 配套理论 |
 |---|---|---|
-| 01–02 | [Python 工程与 HTTP API](./agent-learning-projects/01_python_project_template/README.md) | [Python Agent 工程化补充](../../../Python/Python%20Agent工程化补充.md)、[LLM 调用基础](../../LLM调用基础.md) |
-| 03–05 | [SDK、Tool Calling、Agent Loop](./agent-learning-projects/03_openai_cli_chat/README.md) | [LLM 调用基础](../../LLM调用基础.md)、[Tool Calling](../../Tool%20Calling.md)、[Agent 架构与设计](../../Agent架构与设计.md) |
-| 06 | [FastAPI Agent Service](./agent-learning-projects/06_fastapi_agent_service/README.md) | [部署与生产化](../../部署与生产化.md) |
+| 01–02 | [Python 工程与 HTTP API](./agent-learning-projects/01_python_project_template/README.md) | [Python Agent 工程化补充](../../../Python/04_Python%20Agent工程化补充.md)、[LLM 调用基础](../../01_LLM调用基础.md) |
+| 03–05 | [SDK、Tool Calling、Agent Loop](./agent-learning-projects/03_openai_cli_chat/README.md) | [LLM 调用基础](../../01_LLM调用基础.md)、[Tool Calling](../../02_Tool%20Calling.md)、[Agent 架构与设计](../../03_Agent架构与设计.md) |
+| 06 | [FastAPI Agent Service](./agent-learning-projects/06_fastapi_agent_service/README.md) | [部署与生产化](../../12_部署与生产化.md) |
 | 07–09 | [LangGraph、Tool、Memory](./agent-learning-projects/07_langgraph_basic_workflow/README.md) | [Workflow 与编排](../../Workflow与编排.md)、[LangGraph](../../LangGraph.md)、[Memory 与状态管理](../../Memory与状态管理.md) |
 | 10 | [基础 RAG Agent](./agent-learning-projects/10_rag_agent_basic/README.md) | [RAG](../../RAG.md)、[知识系统](../../知识系统.md) |
-| 11–12 | [MCP Server、Claude API](./agent-learning-projects/11_mcp_server/main.py) | [MCP 与工具协议](../../MCP与工具协议.md)、[LLM 调用基础](../../LLM调用基础.md) |
+| 11–12 | [MCP Server、Claude API](./agent-learning-projects/11_mcp_server/main.py) | [MCP 与工具协议](../../MCP与工具协议.md)、[LLM 调用基础](../../01_LLM调用基础.md) |
 | 进阶 | [LangGraph 专项实验](./langgraph-advanced/README.md) | Tool、Workflow、Multi-Agent、Security、MCP、Eval |
 | 综合项目 | [DevPilot](./DevPilot/README.md) | Agent 架构、代码 Agent 基础设施、安全、Eval、项目表达 |
 

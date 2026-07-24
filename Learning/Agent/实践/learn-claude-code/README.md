@@ -27,26 +27,26 @@ python s02_tool_use/code.py
 
 | 课程 | 实践入口 | 主要对应笔记 |
 |---|---|---|
-| s01 | [Agent Loop](./s01_agent_loop/code.py) | [Agent 架构与设计](../../Agent架构与设计.md) |
-| s02 | [Tool Use](./s02_tool_use/code.py) | [Tool Calling](../../Tool%20Calling.md) |
-| s03 | [Permission](./s03_permission/code.py) | [安全与可控性](../../安全与可控性.md) |
-| s04 | [Hooks](./s04_hooks/code.py) | [安全与可控性](../../安全与可控性.md) |
-| s05 | [Todo Write](./s05_todo_write/code.py) | [Agent 架构与设计](../../Agent架构与设计.md) |
-| s06 | [Subagent](./s06_subagent/code.py) | [Agent 架构与设计](../../Agent架构与设计.md) |
-| s07 | [Skill Loading](./s07_skill_loading/code.py) | [Context 工程](../../Context工程.md) |
-| s08 | [Context Compact](./s08_context_compact/code.py) | [Context 工程](../../Context工程.md) |
+| s01 | [Agent Loop](./s01_agent_loop/code.py) | [Agent 架构与设计](../../03_Agent架构与设计.md) |
+| s02 | [Tool Use](./s02_tool_use/code.py) | [Tool Calling](../../02_Tool%20Calling.md) |
+| s03 | [Permission](./s03_permission/code.py) | [安全与可控性](../../08_安全与可控性.md) |
+| s04 | [Hooks](./s04_hooks/code.py) | [安全与可控性](../../08_安全与可控性.md) |
+| s05 | [Todo Write](./s05_todo_write/code.py) | [Agent 架构与设计](../../03_Agent架构与设计.md) |
+| s06 | [Subagent](./s06_subagent/code.py) | [Agent 架构与设计](../../03_Agent架构与设计.md) |
+| s07 | [Skill Loading](./s07_skill_loading/code.py) | [Context 工程](../../04_Context工程.md) |
+| s08 | [Context Compact](./s08_context_compact/code.py) | [Context 工程](../../04_Context工程.md) |
 | s09 | [Memory](./s09_memory/code.py) | [Memory 与状态管理](../../Memory与状态管理.md) |
-| s10 | [System Prompt](./s10_system_prompt/code.py) | [Context 工程](../../Context工程.md) |
-| s11 | [Error Recovery](./s11_error_recovery/code.py) | [LLM 调用基础](../../LLM调用基础.md) |
-| s12 | [Task System](./s12_task_system/code.py) | [Durable Execution 与分布式可靠性](../../Durable%20Execution与分布式可靠性.md) |
-| s13 | [Background Tasks](./s13_background_tasks/code.py) | [Durable Execution 与分布式可靠性](../../Durable%20Execution与分布式可靠性.md) |
-| s14 | [Cron Scheduler](./s14_cron_scheduler/code.py) | [Durable Execution 与分布式可靠性](../../Durable%20Execution与分布式可靠性.md) |
+| s10 | [System Prompt](./s10_system_prompt/code.py) | [Context 工程](../../04_Context工程.md) |
+| s11 | [Error Recovery](./s11_error_recovery/code.py) | [LLM 调用基础](../../01_LLM调用基础.md) |
+| s12 | [Task System](./s12_task_system/code.py) | [Durable Execution 与分布式可靠性](../../06_Durable%20Execution与分布式可靠性.md) |
+| s13 | [Background Tasks](./s13_background_tasks/code.py) | [Durable Execution 与分布式可靠性](../../06_Durable%20Execution与分布式可靠性.md) |
+| s14 | [Cron Scheduler](./s14_cron_scheduler/code.py) | [Durable Execution 与分布式可靠性](../../06_Durable%20Execution与分布式可靠性.md) |
 | s15 | [Agent Teams](./s15_agent_teams/code.py) | [Workflow 与编排](../../Workflow与编排.md)、[LangGraph](../../LangGraph.md) |
 | s16 | [Team Protocols](./s16_team_protocols/code.py) | [Workflow 与编排](../../Workflow与编排.md)、[LangGraph](../../LangGraph.md) |
 | s17 | [Autonomous Agents](./s17_autonomous_agents/code.py) | [Workflow 与编排](../../Workflow与编排.md)、[LangGraph](../../LangGraph.md) |
-| s18 | [Worktree Isolation](./s18_worktree_isolation/code.py) | [代码 Agent 基础设施](../../代码%20Agent%20基础设施.md) |
+| s18 | [Worktree Isolation](./s18_worktree_isolation/code.py) | [代码 Agent 基础设施](../../05_代码%20Agent%20基础设施.md) |
 | s19 | [MCP Plugin](./s19_mcp_plugin/code.py) | [MCP 与工具协议](../../MCP与工具协议.md) |
-| s20 | [Comprehensive Harness](./s20_comprehensive/code.py) | [Agent 架构与设计](../../Agent架构与设计.md) |
+| s20 | [Comprehensive Harness](./s20_comprehensive/code.py) | [Agent 架构与设计](../../03_Agent架构与设计.md) |
 
 ## 测试
 

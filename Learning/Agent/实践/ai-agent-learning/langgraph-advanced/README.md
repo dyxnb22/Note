@@ -5,12 +5,12 @@
 | 目录 | 重点 | 配套理论 |
 |---|---|---|
 | `01-basics` | State、Node、Edge、条件路由 | [Workflow 与编排](../../../Workflow与编排.md)、[LangGraph](../../../LangGraph.md) |
-| `02-tools` | Tool、ToolNode、ReAct 闭环 | [Tool Calling](../../../Tool%20Calling.md) |
+| `02-tools` | Tool、ToolNode、ReAct 闭环 | [Tool Calling](../../../02_Tool%20Calling.md) |
 | `03-memory` | MemorySaver、thread_id、状态恢复 | [Memory 与状态管理](../../../Memory与状态管理.md) |
 | `04-multi-agent` | 子图、共享 State、职责拆分 | [多 Agent 协作的边界与模式](../../../多Agent协作的边界与模式.md) |
-| `05-production` | interrupt、resume、流式事件 | [安全与可控性](../../../安全与可控性.md)、[部署与生产化](../../../部署与生产化.md) |
+| `05-production` | interrupt、resume、流式事件 | [安全与可控性](../../../08_安全与可控性.md)、[部署与生产化](../../../12_部署与生产化.md) |
 | `06-mcp` | MCP Server / Client、工具复用 | [MCP 与工具协议](../../../MCP与工具协议.md) |
-| `07-eval` | 轨迹检查、规则评估、LLM-as-Judge | [Eval 与测试体系](../../../Eval与测试体系.md) |
+| `07-eval` | 轨迹检查、规则评估、LLM-as-Judge | [Eval 与测试体系](../../../10_Eval与测试体系.md) |
 
 ## 运行
 

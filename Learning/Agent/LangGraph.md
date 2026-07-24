@@ -968,7 +968,7 @@ s15-s18 展示了 LangGraph 之外的另一种 Harness 协作实现：
 - **Autonomous Agents（s17）**：队友空闲时扫描未认领任务并尝试原子 claim；自治不是“无限自主”，仍需工作轮次、空闲超时、身份重新注入和 shutdown 信号。
 - **Worktree Isolation（s18）**：任务、Agent 身份和工作目录绑定，工具执行时切换到对应 cwd，完成后明确 keep/remove，避免并行修改互相污染。
 
-这套文件邮箱和线程模型是教学实现；在生产系统中应替换为带锁/事务的任务存储、可靠消息、租约和可审计生命周期。对应实验：[s15_agent_teams/code.py](./实践/learn-claude-code/s15_agent_teams/code.py)、[s16_team_protocols/code.py](./实践/learn-claude-code/s16_team_protocols/code.py)、[s17_autonomous_agents/code.py](./实践/learn-claude-code/s17_autonomous_agents/code.py)、[s18_worktree_isolation/code.py](./实践/learn-claude-code/s18_worktree_isolation/code.py)，工作目录细节另见 [代码 Agent 基础设施](./代码%20Agent%20基础设施.md)。
+这套文件邮箱和线程模型是教学实现；在生产系统中应替换为带锁/事务的任务存储、可靠消息、租约和可审计生命周期。对应实验：[s15_agent_teams/code.py](./实践/learn-claude-code/s15_agent_teams/code.py)、[s16_team_protocols/code.py](./实践/learn-claude-code/s16_team_protocols/code.py)、[s17_autonomous_agents/code.py](./实践/learn-claude-code/s17_autonomous_agents/code.py)、[s18_worktree_isolation/code.py](./实践/learn-claude-code/s18_worktree_isolation/code.py)，工作目录细节另见 [代码 Agent 基础设施](./05_代码%20Agent%20基础设施.md)。
 
 ## ai-agent-learning 配套实践
 

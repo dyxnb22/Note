@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning/Backend/Java/Java.md",
+                "file": "Learning/Backend/Java/01_Java.md",
                 "mode": "preview",
                 "source": false
               },
@@ -112,7 +112,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Learning/Backend/Java/Java.md",
+            "file": "Learning/Backend/Java/01_Java.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",

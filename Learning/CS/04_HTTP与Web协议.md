@@ -1,6 +1,6 @@
 # HTTP 与 Web 协议
 
-本页聚焦 Web 请求从域名解析、TLS 到 HTTP、缓存和会话的完整链路。TCP/IP 底层见 [计算机网络](Network.md)，认证授权与攻击防护见 [应用安全](../Backend/Architecture/应用安全.md)。
+本页聚焦 Web 请求从域名解析、TLS 到 HTTP、缓存和会话的完整链路。TCP/IP 底层见 [计算机网络](03_Network.md)，认证授权与攻击防护见 [应用安全](../Backend/Architecture/应用安全.md)。
 
 ## 从 URL 到响应
 

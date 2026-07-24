@@ -4,7 +4,7 @@
 
 不是概念科普，而是要能回答：什么时候用 Agent、什么时候不用、各种模式的权衡是什么。
 
-> **职责边界**：本文讲 Agent 的工程定义、核心循环、状态和运行时模式；工具 schema/执行细节集中在 [Tool Calling](./Tool%20Calling.md)，通用编排见 [Workflow 与编排](./Workflow与编排.md)，LangGraph API 见 [LangGraph](./LangGraph.md)，上下文压缩集中在 [Context 工程](./Context工程.md)。
+> **职责边界**：本文讲 Agent 的工程定义、核心循环、状态和运行时模式；工具 schema/执行细节集中在 [Tool Calling](./02_Tool%20Calling.md)，通用编排见 [Workflow 与编排](./Workflow与编排.md)，LangGraph API 见 [LangGraph](./LangGraph.md)，上下文压缩集中在 [Context 工程](./04_Context工程.md)。
 
 ---
 
@@ -60,7 +60,7 @@
 
 ### Python 最小实现（Chat Completions 兼容示例）
 
-下面保留 Chat Completions 形状，便于理解既有系统；新项目优先采用 Responses API，当前基线见 [版本与来源](./版本与来源.md)。示例特意把工具 schema 和 handler 分开；不同 Provider 的消息格式请看 [Tool Calling](./Tool%20Calling.md)。
+下面保留 Chat Completions 形状，便于理解既有系统；新项目优先采用 Responses API，当前基线见 [版本与来源](./版本与来源.md)。示例特意把工具 schema 和 handler 分开；不同 Provider 的消息格式请看 [Tool Calling](./02_Tool%20Calling.md)。
 
 ```python
 from typing import Any, Callable
