@@ -22,6 +22,7 @@
 | 工作输出 | [如何做一次清晰的工作汇报](03_Workplace_Communication/如何做一次清晰的工作汇报.md) | 怎样让汇报服务判断和资源协调 |
 | 项目表达 | [面试中的项目表达框架](03_Workplace_Communication/面试中的项目表达框架.md) | 怎样用边界、贡献和证据说明项目能力 |
 | 推动行动 | [什么是有效论证](04_Persuasion_and_Argument/什么是有效论证.md) | 怎样连接论点、证据、假设和反例 |
+| 专业协作 | [专业技术文档与困难沟通](05_Professional_Documents/专业技术文档与困难沟通.md) | 怎样写 RFC、ADR、API 文档、Runbook、复盘并处理困难对话 |
 
 ## 场景速查
 
@@ -39,6 +40,7 @@
 - 做汇报：工作汇报 → 职场沟通速查。
 - 写总结或复盘：总结框架 → 结构化写作速查。
 - 面对质疑：有效论证 → 论证与说服速查。
+- 推动技术协作：专业技术文档与困难沟通 → 选择 RFC、ADR、Runbook 或复盘模板。
 
 每次练习至少保留“原稿、修改稿、修改理由、真实反馈”四项。没有前后对照的泛泛阅读，难以形成稳定能力。
 
@@ -49,5 +51,6 @@
 - [技术表达](02_Technical_Communication/README.md)
 - [工作表达](03_Workplace_Communication/README.md)
 - [说服与论证](04_Persuasion_and_Argument/README.md)
+- [专业文档与困难沟通](05_Professional_Documents/README.md)
 
 `#writing #expression #index`

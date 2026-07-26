@@ -6,18 +6,19 @@
 
 ## 建议顺序
 
-1. [Java](01_Java.md)：语言核心、类型、异常与基础机制。
-2. [Java I/O 与网络编程](02_JavaIO与网络编程.md)：序列化、BIO/NIO/AIO、文件和网络服务线程模型。
-3. [Java 集合](03_Java集合.md)：容器选择、复杂度与实现边界。
-4. [JVM](04_JVM.md)：内存、类加载、GC 与诊断。
-5. [JUC](05_JUC.md)：线程安全、锁、并发容器与线程池。
-6. [设计模式](06_设计模式.md)：围绕变化点安排职责，不背固定模板。
-7. [Spring](07_Spring.md)：Core、Web/Boot、数据访问与 Spring Cloud 的分层入口。
+1. [01_Java](01_Java.md)：语言核心、类型、异常与基础机制。
+2. [02_JavaIO与网络编程](02_JavaIO与网络编程.md)：序列化、BIO/NIO/AIO、文件和网络服务线程模型。
+3. [03_Java集合](03_Java集合.md)：容器选择、复杂度与实现边界。
+4. [04_JVM](04_JVM.md)：内存、类加载、GC 与诊断。
+5. [05_JUC](05_JUC.md)：线程安全、锁、并发容器与线程池。
+6. [06_设计模式](06_设计模式.md)：围绕变化点安排职责，不背固定模板。
+7. [07_Spring](07_Spring.md)：Core、Web/Boot、数据访问与 Spring Cloud 的分层入口。
 
 ## 工程专题
 
 - [Tomcat](Tomcat.md)：Servlet 容器与请求处理。
 - [正则表达式](正则表达式.md)：匹配、分组、边界和性能风险。
 - [调试与问题定位](调试与问题定位.md)：从现象、日志和指标收敛根因。
+- [Spring 生产机制与排障](Spring生产机制与排障.md)：启动、Bean、MVC、异步、事务、安全、连接池和联合排障。
 
 语言语法放本目录；跨服务可靠性和系统取舍放 [Architecture](../Architecture/README.md)，数据组件放 [Data](../Data/README.md)。

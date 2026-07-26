@@ -9,6 +9,7 @@
   → 优先修复睡眠与恢复
   → 建立活动和饮食底盘
   → 管理专注、压力与高峰期节奏
+  → 建立可持续工作、训练与恢复系统
 ```
 
 ## 核心文档
@@ -20,6 +21,7 @@
 | 运动体态 | [最小可持续运动方案](02_Exercise_and_Posture/最小可持续运动方案.md) | 现实约束下建立持续活动 |
 | 饮食代谢 | [饮食与代谢速查](03_Nutrition_and_Metabolism/饮食与代谢速查.md) | 充足、均衡、适量、多样和低摩擦选择 |
 | 专注压力 | [注意力为什么会碎掉](04_Focus_and_Stress/注意力为什么会碎掉.md) | 打断、任务模糊、状态与切换成本 |
+| 长期工作 | [长期工作健康与恢复](05_Sustainable_Work/长期工作健康与恢复.md) | 工位、久坐、节律、训练恢复、伤病与倦怠 |
 
 ## 场景速查
 
@@ -28,6 +30,7 @@
 - [运动与体态速查](02_Exercise_and_Posture/运动与体态速查.md)
 - [饮食与代谢速查](03_Nutrition_and_Metabolism/饮食与代谢速查.md)
 - [专注与压力速查](04_Focus_and_Stress/专注与压力速查.md)
+- [长期工作健康与恢复](05_Sustainable_Work/长期工作健康与恢复.md)
 
 ## 实践顺序
 
@@ -49,5 +52,6 @@
 - [运动与体态](02_Exercise_and_Posture/README.md)
 - [饮食与代谢](03_Nutrition_and_Metabolism/README.md)
 - [专注与压力](04_Focus_and_Stress/README.md)
+- [可持续工作与恢复](05_Sustainable_Work/README.md)
 
 `#health #energy #index`

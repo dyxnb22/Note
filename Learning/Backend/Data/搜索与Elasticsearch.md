@@ -32,4 +32,63 @@
 
 为“文章搜索”设计 mapping、分词策略、按标题/正文加权的 query，以及数据库更新到索引的失败补偿方案。
 
+## Mapping 与 Analyzer
+
+`text` 字段经过 Analyzer 用于全文检索，`keyword` 保存完整值用于精确过滤、聚合和排序。日期、数字和布尔值应使用对应类型。
+
+Analyzer 包含字符过滤、Tokenizer 和 Token Filter。索引时与查询时 Analyzer 可以不同，但必须用 `_analyze` 和真实查询验证。错误 Mapping 上线后通常需要新索引重建，不能期待原地改变所有历史字段语义。
+
+## Lucene Segment
+
+Shard 底层由多个不可变 Segment 组成。Refresh 让新 Segment 可搜索，Merge 后台合并 Segment 并清理删除标记。
+
+- Refresh 太频繁增加小 Segment 和开销。
+- Merge 消耗 CPU、磁盘和 I/O。
+- Delete/Update 实际会标记旧文档并写新版本。
+- Force Merge 不适合频繁写入的在线索引常规使用。
+
+## 相关性与查询
+
+区分：
+
+- Query Context：计算相关性。
+- Filter Context：是/否匹配，适合缓存。
+- `must/should/filter/must_not` 的布尔语义。
+- Match、Term、Phrase、Range 和 Multi-match。
+
+搜索质量需要 Query 集、相关性标注、Recall/NDCG 和线上指标；不能只看某个示例排第一。
+
+## 聚合
+
+聚合会在各 Shard 计算局部结果再合并。高基数 Terms、深层嵌套和大范围 Cardinality 可能消耗大量内存。
+
+字段用于聚合时优先 Keyword/Numeric Doc Values。Composite Aggregation 适合分页遍历桶。
+
+## 分片与容量
+
+Shard 过多增加 Heap、文件句柄和集群状态；过大则恢复、迁移和查询成本高。估算文档量、索引体积、写入率、保留期、查询并发和副本。
+
+使用 Rollover、ILM 和冷热层管理时间序列数据。扩容不仅加节点，还要验证磁盘水位、Shard 均衡和恢复带宽。
+
+## 数据同步
+
+数据库到索引通常最终一致：
+
+```text
+数据库事务/Outbox → CDC/MQ → 索引消费者
+→ 版本检查 → 写入 → 对账与重建
+```
+
+文档携带业务版本，拒绝旧事件覆盖新状态。保留全量重建和原子 Alias 切换能力。
+
+## 集群故障
+
+理解 Master-eligible、Data、Ingest 和 Coordinating 角色。脑裂防护和选主由当前集群协调机制负责；运维重点是多数派、Shard Allocation、磁盘水位和恢复。
+
+故障演练：节点退出、磁盘满、热点 Shard、Mapping 冲突、重建切换和快照恢复。
+
+## 安全与多租户
+
+按索引/文档/字段控制访问，避免把权限过滤交给最终模型。多租户需要在共享索引、独立索引和独立集群之间权衡隔离、Shard 数和运维成本。
+
 `#elasticsearch #search #inverted-index`

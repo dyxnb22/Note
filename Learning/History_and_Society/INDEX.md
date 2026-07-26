@@ -34,6 +34,7 @@
 | 国家能力 | [国家能力与经济发展](03_Institutional_Evolution/国家能力与经济发展.md) | 公共品、财政与政策执行 |
 | 组织基础 | [组织为什么会出现](04_Organization_and_Society/组织为什么会出现.md) | 交易成本、市场和层级 |
 | 组织治理 | [激励相容与委托代理问题](04_Organization_and_Society/激励相容与委托代理问题.md) | 目标错位、信息不对称和问责 |
+| 数字时代 | [计算机、AI 产业与数字社会](05_Digital_Age/计算机AI产业与数字社会.md) | 连接科学制度、产业组织、平台治理、供应链与 AI 扩散 |
 
 ## 主题速查
 
@@ -41,6 +42,7 @@
 - [经济史主题速查](02_Economic_History/经济史主题速查.md)
 - [制度演化主题速查](03_Institutional_Evolution/制度演化主题速查.md)
 - [组织与社会主题速查](04_Organization_and_Society/组织与社会主题速查.md)
+- [计算机、AI 产业与数字社会](05_Digital_Age/计算机AI产业与数字社会.md)
 
 ## 阅读和判断方法
 
@@ -56,5 +58,6 @@
 - [经济史](02_Economic_History/README.md)
 - [制度演化](03_Institutional_Evolution/README.md)
 - [组织与社会](04_Organization_and_Society/README.md)
+- [数字时代](05_Digital_Age/README.md)
 
 `#history #institutions #organization #index`

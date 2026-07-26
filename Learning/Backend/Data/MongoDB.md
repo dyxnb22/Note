@@ -27,3 +27,43 @@ MongoDB 支持单字段、复合、数组、多键和文本等索引。复合索
 ## 聚合怎么做？
 
 Aggregation Pipeline 通过 `$match`、`$project`、`$group`、`$sort`、`$lookup` 等阶段处理数据。通常尽早用 `$match` 过滤并利用索引，控制中间结果和 `$lookup` 规模；复杂聚合要用 `explain()` 和真实数据压测。
+
+## 嵌入还是引用
+
+嵌入适合一起读取、生命周期一致且数量有界的数据；引用适合独立增长、被多处共享或经常单独访问的数据。
+
+设计前写出主要查询与更新。无界数组会导致文档增长、搬移、并发冲突和 16MB 文档上限问题。
+
+## Shard Key
+
+Shard Key 决定数据分布、路由和扩容：
+
+- 高基数。
+- 写入分布均匀。
+- 支持主要查询定位。
+- 避免单调递增造成热点。
+- 一旦选择，修改成本高。
+
+Hash Key 均匀但不支持范围局部性；Range Key 支持范围但可能热点。Zone Sharding 用于地域或合规放置。
+
+## 一致性与选主
+
+Write Concern、Read Concern 和 Read Preference 共同决定延迟、可见性和故障风险。选主期间写入可能短暂失败，客户端必须处理可重试错误和未知结果。
+
+使用重试写仍需业务幂等，因为外部副作用和复合流程不在数据库重试范围内。
+
+## Change Stream
+
+Change Stream 基于 Oplog 提供变更订阅。消费者保存 Resume Token，处理重复、Token 失效、Schema 演进和全量重建。
+
+它适合驱动缓存/索引同步，但不自动成为高质量领域事件。
+
+## 运维
+
+观察 Working Set、Page Fault、慢查询、锁、复制延迟、Oplog 窗口、Chunk 分布和迁移。
+
+备份需要与副本集和分片元数据一致，并实际做恢复演练。
+
+## 最小实验
+
+为用户订单历史分别设计嵌入和引用模型，构造热点 Shard Key，模拟 Primary 切换，并验证 Change Stream 消费恢复。

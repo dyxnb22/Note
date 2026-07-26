@@ -27,6 +27,7 @@
 - [12_Math_and_Statistics](12_Math_and_Statistics/README.md)：收益率、分布、回归、统计检验
 - [13_Research_Workflow](13_Research_Workflow/README.md)：读公司、写备忘录、复盘与研究流程
 - [14_Fraud_and_Pitfalls](14_Fraud_and_Pitfalls/README.md)：骗局识别、造假识别、风险陷阱
+- [15_Advanced_Practice](15_Advanced_Practice/README.md)：会计、税务监管、衍生品、计量、组合优化和量化工程的综合实证
 
 ---
 
@@ -47,6 +48,9 @@
 **第五阶段：量化与研究方法**
 `11_Quant` → `13_Research_Workflow`
 
+**第六阶段：进阶综合实践**
+`15_Advanced_Practice`（按专题回查会计、衍生品、统计、组合和研究模块）
+
 **防御层（全程穿插）**
 `14_Fraud_and_Pitfalls`
 
@@ -58,6 +62,7 @@
 - 估值的前提：`03_Stocks` + `07_Corporate_Finance`
 - 量化的前提：`12_Math_and_Statistics` + `09_Portfolio_and_Risk`
 - 研究方法的前提：`08_Valuation` + `10_Behavioral_Finance`
+- 进阶实证的前提：`03_Stocks` + `06_Derivatives` + `09_Portfolio_and_Risk` + `12_Math_and_Statistics` + `13_Research_Workflow`
 
 ---
 

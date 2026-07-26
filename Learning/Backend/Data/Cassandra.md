@@ -39,3 +39,55 @@ Cassandra 把节点映射到 Token Ring，数据 Key 根据分区键 Hash 后落
 适合：写入量大、数据按 Key 访问、需要多节点扩展和跨机房副本的场景，例如时间序列、事件流水和用户行为记录。
 
 不适合：临时多条件查询、复杂 JOIN、强依赖跨分区事务或频繁修改主键的场景。应先验证查询模型、分区大小、热点分布、修复和 Compaction 成本，再决定是否引入。
+
+## Query-first 建模
+
+Cassandra 按查询建表，通常接受反规范化。Partition Key 决定数据落在哪些节点，Clustering Column 决定分区内排序和范围查询。
+
+设计目标：
+
+- 一次查询尽量命中少量分区。
+- 分区大小有上限。
+- 写入和读取分布均匀。
+- 不依赖 `ALLOW FILTERING` 扫描大量数据。
+
+## 一致性级别
+
+读写可选择 ONE、QUORUM、ALL、LOCAL_QUORUM 等级。`R + W > RF` 只提供副本集合交集，仍需时间戳、冲突与故障假设。
+
+跨数据中心通常使用 LOCAL_QUORUM 控制延迟，并明确远端副本恢复和容灾切换。
+
+## Tombstone
+
+删除和 TTL 会产生 Tombstone，在 Compaction 和 Grace Period 后才可安全清理。大量 Tombstone 会增加读取扫描和延迟。
+
+若副本长时间未修复就过早清理 Tombstone，旧数据可能“复活”。TTL、Repair 和 `gc_grace` 必须共同设计。
+
+## Compaction
+
+- Size-tiered：适合写入密集，可能占用更多空间。
+- Leveled：控制读放大，Compaction 写放大较高。
+- Time-window：适合时间序列和 TTL 数据。
+
+选择依赖读写模式、时间分布和删除策略，不能只按默认值。
+
+## Repair 与运维
+
+副本通过 Repair 比较并同步数据。监控：
+
+- Repair 完成周期。
+- Pending Compaction。
+- Tombstone 和大分区。
+- P99 读写延迟。
+- 节点磁盘与流式迁移。
+- Hinted Handoff 和一致性错误。
+
+替换节点、扩容和跨机房操作前要估算 Streaming 带宽。
+
+## Lightweight Transaction
+
+LWT 使用 Paxos 提供条件更新，延迟和协调成本明显高于普通写。只用于真正需要 Compare-And-Set 的小范围不变量。
+
+## 最小实验
+
+设计一张按用户和月份分区的事件表，压测热点与大分区；制造节点离线、Tombstone 和 Repair 延迟，验证读取与恢复。

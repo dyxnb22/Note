@@ -15,6 +15,7 @@
 | `LLM基础.md` | LLM 工作原理全链路：从 token 到 generation 到 alignment | 进入 AI 应用开发前必读；面试前复习 |
 | `DeepLearning/` | 以 D2L 路线系统学习训练原理、CNN、RNN、Transformer、视觉与 NLP | 需要系统补模型训练基础时 |
 | `DeepLearning.md` | 深度学习到 LLM 的工程桥接速览 | 想快速补训练循环、Transformer、LoRA 和 HuggingFace 时 |
+| `ML系统与MLOps.md` | 数据、实验、模型注册、推理服务、漂移、灰度与回滚 | 需要把训练结果做成可运营系统时 |
 | `AI工具与编程助手.md` | AI 编程工具的能力、边界、协作方式、风险 | 开始使用 AI Coding Agent 时；思考人机协作时 |
 
 ## 配套实践
@@ -34,6 +35,7 @@
 - 模型是什么、怎么工作、为什么这样设计 → 放这里
 - Python 语言和服务工程 → 放 `Learning/Python/`
 - 如何调用模型、如何构建 Agent、如何做 RAG → 放 `Learning/Agent/`
+- 训练数据、实验追踪、模型注册、模型服务与漂移 → 放 `ML系统与MLOps.md`
 - 可运行的课程实验、样例输入和实验输出 → 放 `Learning/AI/实践/`
 - 边界案例：context window 的原理（这里）vs 如何管理 context 窗口（Agent）
 
@@ -55,12 +57,16 @@
 **开始用 AI 编程工具**
 → 直接读 `AI工具与编程助手.md`，其余两篇可以之后补
 
+**把模型部署成生产服务**
+→ `DeepLearning/` 或 `DeepLearning.md` → `ML系统与MLOps.md` → `Backend/Delivery/07_生产系统工程.md`
+
 ## 必读 vs 按需
 
 | 文档 | 分类 | 说明 |
 |------|------|------|
 | `LLM基础.md` | **必读** | 做 AI 应用工程的理论地基，面试高频来源 |
 | `DeepLearning/` | 按需 | 需要系统理解训练过程、Transformer 或微调时读 |
+| `ML系统与MLOps.md` | 按需 | 自己训练、注册、部署和监控模型时读 |
 | `AI工具与编程助手.md` | 按需 | 开始用 AI Coding Agent 时读 |
 
 ## 常见混淆边界

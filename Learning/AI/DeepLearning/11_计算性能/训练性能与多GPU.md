@@ -19,4 +19,37 @@ GPU 擅长大规模并行张量运算，但 CPU 向 GPU 传输、频繁小算子
 - 把失败归因到数据、目标函数、优化、容量或系统资源，而不是只换模型。
 - 能用自己的话解释本章各机制之间的因果关系，再进入下一章。
 
+## 显存组成
+
+训练显存包含参数、梯度、优化器状态、激活、临时 Buffer 和通信 Buffer。Adam 的状态通常显著大于仅保存权重的推理。
+
+降低显存：
+
+- Micro-batch 与梯度累积。
+- Activation Checkpointing：用重算换显存。
+- 混合精度。
+- 梯度/优化器状态分片。
+- 缩短序列或减少激活。
+
+## DDP
+
+DDP 每个进程控制一张 GPU，并在反向过程中使用 Collective 同步梯度。Sampler 必须让不同 Rank 读取不同样本，并在每个 Epoch 更新随机状态。
+
+只让主 Rank 保存日志/Checkpoint；异常时所有 Rank 应共同退出，避免其他进程永久等待 Collective。
+
+## FSDP、ZeRO 与模型并行
+
+- 数据并行：复制模型、拆数据。
+- FSDP/ZeRO：分片参数、梯度或优化器状态。
+- Tensor Parallel：拆单层矩阵计算。
+- Pipeline Parallel：按层拆阶段。
+
+并行策略增加通信、调度和恢复复杂度。模型能单卡或普通 DDP 训练时，不应过早引入。
+
+## 性能模型
+
+记录 tokens/s、GPU 利用率、显存、通信占比和扩展效率。强扩展固定总任务看加速，弱扩展随设备增加任务规模看吞吐。
+
+Profiler 时间线用于判断 DataLoader 空洞、Kernel 碎片、Host 同步和 All-Reduce 是否遮蔽。多卡数量增加但吞吐下降时，先查每卡 Batch 和通信。
+
 `#gpu #mixed-precision #distributed-training`

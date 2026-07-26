@@ -30,4 +30,34 @@
 - 把失败归因到数据、目标函数、优化、容量或系统资源，而不是只换模型。
 - 能用自己的话解释本章各机制之间的因果关系，再进入下一章。
 
+## 从零实现检查点
+
+实现顺序：
+
+1. 单头 `QKᵀ/sqrt(d)`。
+2. Padding/Causal Mask。
+3. Softmax 与 Dropout。
+4. 多头 reshape/transpose。
+5. 输出投影。
+6. Residual + LayerNorm + FFN。
+7. 多层堆叠和 LM Head。
+
+每一步用 Shape、Mask 可见矩阵和与框架实现的数值对照验证。
+
+## 残差与归一化
+
+Pre-LN 把 LayerNorm 放在子层之前，深层训练通常更稳定；Post-LN 是原始结构。两者改变梯度路径和最终归一化位置，加载权重时不可混用。
+
+FFN 对每个 Token 独立进行通道变换，通常包含升维、激活、降维。现代模型可能使用 SwiGLU 等门控变体。
+
+## 复杂度与长序列
+
+全注意力的分数矩阵随序列长度为 O(T²)，显存也可能成为瓶颈。FlashAttention 通过更好的内存访问和分块计算精确注意力，不是简单近似算法。
+
+稀疏、滑窗、线性注意力和状态空间模型有不同能力边界，不能只按复杂度选型。
+
+## 推理与 KV Cache
+
+自回归生成时缓存历史 K/V，使每一步不重算全部历史层。Cache 占用随层数、序列、Batch 和 KV Head 增长；连续批处理、分页 Cache 和 GQA/MQA 用于改善吞吐与容量。
+
 `#attention #transformer #self-attention`

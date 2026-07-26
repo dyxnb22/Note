@@ -10,6 +10,7 @@
   → 钱包、交易与 RPC
   → 智能合约工程
   → DeFi 机制与安全
+  → L2、账户抽象与高级安全
   → 治理、研究和项目验证
 ```
 
@@ -23,6 +24,7 @@
 | 用户与交易 | [钱包、私钥、签名和地址](02_Wallets_Transactions_and_RPC/钱包、私钥、签名和地址.md)、[交易、Gas、Nonce 和确认](02_Wallets_Transactions_and_RPC/交易、Gas、Nonce%20和链上确认.md) |
 | 合约工程 | [Solidity 合约解决什么问题](03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)、[权限与多签](03_Smart_Contracts_and_Development/权限控制、所有权和多签的基本逻辑.md) |
 | DeFi | [AMM](04_DeFi_and_Tokenomics/AMM%20为什么能在没有订单簿时完成交易.md)、[超额抵押](04_DeFi_and_Tokenomics/借贷协议为什么离不开超额抵押.md)、[稳定币](04_DeFi_and_Tokenomics/稳定币的几种基本路线.md) |
+| 高级工程 | [Web3 高级工程与协议安全](08_Advanced_Engineering/Web3高级工程与协议安全.md) |
 | 研究工作流 | [如何研究一个协议](07_Research_and_Build_Workflow/如何研究一个协议.md) |
 
 ## 机制速查
@@ -35,6 +37,7 @@
 - [Web3 安全速查](05_Security_and_Risks/Web3安全速查.md)
 - [治理与合规速查](06_Governance_and_Crypto_Society/治理与合规速查.md)
 - [Web3 研究与构建速查](07_Research_and_Build_Workflow/Web3研究与构建速查.md)
+- [Web3 高级工程与协议安全](08_Advanced_Engineering/Web3高级工程与协议安全.md)
 
 ## 验证原则
 
