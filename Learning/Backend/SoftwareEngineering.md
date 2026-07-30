@@ -186,4 +186,9 @@ Rollback 不是唯一恢复方式；数据库、消息和外部副作用可能�
 
 课程框架参考《Refactoring》《Working Effectively with Legacy Code》《Accelerate》和演进式架构方法。团队流程必须结合系统风险和组织约束验证，不能机械复制模板。
 
+## 导航与关联
+
+- [模块入口：Backend](./README.md)
+- 同一路线：[后端测试体系](./Testing.md) · [调试与问题定位](./Java/调试与问题定位.md)
+
 `#software-engineering #refactoring #adr #legacy-system`

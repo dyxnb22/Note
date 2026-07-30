@@ -1,3 +1,9 @@
+---
+type: reference
+status: mature
+last_verified: 2026-07-30
+---
+
 # Web3 安全速查
 
 从私钥、授权、重入、Oracle、升级和测试覆盖链上系统的主要失效面。
@@ -95,6 +101,10 @@
 - [Ethereum Improvement Proposals](https://eips.ethereum.org/)
 - [OpenZeppelin 文档](https://docs.openzeppelin.com/)
 
-本文是机制速查；协议版本、网络参数、监管和产品支持会变化。核对日期：2026-07-22。
+本文是机制速查；协议版本、网络参数、监管和产品支持会变化。核对日期：2026-07-30。
+
+## 导航与关联
+
+- [模块入口：05_Security_and_Risks](./README.md)
 
 `#web3 #reference #security`

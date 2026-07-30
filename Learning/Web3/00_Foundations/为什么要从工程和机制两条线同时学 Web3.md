@@ -1,3 +1,8 @@
+---
+type: concept
+status: mature
+---
+
 # 为什么要从工程和机制两条线同时学 Web3
 
 ## 1. 主题定位

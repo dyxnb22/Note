@@ -1,3 +1,9 @@
+---
+type: reference
+status: mature
+last_verified: 2026-07-30
+---
+
 # Web3 概念速查
 
 区分公链、协议、dApp、钱包、交易所与链上状态，避免用一个 Web3 标签混淆不同层次。
@@ -59,6 +65,11 @@
 - [Ethereum Improvement Proposals](https://eips.ethereum.org/)
 - [OpenZeppelin 文档](https://docs.openzeppelin.com/)
 
-本文是机制速查；协议版本、网络参数、监管和产品支持会变化。核对日期：2026-07-22。
+本文是机制速查；协议版本、网络参数、监管和产品支持会变化。核对日期：2026-07-30。
+
+## 导航与关联
+
+- [模块入口：00_Foundations](./README.md)
+- 同一路线：[链上世界里的身份、资产、状态和权限](./链上世界里的身份、资产、状态和权限.md)
 
 `#web3 #reference #security`

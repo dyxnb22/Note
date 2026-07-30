@@ -5,8 +5,8 @@
 ## 目录
 
 - [Java](Java/README.md)：语言、集合、并发、JVM、Spring 与工程工具
-- [Go](Go/README.md)：并发服务、Context、HTTP、性能与测试
-- `Rust`：所有权、并发安全、异步服务与性能模型
+- [Go](Go/README.md)：正式语言路线、并发服务、Context、HTTP、性能、测试与项目实战
+- [Rust](Rust/README.md)：所有权、并发安全、异步服务、性能模型与 Agent Runtime
 - [Data](Data/README.md)：数据库、缓存、消息队列
 - [Architecture](Architecture/README.md)：分布式、系统设计
 - [Delivery](Delivery/README.md)：Git、Linux、Docker、部署上线
@@ -31,6 +31,8 @@
 - [生产系统工程](./Delivery/07_生产系统工程.md)：性能、容量、可观测性、SLO 和事故响应
 - [数据工程与流处理](./Data/数据工程与流处理.md)：CDC、仓库/湖仓、批流、编排与治理
 - [云原生与 IaC](./Delivery/08_云原生与IaC.md)：Terraform、GitOps、IAM、网络、多集群与成本
+
+目标路线：[Rust Agent 与 Go 后端学习地图](../00_Navigation/Rust-Agent与Go后端学习地图.md)把 Go 业务后端主线、Rust Agent 专项和共同生产能力连接为可执行顺序。
 
 ## 建议使用原则
 

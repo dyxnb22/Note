@@ -618,3 +618,8 @@ git fsck
 - git clean -n 只预览将删除哪些未跟踪文件。
 - git clean -fd 会真正删除未跟踪文件和目录，谨慎使用。
 - git reflog 可查看 HEAD 移动历史，常用于找回误删分支或误 reset 的提交。
+
+## 导航与关联
+
+- [模块入口：Delivery](./README.md)
+- 同一路线：[AI DevOps 与交付](./AI%20DevOps与交付.md) · [Maven](./02_Maven.md)

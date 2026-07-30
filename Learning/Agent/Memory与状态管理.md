@@ -43,7 +43,7 @@ Memory 是生产系统里容易被低估的难题——入门级实现是"把历
 特点：持久化，不受 context 限制，设 TTL 自动过期
 ```
 
-```text
+```pseudocode
 import redis
 import json
 
@@ -60,7 +60,6 @@ def load_session_state(session_id: str) -> dict:
 data = redis_client.get(f"session:{session_id}")
 return json.loads(data) if data else {}
 ```
-
 适合：跨请求的会话状态（当前任务进度、临时用户偏好）。
 
 ### 类型三：Long-term User Memory（用户画像）
@@ -72,7 +71,7 @@ return json.loads(data) if data else {}
 更新：会话结束后提取
 ```
 
-```text
+```pseudocode
 from pydantic import BaseModel
 from datetime import datetime
 
@@ -101,7 +100,6 @@ memories = await llm_call_structured(
 await store_user_memories(user_id, memories)
 return memories
 ```
-
 适合：用户画像、长期偏好、用户表达的目标。
 
 ### 类型四：Workflow State Memory（任务状态）
@@ -112,7 +110,7 @@ return memories
 特点：结构化，有状态机转换
 ```
 
-```text
+```pseudocode
 from enum import Enum
 from pydantic import BaseModel
 
@@ -133,7 +131,6 @@ error_log: list[str] = []
 created_at: datetime
 updated_at: datetime
 ```
-
 适合：长任务（代码生成、报告撰写、多步骤审批）的状态追踪。
 
 ---
@@ -147,7 +144,7 @@ updated_at: datetime
 | 时间窗口 | 加载最近 N 条 | SQL ORDER BY time | 时序重要场景 |
 | 重要性排序 | 加载评分最高的 | 重要性字段 | 混合策略 |
 
-```text
+```pseudocode
 async def retrieve_relevant_memories(
 user_id: str,
 current_query: str,
@@ -172,7 +169,6 @@ for item in results:
 scored.sort(reverse=True)
 return [item for _, item in scored[:top_k]]
 ```
-
 ---
 
 ## 4. 更新策略
@@ -190,7 +186,7 @@ return [item for _, item in scored[:top_k]]
 
 用户在不同时间说了相互矛盾的话：
 
-```text
+```pseudocode
 async def handle_memory_conflict(
 existing: UserMemoryItem,
 new_info: str,
@@ -208,7 +204,6 @@ resolution = await llm_call([
 ])
 return resolution
 ```
-
 **实践原则**：
 - 有明确时间戳时，新信息优先于旧信息
 - 用户主动修正（"我之前说错了"）立即更新
@@ -218,7 +213,7 @@ return resolution
 
 ## 6. 会话恢复
 
-```text
+```pseudocode
 async def resume_workflow(task_id: str) -> WorkflowState:
 state = await db.get_workflow_state(task_id)
 
@@ -231,7 +226,6 @@ if state.status == TaskStatus.FAILED:
 
 return state
 ```
-
 ---
 
 ## 7. 文件型 Memory：MEMORY.md 索引模式

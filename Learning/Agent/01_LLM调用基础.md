@@ -1,3 +1,9 @@
+---
+type: guide
+status: mature
+last_verified: 2026-07-30
+---
+
 # LLM 调用基础
 
 这篇文档解决一个问题：**如何用 Python 正确、健壮、可维护地调用 LLM API**。
@@ -13,8 +19,8 @@ pip install openai anthropic python-dotenv
 ```
 
 密钥管理：
-```python
-## .env 文件（不提交 git）
+```dotenv
+# .env 文件（不提交 git）
 OPENAI_API_KEY=sk-...
 ANTHROPIC_API_KEY=sk-ant-...
 ```
@@ -31,7 +37,9 @@ client = OpenAI()  # 自动从环境变量读取
 
 ---
 
-## 2. Messages 结构
+## 2. Messages 与 Items
+
+Chat Completions 和 Anthropic Messages 主要围绕 messages/blocks 组织上下文；OpenAI Responses 使用 `input` / `output` typed Items，一条 message、一次 reasoning、一次 function call 都是不同 Item。下面的 role 表用于理解兼容 messages 输入，不代表所有 Provider 的完整线协议。
 
 ### Role 说明
 
@@ -86,7 +94,7 @@ content = response.output_text
 
 ### 多轮对话（维护历史）
 
-```text
+```pseudocode
 class Conversation:
 def __init__(self, system_prompt: str, model: str):
     self.model = model
@@ -104,14 +112,13 @@ def chat(self, user_input: str) -> str:
     self.messages.append({"role": "assistant", "content": assistant_msg})
     return assistant_msg
 ```
-
 **注意**：messages 列表会无限增长，长对话需要截断策略（见 `04_Context工程.md`）。
 
 ---
 
 ## 4. 流式输出（Streaming）
 
-```text
+```pseudocode
 def stream_response(prompt: str):
 stream = client.chat.completions.create(
     model=MODEL,
@@ -129,10 +136,9 @@ for chunk in stream:
 print()
 return full_content
 ```
-
 **async 版本（FastAPI / async 服务）**：
 
-```text
+```pseudocode
 async def stream_response_async(prompt: str):
 async_client = AsyncOpenAI()
 stream = await async_client.chat.completions.create(
@@ -146,12 +152,11 @@ async for chunk in stream:
     if delta:
         yield delta
 ```
-
 ---
 
 ## 5. 结构化输出
 
-### 方法一：JSON Mode（简单场景）
+### 方法一：JSON Mode（旧接口兼容）
 
 ```python
 response = client.chat.completions.create(
@@ -167,9 +172,9 @@ import json
 data = json.loads(response.choices[0].message.content)
 ```
 
-### 方法二：Pydantic 结构化（推荐）
+### 方法二：Responses + Pydantic 结构化（推荐）
 
-```text
+```pseudocode
 from pydantic import BaseModel
 from typing import Optional
 
@@ -179,33 +184,32 @@ age: Optional[int]
 occupation: str
 confidence: float
 
-response = client.beta.chat.completions.parse(
-model=MODEL,
-messages=[
+response = client.responses.parse(
+model=os.environ["OPENAI_MODEL"],
+input=[
     {"role": "user", "content": "John Smith, 35 岁，软件工程师"},
 ],
-response_format=ExtractedPerson,
+text_format=ExtractedPerson,
 )
 
-person = response.choices[0].message.parsed
+person = response.output_parsed
 print(person.name, person.age)  # 类型安全，IDE 有补全
 ```
-
-**为什么 Pydantic 比 JSON Mode 好**：JSON Mode 只保证合法 JSON，不保证字段名称和类型。Pydantic 结构化会把 schema 传给模型，输出不符合 schema 会被 reject。
+**为什么 Structured Outputs 比 JSON Mode 好**：JSON Mode 只保证合法 JSON，不保证字段名称和类型；Structured Outputs 按 schema 约束字段，并能让 SDK 解析成类型对象。仍要处理拒绝、截断、业务约束和下游权限。
 
 ---
 
 ## 6. Token 计算与成本意识
 
 ```python
-response = client.chat.completions.create(...)
+response = client.responses.create(...)
 
-print(response.usage.prompt_tokens)      # 输入 token
-print(response.usage.completion_tokens)  # 输出 token
+print(response.usage.input_tokens)
+print(response.usage.output_tokens)
 
-# 估算成本（示例价格会变化，生产环境读取版本化配置）
-input_cost = response.usage.prompt_tokens * 2.5 / 1_000_000
-output_cost = response.usage.completion_tokens * 10 / 1_000_000
+# 单价必须来自带核对日期的版本化配置，不能写死在教程或业务逻辑中
+input_cost = response.usage.input_tokens * pricing.input_per_token
+output_cost = response.usage.output_tokens * pricing.output_per_token
 ```
 
 **工程建议**：开发时记录每次调用的 token 用量；长期跑的系统必须有 cost monitoring；system prompt 太长 = 每次调用都在烧钱。
@@ -261,7 +265,7 @@ def call_llm(messages: list) -> str:
 
 ## 8. 多 Provider 设计
 
-```text
+```pseudocode
 from typing import Protocol
 
 class LLMProvider(Protocol):
@@ -301,7 +305,6 @@ providers = {
 }
 return providers[name]
 ```
-
 ---
 
 ## 8.5 Fallback Model 切换（容灾）
@@ -413,15 +416,11 @@ response = client.messages.create(
 )
 ```
 
-**图片规格**：
-- 支持格式：JPEG、PNG、GIF、WebP
-- 单张最大：5 MB（base64 前）
-- 每次请求最多 20 张图
-- 图片按 token 计费（约 1000-2000 token/张，取决于尺寸）
+图片格式、单张大小、每请求数量和 token 计算都属于 Provider 与模型能力，上传前按官方 Vision 指南校验；客户端也应先限制 MIME、像素、文件大小和解码资源，不能只依赖 API 拒绝。
 
 ### PDF 文档输入
 
-Claude 原生支持 PDF，不需要先提取文本：
+部分 Claude 模型和请求形态支持直接提交 PDF；这不表示所有模型、平台或文档都能保留同等布局理解，运行前检查模型能力，并为扫描件、超大文件和敏感内容保留提取或拒绝路径：
 
 ```python
 with open("technical_report.pdf", "rb") as f:
@@ -520,7 +519,7 @@ max_tokens=1024,
 print(response.usage.cache_read_input_tokens)   # 命中的 token 数
 ```
 
-**工程效益**：长 system prompt（>1K token）的场景，cache 命中可以节省 90% 的 input token 成本。
+**工程效益**：长而稳定的前缀更容易从缓存受益，但命中条件、最低长度、保留时间和折扣会变化。用真实 usage 与账单验证收益，不在教程里承诺固定节省比例。
 
 ---
 
@@ -537,6 +536,14 @@ s20 把恢复层包在主循环外，使工具分发逻辑不必知道 429、529
 - [LangGraph Eval 实验](./实践/ai-agent-learning/langgraph-advanced/07-eval/eval_agent.py)：把模型调用和工具轨迹放进规则检查、关键词检查和 LLM-as-Judge 的评测框架。
 
 这些实践中的 Provider、模型名、依赖版本和缓存参数都是课程示例；运行前按当前 Provider 文档核对。
+
+## 官方来源
+
+- [OpenAI Responses 迁移](https://developers.openai.com/api/docs/guides/migrate-to-responses)
+- [OpenAI Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
+- [Anthropic Messages API](https://platform.claude.com/docs/en/api/messages)
+
+核对日期：2026-07-30。模型、媒体限制、缓存条件、错误类型和存储默认值在部署或升级前重新核对。
 
 ## 附录：面试高频
 

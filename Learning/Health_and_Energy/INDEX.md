@@ -43,7 +43,7 @@
 
 本目录提供一般健康教育。持续两周以上的严重或困扰症状、明显的睡眠或食欲变化、持续疼痛、无法完成日常任务，应向医生或合格心理健康专业人员求助。出现自伤、伤人或其他紧急风险时，应立即联系所在地紧急服务。
 
-主要依据：[WHO 自我健康管理](https://www.who.int/news-room/fact-sheets/detail/self-care-health-interventions/)、[WHO 健康饮食](https://www.who.int/news-room/fact-sheets/detail/healthy-diet%E2%80%8F)、[WHO 身体活动指南](https://iris.who.int/bitstream/handle/10665/336656/9789240015128-eng.pdf)、[CDC 成人睡眠](https://www.cdc.gov/sleep/data-research/facts-stats/adults-sleep-facts-and-stats.html)、[NIMH 心理健康自我照护](https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health)。核对日期：2026-07-22。
+主要依据：[WHO 自我健康管理](https://www.who.int/news-room/fact-sheets/detail/self-care-health-interventions/)、[WHO 健康饮食](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)、[WHO 身体活动指南](https://www.who.int/publications/i/item/9789240014886)、[CDC 成人睡眠](https://www.cdc.gov/sleep/data-research/facts-stats/adults-sleep-facts-and-stats.html)、[NIMH 心理健康自我照护](https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health)。核对日期：2026-07-30。
 
 ## 模块入口
 

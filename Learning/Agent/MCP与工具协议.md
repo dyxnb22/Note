@@ -1,3 +1,9 @@
+---
+type: guide
+status: mature
+last_verified: 2026-07-30
+---
+
 # MCP 与工具协议
 
 这篇文档解决一个问题：**MCP 是什么，什么时候用它，什么时候直接写 SDK 调用**。
@@ -27,7 +33,7 @@ AI App → 自己写数据库 SDK
 AI App / MCP Client → MCP Protocol → MCP Server → Tool / Resource / Prompt
 ```
 
-MCP（Model Context Protocol）是 Anthropic 提出的开放协议，定义了 AI 应用和工具之间的标准通信格式。
+MCP（Model Context Protocol）是开放协议，定义了 AI 应用与外部工具、资源及上下文能力之间的通信格式。它统一协议边界，不会自动统一各服务的业务语义、权限模型或数据可信度。
 
 **价值不在于"让模型更聪明"，而在于**：
 - 工具实现一次，可被任意 MCP Client 使用
@@ -52,7 +58,7 @@ Tools 是最常用的，Resources 和 Prompts 是补充能力。
 
 用官方 SDK 实现一个简单的 MCP Server：
 
-```text
+```pseudocode
 ## pip install mcp
 
 from mcp.server import Server
@@ -116,14 +122,13 @@ async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
         InitializationOptions(server_name="my-tools", server_version="0.1.0"),
     )
 ```
-
 ---
 
 ## 4. MCP Client 实现
 
 AI 应用作为 MCP Client，连接到 MCP Server：
 
-```text
+```pseudocode
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
@@ -149,7 +154,6 @@ async with stdio_client(server_params) as (read, write):
         )
         print("结果:", result.content[0].text)
 ```
-
 ---
 
 ## 5. 与 Claude Desktop 集成
@@ -222,10 +226,10 @@ MCP 支持两种传输方式，使用场景不同：
 | Transport | 形态 | 适合 |
 |-----------|------|------|
 | **stdio** | Server 是子进程，通过标准输入输出通信 | 本地工具（文件系统、本地数据库）；Claude Desktop 集成 |
-| **SSE / HTTP** | Server 是独立 HTTP 服务，通过 Server-Sent Events 推送 | 远程服务；多 Client 共享；需要认证的场景 |
+| **Streamable HTTP** | Server 是独立 HTTP 服务；POST/GET 与可选 SSE 由规范共同约束 | 远程服务、多 Client、认证和网络治理 |
 
-```text
-## SSE 模式启动（替代 stdio）
+```pseudocode
+## 以下是旧 HTTP+SSE 双端点形态，只用于理解历史兼容层
 from mcp.server.sse import SseServerTransport
 from starlette.applications import Starlette
 
@@ -237,12 +241,11 @@ async with sse.connect_sse(request.scope, request.receive, request._send) as str
 
 starlette_app = Starlette(routes=[Route("/sse", endpoint=handle_sse)])
 ```
-
 ### Auth / User Identity 传递
 
 MCP Server 收到工具调用时，通常需要知道"谁在调用"：
 
-```text
+```pseudocode
 @app.call_tool()
 async def call_tool(name: str, arguments: dict) -> list[TextContent]:
 ## 从 arguments 或 request context 里取 user token
@@ -255,16 +258,13 @@ if name == "query_user_data":
         return [TextContent(type="text", text="权限不足")]
     ...
 ```
-
-**实践注意**：MCP 协议本身不规定认证方式。常见做法：
-- stdio 模式：Server 是本地子进程，信任本地调用者
-- SSE/HTTP 模式：Client 在建连时传 Bearer Token，Server 验证；或在 arguments 里约定传 auth context
+**实践注意**：当前正式规范为 HTTP 传输定义了授权框架；stdio 不走这套 HTTP 授权流程，应从运行环境安全取得凭证。不要把 bearer token 塞入普通工具 arguments：它会扩大模型上下文、日志和第三方 Server 的泄露面。远程实现应按规范完成受保护资源元数据、授权服务器发现、token audience 与 scope 校验，并在工具执行时再做对象级授权。
 
 ### Capability Discovery 与版本兼容
 
 `list_tools()` 就是 capability discovery 的机制——Client 启动时拉取工具列表，不需要 hardcode。版本兼容靠工具描述和 schema：
 
-```text
+```pseudocode
 @app.list_tools()
 async def list_tools() -> list[Tool]:
 return [
@@ -282,7 +282,6 @@ return [
     ),
 ]
 ```
-
 向后兼容原则：新增字段设为 optional；不要修改已有字段含义；重大变更用新工具名（`search_docs_v2`）。
 
 ### 为什么团队内部工具平台会偏向协议层
@@ -305,15 +304,9 @@ return [
 
 ---
 
-## 9. 高频社区 MCP Server
+## 9. Server 发现与供应链检查
 
-| Server | 用途 |
-|--------|------|
-| `@modelcontextprotocol/server-filesystem` | 文件系统读写 |
-| `@modelcontextprotocol/server-github` | GitHub 操作 |
-| `@modelcontextprotocol/server-postgres` | PostgreSQL 查询 |
-| `@modelcontextprotocol/server-brave-search` | 网络搜索 |
-| `@modelcontextprotocol/server-puppeteer` | 浏览器自动化 |
+社区包名、维护状态和安装方式变化很快，不在正文维护“高频包清单”。从 [MCP Registry](https://registry.modelcontextprotocol.io/) 或宿主产品的受信目录发现 Server 后，仍要逐项检查源码与发布者、固定版本与哈希、最小文件/网络权限、OAuth scope、工具 schema、遥测和升级记录。能被列出不等于可以无条件信任。
 
 ---
 
@@ -384,7 +377,7 @@ def execute_mcp_tool(tool_name: str, args: dict, context: ExecutionContext) -> s
 
 ## 11. Streamable HTTP Transport（版本化协议示例）
 
-MCP 的远程传输规范和 SDK 会随版本演进。本节用 Streamable HTTP 展示远程 Server 的设计思路；端点、会话、流式响应和安全要求在实际实现前应以[官方 Transports 规范](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports)及对应 SDK 文档为准。下面的 FastAPI 代码是教学示意，不是可直接复制的完整协议实现：
+MCP 的远程传输规范和 SDK 会随版本演进。本节用当前正式规范的 Streamable HTTP 展示远程 Server 的设计思路；端点、会话、协议版本头、流式响应和安全要求在实际实现前应以[官方 Transports 规范](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)及对应 SDK 文档为准。下面的 FastAPI 代码是教学示意，不是可直接复制的完整协议实现：
 
 ```
 旧方式（SSE）：
@@ -398,7 +391,7 @@ MCP 的远程传输规范和 SDK 会随版本演进。本节用 Streamable HTTP 
 
 **Server 实现（FastAPI）**：
 
-```python
+```pseudocode
 from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse
 from mcp.server.fastmcp import FastMCP
@@ -498,6 +491,8 @@ async def connect_with_oauth():
 ## 13. MCP Sampling — Server 回调 LLM
 
 MCP 有一个不常见但重要的特性：Server 可以请求 Client 调用 LLM（Sampling）。
+
+Sampling 属于 `2025-11-25` 当前正式规范的 Client 能力，但 `2026-07-28` draft 已提出弃用并建议直接集成模型 Provider。新系统使用前先确认目标 Client 是否声明支持，并避免让 Server 借 Sampling 绕过宿主的模型、成本、数据和审批策略。
 
 ```
 普通 Tool Use：Client（Agent）→ 调用工具 → Server 执行 → 返回结果

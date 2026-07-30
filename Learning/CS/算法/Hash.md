@@ -1,3 +1,8 @@
+---
+type: practice
+status: developing
+---
+
 # Hash_done
 
 **LeetCode 1. 两数之和（找出目标和的两个数）**
@@ -31,3 +36,8 @@ HashSet 快速判断某一个数的上一个数是否存在，为了找到连续
 最短删除长度，没有就 `-1`。
 `totalX - delX = targetX`。
 遍历过程存储前缀和，key 为 `String key = x + "," + y;`，value 为最新索引。
+
+## 导航与关联
+
+- [模块入口：算法题型索引](./README.md)
+- 同一路线：[数据结构](../02_数据结构.md) · [普通数组](./普通数组.md)

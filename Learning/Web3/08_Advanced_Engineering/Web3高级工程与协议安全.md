@@ -1,3 +1,9 @@
+---
+type: guide
+status: mature
+last_verified: 2026-07-30
+---
+
 # Web3 高级工程与协议安全
 
 本篇从 EVM 执行进入合约工程、Oracle/Indexer、L2、跨链、MEV、账户抽象和升级治理。目标不是追逐链和协议名称，而是识别资产、状态、信任、排序和恢复边界。
@@ -255,6 +261,11 @@ Proxy 使用 `delegatecall` 把逻辑与地址/Storage 分离。常见风险：
 - [Solidity Security Considerations](https://docs.soliditylang.org/en/latest/security-considerations.html)
 - [OpenZeppelin Upgrades](https://docs.openzeppelin.com/upgrades)
 
-网络升级、EIP 状态、工具和监管均会变化；使用前按目标链和版本重新核验。核对日期：2026-07-27。
+网络升级、EIP 状态、工具和监管均会变化；使用前按目标链和版本重新核验。核对日期：2026-07-30。
+
+## 导航与关联
+
+- [模块入口：Web3 学习索引](../INDEX.md)
+- 同一路线：[稳定币的几种基本路线](../04_DeFi_and_Tokenomics/稳定币的几种基本路线.md) · [如何研究一个协议](../07_Research_and_Build_Workflow/如何研究一个协议.md)
 
 `#web3 #evm #solidity #rollup #security`

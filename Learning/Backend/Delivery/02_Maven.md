@@ -1,3 +1,8 @@
+---
+type: guide
+status: developing
+---
+
 # Maven
 
 Maven 通过 POM（Project Object Model）统一描述项目依赖、目录结构和构建流程，主要解决依赖管理、项目构建和多模块协作问题。
@@ -41,3 +46,8 @@ mvn dependency:tree
 - `SNAPSHOT` 表示开发中的可变版本，适合联调，不应作为生产发布版本。
 - Release 版本应不可变；发布后不要覆盖同一个坐标的内容。
 - 私服应配置权限、代理缓存、构件保留和审计策略，凭据不要硬编码在 `pom.xml` 或提交到 Git。
+
+## 导航与关联
+
+- [模块入口：Delivery](./README.md)
+- 同一路线：[Git](./01_Git.md) · [Linux 命令详解指南](./03_Linux%20命令详解指南.md)

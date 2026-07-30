@@ -138,7 +138,7 @@
 - 返回结果是否含敏感信息；
 - 用户身份是否沿调用链传递。
 
-MCP 的 HTTP 授权规范可以作为协议层学习材料，但协议授权不等于业务权限；业务系统仍需检查 actor、tenant、resource 和 operation。[MCP Authorization](https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization)
+MCP 的 HTTP 授权规范可以作为协议层学习材料，但协议授权不等于业务权限；业务系统仍需检查 actor、tenant、resource 和 operation。[MCP Authorization（当前正式规范）](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)
 
 ## 9. 练习与验收
 

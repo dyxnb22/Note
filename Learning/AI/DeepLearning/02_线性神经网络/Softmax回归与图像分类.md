@@ -1,3 +1,8 @@
+---
+type: guide
+status: developing
+---
+
 # Softmax 回归与图像分类
 
 ## 从回归到分类

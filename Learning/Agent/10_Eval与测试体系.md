@@ -45,7 +45,7 @@ Eval Harness 是一套自动化评测基础设施：
 
 ### 最小可用实现
 
-```text
+```pseudocode
 from dataclasses import dataclass
 from typing import Callable
 import time
@@ -107,7 +107,6 @@ def summary(self, results: list[EvalResult]) -> dict:
         "avg_latency_ms": sum(r.latency_ms for r in results) / total,
     }
 ```
-
 ---
 
 ## 3. 测试集构造
@@ -135,7 +134,7 @@ def summary(self, results: list[EvalResult]) -> dict:
 
 ### 合成测试集
 
-```text
+```pseudocode
 async def generate_synthetic_cases(
 task_description: str,
 existing_cases: list[EvalCase],
@@ -157,7 +156,6 @@ cases = await llm_call_structured(prompt, output_schema=list[EvalCase])
 print(f"生成了 {len(cases)} 个案例，请抽样审核 ground truth 质量")
 return cases
 ```
-
 **关键原则**：LLM 生成的 ground truth 必须人工抽样验证。LLM 倾向于生成它自己擅长回答的问题，有系统性偏差。
 
 ---
@@ -166,7 +164,7 @@ return cases
 
 ### 程序验证（最可靠）
 
-```text
+```pseudocode
 def eval_tool_selection(actual: dict, expected: dict, **_) -> float:
 return 1.0 if actual.get("tool_name") == expected.get("tool_name") else 0.0
 
@@ -184,10 +182,9 @@ if not required_facts:
 hits = sum(1 for fact in required_facts if fact.lower() in actual.lower())
 return hits / len(required_facts)
 ```
-
 ### LLM-as-Judge
 
-```text
+```pseudocode
 async def llm_judge(
 question: str,
 actual_answer: str,
@@ -210,7 +207,6 @@ try:
 except ValueError:
     return 0.5
 ```
-
 **LLM-as-judge 的偏差**：
 - 倾向于给较长的答案更高分（verbosity bias）
 - 用同款模型评估自己会有自偏（self-serving bias）
@@ -234,7 +230,7 @@ except ValueError:
 
 ### Online Eval 采样
 
-```text
+```pseudocode
 import random, asyncio
 
 def production_eval_middleware(request, response, user_id: str):
@@ -250,7 +246,6 @@ asyncio.create_task(log_for_eval({
     "latency_ms": response.latency_ms,
 }))
 ```
-
 **隐式反馈信号**：用户点赞/踩（显式）；重新提问（负反馈）；复制内容（正反馈）；对话中止（负反馈）。
 
 ---
@@ -259,7 +254,7 @@ asyncio.create_task(log_for_eval({
 
 Agent 的路径是动态的，要评过程，不只是最终结果：
 
-```text
+```pseudocode
 @dataclass
 class AgentEvalCase:
 task: str
@@ -286,7 +281,6 @@ return {
     "step_efficiency": min(1.0, expected.max_acceptable_steps / max(1, len(actual_trajectory))),
 }
 ```
-
 ---
 
 ## 7. 回归测试与 CI 集成
@@ -342,7 +336,7 @@ steps:
 
 整体指标掩盖局部退化。改了一处 prompt，整体分数不变，但某类任务退步了 30%——这在 aggregate 指标里看不出来。
 
-```text
+```pseudocode
 @dataclass
 class SlicedEvalResult:
 slice_name: str
@@ -374,14 +368,13 @@ for slice_name, slice_results in slices.items():
 
 return sorted(output, key=lambda x: x.pass_rate)  # 最差的排前面
 ```
-
 **常用切分维度**：任务类型（问答 / 摘要 / 代码生成）；用户分层（新用户 / 活跃用户）；数据来源（手工标注 / 合成 / 线上日志）；语言（中文 / 英文 / 中英混）。
 
 ### Baseline vs Candidate：版本对比与发布门槛
 
 每次发布本质上是"candidate 和 baseline 的对比实验"，需要明确的退步阈值：
 
-```text
+```pseudocode
 def compare_versions(
 baseline: dict,   # {"pass_rate": 0.82, "avg_faithfulness": 0.91, ...}
 candidate: dict,
@@ -409,7 +402,6 @@ gates={"pass_rate": -0.02, "avg_faithfulness": -0.03},
 )
 ## → False, ["avg_faithfulness: 0.910 → 0.870 (退步 0.040，超过阈值 0.030)"]
 ```
-
 **发布门槛设计原则**：
 - 不同指标设不同阈值（faithfulness 要求严，latency 可以宽）
 - 关键指标退步直接 block；次要指标退步 warning

@@ -25,6 +25,8 @@
 
 其中 Python 前置内容集中在上级目录的 [04_Python Agent工程化补充](../Python/04_Python%20Agent工程化补充.md)：它连接 Python 的 Pydantic、asyncio、类型系统、重试和测试与本目录的 Agent Runtime。已有 Python 基础时不必重复通读全部语法，直接从该页开始即可。
 
+希望用 Rust 实现 Agent 时，仍先完成上面的 Agent 机制主线，再进入 [Rust Agent 工程化](../Backend/Rust/16_Rust%20Agent工程化.md)和 [rust-agent-runtime](./实践/rust-agent-runtime/README.md)。Rust 负责实现 Runtime、工具执行和可靠性边界，不复制本目录的 Prompt、RAG、Memory、Eval 与安全理论。Go 后端与 Rust Agent 的整体节奏见 [目标学习地图](../00_Navigation/Rust-Agent与Go后端学习地图.md)。
+
 RAG、Memory、Workflow、MCP、Multi-Agent 和 Computer Use 按项目目标选修；它们不是所有 Agent 的共同前置条件。
 
 ## 文档分组
@@ -38,6 +40,7 @@ RAG、Memory、Workflow、MCP、Multi-Agent 和 Computer Use 按项目目标选�
 | 生产化 | [08_安全与可控性](./08_安全与可控性.md)、[成本与性能工程](./成本与性能工程.md)、[12_部署与生产化](./12_部署与生产化.md)、[Agent 运维与事故响应](./Agent运维与事故响应.md)、[版本与来源](./版本与来源.md) |
 | 扩展 | [推理模型与 Extended Thinking](./推理模型与Extended%20Thinking.md)、[模型行为与工具调用训练](./模型行为与工具调用训练.md)、[Computer Use 与 GUI Agent](./Computer%20Use与GUI%20Agent.md) |
 | 输出 | [AI 项目表达与面试](./项目表达与面试.md)、[Career 通用项目表达](../Career/项目表达.md) |
+| Rust 实现 | [Rust Agent 工程化](../Backend/Rust/16_Rust%20Agent工程化.md)、[rust-agent-runtime](./实践/rust-agent-runtime/README.md) |
 
 ## 交叉主题的职责边界
 
@@ -76,3 +79,7 @@ RAG、Memory、Workflow、MCP、Multi-Agent 和 Computer Use 按项目目标选�
 [ai-agent-learning 实践课程](./实践/ai-agent-learning/README.md)提供另一条更适合从零开始的 SDK-first 路线：Python 工程与 HTTP API → OpenAI/Claude API → Tool Calling → 手写 Agent Loop → FastAPI → LangGraph → Memory → RAG → MCP。完成这条主线后，再用其中的 [LangGraph 专项实验](./实践/ai-agent-learning/langgraph-advanced/README.md)和 [DevPilot 综合项目](./实践/ai-agent-learning/DevPilot/README.md)做框架机制与工程闭环练习。
 
 两套实践的职责不同：`ai-agent-learning` 负责建立 Agent 应用开发基础，`learn-claude-code` 负责深入 Agent Harness 的 Context、权限、任务、恢复、团队和 MCP 机制。主题重叠时优先选择一套完成，不要重复抄写两套课程说明。
+
+## Rust Agent Runtime 实践入口
+
+[rust-agent-runtime](./实践/rust-agent-runtime/README.md)是跨语言实现分支：先用无依赖脚本模型验证有限状态循环、Tool Registry、预算、重复检测、取消和 Trace，再扩展 Tokio Provider、受限 Coding Tools、Checkpoint 与 Eval。它要求先理解基础 Agent Loop，并完成 Rust 所有权、Trait、错误、模块与测试；不作为 Agent 零基础入口。

@@ -21,6 +21,8 @@ Agent：模型调用、工具、状态、编排、治理和交付
 - `Learning/AI/实践/`：深度学习和 LLM 课程实验。
 - `Learning/Agent/实践/`：Agent 应用与 Agent Harness 代码实验。
 
+Rust 是 Agent 的实现分支，不替换这条概念主线：先用 Python/现有 SDK 理解模型调用、Tool、状态和 Eval，再按 [Rust Agent 与 Go 后端学习地图](./Rust-Agent与Go后端学习地图.md)实现自己的 Runtime、工具执行器或可靠 Harness。
+
 ## 推荐主线
 
 ### 0. Python 基础与工程化
@@ -104,10 +106,9 @@ LLM 调用基础
 | llm_learning | [AI/实践/llm_learning](../AI/实践/llm_learning/README.md) | 从深度学习、Transformer 到 Agent、RAG、评测、微调和研究的宽路线 | 作为 LLM 工程扩展，不与 Agent 主线重复通读 |
 | ai-agent-learning | [Agent/实践/ai-agent-learning](../Agent/实践/ai-agent-learning/README.md) | SDK/API → Tool Calling → Agent Loop → LangGraph → RAG/MCP 的入门主线 | Agent 应用开发优先完成 01–09 |
 | learn-claude-code | [Agent/实践/learn-claude-code](../Agent/实践/learn-claude-code/README.md) | Agent Harness 的 Context、权限、任务、恢复、团队和 MCP 机制 | 已会基础 Agent 后选修 |
+| rust-agent-runtime | [Agent/实践/rust-agent-runtime](../Agent/实践/rust-agent-runtime/README.md) | 用 Rust 实现有限 Agent Loop、Tool Registry、预算、取消、Trace 与后续恢复 | 已完成基础 Agent 与 Rust 语言核心后选修 |
 
 选择原则：同一知识点优先完成一条实践路线，再用另一条路线做对照；不要因为目录里有多份代码就把它们当成多门必修课。
-
-## 本轮整理清单
 
 ## 后续维护规则
 

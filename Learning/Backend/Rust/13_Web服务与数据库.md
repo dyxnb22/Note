@@ -87,4 +87,9 @@ SELECT id, name FROM users WHERE email = $1
 
 做一个最小用户 API：创建、查询和更新；为 DTO、领域验证、数据库事务、重复请求、未授权访问和数据库错误分别写测试，并画出一个请求从入口到响应的错误传播路径。
 
+## 导航与关联
+
+- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
+- 同一路线：[Tokio 与异步网络服务](./12_Tokio与异步网络服务.md) · [Rust 性能模型与适用边界](./14_Rust性能模型与适用边界.md)
+
 `#rust #backend #web #database #transaction #api`

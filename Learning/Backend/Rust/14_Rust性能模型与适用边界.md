@@ -58,4 +58,9 @@ debug 构建更适合开发反馈，包含较少优化和更多检查；release 
 
 为一个文本处理程序建立基准：比较循环和迭代器、预分配和不预分配、单线程和并发版本；记录吞吐、延迟和内存，不凭体感下结论。
 
+## 导航与关联
+
+- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
+- 同一路线：[Web 服务与数据库](./13_Web服务与数据库.md) · [宏、unsafe 与 FFI](./15_宏、unsafe与FFI.md)
+
 `#rust #performance #benchmark #profiling #tradeoff`

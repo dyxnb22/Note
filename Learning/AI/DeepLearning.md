@@ -1,3 +1,8 @@
+---
+type: guide
+status: developing
+---
+
 # 深度学习基础
 
 这篇文档的定位：**从深度学习快速桥接到 LLM 工程**，能支撑理解 LLM 模型行为、读懂大部分 NLP 论文、做 fine-tuning 实验。
@@ -41,7 +46,7 @@ loss = 模型输出与正确答案的差距
 
 ### 最小 PyTorch 训练循环
 
-```text
+```pseudocode
 for epoch in range(num_epochs):
 for batch in train_loader:
     optimizer.zero_grad()          # 清空上一步梯度
@@ -52,7 +57,6 @@ for batch in train_loader:
 
 val_loss = evaluate(model, val_loader)
 ```
-
 ### 关键组件
 
 | 组件 | 作用 | 注意点 |

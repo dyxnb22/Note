@@ -1,3 +1,8 @@
+---
+type: concept
+status: developing
+---
+
 # 宏、unsafe 与 FFI
 
 ## 1. 宏的类别
@@ -70,5 +75,10 @@ let input = CString::new("hello")?;
 ## 练习
 
 写一个 `macro_rules!` 生成简单日志调用，再把它改写为普通函数；比较 API、错误信息和求值行为。阅读一个标准库 unsafe 封装，尝试复述它维护的不变量。
+
+## 导航与关联
+
+- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
+- 同一路线：[Rust 性能模型与适用边界](./14_Rust性能模型与适用边界.md) · [Rust Agent 工程化](./16_Rust%20Agent工程化.md)
 
 `#rust #macros #unsafe #ffi #abi`

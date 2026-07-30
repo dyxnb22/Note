@@ -1,9 +1,14 @@
+---
+type: guide
+status: developing
+---
+
 # HTTP与API调用
 这一页专门整理 Python 如何调用外部 HTTP API。后面 OpenAI SDK、RAG、Tool Calling，本质上都离不开 HTTP 请求、超时、错误处理和 JSON 解析。
 
 ## 1. HTTP 调用的完整链路
 
-```plain text
+```text
 构造 URL / 参数 / headers / body
 → 发送请求
 → 获得响应 status_code / headers / body
@@ -47,7 +52,7 @@ print(data)
 
 GET 参数会变成：
 
-```plain text
+```text
 https://httpbin.org/get?name=Tom&age=18
 ```
 
@@ -73,34 +78,33 @@ print(response.json())
 
 真实项目不要只写 happy path，要处理常见失败。
 
-```text
+```python
 import requests
 
 def fetch_json(url: str) -> dict:
-try:
-    response = requests.get(url, timeout=10)
-    response.raise_for_status()
-    return response.json()
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        return response.json()
 
-except requests.Timeout:
-## 请求超过 timeout 时间还没完成
-    print("请求超时")
+    except requests.Timeout:
+        # 请求超过 timeout 时间还没完成
+        print("请求超时")
 
-except requests.HTTPError as e:
-## 状态码是 4xx / 5xx
-    print(f"HTTP 状态码错误：{e}")
+    except requests.HTTPError as e:
+        # 状态码是 4xx / 5xx
+        print(f"HTTP 状态码错误：{e}")
 
-except requests.RequestException as e:
-## requests 的网络相关异常基类，例如连接失败、DNS 失败
-    print(f"网络请求失败：{e}")
+    except requests.RequestException as e:
+        # requests 的网络相关异常基类，例如连接失败、DNS 失败
+        print(f"网络请求失败：{e}")
 
-except ValueError:
-## response.json() 解析失败，说明响应不是合法 JSON
-    print("响应不是合法 JSON")
+    except ValueError:
+        # response.json() 解析失败，说明响应不是合法 JSON
+        print("响应不是合法 JSON")
 
-return {}
+    return {}
 ```
-
 ## 4. httpx：同步 + 异步 HTTP
 
 `httpx` 是更现代的 HTTP 客户端，既支持同步也支持异步。FastAPI / Agent 项目里更常用。
@@ -113,30 +117,33 @@ return {}
 
 同步写法：
 
-```text
+```python
 import httpx
 
 with httpx.Client(
-base_url="https://httpbin.org",
-timeout=10.0,
-headers={"User-Agent": "my-agent"},
+    base_url="https://httpbin.org",
+    timeout=10.0,
+    headers={"User-Agent": "my-agent"},
 ) as client:
-response = client.get("/get", params={"name": "Tom"})
-response.raise_for_status()
-print(response.json())
+    response = client.get("/get", params={"name": "Tom"})
+    response.raise_for_status()
+    print(response.json())
 ```
-
 异步写法：
 
-```text
+```python
 import asyncio
 import httpx
 
 async def main():
-async with httpx.AsyncClient(timeout=10.0) as client:
-    response = await client.get("https://httpbin.org/get")
-    response.raise_for_status()
-    print(response.json())
+    async with httpx.AsyncClient(timeout=10.0) as client:
+        response = await client.get("https://httpbin.org/get")
+        response.raise_for_status()
+        print(response.json())
 
 asyncio.run(main())
 ```
+
+## 导航与关联
+
+- [模块入口：Python 工程基础](./README.md)

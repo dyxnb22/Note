@@ -181,4 +181,9 @@ Benchmark 不把设置成本计入循环，用 `benchstat` 比较多次结果。
 - 事务不包含不可控外部调用。
 - race、测试和静态检查通过；性能结论由 benchmark/profile 支持。
 
+## 导航与关联
+
+- [模块入口：Go](./README.md)
+- 同一路线：[Go 基础语法与惯用法](./00_Go基础语法与惯用法.md) · [Go 语言与 Runtime](./01_Go语言与Runtime.md)
+
 `#go #backend #concurrency #context #http #database #testing`

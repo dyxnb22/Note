@@ -1,3 +1,8 @@
+---
+type: guide
+status: developing
+---
+
 # PyTorch 环境、张量与 Notebook
 
 ## 目标
@@ -41,5 +46,10 @@ Notebook 适合探索、画图和逐步验证；正式实验应把数据、模�
 ## 最小练习
 
 创建一个 `(4, 3)` 张量，分别完成按行求和、矩阵乘法、移动到 GPU（如可用）和将其 reshape 为 `(2, 6)`；解释每一步的 shape。
+
+## 导航与关联
+
+- [模块入口：动手学深度学习路线](../README.md)
+- 同一路线：[深度学习实验的基本流程](./深度学习实验的基本流程.md)
 
 `#pytorch #tensor #notebook #deep-learning`

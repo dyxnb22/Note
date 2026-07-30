@@ -91,4 +91,9 @@ let result = tokio::time::timeout(Duration::from_secs(2), operation()).await;
 
 实现一个有界并发 worker pool：接收任务、限制并行数、传播第一个错误、等待剩余任务安全结束，并分别测试正常关闭、消费者失败、超时和取消。
 
+## 导航与关联
+
+- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
+- 同一路线：[Serde、配置与日志](./10_Serde、配置与日志.md) · [Tokio 与异步网络服务](./12_Tokio与异步网络服务.md)
+
 `#rust #concurrency #send-sync #future #async #cancellation`

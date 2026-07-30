@@ -1,3 +1,9 @@
+---
+type: guide
+status: mature
+last_verified: 2026-07-30
+---
+
 # Computer Use 与 GUI Agent
 
 这篇文档解决一个问题：**如何让 AI Agent 操作图形界面（浏览器、桌面应用），而不仅仅是调用 API**。
@@ -22,33 +28,35 @@ Computer Use：
 
 **关键差别**：Computer Use 的"工具结果"是截图（图片），不是文本。模型通过"看"屏幕来感知当前状态，而不是读取 API 返回值。
 
-### 三个内置工具
+### 常见能力组合（Provider 示例）
 
 ```python
 tools = [
     {
-        "type": "computer_20250124",   # 最新版本号可查 Anthropic 文档
+        "type": settings.computer_tool_type,
         "name": "computer",
         "display_width_px": 1024,
         "display_height_px": 768,
         "display_number": 1,           # X display number，Linux 环境
     },
     {
-        "type": "text_editor_20250124",
+        "type": settings.text_editor_tool_type,
         "name": "str_replace_editor",  # 文件编辑工具（比截图更高效的文件操作）
     },
     {
-        "type": "bash_20250124",
+        "type": settings.bash_tool_type,
         "name": "bash",                # 执行 shell 命令
     },
 ]
 ```
 
+这只是 Anthropic 风格的能力组合，不是跨 Provider 标准。OpenAI 在 Responses API 中使用自己的 `computer` 工具与 typed Items；工具类型、动作名、请求字段和模型兼容性分别以官方文档为准。
+
 ---
 
 ## 2. Computer 工具的原子操作
 
-`computer` 工具支持以下 action：
+Computer 工具通常提供以下原子动作；精确动作名和参数随 Provider/版本变化：
 
 | action | 参数 | 说明 |
 |--------|------|------|
@@ -109,7 +117,7 @@ def computer_use_loop(task: str):
 
     tools = [
         {
-            "type": "computer_20250124",
+            "type": settings.computer_tool_type,
             "name": "computer",
             "display_width_px": 1024,
             "display_height_px": 768,
@@ -239,31 +247,23 @@ echo "截图大小: $(wc -c < /tmp/test.png) bytes"
 
 ## 5. 成本注意事项
 
-Computer Use 比普通 tool use **贵得多**：
+Computer Use 通常比结构化工具调用消耗更多输入、推理和交互轮次：
 
 ```
-普通工具调用结果：几百 token（文本）
-Computer Use 截图：1024x768 PNG ≈ 1000-2000 token（图片按 token 计费）
-
-典型任务（10次截图 + 20次操作）：
-  截图 token ≈ 15,000 input tokens
-  模型推理  ≈ 5,000 output tokens
-  任务成本  = 图片与文本输入 token × 当前输入单价
-            + 输出 token × 当前输出单价
+任务成本 = 图片与文本输入 + 模型输出/推理 + 工具或沙箱费用
+总延迟 = 每轮模型延迟 + 截图/动作延迟 + 页面或应用等待时间
 ```
 
 具体单价随模型和计费政策变化，估算时从 [版本与来源](版本与来源.md) 进入 Provider 官方价格页，并记录核对日期。
 
 **成本优化策略：**
 
-```text
+```pseudocode
 # 1. 操作后不是每次都截图，只在关键节点截图
 # 错误：每个 click 后都截图
 # 正确：执行一系列操作后，统一截图确认状态
 
-# 2. 降低截图分辨率（够用即可）
-"display_width_px": 1024,   # 不要用 1920，信息密度够了
-"display_height_px": 768,
+# 2. 在可识别和成本之间选择足够的截图分辨率，并用实测验证小字与缩放
 
 # 3. 优先用 bash/str_replace_editor 工具
 # 如果任务可以用 CLI 完成，不要用 computer 截图
@@ -276,7 +276,6 @@ while step < MAX_STEPS:
     step += 1
     ...
 ```
-
 ---
 
 ## 6. 与 Playwright/Selenium 的对比
@@ -307,16 +306,20 @@ Computer Use 是高风险操作，必须加安全约束：
 # 1. 隔离环境（不能访问宿主机文件系统）
 # 2. 网络隔离（限制容器能访问的域名）
 # 3. 禁止执行危险命令
-BANNED_COMMANDS = [
-    "rm -rf", "sudo", "chmod 777", "curl | sh",
-    "wget | sh", "> /dev/sda",
-]
+ALLOWED_COMMANDS = {"pwd", "ls", "git"}
 
-def safe_bash(command: str) -> str:
-    for banned in BANNED_COMMANDS:
-        if banned in command:
-            return f"Error: banned command pattern '{banned}'"
-    return subprocess.run(command, shell=True, capture_output=True, text=True).stdout
+def run_allowed_command(argv: list[str]) -> str:
+    if not argv or argv[0] not in ALLOWED_COMMANDS:
+        raise PermissionError("command is not allowed")
+    completed = subprocess.run(
+        argv,
+        shell=False,
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    return completed.stdout
 
 # 4. 人工确认高风险操作
 HIGH_RISK_ACTIONS = ["购买", "付款", "删除", "提交", "发送邮件"]
@@ -340,6 +343,13 @@ MAX_LOOP_SECONDS = 300  # 5 分钟超时
 ✓ 软件测试（探索性测试，不只是回归）
 ✓ 开发工作流自动化（打开 IDE、运行命令、查看结果）
 ```
+
+## 官方来源
+
+- [OpenAI Computer use](https://developers.openai.com/api/docs/guides/tools-computer-use)
+- [Anthropic Computer use tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool)
+
+核对日期：2026-07-30。实现前重新核对工具版本、动作 schema、截图格式、模型兼容、价格和安全建议。
 
 ---
 

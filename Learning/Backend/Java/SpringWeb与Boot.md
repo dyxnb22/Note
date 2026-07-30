@@ -1,3 +1,8 @@
+---
+type: guide
+status: developing
+---
+
 # Spring Web 与 Spring Boot
 
 Spring MVC 负责 HTTP 请求处理，Spring Boot 负责应用装配、默认配置和启动体验。两者经常一起使用，但不是同一个概念。
@@ -80,3 +85,7 @@ Starter 负责装配通用能力，不应偷偷承载业务流程。
 - 健康检查是否区分存活和就绪？
 - 接口、配置和自动装配是否有测试覆盖？
 - Actuator 等管理端点是否与业务入口隔离并受保护？
+
+## 导航与关联
+
+- [模块入口：Java 后端索引](./README.md)

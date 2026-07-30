@@ -129,7 +129,7 @@ def build_context(
 
 ### Token 计算
 
-```text
+```pseudocode
 import tiktoken
 
 def count_tokens(text: str, model: str) -> int:
@@ -143,10 +143,9 @@ for msg in messages:
     total += 4  # 每条 message 的固定开销
 return total
 ```
-
 ### 截断策略
 
-```text
+```pseudocode
 def trim_messages_to_limit(
 messages: list[dict],
 max_tokens: int,
@@ -167,10 +166,9 @@ while other_msgs:
 
 return system_msgs + other_msgs
 ```
-
 ### 摘要压缩（比截断更好）
 
-```text
+```pseudocode
 async def compress_history(
 messages: list[dict],
 keep_recent: int = 4,
@@ -191,7 +189,6 @@ return [
     *recent_messages,
 ]
 ```
-
 ### 策略对比
 
 | 策略 | 优点 | 缺点 | 适合 |
@@ -234,7 +231,7 @@ user_message = f"<user_input>{sanitized_user_input}</user_input>"
 
 **RAG 内容标注**：
 
-```text
+```pseudocode
 def wrap_retrieved_context(docs: list[str]) -> str:
 wrapped = []
 for i, doc in enumerate(docs):
@@ -246,17 +243,15 @@ return (
     + "\n\n".join(wrapped)
 )
 ```
-
 **工具调用验证**：
 
-```text
+```pseudocode
 def validate_tool_call(tool_name: str, allowed_tools: list[str]) -> bool:
 if tool_name not in allowed_tools:
     log.error("unauthorized_tool_call_attempt", tool=tool_name)
     return False
 return True
 ```
-
 ---
 
 ## 6. Instruction Conflict 处理
@@ -289,7 +284,7 @@ return True
 | JSON Mode | 高 | 需要 JSON |
 | Pydantic 结构化 | 最高 | 需要类型安全的场景 |
 
-```text
+```pseudocode
 from pydantic import BaseModel, Field
 
 class ReviewResult(BaseModel):
@@ -307,7 +302,6 @@ response_format=ReviewResult,
 typed_result = result.choices[0].message.parsed
 # typed_result.severity 有类型，IDE 有补全
 ```
-
 ---
 
 ## 8. 四层 Context 压缩流水线
@@ -576,7 +570,7 @@ SUB_TOOLS = [bash_tool, read_file_tool, write_file_tool, edit_file_tool, glob_to
 
 向模型展示"好答案长什么样"，比用文字描述格式要求有效得多：
 
-```text
+```python
 FEW_SHOT_EXAMPLES = [
     {
         "input": "分析这段 Python 代码的问题：\n```python\ndef get_user(id):\n    return db.query(f'SELECT * FROM users WHERE id={id}')\n```",
@@ -611,7 +605,6 @@ def build_messages_with_few_shot(system: str, examples: list[dict], user_input: 
     messages.append({"role": "user", "content": user_input})
     return messages
 ```
-
 **Few-shot 设计原则**：
 - 示例数量：1-5 个，过多增加 context 成本，过少效果不明显
 - 示例要有代表性：覆盖正常情况 + 边界情况（如"代码没有问题"）

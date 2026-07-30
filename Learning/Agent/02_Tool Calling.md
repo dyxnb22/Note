@@ -1,3 +1,9 @@
+---
+type: guide
+status: mature
+last_verified: 2026-07-30
+---
+
 # Tool Calling
 
 这篇文档解决一个问题：**如何设计一个健壮、安全、可维护的工具调用系统**。
@@ -34,6 +40,7 @@ Agent Loop 的思想基本相同，但消息协议由 Provider 决定：
 | Provider 示例 | 助手工具调用 | 工具结果 |
 |---|---|---|
 | Anthropic Messages | `content` 中的 `tool_use` block | 下一条 `role: "user"` 中的 `tool_result` block |
+| OpenAI Responses | `output` 中的 `function_call` Item | `function_call_output` Item，用 `call_id` 对应 |
 | OpenAI Chat Completions | `message.tool_calls` | `role: "tool"`，带 `tool_call_id` |
 
 学习时先掌握“模型提出动作 → 程序执行 → 返回结果”的不变量，再单独记各 SDK 的字段和消息形状。
@@ -44,7 +51,7 @@ Agent Loop 的思想基本相同，但消息协议由 Provider 决定：
 
 Schema 质量直接影响工具选择的准确率。
 
-### 完整 Schema 结构
+### 完整 Schema 结构（Chat Completions 兼容形状）
 
 ```python
 tools = [
@@ -81,6 +88,25 @@ tools = [
 ]
 ```
 
+Responses API 的函数定义字段位于 tool 顶层，不要保留上面的 `function` 包装层：
+
+```python
+response_tools = [{
+    "type": "function",
+    "name": "search_orders",
+    "description": "搜索订单；不创建或修改订单。",
+    "parameters": {
+        "type": "object",
+        "properties": {"user_id": {"type": "string"}},
+        "required": ["user_id"],
+        "additionalProperties": False,
+    },
+    "strict": True,
+}]
+```
+
+严格模式能让参数遵循 schema，但不能替代业务校验、对象级权限和副作用审批。
+
 ### Schema 设计原则
 
 | 原则 | 好的 | 坏的 |
@@ -95,7 +121,9 @@ tools = [
 
 ---
 
-## 3. 完整执行循环
+## 3. 完整执行循环（Chat Completions 兼容实现）
+
+下面保留旧接口是为了理解 loop。新项目使用 Responses 时，应遍历 typed `response.output`，执行每个 `function_call`，再把带同一 `call_id` 的 `function_call_output` 送回模型；状态可用 `previous_response_id`、Conversations 或手工回传 Items 管理。
 
 ```python
 import json
@@ -162,7 +190,7 @@ def execute_tool(tool_call, registry: dict[str, Callable]) -> dict:
 
 模型可以在一次响应里发出多个工具调用（并行意图）：
 
-```text
+```pseudocode
 import asyncio
 
 async def execute_tools_parallel(tool_calls, registry):
@@ -170,7 +198,6 @@ tasks = [execute_tool_async(tc, registry) for tc in tool_calls]
 results = await asyncio.gather(*tasks, return_exceptions=True)
 return results
 ```
-
 **注意**：必须把所有工具的结果都收集后，才能把结果一起返回给模型，不能只返回部分。
 
 ---
@@ -179,7 +206,7 @@ return results
 
 生产系统用注册表统一管理工具：
 
-```text
+```pseudocode
 from dataclasses import dataclass
 from typing import Callable, Optional
 
@@ -229,7 +256,6 @@ def execute(self, name: str, args: dict, user_permission: str = "read") -> dict:
     except Exception as e:
         return {"error": str(e)}
 ```
-
 ---
 
 ## 6. 幂等性、重试、超时
@@ -247,7 +273,7 @@ def execute(self, name: str, args: dict, user_permission: str = "read") -> dict:
 
 ### 超时设置
 
-```text
+```pseudocode
 import httpx
 
 async def call_external_api(url: str, timeout: float = 10.0):
@@ -260,7 +286,6 @@ async with httpx.AsyncClient(timeout=timeout) as client:
     except httpx.ConnectError:
         return {"error": "连接失败，服务不可达"}
 ```
-
 ---
 
 ## 7. 权限与审计
@@ -275,7 +300,7 @@ async with httpx.AsyncClient(timeout=timeout) as client:
 
 ### 审计日志
 
-```text
+```pseudocode
 import structlog
 from datetime import datetime
 
@@ -296,7 +321,6 @@ except Exception as e:
               error=str(e), error_type=type(e).__name__)
     raise
 ```
-
 ---
 
 ## 8. 工具沙箱
@@ -711,6 +735,14 @@ s19/s20 又把内置工具和 MCP 工具动态合并成一个工具池，并用 
 - [LangGraph Tool Agent](./实践/ai-agent-learning/langgraph-advanced/02-tools/tool_agent.py)：对照 `ToolNode`、条件路由和消息状态。
 
 建议顺序是 04 → 05 → LangGraph Tool Agent；先理解协议，再引入框架抽象。
+
+## 官方来源
+
+- [OpenAI Function calling](https://developers.openai.com/api/docs/guides/function-calling)
+- [OpenAI Responses 迁移](https://developers.openai.com/api/docs/guides/migrate-to-responses)
+- [Anthropic Tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
+
+核对日期：2026-07-30。Provider 消息形状、strict 支持、并行调用和流式事件在升级 SDK 时重新核对。
 
 ## 附录：面试高频
 

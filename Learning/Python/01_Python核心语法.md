@@ -157,35 +157,35 @@ path = r"C:\test\demo"  # r 表示 raw string，反斜杠不用重复转义
 
 ## 4. 条件判断
 
-```text
+```python
 score = 85
 
 if score >= 90:
-level = "A"
+    level = "A"
 elif score >= 80:
-level = "B"
+    level = "B"
 elif score >= 60:
-level = "C"
+    level = "C"
 else:
-level = "D"
+    level = "D"
 
 print(level)
 ```
 
 常见判断：
 
-```text
+```python
 name = "Tom"
 age = 18
 
 if name and age >= 18:       # name 非空，并且 age >= 18
-print("adult user")
+    print("adult user")
 
 if name is not None:         # 判断不是 None，推荐用 is / is not
-print("name exists")
+    print("name exists")
 
 if name == "Tom":           # == 比较值是否相等
-print("same value")
+    print("same value")
 ```
 
 会被当成 false 的值：
@@ -215,19 +215,18 @@ status = "成年" if age >= 18 else "未成年"
 
 ## 5. 循环与推导式
 
-```text
+```python
 for i in range(1, 6):     # 生成 1,2,3,4,5；右边界 6 不包含
-print(i)
+    print(i)
 
 names = ["Tom", "Jack", "Lucy"]
 for index, name in enumerate(names):  # 同时拿到索引和值
-print(index, name)
+    print(index, name)
 
 user = {"name": "Tom", "age": 18}
 for key, value in user.items():       # 遍历 dict 的 key 和 value
-print(key, value)
+    print(key, value)
 ```
-
 列表推导式：
 
 ```python
@@ -237,24 +236,22 @@ even_nums = [i for i in range(10) if i % 2 == 0]  # 只保留偶数
 
 `while`：
 
-```text
+```python
 count = 3
 while count > 0:
-print(count)
-count -= 1          # 每次循环减 1，否则容易死循环
+    print(count)
+    count -= 1          # 每次循环减 1，否则容易死循环
 ```
-
 控制循环：
 
-```text
+```python
 for i in range(10):
-if i == 3:
-    continue        # 跳过本次循环，继续下一次
-if i == 8:
-    break           # 直接结束整个循环
-print(i)
+    if i == 3:
+        continue        # 跳过本次循环，继续下一次
+    if i == 8:
+        break           # 直接结束整个循环
+    print(i)
 ```
-
 ## 6. list
 
 list 是有序、可变、可重复的集合。
@@ -311,14 +308,13 @@ del user["age"]              # 删除 key
 
 遍历：
 
-```text
+```python
 for key in user:
-print(key, user[key])
+    print(key, user[key])
 
 for key, value in user.items():
-print(key, value)
+    print(key, value)
 ```
-
 嵌套 dict：
 
 ```python
@@ -375,55 +371,50 @@ x, y = point           # 解包
 
 函数用来把逻辑拆小，让代码可复用、可测试。
 
-```text
+```python
 def add(a: int, b: int) -> int:
-"""返回两个整数之和。"""
-return a + b
+    """返回两个整数之和。"""
+    return a + b
 
 result = add(1, 2)
 print(result)
 ```
-
 返回多个值：
 
-```text
+```python
 def get_user() -> tuple[str, int]:
-return "Tom", 18       # 本质返回 tuple
+    return "Tom", 18       # 本质返回 tuple
 
 name, age = get_user()     # 解包
 ```
-
 默认参数和命名参数：
 
-```text
+```python
 def hello(name: str = "Tom") -> None:
-print(f"hello {name}")
+    print(f"hello {name}")
 
 hello()                    # 使用默认值 Tom
 hello("Jack")              # 传位置参数
 hello(name="Lucy")         # 传命名参数，可读性更好
 ```
-
 `*args` 和 `**kwargs`：
 
-```text
+```python
 def debug(*args, **kwargs):
-print(args)     # 多个位置参数组成 tuple
-print(kwargs)   # 多个 key=value 参数组成 dict
+    print(args)     # 多个位置参数组成 tuple
+    print(kwargs)   # 多个 key=value 参数组成 dict
 
 debug(1, 2, name="Tom", age=18)
 ```
-
 函数也是对象：
 
-```text
+```python
 def hello():
-print("hello")
+    print("hello")
 
 fn = hello  # 不加括号，表示把函数本身赋值给 fn
 fn()        # 调用 fn，相当于调用 hello()
 ```
-
 ## 10. 文件与 JSON
 
 优先用 `pathlib`，写法更现代、更面向对象。
@@ -469,7 +460,7 @@ print(loaded["name"])
 
 文件读写小工具对应的是最基础的文本状态：
 
-```text
+```python
 from pathlib import Path
 from datetime import datetime
 import shutil
@@ -479,45 +470,43 @@ NOTES_FILE = DATA_DIR / "notes.txt"     # 用 / 拼路径，比字符串拼接�
 BACKUP_DIR = Path("backups")            # 备份目录，类似 checkpoint
 
 def add_note(text: str) -> None:
-DATA_DIR.mkdir(parents=True, exist_ok=True)  # 目录不存在就创建
-now = datetime.now().isoformat(timespec="seconds")
+    DATA_DIR.mkdir(parents=True, exist_ok=True)  # 目录不存在就创建
+    now = datetime.now().isoformat(timespec="seconds")
 
-## "a" 表示 append：追加写入，不覆盖原文件
-with NOTES_FILE.open("a", encoding="utf-8") as f:
-    f.write(f"[{now}] {text}\n")
+    # "a" 表示 append：追加写入，不覆盖原文件
+    with NOTES_FILE.open("a", encoding="utf-8") as f:
+        f.write(f"[{now}] {text}\n")
 
 def backup_notes() -> Path:
-BACKUP_DIR.mkdir(parents=True, exist_ok=True)
-backup_file = BACKUP_DIR / f"notes-{datetime.now():%Y%m%d-%H%M%S}.txt"
+    BACKUP_DIR.mkdir(parents=True, exist_ok=True)
+    backup_file = BACKUP_DIR / f"notes-{datetime.now():%Y%m%d-%H%M%S}.txt"
 
-## copy2 会尽量保留源文件的元数据，比单纯复制文本更适合做备份
-shutil.copy2(NOTES_FILE, backup_file)
-return backup_file
+    # copy2 会尽量保留源文件的元数据，比单纯复制文本更适合做备份
+    shutil.copy2(NOTES_FILE, backup_file)
+    return backup_file
 ```
-
 JSON task tracker 对应的是结构化状态：
 
-```text
+```python
 import json
 from pathlib import Path
 
 TASK_FILE = Path("data/tasks.json")
 
 def load_tasks() -> list[dict]:
-if not TASK_FILE.exists():
-    return []  # 第一次运行还没有状态文件，就返回空列表
+    if not TASK_FILE.exists():
+        return []  # 第一次运行还没有状态文件，就返回空列表
 
-text = TASK_FILE.read_text(encoding="utf-8")
-return json.loads(text)  # JSON 字符串 -> Python list/dict
+    text = TASK_FILE.read_text(encoding="utf-8")
+    return json.loads(text)  # JSON 字符串 -> Python list/dict
 
 def save_tasks(tasks: list[dict]) -> None:
-TASK_FILE.parent.mkdir(parents=True, exist_ok=True)
-TASK_FILE.write_text(
-    json.dumps(tasks, ensure_ascii=False, indent=2),  # Python list/dict -> JSON 字符串
-    encoding="utf-8",
-)
+    TASK_FILE.parent.mkdir(parents=True, exist_ok=True)
+    TASK_FILE.write_text(
+        json.dumps(tasks, ensure_ascii=False, indent=2),  # Python list/dict -> JSON 字符串
+        encoding="utf-8",
+    )
 ```
-
 和 SafeCode Agent 的对应关系：
 
 - `notes.txt` 像最简单的运行日志。
@@ -535,37 +524,36 @@ TASK_FILE.write_text(
 
 异常处理不是为了隐藏错误，而是为了在可预期错误发生时给出清晰处理。
 
-```text
+```python
 try:
-age = int(input("age: "))   # 可能 ValueError
-result = 10 / age            # 可能 ZeroDivisionError
+    age = int(input("age: "))   # 可能 ValueError
+    result = 10 / age            # 可能 ZeroDivisionError
 except ValueError:
-print("请输入数字")
+    print("请输入数字")
 except ZeroDivisionError:
-print("不能为 0")
+    print("不能为 0")
 else:
-print("成功", result)        # 没有异常才执行
+    print("成功", result)        # 没有异常才执行
 finally:
-print("结束")               # 无论是否异常都会执行
+    print("结束")               # 无论是否异常都会执行
 ```
 
 主动抛异常：
 
-```text
+```python
 age = -1
 if age < 0:
-raise ValueError("年龄不能小于 0")
+    raise ValueError("年龄不能小于 0")
 ```
 
 自定义异常：
 
-```text
+```python
 class BusinessError(Exception):
-pass
+    pass
 
 raise BusinessError("业务规则不允许这样操作")
 ```
-
 常见坑：
 
 - 不要写 `except: pass`，会把真实问题吞掉。
@@ -576,52 +564,49 @@ raise BusinessError("业务规则不允许这样操作")
 
 类适合表达“有状态的数据 + 行为”。小脚本不必强行写类，但项目里会经常用类封装 client、service、配置对象。
 
-```text
+```python
 class User:
-count = 0  # 类变量，所有对象共享
+    count = 0  # 类变量，所有对象共享
 
-def __init__(self, name: str, age: int):
-    self.name = name  # 实例变量，每个对象各有一份
-    self.age = age
+    def __init__(self, name: str, age: int):
+        self.name = name  # 实例变量，每个对象各有一份
+        self.age = age
 
-def hello(self) -> None:
-    print(f"hello {self.name}")
+    def hello(self) -> None:
+        print(f"hello {self.name}")
 
 user = User("Tom", 18)
 user.hello()
 ```
-
 继承：
 
-```text
+```python
 class Admin(User):
-def __init__(self, name: str, age: int, role: str):
-    super().__init__(name, age)  # 调用父类构造函数
-    self.role = role
+    def __init__(self, name: str, age: int, role: str):
+        super().__init__(name, age)  # 调用父类构造函数
+        self.role = role
 
-def hello(self) -> None:         # 方法重写
-    print(f"admin {self.name}")
+    def hello(self) -> None:         # 方法重写
+        print(f"admin {self.name}")
 ```
-
 `dataclass` 适合纯数据对象：
 
-```text
+```python
 from dataclasses import dataclass
 
 @dataclass
 class User:
-name: str
-age: int
+    name: str
+    age: int
 
 u = User("Tom", 18)
 print(u)  # 自动生成可读的 repr
 ```
-
 ## 13. 模块与包
 
 一个 `.py` 文件就是一个 module；带 `__init__.py` 的目录可以作为 package。
 
-```plain text
+```text
 project/
 ├── app/
 │   ├── __init__.py
@@ -630,11 +615,11 @@ project/
 └── main.py
 ```
 
-```text
+```python
 from app.services import call_api
 
 if __name__ == "__main__":
-call_api()
+    call_api()
 ```
 
 `if __name__ == "__main__"` 的作用：
@@ -673,23 +658,22 @@ counts = Counter(["a", "b", "a"])     # 统计次数：Counter({'a': 2, 'b': 1})
 
 `asyncio` 是单线程并发：遇到等待就切换去做别的任务，适合网络请求、API 调用、数据库查询等等待型任务。
 
-```text
+```python
 import asyncio
 
 async def work(name: str) -> str:
-await asyncio.sleep(1)      # 模拟等待网络请求
-return f"done {name}"
+    await asyncio.sleep(1)      # 模拟等待网络请求
+    return f"done {name}"
 
 async def main():
-results = await asyncio.gather(
-    work("a"),
-    work("b"),
-)
-print(results)
+    results = await asyncio.gather(
+        work("a"),
+        work("b"),
+    )
+    print(results)
 
 asyncio.run(main())             # 启动异步程序入口
 ```
-
 常见关键词：
 
 - `async def`：定义异步函数。
@@ -713,3 +697,7 @@ asyncio.run(main())             # 启动异步程序入口
 - 能写异常处理，并说明为什么不要 `except: pass`。
 - 能解释 `__name__ == "__main__"`。
 - 能理解 `async/await` 适合等待型任务。
+
+## 导航与关联
+
+- [模块入口：Python 工程基础](./README.md)

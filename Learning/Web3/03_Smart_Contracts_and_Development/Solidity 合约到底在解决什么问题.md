@@ -1,3 +1,8 @@
+---
+type: concept
+status: mature
+---
+
 # Solidity 合约到底在解决什么问题
 
 ## 1. 主题定位

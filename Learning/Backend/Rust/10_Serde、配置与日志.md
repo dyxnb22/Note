@@ -1,3 +1,8 @@
+---
+type: concept
+status: developing
+---
+
 # Serde、配置与日志
 
 ## 1. Serde 的角色
@@ -103,5 +108,10 @@ fn handle(id: u64, secret: &str) {
 ## 8. 练习
 
 设计一个带 `version` 的配置格式，支持 JSON 文件和环境变量覆盖；拒绝未知字段；校验端口和超时；用 tracing 输出请求 ID，但确认秘密不会出现在日志和错误文本中。
+
+## 导航与关联
+
+- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
+- 同一路线：[文件系统、进程与网络 I/O](./09_文件系统、进程与网络IO.md) · [并发安全与 Async 基础](./11_并发安全与Async基础.md)
 
 `#rust #serde #serialization #configuration #tracing #observability`

@@ -1,3 +1,8 @@
+---
+type: concept
+status: mature
+---
+
 # 交易、Gas、Nonce 和链上确认
 
 ## 1. 主题定位

@@ -1,3 +1,8 @@
+---
+type: concept
+status: developing
+---
+
 # Result、Option 与错误处理
 
 ## 1. 两种核心枚举
@@ -116,5 +121,10 @@ fn load_config(path: &Path) -> anyhow::Result<Config> {
 ## 8. 练习
 
 实现配置加载函数：区分文件不存在、权限错误、格式错误和字段非法；为每种错误写测试；给命令行用户提供简洁信息，同时保留可调试的根因链。
+
+## 导航与关联
+
+- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
+- 同一路线：[集合、字符串与迭代器](./04_集合、字符串与迭代器.md) · [模块、可见性与测试](./06_模块、可见性与测试.md)
 
 `#rust #result #option #error-handling #panic`

@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning/Backend/Java/01_Java.md",
+                "file": "Learning/Python/02_Python工程化.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Java"
+              "title": "02_Python工程化"
+            }
+          },
+          {
+            "id": "7f2fb647724ea8d9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CS6290-Privacy-考试临时资料/Lecture/03-Lecture1B-Bitcoin所有权与脚本.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "03-Lecture1B-Bitcoin所有权与脚本"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -112,7 +127,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Learning/Backend/Java/01_Java.md",
+            "file": "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -166,6 +181,34 @@
       "bases:新建数据库": false
     }
   },
-  "active": "760ff729d853832c",
-  "lastOpenFiles": []
+  "active": "7f2fb647724ea8d9",
+  "lastOpenFiles": [
+    "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md",
+    "CS6290-Privacy-考试临时资料/Lecture/01-Lecture0-课程定位与学习路线.md",
+    "Learning/Python/02_Python工程化.md",
+    "Learning/Agent/实践/rust-agent-runtime/src/main.rs",
+    "Learning/Agent/实践/rust-agent-runtime/src/lib.rs",
+    "Learning/Agent/实践/rust-agent-runtime/README.md",
+    "Learning/Agent/实践/rust-agent-runtime/Cargo.toml",
+    "Learning/Agent/实践/rust-agent-runtime/Cargo.lock",
+    "Learning/Backend/Go/实践/go-backend-service/internal/httpapi",
+    "Learning/Backend/Go/实践/go-backend-service/internal/order",
+    "Learning/Backend/Go/实践/go-backend-service/cmd/api",
+    "Learning/Backend/Go/实践/go-backend-service/internal",
+    "Learning/Backend/Go/实践/go-backend-service/cmd",
+    "Learning/Backend/Go/实践/go-backend-service",
+    "CS6290-Privacy-考试临时资料/Lecture/00-课程总览.md",
+    "Learning/Python/实践/Python基础练习/README.md",
+    "Learning/Python/01_Python核心语法.md",
+    "Projects/BigMarket/06-一致性-消息库存幂等与补偿.md",
+    "Projects/BigMarket/04-业务流程-核心抽奖闭环.md",
+    "Projects/BigMarket/03-微服务-服务边界与通信.md",
+    "Learning/Backend/Java/05_JUC.md",
+    "Learning/Backend/Java/04_JVM.md",
+    "Learning/Backend/Java/03_Java集合.md",
+    "Learning/Backend/Java/02_JavaIO与网络编程.md",
+    "Learning/Backend/Java/01_Java.md",
+    "阅读清单.md",
+    "Learning/Agent/00_学习路线图.md"
+  ]
 }

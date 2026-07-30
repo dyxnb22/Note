@@ -1,3 +1,9 @@
+---
+type: concept
+status: mature
+last_verified: 2026-07-30
+---
+
 # DeFi 机制与风险速查
 
 连接资产标准、流动性、清算、MEV 和激励错配，不把收益与风险分开理解。
@@ -87,6 +93,11 @@ MEV 是区块生产者或排序参与者通过决定交易包含、排除和顺�
 - [Ethereum Improvement Proposals](https://eips.ethereum.org/)
 - [OpenZeppelin 文档](https://docs.openzeppelin.com/)
 
-本文是机制速查；协议版本、网络参数、监管和产品支持会变化。核对日期：2026-07-22。
+本文是机制速查；协议版本、网络参数、监管和产品支持会变化。核对日期：2026-07-30。
+
+## 导航与关联
+
+- [模块入口：04_DeFi_and_Tokenomics](./README.md)
+- 同一路线：[稳定币的几种基本路线](./稳定币的几种基本路线.md)
 
 `#web3 #reference #security`

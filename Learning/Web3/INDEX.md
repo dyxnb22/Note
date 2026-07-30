@@ -1,3 +1,9 @@
+---
+type: map
+status: mature
+last_verified: 2026-07-30
+---
+
 # Web3 学习索引
 
 这条主线同时回答两类问题：链上系统怎样运行，以及它为什么会产生不同于传统后端和金融系统的信任、治理与风险结构。
@@ -47,6 +53,6 @@
 4. 合约测试覆盖示例、模糊测试和业务不变量；审计不能替代权限治理。
 5. 标准、网络参数、合约地址和监管结论使用前重新核验。
 
-主要参考入口：[Ethereum 开发文档](https://ethereum.org/developers/docs/)、[Solidity 文档](https://docs.soliditylang.org/)、[EIPs](https://eips.ethereum.org/)、[OpenZeppelin 文档](https://docs.openzeppelin.com/)。核对日期：2026-07-22。
+主要参考入口：[Ethereum 开发文档](https://ethereum.org/developers/docs/)、[Solidity 文档](https://docs.soliditylang.org/)、[EIPs](https://eips.ethereum.org/)、[OpenZeppelin 文档](https://docs.openzeppelin.com/)。核对日期：2026-07-30。入口可达不等于某项 EIP 已生效；实现前还要核对目标链、网络升级、编译器和依赖锁定版本。
 
 `#web3 #blockchain #smart-contract #index`

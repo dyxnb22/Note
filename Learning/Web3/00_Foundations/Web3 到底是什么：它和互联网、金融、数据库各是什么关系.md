@@ -1,3 +1,8 @@
+---
+type: concept
+status: mature
+---
+
 # Web3 到底是什么：它和互联网、金融、数据库各是什么关系
 
 ## 1. 主题定位

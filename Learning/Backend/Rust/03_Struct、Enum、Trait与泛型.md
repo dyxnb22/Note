@@ -1,3 +1,8 @@
+---
+type: concept
+status: developing
+---
+
 # Struct、Enum、Trait 与泛型
 
 ## 1. `struct`
@@ -142,7 +147,7 @@ trait IteratorLike {
 - `PartialEq`/`Eq`：比较相等。
 - `PartialOrd`/`Ord`：排序。
 - `Default`：默认值。
-- `Hash`：哈希集合或 map 的键。
+- [Hash](../../CS/算法/Hash.md)：哈希集合或 map 的键。
 - `Serialize`/`Deserialize`：通常由 Serde 派生。
 
 不要为了方便给拥有大量资源或敏感数据的类型随意派生 `Clone`、`Debug` 或 `Serialize`。

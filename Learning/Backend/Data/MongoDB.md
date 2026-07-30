@@ -67,3 +67,8 @@ Change Stream 基于 Oplog 提供变更订阅。消费者保存 Resume Token，�
 ## 最小实验
 
 为用户订单历史分别设计嵌入和引用模型，构造热点 Shard Key，模拟 Primary 切换，并验证 Change Stream 消费恢复。
+
+## 导航与关联
+
+- [模块入口：Data](./README.md)
+- 同一路线：[Redis](./Redis.md) · [Cassandra](./Cassandra.md)

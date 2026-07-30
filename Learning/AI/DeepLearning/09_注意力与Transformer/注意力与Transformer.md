@@ -60,4 +60,9 @@ FFN 对每个 Token 独立进行通道变换，通常包含升维、激活、降
 
 自回归生成时缓存历史 K/V，使每一步不重算全部历史层。Cache 占用随层数、序列、Batch 和 KV Head 增长；连续批处理、分页 Cache 和 GQA/MQA 用于改善吞吐与容量。
 
+## 导航与关联
+
+- [模块入口：动手学深度学习路线](../README.md)
+- 同一路线：[现代循环网络与 Seq2Seq](../08_现代循环网络与序列到序列/现代循环网络与Seq2Seq.md) · [优化与训练诊断](../10_优化与训练策略/优化与训练诊断.md)
+
 `#attention #transformer #self-attention`

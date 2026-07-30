@@ -1,3 +1,8 @@
+---
+type: concept
+status: developing
+---
+
 # Rust 基础语法与控制流
 
 ## 1. 最小程序
@@ -160,5 +165,10 @@ let double = |value: i32| value * factor;
 ## 练习
 
 写一个函数，接收一组整数，返回最大值、最小值和平均值；空输入返回自定义错误。要求分别用普通循环和迭代器实现，并为负数、溢出和空输入写测试。
+
+## 导航与关联
+
+- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
+- 同一路线：[Rust 所有权、借用与生命周期](./02_Rust所有权、借用与生命周期.md)
 
 `#rust #syntax #control-flow #pattern-matching`

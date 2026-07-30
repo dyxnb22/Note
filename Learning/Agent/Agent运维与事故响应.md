@@ -156,3 +156,8 @@ Kill switch 本身需要权限、审计和演练，不能只存在于文档里�
 4. 设计 Provider 故障、成本失控和越权调用三个事故 runbook；
 5. 实现一个能立即禁止写工具的 kill switch；
 6. 每次事故自动生成一个脱敏 Eval case。
+
+## 导航与关联
+
+- [模块入口：AI Agent 工程知识库](./README.md)
+- 同一路线：[Agent 部署与生产化](./12_部署与生产化.md) · [推理模型与 Extended Thinking](./推理模型与Extended%20Thinking.md)

@@ -105,4 +105,9 @@ tx.send(job).await?;
 
 实现一个有界并发的异步 TCP 服务：限制连接数，给每个请求设置超时，支持 shutdown channel，记录 request ID，并测试客户端提前断开和服务优雅退出。
 
+## 导航与关联
+
+- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
+- 同一路线：[并发安全与 Async 基础](./11_并发安全与Async基础.md) · [Web 服务与数据库](./13_Web服务与数据库.md)
+
 `#rust #tokio #async #tcp #web-service #backpressure`

@@ -1,9 +1,14 @@
+---
+type: guide
+status: developing
+---
+
 # 错误与Debug
 Debug 的核心不是背错误，而是建立排查顺序：先看错误类型，再看堆栈，再定位环境、输入、依赖、网络、配置或代码逻辑。
 
 ## 1. Debug 基本流程
 
-```plain text
+```text
 复现问题
 → 读完整报错
 → 找第一段自己代码位置
@@ -29,3 +34,7 @@ Debug 的核心不是背错误，而是建立排查顺序：先看错误类型�
 | `AttributeError` | 对象没有这个属性或方法 | 打印对象类型 |
 | `ModuleNotFoundError` | 包没装、环境不对 | 检查 venv / pip |
 | `FileNotFoundError` | 文件路径错误 | 打印当前目录和路径 |
+
+## 导航与关联
+
+- [模块入口：Python 工程基础](./README.md)

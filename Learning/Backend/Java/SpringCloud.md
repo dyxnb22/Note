@@ -1,3 +1,8 @@
+---
+type: concept
+status: developing
+---
+
 # Spring Cloud
 
 Spring Cloud 是在 Spring Boot 应用之上组织分布式组件的一组集成方案。它不自动解决微服务复杂度；服务拆分、数据边界和可靠性仍应先按 [Architecture](../Architecture/README.md) 的原则设计。

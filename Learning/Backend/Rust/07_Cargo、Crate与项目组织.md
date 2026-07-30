@@ -125,4 +125,9 @@ strip = "symbols"
 
 创建一个 workspace，包含一个 library 和一个 binary。binary 调用 library 的公开函数；为 library 写单元、集成和文档测试；配置 clippy 为 warning 当作 error，并解释哪些依赖属于普通、开发和可选依赖。
 
+## 导航与关联
+
+- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
+- 同一路线：[模块、可见性与测试](./06_模块、可见性与测试.md) · [智能指针与内部可变性](./08_智能指针与内部可变性.md)
+
 `#rust #cargo #crate #workspace #project-structure`

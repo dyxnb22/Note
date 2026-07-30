@@ -1,7 +1,7 @@
 # Python工程化
 这一页解决一个问题：如何把“能跑的脚本”整理成“别人能运行、自己能维护、线上能排错”的 Python 项目。
 
-本页边界：这里重点讲环境、依赖、配置、日志、测试、目录结构、启动方式和简单 CLI 入口。Service / Client / Repository / Pipeline 等更深的架构拆分放到 `Python代码组织与设计模式`。
+本页边界：这里重点讲环境、依赖、配置、日志、测试、目录结构、启动方式和简单 CLI 入口。Service / Client / Repository / Pipeline 等更深的架构拆分放到 [Python代码组织与设计模式](./Python代码组织与设计模式.md)。
 
 ## 1. 工程化到底解决什么
 
@@ -42,7 +42,7 @@ deactivate                    # 退出虚拟环境
 
 `.gitignore`：
 
-```plain text
+```text
 .venv/          # 虚拟环境很大，不提交
 __pycache__/    # Python 运行缓存，不提交
 *.pyc           # 编译缓存，不提交
@@ -110,7 +110,7 @@ testpaths = ["tests"]                   # pytest 默认测试目录
 
 传统 Python 项目经常会同时用很多工具：
 
-```plain text
+```text
 python -m venv .venv       # 创建虚拟环境
 pip install xxx            # 安装依赖
 pip freeze > requirements  # 固定依赖
@@ -121,7 +121,7 @@ poetry add xxx             # 项目依赖管理
 
 `uv` 的目标是把这些常见动作统一起来：
 
-```plain text
+```text
 uv venv        # 创建虚拟环境
 uv add         # 给项目添加依赖
 uv run         # 在项目环境里运行命令或脚本
@@ -166,7 +166,7 @@ uv add requests python-dotenv openai
 
 这通常会产生：
 
-```plain text
+```text
 pyproject.toml   # 项目依赖声明
 uv.lock          # 锁定完整依赖版本，保证可复现
 .venv/           # 项目虚拟环境
@@ -276,7 +276,7 @@ uv run script.py
 
 一般建议提交：
 
-```plain text
+```text
 pyproject.toml  # 依赖声明：我需要哪些包
 uv.lock         # 精确锁定：最终解析到了哪些具体版本
 ```
@@ -319,7 +319,7 @@ uv sync
 
 记住一句话：
 
-```plain text
+```text
 pip / venv 是基础，uv 是更现代的一体化工具；先理解环境隔离和依赖声明，再用 uv 提升效率和可复现性。
 ```
 
@@ -327,7 +327,7 @@ pip / venv 是基础，uv 是更现代的一体化工具；先理解环境隔离
 
 `.env` 存真实配置，`.env.example` 存模板，`config.py` 负责读取并校验。
 
-```plain text
+```text
 .env              # 本地真实配置，不提交 Git
 .env.example      # 配置模板，可以提交 Git
 app/config.py     # 读取配置，提供给代码使用
@@ -335,15 +335,15 @@ app/config.py     # 读取配置，提供给代码使用
 
 `.env.example`：
 
-```plain text
+```dotenv
 OPENAI_API_KEY=your_api_key_here
-MODEL_NAME=gpt-5
+MODEL_NAME=provider-model-id
 TIMEOUT_SECONDS=30
 ```
 
 `app/config.py`：
 
-```text
+```python
 import os
 from dataclasses import dataclass
 
@@ -353,22 +353,25 @@ load_dotenv()  # 把 .env 文件里的配置加载到环境变量
 
 @dataclass(frozen=True)
 class Settings:
-openai_api_key: str             # 必填配置
-model_name: str = "gpt-5"       # 有默认值
-timeout_seconds: float = 30.0
+    openai_api_key: str             # 必填配置
+    model_name: str                 # 必填配置，不在教程里写易过期默认模型
+    timeout_seconds: float = 30.0
 
 def load_settings() -> Settings:
-api_key = os.getenv("OPENAI_API_KEY")  # 从环境变量读取 API Key
-if not api_key:
-    raise RuntimeError("OPENAI_API_KEY is missing")
+    api_key = os.getenv("OPENAI_API_KEY")  # 从环境变量读取 API Key
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is missing")
 
-return Settings(
-    openai_api_key=api_key,
-    model_name=os.getenv("MODEL_NAME", "gpt-5"),
-    timeout_seconds=float(os.getenv("TIMEOUT_SECONDS", "30")),
-)
+    model_name = os.getenv("MODEL_NAME")
+    if not model_name:
+        raise RuntimeError("MODEL_NAME is missing")
+
+    return Settings(
+        openai_api_key=api_key,
+        model_name=model_name,
+        timeout_seconds=float(os.getenv("TIMEOUT_SECONDS", "30")),
+    )
 ```
-
 原则：
 
 - 密钥不要写死在代码里。
@@ -377,7 +380,7 @@ return Settings(
 
 ## 6. 推荐目录结构
 
-```plain text
+```text
 my-agent-project/
 ├── app/
 │   ├── __init__.py          # 标记 app 是 Python package
@@ -401,7 +404,7 @@ my-agent-project/
 
 小项目可以先简单一点：
 
-```plain text
+```text
 main.py
 config.py
 services.py
@@ -424,34 +427,32 @@ tests/
 
 反例：
 
-```text
+```python
 def run_agent():
-## 读取配置
-## 拼 prompt
-## 调 OpenAI
-## 调工具
-## 写日志
-## 处理异常
-## 返回结果
-pass
+    # 读取配置
+    # 拼 prompt
+    # 调模型
+    # 调工具
+    # 写日志
+    # 处理异常
+    # 返回结果
+    pass
 ```
-
 更好的拆法：
 
-```text
+```python
 def build_messages(user_input: str) -> list[dict]:
-return [{"role": "user", "content": user_input}]
+    return [{"role": "user", "content": user_input}]
 
 def call_llm(messages: list[dict]) -> str:
-## 只负责调用模型
-...
+    # 只负责调用模型
+    ...
 
 def run_agent(user_input: str) -> str:
-## 只负责编排流程
-messages = build_messages(user_input)
-return call_llm(messages)
+    # 只负责编排流程
+    messages = build_messages(user_input)
+    return call_llm(messages)
 ```
-
 ## 8. logging 日志
 
 工程项目里不要到处 `print()`。日志要能区分级别、记录上下文，并且不要泄露密钥。
@@ -501,14 +502,13 @@ logger.exception("调用外部 API 失败")   # 在 except 中记录完整异常
 
 命名：
 
-```text
-user_name = "Tom"          # 变量 / 函数：snake_case
-DEFAULT_MODEL = "gpt-5"    # 常量：UPPER_CASE
+```python
+user_name = "Tom"                  # 变量 / 函数：snake_case
+DEFAULT_TIMEOUT_SECONDS = 30        # 常量：UPPER_CASE
 
 class AgentRunner:          # 类名：PascalCase
-pass
+    pass
 ```
-
 import 顺序：
 
 ```python
@@ -527,14 +527,13 @@ from app.logger import logger
 
 类型注解：
 
-```text
+```python
 def get_weather(city: str) -> dict[str, str]:
-return {
-    "city": city,
-    "temperature": "24°C",
-}
+    return {
+        "city": city,
+        "temperature": "24°C",
+    }
 ```
-
 类型注解的好处：
 
 - IDE 提示更好。
@@ -546,22 +545,22 @@ return {
 
 不要吞异常。
 
-```text
+```python
 try:
-result = call_api()
+    result = call_api()
 except Exception:
-logger.exception("调用 API 失败")  # 记录完整错误栈
-raise                              # 继续抛出，让上层决定怎么处理
+    logger.exception("调用 API 失败")  # 记录完整错误栈
+    raise                              # 继续抛出，让上层决定怎么处理
 ```
 
 如果是面向用户的接口，可以转成友好错误：
 
-```text
+```python
 try:
-result = call_api()
+    result = call_api()
 except Exception:
-logger.exception("调用 API 失败")
-return "服务暂时不可用，请稍后重试。"
+    logger.exception("调用 API 失败")
+    result = "服务暂时不可用，请稍后重试。"
 ```
 
 注意：
@@ -574,20 +573,18 @@ return "服务暂时不可用，请稍后重试。"
 
 测试不一定一开始很多，但核心函数要能测。
 
-```text
-## app/tools.py
+```python
+# app/tools.py
 def add(a: int, b: int) -> int:
-return a + b
+    return a + b
 ```
-
-```text
-## tests/test_tools.py
+```python
+# tests/test_tools.py
 from app.tools import add
 
 def test_add():
-assert add(1, 2) == 3
+    assert add(1, 2) == 3
 ```
-
 运行：
 
 ```bash
@@ -690,15 +687,14 @@ load_dotenv(BASE_DIR / ".env")
 
 ### 14.2 `@dataclass(frozen=True)`：配置对象不可修改
 
-```text
+```python
 from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Settings:
-app_name: str
-log_level: str
+    app_name: str
+    log_level: str
 ```
-
 `dataclass` 自动生成初始化方法；`frozen=True` 表示创建后不允许随便改字段，适合配置对象。
 
 ### 14.3 `.env` 显式路径加载
@@ -713,15 +709,14 @@ load_dotenv(BASE_DIR / ".env")
 
 ### 14.4 `getattr(logging, level.upper(), logging.INFO)`
 
-```text
+```python
 import logging
 
 def setup_logger(level: str = "INFO") -> logging.Logger:
-logging.basicConfig(
-    level=getattr(logging, level.upper(), logging.INFO),
-    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
-)
-return logging.getLogger("project-template")
+    logging.basicConfig(
+        level=getattr(logging, level.upper(), logging.INFO),
+        format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    )
+    return logging.getLogger("project-template")
 ```
-
 含义：把字符串 `"INFO" / "DEBUG"` 转成 logging 模块里的常量。第三个参数 `logging.INFO` 是默认值，避免用户传错配置时程序直接崩。

@@ -1,3 +1,9 @@
+---
+type: guide
+status: mature
+last_verified: 2026-07-30
+---
+
 # LangGraph
 
 本文聚焦使用 LangGraph 实现状态图、持久化、中断恢复、并行分发和多 Agent 编排。框架无关的工作流建模、可靠性原则与选型方法见 [Workflow 与编排](./Workflow与编排.md)。
@@ -10,7 +16,7 @@
 
 简单 Agent 可以自己写 while loop：
 
-```text
+```pseudocode
 while not done:
 response = llm.call(messages)
 if response.tool_calls:
@@ -18,7 +24,6 @@ if response.tool_calls:
 else:
     done = True
 ```
-
 但当流程变复杂时，你会遇到：
 
 | 问题 | 表现 |
@@ -46,7 +51,7 @@ State → Node → Edge → Node → END
 
 状态是整个图的数据中心，所有节点共享同一个 state：
 
-```text
+```pseudocode
 from typing import TypedDict, Annotated
 from langgraph.graph.message import add_messages
 
@@ -57,7 +62,6 @@ tool_results: list[dict]
 step_count: int
 error_log: list[str]
 ```
-
 **设计原则**：
 - State 要可序列化（方便 checkpoint）
 - 只放需要在节点间传递的数据
@@ -67,7 +71,7 @@ error_log: list[str]
 
 节点是函数，接受 state，返回对 state 的更新：
 
-```text
+```pseudocode
 def call_llm_node(state: AgentState) -> dict:
 """调用 LLM，返回下一个 message"""
 response = client.chat.completions.create(
@@ -100,12 +104,11 @@ return {
     "tool_results": state["tool_results"] + tool_results,
 }
 ```
-
 ### Edge（边）
 
 边控制节点之间的跳转：
 
-```text
+```pseudocode
 from langgraph.graph import StateGraph, END
 
 ## 无条件边
@@ -127,14 +130,13 @@ should_continue,
 }
 )
 ```
-
 ---
 
 ## 3. 构建完整 Agent Graph
 
 ```python
 from langgraph.graph import StateGraph, END
-from langgraph.checkpoint.memory import MemorySaver
+from langgraph.checkpoint.memory import InMemorySaver
 
 ## 构建图
 builder = StateGraph(AgentState)
@@ -155,7 +157,7 @@ should_continue,
 builder.add_edge("execute_tools", "call_llm")  # 执行完工具，回到 LLM
 
 ## 编译（加 checkpointer 支持持久化）
-memory = MemorySaver()
+memory = InMemorySaver()
 graph = builder.compile(checkpointer=memory)
 
 ## 运行
@@ -177,8 +179,8 @@ Checkpoint 让 Agent 可以：
 
 ```python
 ## 内存 Checkpointer（开发用，进程重启丢失）
-from langgraph.checkpoint.memory import MemorySaver
-memory = MemorySaver()
+from langgraph.checkpoint.memory import InMemorySaver
+memory = InMemorySaver()
 
 ## PostgreSQL Checkpointer（生产用）
 from langgraph.checkpoint.postgres import PostgresSaver
@@ -210,38 +212,15 @@ result = graph.invoke(None, config=config)
 
 ## 5. Human-in-the-loop（中断与恢复）
 
-```python
-## 在某些节点前中断，等待人工确认
-graph = builder.compile(
-checkpointer=memory,
-interrupt_before=["sensitive_action"],  # 在这个节点前暂停
-)
+当前推荐在节点内调用 `interrupt()`，恢复时用相同 `thread_id` 和 `Command(resume=...)`；这使审批可以依据运行时风险动态触发。图必须配置 checkpointer，interrupt payload 必须可 JSON 序列化，而且节点恢复时会从节点开头重新执行，所以中断前的副作用必须幂等或移到独立节点。完整模式见 §17。
 
-## 第一次运行：执行到 sensitive_action 前暂停
-config = {"configurable": {"thread_id": "task-456"}}
-result = graph.invoke(initial_input, config=config)
-
-## 此时 Agent 暂停，等待人工审核
-current_state = graph.get_state(config)
-print("待审核操作:", current_state.values["pending_action"])
-
-## 人工审核后，可以选择：
-## 1. 直接继续（同意）
-graph.invoke(None, config=config)
-
-## 2. 修改 state 后继续（修正）
-graph.update_state(config, {"pending_action": modified_action})
-graph.invoke(None, config=config)
-
-## 3. 中止任务
-## 不调用 invoke，让 thread 超时或显式标记失败
-```
+编译时的 `interrupt_before` / `interrupt_after` 仍可用于调试和静态断点，但官方文档不建议把它作为主要的人工审批流程。
 
 ---
 
 ## 6. 条件路由与分支
 
-```text
+```pseudocode
 def route_by_intent(state: AgentState) -> str:
 """根据用户意图路由到不同处理路径"""
 intent = state.get("classified_intent", "unknown")
@@ -265,7 +244,6 @@ route_by_intent,
 }
 )
 ```
-
 ---
 
 ## 7. 子图（Subgraph）
@@ -294,7 +272,7 @@ main_builder.add_edge("research", "write_report")
 
 ## 8. 流式输出（Streaming）
 
-```text
+```pseudocode
 ## 流式接收图的执行过程
 for chunk in graph.stream(initial_input, config=config):
 for node_name, node_output in chunk.items():
@@ -310,7 +288,6 @@ for message, metadata in chunk:
     if hasattr(message, "content") and message.content:
         print(message.content, end="", flush=True)
 ```
-
 ---
 
 ## 9. 常见模式与最佳实践
@@ -319,8 +296,8 @@ for message, metadata in chunk:
 |------|------|
 | State 用 TypedDict 或 Pydantic | 类型安全，IDE 有补全，减少运行时错误 |
 | 每个节点只做一件事 | 单一职责，方便测试和替换 |
-| 生产环境用持久化 Checkpointer | MemorySaver 进程重启后丢失 |
-| 设置 recursion_limit | 防止无限循环，默认 25 |
+| 生产环境用持久化 Checkpointer | InMemorySaver 进程重启后丢失 |
+| 设置 recursion_limit | 防止无限循环；显式配置并通过测试确定上限 |
 | 在节点里记录日志 | 方便 debug，知道每步做了什么 |
 
 ```python
@@ -678,7 +655,7 @@ print(result["summaries"])  # 3 个摘要
 
 传统做法：路由逻辑写在 `add_conditional_edges` 的函数里（节点外）。
 
-2025 年新做法：用 `Command` 在节点内部同时更新 state 和决定下一步：
+当前 Graph API 也可用 `Command` 在节点内部同时更新 state 和决定下一步：
 
 ```python
 from langgraph.types import Command
@@ -732,15 +709,14 @@ return Command(
 
 ---
 
-## 17. `interrupt()` — 新版 Human-in-the-loop
+## 17. `interrupt()` — 动态 Human-in-the-loop
 
-旧版（编译时静态）：`compile(interrupt_before=["node_name"])`
-——在图编译时就固定了哪些节点前中断，灵活性差。
+静态断点：`compile(interrupt_before=["node_name"])` 会在图编译时固定中断位置，适合调试或确定性的断点。
 
-新版（运行时动态）：在节点内部调用 `interrupt()`，可以根据运行时条件决定是否中断：
+人工审批推荐在节点内部调用 `interrupt()`，根据运行时条件决定是否中断：
 
 ```python
-from langgraph.types import interrupt
+from langgraph.types import Command, interrupt
 
 def approval_node(state: AgentState) -> dict:
     proposed_action = state["proposed_action"]
@@ -775,7 +751,7 @@ result = graph.invoke(
 )
 ```
 
-**新版 vs 旧版对比**：
+**动态审批与静态断点对比**：
 
 | | `interrupt_before` | `interrupt()` |
 |-|-------------------|---------------|
@@ -835,7 +811,7 @@ builder.set_entry_point("supervisor")
 builder.add_edge("research_agent", "supervisor")
 builder.add_edge("coder_agent", "supervisor")
 
-graph = builder.compile(checkpointer=MemorySaver())
+graph = builder.compile(checkpointer=InMemorySaver())
 ```
 
 **执行流程**：
@@ -913,9 +889,10 @@ result = graph.invoke(None, config=step5.config)
 
 ## 20. Functional API（轻量写法）
 
-2025 年 LangGraph 新增 Functional API，比 StateGraph 更轻量，适合简单流程：
+Functional API 比 StateGraph 更轻量，适合简单流程：
 
 ```python
+from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.func import entrypoint, task
 
 # @task：定义可以并行执行的异步任务
@@ -928,7 +905,7 @@ def classify(document: str) -> str:
     return llm.invoke(f"分类：{document}").content
 
 # @entrypoint：定义整个工作流的入口
-@entrypoint(checkpointer=MemorySaver())
+@entrypoint(checkpointer=InMemorySaver())
 def process_docs(documents: list[str]) -> dict:
     # 并行提交所有任务（返回 Future）
     summary_futs = [summarize(doc) for doc in documents]
@@ -953,7 +930,7 @@ result = process_docs.invoke(["文档1...", "文档2...", "文档3..."], config=
 | 学习曲线 | 较陡（需要理解图概念）| 低（普通函数写法）|
 | 可视化 | 完整图结构 | 有限 |
 | Checkpoint | 节点级别 | 任务级别 |
-| HITL | `interrupt_before` / `interrupt()` | `interrupt()` |
+| HITL | 静态断点 / `interrupt()` | `interrupt()` |
 
 **选择原则**：有复杂条件路由或需要完整图可视化 → StateGraph；简单 Map-Reduce 或线性流程 → Functional API。
 
@@ -987,11 +964,11 @@ s15-s18 展示了 LangGraph 之外的另一种 Harness 协作实现：
 
 **Q：什么是 Checkpoint，为什么重要？**
 
-> Checkpoint 是在图执行过程中保存 state 快照的机制。重要性：一是容错——程序崩了可以从上次状态恢复，不用从头来；二是 Human-in-the-loop——在关键节点暂停，等待人工确认后继续；三是调试——可以回到任意历史状态检查问题。生产环境必须用持久化 Checkpointer（PostgreSQL/SQLite），开发环境可以用 MemorySaver。
+> Checkpoint 是在图执行过程中保存 state 快照的机制。重要性：一是容错——程序崩了可以从上次状态恢复，不用从头来；二是 Human-in-the-loop——在关键节点暂停，等待人工确认后继续；三是调试——可以回到任意历史状态检查问题。生产环境必须用持久化 Checkpointer（PostgreSQL/SQLite），开发环境可以用 InMemorySaver。
 
 **Q：如何实现 Human-in-the-loop？**
 
-> 有两种方式。旧版：编译时 `compile(interrupt_before=["node_name"])` 静态指定中断节点，暂停后通过 `update_state` + `invoke(None)` 继续。新版（推荐）：在节点内部调用 `interrupt(payload)` 动态中断，支持条件中断（只有高风险操作才暂停），人工通过 `Command(resume=...)` 传入决定继续。新版更灵活，可以把审核上下文（操作描述、风险等级）结构化传给审核者。
+> 有两种方式。`interrupt_before` / `interrupt_after` 是静态断点，适合调试；人工流程推荐在节点内部调用 `interrupt(payload)` 动态中断，支持条件中断，人工通过 `Command(resume=...)` 传入决定继续。节点恢复时会从节点开头重新执行，所以中断前的副作用必须幂等或拆到独立节点。
 
 **Q：`Send` API 解决什么问题？**
 

@@ -80,7 +80,7 @@ def tool_call_names(response: Mapping[str, Any]) -> list[str]:
 
 模型可能返回 Markdown 代码块、尾部逗号或空字符串。解析器应该是一个独立、可测试的纯函数。
 
-```text
+```python
 import json
 import re
 from typing import Any
@@ -102,7 +102,6 @@ def parse_model_json(raw: str) -> dict[str, Any]:
         raise ValueError("模型返回的 JSON 顶层必须是 object")
     return value
 ```
-
 不要无条件执行 `raw.replace("'", '"')`：这会破坏字符串中的英文撇号、路径和内容。确实需要容错时，使用专门的 `json-repair`，并把修复结果当作“不可信输入”继续做 schema 校验。
 
 SSE / streaming 的增量事件也应先逐行解析、再根据 Provider 的事件格式取 delta；不要假设所有 Provider 都使用相同的 `choices[0].delta` 结构。完整的调用和流式输出见 [LLM 调用基础](../Agent/01_LLM调用基础.md)。

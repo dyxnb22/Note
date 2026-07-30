@@ -24,35 +24,21 @@
             }
           },
           {
-            "id": "5dbc21557957cfd7",
+            "id": "8b24dc80b9fb9d35",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Projects/BigMarket/03-微服务-服务边界与通信.md",
+                "file": "Learning/Python/01_Python核心语法.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03-微服务-服务边界与通信"
-            }
-          },
-          {
-            "id": "db1ebc496524dc02",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Learning/Backend/Java/01_Java.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "01_Java"
+              "title": "01_Python核心语法"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -125,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Learning/Backend/Java/01_Java.md",
+                "file": "Learning/Python/01_Python核心语法.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +121,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "01_Java 的反向链接列表"
+              "title": "01_Python核心语法 的反向链接列表"
             }
           },
           {
@@ -214,40 +200,43 @@
       "bases:新建数据库": false
     }
   },
-  "active": "db1ebc496524dc02",
+  "active": "8b24dc80b9fb9d35",
   "lastOpenFiles": [
-    "Learning/Finance/15_Advanced_Practice/README.md",
-    "Learning/Health_and_Energy/05_Sustainable_Work/README.md",
-    "Learning/History_and_Society/05_Digital_Age/README.md",
-    "Learning/Writing_and_Expression/05_Professional_Documents/README.md",
-    "Learning/Finance/15_Advanced_Practice/金融进阶与实证研究.md",
-    "Learning/Finance/15_Advanced_Practice",
-    "Learning/Health_and_Energy/05_Sustainable_Work/长期工作健康与恢复.md",
-    "Learning/Health_and_Energy/05_Sustainable_Work",
-    "Learning/History_and_Society/05_Digital_Age/计算机AI产业与数字社会.md",
-    "Learning/History_and_Society/05_Digital_Age",
-    "Learning/Web3/08_Advanced_Engineering/Web3高级工程与协议安全.md",
-    "Learning/Web3/08_Advanced_Engineering",
-    "Learning/Writing_and_Expression/05_Professional_Documents/专业技术文档与困难沟通.md",
-    "Learning/Writing_and_Expression/05_Professional_Documents",
-    "Learning/References/技术资料证据与复现工作流.md",
-    "Learning/Career/职业发展全流程.md",
-    "Learning/Case_Studies/System_Labs/README.md",
-    "Learning/Case_Studies/System_Labs",
-    "Learning/Backend/Delivery/08_云原生与IaC.md",
-    "Learning/Backend/SoftwareEngineering.md",
-    "Learning/Backend/Data/数据工程与流处理.md",
-    "Learning/AI/DeepLearning/14_训练系统与实验方法/训练系统与实验方法.md",
-    "Learning/AI/DeepLearning/14_训练系统与实验方法",
-    "Learning/TypeScript/前端应用工程.md",
-    "Learning/Backend/Java/Spring生产机制与排障.md",
-    "Learning/Backend/Go/04_Go测试与性能诊断.md",
-    "Learning/Backend/Go/03_Go网络服务工程.md",
-    "Learning/Backend/Go/02_Go并发与内存模型.md",
-    "Learning/Backend/Go/01_Go语言与Runtime.md",
-    "Learning/Python/05_Python运行时与性能.md",
-    "Learning/CS/13_人机交互.md",
-    "Learning/CS/12_浏览器原理与前端工程.md",
-    "Learning/CS/11_计算机图形学.md"
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/rust-agent-runtime.d",
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/librust_agent_runtime.d",
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/rust-agent-runtime",
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/deps/rust_agent_runtime-0dd259a04d6dcca4",
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/incremental/rust_agent_runtime-2vdk42uea0ciu/s-hkv7aii02y-0upmi1s-9pz8t7g5nu18tsjyi6o4ic2qf/work-products.bin",
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/incremental/rust_agent_runtime-2vdk42uea0ciu/s-hkv7aii02y-0upmi1s-9pz8t7g5nu18tsjyi6o4ic2qf/query-cache.bin",
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/incremental/rust_agent_runtime-2vdk42uea0ciu/s-hkv7aii02y-0upmi1s-9pz8t7g5nu18tsjyi6o4ic2qf/f1ynuyt0l5h4guhre4xpmgh6j.o",
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/incremental/rust_agent_runtime-2vdk42uea0ciu/s-hkv7aii02y-0upmi1s-9pz8t7g5nu18tsjyi6o4ic2qf/f14h6479ou6ca1w7bbvmlrtu3.o",
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/incremental/rust_agent_runtime-2vdk42uea0ciu/s-hkv7aii02y-0upmi1s-9pz8t7g5nu18tsjyi6o4ic2qf/eipkg9sraq6h0m28n21pcl3cn.o",
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/incremental/rust_agent_runtime-2vdk42uea0ciu/s-hkv7aii02y-0upmi1s-9pz8t7g5nu18tsjyi6o4ic2qf/ecv929zaalu1sf1kryza0gw9e.o",
+    "Learning/Agent/实践/rust-agent-runtime/target/debug/incremental/rust_agent_runtime-2vdk42uea0ciu/s-hkv7aii02y-0upmi1s-9pz8t7g5nu18tsjyi6o4ic2qf/ecjacm3vbd1vw11zl7c8wx2g1.o",
+    "Learning/Case_Studies/Backend/README.md",
+    "Learning/CS/算法/README.md",
+    "Learning/Backend/Go/实践/README.md",
+    "Learning/00_Navigation/Rust-Agent与Go后端学习地图.md",
+    "Learning/Agent/实践/rust-agent-runtime/README.md",
+    "Learning/Backend/Rust/16_Rust Agent工程化.md",
+    "Learning/Backend/Go/实践/go-backend-service/README.md",
+    "Learning/Backend/Go/05_Go后端项目实战.md",
+    "Learning/Backend/Go/00_Go基础语法与惯用法.md",
+    "CS6290-Privacy-考试临时资料/00-考试复习导航.md",
+    "CS6290-Privacy-考试临时资料/完整原稿/CS6290-Lecture-Tutorial-生词表.md",
+    "CS6290-Privacy-考试临时资料/完整原稿/CS6290-隐私增强技术-课程知识讲义.md",
+    "CS6290-Privacy-考试临时资料/完整原稿/CS6290-Tutorial-知识讲义.md",
+    "CS6290-Privacy-考试临时资料/Lecture/13-自测题.md",
+    "CS6290-Privacy-考试临时资料/Lecture/12-全课程知识串联.md",
+    "CS6290-Privacy-考试临时资料/Lecture/11-Lecture8-扩容-支付通道-桥-Rollup.md",
+    "CS6290-Privacy-考试临时资料/Lecture/10-Lecture7-ZKP-SNARK-STARK.md",
+    "CS6290-Privacy-考试临时资料/Lecture/09-Lecture6-区块链隐私技术.md",
+    "CS6290-Privacy-考试临时资料/Lecture/08-Lecture5-DeFi-AMM与借贷.md",
+    "CS6290-Privacy-考试临时资料/Lecture/07-Lecture4-PoS与Gasper.md",
+    "CS6290-Privacy-考试临时资料/Lecture/06-Lecture3B-Ethereum安全与DeFi入口.md",
+    "CS6290-Privacy-考试临时资料/Lecture/05-Lecture3A-Ethereum基础与EVM.md",
+    "CS6290-Privacy-考试临时资料/Lecture/04-Lecture2-共识机制与BFT.md",
+    "CS6290-Privacy-考试临时资料/Lecture/03-Lecture1B-Bitcoin所有权与脚本.md",
+    "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md"
   ]
 }

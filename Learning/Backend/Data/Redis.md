@@ -409,3 +409,8 @@ WHERE goods_id = ? AND stock > 0;
 ```
 
 还需要考虑 MQ 消费幂等、失败补偿、库存回补、防刷、限流和降级。数据库锁适合做最终一致性兜底，不适合单独承受秒杀流量。
+
+## 导航与关联
+
+- [模块入口：Data](./README.md)
+- 同一路线：[PostgreSQL](./PostgreSQL.md) · [MongoDB](./MongoDB.md)

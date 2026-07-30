@@ -118,4 +118,9 @@ println!("{name_ref} {age}");
 
 分别实现三个函数：返回字符串中最长的切片、原地删除空白字符、把一个 `Vec<String>` 消费成长度统计。写出每个函数的所有权选择，并解释为什么不能返回局部 `String` 的引用。
 
+## 导航与关联
+
+- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
+- 同一路线：[Rust 基础语法与控制流](./01_Rust基础语法与控制流.md) · [Struct、Enum、Trait 与泛型](./03_Struct、Enum、Trait与泛型.md)
+
 `#rust #ownership #borrowing #lifetime`
