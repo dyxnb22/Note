@@ -16,7 +16,7 @@ Agent：模型调用、工具、状态、编排、治理和交付
 
 - `Learning/Python/`：Python 语言、标准库、工程化、HTTP 和服务化。
 - `Learning/AI/`：深度学习、Transformer、LLM 原理和 AI 工具认知。
-- `Learning/Agent/`：LLM 调用、Tool Calling、Agent Loop、RAG、Workflow、MCP、安全、评测和生产化。
+- `Learning/Agent/`：LLM 调用、Tool Calling、Agent Loop、RAG/摄取/检索、Workflow、MCP、Skills、安全、评测和生产交付。
 - `Learning/Python/实践/`：只放 Python 基础或通用工程练习。
 - `Learning/AI/实践/`：深度学习和 LLM 课程实验。
 - `Learning/Agent/实践/`：Agent 应用与 Agent Harness 代码实验。
@@ -67,14 +67,14 @@ Rust 是 Agent 的实现分支，不替换这条概念主线：先用 Python/现
 
 | 层次 | 主文档 | 负责的问题 |
 |---|---|---|
-| 核心运行时 | [LLM 调用基础](../Agent/01_LLM调用基础.md)、[Tool Calling](../Agent/02_Tool%20Calling.md)、[Agent 架构与设计](../Agent/03_Agent架构与设计.md) | 模型调用、工具合同、Agent Loop、状态和终止 |
-| Harness 工程 | [Context 工程](../Agent/04_Context工程.md)、[代码 Agent 基础设施](../Agent/05_代码%20Agent%20基础设施.md)、[Durable Execution](../Agent/06_Durable%20Execution与分布式可靠性.md) | 上下文、代码库操作、验证、Checkpoint、恢复和隔离 |
-| 知识与编排 | [RAG](../Agent/RAG.md)、[检索系统工程](../Agent/检索系统工程.md)、[知识系统](../Agent/知识系统.md)、[Memory 与状态管理](../Agent/Memory与状态管理.md)、[Workflow 与编排](../Agent/Workflow与编排.md)、[LangGraph](../Agent/LangGraph.md)、[MCP 与工具协议](../Agent/MCP与工具协议.md)、[多 Agent 协作](../Agent/多Agent协作的边界与模式.md) | RAG 应用链路、ANN/混合检索、知识治理、持久记忆、固定流程、框架实现、工具协议和协作边界 |
+| 核心运行时 | [LLM 调用基础](../Agent/01_LLM调用基础.md)、[Tool Calling](../Agent/02_Tool%20Calling.md)、[Agent 架构与设计](../Agent/03_Agent架构与设计.md)、[Agent框架与平台选型](../Agent/Agent框架与平台选型.md) | 模型调用、工具合同与路由、Agent Loop、框架选型 |
+| Harness 工程 | [Context 工程](../Agent/04_Context工程.md)、[Skills与渐进式披露](../Agent/Skills与渐进式披露.md)、[代码 Agent 基础设施](../Agent/05_代码%20Agent%20基础设施.md)、[Durable Execution](../Agent/06_Durable%20Execution与分布式可靠性.md) | 上下文、Skill、代码库操作、验证、Checkpoint、恢复和隔离 |
+| 知识与编排 | [RAG](../Agent/RAG.md)、[检索系统工程](../Agent/检索系统工程.md)、[知识系统](../Agent/知识系统.md)、[文档摄取与解析](../Agent/文档摄取与解析.md)、[GraphRAG与关系检索](../Agent/GraphRAG与关系检索.md)、[Memory 与状态管理](../Agent/Memory与状态管理.md)、[Workflow 与编排](../Agent/Workflow与编排.md)、[LangGraph](../Agent/LangGraph.md)、[MCP 与工具协议](../Agent/MCP与工具协议.md)、[多 Agent 协作](../Agent/多Agent协作的边界与模式.md)、[跨Agent协议与A2A](../Agent/跨Agent协议与A2A.md) | RAG 应用链路、文档解析、ANN/混合检索、知识治理、关系增强、持久记忆、固定流程、框架实现、工具协议和协作边界 |
 | 产品与协同 | [Agent 产品与人机协同](../Agent/Agent产品与人机协同.md) | 是否适合 AI、自主性、澄清、审批、接管和产品指标 |
 | 质量与治理 | [Agent 安全与威胁建模](../Agent/07_Agent安全与威胁建模.md)、[安全与可控性](../Agent/08_安全与可控性.md)、[Agent 身份与数据治理](../Agent/Agent身份与数据治理.md) | 威胁分析、防御实现、身份、租户和数据生命周期 |
 | 评测与运维 | [Agent Eval 实验方法](../Agent/09_Agent%20Eval实验方法.md)、[Eval 与测试体系](../Agent/10_Eval与测试体系.md)、[可观测性与调试](../Agent/11_可观测性与调试.md)、[Agent 运维与事故响应](../Agent/Agent运维与事故响应.md) | Task/Trajectory、Harness、CI、Trace、发布、告警和事故 |
-| 生产交付 | [成本与性能工程](../Agent/成本与性能工程.md)、[部署与生产化](../Agent/12_部署与生产化.md) | 预算、延迟、限流、部署、灰度和回滚 |
-| 扩展与表达 | [推理模型与 Extended Thinking](../Agent/推理模型与Extended%20Thinking.md)、[模型行为与工具调用训练](../Agent/模型行为与工具调用训练.md)、[Computer Use 与 GUI Agent](../Agent/Computer%20Use与GUI%20Agent.md)、[项目表达与面试](../Agent/项目表达与面试.md) | 研究分支、GUI Agent、模型行为实验和项目输出 |
+| 生产交付 | [成本与性能工程](../Agent/成本与性能工程.md)、[部署与生产化](../Agent/12_部署与生产化.md)、[推理服务速答](../Agent/推理服务速答.md) | 预算、延迟、限流、部署、灰度和回滚、推理八股速答 |
+| 扩展与表达 | [推理模型与 Extended Thinking](../Agent/推理模型与Extended%20Thinking.md)、[模型行为与工具调用训练](../Agent/模型行为与工具调用训练.md)、[Computer Use 与 GUI Agent](../Agent/Computer%20Use与GUI%20Agent.md)、[语音与实时对话Agent](../Agent/语音与实时对话Agent.md)、[项目表达与面试](../Agent/项目表达与面试.md) | 研究分支、GUI/语音、模型行为实验和项目输出 |
 
 两组重点边界：
 
@@ -95,7 +95,11 @@ LLM 调用基础
   → 部署与生产化
 ```
 
-对应入口：[Agent 工程知识库](../Agent/README.md) 和 [Agent 学习路线图](../Agent/00_学习路线图.md)。
+知识型产品在主线后选修：`文档摄取与解析 → RAG → 检索系统工程 → 知识系统`。  
+工具很多或面试对比框架时选修：`Skills与渐进式披露`、`Agent框架与平台选型`。  
+夹带推理八股时看：`推理服务速答`（细节回链 `AI/LLM基础`）。
+
+完整分支表见 [Agent 学习路线图](../Agent/00_学习路线图.md) 阶段 4。入口：[Agent 工程知识库](../Agent/README.md)。
 
 ## 实践项目如何选择
 

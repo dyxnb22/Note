@@ -4,7 +4,7 @@
 
 RAG（Retrieval-Augmented Generation）在生成前检索外部证据，让模型基于可追溯资料回答。它主要解决知识更新、私有知识接入和证据引用，不保证模型一定正确。
 
-知识的权限、版本、删除和生命周期见 [知识系统](知识系统.md)。
+知识的权限、版本、删除和生命周期见 [知识系统](知识系统.md)。解析、OCR、表格与结构化入库见 [文档摄取与解析](文档摄取与解析.md)。多跳实体关系见 [GraphRAG与关系检索](GraphRAG与关系检索.md)。
 
 ## 完整链路
 
@@ -25,11 +25,15 @@ RAG（Retrieval-Augmented Generation）在生成前检索外部证据，让模�
 
 RAG 的错误可以来自每一层。回答错不应直接归因于“模型幻觉”，要区分资料不存在、解析丢失、切分错误、召回失败、排序失败、上下文装配失败和生成未遵循证据。
 
+## 解析与结构化入口
+
+入库质量决定召回上限。数字 PDF、扫描件、Office、合并单元格表、无框线表应在切分前完成分类、解析与质量门禁；数值型问题优先结构化工具或 SQL，而不是只靠向量相似度。详见 [文档摄取与解析](文档摄取与解析.md)。
+
 ## Chunk
 
 Chunk 是检索和引用的最小单元。过小会丢失上下文，过大会降低匹配精度并浪费 Token。
 
-切分优先尊重语义结构：标题、段落、列表、函数、类、表格和页面边界。Overlap 只用于保留跨边界信息，不能代替合理的结构切分。
+切分优先尊重语义结构：标题、段落、列表、函数、类、表格和页面边界。Overlap 只用于保留跨边界信息，不能代替合理的结构切分。表格应携带表头或改为行级结构化记录，避免「切开后列含义丢失」。
 
 每个 Chunk 至少携带：
 
@@ -109,6 +113,75 @@ Rerank 增加延迟和成本，不能弥补资料未入库或 Chunk 完全错误
 Agentic RAG 把检索暴露为工具，让模型决定何时查询、如何改写和是否继续检索。它适合多步研究，但增加循环、成本和不可预测性。
 
 必须限制检索次数、查询范围、预算和终止条件，并记录完整工具轨迹。简单问答优先使用确定性检索链路。
+
+需要多跳实体关系时，先评估 [GraphRAG与关系检索](GraphRAG与关系检索.md) 是否比「多轮盲目检索」更划算；图扩展同样要有权限过滤与评测。
+
+### 常见变体与何时不用
+
+| 形态 | 要点 | 代价 |
+|---|---|---|
+| 固定管线 RAG | 改写→召回→精排→生成 | 可控；难处理多跳 |
+| Agentic RAG | 模型决定是否再检索 | 延迟与步数上升；需防空转 |
+| Self-RAG 类 | 生成中自评是否需检索/是否支持结论 | 额外生成与判断调用 |
+| CRAG 类 | 检索质量低则纠正/扩展/网搜回退 | 依赖检索质量估计器 |
+
+经验量级：多轮检索可达数倍延迟与费用。以下情况**不要**默认 Agentic：
+
+- 单跳 FAQ、答案在 TopK 已稳定；
+- 有严格 P99 SLA；
+- 无步数/预算/stuck 检测；
+- 评测集证明固定管线已够。
+
+先固定管线做基线，再用消融证明 Agent 循环的净收益。
+
+## 最小可复现实验：先测召回，再测生成
+
+RAG 排障应先把生成模型拿掉，确认正确证据是否进入候选集。下面的纯 Python 代码不依赖向量库，适合先验证评测口径；实际系统只需把 `results` 替换为检索器输出。
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class RetrievalCase:
+    case_id: str
+    relevant_chunk_ids: set[str]
+
+
+def recall_at_k(
+    cases: list[RetrievalCase],
+    results: dict[str, list[str]],
+    *,
+    k: int,
+) -> float:
+    """计算有多少查询至少召回一个金标 Chunk。"""
+
+    if not cases:
+        return 0.0
+
+    hits = 0
+    for case in cases:
+        # 只看前 k 个结果；生产实现还应在这里按租户/权限重新校验。
+        top_ids = set(results.get(case.case_id, [])[:k])
+        if top_ids & case.relevant_chunk_ids:
+            hits += 1
+    return hits / len(cases)
+
+
+cases = [
+    RetrievalCase("exact-id", {"chunk-17"}),
+    RetrievalCase("paraphrase", {"chunk-42", "chunk-43"}),
+    RetrievalCase("no-answer", set()),  # 无答案样例不要被当成普通 Recall 漏召回。
+]
+retrieved = {
+    "exact-id": ["chunk-17", "chunk-03"],
+    "paraphrase": ["chunk-09", "chunk-42"],
+    "no-answer": [],
+}
+print("recall@2 =", recall_at_k(cases[:2], retrieved, k=2))
+```
+
+无答案样例应单独评估“是否正确拒答”，不能简单把空结果计入召回分母。完成召回基线后，再接入 Reranker、Context Assembly 和生成模型，并为每条回答保留 `query → candidate_ids → final_context_ids → citations` 的完整链路。
 
 ## RAG Eval
 

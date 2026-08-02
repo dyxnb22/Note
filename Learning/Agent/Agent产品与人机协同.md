@@ -96,6 +96,14 @@ waiting_user
 task_succeeded
 ```
 
+与编排框架对接时，把内部事件**映射**到上述稳定集合，而不是把原始 `on_chain_*` 一股脑推给用户。推荐：
+
+- 一帧一事：`event_type + step_name + status + safe_summary`；
+- 长工具调用先发 `tool_requested`，完成后再发结果摘要；
+- 需要打字机效果时单独开「答案 token」通道，与步骤进度通道分离；
+- 过滤密钥、完整检索正文和调试噪声；完整细节进服务端 Trace。
+
+图运行时的流式抓取见 [LangGraph](LangGraph.md)「节点事件到前端进度」；语音场景的可听进度见 [语音与实时对话 Agent](语音与实时对话Agent.md)。
 ## 5. 审批体验
 
 审批界面应让用户回答“我是否同意这个具体动作”，而不是盲目点击确认。至少展示：

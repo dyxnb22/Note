@@ -1,3 +1,5 @@
+"""LangGraph 工具调用最小示例。"""
+
 from typing import Annotated, Any, TypedDict
 
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
@@ -18,6 +20,7 @@ def get_weather(city: str) -> str:
 def calculator(expression: str) -> str:
     """计算简单数学表达式，例如 '26 - 22'。"""
     try:
+        # 仅为课堂演示；生产环境应使用 AST 白名单解析，不能直接执行用户表达式。
         return str(eval(expression, {"__builtins__": {}}, {}))
     except Exception as exc:
         return f"计算失败: {exc}"
@@ -36,6 +39,7 @@ def planner(state: AgentState) -> dict:
     真实项目中，这里会替换成 llm.bind_tools(TOOLS).invoke(messages)。
     Tool Node 负责执行工具，Conditional Edge 负责判断下一步走工具还是结束。
     """
+    # 这里用规则模拟 LLM 的 tool_calls，便于观察图路由而不依赖外部 API。
     user_text = state["messages"][-1].content
     tool_calls = []
 

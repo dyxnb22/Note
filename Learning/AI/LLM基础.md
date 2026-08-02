@@ -257,6 +257,35 @@ LLM 的本质是：**在训练分布上预测最可能的下一个 token**，不
 
 ---
 
+## 9.1 Attention 的最小数值检查（Python 标准库）
+
+先用小矩阵验证公式，再依赖深度学习框架。下面的实现只为建立直觉，不包含训练、mask 和高效矩阵库。
+
+```python
+import math
+
+
+def attention(query, key, value):
+    # QK^T 衡量每个 Query 对各 Key 的相关性。
+    scores = [
+        [sum(q_i * k_i for q_i, k_i in zip(q, k)) / math.sqrt(len(q)) for k in key]
+        for q in query
+    ]
+    weights = []
+    for row in scores:
+        # 每行独立 softmax；减去最大值避免指数溢出。
+        maximum = max(row)
+        exps = [math.exp(score - maximum) for score in row]
+        total = sum(exps)
+        weights.append([item / total for item in exps])
+    return [
+        [sum(weight * value_j for weight, value_j in zip(row, column)) for column in zip(*value)]
+        for row in weights
+    ]
+```
+
+验证时检查每行权重和为 1、输入维度不匹配会明确失败，并与框架实现对同一随机输入做数值对照。教学实现不能直接用于生产推理；生产还要处理 causal mask、padding、精度、批量和显存。
+
 ## 10. 面试高频问法与回答模板
 
 **Q：解释 Self-Attention 的工作原理**
@@ -276,6 +305,14 @@ LLM 的本质是：**在训练分布上预测最可能的下一个 token**，不
 > KV Cache 是推理时缓存历史 token 的 Key 和 Value，避免每步生成都重算。工程含义：长 context 的主要内存瓶颈来自 KV Cache；context window 有硬上限的原因之一是 KV Cache 的内存消耗随序列长度线性增长；Prompt Caching 本质是把 system prompt 的 KV Cache 持久化跨请求复用。
 
 ---
+
+## 来源与验证边界
+
+- Vaswani et al., *Attention Is All You Need*：Transformer 与 Self-Attention 的原始论文。
+- Hugging Face Course：Tokenization、Transformer、微调和推理的实践入口。
+- PyTorch 文档：张量、Autograd、训练和推理 API。
+
+模型结构、上下文长度、量化能力和 Provider 参数会随版本变化；本文的公式和教学代码用于建立机制直觉，具体模型规格与 API 以锁定版本文档和本地实验为准。
 
 ## 复习抓手
 

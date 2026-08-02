@@ -124,3 +124,29 @@ That keeps the lab focused on understanding, not just API usage.
 ## Notes Integration
 
 This project is connected to the Chinese theory notes through [与 Notes 的对应关系](./与%20Notes%20的对应关系.md). Use that page to move between a concept and its corresponding module; use [TASKS.md](./TASKS.md) to choose the next smallest implementation task.
+
+## Evidence Record
+
+每个模块完成时不要只勾选“代码能运行”。建议在模块目录保存一份简短记录：
+
+```yaml
+module: "模块名称"
+environment:
+  python: "版本"
+  framework: "版本"
+  device: "cpu/cuda"
+baseline:
+  command: "可复现命令"
+  seed: 0
+  result: "指标与输出位置"
+implementation:
+  command: "从零实现命令"
+  tests: ["形状", "梯度", "数值对照"]
+ablation:
+  changed_variable: "一次只改一个变量"
+  observation: "结果与解释"
+limitations:
+  - "尚未验证的边界"
+```
+
+代码注释优先解释张量形状、数值稳定性、设备/随机种子和实验假设；不要把显而易见的 Python 语法写成噪声注释。报告中的指标必须能回到命令、数据版本和原始输出。

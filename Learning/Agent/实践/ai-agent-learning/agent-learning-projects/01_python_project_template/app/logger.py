@@ -8,6 +8,7 @@ import logging
 
 
 def setup_logger(level: str = "INFO") -> logging.Logger:
+    # 统一入口配置日志格式，业务模块只需要获取 logger，不要重复 basicConfig。
     logging.basicConfig(
         level=getattr(logging, level.upper(), logging.INFO),
         format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",

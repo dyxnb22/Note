@@ -13,7 +13,7 @@ AI 应用学习主线见：[Python → AI → Agent 学习地图](./00_Navigatio
 | `CS` | 算法、数据结构、网络、操作系统 |
 | `Backend` | Java、Go、Rust、数据、架构、交付和排障 |
 | `Python` | Python 语言、工程化、HTTP 和服务化 |
-| `Agent` | 模型调用、Agent、RAG、MCP、工具和生产交付 |
+| `Agent` | 模型调用、Agent、RAG/摄取/检索、MCP、Skills、工具和生产交付 |
 | `AI` | 模型理解、研究基础和 AI 工具认知 |
 | `Case_Studies` | 业务项目、AI 项目和源码审计证据 |
 | `References` | 产品文档、术语、小册、开源项目和科技资料 |

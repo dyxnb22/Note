@@ -215,6 +215,23 @@ socket → connect → read/write → close
 - 连接池复用与失效连接。
 - 应用消息边界和最大帧长度。
 
+## 排障命令的证据链
+
+每条命令只回答一层问题，并把时间戳与服务日志对齐；不要看到 `ping` 通就断言 HTTP 业务可用。
+
+```bash
+# 解析层：确认使用了哪个 DNS 服务器和返回地址。
+dig +short example.com
+
+# 传输/协议层：观察连接、TLS、重定向和响应头。
+curl -v --connect-timeout 3 --max-time 10 https://example.com/healthz
+
+# 链路层：只在授权环境抓包，并避免把 Cookie/Token 保存到共享目录。
+sudo tcpdump -i any -nn 'host example.com and port 443'
+```
+
+命令输出应记录环境、目标、时间和脱敏规则；抓包不是默认可执行的生产操作。
+
 ## 抓包实验
 
 建议用一个最小 HTTP 服务完成：
@@ -227,3 +244,7 @@ socket → connect → read/write → close
 6. 将浏览器、`curl -v`、服务日志和 `tcpdump` 时间线对齐。
 
 抓包内容可能含 Token、Cookie 和个人数据，应只在授权环境中操作并安全保存。
+
+## 来源与验证边界
+
+TCP/IP、HTTP、TLS、DNS 和 QUIC 的具体行为以对应 RFC、操作系统文档和目标实现版本为准。本文的抓包步骤是排障练习，不代表可以在未授权网络上采集流量；性能结论要用固定链路、内核和负载复测。

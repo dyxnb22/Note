@@ -34,11 +34,11 @@ RAG、Memory、Workflow、MCP、Multi-Agent 和 Computer Use 按项目目标选�
 | 组别 | 文档 |
 |---|---|
 | 核心 | [01_LLM调用基础](./01_LLM调用基础.md)、[03_Agent架构与设计](./03_Agent架构与设计.md)、[02_Tool Calling](./02_Tool%20Calling.md)、[04_Context工程](./04_Context工程.md)、[05_代码 Agent 基础设施](./05_代码%20Agent%20基础设施.md) |
-| 产品与协同 | [Agent 产品与人机协同](./Agent产品与人机协同.md)、[项目表达与面试](./项目表达与面试.md) |
-| 知识与流程 | [RAG](./RAG.md)、[检索系统工程](./检索系统工程.md)、[知识系统](./知识系统.md)、[Memory 与状态管理](./Memory与状态管理.md)、[Workflow 与编排](./Workflow与编排.md)、[LangGraph](./LangGraph.md)、[多 Agent 协作的边界与模式](./多Agent协作的边界与模式.md)、[MCP 与工具协议](./MCP与工具协议.md) |
+| 产品与协同 | [Agent 产品与人机协同](./Agent产品与人机协同.md)、[项目表达与面试](./项目表达与面试.md)、[Agent框架与平台选型](./Agent框架与平台选型.md) |
+| 知识与流程 | [RAG](./RAG.md)、[检索系统工程](./检索系统工程.md)、[知识系统](./知识系统.md)、[文档摄取与解析](./文档摄取与解析.md)、[GraphRAG与关系检索](./GraphRAG与关系检索.md)、[Memory 与状态管理](./Memory与状态管理.md)、[Workflow 与编排](./Workflow与编排.md)、[LangGraph](./LangGraph.md)、[多 Agent 协作的边界与模式](./多Agent协作的边界与模式.md)、[MCP 与工具协议](./MCP与工具协议.md)、[跨Agent协议与A2A](./跨Agent协议与A2A.md)、[Skills与渐进式披露](./Skills与渐进式披露.md) |
 | 可靠性与治理 | [09_Agent Eval实验方法](./09_Agent%20Eval实验方法.md)、[10_Eval与测试体系](./10_Eval与测试体系.md)、[07_Agent安全与威胁建模](./07_Agent安全与威胁建模.md)、[Agent 身份与数据治理](./Agent身份与数据治理.md)、[06_Durable Execution与分布式可靠性](./06_Durable%20Execution与分布式可靠性.md)、[11_可观测性与调试](./11_可观测性与调试.md) |
-| 生产化 | [08_安全与可控性](./08_安全与可控性.md)、[成本与性能工程](./成本与性能工程.md)、[12_部署与生产化](./12_部署与生产化.md)、[Agent 运维与事故响应](./Agent运维与事故响应.md)、[版本与来源](./版本与来源.md) |
-| 扩展 | [推理模型与 Extended Thinking](./推理模型与Extended%20Thinking.md)、[模型行为与工具调用训练](./模型行为与工具调用训练.md)、[Computer Use 与 GUI Agent](./Computer%20Use与GUI%20Agent.md) |
+| 生产化 | [08_安全与可控性](./08_安全与可控性.md)、[成本与性能工程](./成本与性能工程.md)、[12_部署与生产化](./12_部署与生产化.md)、[Agent 运维与事故响应](./Agent运维与事故响应.md)、[版本与来源](./版本与来源.md)、[推理服务速答](./推理服务速答.md) |
+| 扩展 | [推理模型与 Extended Thinking](./推理模型与Extended%20Thinking.md)、[模型行为与工具调用训练](./模型行为与工具调用训练.md)、[Computer Use 与 GUI Agent](./Computer%20Use与GUI%20Agent.md)、[语音与实时对话Agent](./语音与实时对话Agent.md) |
 | 输出 | [AI 项目表达与面试](./项目表达与面试.md)、[Career 通用项目表达](../Career/项目表达.md) |
 | Rust 实现 | [Rust Agent 工程化](../Backend/Rust/16_Rust%20Agent工程化.md)、[rust-agent-runtime](./实践/rust-agent-runtime/README.md) |
 
@@ -48,10 +48,10 @@ RAG、Memory、Workflow、MCP、Multi-Agent 和 Computer Use 按项目目标选�
 |---|---|---|
 | Eval | [09_Agent Eval实验方法](./09_Agent%20Eval实验方法.md) | 任务、轨迹、Replay 和发布门禁；[10_Eval与测试体系](./10_Eval与测试体系.md) 负责通用 Harness、数据集、指标实现和 CI |
 | 安全 | [07_Agent安全与威胁建模](./07_Agent安全与威胁建模.md) | 信任边界、资产和攻击面；[08_安全与可控性](./08_安全与可控性.md) 负责防御代码、策略、沙箱和恢复模式 |
-| 运行时 | [03_Agent架构与设计](./03_Agent架构与设计.md) | Agent Loop、状态和运行时机制；[02_Tool Calling](./02_Tool%20Calling.md) 负责工具合同/执行，[Workflow 与编排](./Workflow与编排.md) 负责通用编排，[LangGraph](./LangGraph.md) 负责框架实现 |
-| RAG / 知识 | [RAG](./RAG.md) | 切分、检索、排序、生成和评测；[知识系统](./知识系统.md) 负责来源、版本、权限、引用和删除治理 |
-| 检索基础设施 | [检索系统工程](./检索系统工程.md) | 倒排、向量、ANN/HNSW、混合检索、索引生命周期、容量与检索指标 |
-| Context / Memory | [04_Context工程](./04_Context工程.md) | 当前请求的上下文构造与压缩；[Memory 与状态管理](./Memory与状态管理.md) 负责跨轮次持久化、召回和生命周期 |
+| 运行时 | [03_Agent架构与设计](./03_Agent架构与设计.md) | Agent Loop、状态和运行时机制；[02_Tool Calling](./02_Tool%20Calling.md) 负责工具合同/执行与百级路由，[Workflow 与编排](./Workflow与编排.md) 负责通用编排，[LangGraph](./LangGraph.md) 负责框架实现，[Agent框架与平台选型](./Agent框架与平台选型.md) 负责生态对比 |
+| RAG / 知识 | [RAG](./RAG.md) | 切分、检索、排序、生成和评测；[知识系统](./知识系统.md) 负责来源、版本、权限、引用和删除治理；[文档摄取与解析](./文档摄取与解析.md) 负责 OCR/版面/表格与质量门禁；[GraphRAG与关系检索](./GraphRAG与关系检索.md) 负责多跳实体关系 |
+| 检索基础设施 | [检索系统工程](./检索系统工程.md) | 倒排、向量库/Embedding 选型、ANN/HNSW、混合检索、Rerank/ColBERT、索引生命周期、容量与检索指标 |
+| Context / Memory | [04_Context工程](./04_Context工程.md) | 当前请求的上下文构造与压缩；[Skills与渐进式披露](./Skills与渐进式披露.md) 负责 Skill 边界；[Memory 与状态管理](./Memory与状态管理.md) 负责跨轮次持久化、召回和生命周期 |
 | 可靠性 | [06_Durable Execution与分布式可靠性](./06_Durable%20Execution与分布式可靠性.md) | 与框架无关的状态机、Checkpoint、Queue、Lease、Resume 原语；Workflow 文档只讲其在 LangGraph 中的落地 |
 | 部署 | [12_部署与生产化](./12_部署与生产化.md) | 只负责模型/Prompt/工具/索引版本、Eval 门禁、状态恢复和 LLM 预算；通用 Docker、CI/CD、健康检查和发布流程见 [Backend Delivery](../Backend/Delivery/README.md) |
 
@@ -59,10 +59,15 @@ RAG、Memory、Workflow、MCP、Multi-Agent 和 Computer Use 按项目目标选�
 
 - Coding Agent：`LLM 调用 → Tool Calling → Agent Loop → 文件/终端 → 权限/沙箱 → Context → 验证 → Session`。
 - 可靠 Coding Agent：在上面补 `代码导航 → Eval → 威胁建模 → Durable Execution`。
-- 知识型 Agent：`LLM 调用 → Context → RAG → 检索系统工程 → Citation → Eval`。
+- 知识型 Agent：`LLM 调用 → Context → 文档摄取与解析 → RAG → 检索系统工程 → Citation → Eval`。
 - Workflow/业务 Agent：先掌握 `Tool Calling`，再按固定流程选择 Workflow，按开放任务选择 Agent。
 - Agent 产品：`Agent 产品与人机协同 → Eval/反馈闭环`。
 - 企业 Agent：补 `身份与数据治理 → 威胁建模 → Durable Execution → 运维与事故响应`。
+- 语音/实时：先稳住文本 Agent，再读 `语音与实时对话 Agent`。
+- 跨产品委托：进程内多 Agent 不够时再读 `跨 Agent 协议与 A2A`。
+- 框架选型 / 低代码立场：`Agent 框架与平台选型`。
+- Skills / 渐进式披露：`Skills与渐进式披露`。
+- 推理八股夹带：`推理服务速答` → `AI/LLM基础`。
 - 上生产：在最小循环之后就加入基础 `安全/预算/观测/Eval`，再补 `成本 → 部署`。
 - 真实项目：看 [AI 案例](../Case_Studies/AI/README.md)，重点核对工具权限、Session、执行边界和证据等级。
 

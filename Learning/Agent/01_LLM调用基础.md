@@ -498,6 +498,63 @@ def analyze_ui_screenshot(screenshot_path: str) -> dict:
 
 ---
 
+## 9.6 可测试的 Provider 适配边界（注释版）
+
+把 Provider SDK 包在一个很薄的适配层里，Agent 层只依赖自己的结果类型。这样可以把“超时、空响应、可重试错误”等边界写成单元测试，而不是散落在业务代码中。
+
+下面是一个可运行的 Python 3.11 结构示意；`Provider` 是协议，具体厂商 SDK 需要在适配器中实现它。
+
+```python
+import asyncio
+from dataclasses import dataclass
+from typing import Any, Protocol
+
+
+@dataclass(frozen=True)
+class ProviderResult:
+    """统一后的模型结果；Agent 不需要知道底层 SDK 的字段名。"""
+
+    text: str | None
+    tool_calls: list[dict[str, Any]]
+    request_id: str | None = None  # 用于把模型调用和日志/账单关联起来。
+
+
+class Provider(Protocol):
+    async def complete(self, *, messages: list[dict[str, str]]) -> ProviderResult:
+        """厂商适配器必须提供的最小接口。"""
+
+
+class LLMCallError(RuntimeError):
+    """让上层按稳定错误码处理，而不是匹配厂商异常文本。"""
+
+    def __init__(self, code: str) -> None:
+        super().__init__(code)
+        self.code = code
+
+
+async def call_model(
+    provider: Provider,
+    messages: list[dict[str, str]],
+    *,
+    timeout_s: float = 30.0,
+) -> ProviderResult:
+    # 超时必须在调用边界处理，避免一次卡住拖垮整个 Agent 请求。
+    try:
+        result = await asyncio.wait_for(
+            provider.complete(messages=messages),
+            timeout=timeout_s,
+        )
+    except TimeoutError as exc:
+        raise LLMCallError("provider_timeout") from exc
+
+    # 空文本且没有工具调用通常不是有效的 Agent 步骤；尽早失败便于重试或降级。
+    if not result.text and not result.tool_calls:
+        raise LLMCallError("empty_provider_response")
+    return result
+```
+
+这个边界还应至少覆盖三类测试：Provider 超时会被转换为稳定错误码；空响应不会进入下一轮循环；合法的工具调用不会被误判为空响应。重试策略建议放在更上层统一实现，并使用请求级幂等键，避免适配器和 Agent 各自重试造成倍增。
+
 ## 10. Prompt Caching（成本优化）
 
 Anthropic 和 OpenAI 支持对 system prompt 的 KV Cache 跨请求复用：

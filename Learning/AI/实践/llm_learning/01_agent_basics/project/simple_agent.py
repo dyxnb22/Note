@@ -28,6 +28,7 @@ class Tool:
 def safe_calculate(expression: str) -> str:
     """Evaluate simple arithmetic without exposing Python builtins."""
     expression = expression.strip()
+    # AST allowlist 比字符串黑名单可靠；仍应把计算放在资源受限进程，限制表达式长度。
     allowed_nodes = (
         ast.Expression,
         ast.BinOp,
@@ -53,6 +54,7 @@ def current_time(_: str) -> str:
 
 def save_note(text: str) -> str:
     """Append notes locally so the example has a real side effect."""
+    # 教学示例明确展示副作用位置；生产要做路径 allowlist、并发锁和审计。
     NOTE_FILE.write_text((NOTE_FILE.read_text() if NOTE_FILE.exists() else "") + text + "\n")
     return f"Saved note to {NOTE_FILE}"
 
@@ -110,6 +112,7 @@ def agent(user_input: str) -> str:
     messages = [{"role": "system", "content": system}, {"role": "user", "content": user_input}]
 
     for _ in range(3):
+        # max steps 是循环预算；模型不停止时不能无限调用工具或 Provider。
         raw = call_llm(messages)
         try:
             action = json.loads(raw)

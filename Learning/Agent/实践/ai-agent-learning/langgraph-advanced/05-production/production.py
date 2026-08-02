@@ -68,11 +68,13 @@ def build_graph():
     graph.add_edge("approval", "execute")
     graph.add_edge("execute", END)
 
+    # checkpointer 保存 interrupt 前后的状态，thread_id 决定恢复哪一条会话。
     return graph.compile(checkpointer=MemorySaver())
 
 
 if __name__ == "__main__":
     app = build_graph()
+    # resume 必须使用同一个 thread_id，否则恢复不到刚才暂停的执行上下文。
     config = {"configurable": {"thread_id": "production-demo"}}
 
     print("=== 第 5 课：第一次执行，直到 interrupt 暂停 ===")

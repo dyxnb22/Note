@@ -214,7 +214,63 @@ except ValueError:
 
 **缓解**：用比被测系统更强的模型做评估；多次打分取平均；prompt 里明确评分标准。
 
+### RAGAS 等套件名（与指标的关系）
+
+开源作业与面试常点名 **RAGAS**（以及 DeepEval、TruLens 等）：它们把 Faithfulness、Answer Relevancy、Context Precision/Recall 等**指标实现成可跑的评测流水线**，不是新的物理定律。
+
+使用要点：
+
+- 先定义金标与无答案集，再跑套件；套件不能替代权限/延迟/成本指标。
+- LLM Judge 要做**校准**（与人工标注算一致性，如 Cohen's κ），防止自偏。
+- Agent 轨迹评测仍以 [09_Agent Eval实验方法](09_Agent%20Eval实验方法.md) 的任务/副作用合同为准；RAGAS 主要覆盖「检索+生成」问答层。
+
 ---
+
+## 4.5 可追溯的最小评测 Harness（注释版）
+
+评测代码的关键不是“打印一个平均分”，而是保留每条样例、判定理由和版本信息。下面的实现只演示确定性规则；LLM-as-Judge 也应沿用同样的逐样例记录结构，并把 judge 模型版本写入结果。
+
+```python
+from dataclasses import dataclass
+from typing import Callable
+
+
+@dataclass(frozen=True)
+class EvalCase:
+    case_id: str
+    question: str
+    expected: str
+
+
+@dataclass(frozen=True)
+class EvalResult:
+    case_id: str
+    passed: bool
+    score: float
+    reason: str
+
+
+def run_eval(
+    cases: list[EvalCase],
+    answer: Callable[[str], str],
+) -> list[EvalResult]:
+    results: list[EvalResult] = []
+    for case in cases:
+        actual = answer(case.question)
+        # 示例用精确匹配；生产环境应按任务选择结构化断言、引用覆盖率或人工复核。
+        passed = actual.strip() == case.expected.strip()
+        results.append(
+            EvalResult(
+                case_id=case.case_id,
+                passed=passed,
+                score=1.0 if passed else 0.0,
+                reason="exact_match" if passed else "answer_mismatch",
+            )
+        )
+    return results
+```
+
+每次评测至少保存：数据集版本、提示词/工具 schema 版本、模型版本、运行时间、每条结果和失败原因。只有汇总均值而没有逐样例证据，无法回答“这次变好的是哪些样例、变差的是哪些边界”。
 
 ## 5. Offline Eval vs Online Eval
 

@@ -21,6 +21,7 @@ pub struct ToolCall {
 
 impl ToolCall {
     fn fingerprint(&self) -> String {
+        // 指纹用于识别同一工具和参数的重复调用；生产实现还应固定参数序列化规范。
         let arguments = self
             .arguments
             .iter()
@@ -60,6 +61,7 @@ pub struct ToolRegistry {
 impl ToolRegistry {
     pub fn register<T: Tool + 'static>(&mut self, tool: T) -> Result<(), AgentError> {
         let name = tool.spec().name;
+        // 工具名冲突会让模型看到的能力和实际执行目标不确定，注册阶段直接拒绝。
         if self.tools.contains_key(&name) {
             return Err(AgentError::DuplicateTool(name));
         }
@@ -104,6 +106,7 @@ pub struct CancellationToken(Arc<AtomicBool>);
 
 impl CancellationToken {
     pub fn cancel(&self) {
+        // 这是协作式取消：Runtime 在模型调用和工具调用边界检查，不能撤销已提交副作用。
         self.0.store(true, Ordering::Release);
     }
 
@@ -172,6 +175,7 @@ impl<M: Model> AgentRuntime<M> {
                 }
                 ModelOutput::ToolCall(call) => {
                     tool_calls += 1;
+                    // 预算在执行前检查，避免一个恶意/失控模型耗尽整个任务资源。
                     if tool_calls > self.limits.max_tool_calls {
                         return Err(AgentError::LimitExceeded("tool calls"));
                     }
@@ -191,6 +195,7 @@ impl<M: Model> AgentRuntime<M> {
                         step,
                         name: call.name.clone(),
                     });
+                    // 工具前再次检查取消，覆盖模型返回后到真正副作用之间的窗口。
                     self.check_cancelled()?;
                     let output = tool.call(&call.arguments).map_err(AgentError::Tool)?;
                     trace.push(TraceEvent::ToolCompleted {
@@ -287,6 +292,7 @@ impl Tool for SumTool {
     }
 
     fn call(&self, arguments: &Arguments) -> Result<String, ToolError> {
+        // Tool 边界负责参数存在性和类型校验；Model 传入的字符串不能直接信任。
         let parse = |name: &str| {
             arguments
                 .get(name)

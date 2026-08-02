@@ -8,16 +8,16 @@
 
 ## 文档
 
-| 文档 | 内容 |
-|------|------|
-| `01_Python核心语法.md` | 语言基础、标准库、类型注解、async/await |
-| `02_Python工程化.md` | 虚拟环境、依赖管理、配置、日志、测试 |
+| 文档                        | 内容                                           |
+| ------------------------- | -------------------------------------------- |
+| `01_Python核心语法.md`        | 语言基础、标准库、类型注解、async/await                    |
+| `02_Python工程化.md`         | 虚拟环境、依赖管理、配置、日志、测试                           |
 | `04_Python Agent工程化补充.md` | 把 Pydantic、asyncio、类型边界和稳定性连接到 Agent Runtime |
-| `05_Python运行时与性能.md` | CPython、对象、GIL、GC、asyncio、进程与性能诊断 |
-| `Python代码组织与设计模式.md` | Service/Client/Repository/Pipeline 架构模式 |
-| `03_HTTP与API调用.md` | requests/httpx、超时、重试、客户端封装 |
-| `FastAPI.md` | 路由、请求响应模型、依赖注入、服务化 |
-| `错误与Debug.md` | 排错顺序、常见错误、最小复现 |
+| `05_Python运行时与性能.md`      | CPython、对象、GIL、GC、asyncio、进程与性能诊断            |
+| `Python代码组织与设计模式.md`      | Service/Client/Repository/Pipeline 架构模式      |
+| `03_HTTP与API调用.md`        | requests/httpx、超时、重试、客户端封装                   |
+| `FastAPI.md`              | 路由、请求响应模型、依赖注入、服务化                           |
+| `错误与Debug.md`             | 排错顺序、常见错误、最小复现                               |
 
 ## 按场景选文档
 

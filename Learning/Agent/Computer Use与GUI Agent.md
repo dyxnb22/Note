@@ -344,6 +344,17 @@ MAX_LOOP_SECONDS = 300  # 5 分钟超时
 ✓ 开发工作流自动化（打开 IDE、运行命令、查看结果）
 ```
 
+### 深化边界（何时继续加能力）
+
+Computer Use 文档主体已覆盖循环、沙箱、成本与安全。继续深化前先确认：
+
+- 目标系统是否仍无稳定 API；有 API 则回到普通 Tool Calling，成本与可靠性通常更好；
+- 是否已有截图/DOM 双通道、动作幂等与会话超时；
+- 是否具备「不可逆动作」人工确认与环境销毁流程；
+- Eval 是否包含嘈杂 UI、弹窗、登录过期和半成功状态。
+
+语音实时交互的额外约束见 [语音与实时对话 Agent](语音与实时对话Agent.md)；跨产品委托见 [跨 Agent 协议与 A2A](跨Agent协议与A2A.md)。
+
 ## 官方来源
 
 - [OpenAI Computer use](https://developers.openai.com/api/docs/guides/tools-computer-use)
@@ -352,6 +363,22 @@ MAX_LOOP_SECONDS = 300  # 5 分钟超时
 核对日期：2026-07-30。实现前重新核对工具版本、动作 schema、截图格式、模型兼容、价格和安全建议。
 
 ---
+
+## 8.1 GUI 动作安全门（注释版）
+
+坐标点击和键盘输入必须经过动作分类与确认，不能把截图中的按钮文字直接当作授权。
+
+```python
+def approve_gui_action(action, *, policy, user_confirmation=False):
+    # 删除、付款、发送和权限变更等动作默认进入人工确认。
+    if policy.is_high_risk(action.kind) and not user_confirmation:
+        return {"allowed": False, "reason": "confirmation_required"}
+    if not policy.in_allowed_window(action.target):
+        return {"allowed": False, "reason": "target_outside_allowlist"}
+    return {"allowed": True, "reason": "policy_passed"}
+```
+
+每次动作都应保存截图摘要、动作参数、确认来源、结果和失败原因；敏感界面应遮罩或禁止截图，避免 Trace 变成凭证泄露源。
 
 ## 9. 面试高频
 

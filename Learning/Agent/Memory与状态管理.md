@@ -462,6 +462,27 @@ def get_active_memories(user_id: str) -> list[ManagedMemory]:
 
 ---
 
+## 10.1 Memory 写入门禁（注释版）
+
+长期记忆不是“模型说了什么就保存什么”。写入前应判断来源、敏感级别、用户是否明确表达、是否与现有事实冲突，以及是否允许被删除。
+
+```python
+def accept_memory(candidate, *, actor, policy, existing):
+    # 只接收有来源和时间的候选；模型推断不能伪装成用户事实。
+    if candidate.source not in {"user_explicit", "verified_system"}:
+        return {"accepted": False, "reason": "untrusted_source"}
+    if policy.is_sensitive(candidate.key) and not actor.allow_memory:
+        return {"accepted": False, "reason": "sensitive_memory_denied"}
+
+    conflict = find_conflict(existing, candidate)
+    if conflict:
+        # 冲突信息先保留待确认状态，不要静默覆盖旧记忆。
+        return {"accepted": False, "reason": "conflict_requires_confirmation"}
+    return {"accepted": True, "reason": "source_and_policy_passed"}
+```
+
+生产实现还要支持按用户查询、导出、删除和审计传播；向量召回只负责找到候选，不能绕过这些生命周期约束。
+
 ## learn-claude-code 对照：选择、提取、整理三段式 Memory
 
 s09 的实现把 Memory 分成三个动作：

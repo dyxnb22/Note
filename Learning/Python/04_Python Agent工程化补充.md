@@ -334,6 +334,35 @@ agent-demo/
 - Mock Provider 覆盖成功、参数错误、工具失败、超时、取消和 max_steps；
 - 用 `uv` 或 `pyproject.toml` 固定依赖，`.env` 不进入版本库。
 
+## 9.1 有界并发与取消（注释版）
+
+`asyncio.gather()` 不等于安全并发。Agent 的工具调用需要并发上限、整体超时和取消传播。
+
+```python
+import asyncio
+
+
+async def bounded_map(items, worker, *, concurrency=4, timeout_s=10):
+    semaphore = asyncio.Semaphore(concurrency)
+
+    async def run_one(item):
+        # Semaphore 限制同时进入外部依赖的任务数，避免一次请求打爆下游。
+        async with semaphore:
+            return await worker(item)
+
+    tasks = [asyncio.create_task(run_one(item)) for item in items]
+    try:
+        # 整体预算超时后主动取消所有子任务，并等待它们完成清理。
+        return await asyncio.wait_for(asyncio.gather(*tasks), timeout=timeout_s)
+    except TimeoutError:
+        for task in tasks:
+            task.cancel()
+        await asyncio.gather(*tasks, return_exceptions=True)
+        raise
+```
+
+副作用工具不应只因为“并发安全”就并行执行，还要检查资源冲突、幂等键和用户审批范围。
+
 ## 10. 对原始学习指南的修订说明
 
 原指南适合作为主题清单，但直接复制代码前要注意：

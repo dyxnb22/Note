@@ -25,6 +25,7 @@ def split_text(text: str, size: int = 500, overlap: int = 80) -> list[str]:
     chunks = []
     start = 0
     while start < len(text):
+        # overlap 只保留边界上下文；生产实现还要按标题、表格和代码结构切分。
         chunks.append(text[start : start + size])
         start += size - overlap
     return chunks
@@ -49,6 +50,7 @@ def cosine(a: Counter[str], b: Counter[str]) -> float:
 
 
 def retrieve(question: str, chunks: list[dict[str, str]], top_k: int = 3) -> list[dict[str, str]]:
+    # 这是词项相似度教学基线，不应被误认为 Embedding/ANN 召回。
     question_vec = Counter(tokenize(question))
     scored = []
     for chunk in chunks:
@@ -58,6 +60,7 @@ def retrieve(question: str, chunks: list[dict[str, str]], top_k: int = 3) -> lis
 
 
 def call_llm(question: str, contexts: list[dict[str, str]]) -> str:
+    # 把来源 ID 放回上下文，便于模型回答时引用；引用仍需由程序校验。
     context_text = "\n\n".join(f"[{item['source']}]\n{item['text']}" for item in contexts)
     api_key = os.getenv("LLM_API_KEY")
     if not api_key:
@@ -76,6 +79,7 @@ def call_llm(question: str, contexts: list[dict[str, str]]) -> str:
         headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
         method="POST",
     )
+    # 网络调用有明确超时；真实服务还应增加重试预算、脱敏和响应大小上限。
     with urllib.request.urlopen(request, timeout=45) as response:
         return json.loads(response.read().decode())["choices"][0]["message"]["content"]
 

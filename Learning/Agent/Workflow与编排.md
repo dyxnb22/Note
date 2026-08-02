@@ -114,6 +114,8 @@ WHERE id = :id
 
 并行任务需要定义汇聚语义：等待全部、满足法定数量、首个成功，还是超时后使用已有结果。多个分支写同一字段时，要明确 reducer、冲突解决和结果顺序；不能依赖完成先后恰好稳定。
 
+可按「超步」理解并行：同一步内的分支读同一状态快照，返回增量，在步末用 reducer 合并；跨请求隔离靠独立的流程实例 ID。框架落地与 `thread_id`/Checkpointer 细节见 [LangGraph](./LangGraph.md)。
+
 ## Human-in-the-loop
 
 人工审批不是简单的布尔开关。审批对象至少包含：
@@ -187,6 +189,26 @@ Workflow 负责预算、权限、重试、审批和终止；Agent 负责在授�
 5. 对审批的同意、修改、拒绝和超时分别测试。
 6. 用历史 Checkpoint 验证 Schema 迁移和恢复。
 7. 对循环验证步数、时间和预算上限。
+
+## Checkpoint 迁移的最小合同（注释版）
+
+恢复不是把旧 JSON 直接反序列化。先校验版本，再执行显式迁移；无法证明语义等价时应拒绝恢复并转人工。
+
+```python
+def restore_checkpoint(raw, *, current_version: int, migrations):
+    version = raw.get("schema_version")
+    if version is None or version > current_version:
+        raise ValueError("checkpoint version is unsupported")
+
+    state = raw["state"]
+    while version < current_version:
+        # 每次只迁移一个版本，便于测试和定位哪一步破坏了状态语义。
+        state = migrations[version](state)
+        version += 1
+    return {"schema_version": current_version, "state": state}
+```
+
+迁移测试要覆盖旧版本正常恢复、缺字段、未知字段、重复恢复和迁移失败；恢复成功后还要验证下一次节点输入与旧版本的业务语义一致。
 
 ## 选型清单
 

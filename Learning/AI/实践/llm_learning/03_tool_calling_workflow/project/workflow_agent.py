@@ -28,6 +28,7 @@ def plan(goal: str) -> list[str]:
 
 def risk_check(steps: list[str]) -> bool:
     """Block dangerous actions before any tool execution."""
+    # 这是教学级关键词门禁；生产应使用结构化工具分类、权限和审批，不依赖字符串匹配。
     blocked_words = {"删除", "清空", "支付", "发送邮件", "上传密钥"}
     text = "\n".join(steps)
     return not any(word in text for word in blocked_words)
@@ -35,6 +36,7 @@ def risk_check(steps: list[str]) -> bool:
 
 def execute(state: WorkflowState) -> WorkflowState:
     report = Path(__file__).with_name("workflow_report.md")
+    # 写文件是一个真实副作用；示例固定输出位置，生产应校验路径、权限和幂等键。
     content = [
         "# Workflow Report",
         "",
@@ -56,6 +58,7 @@ def execute(state: WorkflowState) -> WorkflowState:
 
 def run(goal: str) -> WorkflowState:
     state = WorkflowState(goal=goal)
+    # 每个节点都通过显式状态连接，便于以后加入人工审批、恢复和评测。
     state.plan = plan(goal)
     state.approved = risk_check(state.plan)
     if not state.approved:
@@ -70,4 +73,3 @@ if __name__ == "__main__":
     print("\n".join(f"- {step}" for step in final_state.plan))
     print("\nResults:")
     print("\n".join(f"- {item}" for item in final_state.results))
-

@@ -18,6 +18,7 @@ COURSE_MODULES = [
 
 
 def load_course_module(module_name: str, module_path: Path, temp_cwd: Path):
+    # 用假的第三方模块隔离课程代码，让测试只验证输入解析和副作用边界。
     fake_anthropic = types.ModuleType("anthropic")
 
     class FakeAnthropic:
@@ -31,6 +32,7 @@ def load_course_module(module_name: str, module_path: Path, temp_cwd: Path):
     setattr(fake_yaml, "safe_load", lambda text: {})
     setattr(fake_yaml, "YAMLError", Exception)
 
+    # 测试结束后恢复进程级状态，避免不同课程模块互相污染。
     previous_modules = {
         "anthropic": sys.modules.get("anthropic"),
         "dotenv": sys.modules.get("dotenv"),
@@ -101,6 +103,7 @@ class TodoWriteStringInputTests(unittest.TestCase):
             with self.subTest(module=module_name), tempfile.TemporaryDirectory() as tmp:
                 tmp_path = Path(tmp)
                 marker = tmp_path / "eval_was_executed"
+                # 传入恶意表达式；通过“文件未被创建”证明实现没有直接 eval 输入。
                 module = load_course_module(module_name, module_path, tmp_path)
 
                 result = module.run_todo_write(

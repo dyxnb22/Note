@@ -1,3 +1,5 @@
+"""FastAPI 示例使用的最小 Agent 服务层。"""
+
 from datetime import datetime
 
 
@@ -7,6 +9,7 @@ def run_agent(message: str) -> str:
     真实项目中，这里可以调用 OpenAI、Tool Calling 或 LangGraph。
     先把 Agent 包成函数，后面接 FastAPI 会很自然。
     """
+    # 这里刻意使用确定性规则，方便先测试 API 边界，再替换成真实模型调用。
     if "天气" in message:
         return "香港今天多云，26°C。"
     if "时间" in message:

@@ -2,7 +2,7 @@
 
 多 Agent 不是能力叠加器，而是把一个运行时拆成多个具有独立上下文、工具或权限的执行单元。只有当拆分收益超过通信、重复推理、状态同步和失败恢复成本时，它才比单 Agent 或确定性 Workflow 更合适。
 
-框架实现可参考 [LangGraph](./LangGraph.md) 的 Supervisor 示例；本文只讨论与框架无关的选型、状态、安全和评测边界。
+框架实现可参考 [LangGraph](./LangGraph.md) 的 Supervisor 示例；本文只讨论与框架无关的选型、状态、安全和评测边界。跨进程、跨厂商把任务委托给另一个 Agent 产品时，见 [跨Agent协议与A2A](./跨Agent协议与A2A.md)，不要与进程内多角色混为一谈。
 
 ## 1. 先做选型，不先画角色
 
@@ -103,9 +103,58 @@ Swarm 或自由对话式协作缺少清晰所有权和终止条件，通常只�
 - 多个 Agent 同时写同一文件或外部系统，没有版本与幂等控制；
 - 只比较单次演示效果，没有与简单基线比较成本和失败率。
 
-## 8. 最小实践
+## 8. 分歧仲裁、幻觉放大与互指派死循环
 
-选择一个可分成三份只读分析的任务：先用单 Agent 完成，再实现 Manager–Worker。每个 Worker 只接收必要上下文并返回固定 JSON；Manager 检查 Schema、去重证据并汇总。随后注入一个 Worker 超时、一个重复结果和一个错误证据，验证系统能降级完成且不会把未验证产物标为成功。
+### 分歧谁说了算
+
+多 Agent 对同一事实结论不一致时，预先约定仲裁，而不是靠「再说一轮」：
+
+1. **程序化证据优先**：测试通过、API 返回、校验器结果压过自然语言自信。
+2. **角色权重**：Reviewer/Verifier 可否决 Executor，但必须给出可检查理由。
+3. **用户/人工**：高风险或无法裁决时升级，而不是静默选一个。
+4. **禁止平均意见**：两个幻觉取平均仍是幻觉。
+
+### 幻觉放大
+
+流水线里上游胡编，下游当事实继续推理，错误会指数放大。抑制：
+
+- 每跳强制**引用或工具证据**，无证据不得写入共享事实区；
+- Worker 输出用 Schema + 校验器；未通过则重试或降级，不进入下一跳；
+- 共享黑板只存已验证对象，不存「我觉得」。
+
+### 互指派死循环
+
+A 让 B 做、B 又派回 A。防护：
+
+- 全局 **TTL / 最大委派深度**；
+- 任务图去环（同一 `task_id` 不得被同一对 Agent 重复认领）；
+- 空闲认领要有冷却与 shutdown；
+- 预算耗尽强制结束并上报。
+
+跨产品委托的状态机与取消见 [跨Agent协议与A2A](跨Agent协议与A2A.md)。
+
+## 8.1 共享事实写入门禁（注释版）
+
+多 Agent 的共享黑板只允许写入经过 Schema、来源和冲突检查的事实；Worker 的“分析意见”不能直接升级成公共事实。
+
+```python
+def publish_fact(fact, *, schema, evidence_store, blackboard):
+    # 先校验结构，再检查每个关键字段是否有可追溯证据。
+    schema.validate(fact)
+    for claim in fact.claims:
+        if not evidence_store.supports(claim, fact.source_ids):
+            return {"published": False, "reason": "missing_evidence"}
+    if blackboard.conflicts_with(fact):
+        return {"published": False, "reason": "conflict_requires_arbitration"}
+    blackboard.put(fact)
+    return {"published": True}
+```
+
+只有通过门禁的对象才允许被后续 Agent 读取；无法裁决的冲突应升级给仲裁 Agent 或人工，而不是按最后写入者覆盖。
+
+## 9. 最小实践
+
+选择一个可分成三份只读分析的任务：先用单 Agent 完成，再实现 Manager–Worker。每个 Worker 只接收必要上下文并返回固定 JSON；Manager 检查 Schema、去重证据并汇总。随后注入一个 Worker 超时、一个重复结果和一个错误证据，验证系统能降级完成且不会把未验证产物标为成功。额外注入「两个 Worker 结论冲突」与「互相指派」，验证仲裁与 TTL。
 
 最终结论应回答：多 Agent 改善了哪个指标，增加了多少成本，在哪类任务上应退回单 Agent 或 Workflow。
 

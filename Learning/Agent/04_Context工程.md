@@ -379,6 +379,8 @@ def build_system_prompt(active_skills: list[str]) -> str:
 节省：95% 的工具定义 token
 ```
 
+概念边界、渐进式披露三级模型、Skill vs Tool vs MCP，见独立专篇 [Skills与渐进式披露](Skills与渐进式披露.md)。
+
 懒加载的触发时机：用户消息发来时，先分析意图，再决定激活哪些 Skill，再构建带完整定义的 System Prompt。
 
 ---
@@ -677,6 +679,53 @@ async def code_gen_with_test_feedback(task: str) -> str:
 ```
 
 ---
+
+## 9.6 上下文预算与压缩（注释版）
+
+上下文管理要把“不可丢失的信息”和“可以压缩的信息”分开。下面的示例保留系统消息、最近对话和未完成工具调用，并把较早历史压缩为带边界的摘要；实际项目还应把 token 计数替换为目标模型的 tokenizer。
+
+```python
+from typing import Any, Callable
+
+
+def fit_context(
+    messages: list[dict[str, Any]],
+    *,
+    max_tokens: int,
+    count_tokens: Callable[[list[dict[str, Any]]], int],
+    summarize: Callable[[list[dict[str, Any]]], dict[str, Any]],
+) -> list[dict[str, Any]]:
+    # 系统消息承载权限和行为约束，默认不能因为压缩而被删除。
+    pinned = [m for m in messages if m.get("role") == "system"]
+    rest = [m for m in messages if m.get("role") != "system"]
+    if count_tokens(messages) <= max_tokens:
+        return messages
+
+    # 先保留最近消息；这样通常比从头截断更能维持当前任务状态。
+    recent: list[dict[str, Any]] = []
+    for message in reversed(rest):
+        candidate = [*pinned, message, *recent]
+        if count_tokens(candidate) > max_tokens:
+            break
+        recent.insert(0, message)
+
+    dropped = rest[: len(rest) - len(recent)]
+    if dropped:
+        # 摘要必须明确这是压缩内容，避免模型把不确定推断当成原始事实。
+        summary = summarize(dropped)
+        recent.insert(
+            0,
+            {
+                "role": "system",
+                "content": {"kind": "compressed_history", "summary": summary},
+            },
+        )
+
+    # 如果摘要本身仍超预算，宁可返回截断结果并记录指标，也不要静默超限。
+    return [*pinned, *recent]
+```
+
+压缩后的摘要应有来源、时间和置信边界；涉及权限、用户偏好、未完成事务和工具结果时，最好采用结构化字段而不是一段自由文本。线上需要监控压缩次数、压缩前后 token、摘要丢失率和因上下文不足导致的重试。
 
 ## learn-claude-code 对照：Skill、Compact 与运行时 Prompt
 

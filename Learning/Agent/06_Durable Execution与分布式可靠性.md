@@ -153,6 +153,35 @@ Outbox 模式：
 
 尤其是发送、删除、发布等动作，不能因为 worker 崩溃就盲目重试。
 
+## 8.1 Operation Journal 与幂等恢复（注释版）
+
+恢复的关键问题是“工具调用到底有没有产生副作用”。因此要把 operation 写入 Journal，并在重试前先查询状态，而不是只看 Worker 是否崩溃。
+
+```python
+def execute_operation(operation_id: str, tool, arguments: dict):
+    record = journal.get(operation_id)
+    if record and record.status == "SUCCEEDED":
+        # 已确认成功时直接复用结果，不能因为 ACK 丢失再次执行副作用。
+        return record.result
+
+    if record and record.status == "STARTED":
+        # STARTED 只证明曾经开始，不能假设成功；优先调用查询接口或转人工。
+        status = tool.query_status(operation_id)
+        if status == "SUCCEEDED":
+            journal.mark_succeeded(operation_id, result=tool.read_result(operation_id))
+            return journal.get(operation_id).result
+        if status == "UNKNOWN":
+            raise RuntimeError("side effect status requires reconciliation")
+
+    # 写入唯一 operation_id，再执行；Journal 存储必须具备条件更新/唯一约束。
+    journal.mark_started(operation_id, arguments=arguments)
+    result = tool.call(operation_id=operation_id, **arguments)
+    journal.mark_succeeded(operation_id, result=result)
+    return result
+```
+
+这是伪代码，`journal` 和 `tool` 需要替换成数据库记录与具备查询能力的真实客户端。若外部系统既不能幂等也不能查询状态，自动重试的安全性无法证明，应把该动作改成审批或对账任务。
+
 ## 9. 练习与验收
 
 把本地 Coding Agent 改造成后台任务系统：

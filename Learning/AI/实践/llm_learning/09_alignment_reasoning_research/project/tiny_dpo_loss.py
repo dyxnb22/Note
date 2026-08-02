@@ -12,6 +12,7 @@ import math
 
 
 def log_sigmoid(x: float) -> float:
+    # 数值示例使用直接公式；生产训练应使用框架的稳定实现。
     return -math.log1p(math.exp(-x))
 
 
@@ -22,6 +23,7 @@ def dpo_loss(
     reference_rejected_logp: float,
     beta: float = 0.1,
 ) -> float:
+    # DPO 比较 policy 相对 reference 的偏好差，而不是只看 chosen 的绝对概率。
     policy_margin = policy_chosen_logp - policy_rejected_logp
     reference_margin = reference_chosen_logp - reference_rejected_logp
     return -log_sigmoid(beta * (policy_margin - reference_margin))
@@ -46,6 +48,7 @@ def main() -> None:
     ]
 
     for item in examples:
+        # 这里的 log-prob 是手工构造的，目的是观察 loss 随偏好 margin 变化。
         loss = dpo_loss(
             item["policy_chosen"],
             item["policy_rejected"],
@@ -59,4 +62,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

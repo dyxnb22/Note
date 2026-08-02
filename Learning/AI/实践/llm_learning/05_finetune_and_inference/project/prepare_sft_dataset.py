@@ -30,6 +30,7 @@ def rough_token_count(text: str) -> int:
 
 
 def to_chat_record(example: dict[str, str]) -> dict[str, list[dict[str, str]]]:
+    # 固定消息角色和字段，避免训练数据混入无法解析的自定义结构。
     return {
         "messages": [
             {"role": "system", "content": "你是一个准确、简洁的大模型面试教练。"},
@@ -44,11 +45,13 @@ def main() -> None:
     dataset_path = out_dir / "sft_dataset.jsonl"
     config_path = out_dir / "lora_config.json"
 
+    # 先生成确定性小数据集，再把实际训练框架配置单独写出。
     records = [to_chat_record(item) for item in EXAMPLES]
     with dataset_path.open("w", encoding="utf-8") as file:
         for record in records:
             file.write(json.dumps(record, ensure_ascii=False) + "\n")
 
+    # 这个 token 数只用于预算直觉；训练时应使用目标 tokenizer 的真实计数。
     token_total = sum(rough_token_count(message["content"]) for record in records for message in record["messages"])
     config = {
         "method": "LoRA",
@@ -69,4 +72,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

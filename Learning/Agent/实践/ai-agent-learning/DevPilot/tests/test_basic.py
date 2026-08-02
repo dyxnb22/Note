@@ -1,5 +1,6 @@
 """DevPilot 测试"""
 
+# 测试直接运行时，把被测的 src 目录加入导入路径。
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 

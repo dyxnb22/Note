@@ -27,6 +27,7 @@ func (r *MemoryRepository) Save(ctx context.Context, idempotencyKey string, valu
 	defer r.mu.Unlock()
 
 	if existingID, ok := r.byIdempotency[idempotencyKey]; ok {
+		// 在同一把锁内比较原始请求，保证重复请求不会竞态地生成第二个订单。
 		existing := r.byID[existingID]
 		if existing.CustomerID != value.CustomerID || existing.AmountCents != value.AmountCents {
 			return Order{}, false, ErrConflict
@@ -45,6 +46,7 @@ func (r *MemoryRepository) FindByID(ctx context.Context, id string) (Order, erro
 
 	r.mu.RLock()
 	defer r.mu.RUnlock()
+	// 读路径只持有读锁；Repository 替换成数据库后仍需保留同样的并发语义。
 	value, ok := r.byID[id]
 	if !ok {
 		return Order{}, ErrNotFound

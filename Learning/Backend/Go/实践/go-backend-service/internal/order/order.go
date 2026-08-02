@@ -38,10 +38,12 @@ func NewService(repository Repository) *Service {
 }
 
 func (s *Service) Create(ctx context.Context, idempotencyKey, customerID string, amountCents int64) (Order, bool, error) {
+	// 先检查请求是否已经取消，避免在明显超时后继续生成业务 ID。
 	if err := ctx.Err(); err != nil {
 		return Order{}, false, err
 	}
 
+	// 规范化后再校验并落库，确保空格差异不会产生两条看似相同的业务请求。
 	idempotencyKey = strings.TrimSpace(idempotencyKey)
 	customerID = strings.TrimSpace(customerID)
 	if idempotencyKey == "" || customerID == "" || amountCents <= 0 {
@@ -49,6 +51,7 @@ func (s *Service) Create(ctx context.Context, idempotencyKey, customerID string,
 	}
 
 	value := Order{
+		// ID 在 Service 层生成只是教学实现；生产环境通常由数据库/雪花号服务保证全局约束。
 		ID:          fmt.Sprintf("ord-%d", s.nextID.Add(1)),
 		CustomerID:  customerID,
 		AmountCents: amountCents,

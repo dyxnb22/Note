@@ -18,6 +18,7 @@ RATE_LIMIT: dict[str, list[float]] = {}
 
 def allow_request(client: str, limit: int = 20, window_seconds: int = 60) -> bool:
     now = time.time()
+    # 教学实现使用进程内窗口；多实例生产网关需要共享限流状态或边缘限流。
     history = [item for item in RATE_LIMIT.get(client, []) if now - item < window_seconds]
     if len(history) >= limit:
         RATE_LIMIT[client] = history
@@ -28,6 +29,7 @@ def allow_request(client: str, limit: int = 20, window_seconds: int = 60) -> boo
 
 
 def cache_key(message: str) -> str:
+    # 缓存键只使用规范化后的业务输入；生产环境还要绑定租户、权限和模型版本。
     return hashlib.sha256(message.encode("utf-8")).hexdigest()
 
 
@@ -55,6 +57,7 @@ def call_model(message: str) -> str:
         method="POST",
     )
     with urllib.request.urlopen(request, timeout=30) as response:
+        # 这里假设兼容 Chat Completions 响应；接入其他 Provider 时应放进适配层。
         return json.loads(response.read().decode())["choices"][0]["message"]["content"]
 
 
@@ -78,6 +81,7 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         try:
+            # 只读取声明的 Content-Length；生产服务还要拒绝超大/缺失长度的请求体。
             size = int(self.headers.get("Content-Length", "0"))
             payload = json.loads(self.rfile.read(size).decode("utf-8"))
             message = str(payload.get("message", "")).strip()
@@ -95,7 +99,9 @@ class Handler(BaseHTTPRequestHandler):
             print(json.dumps({"event": "chat", "client": client, "chars": len(message)}, ensure_ascii=False))
             self._json(200, {"answer": answer, "cached": False})
         except (json.JSONDecodeError, urllib.error.URLError, TimeoutError) as exc:
-            self._json(500, {"error": "llm_gateway_error", "detail": str(exc)})
+            # 对外返回稳定错误码；内部日志应保留关联 ID 和异常类型，不直接泄露堆栈。
+            print(json.dumps({"event": "llm_gateway_error", "type": type(exc).__name__}))
+            self._json(502, {"error": "llm_gateway_error", "detail": "upstream request failed"})
 
 
 def main() -> None:

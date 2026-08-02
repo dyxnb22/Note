@@ -146,6 +146,24 @@ Unit / contract tests
 
 Kill switch 本身需要权限、审计和演练，不能只存在于文档里。
 
+## 9.1 事故状态与 Kill Switch（注释版）
+
+事故处理需要可查询的状态，而不是只在聊天群里喊“先关掉”。
+
+```python
+def handle_incident(incident, *, controls, audit):
+    # 先冻结高风险动作，再继续收集证据；关闭动作本身也要审计。
+    if incident.category in {"data_leak", "unauthorized_write", "cost_spike"}:
+        controls.disable_write_tools(scope=incident.scope)
+        audit.record("kill_switch_enabled", scope=incident.scope, incident_id=incident.id)
+
+    incident.status = "mitigating"
+    incident.next_review_at = incident.started_at + incident.review_window
+    return incident
+```
+
+恢复前要验证版本、权限、未完成任务和新增回归 Case；Kill Switch 解除也需要双人或等价审批，不能因为告警消失就自动恢复高风险能力。
+
 ## 10. 练习与验收
 
 为 Mini-Codex 写一份运维方案：

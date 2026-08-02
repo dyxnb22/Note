@@ -174,6 +174,31 @@ Batching 能提高吞吐，但会增加排队延迟。动态批处理需设置�
 
 训练数据被删除后，是否需要重新训练、反学习或仅阻止后续使用，应根据法规和系统能力明确记录。
 
+## 14.1 模型制品与发布门禁（注释版）
+
+模型文件本身不足以支持回滚。发布制品至少要绑定代码、数据、预处理、评测和运行时版本。
+
+```python
+def release_gate(candidate, baseline, *, hard_limits, required_artifacts):
+    # 缺少任一制品时拒绝发布，避免“权重在但无法复现输入语义”。
+    missing = [name for name in required_artifacts if not candidate.artifacts.get(name)]
+    if missing:
+        return {"released": False, "reason": "missing_artifacts", "items": missing}
+
+    # 安全、兼容性和数据泄露属于硬门槛，不能用平均指标提升抵消。
+    for metric, limit in hard_limits.items():
+        if candidate.metrics.get(metric, 0) > limit:
+            return {"released": False, "reason": f"hard_limit:{metric}"}
+
+    return {
+        "released": candidate.metrics["quality"] >= baseline.metrics["quality"],
+        "candidate": candidate.version,
+        "baseline": baseline.version,
+    }
+```
+
+真实门禁还应比较分桶质量、延迟、成本、输入 Schema 兼容性和回滚耗时；“离线准确率更高”不能单独证明线上发布值得。
+
 ## 15. 最小项目
 
 完成一个小模型的生产闭环：

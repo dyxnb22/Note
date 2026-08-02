@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS6290-Privacy-考试临时资料/Lecture/03-Lecture1B-Bitcoin所有权与脚本.md",
+                "file": "CS6290-Privacy-考试临时资料/Lecture/08-Lecture5-DeFi-AMM与借贷.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03-Lecture1B-Bitcoin所有权与脚本"
+              "title": "08-Lecture5-DeFi-AMM与借贷"
             }
           }
         ],
@@ -52,7 +52,9 @@
           "type": "file-explorer",
           "state": {
             "sortOrder": "alphabetical",
-            "autoReveal": false
+            "autoReveal": false,
+            "showSearch": false,
+            "searchQuery": ""
           },
           "icon": "lucide-folder-closed",
           "title": "文件列表"
@@ -183,6 +185,8 @@
   },
   "active": "7f2fb647724ea8d9",
   "lastOpenFiles": [
+    "CS6290-Privacy-考试临时资料/Lecture/07-Lecture4-PoS与Gasper.md",
+    "CS6290-Privacy-考试临时资料/Lecture/03-Lecture1B-Bitcoin所有权与脚本.md",
     "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md",
     "CS6290-Privacy-考试临时资料/Lecture/01-Lecture0-课程定位与学习路线.md",
     "Learning/Python/02_Python工程化.md",

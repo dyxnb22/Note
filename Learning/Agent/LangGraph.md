@@ -67,6 +67,19 @@ error_log: list[str]
 - 只放需要在节点间传递的数据
 - 用 `Annotated` + reducer 控制字段如何更新（追加 vs 覆盖）
 
+### 并行执行时状态为何不会随便互相覆盖
+
+LangGraph 的执行可以按「超步」理解（与 Pregel/BSP 同类思路，不必死记名词）：
+
+1. **同一超步内**，可并行的节点读的是同一份**状态快照**，而不是彼此半写入的中间态。
+2. 节点**不要原地改共享对象**；应返回**增量更新**（dict 片段）。
+3. 超步结束时，框架把各节点增量收集起来，按字段上的 **reducer**（覆盖、`operator.add` 追加、自定义合并）写回，得到下一超步快照。
+4. 每个对话/任务用独立 `thread_id`（及 checkpointer 键）隔离；不同线程之间不会共享可变状态。
+
+因此「多个节点一起跑会不会写坏状态」取决于：字段是否声明了正确的合并策略、节点是否只返回增量、跨任务是否共用了同一 `thread_id`。多个 Agent 角色若写同一键且 reducer 是覆盖，后写仍会丢信息——要用命名空间字段或追加型 reducer，而不是指望并行自己变安全。
+
+生产持久化用 Sqlite/Postgres 等 Checkpointer：通常在超步（或配置的持久化点）落快照，失败可回到上一检查点；内存 Checkpointer 仅适合本地实验。
+
 ### Node（节点）
 
 节点是函数，接受 state，返回对 state 的更新：
@@ -288,7 +301,26 @@ for message, metadata in chunk:
     if hasattr(message, "content") and message.content:
         print(message.content, end="", flush=True)
 ```
----
+
+### 节点事件到前端进度
+
+用户要的是**可理解的进度**，不是框架内部的全部事件。推荐契约：
+
+```text
+后端：图事件流（如 stream / astream_events）
+  → 过滤层（只放行白名单事件）
+  → SSE / WebSocket 进度帧
+  → 前端按 task_id 渲染步骤
+```
+
+过滤层建议：
+
+- 放行：节点开始/结束、工具开始/结束、审批等待、失败与重试、最终答案 token（若需要打字机效果）。
+- 默认丢弃：过细的内部链、重复 debug、含密钥或大段检索原文的载荷；需要时只推摘要与引用 ID。
+- 每帧带稳定字段：`task_id`、`event_type`、`node`、`status`、`ts`、可选 `safe_summary`。
+- 流式模式下节点可能暴露中间态；**对外协议与对内 trace 分离**，trace 完整、SSE 最小化。
+
+FastAPI 可用 SSE（`text/event-stream`）推送；前端用 `EventSource` 或等价客户端。取消时同时取消图运行与 SSE，避免幽灵任务。产品侧进度语义见 [Agent 产品与人机协同](Agent产品与人机协同.md)。
 
 ## 9. 常见模式与最佳实践
 
@@ -936,6 +968,35 @@ result = process_docs.invoke(["文档1...", "文档2...", "文档3..."], config=
 
 ---
 
+## 21. 版本验证与最小 Smoke Test
+
+LangGraph API、Checkpointer 和 Provider 适配都可能随版本变化。正文中的代码块先区分“协议/伪代码”和“需要在锁定环境运行的示例”，每次升级至少运行一个不依赖外部模型的图测试。
+
+```python
+from typing import TypedDict
+
+from langgraph.graph import END, StateGraph
+
+
+class State(TypedDict):
+    value: int
+
+
+def increment(state: State) -> State:
+    # 节点返回增量/新状态，不在并行节点中原地修改共享对象。
+    return {"value": state["value"] + 1}
+
+
+builder = StateGraph(State)
+builder.add_node("increment", increment)
+builder.set_entry_point("increment")
+builder.add_edge("increment", END)
+graph = builder.compile()
+assert graph.invoke({"value": 0})["value"] == 1
+```
+
+验证记录至少包含 Python、LangGraph、Checkpointer、Provider SDK 版本、运行命令和输出。若新版本要求使用 `START`/`END` 或不同的持久化接口，应按锁定版本更新代码并在本文记录迁移原因，不能只改文字不跑测试。
+
 ## learn-claude-code 对照：从团队通信到自治认领
 
 s15-s18 展示了 LangGraph 之外的另一种 Harness 协作实现：
@@ -960,7 +1021,7 @@ s15-s18 展示了 LangGraph 之外的另一种 Harness 协作实现：
 
 **Q：LangGraph 和 LangChain 的区别是什么？**
 
-> LangChain 提供的是线性链（Chain），步骤固定从 A 到 B 到 C。LangGraph 用图结构，支持条件路由、循环、分支、并行节点，可以表达任意复杂的 Agent 工作流。LangGraph 是在 LangChain 基础上专门为 Agent 场景设计的编排框架。如果任务是固定线性步骤，LangChain 够用；如果有条件分支、循环、需要 checkpoint，用 LangGraph。
+> LangChain 提供的是线性链（Chain），步骤固定从 A 到 B 到 C。LangGraph 用图结构，支持条件路由、循环、分支、并行节点，可以表达任意复杂的 Agent 工作流。LangGraph 是在 LangChain 基础上专门为 Agent 场景设计的编排框架。如果任务是固定线性步骤，LangChain 够用；如果有条件分支、循环、需要 checkpoint，用 LangGraph。与 AutoGen/CrewAI/低代码的对比见 [Agent框架与平台选型](Agent框架与平台选型.md)。
 
 **Q：什么是 Checkpoint，为什么重要？**
 

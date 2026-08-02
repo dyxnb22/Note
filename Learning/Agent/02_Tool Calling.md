@@ -37,11 +37,11 @@ LLM 理解意图 → 决定调用哪个工具 → 生成工具调用参数（JSO
 
 Agent Loop 的思想基本相同，但消息协议由 Provider 决定：
 
-| Provider 示例 | 助手工具调用 | 工具结果 |
-|---|---|---|
-| Anthropic Messages | `content` 中的 `tool_use` block | 下一条 `role: "user"` 中的 `tool_result` block |
-| OpenAI Responses | `output` 中的 `function_call` Item | `function_call_output` Item，用 `call_id` 对应 |
-| OpenAI Chat Completions | `message.tool_calls` | `role: "tool"`，带 `tool_call_id` |
+| Provider 示例             | 助手工具调用                           | 工具结果                                       |
+| ----------------------- | -------------------------------- | ------------------------------------------ |
+| Anthropic Messages      | `content` 中的 `tool_use` block    | 下一条 `role: "user"` 中的 `tool_result` block  |
+| OpenAI Responses        | `output` 中的 `function_call` Item | `function_call_output` Item，用 `call_id` 对应 |
+| OpenAI Chat Completions | `message.tool_calls`             | `role: "tool"`，带 `tool_call_id`            |
 
 学习时先掌握“模型提出动作 → 程序执行 → 返回结果”的不变量，再单独记各 SDK 的字段和消息形状。
 
@@ -109,13 +109,13 @@ response_tools = [{
 
 ### Schema 设计原则
 
-| 原则 | 好的 | 坏的 |
-|------|------|------|
-| description 明确边界 | "搜索订单。不用于创建订单" | "处理订单相关操作" |
-| 参数 description 说明何时传 | "不传则返回所有状态" | "状态过滤" |
-| 用 enum 约束枚举值 | `"enum": ["pending", "shipped"]` | `"type": "string"` |
-| 参数名称语义清晰 | `user_id`, `start_date` | `id`, `d1` |
-| required 只包含真正必须的 | `["user_id"]` | `["user_id", "limit"]` |
+| 原则                   | 好的                               | 坏的                     |
+| -------------------- | -------------------------------- | ---------------------- |
+| description 明确边界     | "搜索订单。不用于创建订单"                   | "处理订单相关操作"             |
+| 参数 description 说明何时传 | "不传则返回所有状态"                      | "状态过滤"                 |
+| 用 enum 约束枚举值         | `"enum": ["pending", "shipped"]` | `"type": "string"`     |
+| 参数名称语义清晰             | `user_id`, `start_date`          | `id`, `d1`             |
+| required 只包含真正必须的    | `["user_id"]`                    | `["user_id", "limit"]` |
 
 **核心规律**：模型选工具时看 name 和 description，生成参数时主要看 parameters 里每个字段的 description。工具选择出问题时，先检查 description 是不是写清楚了。
 
@@ -727,6 +727,90 @@ s02 用 `TOOL_HANDLERS: dict[str, Callable]` 把工具名映射到处理函数�
 项目还提供了两个容易被混淆的判断：`isReadOnly` 表示有没有业务副作用，`isConcurrencySafe` 表示能否与其他工具安全并发；两者不等价。例如只读的 `ls` 可以并发，而某些会更新共享状态的任务创建操作也可能在实现上允许并发。并发分区必须基于资源冲突和幂等性判断，不能只看工具名称。
 
 s19/s20 又把内置工具和 MCP 工具动态合并成一个工具池，并用 `mcp__server__tool` 命名空间避免冲突。连接 MCP 后工具 schema 发生变化，下一轮必须重建工具池和相关 prompt/cache；否则模型看到的能力目录会过期。对应实验：[s02_tool_use/code.py](./实践/learn-claude-code/s02_tool_use/code.py)、[s19_mcp_plugin/code.py](./实践/learn-claude-code/s19_mcp_plugin/code.py)、[s20_comprehensive/code.py](./实践/learn-claude-code/s20_comprehensive/code.py)。
+
+## 15. 工具执行边界（注释版）
+
+工具调用不是“模型返回 JSON 后直接执行”。真正的边界至少要包含：工具白名单、参数校验、授权、超时、错误归一化，以及副作用工具的幂等约束。
+
+```python
+import asyncio
+from dataclasses import dataclass
+from typing import Any, Awaitable, Callable
+
+
+@dataclass(frozen=True)
+class ToolCall:
+    call_id: str
+    name: str
+    arguments: dict[str, Any]
+
+
+@dataclass(frozen=True)
+class ToolPolicy:
+    timeout_s: float = 10.0
+    side_effecting: bool = False
+
+
+async def execute_tool_call(
+    call: ToolCall,
+    *,
+    registry: dict[str, Callable[..., Awaitable[Any]]],
+    policies: dict[str, ToolPolicy],
+    authorized_tools: set[str],
+) -> dict[str, Any]:
+    # 白名单检查必须先于参数解析和执行，避免“未知工具”进入动态分发。
+    if call.name not in registry or call.name not in authorized_tools:
+        return {"ok": False, "call_id": call.call_id, "error_code": "tool_denied"}
+
+    policy = policies.get(call.name, ToolPolicy())
+    if policy.side_effecting and not call.arguments.get("idempotency_key"):
+        # 创建订单、发消息、扣款等副作用操作，缺少幂等键时宁可拒绝执行。
+        return {
+            "ok": False,
+            "call_id": call.call_id,
+            "error_code": "missing_idempotency_key",
+        }
+
+    try:
+        # 参数 schema 校验应放在这里；示例省略具体 schema 库。
+        async with asyncio.timeout(policy.timeout_s):
+            value = await registry[call.name](**call.arguments)
+    except TimeoutError:
+        return {"ok": False, "call_id": call.call_id, "error_code": "tool_timeout"}
+    except Exception as exc:  # noqa: BLE001 - 边界层统一归一化未知异常。
+        # 返回稳定错误码，不把堆栈、密钥或内部路径直接暴露给模型。
+        return {
+            "ok": False,
+            "call_id": call.call_id,
+            "error_code": "tool_failed",
+            "error_type": type(exc).__name__,
+        }
+
+    return {"ok": True, "call_id": call.call_id, "value": value}
+```
+
+生产实现还需要记录 `call_id`、用户/租户、授权决策、耗时和结果摘要；原始参数是否落日志要按敏感数据分级处理。工具结果回传给模型前，也应限制大小并清理凭证、内部 URL 和不必要的个人信息。
+
+## 16. 工具膨胀：百级工具怎么路由
+
+把 100+ 工具的完整 schema 塞进每次请求，既贵又伤选择准确率。目标是**缩小模型可见的候选集**：
+
+```text
+用户意图
+  → 域/技能路由（静态规则或轻量分类）
+  → 组内 Top 工具（语义相似度或二级 LLM）
+  → 只注入这组 schema
+  → 调用
+```
+
+常用策略：
+
+1. **静态路由**：意图/关键词 → 预定义工具组；最稳，优先。
+2. **语义回退**：静态未命中时，用 Embedding 匹配「意图 ↔ 工具描述」。
+3. **两级 LLM**：先选类别再选工具；多一次调用，灵活但更贵。
+4. **与 Skill 结合**：目录常驻、正文按需，见 [Skills与渐进式披露](Skills与渐进式披露.md)。
+
+并行调用仍要遵守只读/冲突分区；路由只解决「看见谁」，不解决副作用安全。
 
 ## ai-agent-learning 配套实践
 

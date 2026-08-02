@@ -540,6 +540,34 @@ async def handle_sampling(params) -> str:
 
 ---
 
+## 13.1 MCP 调用边界（注释版）
+
+协议层成功不等于业务动作成功。Client 需要校验响应关联、超时、错误类型和工具结果大小，Server 仍需独立完成授权和幂等。
+
+```python
+import asyncio
+
+
+async def call_mcp_tool(client, request_id: str, name: str, arguments: dict):
+    # request_id 必须在请求、响应、Trace 和审计之间保持一致。
+    response = await asyncio.wait_for(
+        client.call_tool(request_id=request_id, name=name, arguments=arguments),
+        timeout=15,
+    )
+    if response.request_id != request_id:
+        # 关联错位时不能把别的请求结果当成当前业务结果。
+        raise ValueError("MCP response id mismatch")
+    if response.error:
+        # 协议错误和业务错误都转换为稳定内部错误码，避免原样泄露堆栈。
+        return {"ok": False, "error_code": response.error.code}
+    if len(response.content) > 1_000_000:
+        # 大结果应落受控存储并返回引用，不能直接挤爆上下文。
+        raise ValueError("MCP result exceeds size limit")
+    return {"ok": True, "content": response.content}
+```
+
+代码是 Client 侧示意；认证、租户授权、工具 schema、服务端超时和副作用幂等不能因为使用 MCP 就被协议层自动解决。工具发现结果变化时还要重建候选工具池和相关 prompt/cache。
+
 ## learn-claude-code 对照：动态 MCP 工具池
 
 s19 用 mock server 演示 MCP 的最小不变量：连接 Server、发现工具、给工具加 `mcp__server__tool` 命名空间，再把它们合并进内置工具池；s20 把这套动态工具池放回完整 Agent Loop。

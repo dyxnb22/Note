@@ -243,6 +243,19 @@ Proxy 使用 `delegatecall` 把逻辑与地址/Storage 分离。常见风险：
 6. 模拟 Indexer 链重组。
 7. 画 L2/Bridge 退出和信任图。
 
+## 22.1 不变量优先的测试骨架
+
+协议测试先写资产守恒、权限和状态转换不变量，再补具体例子；单个 happy path 不能覆盖组合攻击。
+
+```solidity
+// 伪代码：测试任意用户操作后，协议总负债不得超过可兑现资产。
+function invariant_solvent() public view {
+    assert(protocolAssets() >= protocolLiabilities());
+}
+```
+
+实际测试要明确价格、利率、清算、跨链消息和时间推进的生成范围；不变量通过也不等于经济模型和治理权限安全，仍需 Fork、权限和故障测试。
+
 ## 验收清单
 
 - 能解释 EVM 数据区和调用语义。

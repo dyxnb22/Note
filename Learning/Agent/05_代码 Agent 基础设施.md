@@ -170,7 +170,55 @@ Agent 不能擅自覆盖用户已有修改。至少要区分：
 | 修复循环失控 | 每次都重复同一动作 | 记录失败 fingerprint，检测 stuck loop |
 | 破坏用户修改 | 没有基线 diff | 任务开始前快照，变更分层记录 |
 
-## 8. 练习与验收
+## 8. AI Coding 面试加分：覆盖率、过滤与有效性
+
+蚂蚁 CodeFuse 等 Coding Agent 岗常追问「怎么知道改动有没有测到 / 怎么过滤噪声」：
+
+| 主题 | 要点 |
+|---|---|
+| **覆盖率与插桩** | 运行测试时对目标仓库插桩或用覆盖率工具，得到行/分支命中；Agent 用「未覆盖的变更行」决定是否补测，而不是只看测试进程退出码 |
+| **变更过滤** | 忽略生成物、lockfile、格式化纯 diff；按语言符号表聚焦业务文件，减少 context 污染 |
+| **前置有效性** | 跑 Agent 前：依赖可安装、测试可启动、基线绿；红基线时先修复环境，避免把环境问题当成模型能力 |
+| **补丁有效性** | apply 后编译/类型检查/定向测试；失败 fingerprint 进入 stuck 检测 |
+| **安全** | 禁止无审批的 `git push --force`、任意 curl 管道；密钥不进轨迹 |
+
+通用循环仍是 search→edit→verify；上述是验证层的加深，不是另一套架构。
+
+## 8.1 验证器与补丁边界（注释版）
+
+代码 Agent 的“完成”必须由确定性验证器判断。下面只演示边界：补丁先检查路径，再运行受限验证；模型不能自行把失败改写成成功。
+
+```python
+from dataclasses import dataclass
+from pathlib import Path
+
+
+@dataclass(frozen=True)
+class Verification:
+    passed: bool
+    command: str
+    output_tail: str
+
+
+def validate_patch(workspace: Path, changed_files: list[Path]) -> None:
+    root = workspace.resolve()
+    for path in changed_files:
+        # 任何路径逃逸都在执行测试前拒绝，不能依赖模型自律。
+        resolved = (root / path).resolve()
+        if root not in resolved.parents and resolved != root:
+            raise PermissionError(f"path outside workspace: {path}")
+        if resolved.is_dir():
+            raise IsADirectoryError(str(path))
+
+
+def accept_result(result: Verification) -> bool:
+    # 只认程序化退出结果；“看起来应该通过”不能替代真实验证。
+    return result.passed and bool(result.command)
+```
+
+生产实现还要限制命令 allowlist、工作目录、环境变量、输出大小和超时，并把基线 diff 与 Agent 产生的 diff 分开记录。对测试失败的自动修复应有最大轮数和 stuck 检测，避免反复修改已经正确的代码。
+
+## 9. 练习与验收
 
 在一个小型 Python 仓库上实现：
 
@@ -179,7 +227,8 @@ Agent 不能擅自覆盖用户已有修改。至少要区分：
 3. 运行命令有超时和输出上限；
 4. Agent 能读取测试失败并尝试一次定向修复；
 5. 任务开始前已有的 diff 不被覆盖；
-6. 用 10 个固定 bug case 记录成功率、修改文件数、测试轮数和成本。
+6. 用 10 个固定 bug case 记录成功率、修改文件数、测试轮数和成本；
+7. （加分）记录补丁触及行的测试覆盖增量。
 
 推荐参考：
 

@@ -23,11 +23,17 @@ def load_module(name: str, path: Path, temp_cwd: Path):
             self.messages = types.SimpleNamespace(create=None)
 
     fake_dotenv = types.ModuleType("dotenv")
+    # s20 imports PyYAML at module load time; stub it here so these tests only
+    # exercise compaction behavior and do not require optional runtime deps.
+    fake_yaml = types.ModuleType("yaml")
     setattr(fake_anthropic, "Anthropic", FakeAnthropic)
     setattr(fake_dotenv, "load_dotenv", lambda override=True: None)
+    setattr(fake_yaml, "safe_load", lambda text: {})
+    setattr(fake_yaml, "YAMLError", Exception)
 
     previous_anthropic = sys.modules.get("anthropic")
     previous_dotenv = sys.modules.get("dotenv")
+    previous_yaml = sys.modules.get("yaml")
     previous_cwd = Path.cwd()
     previous_model = os.environ.get("MODEL_ID")
     previous_key = os.environ.get("ANTHROPIC_API_KEY")
@@ -39,6 +45,7 @@ def load_module(name: str, path: Path, temp_cwd: Path):
 
     sys.modules["anthropic"] = fake_anthropic
     sys.modules["dotenv"] = fake_dotenv
+    sys.modules["yaml"] = fake_yaml
     os.environ["MODEL_ID"] = "test-model"
     os.environ["ANTHROPIC_API_KEY"] = "test-key"
     try:
@@ -55,6 +62,10 @@ def load_module(name: str, path: Path, temp_cwd: Path):
             sys.modules.pop("dotenv", None)
         else:
             sys.modules["dotenv"] = previous_dotenv
+        if previous_yaml is None:
+            sys.modules.pop("yaml", None)
+        else:
+            sys.modules["yaml"] = previous_yaml
         if previous_model is None:
             os.environ.pop("MODEL_ID", None)
         else:

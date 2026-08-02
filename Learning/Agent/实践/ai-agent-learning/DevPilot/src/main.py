@@ -17,6 +17,7 @@ from pprint import pprint
 from langchain_core.messages import HumanMessage
 from langgraph.types import Command
 
+# 让脚本从项目目录直接启动时，也能导入同目录下的 graph/tools 模块。
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from graph import build_graph
@@ -112,6 +113,7 @@ def main():
             print(f"[已切换到线程: {current_thread}]")
             continue
 
+        # thread_id 是 LangGraph 持久化状态的边界；切换它就会切换会话上下文。
         config = {"configurable": {"thread_id": current_thread}}
         languages = get_active_languages()
 
@@ -141,6 +143,7 @@ def main():
         values = app.get_state(config).values
         _print_state_summary(values)
 
+        # 只展示建议级 diff，真正的恢复执行必须经过人工确认。
         decision = input("\n批准进入 Reviewer? (y/n): ").strip().lower()
         approved = decision == "y"
 

@@ -22,7 +22,11 @@
 | 学 LLM 原理 | [AI](./AI/README.md) |
 | 学 Python → AI → Agent | [学习地图](./00_Navigation/AI-Python-Agent学习地图.md) |
 | 用 Rust 做 Agent Runtime | [Rust/Go 目标地图](./00_Navigation/Rust-Agent与Go后端学习地图.md) → [Rust Agent 工程化](./Backend/Rust/16_Rust%20Agent工程化.md) |
+| 学企业知识入库 / OCR 表格 | [文档摄取与解析](./Agent/文档摄取与解析.md) → [知识系统](./Agent/知识系统.md) → [RAG](./Agent/RAG.md) → [检索系统工程](./Agent/检索系统工程.md) |
 | 做 Agent、RAG、MCP | [Python](./Python/README.md) → [AI](./AI/README.md) → [Agent](./Agent/README.md) |
+| 对比 Agent 框架 / 低代码 | [Agent框架与平台选型](./Agent/Agent框架与平台选型.md) |
+| 理解 Skills 与工具膨胀 | [Skills与渐进式披露](./Agent/Skills与渐进式披露.md) → [Tool Calling](./Agent/02_Tool%20Calling.md) |
+| 准备 Agent 岗面试 | [大厂真题汇总](./Agent/面试/大厂真题汇总.md) → [项目表达与面试](./Agent/项目表达与面试.md) → [推理服务速答](./Agent/推理服务速答.md) |
 | 练系统设计 | [Backend/Architecture](./Backend/Architecture/README.md) |
 | 看真实项目取舍 | [Case Studies](./Case_Studies/README.md) |
 | 查术语、产品和技术资料 | [References](./References/README.md) |

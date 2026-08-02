@@ -199,6 +199,32 @@ Orchestrator Agent（协调者）
 **适合**：超出单个 context window 的长任务、需要并行处理的场景。
 **注意**：协调开销大，错误会传播，不要轻易用——很多时候一个好的 ReAct Agent 已经够用。
 
+### ToT / GoT / Reflexion（规划拓扑升级）
+
+ReAct 是**线性**「想→做→看」。更重的范式改变的是推理拓扑，不是换个框架名：
+
+| 范式 | 拓扑 | 适合 | 工程代价 |
+|---|---|---|---|
+| ReAct | 线性循环 | 绝大多数工具型任务 | 低，默认首选 |
+| Plan-and-Execute | 先计划再执行 | 多步骤、可检查的清单任务 | 中；计划过时需重规划 |
+| Tree-of-Thoughts (ToT) | 多分支搜索 + 评价剪枝 | 数学/逻辑/需比较多方案 | LLM 调用 × 分支数；延迟难控 |
+| Graph-of-Thoughts (GoT) | 任意聚合/回边 | 多源信息综合 | 实现与调试更重 |
+| Reflexion | 失败后写自然语言反思再试 | 可程序化验证的任务 | 需外存反思；防空转 |
+
+**为什么生产默认仍是 ReAct**：成本与延迟可预期、轨迹好看、工具失败好恢复。ToT 在「买 A 还是 B」类对比题上可能更好，但用户第五秒就开始焦虑——要用 Eval 证明收益再上。
+
+### 过度规划与 complexity router
+
+症状：用户问天气，Agent 输出长篇计划再行动。根因常是 System Prompt 强制「先规划」。
+
+解法：
+
+1. **复杂度路由**：轻量分类器/小模型判定 simple → 直达 ReAct；complex → Plan-Execute 或更深搜索。
+2. **时间/步数预算**：能一步完成禁止写计划。
+3. **用户可见计划**：必须规划时展示短清单，而不是沉默思考。
+
+模型路由见 [成本与性能工程](成本与性能工程.md)；框架选型见 [Agent 框架与平台选型](Agent框架与平台选型.md)。
+
 ---
 
 ## 4. 自主性与可控性的权衡
@@ -795,6 +821,60 @@ def run_validation_and_repair(messages: list, client, max_repair: int = 2):
 **这个模式的价值**：Agent 写完代码不是终点，验证通过才算完成。失败时按错误类型给出定向修复指导，比让模型"自己看报错猜"效果好得多。
 
 ---
+
+## 9.6 一个有预算的 Agent 主循环（注释版）
+
+Agent 循环的核心不是“多调用几次模型”，而是把每一轮的状态、预算、工具边界和停止原因记录下来。下面的代码是可运行结构示意，`model.complete` 和 `tools.execute` 是通过依赖注入传入的接口。
+
+```python
+from dataclasses import dataclass, field
+from typing import Any
+
+
+@dataclass
+class AgentState:
+    messages: list[dict[str, Any]]
+    steps_left: int = 8
+    trace: list[dict[str, Any]] = field(default_factory=list)
+
+
+async def run_agent(model, tools, state: AgentState) -> str:
+    """运行有限步数的 ReAct 风格循环；失败也要留下可解释的 trace。"""
+
+    while state.steps_left > 0:
+        step_no = len(state.trace) + 1
+        # 每轮扣预算，防止模型反复调用工具形成无界循环。
+        state.steps_left -= 1
+        response = await model.complete(messages=state.messages)
+
+        if response.final_text:
+            state.trace.append({"step": step_no, "kind": "final"})
+            return response.final_text
+
+        if not response.tool_calls:
+            # 没有答案也没有动作时，停止比“盲目再问一次”更容易诊断。
+            state.trace.append({"step": step_no, "kind": "stop", "reason": "no_action"})
+            return "Agent 未产生可执行的答案或动作。"
+
+        for call in response.tool_calls:
+            # 工具层负责授权、schema、超时和错误归一化；Agent 层不绕过它。
+            result = await tools.execute(call)
+            state.trace.append(
+                {
+                    "step": step_no,
+                    "kind": "tool",
+                    "tool": call.name,
+                    "ok": result.get("ok", False),
+                }
+            )
+            # 把受控的工具结果放回上下文，下一轮再由模型决定是否继续。
+            state.messages.append({"role": "tool", "content": result})
+
+    state.trace.append({"kind": "stop", "reason": "step_budget_exhausted"})
+    return "Agent 达到步数预算，已停止。"
+```
+
+验收时不要只看最终答案：至少同时检查停止原因、工具调用次数、每次耗时、失败工具名和上下文 token。一个“答案正确但超预算、越权或没有 trace”的 Agent，仍然不具备可上线的工程质量。
 
 ## learn-claude-code 对照：机制如何挂在同一个 Loop
 

@@ -35,12 +35,14 @@ func (a *API) Handler() http.Handler {
 
 func (a *API) withRequestContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// 复用上游 Request ID 便于跨服务串联；没有传入时才在边界生成。
 		requestID := strings.TrimSpace(r.Header.Get("X-Request-ID"))
 		if requestID == "" {
 			requestID = fmt.Sprintf("req-%d", a.requestNumber.Add(1))
 		}
 		w.Header().Set("X-Request-ID", requestID)
 
+		// 这是请求级预算；下游必须把 r.Context() 继续传递，取消才会真正生效。
 		ctx, cancel := context.WithTimeout(r.Context(), 3*time.Second)
 		defer cancel()
 		next.ServeHTTP(w, r.WithContext(ctx))
@@ -57,8 +59,10 @@ type createOrderRequest struct {
 }
 
 func (a *API) createOrder(w http.ResponseWriter, r *http.Request) {
+	// 限制请求体大小，避免 JSON 解码器被超大输入占满内存。
 	r.Body = http.MaxBytesReader(w, r.Body, maxRequestBody)
 	decoder := json.NewDecoder(r.Body)
+	// 未知字段直接拒绝，防止客户端以为字段已生效而产生隐性数据错误。
 	decoder.DisallowUnknownFields()
 
 	var input createOrderRequest
@@ -68,6 +72,7 @@ func (a *API) createOrder(w http.ResponseWriter, r *http.Request) {
 	}
 	var extra any
 	if err := decoder.Decode(&extra); !errors.Is(err, io.EOF) {
+		// 只接受一个 JSON 对象；尾随内容可能掩盖代理或客户端的拼接错误。
 		writeError(w, http.StatusBadRequest, "invalid_json", "request body must contain one JSON object")
 		return
 	}
@@ -84,6 +89,7 @@ func (a *API) createOrder(w http.ResponseWriter, r *http.Request) {
 	}
 	status := http.StatusOK
 	if created {
+		// 首次落库用 201，幂等重放用 200，帮助调用方区分“新建”和“复用结果”。
 		status = http.StatusCreated
 	}
 	writeJSON(w, status, value)

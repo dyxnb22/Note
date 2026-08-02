@@ -5,6 +5,7 @@ use rust_agent_runtime::{
 };
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // ScriptedModel 固定模型输出，让第一阶段只验证 Runtime 状态机，不依赖网络或密钥。
     let model = ScriptedModel::new([
         ModelOutput::ToolCall(ToolCall {
             name: "sum".to_owned(),
@@ -20,6 +21,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     tools.register(SumTool)?;
 
     let mut runtime = AgentRuntime::new(model, tools, Limits::default());
+    // run 会按预算执行工具、追加结果，再请求模型给出最终输出。
     let result = runtime.run("Add 20 and 22")?;
     println!("final: {}", result.final_output);
     println!("steps: {}, tool calls: {}", result.steps, result.tool_calls);

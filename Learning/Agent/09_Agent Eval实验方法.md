@@ -99,6 +99,31 @@ forbidden:
 
 Replay 固定环境、工具和输入后比较 Agent 版本；若仍调用实时外部服务，就不是严格重放。日志必须脱敏，Secret、Cookie、个人信息和完整私有源码不默认进入 Trace。
 
+## 5.1 逐 Case 运行与副作用断言（注释版）
+
+评测器要同时判断答案、轨迹和副作用；只比较最终文本会漏掉越权调用、重复写入和未授权网络访问。
+
+```python
+def evaluate_case(case, agent, sandbox):
+    # 每个 Case 使用隔离 Sandbox，避免上一个样例的文件或状态污染下一个样例。
+    before = sandbox.snapshot()
+    result = agent.run(case.prompt, sandbox=sandbox)
+    after = sandbox.snapshot()
+
+    answer_ok = case.answer_checker(result.output)
+    trace_ok = case.trace_checker(result.trace)
+    side_effect_ok = case.side_effect_checker(before, after)
+    return {
+        "case_id": case.case_id,
+        "passed": answer_ok and trace_ok and side_effect_ok,
+        "answer_ok": answer_ok,
+        "trace_ok": trace_ok,
+        "side_effect_ok": side_effect_ok,
+    }
+```
+
+`case.trace_checker` 应检查工具顺序、权限拒绝、停止原因和预算；`side_effect_checker` 应检查文件、数据库、网络或消息队列的实际差异。每条失败结果要保存可脱敏 Replay 输入，而不是只保存一个总分。
+
 ## 6. 发布门槛
 
 Candidate 与 Baseline 至少比较任务成功、风险、成本和延迟，并按任务类型分片。安全硬门槛不能被平均质量提升抵消；已修复事故案例进入永久回归集。

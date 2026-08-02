@@ -20,6 +20,7 @@ func newHandler() http.Handler {
 
 func TestCreateOrderIsIdempotent(t *testing.T) {
 	handler := newHandler()
+	// 两次请求使用同一个业务幂等键，第二次必须复用第一次的订单。
 	first := createOrder(t, handler, "same-key", 1999)
 	second := createOrder(t, handler, "same-key", 1999)
 
@@ -51,6 +52,7 @@ func TestCreateOrderRejectsInvalidAmount(t *testing.T) {
 
 func TestCreateOrderRejectsReusedKeyWithDifferentInput(t *testing.T) {
 	handler := newHandler()
+	// 幂等键绑定请求语义；同键不同金额不能静默返回旧订单。
 	first := createOrder(t, handler, "same-key", 1999)
 	second := createOrder(t, handler, "same-key", 2999)
 	if first.Code != http.StatusCreated {

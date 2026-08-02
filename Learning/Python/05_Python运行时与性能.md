@@ -140,6 +140,28 @@ JSON 可互操作但类型有限；Pickle 能保存更多 Python 对象，却不
 
 提高 Worker 数前确认 CPU、内存、数据库连接和负载均衡是否允许。
 
+## 12.1 异步资源生命周期（注释版）
+
+性能优化不能以遗留 Task、连接或文件句柄为代价。取消路径要显式清理资源。
+
+```python
+import asyncio
+
+
+async def fetch_with_cleanup(client, url, *, timeout_s=5):
+    response = None
+    try:
+        # 超时包住真实 I/O；只在外层设置超时而不传播取消容易留下后台任务。
+        async with asyncio.timeout(timeout_s):
+            response = await client.get(url)
+            return await response.json()
+    finally:
+        if response is not None:
+            await response.close()
+```
+
+具体 HTTP 客户端的关闭方法可能不同；验收时用任务计数、连接池指标和取消测试证明资源确实回收。
+
 ## 最小实验
 
 1. 比较线程、进程、asyncio 处理 I/O 和 CPU 任务。

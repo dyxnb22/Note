@@ -126,11 +126,11 @@ EV = 57.2 + 183.8 = 241 亿
 
 **例 2：终值假设的敏感性**
 同上例，仅改变 g：
-- g = 2%：终值现值 = 157.4 亿，EV = 214.6 亿
-- g = 3%：终值现值 = 183.8 亿，EV = 241 亿
-- g = 4%：终值现值 = 218.3 亿，EV = 275.5 亿
+- g = 2%：终值现值 = 159.2 亿，EV = 216.5 亿
+- g = 3%：终值现值 = 183.8 亿，EV = 241.0 亿
+- g = 4%：终值现值 = 216.5 亿，EV = 273.7 亿
 
-g 仅差 2 个百分点，估值差了 28%。DCF 对终值假设的高度敏感性一览无余。
+以上按未四舍五入的第 5 年 FCF `20.113571875` 和显式预测期现值 `57.24575018` 计算，正文展示保留 1 位小数。g 仅差 2 个百分点，EV 就有明显变化；DCF 对终值假设的高度敏感性一览无余。
 
 ---
 
@@ -205,5 +205,46 @@ DCF 的最重要输出不是单一数字，而是假设区间内的估值范围�
 | 企业价值（EV）| DCF 计算出的公司总价值（股权 + 净负债）|
 
 ---
+
+## 12. 可复现计算（Python 标准库）
+
+下面的函数只演示永续增长法，单位由输入决定（例如都用“亿元”）。它把显式预测期现金流、终值和折现过程分开，便于逐项核对模型，而不是只抄最终 EV。
+
+```python
+def dcf_value(
+    current_fcf: float,
+    growth: float,
+    years: int,
+    wacc: float,
+    terminal_growth: float,
+) -> tuple[float, float, float]:
+    if wacc <= terminal_growth:
+        raise ValueError("WACC must be greater than terminal growth")
+
+    # 先生成显式预测期现金流；第 t 年现金流从当前 FCF 往前增长 t 次。
+    forecast = [current_fcf * (1 + growth) ** t for t in range(1, years + 1)]
+    explicit_pv = sum(
+        cash_flow / (1 + wacc) ** t
+        for t, cash_flow in enumerate(forecast, start=1)
+    )
+
+    # 终值使用第 years+1 年 FCF，并在预测期末先计算、再折现回今天。
+    terminal_value = forecast[-1] * (1 + terminal_growth) / (wacc - terminal_growth)
+    terminal_pv = terminal_value / (1 + wacc) ** years
+    return explicit_pv, terminal_pv, explicit_pv + terminal_pv
+
+
+for g in (0.02, 0.03, 0.04):
+    explicit_pv, terminal_pv, enterprise_value = dcf_value(
+        current_fcf=10,
+        growth=0.15,
+        years=5,
+        wacc=0.10,
+        terminal_growth=g,
+    )
+    print(g, round(explicit_pv, 1), round(terminal_pv, 1), round(enterprise_value, 1))
+```
+
+这段代码可以复核上面的敏感性示例，但不替代真实公司的 FCF 口径、净债务、少数股东权益、期中折现和情景假设审阅。模型交付时应同时保存输入表、公式版本和输出日期。
 
 `#finance #valuation #dcf #free-cash-flow #wacc #terminal-value`

@@ -59,6 +59,7 @@ def call_llm(system_prompt: str, question: str) -> str:
 
 
 def score(answer: str, must_include: list[str]) -> float:
+    # 关键词命中只是确定性 smoke 指标，不能替代人工校准或事实/引用评测。
     hits = sum(1 for word in must_include if word in answer)
     return hits / len(must_include)
 
@@ -68,6 +69,7 @@ def main() -> None:
         total = 0.0
         print(f"\nPrompt: {name}")
         for case in CASES:
+            # 同一 Case 依次比较 Prompt 变体，保持输入和评分规则不变。
             answer = call_llm(prompt, case["question"])
             case_score = score(answer, case["must_include"])
             total += case_score

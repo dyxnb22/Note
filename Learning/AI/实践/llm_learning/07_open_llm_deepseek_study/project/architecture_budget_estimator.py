@@ -14,6 +14,7 @@ BYTES_PER_DTYPE = {
 
 
 def params_memory_gb(params_billion: float, dtype: str = "bf16") -> float:
+    # 这里只估算权重，不包括 KV cache、激活、优化器状态和框架开销。
     return params_billion * 1_000_000_000 * BYTES_PER_DTYPE[dtype] / 1024**3
 
 
@@ -25,7 +26,7 @@ def kv_cache_gb(
     dtype: str = "bf16",
     batch_size: int = 1,
 ) -> float:
-    # K and V are both cached, so multiply by 2.
+    # K 和 V 都缓存，所以乘以 2；真实实现还要考虑 GQA/MQA、层布局和对齐。
     bytes_used = batch_size * layers * context_tokens * kv_heads * head_dim * 2 * BYTES_PER_DTYPE[dtype]
     return bytes_used / 1024**3
 
@@ -35,6 +36,7 @@ def main() -> None:
     for params in [1.5, 7, 32, 70]:
         print(f"  {params:>4}B bf16 weights ~= {params_memory_gb(params):6.2f} GB")
 
+    # 数字只用于演示计算，不代表当前模型规格或部署建议。
     print("\nMoE intuition using DeepSeek-like public numbers:")
     total_params = 671
     activated_params = 37
@@ -54,4 +56,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
