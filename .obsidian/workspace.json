@@ -22,51 +22,8 @@
               "icon": "lucide-file",
               "title": "阅读清单"
             }
-          },
-          {
-            "id": "fcfed4a94430bfb7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CS6290-Privacy-考试临时资料/Lecture/01-Lecture0-课程定位与学习路线.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "01-Lecture0-课程定位与学习路线"
-            }
-          },
-          {
-            "id": "126e58934df2899e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "02-Lecture1A-Bitcoin基础与运行机制"
-            }
-          },
-          {
-            "id": "c23c0f78c76c4e0e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CS6290-Privacy-考试临时资料/Tutorial/01-Tutorial1-2-教材与密码学基础.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "01-Tutorial1-2-教材与密码学基础"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -139,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md",
+                "file": "CS6290-Privacy-考试临时资料/Lecture/11-Lecture8-扩容-支付通道-桥-Rollup.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +106,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "02-Lecture1A-Bitcoin基础与运行机制 的反向链接列表"
+              "title": "11-Lecture8-扩容-支付通道-桥-Rollup 的反向链接列表"
             }
           },
           {
@@ -201,13 +158,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md",
+                "file": "CS6290-Privacy-考试临时资料/Lecture/11-Lecture8-扩容-支付通道-桥-Rollup.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "02-Lecture1A-Bitcoin基础与运行机制 的大纲"
+              "title": "11-Lecture8-扩容-支付通道-桥-Rollup 的大纲"
             }
           }
         ],
@@ -229,8 +186,34 @@
       "bases:新建数据库": false
     }
   },
-  "active": "126e58934df2899e",
+  "active": "b55c65997e2b1b75",
   "lastOpenFiles": [
+    "Learning/Agent/模型行为与工具调用训练.md",
+    "Learning/Agent/01_LLM调用基础.md",
+    "CS6290-Privacy-考试临时资料/Lecture/11-Lecture8-扩容-支付通道-桥-Rollup.md",
+    "CS6290-Privacy-考试临时资料/Tutorial/11-覆盖核对表.md",
+    "CS6290-Privacy-考试临时资料/00-考试复习导航.md",
+    "CS6290-Privacy-考试临时资料/Tutorial/10-Tutorial10b-Bridge与Rollup.md",
+    "CS6290-Privacy-考试临时资料/Tutorial/09-Tutorial10a-支付通道与Watchtower.md",
+    "CS6290-Privacy-考试临时资料/Lecture/12-全课程知识串联.md",
+    "CS6290-Privacy-考试临时资料/Lecture/10-Lecture7-ZKP-SNARK-STARK.md",
+    "CS6290-Privacy-考试临时资料/Lecture/09-Lecture6-区块链隐私技术.md",
+    "阅读清单.md",
+    "CS6290-Privacy-考试临时资料/Tutorial/01-Tutorial1-2-教材与密码学基础.md",
+    "CS6290-Privacy-考试临时资料/Tutorial/00-Tutorial总览.md",
+    "CS6290-Privacy-考试临时资料/Lecture/08-Lecture5-DeFi-AMM与借贷.md",
+    "CS6290-Privacy-考试临时资料/Lecture/05-Lecture3A-Ethereum基础与EVM.md",
+    "CS6290-Privacy-考试临时资料/Lecture/07-Lecture4-PoS与Gasper.md",
+    "CS6290-Privacy-考试临时资料/Lecture/06-Lecture3B-Ethereum安全与DeFi入口.md",
+    "CS6290-Privacy-考试临时资料/Lecture/04-Lecture2-共识机制与BFT.md",
+    "CS6290-Privacy-考试临时资料/Lecture/03-Lecture1B-Bitcoin所有权与脚本.md",
+    "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md",
+    "CS6290-Privacy-考试临时资料/Lecture/00-课程总览.md",
+    "CS6290-Privacy-考试临时资料/Lecture/01-Lecture0-课程定位与学习路线.md",
+    "Learning/Agent/04_Context工程.md",
+    "Learning/Python/04_Python Agent工程化补充.md",
+    "Learning/Python/03_HTTP与API调用.md",
+    "Learning/Finance/00_Foundations/README.md",
     "Learning/Agent/实践/learn-claude-code/s07_skill_loading/__pycache__/code.cpython-314.pyc",
     "Learning/Agent/实践/learn-claude-code/s07_skill_loading/__pycache__",
     "Learning/Agent/实践/learn-claude-code/s06_subagent/__pycache__/code.cpython-314.pyc",
@@ -240,32 +223,6 @@
     "Learning/Agent/实践/learn-claude-code/s20_comprehensive/__pycache__/code.cpython-314.pyc",
     "Learning/Agent/实践/learn-claude-code/s20_comprehensive/__pycache__",
     "Learning/Agent/实践/learn-claude-code/s09_memory/__pycache__/code.cpython-314.pyc",
-    "Learning/Agent/实践/learn-claude-code/s09_memory/__pycache__",
-    "Learning/Agent/实践/learn-claude-code/s08_context_compact/__pycache__/code.cpython-314.pyc",
-    "CS6290-Privacy-考试临时资料/Tutorial/01-Tutorial1-2-教材与密码学基础.md",
-    "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md",
-    "CS6290-Privacy-考试临时资料/Tutorial/00-Tutorial总览.md",
-    "CS6290-Privacy-考试临时资料/Lecture/01-Lecture0-课程定位与学习路线.md",
-    "阅读清单.md",
-    "CS6290-Privacy-考试临时资料/Lecture/00-课程总览.md",
-    "Learning/Agent/04_Context工程.md",
-    "CS6290-Privacy-考试临时资料/00-考试复习导航.md",
-    "CS6290-Privacy-考试临时资料/Lecture/11-Lecture8-扩容-支付通道-桥-Rollup.md",
-    "CS6290-Privacy-考试临时资料/Lecture/10-Lecture7-ZKP-SNARK-STARK.md",
-    "CS6290-Privacy-考试临时资料/Lecture/13-自测题.md",
-    "CS6290-Privacy-考试临时资料/Lecture/09-Lecture6-区块链隐私技术.md",
-    "CS6290-Privacy-考试临时资料/Lecture/08-Lecture5-DeFi-AMM与借贷.md",
-    "CS6290-Privacy-考试临时资料/Lecture/12-全课程知识串联.md",
-    "CS6290-Privacy-考试临时资料/Lecture/07-Lecture4-PoS与Gasper.md",
-    "CS6290-Privacy-考试临时资料/Lecture/06-Lecture3B-Ethereum安全与DeFi入口.md",
-    "Learning/Agent/00_学习路线图.md",
-    "Learning/Agent/03_Agent架构与设计.md",
-    "CS6290-Privacy-考试临时资料/Lecture/05-Lecture3A-Ethereum基础与EVM.md",
-    "CS6290-Privacy-考试临时资料/Lecture/04-Lecture2-共识机制与BFT.md",
-    "Learning/Agent/02_Tool Calling.md",
-    "Learning/Agent/01_LLM调用基础.md",
-    "Learning/Agent/版本与来源.md",
-    "Learning/Python/README.md",
-    "Learning/Python/04_Python Agent工程化补充.md"
+    "Learning/Agent/实践/learn-claude-code/s09_memory/__pycache__"
   ]
 }
