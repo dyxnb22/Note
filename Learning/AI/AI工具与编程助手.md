@@ -1,8 +1,3 @@
----
-type: guide
-status: developing
----
-
 # AI 工具与编程助手
 
 这篇文档解决一个问题：**如何真正有效地和 AI Coding Agent 协作**——不幻想它是全能的，也不因为踩坑就放弃。

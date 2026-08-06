@@ -1,8 +1,3 @@
----
-type: practice
-status: developing
----
-
 # Hash_done
 
 **LeetCode 1. 两数之和（找出目标和的两个数）**

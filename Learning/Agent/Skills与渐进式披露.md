@@ -1,9 +1,3 @@
----
-type: concept
-status: mature
-last_verified: 2026-07-31
----
-
 # Skills 与渐进式披露
 
 本文回答：**Skill 是什么、和 Tool / MCP 有何不同、为什么要用渐进式披露**。懒加载实现细节见 [Context 工程](04_Context工程.md)；工具合同见 [Tool Calling](02_Tool%20Calling.md)；协议层见 [MCP 与工具协议](MCP与工具协议.md)。

@@ -1,9 +1,3 @@
----
-type: guide
-status: mature
-last_verified: 2026-07-30
----
-
 # 推理模型与 Thinking 工程
 
 这篇文档解决一个问题：**如何把模型的额外推理能力用于 Agent，并在质量、延迟、成本、工具连续性和可观测性之间做取舍**。

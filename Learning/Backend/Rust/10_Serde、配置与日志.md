@@ -1,8 +1,3 @@
----
-type: concept
-status: developing
----
-
 # Serde、配置与日志
 
 ## 1. Serde 的角色

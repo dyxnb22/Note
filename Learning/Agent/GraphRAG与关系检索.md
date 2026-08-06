@@ -1,9 +1,3 @@
----
-type: concept
-status: mature
-last_verified: 2026-07-30
----
-
 # GraphRAG 与关系检索
 
 本文回答：**什么时候需要在向量/词法检索之外引入实体与关系图，以及它如何与普通 RAG 分工**。摄取与解析见 [文档摄取与解析](文档摄取与解析.md)；通用 RAG 链路见 [RAG](RAG.md)。

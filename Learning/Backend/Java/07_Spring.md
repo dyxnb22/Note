@@ -1,8 +1,3 @@
----
-type: concept
-status: developing
----
-
 # Spring
 
 Spring 技术栈包含容器、Web 框架、应用装配、数据访问和微服务组件。它们共享 Spring 生态，但解决的问题不同，不再放在同一条连续正文中。

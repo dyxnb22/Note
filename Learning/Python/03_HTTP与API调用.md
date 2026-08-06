@@ -1,8 +1,3 @@
----
-type: guide
-status: developing
----
-
 # HTTP与API调用
 这一页专门整理 Python 如何调用外部 HTTP API。后面 OpenAI SDK、RAG、Tool Calling，本质上都离不开 HTTP 请求、超时、错误处理和 JSON 解析。
 

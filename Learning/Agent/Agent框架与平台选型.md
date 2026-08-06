@@ -1,9 +1,3 @@
----
-type: concept
-status: mature
-last_verified: 2026-07-31
----
-
 # Agent 框架与平台选型
 
 本文回答面试高频题：**LangGraph / AutoGen / CrewAI / 轻量 SDK / 低代码平台各自适合什么，什么时候不用框架**。具体图 API 见 [LangGraph](LangGraph.md)；多 Agent 边界见 [多 Agent 协作的边界与模式](多Agent协作的边界与模式.md)。

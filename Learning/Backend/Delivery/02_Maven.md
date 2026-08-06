@@ -1,8 +1,3 @@
----
-type: guide
-status: developing
----
-
 # Maven
 
 Maven 通过 POM（Project Object Model）统一描述项目依赖、目录结构和构建流程，主要解决依赖管理、项目构建和多模块协作问题。

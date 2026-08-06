@@ -1,9 +1,3 @@
----
-type: reference
-status: mature
-last_verified: 2026-07-30
----
-
 # Web3 安全速查
 
 从私钥、授权、重入、Oracle、升级和测试覆盖链上系统的主要失效面。

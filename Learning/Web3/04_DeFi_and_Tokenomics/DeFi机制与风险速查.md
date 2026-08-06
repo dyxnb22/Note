@@ -1,9 +1,3 @@
----
-type: concept
-status: mature
-last_verified: 2026-07-30
----
-
 # DeFi 机制与风险速查
 
 连接资产标准、流动性、清算、MEV 和激励错配，不把收益与风险分开理解。

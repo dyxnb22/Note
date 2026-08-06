@@ -1,9 +1,3 @@
----
-type: guide
-status: mature
-last_verified: 2026-07-30
----
-
 # Computer Use 与 GUI Agent
 
 这篇文档解决一个问题：**如何让 AI Agent 操作图形界面（浏览器、桌面应用），而不仅仅是调用 API**。

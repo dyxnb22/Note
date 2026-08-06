@@ -1,9 +1,3 @@
----
-type: guide
-status: mature
-last_verified: 2026-07-30
----
-
 # MCP 与工具协议
 
 这篇文档解决一个问题：**MCP 是什么，什么时候用它，什么时候直接写 SDK 调用**。

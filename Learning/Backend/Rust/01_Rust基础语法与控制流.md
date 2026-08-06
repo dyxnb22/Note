@@ -1,8 +1,3 @@
----
-type: concept
-status: developing
----
-
 # Rust 基础语法与控制流
 
 ## 1. 最小程序

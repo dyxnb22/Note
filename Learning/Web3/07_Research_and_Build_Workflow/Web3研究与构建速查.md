@@ -1,9 +1,3 @@
----
-type: guide
-status: mature
-last_verified: 2026-07-30
----
-
 # Web3 研究与构建速查
 
 把协议研究、链上数据、事件索引和最小项目组织成可复现工作流。

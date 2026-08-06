@@ -1,8 +1,3 @@
----
-type: guide
-status: developing
----
-
 # 深度学习基础
 
 这篇文档的定位：**从深度学习快速桥接到 LLM 工程**，能支撑理解 LLM 模型行为、读懂大部分 NLP 论文、做 fine-tuning 实验。

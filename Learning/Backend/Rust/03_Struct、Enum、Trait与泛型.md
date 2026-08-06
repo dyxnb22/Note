@@ -1,8 +1,3 @@
----
-type: concept
-status: developing
----
-
 # Struct、Enum、Trait 与泛型
 
 ## 1. `struct`

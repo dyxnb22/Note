@@ -1,8 +1,3 @@
----
-type: guide
-status: developing
----
-
 # PyTorch 环境、张量与 Notebook
 
 ## 目标

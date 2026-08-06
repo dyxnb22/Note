@@ -1,9 +1,3 @@
----
-type: map
-status: mature
-last_verified: 2026-07-30
----
-
 # Rust Agent 与 Go 后端学习地图
 
 这张地图服务两个明确目标：用 Go 建立可就业、可生产交付的后端能力；用 Rust 深入 Agent Runtime、工具执行器和可靠 Harness。它不复制语言正文，而是规定顺序、产物与验收。

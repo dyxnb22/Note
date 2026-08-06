@@ -1,9 +1,3 @@
----
-type: guide
-status: mature
-last_verified: 2026-07-30
----
-
 # Tool Calling
 
 这篇文档解决一个问题：**如何设计一个健壮、安全、可维护的工具调用系统**。

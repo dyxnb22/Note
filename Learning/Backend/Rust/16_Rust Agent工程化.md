@@ -1,9 +1,3 @@
----
-type: guide
-status: mature
-last_verified: 2026-07-30
----
-
 # Rust Agent 工程化
 
 这篇连接 Rust 语言能力与 [Agent 工程知识库](../../Agent/README.md)。目标不是用 Rust 重写所有 Python 框架，而是理解什么时候需要自己掌控 Agent Runtime、工具执行、资源边界和可恢复性，并用 Rust 的类型、所有权与并发模型把这些约束变成代码。

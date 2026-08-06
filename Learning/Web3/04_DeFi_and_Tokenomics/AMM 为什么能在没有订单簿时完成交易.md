@@ -1,8 +1,3 @@
----
-type: concept
-status: mature
----
-
 # AMM 为什么能在没有订单簿时完成交易
 
 ## 1. 主题定位

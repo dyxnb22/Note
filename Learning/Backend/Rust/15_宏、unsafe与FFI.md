@@ -1,8 +1,3 @@
----
-type: concept
-status: developing
----
-
 # 宏、unsafe 与 FFI
 
 ## 1. 宏的类别

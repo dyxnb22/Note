@@ -1,8 +1,3 @@
----
-type: guide
-status: developing
----
-
 # AI DevOps 与交付
 
 AI 工程的交付闭环不是生成代码，而是从环境、构建、部署、运行、观测到故障修复都可验证。

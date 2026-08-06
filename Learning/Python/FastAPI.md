@@ -1,8 +1,3 @@
----
-type: guide
-status: developing
----
-
 # FastAPI
 FastAPI 是 Python 里非常适合做 API 服务的 Web 框架。对 Agent 项目来说，它通常负责把本地能力包装成 HTTP 接口，例如聊天接口、文件上传、RAG 查询、Tool 执行、流式输出。
 

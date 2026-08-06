@@ -1,8 +1,3 @@
----
-type: guide
-status: developing
----
-
 # Spring Web 与 Spring Boot
 
 Spring MVC 负责 HTTP 请求处理，Spring Boot 负责应用装配、默认配置和启动体验。两者经常一起使用，但不是同一个概念。

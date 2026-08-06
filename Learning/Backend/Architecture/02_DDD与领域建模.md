@@ -1,8 +1,3 @@
----
-type: concept
-status: developing
----
-
 # DDD 与领域建模
 
 DDD 的价值不是增加目录层级，而是把业务事实、状态和变化责任放到稳定边界内。

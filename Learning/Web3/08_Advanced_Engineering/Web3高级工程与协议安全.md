@@ -1,9 +1,3 @@
----
-type: guide
-status: mature
-last_verified: 2026-07-30
----
-
 # Web3 高级工程与协议安全
 
 本篇从 EVM 执行进入合约工程、Oracle/Indexer、L2、跨链、MEV、账户抽象和升级治理。目标不是追逐链和协议名称，而是识别资产、状态、信任、排序和恢复边界。

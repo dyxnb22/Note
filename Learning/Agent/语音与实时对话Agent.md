@@ -1,9 +1,3 @@
----
-type: guide
-status: mature
-last_verified: 2026-07-30
----
-
 # 语音与实时对话 Agent
 
 本文回答：**语音/实时交互给 Agent 带来哪些额外约束**，以及和文本 Agent 的边界。通用 Loop、工具与安全仍以核心主线文档为准；本文不重复 Tool Schema 与威胁建模全文。

@@ -1,8 +1,3 @@
----
-type: concept
-status: developing
----
-
 # Result、Option 与错误处理
 
 ## 1. 两种核心枚举

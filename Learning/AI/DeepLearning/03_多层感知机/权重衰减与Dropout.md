@@ -1,8 +1,3 @@
----
-type: guide
-status: developing
----
-
 # 权重衰减与 Dropout
 
 ## 权重衰减

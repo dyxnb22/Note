@@ -1,9 +1,3 @@
----
-type: concept
-status: mature
-last_verified: 2026-07-30
----
-
 # 跨 Agent 协议与 A2A
 
 本文回答：**多个 Agent 或 Agent 产品如何跨进程/跨厂商协作**，以及和 MCP、多 Agent 编排的边界。进程内 Supervisor/团队模式见 [多 Agent 协作的边界与模式](多Agent协作的边界与模式.md)；工具协议见 [MCP 与工具协议](MCP与工具协议.md)。

@@ -1,9 +1,3 @@
----
-type: reference
-status: mature
-last_verified: 2026-07-30
----
-
 # Web3 概念速查
 
 区分公链、协议、dApp、钱包、交易所与链上状态，避免用一个 Web3 标签混淆不同层次。

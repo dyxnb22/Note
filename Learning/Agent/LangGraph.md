@@ -1,9 +1,3 @@
----
-type: guide
-status: mature
-last_verified: 2026-07-30
----
-
 # LangGraph
 
 本文聚焦使用 LangGraph 实现状态图、持久化、中断恢复、并行分发和多 Agent 编排。框架无关的工作流建模、可靠性原则与选型方法见 [Workflow 与编排](./Workflow与编排.md)。
