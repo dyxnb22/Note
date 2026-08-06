@@ -177,5 +177,4 @@ def handle_incident(incident, *, controls, audit):
 
 ## 导航与关联
 
-- [模块入口：AI Agent 工程知识库](./README.md)
 - 同一路线：[Agent 部署与生产化](./12_部署与生产化.md) · [推理模型与 Extended Thinking](./推理模型与Extended%20Thinking.md)

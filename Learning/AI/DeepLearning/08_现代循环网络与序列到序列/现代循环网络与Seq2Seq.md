@@ -32,7 +32,6 @@ Seq2Seq 用 encoder 将源序列编码为状态，用 decoder 条件生成目标
 
 ## 导航与关联
 
-- [模块入口：动手学深度学习路线](../README.md)
 - 同一路线：[循环神经网络](../07_循环神经网络/循环神经网络.md) · [注意力与Transformer](../09_注意力与Transformer/注意力与Transformer.md)
 
 `#lstm #seq2seq #beam-search`

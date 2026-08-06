@@ -699,5 +699,3 @@ asyncio.run(main())             # 启动异步程序入口
 - 能理解 `async/await` 适合等待型任务。
 
 ## 导航与关联
-
-- [模块入口：Python 工程基础](./README.md)

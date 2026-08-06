@@ -89,7 +89,6 @@ SELECT id, name FROM users WHERE email = $1
 
 ## 导航与关联
 
-- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
 - 同一路线：[Tokio 与异步网络服务](./12_Tokio与异步网络服务.md) · [Rust 性能模型与适用边界](./14_Rust性能模型与适用边界.md)
 
 `#rust #backend #web #database #transaction #api`

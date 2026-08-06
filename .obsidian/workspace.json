@@ -12,15 +12,11 @@
             "type": "leaf",
             "pinned": true,
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "阅读清单.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "pinned": true,
               "icon": "lucide-file",
-              "title": "阅读清单"
+              "title": "新标签页"
             }
           }
         ]
@@ -186,10 +182,11 @@
       "bases:新建数据库": false
     }
   },
-  "active": "ab7fca03435f3989",
+  "active": "b55c65997e2b1b75",
   "lastOpenFiles": [
-    "Learning/Career/面试与招聘.md",
+    "阅读清单 2.md",
     "阅读清单.md",
+    "Learning/Career/面试与招聘.md",
     "Learning/INDEX.md",
     "CS6290-Privacy-考试临时资料/Lecture/13-自测题.md",
     "CS6290-Privacy-考试临时资料/Lecture/12-全课程知识串联.md",
@@ -213,7 +210,6 @@
     "CS6290-Privacy-考试临时资料/Tutorial/06-Tutorial7-DEX-AMM-ERC20与费用市场.md",
     "CS6290-Privacy-考试临时资料/Tutorial/05-Tutorial6-PoS-Calldata与韧性.md",
     "CS6290-Privacy-考试临时资料/Tutorial/04-Tutorial5-Merkle树与SecureVault.md",
-    "CS6290-Privacy-考试临时资料/Tutorial/03-Tutorial4-Bitcoin双花与可靠广播.md",
     "CS6290-Privacy-考试临时资料/完整原稿",
     "CS6290-Privacy-考试临时资料/Tutorial",
     "CS6290-Privacy-考试临时资料/Lecture",

@@ -44,13 +44,4 @@
 
 每次练习至少保留“原稿、修改稿、修改理由、真实反馈”四项。没有前后对照的泛泛阅读，难以形成稳定能力。
 
-## 模块入口
-
-- [表达基础](00_Foundations/README.md)
-- [结构化写作](01_Structured_Writing/README.md)
-- [技术表达](02_Technical_Communication/README.md)
-- [工作表达](03_Workplace_Communication/README.md)
-- [说服与论证](04_Persuasion_and_Argument/README.md)
-- [专业文档与困难沟通](05_Professional_Documents/README.md)
-
 `#writing #expression #index`

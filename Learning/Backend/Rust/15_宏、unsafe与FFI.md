@@ -73,7 +73,6 @@ let input = CString::new("hello")?;
 
 ## 导航与关联
 
-- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
 - 同一路线：[Rust 性能模型与适用边界](./14_Rust性能模型与适用边界.md) · [Rust Agent 工程化](./16_Rust%20Agent工程化.md)
 
 `#rust #macros #unsafe #ffi #abi`

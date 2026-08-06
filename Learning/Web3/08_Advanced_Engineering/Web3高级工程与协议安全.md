@@ -272,7 +272,6 @@ function invariant_solvent() public view {
 
 ## 导航与关联
 
-- [模块入口：Web3 学习索引](../INDEX.md)
 - 同一路线：[稳定币的几种基本路线](../04_DeFi_and_Tokenomics/稳定币的几种基本路线.md) · [如何研究一个协议](../07_Research_and_Build_Workflow/如何研究一个协议.md)
 
 `#web3 #evm #solidity #rollup #security`

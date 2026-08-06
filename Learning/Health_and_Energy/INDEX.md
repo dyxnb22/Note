@@ -45,13 +45,4 @@
 
 主要依据：[WHO 自我健康管理](https://www.who.int/news-room/fact-sheets/detail/self-care-health-interventions/)、[WHO 健康饮食](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)、[WHO 身体活动指南](https://www.who.int/publications/i/item/9789240014886)、[CDC 成人睡眠](https://www.cdc.gov/sleep/data-research/facts-stats/adults-sleep-facts-and-stats.html)、[NIMH 心理健康自我照护](https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health)。核对日期：2026-07-30。
 
-## 模块入口
-
-- [状态管理基础](00_Foundations/README.md)
-- [睡眠与恢复](01_Sleep_and_Recovery/README.md)
-- [运动与体态](02_Exercise_and_Posture/README.md)
-- [饮食与代谢](03_Nutrition_and_Metabolism/README.md)
-- [专注与压力](04_Focus_and_Stress/README.md)
-- [可持续工作与恢复](05_Sustainable_Work/README.md)
-
 `#health #energy #index`

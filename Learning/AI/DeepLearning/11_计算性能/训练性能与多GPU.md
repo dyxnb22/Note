@@ -54,7 +54,6 @@ Profiler 时间线用于判断 DataLoader 空洞、Kernel 碎片、Host 同步�
 
 ## 导航与关联
 
-- [模块入口：动手学深度学习路线](../README.md)
 - 同一路线：[优化与训练诊断](../10_优化与训练策略/优化与训练诊断.md) · [计算机视觉任务与迁移学习](../12_计算机视觉/计算机视觉任务与迁移学习.md)
 
 `#gpu #mixed-precision #distributed-training`

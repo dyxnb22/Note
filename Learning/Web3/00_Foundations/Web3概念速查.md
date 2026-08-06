@@ -63,7 +63,6 @@
 
 ## 导航与关联
 
-- [模块入口：00_Foundations](./README.md)
 - 同一路线：[链上世界里的身份、资产、状态和权限](./链上世界里的身份、资产、状态和权限.md)
 
 `#web3 #reference #security`

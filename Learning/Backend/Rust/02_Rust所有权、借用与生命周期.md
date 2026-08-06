@@ -120,7 +120,6 @@ println!("{name_ref} {age}");
 
 ## 导航与关联
 
-- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
 - 同一路线：[Rust 基础语法与控制流](./01_Rust基础语法与控制流.md) · [Struct、Enum、Trait 与泛型](./03_Struct、Enum、Trait与泛型.md)
 
 `#rust #ownership #borrowing #lifetime`

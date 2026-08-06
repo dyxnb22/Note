@@ -52,12 +52,4 @@
 4. 主动找反例，避免把一个成功案例写成普遍规律。
 5. 历史类比只用于提出问题；预测仍需要当前数据和具体约束。
 
-## 模块入口
-
-- [科技史](01_History_of_Technology/README.md)
-- [经济史](02_Economic_History/README.md)
-- [制度演化](03_Institutional_Evolution/README.md)
-- [组织与社会](04_Organization_and_Society/README.md)
-- [数字时代](05_Digital_Age/README.md)
-
 `#history #institutions #organization #index`

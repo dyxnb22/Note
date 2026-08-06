@@ -135,7 +135,6 @@ next_response = client.messages.create(messages=messages, ...)
 
 ## 导航与关联
 
-- [模块入口：AI Agent 工程知识库](./README.md)
 - 同一路线：[Agent 运维与事故响应](./Agent运维与事故响应.md) · [模型行为与工具调用训练](./模型行为与工具调用训练.md)
 
 `#agent #reasoning #thinking #evaluation`

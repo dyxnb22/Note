@@ -255,5 +255,4 @@ JDK 1.8：
 
 ## 导航与关联
 
-- [模块入口：Java 后端索引](./README.md)
 - 同一路线：[Java I/O 与网络编程](./02_JavaIO与网络编程.md) · [JVM](./04_JVM.md)

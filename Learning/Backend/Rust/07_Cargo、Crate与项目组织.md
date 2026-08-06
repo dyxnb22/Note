@@ -127,7 +127,6 @@ strip = "symbols"
 
 ## 导航与关联
 
-- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
 - 同一路线：[模块、可见性与测试](./06_模块、可见性与测试.md) · [智能指针与内部可变性](./08_智能指针与内部可变性.md)
 
 `#rust #cargo #crate #workspace #project-structure`

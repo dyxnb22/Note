@@ -202,6 +202,5 @@ AI 的周期与符号方法、统计学习、算力、数据、算法、研究�
 
 ## 导航与关联
 
-- [模块入口：数字时代](./README.md)
 
 `#history #computing #ai-industry #platform #digital-governance`

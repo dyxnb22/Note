@@ -191,5 +191,4 @@ kill -15 <pid>
 
 ## 导航与关联
 
-- [模块入口：Delivery](./README.md)
 - 同一路线：[Maven](./02_Maven.md) · [Docker](./04_Docker.md)

@@ -172,7 +172,6 @@ npm、pnpm、yarn 都解决依赖安装和脚本执行，但锁文件语义和�
 
 ## 导航与关联
 
-- [模块入口：TypeScript](./README.md)
 - 同一路线：[TypeScript 工程基础](./TypeScript工程基础.md) · [前端应用工程](./前端应用工程.md)
 
 `#typescript #nodejs #event-loop #stream #backend`

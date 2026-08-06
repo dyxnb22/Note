@@ -85,7 +85,6 @@
 
 ## 导航与关联
 
-- [模块入口：07_Research_and_Build_Workflow](./README.md)
 - 同一路线：[如何研究一个协议](./如何研究一个协议.md)
 
 `#web3 #reference #security`

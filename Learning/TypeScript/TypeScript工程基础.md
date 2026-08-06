@@ -173,7 +173,6 @@ TypeScript 能提高协作与重构安全性，但不能替代运行时校验、
 
 ## 导航与关联
 
-- [模块入口：TypeScript](./README.md)
 - 同一路线：[Node.js 运行时与服务工程](./Node运行时与服务工程.md)
 
 `#typescript #types #schema #async #testing #engineering`

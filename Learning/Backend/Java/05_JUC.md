@@ -495,5 +495,4 @@ public final class Singleton {
 
 ## 导航与关联
 
-- [模块入口：Java 后端索引](./README.md)
 - 同一路线：[JVM](./04_JVM.md) · [Java 设计模式](./06_设计模式.md)

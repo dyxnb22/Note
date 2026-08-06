@@ -122,6 +122,5 @@ function invariant_claimedNeverExceedsEntitlement() public {
 
 ## 导航与关联
 
-- [模块入口：05_Security_and_Risks](./README.md)
 
 `#web3 #reference #security`

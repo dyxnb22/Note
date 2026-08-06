@@ -119,7 +119,6 @@ fn load_config(path: &Path) -> anyhow::Result<Config> {
 
 ## 导航与关联
 
-- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
 - 同一路线：[集合、字符串与迭代器](./04_集合、字符串与迭代器.md) · [模块、可见性与测试](./06_模块、可见性与测试.md)
 
 `#rust #result #option #error-handling #panic`

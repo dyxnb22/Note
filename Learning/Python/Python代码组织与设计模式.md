@@ -253,5 +253,3 @@ RAGService → Retriever → VectorStore Repository → LLM Client → Answer Bu
 - 能把 FastAPI route 写薄，把业务逻辑放到 Service。
 
 ## 导航与关联
-
-- [模块入口：Python 工程基础](./README.md)

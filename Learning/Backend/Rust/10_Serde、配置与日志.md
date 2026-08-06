@@ -106,7 +106,6 @@ fn handle(id: u64, secret: &str) {
 
 ## 导航与关联
 
-- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
 - 同一路线：[文件系统、进程与网络 I/O](./09_文件系统、进程与网络IO.md) · [并发安全与 Async 基础](./11_并发安全与Async基础.md)
 
 `#rust #serde #serialization #configuration #tracing #observability`

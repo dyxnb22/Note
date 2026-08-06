@@ -91,7 +91,6 @@ MEV 是区块生产者或排序参与者通过决定交易包含、排除和顺�
 
 ## 导航与关联
 
-- [模块入口：04_DeFi_and_Tokenomics](./README.md)
 - 同一路线：[稳定币的几种基本路线](./稳定币的几种基本路线.md)
 
 `#web3 #reference #security`

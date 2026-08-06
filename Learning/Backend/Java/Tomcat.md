@@ -44,5 +44,4 @@ Tomcat 通常为每个 Web 应用创建独立的 `WebappClassLoader`：
 
 ## 导航与关联
 
-- [模块入口：Java 后端索引](./README.md)
 - 同一路线：[Spring](./07_Spring.md) · [正则表达式](./正则表达式.md)

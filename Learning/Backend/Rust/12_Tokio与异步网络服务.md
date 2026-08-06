@@ -107,7 +107,6 @@ tx.send(job).await?;
 
 ## 导航与关联
 
-- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
 - 同一路线：[并发安全与 Async 基础](./11_并发安全与Async基础.md) · [Web 服务与数据库](./13_Web服务与数据库.md)
 
 `#rust #tokio #async #tcp #web-service #backpressure`

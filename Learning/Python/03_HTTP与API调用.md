@@ -140,5 +140,3 @@ asyncio.run(main())
 ```
 
 ## 导航与关联
-
-- [模块入口：Python 工程基础](./README.md)

@@ -163,7 +163,6 @@ let double = |value: i32| value * factor;
 
 ## 导航与关联
 
-- [模块入口：Rust 通用知识与 Agent 路线](./README.md)
 - 同一路线：[Rust 所有权、借用与生命周期](./02_Rust所有权、借用与生命周期.md)
 
 `#rust #syntax #control-flow #pattern-matching`

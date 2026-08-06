@@ -191,5 +191,4 @@ def prepare_provider_payload(record: dict, *, classification: str, policy) -> di
 
 ## 导航与关联
 
-- [模块入口：AI Agent 工程知识库](./README.md)
 - 同一路线：[Agent 安全与威胁建模](./07_Agent安全与威胁建模.md) · [Durable Execution 与分布式可靠性](./06_Durable%20Execution与分布式可靠性.md)

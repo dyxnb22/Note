@@ -44,7 +44,6 @@ Notebook 适合探索、画图和逐步验证；正式实验应把数据、模�
 
 ## 导航与关联
 
-- [模块入口：动手学深度学习路线](../README.md)
 - 同一路线：[深度学习实验的基本流程](./深度学习实验的基本流程.md)
 
 `#pytorch #tensor #notebook #deep-learning`

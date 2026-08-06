@@ -70,5 +70,4 @@ Change Stream 基于 Oplog 提供变更订阅。消费者保存 Resume Token，�
 
 ## 导航与关联
 
-- [模块入口：Data](./README.md)
 - 同一路线：[Redis](./Redis.md) · [Cassandra](./Cassandra.md)

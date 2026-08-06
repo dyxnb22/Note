@@ -621,5 +621,4 @@ git fsck
 
 ## 导航与关联
 
-- [模块入口：Delivery](./README.md)
 - 同一路线：[AI DevOps 与交付](./AI%20DevOps与交付.md) · [Maven](./02_Maven.md)

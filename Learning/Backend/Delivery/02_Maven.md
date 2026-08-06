@@ -44,5 +44,4 @@ mvn dependency:tree
 
 ## 导航与关联
 
-- [模块入口：Delivery](./README.md)
 - 同一路线：[Git](./01_Git.md) · [Linux 命令详解指南](./03_Linux%20命令详解指南.md)

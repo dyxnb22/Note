@@ -93,7 +93,6 @@ Shard 过多增加 Heap、文件句柄和集群状态；过大则恢复、迁移
 
 ## 导航与关联
 
-- [模块入口：Data](./README.md)
 - 同一路线：[消息队列](./消息队列.md) · [检索系统工程](../../Agent/检索系统工程.md)
 
 `#elasticsearch #search #inverted-index`

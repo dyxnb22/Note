@@ -412,5 +412,4 @@ WHERE goods_id = ? AND stock > 0;
 
 ## 导航与关联
 
-- [模块入口：Data](./README.md)
 - 同一路线：[PostgreSQL](./PostgreSQL.md) · [MongoDB](./MongoDB.md)

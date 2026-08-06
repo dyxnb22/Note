@@ -12,22 +12,22 @@
 
 ## 目录结构
 
-- [00_Foundations](00_Foundations/README.md)：基础层，建立时间价值、风险收益、概率思维
-- [01_Economics](01_Economics/README.md)：经济学机制、政策工具、经济周期
-- [02_Markets](02_Markets/README.md)：金融体系、流动性、利率期限结构
-- [03_Stocks](03_Stocks/README.md)：股票机制、财报分析、商业模式
-- [04_Fixed_Income](04_Fixed_Income/README.md)：债券定价、利率风险、信用风险
-- [05_Funds_and_ETF](05_Funds_and_ETF/README.md)：基金与 ETF 的结构、评价与定投
-- [06_Derivatives](06_Derivatives/README.md)：期货、期权、对冲、杠杆
-- [07_Corporate_Finance](07_Corporate_Finance/README.md)：资本结构、投融资决策、代理问题
-- [08_Valuation](08_Valuation/README.md)：DCF、相对估值、安全边际
-- [09_Portfolio_and_Risk](09_Portfolio_and_Risk/README.md)：组合构建、风险控制、再平衡
-- [10_Behavioral_Finance](10_Behavioral_Finance/README.md)：认知偏差、情绪管理、纪律建设
-- [11_Quant](11_Quant/README.md)：因子、回测、容量、执行归因
-- [12_Math_and_Statistics](12_Math_and_Statistics/README.md)：收益率、分布、回归、统计检验
-- [13_Research_Workflow](13_Research_Workflow/README.md)：读公司、写备忘录、复盘与研究流程
-- [14_Fraud_and_Pitfalls](14_Fraud_and_Pitfalls/README.md)：骗局识别、造假识别、风险陷阱
-- [15_Advanced_Practice](15_Advanced_Practice/README.md)：会计、税务监管、衍生品、计量、组合优化和量化工程的综合实证
+- `00_Foundations`：基础层，建立时间价值、风险收益、概率思维
+- `01_Economics`：经济学机制、政策工具、经济周期
+- `02_Markets`：金融体系、流动性、利率期限结构
+- `03_Stocks`：股票机制、财报分析、商业模式
+- `04_Fixed_Income`：债券定价、利率风险、信用风险
+- `05_Funds_and_ETF`：基金与 ETF 的结构、评价与定投
+- `06_Derivatives`：期货、期权、对冲、杠杆
+- `07_Corporate_Finance`：资本结构、投融资决策、代理问题
+- `08_Valuation`：DCF、相对估值、安全边际
+- `09_Portfolio_and_Risk`：组合构建、风险控制、再平衡
+- `10_Behavioral_Finance`：认知偏差、情绪管理、纪律建设
+- `11_Quant`：因子、回测、容量、执行归因
+- `12_Math_and_Statistics`：收益率、分布、回归、统计检验
+- `13_Research_Workflow`：读公司、写备忘录、复盘与研究流程
+- `14_Fraud_and_Pitfalls`：骗局识别、造假识别、风险陷阱
+- `15_Advanced_Practice`：会计、税务监管、衍生品、计量、组合优化和量化工程的综合实证
 
 ---
 
@@ -81,7 +81,7 @@
 
 ## 维护状态
 
-各模块的实际文件列表由对应 `README` 维护，本页不复制篇目和数量。新增、合并或移动文档时，只需更新所属模块入口；跨模块结构变化再更新本页。
+各模块按目录直接查看，本页只维护整体学习路径和先修关系。新增、合并或移动文档时，优先更新对应主题正文，不再额外维护目录 README。
 
 完整性表示主题已有入口，不表示事实永久有效。制度、产品、数据与具体参数仍按 [来源与验证](./来源与验证.md) 的规则定期核验。
 

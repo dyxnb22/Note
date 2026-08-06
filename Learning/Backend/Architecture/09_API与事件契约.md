@@ -185,7 +185,6 @@ HTTP 语义参考 IETF HTTP Semantics，消息模式参考《Enterprise Integrat
 
 ## 导航与关联
 
-- [模块入口：Architecture](./README.md)
 - 同一路线：[网关、接口治理与 SDK](./06_网关、接口治理与SDK.md) · [认证、授权与多租户](./认证、授权与多租户.md)
 
 `#api #grpc #protobuf #event-contract #webhook`
