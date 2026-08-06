@@ -97,9 +97,3 @@ def expand(seed_ids, *, graph, actor, max_hops):
 - 能否说明图边如何回到原文版本与位置？
 - 权限是否在图扩展前生效？
 - 是否有「不用图」的退出条件与基线对比？
-
-## 导航与关联
-
-- [RAG](RAG.md) · [知识系统](知识系统.md) · [文档摄取与解析](文档摄取与解析.md) · [检索系统工程](检索系统工程.md)
-
-`#agent #rag #graphrag #knowledge-graph`

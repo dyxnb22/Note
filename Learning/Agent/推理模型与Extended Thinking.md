@@ -132,9 +132,3 @@ next_response = client.messages.create(messages=messages, ...)
 - [OpenAI 最新模型指南](https://developers.openai.com/api/docs/guides/latest-model)
 
 核对日期：2026-07-30。模型支持、默认值、用量字段和计费方式均需在上线前重新核验。
-
-## 导航与关联
-
-- 同一路线：[Agent 运维与事故响应](./Agent运维与事故响应.md) · [模型行为与工具调用训练](./模型行为与工具调用训练.md)
-
-`#agent #reasoning #thinking #evaluation`

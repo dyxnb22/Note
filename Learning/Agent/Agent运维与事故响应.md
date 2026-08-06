@@ -174,7 +174,3 @@ def handle_incident(incident, *, controls, audit):
 4. 设计 Provider 故障、成本失控和越权调用三个事故 runbook；
 5. 实现一个能立即禁止写工具的 kill switch；
 6. 每次事故自动生成一个脱敏 Eval case。
-
-## 导航与关联
-
-- 同一路线：[Agent 部署与生产化](./12_部署与生产化.md) · [推理模型与 Extended Thinking](./推理模型与Extended%20Thinking.md)

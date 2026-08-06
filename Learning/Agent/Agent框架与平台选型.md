@@ -78,9 +78,3 @@ Coding Agent（Claude Code / Codex 类）与低代码工作流也不同：前者
 ## 5. 选型口述模板（约 60 秒）
 
 > 我先看任务有没有环和审批。没有就 SDK 或轻量 Loop。有环、要恢复和并行，用显式状态图（我们用 LangGraph：State+Reducer+Checkpointer）。多 Agent 只在子任务可隔离且能量化收益时上。业务试点可以用低代码，但权限、评测和危险工具最终要收到代码与策略引擎里。
-
-## 导航与关联
-
-- [LangGraph](LangGraph.md) · [Agent 架构与设计](03_Agent架构与设计.md) · [Skills与渐进式披露](Skills与渐进式披露.md) · [跨Agent协议与A2A](跨Agent协议与A2A.md)
-
-`#agent #langgraph #framework #coze #dify #interview`

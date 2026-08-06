@@ -567,20 +567,3 @@ async def call_mcp_tool(client, request_id: str, name: str, arguments: dict):
 s19 用 mock server 演示 MCP 的最小不变量：连接 Server、发现工具、给工具加 `mcp__server__tool` 命名空间，再把它们合并进内置工具池；s20 把这套动态工具池放回完整 Agent Loop。
 
 这个实验特别适合补充本篇的协议细节：工具不是静态常量，连接状态、工具描述、权限标注和 prompt/cache 都会随 Server 变化。教学版只模拟 stdio 和 `tools/list`/`tools/call`，省略了多 Transport、OAuth、Server 反向通知、配置优先级和连接生命周期；这些部分不能从 mock 代码直接推断生产行为。对应实验：[s19_mcp_plugin/code.py](./实践/learn-claude-code/s19_mcp_plugin/code.py)、[s20_comprehensive/code.py](./实践/learn-claude-code/s20_comprehensive/code.py)。
-
-## ai-agent-learning 配套实践
-
-- [11 MCP Server](./实践/ai-agent-learning/agent-learning-projects/11_mcp_server/main.py)：用 FastMCP 实现 Note Manager，观察 Tool、Resource、Prompt 的边界。
-- [LangGraph MCP 实验](./实践/ai-agent-learning/langgraph-advanced/06-mcp/mcp_server.py)：对照 MCP Server / Client 和 Mock 模式，理解外部工具如何进入 Agent 工具池。
-
-实践代码适合学习协议和调用路径，不代表生产环境已经具备认证、租户隔离、生命周期管理和供应链治理。
-
-## 附录：面试高频
-
-**Q：MCP 是什么，解决什么问题？**
-
-> MCP（Model Context Protocol）是 Anthropic 提出的开放协议，定义了 AI 应用和外部工具/数据源之间的标准通信格式。解决的问题是：每个工具都要单独适配，集成成本随工具数量线性增长，而且不同应用需要重复做同样的集成工作。有了 MCP，工具实现一次就能被任意 MCP Client 使用，AI 应用不需要关心每个工具的具体 SDK。
-
-**Q：MCP 和直接 Tool Calling 有什么区别，什么时候用 MCP？**
-
-> 直接 Tool Calling 是在你的 Python 程序里定义函数 + schema，模型调用后直接在同一进程里执行。MCP 是把工具封装成独立的 Server 进程，通过标准协议通信。如果工具只是你自己的应用在用，直接写函数 + schema 更简单；如果工具需要被多个 AI 应用共享（比如团队的内部知识库搜索，要给 Claude Desktop 用，也要给自己的 AI 应用用），做成 MCP Server 更合适。另外，现在有很多现成的社区 MCP Server（GitHub、文件系统、数据库等），可以直接作为 Client 使用，不用自己实现。

@@ -737,17 +737,3 @@ s07-s10 把 Context 工程拆成四个可验证机制：
 - **Comprehensive（s20）**：Context、Memory、Skill 和 MCP 状态在每轮模型调用前重新组合，压缩和错误恢复共同保护循环。
 
 教学版的字符阈值、保留消息数量和摘要格式只是可运行示例。生产系统应使用真实 token 预算、明确的恢复信息和可 replay 的压缩事件。对应实验：[s07_skill_loading/code.py](./实践/learn-claude-code/s07_skill_loading/code.py)、[s08_context_compact/code.py](./实践/learn-claude-code/s08_context_compact/code.py)、[s10_system_prompt/code.py](./实践/learn-claude-code/s10_system_prompt/code.py)。
-
-## 附录：面试高频
-
-**Q：Prompt Engineering 和 Context Engineering 有什么区别？**
-
-> Prompt Engineering 通常指设计单个 prompt（system prompt 怎么写，few-shot 怎么给）。Context Engineering 是更完整的概念，包括整个 context 窗口里的所有内容：system prompt、工具定义、检索结果、会话历史、用户输入、输出约束——每一层如何设计、组合、裁剪、优化。生产系统里，system prompt 写得再好，context 里的其他部分不设计好，整体质量也差。
-
-**Q：如何防止 Prompt Injection？**
-
-> 完全防止 Prompt Injection 是不可能的，但可以分层降低风险。首先，用结构化标签把用户输入和系统指令区分开，明确告知模型不执行标签内的指令。其次，RAG 场景下把检索内容标注为"外部资料"，不是指令。第三，工具层做权限验证，即使模型被注入了恶意指令，工具层的权限边界能阻止实际危害。这些组合起来能有效降低风险，但没有银弹。
-
-**Q：Context 太长怎么处理？**
-
-> 几种策略：一是硬截断，简单但可能丢失重要历史；二是滑动窗口保留最近 N 轮；三是摘要压缩，让模型把早期对话压缩成摘要再保留；四是 RAG 化，不把历史塞进 context，而是检索相关片段。另外，system prompt 尽量精简——太长的 system prompt 每次都消耗大量 token 预算，而且内容越多模型对每条规则的关注度越低（lost in the middle 问题）。

@@ -580,14 +580,6 @@ s11 把模型调用失败分成不同恢复路径：临时限流或服务错误�
 
 s20 把恢复层包在主循环外，使工具分发逻辑不必知道 429、529、输出预算和 prompt-too-long 的细节。对应实验：[s11_error_recovery/code.py](./实践/learn-claude-code/s11_error_recovery/code.py) 和 [s20_comprehensive/code.py](./实践/learn-claude-code/s20_comprehensive/code.py)；项目中的模型名、错误码和阈值只作为版本化示例，实际接入时以 Provider 文档为准。
 
-## ai-agent-learning 配套实践
-
-- [03 OpenAI CLI Chat](./实践/ai-agent-learning/agent-learning-projects/03_openai_cli_chat/README.md)：观察 `messages`、system/user/assistant 和多轮上下文。
-- [12 Claude API Agent](./实践/ai-agent-learning/agent-learning-projects/12_claude_api_agent/main.py)：对照原生 Anthropic SDK、Streaming、Tool Use 和 Prompt Caching。
-- [LangGraph Eval 实验](./实践/ai-agent-learning/langgraph-advanced/07-eval/eval_agent.py)：把模型调用和工具轨迹放进规则检查、关键词检查和 LLM-as-Judge 的评测框架。
-
-这些实践中的 Provider、模型名、依赖版本和缓存参数都是课程示例；运行前按当前 Provider 文档核对。
-
 ## 官方来源
 
 - [OpenAI Responses 迁移](https://developers.openai.com/api/docs/guides/migrate-to-responses)
@@ -595,17 +587,3 @@ s20 把恢复层包在主循环外，使工具分发逻辑不必知道 429、529
 - [Anthropic Messages API](https://platform.claude.com/docs/en/api/messages)
 
 核对日期：2026-07-30。模型、媒体限制、缓存条件、错误类型和存储默认值在部署或升级前重新核对。
-
-## 附录：面试高频
-
-**Q：为什么要把 LLM 调用封装成 service，不直接在业务代码调用？**
-
-> 统一管理密钥、重试、超时、日志，不用每个地方重复；测试时可以 mock 这一层；后续切换 Provider 或模型时只改一处；可以在这一层统一做 cost tracking 和 tracing。
-
-**Q：流式输出（streaming）的技术原理是什么？**
-
-> 模型 API 支持 Server-Sent Events（SSE），服务端每生成一个 token 就立即推送给客户端，不等全部生成完。客户端通过迭代 stream 对象逐块接收。对用户体验有显著改善——不用等 10-30 秒才看到任何输出。
-
-**Q：结构化输出和 JSON Mode 有什么区别？**
-
-> JSON Mode 只保证输出是合法 JSON，但不保证字段名称和类型。Pydantic 结构化输出会把 JSON Schema 传给模型，模型必须严格按 schema 生成，如果不符合会被 reject。后者更可靠，下游代码可以直接用，不需要额外验证。

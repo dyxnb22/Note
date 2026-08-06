@@ -77,9 +77,3 @@ Skill 更新后要重跑关联任务 Eval；目录摘要、完整正文和工具
 - Skill = 可复用能力单元 + 渐进式披露，不是又一个 Function Calling 别名。
 - 渐进式披露解决的是 **context 预算与选择难度**，不是模型变聪明。
 - 与低代码「插件市场」类比可以，但生产仍要权限、版本与评测。
-
-## 导航与关联
-
-- [Context 工程](04_Context工程.md) · [Tool Calling](02_Tool%20Calling.md) · [MCP 与工具协议](MCP与工具协议.md) · [Agent 框架与平台选型](Agent框架与平台选型.md)
-
-`#agent #skills #progressive-disclosure #context #interview`

@@ -193,7 +193,3 @@ task_succeeded
 5. 任务成功、体验和安全指标。
 
 参考：[Trustworthy agents in practice](https://www.anthropic.com/research/trustworthy-agents)
-
-## 导航与关联
-
-- 同一路线：[代码 Agent 基础设施](./05_代码%20Agent%20基础设施.md) · [AI 项目表达与面试](./项目表达与面试.md)

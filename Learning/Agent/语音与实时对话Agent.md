@@ -72,9 +72,3 @@ async def handle_turn(audio_stream, *, asr, agent, playback, cancel_token):
 - 误触发工具率、打断后的错误副作用率；
 - 嘈杂环境与口音分桶；
 - 与文本同一任务集的成功率对比。
-
-## 导航与关联
-
-- [Agent 架构与设计](03_Agent架构与设计.md) · [Agent 产品与人机协同](Agent产品与人机协同.md) · [成本与性能工程](成本与性能工程.md) · [Agent 身份与数据治理](Agent身份与数据治理.md)
-
-`#agent #voice #realtime #asr #tts`

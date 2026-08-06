@@ -889,25 +889,3 @@ async def run_agent(model, tools, state: AgentState) -> str:
 | s20 | 综合 Harness | 工具、权限、Context、Memory、后台任务、团队和 MCP 都围绕同一个循环组合，而不是互相复制循环 |
 
 阅读时重点对比 [s01_agent_loop/code.py](./实践/learn-claude-code/s01_agent_loop/code.py) 与 [s20_comprehensive/code.py](./实践/learn-claude-code/s20_comprehensive/code.py)：前者用于手写最小不变量，后者用于定位每个机制在循环前、循环中和循环后的挂载点。教学实现是 Python 单进程和简化状态，不应直接当作生产级并发、权限或持久化实现。
-
-## ai-agent-learning 配套实践
-
-- [Simple Agent Loop](./实践/ai-agent-learning/agent-learning-projects/05_simple_agent_loop/main.py)：最小 while loop、最大步数和工具观察结果。
-- [LangGraph 基础图](./实践/ai-agent-learning/langgraph-advanced/01-basics/hello_graph.py)：把 Agent 的 State、Node、Edge 和条件路由显式化。
-- [DevPilot 综合项目](./实践/ai-agent-learning/DevPilot/README.md)：把 Router、Analyzer、Fixer、Approval、Reviewer 和 PR Creator 组合成一个可控流程。
-
-阅读 DevPilot 时重点看状态字段、节点职责和审批边界，不要只把它当成一个可以自动改代码的成品。
-
-## 附录：面试高频
-
-**Q：Agent 和 Workflow 的区别是什么？什么时候用 Agent，什么时候用 Workflow？**
-
-> Workflow 的路径是设计时确定的：步骤 A → 步骤 B → 步骤 C，每步做什么由开发者写死。Agent 的路径是运行时由模型动态决定的：模型观察当前状态，自主决定下一步。如果任务流程相对固定，用 Workflow——更可预测、可控、可测试。如果任务路径本身就是不确定的，需要根据中间结果灵活调整，才用 Agent。生产环境里大多数"Agent 系统"实际上是 Workflow + 少量动态决策点的组合。
-
-**Q：ReAct、Plan-and-Execute、Multi-Agent，各自适合什么场景？**
-
-> ReAct 适合单目标、工具密集、步骤相对直线的任务。Plan-and-Execute 适合需要长期规划的复杂任务，先分解再执行，执行失败可以重新规划。Multi-Agent 适合任务复杂到单个 Agent 无法处理，或者需要并行执行多个子任务的场景。但 Multi-Agent 协调复杂度很高，不要盲目用。
-
-**Q：为什么生产中的 Agent 不做全自动，要 Human-in-the-loop？**
-
-> 三个核心原因：一是错误成本——自动发邮件、改数据库出错影响真实用户；二是可观测性——LLM 的决策不透明，出了问题很难追因，人在关键节点可以作为安全阀；三是合规和责任——很多业务场景需要明确的人工审批记录。Human-in-the-loop 不是不信任 AI，而是在技术成熟度和业务风险之间找到合理平衡。

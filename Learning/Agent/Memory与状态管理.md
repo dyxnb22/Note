@@ -492,24 +492,3 @@ s09 的实现把 Memory 分成三个动作：
 3. **整理**：低频合并、去重和更新索引，避免记忆文件持续膨胀。
 
 它采用 `MEMORY.md` 索引 + 类型化 Markdown 文件的轻量存储。这个模式适合本地 Coding Agent，但生产环境还要补并发锁、租户隔离、敏感信息过滤、删除/导出和记忆冲突处理。项目里的 forked extractor、Dream 整理和 side-query 都是实现思路，不是必须照搬的框架。对应实验：[s09_memory/code.py](./实践/learn-claude-code/s09_memory/code.py)。
-
-## ai-agent-learning 配套实践
-
-- [LangGraph Memory Agent](./实践/ai-agent-learning/agent-learning-projects/09_langgraph_memory_agent/README.md)：观察 `messages`、结构化 State、MemorySaver 和 `thread_id` 的关系。
-- [Advanced Memory 实验](./实践/ai-agent-learning/langgraph-advanced/03-memory/memory_agent.py)：对照更小的 Checkpointer 示例，验证同一线程恢复状态、不同线程隔离状态。
-
-这两组代码主要演示短期会话状态；长期 Memory、召回、冲突和生命周期治理仍以本篇理论为准。
-
-## 附录：面试高频
-
-**Q：Memory 的几种类型，分别适合什么场景？**
-
-> 通常分四类：一是 in-context memory，就是 messages 历史，当前会话内可见，受 context window 限制；二是会话级外部存储，用 Redis，跨请求但同一会话可见；三是长期用户记忆，跨会话的用户画像和偏好，需要向量库做语义召回；四是工作流状态，当前任务的执行进度，需要持久化到数据库支持断点续传。选哪种取决于记忆的时间范围和访问方式。
-
-**Q：为什么不把所有历史对话都塞进 context？**
-
-> 三个问题：成本（每次调用的 input token 线性增长）；质量（context 太长，模型对早期内容关注度下降，lost-in-the-middle 现象）；延迟（更多 token = 更慢的 TTFT）。正确做法是根据当前问题语义检索相关记忆，只注入真正需要的部分，而不是全量。
-
-**Q：如果用户在不同会话说了相互矛盾的信息，怎么处理？**
-
-> 策略：时间优先，后面说的通常覆盖之前的；用户明确修正时立即更新；对于模糊矛盾，保留两条并标注不确定，不要强行合并；对重要的长期记忆可以定期让用户确认。关键是记忆存储要有时间戳和来源字段，才有能力做冲突分析。

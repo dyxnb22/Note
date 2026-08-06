@@ -806,14 +806,6 @@ async def execute_tool_call(
 
 并行调用仍要遵守只读/冲突分区；路由只解决「看见谁」，不解决副作用安全。
 
-## ai-agent-learning 配套实践
-
-- [04 Tool Calling Agent](./实践/ai-agent-learning/agent-learning-projects/04_tool_calling_agent/README.md)：完整观察模型返回 `tool_calls`、程序执行工具、再把结果交回模型的两阶段流程。
-- [05 Simple Agent Loop](./实践/ai-agent-learning/agent-learning-projects/05_simple_agent_loop/README.md)：脱离框架手写 Tool → Observation → Final Answer 循环。
-- [LangGraph Tool Agent](./实践/ai-agent-learning/langgraph-advanced/02-tools/tool_agent.py)：对照 `ToolNode`、条件路由和消息状态。
-
-建议顺序是 04 → 05 → LangGraph Tool Agent；先理解协议，再引入框架抽象。
-
 ## 官方来源
 
 - [OpenAI Function calling](https://developers.openai.com/api/docs/guides/function-calling)
@@ -821,17 +813,3 @@ async def execute_tool_call(
 - [Anthropic Tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
 
 核对日期：2026-07-30。Provider 消息形状、strict 支持、并行调用和流式事件在升级 SDK 时重新核对。
-
-## 附录：面试高频
-
-**Q：Tool Calling 的完整流程是什么？模型真的执行了代码吗？**
-
-> Tool Calling 分两个阶段：首先，用户输入连同工具 schema 一起发给模型，模型返回的不是文字答案，而是一个结构化的"工具调用意图"（tool_call），包含函数名和参数。然后，你的 Python 程序读取这个意图，找到对应函数，真正执行，把结果再返回给模型，模型才生成最终答案。模型自始至终没有执行任何代码——它只生成了一个 JSON 描述"我想调用什么"。
-
-**Q：如果工具调用失败，应该怎么处理？**
-
-> 不应该让异常传到模型外面导致整个 Agent 崩溃。正确做法是 catch 所有异常，把错误信息结构化为 tool result 返回给模型（如 `{"error": "数据库连接超时"}`）。模型收到错误后通常能做出合理反应——重试、换一种方式、或告知用户。幂等工具可以自动重试，非幂等工具的失败不应该自动重试。
-
-**Q：Schema 的 description 写得好不好，对实际效果有影响吗？**
-
-> 影响非常大。模型选工具的决策几乎完全基于 name 和 description。description 写得含糊（"处理用户相关操作"），模型就不知道应不应该用、参数怎么填。description 写得清晰（包含使用场景、不适用场景、参数说明），工具选择准确率会显著提升。在工具选择出问题时，首先检查 schema description 是不是写清楚了。

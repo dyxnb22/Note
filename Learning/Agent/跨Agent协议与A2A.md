@@ -95,9 +95,3 @@ def accept_result(envelope, result):
 - 委托是否具备状态、取消、超时与追溯 ID？
 - 对端输出是否按不可信输入处理？
 - 是否有防环与预算？
-
-## 导航与关联
-
-- [多 Agent 协作的边界与模式](多Agent协作的边界与模式.md) · [MCP 与工具协议](MCP与工具协议.md) · [Agent 安全与威胁建模](07_Agent安全与威胁建模.md) · [Durable Execution](06_Durable%20Execution与分布式可靠性.md)
-
-`#agent #a2a #multi-agent #protocol`

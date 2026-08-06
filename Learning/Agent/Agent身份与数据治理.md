@@ -188,7 +188,3 @@ def prepare_provider_payload(record: dict, *, classification: str, policy) -> di
 4. 模拟用户删除数据，验证主库、索引、缓存、日志和备份处理；
 5. 用审计记录证明一次读取和一次拒绝访问；
 6. 写清楚 fallback Provider 的数据边界。
-
-## 导航与关联
-
-- 同一路线：[Agent 安全与威胁建模](./07_Agent安全与威胁建模.md) · [Durable Execution 与分布式可靠性](./06_Durable%20Execution与分布式可靠性.md)
