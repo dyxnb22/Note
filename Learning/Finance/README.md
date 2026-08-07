@@ -1,88 +1,28 @@
-# Learning/Finance 知识库总览
+# 金融与经济学
 
-## 关于本知识库
+本目录只维护学习入口；正文负责一个主题，`来源与验证`负责数据、规则和时效性。内容用于建立机制与研究框架，不荐股、不喊单，也不替代投资、税务或法律意见。
 
-本知识库是一套系统化的个人金融与经济学学习文档，目标是建立从底层概念到实际研究方法的完整知识体系。
+## 一条主线
 
-写作原则：机制优先、框架优先、长期有效优先。不荐股、不喊单、不依赖实时数据。
+```text
+基础与数学 → 经济与市场 → 股票/债券/基金 → 估值与公司金融
+→ 组合与衍生品 → 量化与研究 → 防骗与进阶实证
+```
 
-所有事实、数据和规则的使用方法见：[来源与验证](./来源与验证.md)。
+| 阶段 | 目录 | 学习重点 |
+|---|---|---|
+| 1 | `00_Foundations`、`12_Math_and_Statistics` | 时间价值、风险、概率、收益率、统计 |
+| 2 | `01_Economics`、`02_Markets` | 供需、货币信用、周期、金融体系 |
+| 3 | `03_Stocks`、`04_Fixed_Income`、`05_Funds_and_ETF` | 资产结构、定价、风险和产品比较 |
+| 4 | `07_Corporate_Finance`、`08_Valuation` | 资本配置、现金流、DCF、相对估值 |
+| 5 | `09_Portfolio_and_Risk`、`06_Derivatives`、`10_Behavioral_Finance` | 组合、对冲、杠杆、决策偏差 |
+| 6 | `11_Quant`、`13_Research_Workflow` | 数据、回测、执行、备忘录、复盘 |
+| 7 | `14_Fraud_and_Pitfalls`、`15_Advanced_Practice` | 防骗、会计、税务、监管和综合实证 |
 
----
+## 怎么读
 
-## 目录结构
+先完成阶段 1–4，再按目标选择阶段 5–7；`14_Fraud_and_Pitfalls` 可穿插阅读。每篇只记录四件事：核心机制、关键假设、失效条件、一个可复核练习。不要同时维护多份“总结版”；目录中的速查/主题页只用于定位和复习。
 
-- `00_Foundations`：基础层，建立时间价值、风险收益、概率思维
-- `01_Economics`：经济学机制、政策工具、经济周期
-- `02_Markets`：金融体系、流动性、利率期限结构
-- `03_Stocks`：股票机制、财报分析、商业模式
-- `04_Fixed_Income`：债券定价、利率风险、信用风险
-- `05_Funds_and_ETF`：基金与 ETF 的结构、评价与定投
-- `06_Derivatives`：期货、期权、对冲、杠杆
-- `07_Corporate_Finance`：资本结构、投融资决策、代理问题
-- `08_Valuation`：DCF、相对估值、安全边际
-- `09_Portfolio_and_Risk`：组合构建、风险控制、再平衡
-- `10_Behavioral_Finance`：认知偏差、情绪管理、纪律建设
-- `11_Quant`：因子、回测、容量、执行归因
-- `12_Math_and_Statistics`：收益率、分布、回归、统计检验
-- `13_Research_Workflow`：读公司、写备忘录、复盘与研究流程
-- `14_Fraud_and_Pitfalls`：骗局识别、造假识别、风险陷阱
-- `15_Advanced_Practice`：会计、税务监管、衍生品、计量、组合优化和量化工程的综合实证
+涉及利率、税制、监管、交易规则、产品参数或具体数据时，先看 [来源与验证](./来源与验证.md)，记录来源和核对日期；稳定的概念与会变化的事实要分开。
 
----
-
-## 推荐学习路径
-
-**第一阶段：建立底层语言**
-`00_Foundations` → `12_Math_and_Statistics` → `01_Economics`（核心篇）
-
-**第二阶段：理解市场与资产**
-`02_Markets` → `03_Stocks`（基础篇）→ `04_Fixed_Income`（基础篇）→ `07_Corporate_Finance`
-
-**第三阶段：深入资产分析**
-`03_Stocks`（全部）→ `04_Fixed_Income`（全部）→ `08_Valuation` → `05_Funds_and_ETF`
-
-**第四阶段：组合、衍生与风险**
-`09_Portfolio_and_Risk` → `06_Derivatives` → `10_Behavioral_Finance`
-
-**第五阶段：量化与研究方法**
-`11_Quant` → `13_Research_Workflow`
-
-**第六阶段：进阶综合实践**
-`15_Advanced_Practice`（按专题回查会计、衍生品、统计、组合和研究模块）
-
-**防御层（全程穿插）**
-`14_Fraud_and_Pitfalls`
-
----
-
-## 关键先修关系
-
-- 所有模块的前提：`00_Foundations`
-- 估值的前提：`03_Stocks` + `07_Corporate_Finance`
-- 量化的前提：`12_Math_and_Statistics` + `09_Portfolio_and_Risk`
-- 研究方法的前提：`08_Valuation` + `10_Behavioral_Finance`
-- 进阶实证的前提：`03_Stocks` + `06_Derivatives` + `09_Portfolio_and_Risk` + `12_Math_and_Statistics` + `13_Research_Workflow`
-
----
-
-## 写作规范说明
-
-文档按问题选择结构，不为套模板保留空泛章节。概念文档至少写清机制、假设和失效条件；研究文档还要保留数据口径、来源、反证和复盘。
-
-每篇文档末尾以一行反引号标签结尾，格式为：`` `#tag1 #tag2 #tag3` ``
-
-涉及监管、税制、费率、交易制度的内容，统一标注：
-> 此部分可能随监管、交易所规则、产品设计变化，需以最新规则为准。
-
-涉及具体数据或会计结论时，还要记录来源和核对日期；“需核验”不能代替实际核验。
-
----
-
-## 维护状态
-
-各模块按目录直接查看，本页只维护整体学习路径和先修关系。新增、合并或移动文档时，优先更新对应主题正文，不再额外维护目录 README。
-
-完整性表示主题已有入口，不表示事实永久有效。制度、产品、数据与具体参数仍按 [来源与验证](./来源与验证.md) 的规则定期核验。
-
-`#finance #index #knowledge-base`
+`#finance #economics #index`

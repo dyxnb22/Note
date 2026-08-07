@@ -1,277 +1,102 @@
 # Web3 高级工程与协议安全
 
-本篇从 EVM 执行进入合约工程、Oracle/Indexer、L2、跨链、MEV、账户抽象和升级治理。目标不是追逐链和协议名称，而是识别资产、状态、信任、排序和恢复边界。
+本文把 Web3 学习推进到“能读实现、能测风险、能解释系统边界”：EVM 执行、合约工程、安全不变量、索引/RPC、L2、跨链、MEV、账户抽象和治理。基础概念见 [Web3 索引](../INDEX.md)，速查页只用于复习。
 
-## 1. EVM 状态
+## 1. EVM 与合约执行
 
-Ethereum 将执行环境表示为状态机。账户包含 Nonce、余额、代码和存储根；合约 Bytecode 在 EVM 中执行。
+- 链上状态由账户、存储、余额和代码组成；交易触发状态转换。
+- `call`、`delegatecall`、`staticcall` 的执行上下文和写权限不同，`delegatecall` 还共享调用者存储布局。
+- ABI 编码函数选择器、参数、返回值和事件；事件便于索引，但不是合约状态的替代。
+- Gas 是计算/存储资源和交易费用；失败交易可能仍消耗费用，估算不能替代边界测试。
 
-理解四类数据：
+读合约时先找状态变量、入口函数、权限检查、外部调用、事件、初始化和升级路径，再追踪一笔交易的状态变化。
 
-- Stack：指令操作数，空间小、生命周期为调用。
-- Memory：调用期间的临时字节数组。
-- Storage：合约持久状态，写入成本高。
-- Calldata：外部调用的只读输入。
-
-具体 Opcode 和 Gas 成本可能随升级变化，使用前查当前网络规则。
-
-## 2. 调用语义
-
-- `call`：调用目标代码，目标使用自己的 Storage。
-- `delegatecall`：执行目标代码，但使用调用方 Storage、地址和上下文。
-- `staticcall`：只读调用语义。
-
-低级调用返回成功标志和数据，必须检查。外部调用会把控制权交给不可信代码，因此状态更新顺序和重入保护非常重要。
-
-## 3. ABI 与事件
-
-ABI 定义函数选择器、参数编码、返回值和事件。事件写入日志，适合链下索引和通知，不是合约内可直接读取的状态。
-
-升级或更换实现时，ABI 兼容只是一个维度，还要检查 Storage Layout、权限和事件语义。
-
-## 4. Gas 与资源
-
-Gas 限制单次执行资源并为网络定价。优化顺序：
-
-1. 先保证正确和安全。
-2. 减少不必要 Storage 写入。
-3. 选择合适数据布局和批处理。
-4. 用测试和 Gas Report 验证。
-
-微小 Gas 节省不能换取不可读的权限和算术逻辑。
-
-## 5. Solidity 工程结构
+## 2. Solidity 工程与测试
 
 ```text
-contracts/ → scripts/ → tests/
-→ deployment records → verification
-→ monitoring → upgrade/governance
+状态/权限 → 业务函数 → 事件 → 索引器/前端
 ```
 
-固定编译器和依赖版本；生成 ABI、Bytecode 和部署参数；不同网络配置和私钥分离。
+测试分层：
 
-## 6. Foundry/Hardhat 测试
+| 层次 | 重点 |
+|---|---|
+| Unit | 函数、边界和 revert |
+| Property/Fuzz | 输入空间和不变量 |
+| Integration | 多合约、Token、Oracle 和真实调用顺序 |
+| Fork/Scenario | 真实协议状态、流动性和极端市场 |
+| Deployment | 网络、地址、权限、验证和回滚 |
 
-测试层次：
+部署记录网络、区块、编译器、依赖、合约地址、初始化参数和管理员。Proxy 带来升级能力，也带来实现地址、存储布局、权限和治理风险。
 
-- 单元测试：函数与权限。
-- 集成测试：多合约和 Token。
-- Fork Test：在固定区块模拟链上依赖。
-- Fuzz Test：生成输入寻找边界。
-- Invariant Test：随机调用序列后验证系统不变量。
+## 3. 安全不变量与攻击面
 
-Fork 测试依赖具体历史状态，不代表未来协议行为。
+先写不变量，再写测试，例如：总供应量守恒、用户余额不为负、只有授权主体能改参数、清算后抵押率满足规则、升级不能改变关键存储含义。
 
-## 7. 部署
+| 攻击面 | 检查重点 |
+|---|---|
+| 重入 | 外部调用前后状态、Checks-effects-interactions、锁和跨函数路径 |
+| Oracle | 数据源、延迟、偏差、操纵成本和无报价状态 |
+| 闪电贷/组合攻击 | 单笔交易内临时资本如何跨协议放大 |
+| 签名重放 | chain ID、domain、nonce、deadline、用途和代签权限 |
+| 权限/升级 | owner、多签、timelock、初始化、暂停和撤销 |
+| 经济攻击 | 清算、流动性、价格滑点、激励和治理集中 |
 
-部署前：
+审计、模糊测试和不变量测试分别解决不同问题；审计报告不等于运行时安全证明，仍需监控、应急开关和治理演练。
 
-- 固定 Commit、Compiler、Optimizer。
-- 验证构造参数和初始权限。
-- 模拟部署和 Gas。
-- 多签/Timelock 执行高风险动作。
-- 验证源码与 Bytecode。
-- 保存地址、交易和配置。
+## 4. RPC、Indexer 与应用后端
 
-部署后检查 Owner、Role、Pause、Upgrade Admin、Oracle 和关键限额。
-
-## 8. 安全不变量
-
-典型不变量：
-
-- 总资产守恒。
-- 用户债务不被无授权减少。
-- 提款不超过权益。
-- 抵押率低于阈值必须受限。
-- 只有授权主体能升级或暂停。
-- 同一签名/Nonce 不可重放。
-
-安全测试围绕不变量和攻击者能力，而不是只跑正常示例。
-
-## 9. 重入
-
-外部调用期间，攻击者可以回调原合约。防御：
-
-- Checks-Effects-Interactions。
-- 重入锁。
-- Pull Payment。
-- 限制可调用目标。
-- 把跨合约流程写成明确状态机。
-
-防护一个函数不一定阻止跨函数或跨合约重入。
-
-## 10. 价格与 Oracle
-
-链上协议需要链外或其他市场价格时引入 Oracle 信任。
-
-检查：
-
-- 价格来源和聚合。
-- 更新频率与过期。
-- 小数位和单位。
-- 异常值和熔断。
-- 单市场流动性。
-- 治理与密钥。
-
-直接使用低流动性 AMM 即时价格容易被闪电贷操纵；TWAP 也有窗口和市场变化边界。
-
-## 11. 闪电贷与组合攻击
-
-闪电贷提供单交易内的大额临时资本，本身不是漏洞，但会放大价格操纵、治理投票、清算和会计错误。
-
-测试要模拟多个协议组合和单交易原子路径，不只验证单合约。
-
-## 12. 签名与重放
-
-签名消息包含：
-
-- Domain/Chain ID。
-- 合约地址。
-- 动作与参数。
-- Nonce。
-- Deadline。
-
-签名恢复出的地址仍要通过权限和业务校验。跨链、跨合约和升级后重放必须显式防止。
-
-## 13. Indexer
-
-Indexer 从区块、交易、日志和 Trace 构建可查询视图：
+RPC 是应用访问节点的服务边界，不等于链上事实本身；要处理限流、重试、重组、归档读取、不同节点视图和供应商故障。Indexer 消费区块/事件并维护查询模型，必须保存区块高度、交易哈希、日志索引、确认状态和回滚策略。
 
 ```text
-RPC → 区块游标 → 解码事件
-→ 幂等落库 → 确认/回滚 → API
+节点/RPC → 原始区块与日志 → 解码/去重 → 确认与重组处理
+→ 查询模型 → 前端/业务服务
 ```
 
-需要处理链重组、缺块、重复、Provider 限流、ABI 版本和全量重放。链下索引不是链上事实源。
+重要状态交叉验证链上读取、事件、receipt 和索引结果；前端显示不能独立证明交易成功。
 
-## 14. RPC
+## 5. L2、数据可用性与跨链
 
-RPC 节点可能延迟、限流、返回不同高度或缺少历史数据。客户端记录 Block Number/Hash，关键读取使用多个来源或自建验证。
+- Rollup 通常把执行、排序或数据发布拆开；评估安全继承、数据可用性、提款延迟、排序器权限和故障模式。
+- 数据可用性回答“状态能否被独立重建”，不是单纯的吞吐指标。
+- 跨链桥/消息桥要明确锁定、铸造、验证、最终性、升级和暂停机制；桥的信任假设往往是系统最大风险。
 
-批量请求、订阅和日志范围应限流，避免一次大查询拖垮 Provider。
+不要只比较 TPS/费用；把资产、消息、证明、验证者和恢复路径逐层写出来。
 
-## 15. L2 与 Rollup
+## 6. MEV 与账户抽象
 
-Rollup 在链下执行交易，把结果和必要数据/证明提交到 L1：
+MEV 来自交易可见性、排序和组合权；分析抢跑、夹子、清算、私有交易、批处理和用户保护时，要说明攻击者观察到什么以及谁拥有排序权。
 
-- Optimistic Rollup：默认接受，争议期通过 Fraud Proof 挑战。
-- ZK Rollup：提交 Validity Proof 验证状态转换。
+账户抽象改变验证、支付、恢复和批量操作路径，但不消除 nonce、签名、paymaster、权限和重放风险。设计时仍要做最小授权、额度、期限和撤销。
 
-评估不只看费用和 TPS，还要看 Sequencer、证明、数据可用性、强制退出、升级权限和桥。
+## 7. 协议治理
 
-## 16. 数据可用性
+治理安全不只看投票数量，还要看实际控制：谁能改参数、升级实现、暂停资产、管理预言机、执行提案和恢复故障。记录 token 分布、委托集中度、quorum、timelock、否决权、核心团队权限和退出机制。
 
-状态转换可验证还不够，用户必须获得重建状态所需数据。数据放在 L1、Blob、外部委员会或其他 DA 层，会产生不同安全假设。
+## 8. 最小安全实验
 
-“有证明”不等于“用户始终可取回数据”。
-
-## 17. 跨链桥
-
-桥需要证明另一系统发生了什么。主要模型：
-
-- 原生/官方桥。
-- Light Client/验证证明。
-- 多签或验证者集合。
-- Liquidity Network。
-
-检查资产锁定/铸造、消息重放、最终性、验证者、升级、暂停和限额。桥把多个系统的风险组合起来，通常是高价值攻击面。
-
-## 18. MEV
-
-区块构建者可以通过包含、排除和排序交易提取价值。常见表现：
-
-- DEX 套利。
-- 清算。
-- Sandwich。
-- NFT/稀缺资源抢跑。
-
-用户保护包括 Slippage、Deadline、Commit-Reveal、Batch Auction、私有提交和协议级设计。私有通道会引入新的中继和审查信任。
-
-## 19. Account Abstraction
-
-智能账户允许自定义认证、批量、代付 Gas、限额和恢复。工程上检查：
-
-- EntryPoint/执行入口。
-- UserOperation 或授权对象。
-- Bundler/Paymaster。
-- Nonce 与重放。
-- 验证 Gas 和 DoS。
-- Session Key、Guardian 和恢复。
-
-体验改善不自动等于更安全；恢复人与代付者成为新的信任主体。
-
-## 20. 代理升级
-
-Proxy 使用 `delegatecall` 把逻辑与地址/Storage 分离。常见风险：
-
-- Storage Collision/Layout 变化。
-- 初始化函数被重复调用。
-- Upgrade Admin 权限。
-- 新实现破坏不变量。
-- Selector 冲突。
-- 用户不知道语义已改变。
-
-升级流程应有多签、Timelock、模拟、Storage 检查、Canary/限额、事件和回滚方案。
-
-## 21. 治理攻击
-
-治理权来自 Token、委托、多签或委员会。分析：
-
-- 提案门槛。
-- 投票期与快照。
-- 借贷/闪电贷影响。
-- Timelock。
-- 紧急暂停。
-- Admin 可绕过什么。
-- 社会层恢复。
-
-“去中心化”要拆成提案、投票、执行、升级和资产控制的具体权力。
-
-## 22. 协议安全实验
-
-1. 实现可重入 Vault 并修复。
-2. 操纵低流动性价格源。
-3. 复现签名重放。
-4. Fork 测试清算和极端价格。
-5. 升级 Proxy 并检查 Storage。
-6. 模拟 Indexer 链重组。
-7. 画 L2/Bridge 退出和信任图。
-
-## 22.1 不变量优先的测试骨架
-
-协议测试先写资产守恒、权限和状态转换不变量，再补具体例子；单个 happy path 不能覆盖组合攻击。
+1. 选一个小型合约，列出资产、主体、权限和 5 条不变量。
+2. 用 Foundry/Hardhat 写正常、边界、权限和模糊测试。
+3. 模拟重入、预言机异常、重复签名、升级和暂停。
+4. 在本地节点或 fork 环境记录交易、事件、receipt 和索引状态。
+5. 写一份风险报告：影响、前置条件、阻断、检测、恢复和残余假设。
 
 ```solidity
-// 伪代码：测试任意用户操作后，协议总负债不得超过可兑现资产。
-function invariant_solvent() public view {
-    assert(protocolAssets() >= protocolLiabilities());
+function invariant_totalSupplyMatchesBalances() public view {
+    assertEq(token.totalSupply(), sumTrackedBalances());
 }
 ```
 
-实际测试要明确价格、利率、清算、跨链消息和时间推进的生成范围；不变量通过也不等于经济模型和治理权限安全，仍需 Fork、权限和故障测试。
+示例只是测试骨架，真实不变量要按协议定义，不能直接复制到生产合约。
 
 ## 验收清单
 
-- 能解释 EVM 数据区和调用语义。
-- 合约有单元、Fuzz、Invariant 和 Fork 测试。
-- Oracle、Indexer、L2、Bridge 均写出信任边界。
-- MEV、账户抽象和升级纳入安全模型。
-- 高权限动作由多签、Timelock、审计和监控约束。
+- 能沿一笔交易解释状态、Gas、事件、receipt 和确认；
+- 能说明 RPC、Indexer、重组和数据可用性的边界；
+- 能写出权限、Oracle、重入、签名、升级和桥的威胁模型；
+- 测试包含不变量、模糊输入、极端状态和组合调用；
+- 部署、升级、暂停、治理和回滚都有可审计记录。
 
-## 来源与核验
+主要参考：[Ethereum 开发文档](https://ethereum.org/developers/docs/)、[Solidity 文档](https://docs.soliditylang.org/)、[OpenZeppelin 文档](https://docs.openzeppelin.com/)。实现前核对目标链、升级、编译器和依赖版本。
 
-- [Ethereum EVM](https://ethereum.org/developers/docs/evm/)
-- [Ethereum Scaling](https://ethereum.org/developers/docs/scaling/)
-- [Ethereum Data Availability](https://ethereum.org/developers/docs/data-availability)
-- [Ethereum MEV](https://ethereum.org/developers/docs/mev/)
-- [Ethereum Account Abstraction](https://ethereum.org/roadmap/account-abstraction)
-- [Solidity Security Considerations](https://docs.soliditylang.org/en/latest/security-considerations.html)
-- [OpenZeppelin Upgrades](https://docs.openzeppelin.com/upgrades)
-
-网络升级、EIP 状态、工具和监管均会变化；使用前按目标链和版本重新核验。核对日期：2026-07-30。
-
-## 导航与关联
-
-- 同一路线：[稳定币的几种基本路线](../04_DeFi_and_Tokenomics/稳定币的几种基本路线.md) · [如何研究一个协议](../07_Research_and_Build_Workflow/如何研究一个协议.md)
-
-`#web3 #evm #solidity #rollup #security`
+`#web3 #evm #smart-contract #protocol-security`

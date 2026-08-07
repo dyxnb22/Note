@@ -29,5 +29,3 @@ Debug 的核心不是背错误，而是建立排查顺序：先看错误类型�
 | `AttributeError` | 对象没有这个属性或方法 | 打印对象类型 |
 | `ModuleNotFoundError` | 包没装、环境不对 | 检查 venv / pip |
 | `FileNotFoundError` | 文件路径错误 | 打印当前目录和路径 |
-
-## 导航与关联

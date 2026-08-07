@@ -1,69 +1,23 @@
 # Python 工程基础
 
-这里放做 AI 应用之前必须打牢的 Python 工程基础。
+这里负责 AI 应用之前的 Python 语言、工程、HTTP 和服务化能力；Agent、RAG 和工具协议回到 [Agent 知识库](../Agent/README.md)。完整跨目录路线见 [Python → AI → Agent 学习地图](../00_Navigation/AI-Python-Agent学习地图.md)。
 
-总路线见：[Python → AI → Agent 学习地图](../00_Navigation/AI-Python-Agent学习地图.md)。
+## 主线
 
-代码块约定：标为 `python` 的片段应能通过语法解析；标为 `text` 的内容是局部结构、命令输出或省略上下文的伪代码，不能直接复制运行。完整可运行链路优先放在 `实践/`。
+```text
+01 核心语法 → 02 工程化 → 03 HTTP/API → 04 Agent 工程化
+→ FastAPI/代码组织 → 05 运行时与性能 → 错误与 Debug
+```
 
-## 文档
+| 目标 | 入口 |
+|---|---|
+| Python 不熟 | [核心语法](./01_Python核心语法.md) → [工程化](./02_Python工程化.md) |
+| 开始做 AI 项目 | [工程化](./02_Python工程化.md) → [HTTP/API](./03_HTTP与API调用.md) → [Agent 工程化补充](./04_Python%20Agent工程化补充.md) |
+| 做 API 服务 | [FastAPI](./FastAPI.md) → [代码组织与设计模式](./Python代码组织与设计模式.md) |
+| 排查线上问题 | [错误与 Debug](./错误与Debug.md) → [运行时与性能](./05_Python运行时与性能.md) |
 
-| 文档                        | 内容                                           |
-| ------------------------- | -------------------------------------------- |
-| `01_Python核心语法.md`        | 语言基础、标准库、类型注解、async/await                    |
-| `02_Python工程化.md`         | 虚拟环境、依赖管理、配置、日志、测试                           |
-| `04_Python Agent工程化补充.md` | 把 Pydantic、asyncio、类型边界和稳定性连接到 Agent Runtime |
-| `05_Python运行时与性能.md`      | CPython、对象、GIL、GC、asyncio、进程与性能诊断            |
-| `Python代码组织与设计模式.md`      | Service/Client/Repository/Pipeline 架构模式      |
-| `03_HTTP与API调用.md`        | requests/httpx、超时、重试、客户端封装                   |
-| `FastAPI.md`              | 路由、请求响应模型、依赖注入、服务化                           |
-| `错误与Debug.md`             | 排错顺序、常见错误、最小复现                               |
+## 边界与约定
 
-## 按场景选文档
+`python` 代码块应通过语法解析；`text`/`pseudocode` 只是结构示意。完整可运行链路进入 [实践](./实践/Python基础练习/README.md)。语言、依赖、HTTP 和服务边界放在本目录；LLM、Agent、RAG、工具协议放在 `Agent/`。
 
-**Python 零基础入门**
-→ `01_Python核心语法.md` → `02_Python工程化.md` → `03_HTTP与API调用.md`
-
-**有 Python 基础，直接做 AI 项目**
-→ 先扫 `02_Python工程化.md`（虚拟环境 + 依赖管理）→ `04_Python Agent工程化补充.md`（Pydantic + asyncio + 类型边界）→ `03_HTTP与API调用.md`（httpx 异步调用）→ 进 `../Agent/01_LLM调用基础.md`
-
-**需要把 Agent 做成 API 服务**
-→ `FastAPI.md` → `Python代码组织与设计模式.md`（Service/Repository 分层）
-
-**线上出了问题不会 debug**
-→ `错误与Debug.md` → `05_Python运行时与性能.md`
-
-**需要解释并发、内存或性能**
-→ `05_Python运行时与性能.md` → `Backend/Delivery/07_生产系统工程.md`
-
-## 必读 vs 按需
-
-| 文档 | 分类 | 说明 |
-|------|------|------|
-| `01_Python核心语法.md` | **必读**（Python 不熟时）| async/await 是 AI 应用的基础 |
-| `02_Python工程化.md` | **必读** | 依赖管理、日志、测试，每个项目都要用 |
-| `04_Python Agent工程化补充.md` | **Agent 前置** | 把 Python 能力落到数据边界、并发、重试和测试 |
-| `05_Python运行时与性能.md` | 进阶 | 需要做并发服务、性能优化和 Runtime 排障时读 |
-| `03_HTTP与API调用.md` | **必读** | httpx 异步调用 LLM API 的前置 |
-| `FastAPI.md` | 按需 | 需要服务化时读 |
-| `Python代码组织与设计模式.md` | 按需 | 项目变复杂、需要重构时读 |
-| `错误与Debug.md` | 按需 | 遇到难 debug 的问题时读 |
-
-## 进入 Agent
-
-完成 Python 基础和工程化后，进入 [AI Agent 工程知识库](../Agent/README.md)；完整路线见 [00_学习路线图](../Agent/00_学习路线图.md)。最小主线是：
-
-`LLM 调用基础 → Tool Calling → Agent 架构与设计 → Context 工程 → 安全/验证 → Eval`
-
-知识库问答再加 RAG 与知识系统；固定流程先看 Workflow 与编排，再按需使用 LangGraph；需要 API 交付时回到 FastAPI。
-
-## 与 Agent/ 目录的边界
-
-- Python 语言本身、工程规范、HTTP 调用 → 放这里
-- Pydantic、asyncio、重试、类型边界等 Python 能力如何服务 Agent → 看 `04_Python Agent工程化补充.md`
-- CPython、GIL、GC、asyncio 调度和 Profiling → 看 `05_Python运行时与性能.md`
-- 一旦涉及 LLM、Agent、RAG、工具协议 → 放 `Agent/`
-
-## 配套实践
-
-- [Python 基础练习](./实践/Python基础练习/README.md)：只用于复习 Python 变量、类型、输出和条件判断，不属于 Agent 主线。
+`#python #engineering #index`

@@ -169,9 +169,3 @@ npm、pnpm、yarn 都解决依赖安装和脚本执行，但锁文件语义和�
 ## 来源与验证边界
 
 运行时语义参考 Node.js、libuv 和 TypeScript 官方文档。事件循环阶段、模块兼容和工具链行为可能随版本变化，运行前应核对项目锁定的 Node/TypeScript 版本并用最小实验验证。
-
-## 导航与关联
-
-- 同一路线：[TypeScript 工程基础](./TypeScript工程基础.md) · [前端应用工程](./前端应用工程.md)
-
-`#typescript #nodejs #event-loop #stream #backend`

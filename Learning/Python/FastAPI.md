@@ -178,5 +178,3 @@ def secure(
 - `get_current_user()`。
 - `get_llm_client()`。
 - `get_vector_store()`。
-
-## 导航与关联

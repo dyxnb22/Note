@@ -251,5 +251,3 @@ RAGService → Retriever → VectorStore Repository → LLM Client → Answer Bu
 - 能解释 Factory 什么时候有用。
 - 能判断什么时候不需要抽象。
 - 能把 FastAPI route 写薄，把业务逻辑放到 Service。
-
-## 导航与关联
