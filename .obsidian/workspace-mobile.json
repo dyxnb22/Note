@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS6290-Privacy-考试临时资料/Lecture/08-Lecture5-DeFi-AMM与借贷.md",
-                "mode": "preview",
+                "file": "Learning/Agent/06_Durable Execution与分布式可靠性.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "08-Lecture5-DeFi-AMM与借贷"
+              "title": "06_Durable Execution与分布式可靠性"
             }
           }
         ],
@@ -129,7 +129,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md",
+            "file": "Learning/Agent/06_Durable Execution与分布式可靠性.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -185,6 +185,8 @@
   },
   "active": "7f2fb647724ea8d9",
   "lastOpenFiles": [
+    "Learning/Agent/05_代码 Agent 基础设施.md",
+    "Learning/Agent/03_Agent架构与设计.md",
     "CS6290-Privacy-考试临时资料/Lecture/07-Lecture4-PoS与Gasper.md",
     "CS6290-Privacy-考试临时资料/Lecture/03-Lecture1B-Bitcoin所有权与脚本.md",
     "CS6290-Privacy-考试临时资料/Lecture/02-Lecture1A-Bitcoin基础与运行机制.md",

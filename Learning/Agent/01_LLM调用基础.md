@@ -4,6 +4,8 @@
 
 不只是"能跑起来"，而是：多轮对话、流式输出、结构化输出、错误处理、多 Provider 切换——都能做对。
 
+> **职责边界**：本文负责 Provider/API 适配、消息格式、流式、结构化输出、usage 和调用级恢复。Context 的构造、压缩和注入策略见 [Context 工程](./04_Context工程.md)，工具合同与执行边界见 [Tool Calling](./02_Tool%20Calling.md)。
+
 ---
 
 ## 1. 安装与初始化

@@ -4,6 +4,8 @@
 
 Memory 是生产系统里容易被低估的难题——入门级实现是"把历史消息全塞进 context"，这在实际中根本不够用。
 
+> **职责边界**：本文负责跨请求/跨会话记忆的分类、存储、召回、冲突、删除和授权。当前请求的 Context 预算与压缩见 [Context 工程](./04_Context工程.md)，长任务的可恢复执行状态见 [Durable Execution 与分布式可靠性](./06_Durable%20Execution与分布式可靠性.md)。
+
 ---
 
 ## 1. 为什么 Memory 是独立问题
@@ -112,7 +114,7 @@ return memories
 
 ```pseudocode
 from enum import Enum
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 class TaskStatus(Enum):
 PENDING = "pending"
@@ -124,10 +126,12 @@ FAILED = "failed"
 class WorkflowState(BaseModel):
 task_id: str
 status: TaskStatus
-steps_completed: list[str] = []
+# 每个任务实例独立维护列表，避免不同任务共享可变默认值。
+steps_completed: list[str] = Field(default_factory=list)
 current_step: str = ""
-artifacts: dict = {}        # 中间产出物
-error_log: list[str] = []
+# 中间产出物和错误日志都属于可持久化状态。
+artifacts: dict = Field(default_factory=dict)
+error_log: list[str] = Field(default_factory=list)
 created_at: datetime
 updated_at: datetime
 ```

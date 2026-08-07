@@ -58,76 +58,30 @@
 完成 / 失败 / 请求人工介入
 ```
 
-### Python 最小实现（Chat Completions 兼容示例）
+### Loop 合同（实现见 Tool Calling）
 
-下面保留 Chat Completions 形状，便于理解既有系统；新项目优先采用 Responses API，当前基线见 [版本与来源](./版本与来源.md)。示例特意把工具 schema 和 handler 分开；不同 Provider 的消息格式请看 [Tool Calling](./02_Tool%20Calling.md)。
+本文只保留循环的状态转移；Provider 消息格式、工具 schema、并发调用和错误归一化统一见 [Tool Calling](./02_Tool%20Calling.md)。
 
-```python
-from typing import Any, Callable
-from dataclasses import dataclass, field
-import json
-import os
+~~~text
+while budget.allows():
+    response = model.decide(context)
 
-from openai import OpenAI
+    record assistant response
+    if response.final:
+        return succeeded(response.final)
 
-client = OpenAI()
-MODEL = os.environ["OPENAI_MODEL"]  # 显式配置；实际模型名记录在项目配置中
+    for call in response.tool_calls:
+        result = tool_executor.validate_authorize_execute(call)
+        record tool result
+        append result to context
 
-@dataclass
-class AgentState:
-    goal: str
-    messages: list[dict[str, Any]] = field(default_factory=list)
-    step: int = 0
-    max_steps: int = 20
+    if no_progress or cancellation_requested:
+        return stopped(reason)
 
-def run_agent(
-    goal: str,
-    tool_schemas: list[dict[str, Any]],
-    tool_handlers: dict[str, Callable[..., Any]],
-) -> str:
-    state = AgentState(goal=goal)
-    state.messages = [
-        {"role": "system", "content": "你是一个助手，通过调用工具来完成用户目标。"},
-        {"role": "user", "content": goal},
-    ]
+return stopped(reason="budget_exhausted")
+~~~
 
-    while state.step < state.max_steps:
-        state.step += 1
-
-        response = client.chat.completions.create(
-            model=MODEL,
-            messages=state.messages,
-            tools=tool_schemas,
-        )
-
-        msg = response.choices[0].message
-        state.messages.append(msg.model_dump(exclude_none=True))
-
-        if not msg.tool_calls:
-            return msg.content or ""
-
-        for tool_call in msg.tool_calls:
-            try:
-                args = json.loads(tool_call.function.arguments)
-                handler = tool_handlers[tool_call.function.name]
-                result = {"ok": True, "data": handler(**args)}
-            except KeyError:
-                result = {"ok": False, "error": "未知工具"}
-            except json.JSONDecodeError:
-                result = {"ok": False, "error": "工具参数不是合法 JSON"}
-            except Exception as e:
-                result = {"ok": False, "error": f"工具执行失败: {type(e).__name__}: {e}"}
-
-            state.messages.append({
-                "role": "tool",
-                "tool_call_id": tool_call.id,
-                "content": json.dumps(result, ensure_ascii=False),
-            })
-
-    return "达到最大步数，任务未完成"
-```
-
----
+循环的不可变约束是：模型只能提出动作；执行器负责校验、授权、超时、幂等和错误归一化；每次状态转移都能在 Trace 中解释；没有确定性成功证据时不能报告任务完成。
 
 ## 3. 主流 Agent 范式
 
@@ -302,18 +256,22 @@ class TerminationCondition:
 好的状态设计是 Agent 可维护的关键：
 
 ```python
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional, Literal
 
 class AgentState(BaseModel):
     goal: str
     task_id: str
-    messages: list[dict] = []
+    # 每个任务必须拥有独立的消息容器，不能共享可变默认值。
+    messages: list[dict] = Field(default_factory=list)
     step: int = 0
+    # 显式状态便于暂停、恢复、人工接管和回放。
     status: Literal["running", "waiting_human", "done", "failed"] = "running"
-    tool_calls_log: list[dict] = []
+    # 工具轨迹用于审计和定位失败，不等同于给模型看的完整上下文。
+    tool_calls_log: list[dict] = Field(default_factory=list)
     final_answer: Optional[str] = None
     error_message: Optional[str] = None
+    # 预算是运行时硬边界，不能只依赖模型“自觉停止”。
     total_tokens: int = 0
     total_cost_usd: float = 0.0
 ```
@@ -335,557 +293,67 @@ class AgentState(BaseModel):
 
 ---
 
-## 9. Harness 哲学：Harness = Model + Infrastructure
+## 9. Harness 的边界
 
-来自实际工程项目的核心认知，区分两件事：
+Harness 不是模型本身，而是包围模型的确定性系统：
 
-```
-模型能力        ← 来自训练和推理能力
-Harness 行为    ← 由工具、环境、上下文、权限和反馈共同塑造
-```
+~~~text
+Harness = Tools + Context + Observation + Permissions + State + Recovery
+~~~
 
-对 Coding Agent 而言，大多数工程工作确实是在构建 Harness，但不能把 Harness 理解成“只负责转发模型输出”。它决定模型能观察什么、能执行什么、遇到失败如何恢复，也会显著影响系统最终行为。
-
-```
-Harness = Tools + Knowledge + Observation + Action Interfaces + Permissions
-
-Tools:       文件 I/O、shell、网络、数据库
-Knowledge:   产品文档、API spec、代码库
-Observation: git diff、错误日志、任务状态
-Action:      CLI 命令、API 调用
-Permissions: 沙箱、审批流程、信任边界
-```
-
-实际上大多数"Agent 平台"做的是 Harness，不是训练，认清这一点才能正确设计系统。
+它决定模型能观察什么、能执行什么、遇到失败如何恢复。模型能力提升不能替代工具合同、权限、状态、验证和可观测性。对 Coding Agent 来说，工程重点通常在 Harness；但每一项机制都应有独立的状态、预算和审计边界。
 
 ---
 
-## 10. Hook 系统：跨切面关注点
+## 10. 工程机制的唯一归属
 
-当 Agent 需要在工具执行前后注入通用逻辑（日志、权限检查、输出摘要）时，Hook 系统是比 if-else 更清晰的模式：
+本篇只保留架构判断，不再复制各专题的实现代码：
 
-```python
-HOOKS = {
-    "UserPromptSubmit": [],   # 用户提交输入后
-    "PreToolUse": [],         # 工具执行前
-    "PostToolUse": [],        # 工具执行后
-    "Stop": [],               # Agent 结束时
-}
-
-def trigger_hooks(event: str, context: dict) -> str | None:
-    """返回第一个非 None 值作为拦截信号"""
-    for hook in HOOKS.get(event, []):
-        result = hook(context)
-        if result is not None:
-            return result
-    return None
-```
-
-**执行顺序实例**：用户输入一条消息，完整 Hook 触发顺序为：
-
-```
-UserPromptSubmit → [context_inject hook 运行]
-   ↓
-PreToolUse（第 1 个工具） → [permission hook + log hook 运行]
-PostToolUse（第 1 个工具） → [large_output hook 运行]
-PreToolUse（第 2 个工具） → ...
-PostToolUse（第 2 个工具） → ...
-Stop → [summary hook 运行]
-```
-
-Hook 与工具调用完全解耦，添加新的横切关注点（rate limiting、成本追踪）不需要修改工具代码。
-
----
-
-## 11. Subagent 隔离模式
-
-Multi-Agent 系统里，Subagent 隔离是保证 context 不污染父 Agent 的关键机制：
-
-```python
-def spawn_subagent(description: str) -> str:
-    """Subagent 启动时只有一条消息，完全隔离"""
-    messages = [{"role": "user", "content": description}]
-
-    # SUB_TOOLS 排除 task 工具，防止递归 spawn
-    response = client.messages.create(
-        model=MODEL,
-        tools=SUB_TOOLS,
-        messages=messages,
-        max_tokens=8096,
-    )
-    # 只返回最终文字摘要，中间历史完全丢弃
-    return extract_final_text(response)
-```
-
-**关键设计决策**：
-- Subagent 是全新的 context，不携带父 Agent 的任何历史
-- 只返回 summary（文字），不返回中间的 tool_result 序列
-- 排除某些工具（如再次 spawn 的能力），防止无限递归
-- 父 Agent 的 context 保持 O(父消息) 不增长，Subagent 独自消耗 token
-
----
-
-## 12. "模型输出永远不是执行权限"
-
-这是 SafeCodeAgent Enterprise 中的一条安全不变量，也适合作为通用的工具执行原则：
-
-> **Model output is a proposal, never execution authority.**
-
-这一原则的实际含义：
-
-```
-❌ 错误认知：模型说"执行 rm -rf /tmp/data" → 直接执行
-✅ 正确认知：模型说"执行 rm -rf /tmp/data" → 这是一个提案
-              → 经过策略引擎检查
-              → 经过权限层验证
-              → 如果是变更操作，经过人工审批
-              → 审批 Grant 绑定到该具体提案的摘要 hash
-              → 才能真正执行
-```
-
-这个原则意味着：工具执行层必须有独立于模型的判断机制。模型的指令只是输入，不是授权。对应到代码层面：工具函数内部需要自己做权限检查，而不是相信"模型调用了我就肯定合法"。
-
----
-
-## 13. Cron Scheduler 四层架构
-
-Agent 需要定时自动执行任务时（每天报告、定时清理），Cron 调度的标准实现是四层解耦：
-
-```
-Layer 1: Scheduler（守护线程，每秒检查时间）
-Layer 2: Queue（thread-safe 队列，解耦调度和执行）
-Layer 3: Queue Processor（消费队列，唤醒 Agent）
-Layer 4: Consumer（agent_loop 消费任务，注入 messages）
-```
-
-```python
-import threading
-import queue
-from dataclasses import dataclass
-from datetime import datetime
-
-@dataclass
-class CronJob:
-    id: str
-    cron: str          # "0 9 * * 1-5"（5字段：分 时 日 月 周）
-    prompt: str        # 注入 Agent 的指令
-    recurring: bool    # True=重复，False=单次
-    durable: bool      # True=持久化到磁盘，重启后恢复
-
-cron_queue: queue.Queue = queue.Queue()
-CRON_JOBS: dict[str, CronJob] = {}
-
-def cron_matches(cron_expr: str, now: datetime) -> bool:
-    """检查当前时间是否匹配 5 字段 cron 表达式"""
-    minute, hour, dom, month, dow = cron_expr.split()
-    cron_dow = (now.weekday() + 1) % 7  # Python: Monday=0；cron: Sunday=0
-    base_match = (
-        _field_match(minute, now.minute)
-        and _field_match(hour, now.hour)
-        and _field_match(month, now.month)
-    )
-    dom_match = _field_match(dom, now.day)
-    dow_match = _field_match(dow, cron_dow)
-    # 两个字段都受限时采用 OR；任一为 * 时，另一个字段必须匹配。
-    day_match = (dom_match or dow_match) if dom != "*" and dow != "*" else (dom_match and dow_match)
-    return base_match and day_match
-
-def cron_scheduler_loop():
-    """Layer 1: 守护线程，每秒轮询一次"""
-    fired = set()  # 防止同一分钟内重复触发
-    while True:
-        now = datetime.now()
-        minute_key = now.strftime("%Y%m%d%H%M")
-        for job_id, job in list(CRON_JOBS.items()):
-            key = f"{job_id}:{minute_key}"
-            if key not in fired and cron_matches(job.cron, now):
-                cron_queue.put(job)
-                fired.add(key)
-                if not job.recurring:
-                    del CRON_JOBS[job_id]
-        # 清理过期的 fired 记录（防内存泄漏）
-        fired = {k for k in fired if k.endswith(minute_key)}
-        time.sleep(1)
-
-# 启动守护线程
-threading.Thread(target=cron_scheduler_loop, daemon=True).start()
-
-# Layer 4: agent_loop 顶部消费 cron 队列
-def consume_cron_queue(messages: list):
-    while not cron_queue.empty():
-        job = cron_queue.get_nowait()
-        messages.append({"role": "user", "content": f"[Cron] {job.prompt}"})
-```
-
-**守护线程（daemon=True）的含义**：主进程退出时，守护线程自动终止，不会阻止程序退出。
-
----
-
-## 14. 卡死循环检测（Stuck-Loop Detection）
-
-Agent 可能陷入循环——对同一个工具调用相同参数，无法前进：
-
-```python
-from collections import deque
-
-class LoopStuckDetector:
-    """检测连续相同的工具意图（3次 = 卡死）"""
-    def __init__(self, threshold: int = 3):
-        self.threshold = threshold
-        self.recent_intents: deque = deque(maxlen=threshold)
-
-    def _intent_key(self, tool_name: str, args: dict) -> str:
-        """生成工具调用的身份标识（忽略无关字段）"""
-        return f"{tool_name}:{json.dumps(args, sort_keys=True)}"
-
-    def check(self, tool_name: str, args: dict) -> bool:
-        """返回 True = 检测到卡死"""
-        key = self._intent_key(tool_name, args)
-        self.recent_intents.append(key)
-        if len(self.recent_intents) == self.threshold:
-            if len(set(self.recent_intents)) == 1:
-                return True  # 所有最近意图都相同
-        return False
-
-# 在工具执行前检查
-detector = LoopStuckDetector(threshold=3)
-
-for block in response.content:
-    if block.type == "tool_use":
-        if detector.check(block.name, block.input):
-            print(f"⚠️  检测到卡死循环：{block.name} 连续 3 次相同调用")
-            # 注入提示让模型换思路
-            messages.append({
-                "role": "user",
-                "content": f"[System] 工具 {block.name} 已连续调用相同参数 3 次，请换一种方法。"
-            })
-            break
-```
-
----
-
-## 15. Worktree 隔离（多 Agent 任务隔离）
-
-多个 Agent 并行处理不同任务时，共用同一个工作目录会造成文件冲突。Git Worktree 给每个任务提供独立的文件系统视图：
-
-```python
-import subprocess
-from pathlib import Path
-
-WORKTREES_DIR = Path(".worktrees")
-
-def create_worktree(name: str, task_id: str) -> str:
-    """给任务创建独立的 git worktree，分支名: wt/{name}"""
-    wt_path = WORKTREES_DIR / name
-    if wt_path.exists():
-        return f"Worktree '{name}' already exists"
-    result = subprocess.run([
-        "git", "worktree", "add",
-        str(wt_path), "-b", f"wt/{name}"
-    ], capture_output=True, text=True)
-    if result.returncode != 0:
-        return f"Error: {result.stderr}"
-    return f"Created worktree: {wt_path} (branch: wt/{name})"
-
-def remove_worktree(name: str, discard_changes: bool = False) -> str:
-    """移除 worktree，可选丢弃未提交变更"""
-    wt_path = WORKTREES_DIR / name
-    if not wt_path.exists():
-        return f"Worktree '{name}' not found"
-    if not discard_changes:
-        # 检查是否有未提交的变更
-        r = subprocess.run(["git", "status", "--porcelain"], cwd=wt_path,
-                           capture_output=True, text=True)
-        if r.stdout.strip():
-            return "Has uncommitted changes. Use discard_changes=True to force."
-    subprocess.run(["git", "worktree", "remove", str(wt_path), "--force"])
-    subprocess.run(["git", "branch", "-D", f"wt/{name}"])
-    return f"Removed worktree '{name}'"
-```
-
-**场景**：Lead Agent 收到三个并行任务 → 为每个任务创建独立 worktree → 三个 Worker Agent 分别在自己的 worktree 里操作 → 完成后合并 → Lead 决定保留或丢弃。
-
----
-
-## 16. Session Journal 与断点恢复
-
-生产 Agent 需要在崩溃或审批中断后，从记录的执行历史中恢复状态，而不是从头来：
-
-```python
-import jsonlines
-
-@dataclass
-class JournalEvent:
-    session_id: str
-    step: int
-    type: str        # "plan" | "step_result" | "typed_result"
-    timestamp: str
-    payload: dict
-
-class AgentJournal:
-    def __init__(self, journal_dir: Path):
-        self.journal_dir = journal_dir
-
-    def write(self, session_id: str, event: JournalEvent):
-        """追加写入，不覆盖"""
-        path = self.journal_dir / f"{session_id}.jsonl"
-        with jsonlines.open(path, "a") as w:
-            w.write(asdict(event))
-
-    def read(self, session_id: str) -> list[JournalEvent]:
-        """读取完整执行历史"""
-        path = self.journal_dir / f"{session_id}.jsonl"
-        if not path.exists():
-            return []
-        with jsonlines.open(path) as r:
-            return [JournalEvent(**e) for e in r]
-
-def resume_from_journal(session_id: str, journal: AgentJournal) -> AgentSessionState:
-    """从 journal 重建 session 状态（不重新执行）"""
-    events = journal.read(session_id)
-    last_plan = None
-    last_step = 0
-    last_observation = ""
-    pending_step = None
-
-    for event in events:
-        if event.type == "plan":
-            last_plan = event.payload.get("plan")
-        if event.type == "typed_result":
-            last_step = event.step
-            if event.payload.get("status") == "waiting_for_user":
-                pending_step = event.step  # 在这里等待人工确认
-
-    return AgentSessionState(
-        session_id=session_id,
-        plan=last_plan or DEFAULT_PLAN,
-        current_step=pending_step if pending_step else last_step,
-        status="waiting_for_user" if pending_step else "active",
-    )
-```
-
----
-
-## 17. 执行前歧义检测（Pre-Task Clarification）
-
-Agent 开始执行之前，先判断目标是否足够具体——模糊的指令会导致 Agent 方向错误：
-
-```python
-import re
-from dataclasses import dataclass, field
-
-# 具体性信号：包含文件路径、行号、函数名、测试名等
-_SPECIFIC_PATTERNS = [
-    re.compile(r"\b\w[\w/\\]+\.\w{1,6}\b"),       # 带扩展名的路径
-    re.compile(r"\bline\s+\d+\b", re.IGNORECASE),  # "line 42"
-    re.compile(r"\bdef\s+\w+|\bclass\s+\w+"),       # "def foo" / "class Bar"
-    re.compile(r"\btest_\w+\b"),                    # 测试函数名
-    re.compile(r"\b(TypeError|ValueError|ImportError)"),  # 具体错误类型
-]
-
-# 模糊动词（单独出现时需要追问）
-_VAGUE_VERBS = frozenset({"fix", "update", "improve", "refactor", "clean", "add", "remove", "change"})
-
-def _is_specific_enough(goal: str) -> bool:
-    """启发式判断：目标是否具体到可以执行"""
-    if len(goal) > 120:
-        return True  # 长描述通常有足够细节
-    for pattern in _SPECIFIC_PATTERNS:
-        if pattern.search(goal):
-            return True
-    # 只有模糊动词 + 泛指词 = 太模糊
-    words = {w.lower().strip(".,!?") for w in goal.split()}
-    meaningful = words - _VAGUE_VERBS - {"the", "a", "an", "it", "this", "that"}
-    return len(meaningful) >= 3
-
-@dataclass(frozen=True)
-class ClarificationResult:
-    needs_clarification: bool
-    questions: tuple[str, ...] = field(default_factory=tuple)
-
-def clarify_if_needed(goal: str, llm_client) -> ClarificationResult:
-    """先用启发式过滤，再用 LLM 判断是否需要追问"""
-    if _is_specific_enough(goal):
-        return ClarificationResult(needs_clarification=False)
-
-    # 启发式认为模糊，再调用 LLM 确认（1次 API 调用，用便宜模型）
-    response = llm_client.messages.create(
-        model=FAST_MODEL,  # 用便宜模型做分类
-        system=(
-            "判断任务是否足够具体可执行。"
-            "返回 JSON: {\"needs_clarification\": bool, \"questions\": [最多2个问题]}"
-        ),
-        messages=[{"role": "user", "content": goal}],
-        max_tokens=200,
-    )
-    import json
-    result = json.loads(extract_text(response.content))
-    if result.get("needs_clarification") and result.get("questions"):
-        return ClarificationResult(
-            needs_clarification=True,
-            questions=tuple(result["questions"][:2])
-        )
-    return ClarificationResult(needs_clarification=False)
-
-# 在 agent_loop 开始前调用
-clarification = clarify_if_needed(user_goal, client)
-if clarification.needs_clarification:
-    print("在开始之前，我需要了解更多：")
-    for q in clarification.questions:
-        print(f"  • {q}")
-    # 等待用户回答后再继续
-```
-
----
-
-## 18. 写操作后自动验证 + 修复循环
-
-每次 Agent 写完文件或执行了变更，自动运行测试套件验证正确性，失败后按类型生成修复提示：
-
-```python
-VALIDATION_ORDER = ("test", "lint", "typecheck", "build")
-
-from enum import Enum
-
-class RepairStrategy(str, Enum):
-    SYNTAX_ERROR = "syntax_error"
-    IMPORT_ERROR = "import_error"
-    TEST_FAILURE = "test_failure"
-    TYPE_ERROR   = "type_error"
-    LINT_ERROR   = "lint_error"
-    GENERIC      = "generic"
-
-import re
-_SYNTAX = re.compile(r"SyntaxError:|IndentationError:", re.IGNORECASE)
-_IMPORT = re.compile(r"ModuleNotFoundError:|ImportError:|No module named", re.IGNORECASE)
-_TYPE   = re.compile(r"TypeError:|mypy|pyright", re.IGNORECASE)
-_LINT   = re.compile(r"ruff|flake8|E[0-9]{3,4}\b", re.IGNORECASE)
-_TEST   = re.compile(r"FAILED tests/|AssertionError:|pytest", re.IGNORECASE)
-
-def classify_failure(output: str, suite: str) -> RepairStrategy:
-    """按优先级匹配：语法 > 导入 > 测试 > 类型 > lint > 通用"""
-    if _SYNTAX.search(output): return RepairStrategy.SYNTAX_ERROR
-    if _IMPORT.search(output): return RepairStrategy.IMPORT_ERROR
-    if suite == "test" and _TEST.search(output): return RepairStrategy.TEST_FAILURE
-    if _TYPE.search(output): return RepairStrategy.TYPE_ERROR
-    if _LINT.search(output): return RepairStrategy.LINT_ERROR
-    return RepairStrategy.GENERIC
-
-REPAIR_INSTRUCTIONS = {
-    RepairStrategy.SYNTAX_ERROR: (
-        "修复策略：语法错误。\n"
-        "1. 用 read_file 读取报错中提到的文件\n"
-        "2. 定位语法错误行\n"
-        "3. 只修改语法问题，不改其他代码"
-    ),
-    RepairStrategy.IMPORT_ERROR: (
-        "修复策略：导入错误。\n"
-        "1. 用 glob 或 bash grep 找到正确的模块路径\n"
-        "2. 确认符号确实存在于该模块\n"
-        "3. 只修改 import 语句"
-    ),
-    RepairStrategy.TEST_FAILURE: (
-        "修复策略：测试失败。\n"
-        "1. 仔细读 AssertionError 和 FAILED 行\n"
-        "2. 理解期望值 vs 实际值\n"
-        "3. 修复实现逻辑，而不是修改测试断言"
-    ),
-    # ...其他策略
-}
-
-def run_validation_and_repair(messages: list, client, max_repair: int = 2):
-    """写操作后运行：test → lint → typecheck → build，失败后最多修复 N 次"""
-    for suite in VALIDATION_ORDER:
-        result = run_suite(suite)  # 实际运行测试命令
-        if result.exit_code == 0:
-            continue
-
-        failure_output = (result.stdout + result.stderr)[-4000:]  # 只取最后 4000 字符
-        strategy = classify_failure(failure_output, suite)
-        instruction = REPAIR_INSTRUCTIONS.get(strategy, "检查失败原因并修复。")
-
-        for attempt in range(max_repair):
-            # 把失败信息 + 修复指导注入 messages，让模型修复
-            messages.append({
-                "role": "user",
-                "content": f"[Validation Failed] Suite: {suite}\n{instruction}\n\nFail output:\n{failure_output}"
-            })
-            # 执行一轮 agent_loop（模型修复）
-            agent_loop_one_turn(messages, client)
-
-            result = run_suite(suite)
-            if result.exit_code == 0:
-                break  # 修复成功
-```
-
-**这个模式的价值**：Agent 写完代码不是终点，验证通过才算完成。失败时按错误类型给出定向修复指导，比让模型"自己看报错猜"效果好得多。
-
----
-
-## 9.6 一个有预算的 Agent 主循环（注释版）
-
-Agent 循环的核心不是“多调用几次模型”，而是把每一轮的状态、预算、工具边界和停止原因记录下来。下面的代码是可运行结构示意，`model.complete` 和 `tools.execute` 是通过依赖注入传入的接口。
-
-```python
-from dataclasses import dataclass, field
-from typing import Any
-
-
-@dataclass
-class AgentState:
-    messages: list[dict[str, Any]]
-    steps_left: int = 8
-    trace: list[dict[str, Any]] = field(default_factory=list)
-
-
-async def run_agent(model, tools, state: AgentState) -> str:
-    """运行有限步数的 ReAct 风格循环；失败也要留下可解释的 trace。"""
-
-    while state.steps_left > 0:
-        step_no = len(state.trace) + 1
-        # 每轮扣预算，防止模型反复调用工具形成无界循环。
-        state.steps_left -= 1
-        response = await model.complete(messages=state.messages)
-
-        if response.final_text:
-            state.trace.append({"step": step_no, "kind": "final"})
-            return response.final_text
-
-        if not response.tool_calls:
-            # 没有答案也没有动作时，停止比“盲目再问一次”更容易诊断。
-            state.trace.append({"step": step_no, "kind": "stop", "reason": "no_action"})
-            return "Agent 未产生可执行的答案或动作。"
-
-        for call in response.tool_calls:
-            # 工具层负责授权、schema、超时和错误归一化；Agent 层不绕过它。
-            result = await tools.execute(call)
-            state.trace.append(
-                {
-                    "step": step_no,
-                    "kind": "tool",
-                    "tool": call.name,
-                    "ok": result.get("ok", False),
-                }
-            )
-            # 把受控的工具结果放回上下文，下一轮再由模型决定是否继续。
-            state.messages.append({"role": "tool", "content": result})
-
-    state.trace.append({"kind": "stop", "reason": "step_budget_exhausted"})
-    return "Agent 达到步数预算，已停止。"
-```
-
-验收时不要只看最终答案：至少同时检查停止原因、工具调用次数、每次耗时、失败工具名和上下文 token。一个“答案正确但超预算、越权或没有 trace”的 Agent，仍然不具备可上线的工程质量。
-
-## learn-claude-code 对照：机制如何挂在同一个 Loop
-
-`learn-claude-code` 的 s01-s20 很适合用来验证本篇的架构判断：每一章只增加一个 Harness 机制，但核心 `while True` 循环保持稳定。对应关系如下：
-
-| 项目章节 | 机制 | 本篇应掌握的重点 |
+| 机制 | 唯一主文档 | 本篇只需要记住 |
 |---|---|---|
-| s01 | Agent Loop | 先追加 assistant 消息，再根据 tool-use 信号决定执行工具或结束；工具结果回到下一轮消息 |
-| s04 | Hook | UserPromptSubmit、PreToolUse、PostToolUse、Stop 把扩展逻辑移出主循环 |
-| s05-s06 | Todo / Subagent | 计划状态和子 Agent 上下文隔离；子 Agent 不继承递归派生能力，也不能绕过权限 |
-| s11 | Error Recovery | 把重试、提高输出预算、响应式压缩和 fallback model 作为循环外的恢复层 |
-| s20 | 综合 Harness | 工具、权限、Context、Memory、后台任务、团队和 MCP 都围绕同一个循环组合，而不是互相复制循环 |
+| Tool schema、路由、执行、并发和错误归一化 | [Tool Calling](./02_Tool%20Calling.md) | 模型输出工具调用仍要经过独立执行层 |
+| Context、压缩、Skill 和 Prompt 组装 | [Context 工程](./04_Context工程.md)、[Skills与渐进式披露](./Skills与渐进式披露.md) | Context 是运行时输入，不等于权限 |
+| 文件导航、Patch、验证和 Worktree | [代码 Agent 基础设施](./05_代码%20Agent%20基础设施.md) | 写入后必须有可审查变更和确定性验证 |
+| Checkpoint、Journal、Queue、Lease、Cron 和 Resume | [Durable Execution 与分布式可靠性](./06_Durable%20Execution与分布式可靠性.md) | 恢复前先判断副作用是否已经发生 |
+| 威胁模型、策略、沙箱、审批和脱敏 | [Agent 安全与威胁建模](./07_Agent安全与威胁建模.md)、[安全与可控性](./08_安全与可控性.md) | 模型输出是提案，不是执行授权 |
+| 澄清、进度、接管和用户审批体验 | [Agent 产品与人机协同](./Agent产品与人机协同.md) | 不确定且有副作用时先缩小歧义 |
+| 多 Agent 的拆分、通信、仲裁和评测 | [多 Agent 协作的边界与模式](./多Agent协作的边界与模式.md) | 先证明相对单 Agent/Workflow 的净收益 |
+| 成本、延迟、预算和卡死循环 | [成本与性能工程](./成本与性能工程.md) | 每个循环都要有硬上限和停止原因 |
+| Trace、Replay、质量回归和发布门槛 | [可观测性与调试](./11_可观测性与调试.md)、[Agent Eval实验方法](./09_Agent%20Eval实验方法.md) | 最终答案正确不代表轨迹安全或可解释 |
 
-阅读时重点对比 [s01_agent_loop/code.py](./实践/learn-claude-code/s01_agent_loop/code.py) 与 [s20_comprehensive/code.py](./实践/learn-claude-code/s20_comprehensive/code.py)：前者用于手写最小不变量，后者用于定位每个机制在循环前、循环中和循环后的挂载点。教学实现是 Python 单进程和简化状态，不应直接当作生产级并发、权限或持久化实现。
+Hook 是跨切面扩展点，权限 Hook 的生产实现归 [安全与可控性](./08_安全与可控性.md)；学习版入口在 [learn-claude-code 实践](./实践/learn-claude-code/README.md)。不要在本篇再维护一套 Hook、Subagent、Worktree 或验证器代码。
+
+---
+
+## 11. 设计评审清单
+
+设计一个 Agent 前，至少回答：
+
+1. 任务是否真的需要动态路径？如果步骤稳定，优先普通代码或 Workflow。
+2. 每个工具的输入、输出、权限、超时、幂等性和失败语义是什么？
+3. 模型可以观察哪些事实，哪些内容必须标记为不可信数据？
+4. 状态如何序列化、暂停、取消、恢复和迁移？
+5. 哪些动作需要预览、审批、补偿或人工接管？
+6. 任务如何确定性地证明成功，而不是只看模型的最终文字？
+7. 最大步数、Token、费用、墙钟时间和并发上限分别是什么？
+8. 发生 Provider、工具、环境或策略故障时，如何降级并留下 Trace？
+9. 是否有单 Agent 或 Workflow 基线，以及能证明复杂度收益的 Eval？
+
+如果其中任一问题只能回答“靠 Prompt 约束”，说明系统边界还没有建立。
+
+---
+
+## 12. 最小实践与验收
+
+先实现一个窄任务的 ReAct 循环，再逐项接入 Tool、Context、权限、验证、Checkpoint、Trace 和 Eval。每次只增加一种机制，并记录它改善了哪个指标、增加了多少成本。
+
+最小验收不要求一次实现所有专题，但必须具备：
+
+- 有限步数和明确停止原因；
+- 工具参数校验与权限检查；
+- 可审查的状态和工具 Trace；
+- 写操作后的程序化验证；
+- 失败、取消和人工接管路径；
+- 一组可重复的成功、拒绝、边界和历史事故 Case。
+
+实践选择见 [Agent 学习路线图](./00_学习路线图.md)；ai-agent-learning 适合应用开发主线，learn-claude-code 适合 Harness 机制拆解，Rust Runtime 适合跨语言对照。

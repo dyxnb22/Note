@@ -144,16 +144,7 @@ WHERE id = :id
 
 ## Durable Execution
 
-长流程要能跨进程、跨部署恢复，至少需要：
-
-- 持久化状态和单调递增版本。
-- Queue、Lease、Heartbeat 和超时回收。
-- 节点级幂等键。
-- Outbox 或等价机制连接状态提交与消息发布。
-- 失败重试上限和死信队列。
-- 可查询的执行历史和人工修复入口。
-
-框架的内存 Checkpointer 只能用于本地实验，不能证明流程具有生产级持久性。
+Workflow 只需要声明“哪些节点必须可恢复、哪些副作用需要幂等、人工等待如何恢复”。Checkpoint、Journal、Queue、Lease、Outbox、DLQ 和 Resume 的完整原语与实现见 [Durable Execution 与分布式可靠性](06_Durable%20Execution与分布式可靠性.md)。框架的内存 Checkpointer 只能用于本地实验，不能证明流程具有生产级持久性。
 
 ## Workflow 与 Agent 的组合边界
 

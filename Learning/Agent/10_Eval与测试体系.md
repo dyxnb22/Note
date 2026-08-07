@@ -306,37 +306,14 @@ asyncio.create_task(log_for_eval({
 
 ---
 
-## 6. Agent 专项评测
+## 6. Agent 轨迹评测的边界
 
-Agent 的路径是动态的，要评过程，不只是最终结果：
+完整任务、工具轨迹、环境副作用、Replay、取消和安全门槛由 [Agent Eval 实验方法](./09_Agent%20Eval实验方法.md) 唯一维护。本篇只提供通用的测试集、指标、Mock Provider、Pairwise、Baseline 和 CI 能力；不要在这里再复制一套 AgentEvalCase 或轨迹评分器。
 
-```pseudocode
-@dataclass
-class AgentEvalCase:
-task: str
-expected_final_answer: str
-expected_tools_used: list[str]
-forbidden_tools: list[str]
-max_acceptable_steps: int
+两篇文档的组合方式是：
 
-def eval_agent_trajectory(
-actual_trajectory: list[dict],
-expected: AgentEvalCase,
-) -> dict[str, float]:
-
-tools_used = [step["tool"] for step in actual_trajectory if "tool" in step]
-
-return {
-    "answer_correctness": compare_answers(
-        actual_trajectory[-1]["output"],
-        expected.expected_final_answer,
-    ),
-    "tool_precision": len(set(tools_used) & set(expected.expected_tools_used)) / len(tools_used) if tools_used else 1.0,
-    "tool_recall": len(set(tools_used) & set(expected.expected_tools_used)) / len(expected.expected_tools_used),
-    "no_forbidden_tools": 1.0 if not any(t in expected.forbidden_tools for t in tools_used) else 0.0,
-    "step_efficiency": min(1.0, expected.max_acceptable_steps / max(1, len(actual_trajectory))),
-}
-```
+- 本篇回答“怎么运行评测基础设施、怎么比较版本、怎么接入 CI”；
+- 09 回答“Agent 任务到底评什么、如何检查轨迹和副作用、什么条件才能发布”。
 ---
 
 ## 7. 回归测试与 CI 集成
