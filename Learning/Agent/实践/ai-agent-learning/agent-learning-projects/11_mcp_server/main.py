@@ -79,7 +79,7 @@ def _get_stats_impl() -> dict:
 if HAS_FASTMCP:
     mcp = FastMCP("Note Manager MCP Server", version="1.0.0")
 
-    # --- Tools（有副作用）---
+    # --- Tools（可调用操作；可以有副作用，也可以只读）---
 
     @mcp.tool()
     def add_note(title: str, content: str, tags: list[str] | None = None) -> str:
@@ -153,7 +153,7 @@ def demo_without_mcp():
     print("""
 --- MCP 三种原语对比 ---
 
-  Tool      有副作用的操作       add_note / search_notes
+  Tool      可调用的操作         add_note（写入）/ search_notes（只读）
             AI 模型"调用"它      类比：REST API POST/GET
             返回值给 AI 模型
 

@@ -4,6 +4,8 @@ Computer Use 让 Agent 通过截图观察界面，再提出点击、输入、滚
 
 > **学习位置**：这是 Coding Agent 的高风险扩展。先完成 `05`、`07/08` 和 Eval，再学习 GUI；运行前核对 Provider 官方文档。
 
+> **职责边界**：本文只补视觉观察、屏幕动作、隔离环境和 GUI 特有评测；通用工具权限、审批、沙箱和恢复仍以核心安全与可靠性文档为准。
+
 ## 1. 视觉执行循环
 
 ```text
@@ -31,12 +33,14 @@ Provider 可能返回不同名称和坐标单位；适配器负责把版本化�
 
 ## 3. 最小执行合同
 
+下面假设适配器已经把 Provider 响应归一化为 `response.text` 和 `response.actions`；真实字段不要直接从某一家 Provider 的 SDK 泄漏到执行器。
+
 ```text
 for step in range(max_steps):
     response = provider.decide(task, screenshot, allowed_actions)
     record(response)
 
-    if response.final:
+    if response.text is not None and not response.actions:
         return verify_state_or_stop(response)
 
     results = []

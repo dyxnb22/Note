@@ -6,6 +6,7 @@
 
 | 阶段 | 项目 | 主要产物 | 配套理论 |
 |---|---|---|---|
+| 00 | [最小 Agent Loop（可选）](./00_agent_mental_model/README.md) | Provider → Adapter → ModelResult → Tool → Loop 的固定轨迹 | [LLM 调用](../../../01_LLM调用基础.md) · [Tool Calling](../../../02_Tool%20Calling.md) · [Agent 架构](../../../03_Agent架构与设计.md) |
 | 01 | [Python Project Template](./01_python_project_template/README.md) | 配置、日志、依赖和 CLI 骨架 | [Python Agent 工程化补充](../../../../Python/04_Python%20Agent工程化补充.md) |
 | 02 | [HTTP API Client](./02_http_api_client/README.md) | 同步/异步 HTTP、超时和错误处理 | [LLM 调用基础](../../../01_LLM调用基础.md) |
 | 03 | [OpenAI CLI Chat](./03_openai_cli_chat/README.md) | 多轮 messages 和 Provider 调用 | [LLM 调用基础](../../../01_LLM调用基础.md) |
@@ -16,14 +17,14 @@
 | 08 | [LangGraph Tool Agent](./08_langgraph_tool_agent/README.md) | 图中的工具节点和条件边 | [LangGraph](../../../LangGraph.md) |
 | 09 | [LangGraph Memory Agent](./09_langgraph_memory_agent/README.md) | State、thread_id 和 Checkpoint | [Memory 与状态管理](../../../Memory与状态管理.md) |
 | 10 | [RAG Agent Basic](./10_rag_agent_basic/README.md) | 文档、chunk、检索和 Context 注入 | [RAG](../../../RAG.md) |
-| 11 | [MCP Server](./11_mcp_server/main.py) | Tool、Resource、Prompt 的协议服务 | [MCP 与工具协议](../../../MCP与工具协议.md) |
-| 12 | [Claude API Agent](./12_claude_api_agent/main.py) | 原生 API、Streaming、Tool Use 和缓存 | [LLM 调用基础](../../../01_LLM调用基础.md) |
+| 11 | [MCP Server](./11_mcp_server/README.md) | Tool、Resource、Prompt 的协议服务 | [MCP 与工具协议](../../../MCP与工具协议.md) |
+| 12 | [Claude API Agent](./12_claude_api_agent/README.md) | 原生 API、Streaming、Tool Use 和缓存 | [LLM 调用基础](../../../01_LLM调用基础.md) |
 
 ## 推荐顺序与分支
 
-### 01–06：应用工程主线
+### 00–06：应用工程主线
 
-完成 01–02 的 Python/HTTP 前置，再完成 03–05 的 LLM、Tool Calling 和 Agent Loop，最后用 06 把 CLI 变成服务。到这里应能写出一个有配置、超时、日志、工具合同和终止条件的最小 Agent。
+理论先读 `01 → 02 → 03 → 04`，让 Provider/Adapter、ToolCall/ToolResult、Agent Loop/State 和 Context 分别在对应章节出现；00 号练习可在读到 03 后运行，用来把这条轨迹串起来。然后完成实践 01–02 的 Python/HTTP 前置，随后完成 03–05 的 LLM、Tool Calling 和 Agent Loop，最后用 06 把 CLI 变成服务。到这里应能写出一个有配置、超时、日志、工具合同和终止条件的最小 Agent。
 
 ### 07–09：框架与状态分支
 
@@ -51,6 +52,6 @@
 
 ## 统一运行约定
 
-每个项目独立安装依赖并使用自己的环境；真实模型项目从对应的 .env.example 创建 .env，不要把密钥写入代码或笔记。11、12 没有独立 README，运行命令和依赖以各目录中的 main.py、requirements.txt 为准。
+每个项目独立安装依赖并使用自己的环境；真实模型项目从对应的 `.env.example` 创建 `.env`，不要把密钥写入代码或笔记。11、12 的运行命令和依赖以各自 README、main.py、requirements.txt 和 `.env.example` 为准。
 
 教学项目中的 Mock Provider、内存 Checkpointer、关键词检索和本地文件存储是为了观察机制，不是生产实现。完成主线后，再用 [实践 README](../README.md) 中的 LangGraph Advanced 或 DevPilot 做综合练习。

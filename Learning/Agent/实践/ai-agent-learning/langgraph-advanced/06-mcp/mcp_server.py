@@ -2,14 +2,13 @@
 第 6 课（上）：MCP Server — 用标准协议暴露工具
 
 本课目标：
-1. 理解 MCP（Model Context Protocol）是什么，为什么 2025 年之后成为标准；
+1. 理解 MCP（Model Context Protocol）是什么，以及它如何作为跨宿主工具协议工作；
 2. 理解 MCP Server 如何用 @mcp.tool() 把 Python 函数暴露成协议工具；
 3. 理解 MCP 和原生 Function Call 的核心区别。
 
 背景：
   MCP 是 Anthropic 在 2024 年发布的开放工具协议。
-  到 2025 年底，Claude、Cursor、VS Code Copilot、Gemini、OpenAI 等主流系统全面支持。
-  核心思路：把工具从 Agent 代码里拆出来 → 变成独立服务 → 任意 AI 系统都能复用。
+  核心思路：把工具从 Agent 代码里拆出来 → 变成独立服务 → 支持 MCP 的宿主可以复用。
 
 运行方式 A（有 fastmcp）：
     pip install "fastmcp>=2.0"
@@ -49,10 +48,30 @@ def _get_weather_impl(city: str) -> str:
 
 
 def _calculate_impl(expression: str) -> str:
+    """只执行数字四则运算，避免把模型参数当作 Python 代码。"""
+    import ast
+    import operator
+
+    operators = {
+        ast.Add: operator.add,
+        ast.Sub: operator.sub,
+        ast.Mult: operator.mul,
+        ast.Div: operator.truediv,
+        ast.USub: operator.neg,
+        ast.UAdd: operator.pos,
+    }
+
+    def visit(node: ast.AST) -> float:
+        if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)) and not isinstance(node.value, bool):
+            return float(node.value)
+        if isinstance(node, ast.UnaryOp) and type(node.op) in operators:
+            return operators[type(node.op)](visit(node.operand))
+        if isinstance(node, ast.BinOp) and type(node.op) in operators:
+            return operators[type(node.op)](visit(node.left), visit(node.right))
+        raise ValueError("只允许数字和有限的四则运算")
+
     try:
-        # 学习项目用 eval；生产环境换 ast.literal_eval 或 sympy
-        result = eval(expression, {"__builtins__": {}}, {})
-        return str(result)
+        return str(visit(ast.parse(expression, mode="eval").body))
     except Exception as e:
         return f"计算失败: {e}"
 
@@ -61,22 +80,22 @@ def _search_docs_impl(query: str) -> str:
     """模拟文档检索，后续 07 课会换成真实 RAG。"""
     knowledge = {
         "mcp": (
-            "MCP (Model Context Protocol) 是 Anthropic 2024 年发布的开放工具协议。"
+            "MCP (Model Context Protocol) 是一种开放工具协议。"
             "Server 用 @mcp.tool() 暴露工具，Client（任意 AI 系统）通过 JSON-RPC 调用。"
             "和原生 Function Call 的最大区别：工具跨 Agent/平台复用。"
         ),
         "langgraph": (
             "LangGraph 是基于有向图的 Agent 编排框架。"
             "核心概念：StateGraph、Node（函数）、Edge（连线）、Checkpointer（状态持久化）。"
-            "2025 年之后支持原生 MCP 工具接入。"
+            "可以通过适配层接入 MCP 工具。"
         ),
         "rag": (
             "RAG (Retrieval-Augmented Generation) 流程："
             "文档 → 切分 → Embedding → 向量库 → 检索 top-K → 注入 LLM 上下文 → 生成回答。"
-            "2026 年主流做法：混合检索（向量 + BM25）+ Re-ranking。"
+            "常见增强方式包括混合检索（向量 + BM25）和 Re-ranking。"
         ),
         "a2a": (
-            "A2A (Agent-to-Agent) 是 Google 2025 年提出的多 Agent 通信协议。"
+            "A2A (Agent-to-Agent) 是用于多 Agent 通信的一类协议。"
             "和 MCP 的关系：MCP 解决 Agent↔工具，A2A 解决 Agent↔Agent。"
         ),
     }

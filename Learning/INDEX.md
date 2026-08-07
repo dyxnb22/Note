@@ -19,7 +19,9 @@
 | 补计算机底座 | [CS](./CS/README.md) |
 | 做 Java/Go/Rust 后端 | [Backend](./Backend/README.md) |
 | 用 Go 做生产后端 | [Go 正式路线](./Backend/Go/README.md) → [Go 后端实战](./Backend/Go/05_Go后端项目实战.md) |
+| 学 PostgreSQL 并做数据库故障/恢复实践 | [PostgreSQL](./Backend/Data/PostgreSQL.md) → [PostgreSQL 实践路线](./Backend/Data/PostgreSQL/README.md) |
 | 学 LLM 原理 | [AI](./AI/README.md) |
+| 学通用数据科学 | [数据科学](./Data_Science/README.md) |
 | 学 Python → AI → Agent | [学习地图](./00_Navigation/AI-Python-Agent学习地图.md) |
 | 用 Rust 做 Agent Runtime | [Rust/Go 目标地图](./00_Navigation/Rust-Agent与Go后端学习地图.md) → [Rust Agent 工程化](./Backend/Rust/16_Rust%20Agent工程化.md) |
 | 学企业知识入库 / OCR 表格 | [文档摄取与解析](./Agent/文档摄取与解析.md) → [知识系统](./Agent/知识系统.md) → [RAG](./Agent/RAG.md) → [检索系统工程](./Agent/检索系统工程.md) |
@@ -28,11 +30,14 @@
 | 理解 Skills 与工具膨胀 | [Skills与渐进式披露](./Agent/Skills与渐进式披露.md) → [Tool Calling](./Agent/02_Tool%20Calling.md) |
 | 准备 Agent 岗面试 | [大厂真题汇总](./Agent/面试/大厂真题汇总.md) → [项目表达与面试](./Agent/项目表达与面试.md) → [推理服务速答](./Agent/推理服务速答.md) |
 | 练系统设计 | [Backend/Architecture](./Backend/Architecture/README.md) |
+| 做产品、指标与实验决策 | [产品与业务决策](./Product_and_Decision/README.md) |
+| 学安全、隐私与 AI 治理 | [安全、隐私与治理](./Security_and_Governance/README.md) |
 | 看真实项目取舍 | [Case Studies](./Case_Studies/README.md) |
 | 查术语、产品和技术资料 | [References](./References/README.md) |
 | 准备面试和职业发展 | [Career](./Career/README.md) |
 | 写 RFC、ADR、Runbook、复盘和困难沟通 | [专业技术文档与困难沟通](./Writing_and_Expression/05_Professional_Documents/专业技术文档与困难沟通.md) |
 | 学金融与投资 | [Finance](./Finance/README.md) |
+| 建立个人财务与规则核对系统 | [个人财务与规则核对](./Finance/16_Personal_Finance/README.md) |
 | 做金融实证与量化研究 | [金融进阶与实证研究](./Finance/15_Advanced_Practice/金融进阶与实证研究.md) |
 | 管理健康与精力 | [Health and Energy](./Health_and_Energy/INDEX.md) |
 | 建立长期电脑工作与恢复系统 | [长期工作健康与恢复](./Health_and_Energy/05_Sustainable_Work/长期工作健康与恢复.md) |
@@ -41,6 +46,7 @@
 | 学 Web3 机制和工程 | [Web3](./Web3/INDEX.md) |
 | 学 Web3 高级工程与协议安全 | [Web3 高级工程与协议安全](./Web3/08_Advanced_Engineering/Web3高级工程与协议安全.md) |
 | 学 TypeScript 工程 | [TypeScript](./TypeScript/README.md) |
+| 做 AI 产品前端与交互 | [AI 产品界面与交互](./TypeScript/AI产品界面与交互.md) |
 | 补算法、证明、安全、编译与计算理论 | [CS 完整路线](./CS/README.md) |
 | 学数据库系统原理 | [数据库系统原理](./Backend/Data/数据库系统原理.md) |
 | 学性能、可观测性与 SRE | [生产系统工程](./Backend/Delivery/07_生产系统工程.md) |

@@ -16,6 +16,7 @@
 | 技术沟通 | [如何写设计文档](02_Technical_Communication/如何写设计文档.md) |
 | 工作输出 | [工作汇报](03_Workplace_Communication/如何做一次清晰的工作汇报.md)、[项目表达](03_Workplace_Communication/面试中的项目表达框架.md) |
 | 论证协作 | [什么是有效论证](04_Persuasion_and_Argument/什么是有效论证.md)、[专业技术文档与困难沟通](05_Professional_Documents/专业技术文档与困难沟通.md) |
+| 口头与视觉协作 | [口头、视觉表达与协作](06_Oral_Visual_and_Collaboration/README.md) | 演示、数据可视化、谈判、反馈和教学 |
 
 ## 按任务选
 

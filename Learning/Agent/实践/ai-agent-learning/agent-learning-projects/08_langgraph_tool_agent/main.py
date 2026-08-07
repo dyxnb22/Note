@@ -1,5 +1,7 @@
 """LangGraph 工具调用最小示例。"""
 
+import ast
+import operator
 from typing import Annotated, Any, TypedDict
 
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
@@ -20,8 +22,25 @@ def get_weather(city: str) -> str:
 def calculator(expression: str) -> str:
     """计算简单数学表达式，例如 '26 - 22'。"""
     try:
-        # 仅为课堂演示；生产环境应使用 AST 白名单解析，不能直接执行用户表达式。
-        return str(eval(expression, {"__builtins__": {}}, {}))
+        operators = {
+            ast.Add: operator.add,
+            ast.Sub: operator.sub,
+            ast.Mult: operator.mul,
+            ast.Div: operator.truediv,
+            ast.USub: operator.neg,
+            ast.UAdd: operator.pos,
+        }
+
+        def visit(node: ast.AST) -> float:
+            if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)) and not isinstance(node.value, bool):
+                return float(node.value)
+            if isinstance(node, ast.UnaryOp) and type(node.op) in operators:
+                return operators[type(node.op)](visit(node.operand))
+            if isinstance(node, ast.BinOp) and type(node.op) in operators:
+                return operators[type(node.op)](visit(node.left), visit(node.right))
+            raise ValueError("只允许数字和有限的四则运算")
+
+        return str(visit(ast.parse(expression, mode="eval").body))
     except Exception as exc:
         return f"计算失败: {exc}"
 

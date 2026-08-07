@@ -3,7 +3,7 @@
 
 学习目标：
 1. 直接用 Anthropic SDK（不绕 LangChain）调用 Claude；
-2. 掌握 Prompt Caching（提示词缓存）— 2025 年之后的生产必备；
+2. 观察 Prompt Caching（提示词缓存）这一常见生产优化；
 3. 掌握 Streaming 流式输出；
 4. 掌握 Tool Use（工具调用）的原生 API 格式。
 
@@ -13,7 +13,7 @@
   - 能做性能调优（Token 成本、延迟）
   - 能读懂任何 Claude 相关的技术文档
 
-运行（需要 ANTHROPIC_API_KEY）：
+运行（需要 ANTHROPIC_API_KEY 和 ANTHROPIC_MODEL）：
     pip install anthropic python-dotenv
     # 在 .env 里设置 ANTHROPIC_API_KEY=your_key
     python main.py
@@ -22,7 +22,10 @@
     python main.py
 """
 
+import ast
 import json
+import math
+import operator
 import os
 from pathlib import Path
 
@@ -38,7 +41,7 @@ except ImportError:
     HAS_ANTHROPIC = False
 
 ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY")
-MODEL = "claude-sonnet-4-6"
+MODEL = os.getenv("ANTHROPIC_MODEL", "")
 
 # ---------------------------------------------------------------------------
 # 1. 基础调用
@@ -51,7 +54,7 @@ def demo_basic():
 
     if not (HAS_ANTHROPIC and ANTHROPIC_KEY):
         print("[Mock] client.messages.create(")
-        print(f"    model='{MODEL}',")
+        print(f"    model='{MODEL or '<set ANTHROPIC_MODEL for a real call>'}',")
         print("    max_tokens=256,")
         print("    messages=[{'role': 'user', 'content': '用一句话解释什么是 Agent'}]")
         print(")")
@@ -69,7 +72,7 @@ def demo_basic():
 
 
 # ---------------------------------------------------------------------------
-# 2. Prompt Caching（生产必备）
+# 2. Prompt Caching（常见生产优化）
 # ---------------------------------------------------------------------------
 # 原理：把重复使用的大段文本（System Prompt、文档、工具描述）标记为 cache_control。
 # Claude 会把这段内容缓存 5 分钟。
@@ -165,7 +168,7 @@ def demo_streaming():
         print("[Mock] 用 stream=True 或 with client.messages.stream(...) 启用流式输出")
         print("[Mock 流式回答] 什么是...")
         import time
-        for char in "流式输出让用户实时看到 Agent 的思考过程，而不用等待完整回答。":
+        for char in "流式输出让用户实时看到回答片段，而不用等待完整回答。":
             print(char, end="", flush=True)
             time.sleep(0.03)
         print()
@@ -217,12 +220,38 @@ TOOLS_DEFINITION = [
 WEATHER_DATA = {"北京": "晴，25°C", "上海": "多云，22°C"}
 
 
+def _safe_calculate(expression: str) -> int | float:
+    """只计算有限的算术 AST；不要用 eval 执行模型生成的表达式。"""
+    binary_ops = {
+        ast.Add: operator.add,
+        ast.Sub: operator.sub,
+        ast.Mult: operator.mul,
+        ast.Div: operator.truediv,
+        ast.Mod: operator.mod,
+    }
+    unary_ops = {ast.UAdd: operator.pos, ast.USub: operator.neg}
+
+    def visit(node: ast.AST) -> int | float:
+        if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)) and not isinstance(node.value, bool):
+            return node.value
+        if isinstance(node, ast.BinOp) and type(node.op) in binary_ops:
+            return binary_ops[type(node.op)](visit(node.left), visit(node.right))
+        if isinstance(node, ast.UnaryOp) and type(node.op) in unary_ops:
+            return unary_ops[type(node.op)](visit(node.operand))
+        raise ValueError("只允许数字和有限的 + - * / % 运算")
+
+    result = visit(ast.parse(expression, mode="eval").body)
+    if isinstance(result, float) and not math.isfinite(result):
+        raise ValueError("结果必须是有限数字")
+    return result
+
+
 def _execute_tool(name: str, inputs: dict) -> str:
     if name == "get_weather":
         return WEATHER_DATA.get(inputs["city"], "无数据")
     if name == "calculate":
         try:
-            return str(eval(inputs["expression"], {"__builtins__": {}}, {}))
+            return str(_safe_calculate(inputs["expression"]))
         except Exception as e:
             return f"计算失败: {e}"
     return "未知工具"
@@ -353,6 +382,8 @@ if __name__ == "__main__":
     if not ANTHROPIC_KEY:
         print("[注意] 未找到 ANTHROPIC_API_KEY，以 Mock 模式运行")
         print("       在 .env 里设置：ANTHROPIC_API_KEY=your_key")
+    if HAS_ANTHROPIC and ANTHROPIC_KEY and not MODEL:
+        raise SystemExit("请设置 ANTHROPIC_MODEL（使用当前 Provider 可用的模型 ID）")
     print()
 
     demo_basic()

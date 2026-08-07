@@ -2,9 +2,20 @@
 
 这篇文章解决一个问题：**如何把模型提出的动作转换成可校验、可授权、可恢复的工具执行**。
 
-> **学习位置**：这是主线第 2 篇，读完 [LLM 调用基础](./01_LLM调用基础.md) 后阅读。
+> **前提与位置**：先读 [LLM 调用基础](./01_LLM调用基础.md)。这是主线第 2 篇，本章新增 `ToolCall`（模型的动作提案）和 `ToolResult`（执行器的事实/错误）。
 >
-> **职责边界**：本文负责工具合同、注册/分发、Provider 消息配对、并发、超时、幂等和执行边界。Agent 的整体 Loop 见 [Agent 架构与设计](./03_Agent架构与设计.md)；威胁模型见 [Agent 安全与威胁建模](./07_Agent安全与威胁建模.md)；具体安全治理见 [安全与可控性](./08_安全与可控性.md)。
+> **边界**：Provider 合同规定消息如何传输，Tool 合同规定动作如何校验和执行，Agent Loop 决定拿到结果后是否继续；本文负责工具执行边界，不展开整体 Loop、安全威胁和治理。
+
+## 0. 先看一次工具循环
+
+```text
+模型：ToolCall(read_file, path="src/app.py")
+应用：解析 → schema 校验 → 授权 → 执行
+应用：ToolResult(call_id, 文件内容或错误)
+模型：根据 ToolResult 输出答案、再调用工具或停止
+```
+
+工具调用不是“模型执行了代码”。它是模型给应用的一张结构化请求单；应用可以拒绝、延迟、审批或改写为安全错误结果。
 
 ## 1. 模型不会执行代码
 
@@ -105,13 +116,15 @@ async def execute_tool_call(call, *, registry, policies, allowed_tools):
 
 工具执行器只负责一次调用；循环负责把结果配对回填，并根据停止原因决定下一步：
 
+下面的 `completed_text` 只表示“模型返回了文本候选”，不等于业务任务已经满足成功条件；成功判定仍由上层验证器负责。
+
 ```text
 while budget.allows():
     response = provider.complete(context)
     record assistant output and finish reason
 
-    if response.final:
-        return succeeded(response.text)
+    if response.text is not None and not response.tool_calls:
+        return completed_text(response.text)  # 业务层仍需检查成功证据。
 
     for call in response.tool_calls:
         result = execute_tool_call(call)

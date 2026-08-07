@@ -2,6 +2,24 @@
 
 本文只回答三件事：Agent 与普通调用/Workflow 的边界、常见运行时模式，以及如何把动态决策放进可控的工程系统。工具合同见 [Tool Calling](./02_Tool%20Calling.md)，Context 见 [Context 工程](./04_Context工程.md)，编排 API 见 [LangGraph](./LangGraph.md)。
 
+> **前提与完成标准**：先完成 [LLM 调用基础](./01_LLM调用基础.md) 和 [Tool Calling](./02_Tool%20Calling.md)；[00 号无 API 练习](./实践/ai-agent-learning/agent-learning-projects/00_agent_mental_model/README.md) 可作为短练习。读完能画出任务状态转移并明确每一种停止原因，不能只说“让模型自己循环”。
+
+## 0. 先把 Agent 看成状态机
+
+这里先给出工程定义：**Agent 是围绕目标运行的有限循环**——读取当前事实，让模型提出下一步，校验并执行动作，把结果写回状态，然后继续或停止。模型负责提出候选动作，应用负责事实、权限和成功判定。
+
+```text
+running
+  ├─ 模型文本 + 成功证据 → succeeded
+  ├─ tool_call → executing_tool → tool_result → running
+  ├─ 需要人工 → waiting_human → approved → running
+  │                         └→ rejected/expired → stopped
+  ├─ 取消/失败/无进展 → stopped 或 failed
+  └─ 超过步数、Token、费用或时间 → stopped(budget_exhausted)
+```
+
+`while` 只是实现形式；真正重要的是每轮状态转移可解释、可持久化、可取消并且有硬上限。
+
 ## 1. Agent 的工程定义
 
 | 范式 | 路径 | 适合场景 |
@@ -32,8 +50,10 @@ while budget.allows():
     response = model.decide(context)
     record(response)
 
-    if response.final:
-        return succeeded(response.final)  # 仍需确定性成功证据
+    if response.text is not None and not response.tool_calls:
+        if success_evidence_exists(state):
+            return succeeded(response.text)
+        return stopped("final_without_success_evidence")
 
     for call in response.tool_calls:
         result = executor.validate_authorize_execute(call)
@@ -91,7 +111,9 @@ from typing import Literal
 class AgentState:
     goal: str
     task_id: str
-    status: Literal["running", "waiting_human", "done", "failed"] = "running"
+    status: Literal[
+        "running", "waiting_human", "succeeded", "failed", "stopped", "cancelled"
+    ] = "running"
     messages: list[dict] = field(default_factory=list)
     tool_calls_log: list[dict] = field(default_factory=list)
     step: int = 0

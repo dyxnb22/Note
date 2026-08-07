@@ -15,6 +15,7 @@
 - [SQL](SQL.md)：查询、聚合、JOIN、子查询、窗口函数与关系建模
 - [MySQL](MySQL.md)：存储引擎、索引、事务、锁、日志与调优
 - [PostgreSQL](PostgreSQL.md)：MVCC、VACUUM、WAL、扩展索引、复制与 MySQL 差异
+- [PostgreSQL 实践路线](PostgreSQL/README.md)：迁移、查询计划、连接池、锁、恢复、高可用和容量演练
 - [Redis](Redis.md)：数据结构、缓存设计、持久化、高可用、集群
 - [MongoDB](MongoDB.md)：文档模型、索引、复制、分片与聚合
 - [Cassandra](Cassandra.md)：宽列模型、分区键、复制、Gossip 和读写路径
@@ -33,6 +34,7 @@
 4. 再看 [Redis](./Redis.md)
 5. 最后看 [消息队列](./消息队列.md)
 6. 需要分析与实时数据链路时进入 [数据工程与流处理](./数据工程与流处理.md)
+7. 需要把 PostgreSQL 接入服务并做故障验证时进入 [PostgreSQL 实践路线](./PostgreSQL/README.md)
 
 ## 学习层级
 

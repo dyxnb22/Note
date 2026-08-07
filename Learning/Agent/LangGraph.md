@@ -55,21 +55,21 @@ def draft(state: State) -> dict:
 def route(state: State) -> str:
     if state["error"]:
         return "failed"
-    return "done"
+    return "succeeded"
 
 
 builder = StateGraph(State)
 builder.add_node("draft", draft)
 builder.add_node("failed", lambda state: {"status": "failed"})
-builder.add_node("done", lambda state: {"status": "done"})
+builder.add_node("succeeded", lambda state: {"status": "succeeded"})
 builder.add_edge(START, "draft")
 builder.add_conditional_edges(
     "draft",
     route,
-    {"failed": "failed", "done": "done"},  # 路由目标用显式 allowlist 固定。
+    {"failed": "failed", "succeeded": "succeeded"},  # 路由目标用显式 allowlist 固定。
 )
 builder.add_edge("failed", END)
-builder.add_edge("done", END)
+builder.add_edge("succeeded", END)
 graph = builder.compile()
 ```
 

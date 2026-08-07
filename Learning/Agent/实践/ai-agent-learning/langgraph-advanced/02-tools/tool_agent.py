@@ -13,6 +13,8 @@
     python 02-tools/tool_agent.py
 """
 
+import ast
+import operator
 from typing import Annotated, Any, TypedDict
 
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
@@ -32,9 +34,26 @@ from langgraph.prebuilt import ToolNode
 @tool
 def calculator(expression: str) -> str:
     """计算一个简单数学表达式，例如 '2 + 3 * 4'。"""
-    # 学习项目里用 eval 是为了让例子短小；生产环境要换成安全表达式解析器。
     try:
-        return str(eval(expression, {"__builtins__": {}}, {}))
+        operators = {
+            ast.Add: operator.add,
+            ast.Sub: operator.sub,
+            ast.Mult: operator.mul,
+            ast.Div: operator.truediv,
+            ast.USub: operator.neg,
+            ast.UAdd: operator.pos,
+        }
+
+        def visit(node: ast.AST) -> float:
+            if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)) and not isinstance(node.value, bool):
+                return float(node.value)
+            if isinstance(node, ast.UnaryOp) and type(node.op) in operators:
+                return operators[type(node.op)](visit(node.operand))
+            if isinstance(node, ast.BinOp) and type(node.op) in operators:
+                return operators[type(node.op)](visit(node.left), visit(node.right))
+            raise ValueError("只允许数字和有限的四则运算")
+
+        return str(visit(ast.parse(expression, mode="eval").body))
     except Exception as exc:
         return f"计算失败: {exc}"
 

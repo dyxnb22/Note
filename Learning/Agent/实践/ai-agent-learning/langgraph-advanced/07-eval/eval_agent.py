@@ -15,6 +15,8 @@
     python 07-eval/eval_agent.py
 """
 
+import ast
+import operator
 import re
 import time
 from dataclasses import dataclass, field
@@ -45,7 +47,25 @@ def get_weather(city: str) -> str:
 def calculate(expression: str) -> str:
     """计算数学表达式。"""
     try:
-        return str(eval(expression, {"__builtins__": {}}, {}))
+        operators = {
+            ast.Add: operator.add,
+            ast.Sub: operator.sub,
+            ast.Mult: operator.mul,
+            ast.Div: operator.truediv,
+            ast.USub: operator.neg,
+            ast.UAdd: operator.pos,
+        }
+
+        def visit(node: ast.AST) -> float:
+            if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)) and not isinstance(node.value, bool):
+                return float(node.value)
+            if isinstance(node, ast.UnaryOp) and type(node.op) in operators:
+                return operators[type(node.op)](visit(node.operand))
+            if isinstance(node, ast.BinOp) and type(node.op) in operators:
+                return operators[type(node.op)](visit(node.left), visit(node.right))
+            raise ValueError("只允许数字和有限的四则运算")
+
+        return str(visit(ast.parse(expression, mode="eval").body))
     except Exception as e:
         return f"计算失败: {e}"
 

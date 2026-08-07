@@ -1,5 +1,7 @@
+import ast
 import json
 import os
+import operator
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -17,11 +19,30 @@ def get_weather(city: str) -> dict[str, str]:
 
 
 def calculate(expression: str) -> dict[str, str]:
+    """只允许数字和四则运算；不要用 eval 执行用户输入。"""
+    operators = {
+        ast.Add: operator.add,
+        ast.Sub: operator.sub,
+        ast.Mult: operator.mul,
+        ast.Div: operator.truediv,
+        ast.USub: operator.neg,
+        ast.UAdd: operator.pos,
+    }
+
+    def visit(node: ast.AST) -> float:
+        if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+            return float(node.value)
+        if isinstance(node, ast.UnaryOp) and type(node.op) in operators:
+            return operators[type(node.op)](visit(node.operand))
+        if isinstance(node, ast.BinOp) and type(node.op) in operators:
+            return operators[type(node.op)](visit(node.left), visit(node.right))
+        raise ValueError("only numeric four-operation expressions are allowed")
+
     try:
-        result = eval(expression, {"__builtins__": {}}, {})
+        result = visit(ast.parse(expression, mode="eval").body)
         return {"expression": expression, "result": str(result)}
     except Exception as exc:
-        return {"error": str(exc)}
+        return {"expression": expression, "error": str(exc)}
 
 
 def get_current_time() -> dict[str, str]:
@@ -106,8 +127,13 @@ def main() -> None:
                 break
 
             for tool_call in assistant_message.tool_calls:
+                print(
+                    f"[step {_ + 1}] tool_call: "
+                    f"{tool_call.function.name}({tool_call.function.arguments})"
+                )
                 args = json.loads(tool_call.function.arguments)
                 observation = run_tool(tool_call.function.name, args)
+                print(f"[step {_ + 1}] observation: {observation}")
                 # Observation 是工具执行后的结果。模型下一轮会基于 Observation 继续推理。
                 messages.append(
                     {

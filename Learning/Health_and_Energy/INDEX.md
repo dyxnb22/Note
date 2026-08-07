@@ -17,6 +17,7 @@
 | 饮食代谢 | [饮食与代谢速查](03_Nutrition_and_Metabolism/饮食与代谢速查.md) | 同一篇兼作主题入口 |
 | 专注压力 | [注意力为什么会碎掉](04_Focus_and_Stress/注意力为什么会碎掉.md) | [专注与压力速查](04_Focus_and_Stress/专注与压力速查.md) |
 | 长期工作 | [长期工作健康与恢复](05_Sustainable_Work/长期工作健康与恢复.md) | 结合前五篇复习 |
+| 健康测量 | [健康测量与医学素养](06_Measurement_and_Medical_Literacy/README.md) | 指标、训练、人体工学、营养和求助边界 |
 
 ## 实践闭环
 

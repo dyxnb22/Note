@@ -16,7 +16,7 @@
 | 用户与交易 | [钱包、私钥、签名和地址](02_Wallets_Transactions_and_RPC/钱包、私钥、签名和地址.md)、[交易与确认](02_Wallets_Transactions_and_RPC/交易、Gas、Nonce%20和链上确认.md) |
 | 合约工程 | [Solidity 合约](03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)、[权限与多签](03_Smart_Contracts_and_Development/权限控制、所有权和多签的基本逻辑.md) |
 | DeFi | [AMM](04_DeFi_and_Tokenomics/AMM%20为什么能在没有订单簿时完成交易.md)、[借贷](04_DeFi_and_Tokenomics/借贷协议为什么离不开超额抵押.md)、[稳定币](04_DeFi_and_Tokenomics/稳定币的几种基本路线.md) |
-| 高级与研究 | [协议研究](07_Research_and_Build_Workflow/如何研究一个协议.md)、[高级工程与安全](08_Advanced_Engineering/Web3高级工程与协议安全.md) |
+| 高级与研究 | [协议研究](07_Research_and_Build_Workflow/如何研究一个协议.md)、[高级工程与安全](08_Advanced_Engineering/Web3高级工程与协议安全.md)、[协议案例](09_Protocol_Cases/README.md) |
 
 ## 验证原则
 

@@ -64,6 +64,11 @@ def main() -> None:
     assistant_message = first.choices[0].message
     messages.append(assistant_message.model_dump(exclude_none=True))
 
+    if not assistant_message.tool_calls:
+        # 模型也可能直接回答；这种情况不需要无意义地再调用一次模型。
+        print(assistant_message.content or "模型没有返回文本。")
+        return
+
     # 模型只是决定“要调用哪个工具 + 参数是什么”。
     # tool_calls 不为空时，我们读取参数并在 Python 里执行函数。
     for tool_call in assistant_message.tool_calls or []:

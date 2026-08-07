@@ -6,7 +6,7 @@
 
 ## 三条实践路线
 
-- [ai-agent-learning](./ai-agent-learning/README.md)：从 Python 工程、HTTP/API、Provider SDK、Tool Calling、Agent Loop 开始，逐步进入 FastAPI、LangGraph、Memory、RAG、MCP 和 DevPilot，适合作为入门主线。
+- [ai-agent-learning](./ai-agent-learning/README.md)：先读理论主线 `01–04`；无 API 的 00 号最小循环练习可作为预热，再从 Python 工程、HTTP/API、Provider SDK、Tool Calling、Agent Loop 开始，逐步进入 FastAPI、LangGraph、Memory、RAG、MCP 和 DevPilot，适合作为入门主线。
 - [learn-claude-code](./learn-claude-code/README.md)：s01–s20，重点学习 Agent Harness 的工具、权限、Hook、Context、Memory、Task、后台任务、团队、Worktree 和 MCP 机制。
 - [rust-agent-runtime](./rust-agent-runtime/README.md)：在已懂 Agent Loop 后，用 Rust 验证 Tool Registry、预算、取消、Trace、Provider Adapter、受限执行与恢复。
 
@@ -14,7 +14,7 @@
 
 ```text
 实践/
-├── ai-agent-learning/       # 01–12 主学习路线
+├── ai-agent-learning/       # 00–12 主学习路线
 │   ├── agent-learning-projects/  # 逐步项目
 │   ├── langgraph-advanced/      # 框架专项
 │   └── DevPilot/                # 综合项目
@@ -26,7 +26,7 @@
 
 ## 选择建议
 
-第一次系统学习 Agent：先完成 `ai-agent-learning/agent-learning-projects/01–06`，再按目标选择 `07–09` 的 LangGraph/Memory、`10` 的 RAG 或 `11` 的 MCP；不把所有分支当成必修重复通读。
+第一次系统学习 Agent：先完成 `ai-agent-learning/agent-learning-projects/00–06`，再按目标选择 `07–09` 的 LangGraph/Memory、`10` 的 RAG 或 `11` 的 MCP；不把所有分支当成必修重复通读。
 
 已经能调用模型并写过基础 Agent：从 `learn-claude-code` 选择与当前问题对应的实验（例如 s03 权限、s07–s08 Context、s12–s14 长任务、s18 Worktree、s19 MCP），不需要把 s01–s20 再完整重做；也可以直接用 `ai-agent-learning/DevPilot` 做综合项目。
 

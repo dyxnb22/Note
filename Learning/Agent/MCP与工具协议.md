@@ -142,7 +142,7 @@ MCP 不会自动提供多 Agent 协作、可靠恢复、评测或安全合规；
 5. Server 升级后工具 schema 变化能触发回归和回滚；
 6. 能解释何时直接函数比 MCP 更简单。
 
-实践：[MCP Server](./实践/ai-agent-learning/agent-learning-projects/11_mcp_server/main.py)、[learn-claude-code s19](./实践/learn-claude-code/s19_mcp_plugin/code.py)。
+实践：[MCP Server](./实践/ai-agent-learning/agent-learning-projects/11_mcp_server/README.md)、[learn-claude-code s19](./实践/learn-claude-code/s19_mcp_plugin/code.py)。
 
 ## 官方来源
 

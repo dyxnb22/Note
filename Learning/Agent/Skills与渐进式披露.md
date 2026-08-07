@@ -1,5 +1,9 @@
 # Skills 与渐进式披露
 
+> **学习位置**：完成 `02 Tool Calling`、`04 Context` 和 [MCP 与工具协议](./MCP与工具协议.md) 后阅读。Skill 解决能力说明如何按需加载，不是新的权限系统，也不是把所有工具都暴露给模型。
+
+> **职责边界**：本文负责能力说明的组织、发现和按需注入；Skill 不授予权限、不替代 Tool Executor，也不替代 MCP 的传输和认证。
+
 本文回答：**Skill 是什么、和 Tool / MCP 有何不同、为什么要用渐进式披露**。懒加载实现细节见 [Context 工程](04_Context工程.md)；工具合同见 [Tool Calling](02_Tool%20Calling.md)；协议层见 [MCP 与工具协议](MCP与工具协议.md)。
 
 ## 1. 三个容易混的概念

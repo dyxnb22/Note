@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1786114052809-q3s7bowkj",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786114052920-1xg2t93",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1786114052801-8b4jltl",
+      "timestamp": 1786114052801,
+      "rawDisplayText": "解释下",
+      "canonicalText": "解释下",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent/01_LLM调用基础.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent/01_LLM调用基础.md",
+          "mode": "selection",
+          "selectedText": "持久指令\t角色、边界和输出合同；不要把每轮动态数据硬编码进去",
+          "lineCount": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "7cbd1839dba5640762977dc8b3c471889b3ced9c69b696fb086a5591e86a45d1",
+      "providerUserMessageId": "019fdcb1-93de-70a1-9a34-446e90edec27",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a75f01a77908194a4fb90461f961881"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786114292912-olot6kq",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1786114292910-df8o4hf",
+      "timestamp": 1786114292910,
+      "rawDisplayText": "这个呢",
+      "canonicalText": "这个呢",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent/01_LLM调用基础.md",
+          "mode": "selection",
+          "selectedText": "Usage / Request ID\t成本、限流、Trace 和重放关联；这是调用元数据，不是发给模型的消息",
+          "lineCount": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "94e44a4f05c428790220e3445c87d20550785e13864b5a03d1ccc4d50da33bf3",
+      "providerUserMessageId": "019fdcb5-3cc6-7930-82eb-c7b2c48bfcec",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a75f10084b08194a09dcbe34601e1d3"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786114674838-klg8hrm",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1786114674835-lwe3lx4",
+      "timestamp": 1786114674835,
+      "rawDisplayText": "这里的Reasoning干嘛的",
+      "canonicalText": "这里的Reasoning干嘛的",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent/01_LLM调用基础.md",
+          "mode": "selection",
+          "selectedText": "Reasoning 如果由 Provider 以摘要、签名或 typed item 返回，只保留完成协议、恢复和审计所需的状态；不要把它等同于必须暴露或保存的原始思维链。",
+          "lineCount": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "2a646337ff27a0b8eb63162ac992f81c9a0065c47db5dc667e658a10f5d44f6c",
+      "providerUserMessageId": "019fdcbb-10a2-7dc0-bad0-08227c2454e4",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a75f27ec8788194b4e21407fdb8dc3d"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786114725457-imh4am8",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1786114725455-pppux8b",
+      "timestamp": 1786114725455,
+      "rawDisplayText": "什么意思",
+      "canonicalText": "什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent/01_LLM调用基础.md",
+          "mode": "selection",
+          "selectedText": " Provider 合同",
+          "lineCount": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "96e2670d0598107cbff9b65251fc6b616872e0ddec1aa7e2e5835fecca2ecf29",
+      "providerUserMessageId": "019fdcbb-d65b-7bc2-a4d3-5f00591b366c",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a75f2aba68c8194b14008ccc4bf5e84"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786114790891-yatqh0d",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1786114790888-ahbtcxs",
+      "timestamp": 1786114790888,
+      "rawDisplayText": "是不是这个Agent专题里的课程（不止01）还需要进行补充吗？我学习下来还是有点阻塞",
+      "canonicalText": "是不是这个Agent专题里的课程（不止01）还需要进行补充吗？我学习下来还是有点阻塞",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent/01_LLM调用基础.md",
+          "mode": "selection",
+          "selectedText": " Provider 合同",
+          "lineCount": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "eb3251799bf4afc9a069162057a15829c2dbdf80d319811378b70e64e3efe390",
+      "providerUserMessageId": "019fdcbc-d5f8-7fc1-a93a-f41d6c0af32b",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a75f33582c08194982d358f180c99f3"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786114951501-e673qu5",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1786114951500-wei5c41",
+      "timestamp": 1786114951500,
+      "rawDisplayText": "你来把它们都补充吧。我希望补充完以后你再读一遍查漏补缺，循环，直至我能够畅通无阻地学习完agent",
+      "canonicalText": "你来把它们都补充吧。我希望补充完以后你再读一遍查漏补缺，循环，直至我能够畅通无阻地学习完agent",
+      "images": [],
+      "contentDigest": "f09492c935a352f7eda2a65297e478a8a163c50986c6c3414d95a607c65a82ef",
+      "providerUserMessageId": "019fdcbf-4972-7373-baf1-5de9859b7f9a",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a75f64faffc81948f8e26991e57c1e5"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786117486512-c32qgwm",
+      "userTurnOrdinal": 7,
+      "state": "accepted",
+      "localMessageId": "msg-1786117486508-wkjt52v",
+      "timestamp": 1786117486508,
+      "rawDisplayText": "你再通读 检查一遍呢",
+      "canonicalText": "你再通读 检查一遍呢",
+      "images": [],
+      "contentDigest": "9954100fbd843731dd85dc095c420bf3e737e5e65b5f298d75e4ac95dd695e92",
+      "providerUserMessageId": "019fdce6-02c0-7c40-8d79-5c3c9936c801",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a7604fbe328819483ed6d10cb47e351"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786120348143-3b0o7zm",
+      "userTurnOrdinal": 8,
+      "state": "accepted",
+      "localMessageId": "msg-1786120348140-cllxkw2",
+      "timestamp": 1786120348140,
+      "rawDisplayText": "我不希望有一个章节专门放术语，融入到对应章节吧，自然点。而且我希望Agent的学习内容，能让我畅通无阻地学习完agent，但不至于过于繁复和啰嗦",
+      "canonicalText": "我不希望有一个章节专门放术语，融入到对应章节吧，自然点。而且我希望Agent的学习内容，能让我畅通无阻地学习完agent，但不至于过于繁复和啰嗦",
+      "images": [],
+      "contentDigest": "557635328e7382a52d9f8c56358bef89402132d5bf9e43556e5f6ac8ce47f0ef",
+      "providerUserMessageId": "019fdd11-ad8f-7640-90ee-92c1862b312c",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a760ac479cc8194850f4ab007df698f"
+    }
+  ]
+}
