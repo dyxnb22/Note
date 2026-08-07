@@ -169,13 +169,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CS6290-Privacy-考试临时资料/Lecture/11-Lecture8-扩容-支付通道-桥-Rollup.md",
+                "file": "Learning/Agent/01_LLM调用基础.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "11-Lecture8-扩容-支付通道-桥-Rollup 的大纲"
+              "title": "01_LLM调用基础 的大纲"
             }
           }
         ],
@@ -194,7 +194,8 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:新建数据库": false
+      "bases:新建数据库": false,
+      "realclaudian:Open Claudian": false
     }
   },
   "active": "a599ee633926113e",

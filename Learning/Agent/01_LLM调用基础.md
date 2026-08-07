@@ -32,17 +32,49 @@ model = os.environ["OPENAI_MODEL"]  # 模型 ID 由部署配置提供，不写�
 
 ## 2. 消息和 Provider 合同
 
-不同 API 的外形不同，但 Agent 需要的最小信息相同：
+不同 API 的外形不同，但 Agent 需要的最小语义相同。一次任务通常会涉及：
 
 | 信息 | 作用 |
 |---|---|
 | 持久指令 | 角色、边界和输出合同；不要把每轮动态数据硬编码进去 |
-| 用户输入 | 当前目标和用户提供的数据 |
-| Assistant/Reasoning 结果 | 多轮状态或模型提出的下一步 |
+| 当前用户输入 | 当前目标和用户提供的数据 |
+| 历史状态 / Assistant 输出 | 之前的对话、模型回复或模型提出的下一步 |
 | Tool 结果 | 外部执行器返回的事实或错误 |
-| Usage/Request ID | 成本、限流、Trace 和重放关联 |
+| Usage / Request ID | 成本、限流、Trace 和重放关联；这是调用元数据，不是发给模型的消息 |
 
-OpenAI Responses 使用 typed Items；Chat Completions 和 Anthropic Messages 使用不同的 messages/blocks 形状。不要在业务层直接拼接某个 Provider 的原始字段，先转换成内部结果类型。
+这里混合了三类合同：模型输入（指令、用户输入、历史和工具结果）、模型输出（文本或工具调用），以及调用元数据（usage、request ID、延迟和错误）。Reasoning 如果由 Provider 以摘要、签名或 typed item 返回，只保留完成协议、恢复和审计所需的状态；不要把它等同于必须暴露或保存的原始思维链。
+
+OpenAI Responses 使用 typed Items；Chat Completions 和 Anthropic Messages 使用不同的 messages/blocks 形状。不要在业务层直接拼接某个 Provider 的原始字段，先转换成内部结果类型：
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class ToolCall:
+    call_id: str
+    name: str
+    arguments: dict
+
+
+@dataclass
+class ToolResult:
+    call_id: str
+    ok: bool
+    value: object | None = None
+    error_code: str | None = None
+
+
+@dataclass
+class ModelResult:
+    text: str | None
+    tool_calls: list[ToolCall]
+    usage: dict[str, int] | None
+    request_id: str | None
+    finish_reason: str | None
+```
+
+Agent 只依赖 `ModelResult` 的语义；Provider Adapter 负责把 `output_text`、tool blocks、结束原因和 usage 等原始字段转换进来。`ModelResult.text` 也不自动等于任务成功，成功仍要由工具结果、测试或其他确定性证据确认。
 
 ```python
 messages = [
@@ -51,6 +83,20 @@ messages = [
     {"role": "user", "content": "分析这个函数的错误。"},
 ]
 ```
+
+以只读代码分析为例，消息和执行边界大致是：
+
+```text
+第 1 轮：持久指令 + 用户任务
+  ← 模型返回 ToolCall(read_file, path="src/app.py")
+执行器：校验路径、授权并读取文件
+第 2 轮：原有状态 + ToolResult(call_id, 文件内容或错误)
+  ← 模型返回分析文本或下一次 ToolCall
+```
+
+模型只提出 `ToolCall`，应用执行后再回填 `ToolResult`；调用 ID 必须一一对应，错误也要用 Provider 合法的结果形状回填。工具的 schema、权限、幂等和重试见 [Tool Calling](./02_Tool%20Calling.md)，消息如何从历史、检索和 State 中选出见 [Context 工程](./04_Context工程.md)。
+
+上面的 `messages` 是便于理解的概念示例，不是所有 Provider 的固定请求格式。Responses API 通常把稳定指令放在 `instructions`，把输入放在 `input`；适配层应保持业务层不感知这种差异。
 
 ## 3. 最小调用和会话历史
 

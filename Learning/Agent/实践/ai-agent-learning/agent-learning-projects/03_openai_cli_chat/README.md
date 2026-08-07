@@ -34,6 +34,8 @@ python main.py
 
 用户输入后，程序把内容追加到 `messages`，调用 OpenAI Chat Completions API，再把模型回答也追加回 `messages`。
 
+这里的 `messages` 是 Chat Completions 的练习格式，不是所有 Provider 的通用内部类型；跨 Provider 的消息语义和适配边界见 [LLM 调用基础](../../../../01_LLM调用基础.md)。
+
 ## 建议你修改的练习
 
 - 修改 system prompt

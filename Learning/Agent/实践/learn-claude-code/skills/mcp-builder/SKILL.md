@@ -7,6 +7,8 @@ description: Build MCP (Model Context Protocol) servers that give Claude new cap
 
 You now have expertise in building MCP (Model Context Protocol) servers. MCP enables Claude to interact with external services through a standardized protocol.
 
+> **学习边界**：以下代码是教学模板，不是生产安全基线。生产接入还要补充身份/租户授权、参数和路径范围、超时/取消、结果限长与脱敏、幂等、审计和依赖版本锁定；Server 返回值一律按不可信外部数据处理。
+
 ## What is MCP?
 
 MCP servers expose:

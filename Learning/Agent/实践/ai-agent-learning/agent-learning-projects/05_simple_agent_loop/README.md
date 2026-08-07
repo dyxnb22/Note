@@ -35,7 +35,7 @@ python main.py
 
 - 把最大循环次数从 3 改成 5
 - 增加一个 `search_note` 工具
-- 打印每轮 tool call，观察 Agent 思考路径
+- 打印每轮 tool call，观察 Agent 工具轨迹（不是模型的内部思维链）
 
 ## 常见问题
 

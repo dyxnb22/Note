@@ -62,7 +62,7 @@ Before building, understand:
 - **Knowledge**: What expertise does it need access to?
 - **Trust**: What decisions can you delegate to the model?
 
-**CRITICAL**: Trust the model. Don't over-engineer. Don't pre-specify workflows. Give it capabilities and let it reason.
+**Important**: Trust the model to choose among bounded next steps, but do not trust it with execution authority. Start simple and avoid encoding uncertain policy too early; fixed paths, permissions, budgets, validation and recovery still belong to deterministic application code.
 
 ## Progressive Complexity
 
@@ -88,7 +88,7 @@ The pattern is universal. Only the capabilities change.
 
 ## Key Principles
 
-1. **The model provides the policy** - The harness runs and constrains the loop
+1. **The model proposes dynamic decisions** - The harness runs the loop and enforces policy
 2. **Capabilities enable** - What it CAN do
 3. **Knowledge informs** - What it KNOWS how to do
 4. **Constraints focus** - Limits create clarity
@@ -101,7 +101,7 @@ The pattern is universal. Only the capabilities change.
 |---------|---------|----------|
 | Over-engineering | Complexity before need | Start simple |
 | Too many capabilities | Model confusion | 3-5 to start |
-| Rigid workflows | Can't adapt | Let model decide |
+| Overly rigid workflows for open-ended tasks | Can't adapt | Let the model decide within bounded stages; use deterministic workflows for fixed paths |
 | Front-loaded knowledge | Context bloat | Load on-demand |
 | Micromanagement | Undercuts intelligence | Trust the model |
 

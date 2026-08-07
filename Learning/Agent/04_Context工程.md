@@ -64,7 +64,7 @@ def build_context(
     ]
 ```
 
-示例只表达装配顺序；实际 Provider 消息形状由 [LLM 调用基础](./01_LLM调用基础.md) 适配层负责。
+示例只表达装配顺序；实际 Provider 消息形状由 [LLM 调用基础](./01_LLM调用基础.md) 适配层负责。这里把 `tools` 简化成一条 system 消息只是为了展示顺序；内部请求合同最好把 `instructions`、`messages`、`tools` 和调用控制参数分开，适配器再转换成具体 Provider 的字段。`usage`、`request_id` 和 Trace 也属于调用元数据，不应为了“完整”而注入 Context。
 
 ## 3. System Prompt 的边界
 

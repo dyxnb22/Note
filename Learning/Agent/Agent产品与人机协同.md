@@ -80,4 +80,4 @@ task_started → context_loaded → tool_requested → tool_completed
 3. 失败、取消、恢复和回滚状态；
 4. 任务质量、体验和安全指标。
 
-参考：[Trustworthy agents in practice](https://www.anthropic.com/research/trustworthy-agents)。
+安全边界和审批实现见 [安全与可控性](./08_安全与可控性.md)。

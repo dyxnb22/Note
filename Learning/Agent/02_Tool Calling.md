@@ -26,6 +26,8 @@
 | 内部 Tool Contract | 统一名称、参数、结果、错误、权限和幂等语义 |
 | Agent Loop | 决定执行后是否继续以及何时终止 |
 
+消息层的 `ToolCall` / `ToolResult` 统一形状见 [LLM 调用基础](./01_LLM调用基础.md)。本篇在此基础上增加执行合同：`call_id` 既用于消息配对，也用于幂等追踪；Provider 的 block、字段名和错误形状由适配器转换，不应泄漏到业务循环。
+
 不要把某家 SDK 的 `stop_reason` 或 block 类型当成通用 Agent 定义；适配层应把它们转换成内部结果。
 
 ## 2. Tool Contract 与 Schema

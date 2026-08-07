@@ -33,6 +33,8 @@ python main.py
 
 第一次请求把工具 schema 发给模型。模型如果需要工具，会返回 `tool_calls`。Python 根据 `tool_calls` 执行 `get_weather()`，再把工具结果作为 `tool` 消息发回模型生成最终回答。
 
+练习重点是消息配对：工具结果必须带回对应的 `tool_call_id`。示例没有完整实现生产所需的权限、幂等、超时和审计，完整执行边界见 [Tool Calling](../../../../02_Tool%20Calling.md)。
+
 ## 建议你修改的练习
 
 - 增加一个 `get_current_time` 工具

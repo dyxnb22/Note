@@ -19,4 +19,5 @@
 
 - 一个主题只在一篇主文档维护完整解释；其他文章只说明边界并链接回去。
 - `python` 代码块表示语法完整的实现片段，`text`/`pseudocode` 表示协议或局部示意；可运行代码进入 [实践](./实践/README.md)。
+- 消息、工具和 Provider 示例可能是语义示意；真实字段以适配层和 [版本与来源](./版本与来源.md) 为准，不要把示例格式当成跨 Provider 合同。
 - 先学通用机制，再按项目选择一个实践路线：`ai-agent-learning` 偏应用，`learn-claude-code` 偏 Harness，`rust-agent-runtime` 偏 Runtime 对照，不重复三遍。
