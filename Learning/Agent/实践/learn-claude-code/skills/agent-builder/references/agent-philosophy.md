@@ -1,5 +1,7 @@
 # The Philosophy of Agent Harness Engineering
 
+> **Scope note**: This is a teaching philosophy that emphasizes the model's learned policy. For engineering decisions in this knowledge base, treat an Agent as the model plus its loop, tools, Context, state, permissions, validation, and recovery; the slogan below does not remove those boundaries.
+
 > **The model already knows how to be an agent. Your job is to build it a world worth acting in.**
 
 ## The Fundamental Truth

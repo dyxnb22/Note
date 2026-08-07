@@ -1,735 +1,81 @@
 # Tool Calling
 
-这篇文档解决一个问题：**如何设计一个健壮、安全、可维护的工具调用系统**。
+这篇文章解决一个问题：**如何把模型提出的动作转换成可校验、可授权、可恢复的工具执行**。
 
-不只是让工具"能跑"，而是：schema 质量、错误恢复、幂等性、权限边界、并发处理——都做对。
+> **学习位置**：这是主线第 2 篇，读完 [LLM 调用基础](./01_LLM调用基础.md) 后阅读。
+>
+> **职责边界**：本文负责工具合同、注册/分发、Provider 消息配对、并发、超时、幂等和执行边界。Agent 的整体 Loop 见 [Agent 架构与设计](./03_Agent架构与设计.md)；威胁模型见 [Agent 安全与威胁建模](./07_Agent安全与威胁建模.md)；具体安全治理见 [安全与可控性](./08_安全与可控性.md)。
 
-> **职责边界**：本文讲工具合同、Provider 消息差异、注册/分发、并发、重试和执行前权限检查；Agent Loop 的整体生命周期见 [Agent 架构与设计](./03_Agent架构与设计.md)，威胁建模和治理策略见 [Agent 安全与威胁建模](./07_Agent安全与威胁建模.md)。
+## 1. 模型不会执行代码
 
----
-
-## 1. 本质理解
-
-```
-用户输入
-   ↓
-LLM 理解意图 → 决定调用哪个工具 → 生成工具调用参数（JSON）
-             （模型不执行代码）
-   ↓
-你的 Python 程序
-  - 解析工具名称和参数
-  - 找到对应函数
-  - 真正执行
-  - 捕获结果（或错误）
-   ↓
-把结果返回给模型 → 模型生成最终回答
+```text
+用户目标
+  → 模型选择工具并生成结构化参数
+  → 应用解析、校验、授权、执行
+  → 应用返回 tool result
+  → 模型根据事实继续、改用工具、请求审批或结束
 ```
 
-**关键分工**：模型负责意图理解和参数生成；Python 程序负责真实执行、安全检查、错误处理。
+模型输出的是动作提案，不是执行权限。工具执行器必须独立于模型，能够拒绝未知工具、非法参数、越权资源和超预算动作。
 
 ### Provider 协议不是 Agent 原理
 
-Agent Loop 的思想基本相同，但消息协议由 Provider 决定：
+| 层 | 负责什么 |
+|---|---|
+| Provider API | 规定 tool call、tool result、结束原因和流式事件的消息形状 |
+| 内部 Tool Contract | 统一名称、参数、结果、错误、权限和幂等语义 |
+| Agent Loop | 决定执行后是否继续以及何时终止 |
 
-| Provider 示例             | 助手工具调用                           | 工具结果                                       |
-| ----------------------- | -------------------------------- | ------------------------------------------ |
-| Anthropic Messages      | `content` 中的 `tool_use` block    | 下一条 `role: "user"` 中的 `tool_result` block  |
-| OpenAI Responses        | `output` 中的 `function_call` Item | `function_call_output` Item，用 `call_id` 对应 |
-| OpenAI Chat Completions | `message.tool_calls`             | `role: "tool"`，带 `tool_call_id`            |
+不要把某家 SDK 的 `stop_reason` 或 block 类型当成通用 Agent 定义；适配层应把它们转换成内部结果。
 
-学习时先掌握“模型提出动作 → 程序执行 → 返回结果”的不变量，再单独记各 SDK 的字段和消息形状。
+## 2. Tool Contract 与 Schema
 
----
+一个工具至少需要：
 
-## 2. Schema 设计
-
-Schema 质量直接影响工具选择的准确率。
-
-### 完整 Schema 结构（Chat Completions 兼容形状）
-
-```python
-tools = [
-{
-    "type": "function",
-    "function": {
-        "name": "search_orders",
-        "description": (
-            "搜索用户订单。当用户询问订单状态、查找特定订单、"
-            "统计历史购买时使用。不用于创建或修改订单。"
-        ),
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "user_id": {
-                    "type": "string",
-                    "description": "用户唯一标识符",
-                },
-                "status": {
-                    "type": "string",
-                    "enum": ["pending", "shipped", "delivered", "cancelled"],
-                    "description": "订单状态过滤。不传则返回所有状态",
-                },
-                "limit": {
-                    "type": "integer",
-                    "description": "最多返回几条记录，默认 10，最大 100",
-                    "default": 10,
-                },
-            },
-            "required": ["user_id"],
-        },
-    },
-}
-]
-```
-
-Responses API 的函数定义字段位于 tool 顶层，不要保留上面的 `function` 包装层：
+- 稳定名称和清晰描述：何时使用、何时不用；
+- 参数 schema：类型、必填、范围、枚举和跨字段约束；
+- 返回合同：成功数据、稳定错误码和是否可重试；
+- 权限元数据：动作、资源范围、是否有副作用、是否需要审批；
+- 运行元数据：超时、并发安全、幂等键和输出上限。
 
 ```python
-response_tools = [{
-    "type": "function",
+from pydantic import BaseModel, Field
+
+
+class SearchOrdersArgs(BaseModel):
+    user_id: str = Field(pattern=r"^[a-zA-Z0-9_-]+$")
+    status: str | None = None
+    limit: int = Field(default=10, ge=1, le=100)
+
+
+TOOL_SPEC = {
     "name": "search_orders",
-    "description": "搜索订单；不创建或修改订单。",
-    "parameters": {
-        "type": "object",
-        "properties": {"user_id": {"type": "string"}},
-        "required": ["user_id"],
-        "additionalProperties": False,
-    },
-    "strict": True,
-}]
-```
-
-严格模式能让参数遵循 schema，但不能替代业务校验、对象级权限和副作用审批。
-
-### Schema 设计原则
-
-| 原则                   | 好的                               | 坏的                     |
-| -------------------- | -------------------------------- | ---------------------- |
-| description 明确边界     | "搜索订单。不用于创建订单"                   | "处理订单相关操作"             |
-| 参数 description 说明何时传 | "不传则返回所有状态"                      | "状态过滤"                 |
-| 用 enum 约束枚举值         | `"enum": ["pending", "shipped"]` | `"type": "string"`     |
-| 参数名称语义清晰             | `user_id`, `start_date`          | `id`, `d1`             |
-| required 只包含真正必须的    | `["user_id"]`                    | `["user_id", "limit"]` |
-
-**核心规律**：模型选工具时看 name 和 description，生成参数时主要看 parameters 里每个字段的 description。工具选择出问题时，先检查 description 是不是写清楚了。
-
----
-
-## 3. 完整执行循环（Chat Completions 兼容实现）
-
-下面保留旧接口是为了理解 loop。新项目使用 Responses 时，应遍历 typed `response.output`，执行每个 `function_call`，再把带同一 `call_id` 的 `function_call_output` 送回模型；状态可用 `previous_response_id`、Conversations 或手工回传 Items 管理。
-
-```python
-import json
-import os
-from typing import Callable
-
-MODEL = os.environ["OPENAI_MODEL"]  # 显式配置；不要让过期模型名悄悄成为默认值
-
-def run_tool_loop(
-    messages: list[dict],
-    tools: list[dict],
-    tool_registry: dict[str, Callable],
-    max_iterations: int = 10,
-) -> str:
-    for _ in range(max_iterations):
-        response = client.chat.completions.create(
-            model=MODEL,  # 从配置读取，不要把模型名写死在业务逻辑中
-            messages=messages,
-            tools=tools,
-        )
-
-        choice = response.choices[0]
-        assistant_message = choice.message
-        messages.append(assistant_message.model_dump(exclude_none=True))
-
-        if not assistant_message.tool_calls:
-            return assistant_message.content or ""
-
-        for tool_call in assistant_message.tool_calls:
-            result = execute_tool(tool_call, tool_registry)
-            messages.append({
-                "role": "tool",
-                "tool_call_id": tool_call.id,
-                "content": json.dumps(result, ensure_ascii=False),
-            })
-
-    return "达到最大迭代次数"
-
-def execute_tool(tool_call, registry: dict[str, Callable]) -> dict:
-    name = tool_call.function.name
-
-    try:
-        args = json.loads(tool_call.function.arguments)
-    except json.JSONDecodeError:
-        return {"error": "参数解析失败，JSON 格式错误"}
-
-    if name not in registry:
-        return {"error": f"工具 '{name}' 不存在"}
-
-    try:
-        result = registry[name](**args)
-        return {"success": True, "data": result}
-    except TypeError as e:
-        return {"error": f"参数错误: {e}"}
-    except PermissionError as e:
-        return {"error": f"权限拒绝: {e}", "code": "PERMISSION_DENIED"}
-    except Exception as e:
-        return {"error": f"执行失败: {type(e).__name__}: {e}"}
-```
-
----
-
-## 4. 并行工具调用
-
-模型可以在一次响应里发出多个工具调用（并行意图）：
-
-```pseudocode
-import asyncio
-
-async def execute_tools_parallel(tool_calls, registry):
-tasks = [execute_tool_async(tc, registry) for tc in tool_calls]
-results = await asyncio.gather(*tasks, return_exceptions=True)
-return results
-```
-**注意**：必须把所有工具的结果都收集后，才能把结果一起返回给模型，不能只返回部分。
-
----
-
-## 5. 工具注册表
-
-生产系统用注册表统一管理工具：
-
-```pseudocode
-from dataclasses import dataclass
-from typing import Callable, Optional
-
-@dataclass
-class Tool:
-name: str
-description: str
-fn: Callable
-schema: dict
-requires_permission: Optional[str] = None
-is_idempotent: bool = True
-max_retries: int = 3
-
-class ToolRegistry:
-def __init__(self):
-    self._tools: dict[str, Tool] = {}
-
-def register(self, tool: Tool):
-    self._tools[tool.name] = tool
-
-def get_schemas(self, allowed_names: list[str] = None) -> list[dict]:
-    """返回 schema 列表，可按名称过滤"""
-    tools = self._tools.values()
-    if allowed_names:
-        tools = [t for t in tools if t.name in allowed_names]
-    return [
-        {
-            "type": "function",
-            "function": {
-                "name": t.name,
-                "description": t.description,
-                "parameters": t.schema,
-            }
-        }
-        for t in tools
-    ]
-
-def execute(self, name: str, args: dict, user_permission: str = "read") -> dict:
-    tool = self._tools.get(name)
-    if not tool:
-        return {"error": f"工具不存在: {name}"}
-    if tool.requires_permission and tool.requires_permission != user_permission:
-        return {"error": "权限不足", "code": "PERMISSION_DENIED"}
-    try:
-        result = tool.fn(**args)
-        return {"success": True, "data": result}
-    except Exception as e:
-        return {"error": str(e)}
-```
----
-
-## 6. 幂等性、重试、超时
-
-### 幂等性分类
-
-| 工具 | 幂等性 | 重试安全 |
-|------|--------|---------|
-| `search_orders()` | 是 | 可以放心重试 |
-| `get_weather()` | 是 | 可以放心重试 |
-| `send_email()` | **否** | 重试会重复发送 |
-| `charge_user()` | **否** | 重试会重复扣款 |
-
-非幂等工具：不应该自动重试；失败时返回可识别的错误；考虑加幂等 key 让服务端去重。
-
-### 超时设置
-
-```pseudocode
-import httpx
-
-async def call_external_api(url: str, timeout: float = 10.0):
-async with httpx.AsyncClient(timeout=timeout) as client:
-    try:
-        response = await client.get(url)
-        return response.json()
-    except httpx.TimeoutException:
-        return {"error": "请求超时", "timeout_seconds": timeout}
-    except httpx.ConnectError:
-        return {"error": "连接失败，服务不可达"}
-```
----
-
-## 7. 权限与审计
-
-### 权限边界设计
-
-```
-读操作（查询、搜索）       → 低权限，可自动执行
-写操作（更新、创建）       → 中权限，记录日志
-破坏性操作（删除、发送）   → 高权限，需要人工确认
-```
-
-### 审计日志
-
-```pseudocode
-import structlog
-from datetime import datetime
-
-log = structlog.get_logger()
-
-def logged_tool_execution(tool_name: str, args: dict, user_id: str, fn: Callable):
-start = datetime.utcnow()
-log.info("tool_call_start", tool=tool_name, user=user_id,
-         args_keys=list(args.keys()))  # 不 log 参数值（可能含敏感数据）
-
-try:
-    result = fn(**args)
-    duration = (datetime.utcnow() - start).total_seconds()
-    log.info("tool_call_success", tool=tool_name, user=user_id, duration_s=duration)
-    return result
-except Exception as e:
-    log.error("tool_call_failed", tool=tool_name, user=user_id,
-              error=str(e), error_type=type(e).__name__)
-    raise
-```
----
-
-## 8. 工具沙箱
-
-如果工具会执行用户提供的代码（Code Interpreter 场景），必须隔离执行环境：
-
-| 沙箱方案 | 隔离级别 | 性能 | 适用场景 |
-|---------|---------|------|---------|
-| `subprocess` + 资源限制 | 进程级 | 快 | 简单代码执行 |
-| Docker 容器 | 容器级 | 中 | 需要文件系统隔离 |
-| E2B / Modal 等云服务 | 托管 | 按需 | 快速集成 |
-
-**原则**：永远不要在主进程里 `eval()` 用户提供的代码。
-
----
-
-## 9. 常见误区
-
-| 误区 | 问题 | 正确做法 |
-|------|------|---------|
-| 工具出错就抛异常传到模型 | 模型可能理解错误或循环重试 | 把错误信息结构化为 tool result 返回 |
-| 工具数量越多越好 | 模型选择困难，误用率高 | 只给当前任务需要的工具 |
-| 不验证模型生成的参数 | 可能收到非预期类型或恶意输入 | 用 Pydantic 验证参数 |
-| tool description 太简单 | 模型不知道何时该/不该用 | 写清楚使用场景和边界 |
-| 不记录工具调用日志 | 出了问题无法 debug | 每次工具调用都写日志 |
-
----
-
-## 10. TOOL_HANDLERS dispatch 模式
-
-最简洁的工具分发实现——Strategy Pattern 用 dict 实现：
-
-```python
-TOOL_HANDLERS: dict[str, callable] = {
-    "bash":         run_bash,
-    "read_file":    run_read_file,
-    "write_file":   run_write_file,
-    "list_dir":     run_list_dir,
-}
-
-def execute_tool(block) -> str:
-    """block 是 response.content 里的 tool_use block"""
-    handler = TOOL_HANDLERS.get(block.name)
-    if handler is None:
-        return f"Unknown tool: {block.name}"
-    try:
-        return handler(**block.input)
-    except Exception as e:
-        return f"Error: {e}"  # 错误作为字符串返回给模型，不抛异常
-```
-
-**与 stop_reason 的配合**——这是 Anthropic API 的循环控制机制：
-
-```python
-while True:
-    response = client.messages.create(model=MODEL, tools=TOOLS, messages=messages)
-
-    if response.stop_reason == "end_turn":
-        # 模型认为任务完成，没有工具调用
-        break
-
-    if response.stop_reason == "tool_use":
-        # 模型发出工具调用，需要执行并把结果返回
-        tool_results = []
-        for block in response.content:
-            if block.type == "tool_use":
-                result = execute_tool(block)
-                tool_results.append({
-                    "type": "tool_result",
-                    "tool_use_id": block.id,  # 必须对应 tool_use 的 id
-                    "content": result,
-                })
-
-        messages.append({"role": "assistant", "content": response.content})
-        messages.append({"role": "user", "content": tool_results})
-        # 继续 while True，回到 LLM 调用
-```
-
-**关键点**：`stop_reason` 由 LLM 设置，代码只是读取它来决定是否继续循环。`tool_use_id` 必须和对应的 `tool_use` block 的 `id` 匹配，否则 API 报错。
-
----
-
-## 11. 三关卡权限系统
-
-比单纯"白名单/黑名单"更细粒度的权限模型：
-
-```python
-DENY_LIST = ["rm -rf /", "sudo rm", "mkfs", "> /dev/sda"]  # Gate 1：永远拒绝
-
-PERMISSION_RULES = [
-    {
-        "name": "block_path_traversal",
-        "check": lambda cmd: ".." in cmd,  # Gate 2：规则引擎
-        "message": "路径穿越攻击",
-    },
-    {
-        "name": "require_approval_for_delete",
-        "check": lambda cmd: cmd.startswith("rm "),
-        "message": "删除操作需要人工确认",
-    },
-]
-
-def check_permission(command: str) -> bool:
-    # Gate 1: 永久拒绝列表
-    for denied in DENY_LIST:
-        if denied in command:
-            return False
-
-    # Gate 2: 规则引擎
-    for rule in PERMISSION_RULES:
-        if rule["check"](command):
-            # Gate 3: 人工确认
-            answer = input(f"[{rule['name']}] {command}\n允许执行？(y/n): ")
-            return answer.lower() == "y"
-
-    return True  # 通过所有关卡
-```
-
-**路径穿越防护**（文件工具的基本安全要求）：
-
-```python
-from pathlib import Path
-
-def safe_path(user_input: str, workspace: Path) -> Path:
-    """防止 ../../etc/passwd 类攻击"""
-    target = (workspace / user_input).resolve()
-    if not str(target).startswith(str(workspace.resolve())):
-        raise ValueError(f"路径越界: {user_input}")
-    return target
-```
-
-攻击路径追踪：`safe_path("../../etc/passwd", workspace)` → `resolve()` 得到 `/etc/passwd` → 不以 workspace 开头 → `ValueError` → 返回给模型作为错误字符串，不执行。
-
----
-
-## 12. 工具参数扩展：`run_in_background`
-
-不需要新增一个"后台执行"工具，在现有工具 schema 里加一个可选参数即可：
-
-```python
-# bash 工具的 schema
-{
-    "name": "bash",
-    "description": "Run a shell command.",
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "command": {"type": "string"},
-            "run_in_background": {
-                "type": "boolean",
-                "description": "Set true for long-running commands (install, build, test). Returns immediately."
-            }
-        },
-        "required": ["command"],
-    }
+    "description": (
+        "查询当前用户有权访问的订单。只读；不用于退款或修改订单。"
+    ),
+    "input_schema": SearchOrdersArgs.model_json_schema(),
+    "action": "order.read",
+    "side_effecting": False,
+    "idempotent": True,
 }
 ```
 
-**双重决策机制**——模型显式指定优先，启发式作兜底：
+描述应让模型能做出选择，但不能把权限规则只写在描述里；服务端仍要重新授权。Schema 校验只证明参数形状正确，不证明用户有权访问资源。
 
-```python
-SLOW_KEYWORDS = [
-    "install", "build", "test", "deploy", "compile",
-    "docker build", "pip install", "npm install", "pytest", "make",
-]
+## 3. 一次工具调用的执行顺序
 
-def should_run_background(tool_name: str, tool_input: dict) -> bool:
-    # 优先级 1：模型明确要求
-    if tool_input.get("run_in_background"):
-        return True
-    # 优先级 2：启发式（命令关键词判断是否耗时）
-    if tool_name == "bash":
-        cmd = tool_input.get("command", "").lower()
-        return any(kw in cmd for kw in SLOW_KEYWORDS)
-    return False
+推荐固定为：
 
-# 在 agent_loop 中
-for block in response.content:
-    if block.type == "tool_use":
-        if should_run_background(block.name, block.input):
-            bg_id = start_background_task(block)
-            # 立即返回占位结果，不阻塞模型
-            results.append({
-                "type": "tool_result",
-                "tool_use_id": block.id,
-                "content": f"[Background {bg_id} started] Result arrives when done.",
-            })
-        else:
-            output = execute_tool(block)
-            results.append({"type": "tool_result", "tool_use_id": block.id, "content": output})
+```text
+parse → allowlist → schema → resource scope → policy/approval
+→ idempotency check → timeout/limit → execute
+→ sanitize result → audit → return stable result
 ```
 
-**通知注入时机**：后台任务完成后，通知与下一批 tool_result 合并进同一条 `role: "user"` 消息，而不是单独发一条：
-
 ```python
-# 合并：tool_results + background_notifications 一起发
-user_content = list(results)                     # 当前工具结果
-bg_notifications = collect_background_results()  # 已完成的后台任务
-for notif in bg_notifications:
-    user_content.append({"type": "text", "text": notif})  # 附加进去
-
-messages.append({"role": "user", "content": user_content})
-```
-
----
-
-## 13. 只读工具并行分发
-
-当模型一次发出多个工具调用，读操作之间没有依赖，可以并行执行：
-
-```python
-from concurrent.futures import ThreadPoolExecutor, as_completed
-
-# 写操作不能并行（有顺序和副作用依赖）
-WRITE_TOOL_NAMES = frozenset({
-    "edit_file", "write_file", "run_command",
-    "github_create_pr", "github_push_branch",
-})
-
-MAX_TURN_TOOLS = 20  # 每次 LLM 响应最多处理 N 个工具调用
-
-def dispatch_tool_calls(tool_calls: list, handlers: dict) -> list[dict]:
-    if len(tool_calls) > MAX_TURN_TOOLS:
-        tool_calls = tool_calls[:MAX_TURN_TOOLS]
-
-    # 分拣：只读 vs 写操作
-    read_calls  = [c for c in tool_calls if c.name not in WRITE_TOOL_NAMES]
-    write_calls = [c for c in tool_calls if c.name in WRITE_TOOL_NAMES]
-
-    results = {}
-
-    # 只读：并行执行
-    with ThreadPoolExecutor() as pool:
-        futures = {pool.submit(handlers[c.name], **c.input): c for c in read_calls}
-        for future in as_completed(futures):
-            call = futures[future]
-            try:
-                output = future.result()
-            except Exception as e:
-                output = f"Error: {e}"
-            results[call.id] = output
-
-    # 写操作：串行执行（保证顺序）
-    for call in write_calls:
-        try:
-            results[call.id] = handlers[call.name](**call.input)
-        except Exception as e:
-            results[call.id] = f"Error: {e}"
-
-    # 按原始顺序返回
-    return [
-        {"type": "tool_result", "tool_use_id": c.id, "content": results[c.id]}
-        for c in tool_calls
-    ]
-```
-
-**为什么写操作不能并行**：两个写操作可能修改同一个文件，并行会产生竞争条件。只读操作（read_file、search、list）没有这个问题。
-
----
-
-## 14. `tool_choice` — 强制工具调用
-
-默认情况下模型自己决定是否调工具。有时候你需要强制它用某个工具：
-
-```python
-# 强制调用任意一个工具（不允许模型直接文字回答）
-response = client.messages.create(
-    model=PRIMARY_MODEL,
-    tools=tools,
-    tool_choice={"type": "any"},          # 必须调用某个工具
-    messages=messages,
-    max_tokens=1024,
-)
-
-# 强制调用特定工具
-response = client.messages.create(
-    model=PRIMARY_MODEL,
-    tools=tools,
-    tool_choice={"type": "tool", "name": "search_knowledge_base"},
-    messages=messages,
-    max_tokens=1024,
-)
-
-# 让模型自己决定（默认行为）
-response = client.messages.create(
-    model=PRIMARY_MODEL,
-    tools=tools,
-    tool_choice={"type": "auto"},         # 默认，可省略
-    messages=messages,
-    max_tokens=1024,
-)
-```
-
-**适合场景**：
-
-| `tool_choice` | 使用场景 |
-|---------------|---------|
-| `"auto"` | 默认，让模型决定 |
-| `"any"` | 分类任务（强制模型输出结构化结果而不是文字）|
-| `"tool": "name"` | Pipeline 中某步骤必须调用特定工具（如强制触发 search）|
-
-**用 `tool_choice` 做强制结构化输出**：
-
-```python
-# 比 JSON Mode 更可靠：强制通过工具返回结构化数据
-classify_tool = {
-    "name": "classify_sentiment",
-    "description": "对文本进行情感分类",
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "sentiment": {"type": "string", "enum": ["positive", "negative", "neutral"]},
-            "confidence": {"type": "number", "minimum": 0, "maximum": 1},
-            "reason": {"type": "string"},
-        },
-        "required": ["sentiment", "confidence"],
-    }
-}
-
-response = client.messages.create(
-    model=PRIMARY_MODEL,
-    tools=[classify_tool],
-    tool_choice={"type": "tool", "name": "classify_sentiment"},
-    messages=[{"role": "user", "content": f"分类：{text}"}],
-    max_tokens=256,
-)
-
-result = response.content[0].input   # 直接拿结构化结果
-print(result["sentiment"], result["confidence"])
-```
-
----
-
-## 15. Streaming Tool Use
-
-工具调用也支持流式，适合需要尽快显示部分结果的场景：
-
-```python
-import anthropic
-import json
-
-client = anthropic.Anthropic()
-
-def stream_with_tools(messages: list, tools: list):
-    tool_use_blocks = {}  # tool_use_id → {name, input_json_parts}
-    text_buffer = ""
-
-    with client.messages.stream(
-        model=PRIMARY_MODEL,
-        tools=tools,
-        messages=messages,
-        max_tokens=2048,
-    ) as stream:
-        for event in stream:
-            if not hasattr(event, "type"):
-                continue
-
-            if event.type == "content_block_start":
-                block = event.content_block
-                if block.type == "tool_use":
-                    # 工具调用开始
-                    tool_use_blocks[block.id] = {
-                        "name": block.name,
-                        "input_parts": [],
-                    }
-                elif block.type == "text":
-                    pass  # 文本内容开始
-
-            elif event.type == "content_block_delta":
-                delta = event.delta
-                if delta.type == "input_json_delta":
-                    # 工具参数的 JSON 增量（流式发来的）
-                    # 找到对应的 tool_use block
-                    for block_id, block_data in tool_use_blocks.items():
-                        block_data["input_parts"].append(delta.partial_json)
-
-                elif delta.type == "text_delta":
-                    text_buffer += delta.text
-                    print(delta.text, end="", flush=True)
-
-            elif event.type == "message_stop":
-                # 流结束，工具的 JSON 参数已完整
-                for block_id, block_data in tool_use_blocks.items():
-                    full_json = "".join(block_data["input_parts"])
-                    block_data["input"] = json.loads(full_json)
-
-    return tool_use_blocks, text_buffer
-
-# 使用
-tool_calls, text = stream_with_tools(messages, tools)
-for tool_id, tool_data in tool_calls.items():
-    result = execute_tool(tool_data["name"], tool_data["input"])
-    # 把结果追加到 messages 继续对话
-```
-
-**注意**：tool 参数是以 `input_json_delta` 流式发来的，不能直接 parse JSON——需要等所有 delta 拼完整再 `json.loads()`。
-
----
-
-## learn-claude-code 对照：从 TOOL_HANDLERS 到动态工具池
-
-s02 用 `TOOL_HANDLERS: dict[str, Callable]` 把工具名映射到处理函数：新增工具只增加 schema、handler 和一行注册，不修改 Agent Loop。这是工具系统最值得保留的扩展不变量。
-
-项目还提供了两个容易被混淆的判断：`isReadOnly` 表示有没有业务副作用，`isConcurrencySafe` 表示能否与其他工具安全并发；两者不等价。例如只读的 `ls` 可以并发，而某些会更新共享状态的任务创建操作也可能在实现上允许并发。并发分区必须基于资源冲突和幂等性判断，不能只看工具名称。
-
-s19/s20 又把内置工具和 MCP 工具动态合并成一个工具池，并用 `mcp__server__tool` 命名空间避免冲突。连接 MCP 后工具 schema 发生变化，下一轮必须重建工具池和相关 prompt/cache；否则模型看到的能力目录会过期。对应实验：[s02_tool_use/code.py](./实践/learn-claude-code/s02_tool_use/code.py)、[s19_mcp_plugin/code.py](./实践/learn-claude-code/s19_mcp_plugin/code.py)、[s20_comprehensive/code.py](./实践/learn-claude-code/s20_comprehensive/code.py)。
-
-## 15. 工具执行边界（注释版）
-
-工具调用不是“模型返回 JSON 后直接执行”。真正的边界至少要包含：工具白名单、参数校验、授权、超时、错误归一化，以及副作用工具的幂等约束。
-
-```python
-import asyncio
 from dataclasses import dataclass
 from typing import Any, Awaitable, Callable
+import asyncio
 
 
 @dataclass(frozen=True)
@@ -743,6 +89,7 @@ class ToolCall:
 class ToolPolicy:
     timeout_s: float = 10.0
     side_effecting: bool = False
+    idempotent: bool = False
 
 
 async def execute_tool_call(
@@ -750,29 +97,32 @@ async def execute_tool_call(
     *,
     registry: dict[str, Callable[..., Awaitable[Any]]],
     policies: dict[str, ToolPolicy],
-    authorized_tools: set[str],
+    allowed_tools: set[str],
+    validate: Callable[[str, dict[str, Any]], dict[str, Any]],
+    authorize: Callable[[ToolCall, ToolPolicy], None],
 ) -> dict[str, Any]:
-    # 白名单检查必须先于参数解析和执行，避免“未知工具”进入动态分发。
-    if call.name not in registry or call.name not in authorized_tools:
+    # 未知或未授权工具不能进入参数解析和动态分发。
+    if call.name not in registry or call.name not in allowed_tools:
         return {"ok": False, "call_id": call.call_id, "error_code": "tool_denied"}
 
     policy = policies.get(call.name, ToolPolicy())
-    if policy.side_effecting and not call.arguments.get("idempotency_key"):
-        # 创建订单、发消息、扣款等副作用操作，缺少幂等键时宁可拒绝执行。
-        return {
-            "ok": False,
-            "call_id": call.call_id,
-            "error_code": "missing_idempotency_key",
-        }
-
     try:
-        # 参数 schema 校验应放在这里；示例省略具体 schema 库。
+        args = validate(call.name, call.arguments)
+        authorize(call, policy)  # 模型理由只能作为证据，不能替代策略判断。
+        if policy.side_effecting and not args.get("idempotency_key"):
+            return {
+                "ok": False,
+                "call_id": call.call_id,
+                "error_code": "missing_idempotency_key",
+            }
         async with asyncio.timeout(policy.timeout_s):
-            value = await registry[call.name](**call.arguments)
+            value = await registry[call.name](**args)
     except TimeoutError:
         return {"ok": False, "call_id": call.call_id, "error_code": "tool_timeout"}
-    except Exception as exc:  # noqa: BLE001 - 边界层统一归一化未知异常。
-        # 返回稳定错误码，不把堆栈、密钥或内部路径直接暴露给模型。
+    except PermissionError:
+        return {"ok": False, "call_id": call.call_id, "error_code": "policy_denied"}
+    except Exception as exc:  # noqa: BLE001 - 执行边界统一转成稳定错误码。
+        # 不把堆栈、密钥和内部路径直接暴露给模型；详细信息写入受控 Trace。
         return {
             "ok": False,
             "call_id": call.call_id,
@@ -783,33 +133,120 @@ async def execute_tool_call(
     return {"ok": True, "call_id": call.call_id, "value": value}
 ```
 
-生产实现还需要记录 `call_id`、用户/租户、授权决策、耗时和结果摘要；原始参数是否落日志要按敏感数据分级处理。工具结果回传给模型前，也应限制大小并清理凭证、内部 URL 和不必要的个人信息。
+生产实现还要限制工具结果大小，并在进入 Context、Trace、日志和用户界面前分别执行敏感信息处理。
 
-## 16. 工具膨胀：百级工具怎么路由
+## 4. Loop 中如何回填结果
 
-把 100+ 工具的完整 schema 塞进每次请求，既贵又伤选择准确率。目标是**缩小模型可见的候选集**：
+工具执行器只负责一次调用；循环负责把结果配对回填，并根据停止原因决定下一步：
+
+```text
+while budget.allows():
+    response = provider.complete(context)
+    record assistant output and finish reason
+
+    if response.final:
+        return succeeded(response.text)
+
+    for call in response.tool_calls:
+        result = execute_tool_call(call)
+        record call_id, decision, duration and safe result summary
+        append provider-compatible tool result
+
+    if no_progress or cancelled:
+        return stopped(reason)
+
+return stopped("budget_exhausted")
+```
+
+不同 Provider 对 `tool_call_id`、assistant block 和 tool result 的配对要求不同。适配器必须保证：每个调用只回填一次、ID 对应、错误也有合法的 tool result 形状；否则不要进入下一轮。
+
+## 5. Registry、分发和错误语义
+
+注册表把工具名称映射到执行函数，避免在循环中写一长串 `if/elif`：
+
+```python
+TOOL_HANDLERS = {
+    "search_orders": search_orders,
+    "read_file": read_file,
+}
+
+
+def resolve_tool(name: str):
+    handler = TOOL_HANDLERS.get(name)
+    if handler is None:
+        raise LookupError("unknown_tool")
+    return handler
+```
+
+错误要让模型知道“下一步能做什么”，同时不给它内部秘密：
+
+| 错误 | 是否可重试 | 应返回什么 |
+|---|---|---|
+| 参数校验失败 | 通常否，先修正参数 | `invalid_arguments` + 字段原因 |
+| 未授权/需审批 | 否，等待授权或换方案 | `policy_denied` / `approval_required` |
+| 超时/暂时不可用 | 仅幂等动作限次重试 | `tool_timeout` / `dependency_unavailable` |
+| 副作用结果未知 | 先查状态 | `outcome_unknown`，不要直接重做 |
+| 工具不存在 | 否 | `unknown_tool`，重新路由或结束 |
+
+## 6. 幂等、重试、超时和并发
+
+| 工具 | 默认幂等性 | 处理 |
+|---|---|---|
+| 搜索、查询、读取 | 通常是 | 可在预算内重试或短暂缓存 |
+| 创建、更新、发送、扣款 | 通常否 | 使用幂等键、状态查询或补偿；不盲目重试 |
+| 删除、发布、迁移 | 高风险 | 预览/审批/审计；结果未知时先核实 |
+
+幂等键应绑定租户、任务、操作摘要和业务对象，并由服务端去重；只在 Python 内存里记一次调用不足以抵御重启或并发。
+
+只读且资源不冲突的调用可以并行；写操作按资源依赖串行或使用显式锁。并行不是“收到多个 call 就全部开线程”，还要考虑 rate limit、取消、结果顺序和单任务预算。
+
+## 7. 权限、审计和沙箱
+
+工具层至少检查：主体、租户、资源、动作、策略版本、审批范围、过期时间和幂等状态。高风险工具的完整治理见 [安全与可控性](./08_安全与可控性.md)；威胁来源见 [Agent 安全与威胁建模](./07_Agent安全与威胁建模.md)。
+
+审计事件记录 `task_id`、`call_id`、actor、tenant、tool、resource、policy_decision、approval_id、duration、outcome 和版本信息；不要默认记录完整参数、Prompt 或工具原文。
+
+执行用户代码、Shell 或浏览器时，工具必须进入受限 workspace/沙箱，设置 CPU、内存、网络、文件和时间边界。不要在主进程 `eval()` 用户代码。Coding Agent 的文件和命令细节见 [代码 Agent 基础设施](./05_代码%20Agent%20基础设施.md)。
+
+## 8. 长任务和后台工具
+
+“后台执行”不是在当前请求里启动一个无记录的线程。长工具应创建有状态任务，返回 `task_id`，由 Queue/Worker/Lease 驱动；完成结果作为事件写回下一轮 Context。Checkpoint、取消、重复投递和恢复见 [Durable Execution](./06_Durable%20Execution与分布式可靠性.md)。
+
+## 9. Provider 特性：tool choice 和 streaming
+
+某些 Provider 支持强制使用任意工具或指定工具，可用于分类、结构化提取和固定 Workflow 节点；它只约束模型输出形状，不绕过执行器权限。
+
+工具参数流式返回时，必须等 JSON 增量完整后再解析；前端可以提前展示文本或进度，但不能把未完成参数当作执行请求。Provider 事件形状以 [版本与来源](./版本与来源.md) 和官方文档为准。
+
+## 10. 工具膨胀与路由
+
+工具超过几十个时，不要把全部 schema 放进每次请求：
 
 ```text
 用户意图
-  → 域/技能路由（静态规则或轻量分类）
-  → 组内 Top 工具（语义相似度或二级 LLM）
-  → 只注入这组 schema
-  → 调用
+  → 静态域/技能路由
+  → 组内候选工具
+  → 只注入候选 schema
+  → 执行器再次授权
 ```
 
-常用策略：
+优先级通常是：静态规则 → 工具描述的语义召回 → 两级模型路由。路由只解决模型“看见谁”，不解决权限、参数、幂等和副作用；`Skills` 负责能力正文的渐进式披露，见 [Skills 与渐进式披露](./Skills与渐进式披露.md)。
 
-1. **静态路由**：意图/关键词 → 预定义工具组；最稳，优先。
-2. **语义回退**：静态未命中时，用 Embedding 匹配「意图 ↔ 工具描述」。
-3. **两级 LLM**：先选类别再选工具；多一次调用，灵活但更贵。
-4. **与 Skill 结合**：目录常驻、正文按需，见 [Skills与渐进式披露](Skills与渐进式披露.md)。
+## 11. 练习与验收
 
-并行调用仍要遵守只读/冲突分区；路由只解决「看见谁」，不解决副作用安全。
+实现三个工具：一个查询、一个可审批写操作、一个会超时的外部调用，并证明：
+
+1. 未知工具和越权工具不会执行；
+2. 参数错误变成结构化结果；
+3. 查询可限次重试，写操作不会因不明结果重复执行；
+4. 每个调用都能按 `call_id` 回放和解释；
+5. 预算、取消、超时和审批都有明确停止原因。
+
+实践：[Tool Calling Agent](./实践/ai-agent-learning/agent-learning-projects/04_tool_calling_agent/README.md)、[Simple Agent Loop](./实践/ai-agent-learning/agent-learning-projects/05_simple_agent_loop/README.md)。
 
 ## 官方来源
 
-- [OpenAI Function calling](https://developers.openai.com/api/docs/guides/function-calling)
-- [OpenAI Responses 迁移](https://developers.openai.com/api/docs/guides/migrate-to-responses)
-- [Anthropic Tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
+- [OpenAI Function Calling](https://developers.openai.com/api/docs/guides/function-calling)
+- [Anthropic Tool Use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
 
-核对日期：2026-07-30。Provider 消息形状、strict 支持、并行调用和流式事件在升级 SDK 时重新核对。
+核对日期：2026-07-30。Provider 消息形状、strict 支持、并行调用和流式事件升级时重新核对。

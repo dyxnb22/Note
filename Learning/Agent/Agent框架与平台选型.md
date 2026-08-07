@@ -2,6 +2,8 @@
 
 本文回答面试高频题：**LangGraph / AutoGen / CrewAI / 轻量 SDK / 低代码平台各自适合什么，什么时候不用框架**。具体图 API 见 [LangGraph](LangGraph.md)；多 Agent 边界见 [多 Agent 协作的边界与模式](多Agent协作的边界与模式.md)。
 
+> **学习位置**：最后阅读。先理解通用 Loop、Workflow、State、权限和 Eval，再用这些维度比较框架；本文不作为任何框架的入门教程。
+
 ## 1. 一张对比表
 
 | 形态 | 代表 | 设计哲学 | 适合 | 不适合 |

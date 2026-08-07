@@ -81,8 +81,8 @@ if __name__ == "__main__":
 """
 Level 1 Agent - Model as Agent (~200 lines)
 
-Core insight: 4 tools cover 90% of coding tasks.
-The model IS the agent. Code just runs the loop.
+Core insight: start with a small core tool set and expand it when real tasks show a gap.
+The model supplies the policy; the harness runs and constrains the loop.
 """
 
 from anthropic import Anthropic

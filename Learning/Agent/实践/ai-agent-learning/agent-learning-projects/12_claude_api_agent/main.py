@@ -73,7 +73,7 @@ def demo_basic():
 # ---------------------------------------------------------------------------
 # 原理：把重复使用的大段文本（System Prompt、文档、工具描述）标记为 cache_control。
 # Claude 会把这段内容缓存 5 分钟。
-# 缓存命中时，输入 Token 费用降低 90%，延迟也大幅下降。
+# 缓存命中通常可降低重复输入成本并改善延迟；具体折扣、门槛和缓存时长以当前 Provider 文档与价格为准。
 # 适用场景：RAG 文档注入、长 System Prompt、重复工具列表。
 
 LONG_SYSTEM_PROMPT = """你是 DevPilot，一个专业的代码分析助手。
@@ -96,8 +96,8 @@ LONG_SYSTEM_PROMPT = """你是 DevPilot，一个专业的代码分析助手。
 - 风险提示：使用 ⚠️ 标注
 
 这段 System Prompt 很长，在真实生产中可能包含完整的公司代码规范文档（几千 Token）。
-通过 Prompt Caching，这段内容只需要在第一次请求时处理，后续请求直接命中缓存，
-节省 90% 的 Token 成本。
+通过 Prompt Caching，重复前缀可能命中缓存；实际节省取决于命中率、计费规则和缓存时长，
+应以当前 Provider 价格和实测账本为准。
 """ * 3  # 重复 3 次让它更长，模拟真实场景
 
 
@@ -119,10 +119,10 @@ messages.create(
 )
 
 第 1 次调用：cache_creation_input_tokens = N（写入缓存，正常计费）
-第 2 次调用：cache_read_input_tokens = N（读缓存，费用降低 90%）
+第 2 次调用：cache_read_input_tokens = N（读缓存，具体费用以当前价格为准）
 
 适用场景：
-  ✅ System Prompt 超过 1024 Token（Claude 最低缓存门槛）
+  ✅ System Prompt 达到当前模型的缓存门槛（具体阈值以官方文档为准）
   ✅ RAG：把检索到的文档作为缓存内容
   ✅ 工具列表很长（10+ 个工具的描述）
   ❌ 频繁变化的内容（每次都不同，无法命中缓存）
@@ -365,7 +365,7 @@ if __name__ == "__main__":
 === 本课要点回顾 ===
 
 1. 基础调用    messages.create() → content[0].text
-2. 缓存        cache_control={'type':'ephemeral'} → System Prompt 成本降 90%
+2. 缓存        cache_control={'type':'ephemeral'} → 重复前缀可能降低成本（以当前价格和命中率实测）
 3. 流式        with client.messages.stream() as s → 实时展示进度
 4. 工具调用    tools=[...] → stop_reason=='tool_use' → 执行 → tool_result → 循环
 5. 多轮对话    累积 messages 列表，Claude 自动理解上下文

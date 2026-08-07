@@ -1,571 +1,151 @@
 # MCP 与工具协议
 
-这篇文档解决一个问题：**MCP 是什么，什么时候用它，什么时候直接写 SDK 调用**。
+MCP（Model Context Protocol）解决的是**宿主与外部工具/资源之间的复用和发现**，不是 Agent Loop，也不是业务授权。
 
-> **职责边界**：本文只讲跨客户端复用工具、资源和 Prompt 的协议层；工具 schema、执行、幂等和本地权限见 [Tool Calling](./02_Tool%20Calling.md)，外部 Server 的信任和供应链防线见 [安全与可控性](./08_安全与可控性.md)。
+> **学习位置**：完成 Tool Calling、Context、安全和基础 Workflow 后阅读。
+>
+> **职责边界**：本文负责 MCP 的层次、能力、Transport、Client/Server、认证边界、版本和治理；工具合同见 [Tool Calling](./02_Tool%20Calling.md)，渐进式能力目录见 [Skills](./Skills与渐进式披露.md)，外部 Server 的威胁见 [安全与可控性](./08_安全与可控性.md)。
 
----
+## 1. 三个层次不要混淆
 
-## 1. MCP 解决什么问题
+| 名称 | 解决的问题 | 作用范围 |
+|---|---|---|
+| Function/Tool Calling | 模型如何提出一次结构化动作 | 一次模型调用与应用执行器 |
+| MCP | Client 如何发现并调用跨宿主的工具/资源/Prompt | 应用与 MCP Server 之间 |
+| Skill | 如何按需加载一组能力说明、流程和脚本 | Context/能力组织层 |
 
-### 没有 MCP 时的痛点
-
-每个工具都要单独适配：
-
-```
-AI App → 自己写 Notion SDK 调用
-AI App → 自己写 GitHub SDK 调用
-AI App → 自己写文件系统接口
-AI App → 自己写数据库 SDK
-
-每个工具：不同 API 风格、不同鉴权方式、不同错误格式
-```
-
-当工具多了，集成成本按线性增长，而且每个应用都要重复做这些工作。
-
-### MCP 的核心价值
-
-```
-AI App / MCP Client → MCP Protocol → MCP Server → Tool / Resource / Prompt
-```
-
-MCP（Model Context Protocol）是开放协议，定义了 AI 应用与外部工具、资源及上下文能力之间的通信格式。它统一协议边界，不会自动统一各服务的业务语义、权限模型或数据可信度。
-
-**价值不在于"让模型更聪明"，而在于**：
-- 工具实现一次，可被任意 MCP Client 使用
-- AI 应用不用关心每个工具的具体 SDK
-- 生态里工具可以复用（社区 MCP Server 库）
-
----
+MCP Server 只是提供能力的进程或服务；它返回的工具描述和结果仍是不可信输入，Client 还要做 allowlist、schema、权限、超时、审计和结果脱敏。
 
 ## 2. MCP 的三种能力
 
-| 能力 | 含义 | 示例 |
-|------|------|------|
-| **Tools** | AI 可以调用的函数 | `search_github_issues()`, `create_file()` |
-| **Resources** | AI 可以读取的数据 | `file://project/README.md`, `db://users` |
-| **Prompts** | 预定义的 prompt 模板 | `code_review_prompt`, `summarize_template` |
+- **Tools**：可调用动作，可能有副作用；需要 schema、权限和执行状态。
+- **Resources**：可读取的数据或资源；需要 URI、访问控制、版本和缓存策略。
+- **Prompts**：可复用的提示模板；不能绕过宿主的系统规则和工具权限。
 
-Tools 是最常用的，Resources 和 Prompts 是补充能力。
+有些版本/实现还包含采样、Roots、通知和进度等能力。先确认 Client/Server 的协议版本和协商结果，不要把某个 SDK 的类型名当成永久标准。
 
----
+## 3. 基本交互
 
-## 3. MCP Server 实现
-
-用官方 SDK 实现一个简单的 MCP Server：
-
-```pseudocode
-## pip install mcp
-
-from mcp.server import Server
-from mcp.server.models import InitializationOptions
-from mcp.types import Tool, TextContent
-import mcp.server.stdio
-
-app = Server("my-tools-server")
-
-@app.list_tools()
-async def list_tools() -> list[Tool]:
-"""声明这个 Server 提供哪些工具"""
-return [
-    Tool(
-        name="search_docs",
-        description="搜索项目文档。输入关键词，返回相关文档片段。",
-        inputSchema={
-            "type": "object",
-            "properties": {
-                "query": {
-                    "type": "string",
-                    "description": "搜索关键词",
-                },
-                "top_k": {
-                    "type": "integer",
-                    "description": "返回结果数量，默认 5",
-                    "default": 5,
-                },
-            },
-            "required": ["query"],
-        },
-    ),
-]
-
-@app.call_tool()
-async def call_tool(name: str, arguments: dict) -> list[TextContent]:
-"""处理工具调用"""
-if name == "search_docs":
-    query = arguments["query"]
-    top_k = arguments.get("top_k", 5)
-
-## 实际的搜索逻辑
-    results = await search_vector_store(query, top_k)
-
-    return [
-        TextContent(
-            type="text",
-            text=f"找到 {len(results)} 条相关文档：\n\n" +
-                 "\n\n".join([r["content"] for r in results]),
-        )
-    ]
-
-raise ValueError(f"未知工具: {name}")
-
-## 启动 Server（stdio 模式，供 Claude Desktop 等使用）
-async def main():
-async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
-    await app.run(
-        read_stream,
-        write_stream,
-        InitializationOptions(server_name="my-tools", server_version="0.1.0"),
-    )
-```
----
-
-## 4. MCP Client 实现
-
-AI 应用作为 MCP Client，连接到 MCP Server：
-
-```pseudocode
-from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import stdio_client
-
-async def use_mcp_tools():
-server_params = StdioServerParameters(
-    command="python",
-    args=["my_mcp_server.py"],
-)
-
-async with stdio_client(server_params) as (read, write):
-    async with ClientSession(read, write) as session:
-## 初始化
-        await session.initialize()
-
-## 列出可用工具
-        tools = await session.list_tools()
-        print("可用工具:", [t.name for t in tools.tools])
-
-## 调用工具
-        result = await session.call_tool(
-            "search_docs",
-            arguments={"query": "RAG 实现", "top_k": 3},
-        )
-        print("结果:", result.content[0].text)
-```
----
-
-## 5. 与 Claude Desktop 集成
-
-Claude Desktop 是最常用的 MCP Client，配置方式：
-
-```json
-// ~/Library/Application Support/Claude/claude_desktop_config.json
-{
-  "mcpServers": {
-"my-tools": {
-  "command": "python",
-  "args": ["/path/to/my_mcp_server.py"],
-  "env": {
-    "DATABASE_URL": "postgresql://localhost/mydb"
-  }
-},
-"filesystem": {
-  "command": "npx",
-  "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/workspace"]
-}
-  }
-}
+```text
+Client 启动/连接 Server
+  → initialize / capability negotiation
+  → tools/list、resources/list 或 prompts/list
+  → Host 根据任务和策略筛选可见能力
+  → 模型提出 tool call
+  → Client 校验、授权并发送 tools/call
+  → Server 返回结果
+  → Client 脱敏、限长、标记来源后回填 Context
 ```
 
-配置后，Claude Desktop 里的 Claude 就能使用这些工具。
+模型通常看不到“某个 Server 可以做什么”这一事实的全部细节；Host 决定哪些能力进入本轮 schema。Server 也不能因为被发现就获得宿主的全部身份和网络权限。
 
----
+## 4. Server 与 Client 的最小边界
 
-## 6. MCP 与直接 SDK 调用的比较
+Server 应声明稳定名称、版本、能力和 schema，并在自己的边界内校验参数、身份、资源和副作用。Client 应负责：
 
-| 维度 | 直接 SDK 调用 | MCP |
-|------|-------------|-----|
-| 集成成本 | 每次都要写适配代码 | 一次实现，多处使用 |
-| 复杂度 | 低（就是函数调用） | 高（需要 Server 进程） |
-| 可复用性 | 只在当前应用使用 | 任意 MCP Client 可用 |
-| 调试难度 | 直接 | 需要了解协议和进程通信 |
-| 适合场景 | 单一应用、快速迭代 | 工具需要被多个 AI 应用共享 |
+1. 连接、初始化和能力协商；
+2. Server/工具来源与版本 allowlist；
+3. schema、超时、并发、结果大小和取消；
+4. actor/tenant/resource/operation 的业务授权；
+5. 审批、幂等、审计和 Trace；
+6. 将结果标记为外部数据，不让其成为新的系统指令。
 
-**结论**：
-- 如果只是给自己的应用加工具，直接写函数 + Tool Calling schema 更简单
-- 如果工具需要被多个 AI 应用使用（Claude Desktop + 你自己的 app + 团队其他 AI 工具），才值得做成 MCP Server
-- 如果使用社区现有的 MCP Server（如文件系统、GitHub、Notion），直接作为 Client 使用即可
-
----
-
-## 7. 自建工具协议时要考虑什么
-
-如果团队要在 MCP 之外自建工具协议：
-
-| 考量 | 问题 |
-|------|------|
-| Schema 格式 | 和 OpenAI function calling 格式兼容吗？ |
-| 版本管理 | 工具 API 升级时如何兼容旧的调用方 |
-| 鉴权 | 工具调用如何携带用户身份 |
-| 错误格式 | 失败时返回什么格式，模型能理解吗 |
-| 超时与限速 | 工具慢了怎么办，调用频率有限制吗 |
-| 审计 | 谁在什么时候调用了什么工具 |
-
-MCP 已经处理了这些问题，自建协议时要确认有没有更好的理由不用它。
-
----
-
-## 8. 工程深度：Transport、Auth、版本兼容
-
-### Transport 形态
-
-MCP 支持两种传输方式，使用场景不同：
-
-| Transport | 形态 | 适合 |
-|-----------|------|------|
-| **stdio** | Server 是子进程，通过标准输入输出通信 | 本地工具（文件系统、本地数据库）；Claude Desktop 集成 |
-| **Streamable HTTP** | Server 是独立 HTTP 服务；POST/GET 与可选 SSE 由规范共同约束 | 远程服务、多 Client、认证和网络治理 |
-
-```pseudocode
-## 以下是旧 HTTP+SSE 双端点形态，只用于理解历史兼容层
-from mcp.server.sse import SseServerTransport
-from starlette.applications import Starlette
-
-sse = SseServerTransport("/messages")
-
-async def handle_sse(request):
-async with sse.connect_sse(request.scope, request.receive, request._send) as streams:
-    await app.run(streams[0], streams[1], app.create_initialization_options())
-
-starlette_app = Starlette(routes=[Route("/sse", endpoint=handle_sse)])
-```
-### Auth / User Identity 传递
-
-MCP Server 收到工具调用时，通常需要知道"谁在调用"：
-
-```pseudocode
-@app.call_tool()
-async def call_tool(name: str, arguments: dict) -> list[TextContent]:
-## 从 arguments 或 request context 里取 user token
-user_token = arguments.get("_auth_token")  # 一种约定
-
-if name == "query_user_data":
-## 用 token 验证权限再执行
-    user = await verify_token(user_token)
-    if not user.has_permission("read_data"):
-        return [TextContent(type="text", text="权限不足")]
-    ...
-```
-**实践注意**：当前正式规范为 HTTP 传输定义了授权框架；stdio 不走这套 HTTP 授权流程，应从运行环境安全取得凭证。不要把 bearer token 塞入普通工具 arguments：它会扩大模型上下文、日志和第三方 Server 的泄露面。远程实现应按规范完成受保护资源元数据、授权服务器发现、token audience 与 scope 校验，并在工具执行时再做对象级授权。
-
-### Capability Discovery 与版本兼容
-
-`list_tools()` 就是 capability discovery 的机制——Client 启动时拉取工具列表，不需要 hardcode。版本兼容靠工具描述和 schema：
-
-```pseudocode
-@app.list_tools()
-async def list_tools() -> list[Tool]:
-return [
-    Tool(
-        name="search_docs",
-        description="v2: 支持 filters 参数（v1 不支持）",
-        inputSchema={
-            "type": "object",
-            "properties": {
-                "query": {"type": "string"},
-                "filters": {"type": "object", "description": "可选，v2 新增"},
-            },
-            "required": ["query"],
-        },
-    ),
-]
-```
-向后兼容原则：新增字段设为 optional；不要修改已有字段含义；重大变更用新工具名（`search_docs_v2`）。
-
-### 为什么团队内部工具平台会偏向协议层
-
-当团队有多个 AI 应用（客服 Agent、代码 Agent、分析 Agent）都需要访问同一套工具（内部知识库、CRM、权限系统）时：
-
-```
-没有协议层：
-  客服 Agent → 自己写 CRM 集成
-  代码 Agent → 自己写 CRM 集成（重复）
-  分析 Agent → 自己写 CRM 集成（重复）
-
-有协议层（MCP）：
-  CRM MCP Server ← 客服 Agent
-             ← 代码 Agent
-             ← 分析 Agent
+```text
+MCP Client ≠ 直接信任 MCP Server
+MCP Auth ≠ 业务授权
+tools/list ≠ 允许模型使用所有工具
+tools/call 成功 ≠ 业务副作用已被证明完成
 ```
 
-工具集成逻辑收敛到 Server 端，权限控制、审计、错误处理统一维护，每个 AI 应用只需要做 Client 调用。这是团队规模增长后自然演化的方向。
+## 5. Transport 与部署
 
----
+| Transport | 特点 | 适合 |
+|---|---|---|
+| stdio | 本地进程、边界简单 | Desktop、CLI、受控本地工具 |
+| Streamable HTTP | 远程服务、可流式/会话化 | 团队或云端共享 Server |
+| 历史 SSE 形态 | 旧实现兼容 | 只在迁移旧系统时核对 |
 
-## 9. Server 发现与供应链检查
+Transport 只解决消息传输，不自动解决网络出口、租户隔离、凭证传递、限流或副作用。远程 Server 应有独立身份、TLS、超时、重试、审计和网络 allowlist。
 
-社区包名、维护状态和安装方式变化很快，不在正文维护“高频包清单”。从 [MCP Registry](https://registry.modelcontextprotocol.io/) 或宿主产品的受信目录发现 Server 后，仍要逐项检查源码与发布者、固定版本与哈希、最小文件/网络权限、OAuth scope、工具 schema、遥测和升级记录。能被列出不等于可以无条件信任。
+## 6. Auth、身份和授权
 
----
+认证确认“谁连接了 Server”；业务授权还要确认“这个 actor 能否对这个 resource 执行这个 operation”。调用链至少传递或服务端恢复：
 
-## 10. MCP 工具的企业级治理
-
-当 Agent 系统集成了多个外部 MCP Server 时，不能无条件信任所有 Server 提供的工具：
-
-**工具命名约定**：
-
-```
-mcp__{server_name}__{tool_name}
-
-示例：
-  mcp__github__create_pull_request
-  mcp__jira__create_issue
-  mcp__filesystem__write_file
+```text
+actor_id / tenant_id / task_id / agent_id
+  → MCP Client
+  → Server 身份验证
+  → 业务 policy 检查
+  → 工具执行和审计
 ```
 
-这个命名约定让 Agent 和审计系统能区分"内置工具"和"MCP 工具"，并知道工具来自哪个 Server。
+不要把长期用户 token 直接放进模型 Context 或工具描述。使用短期、最小 scope 的凭证；Fallback、转发和异步 Worker 都要重新检查数据边界。完整身份与租户治理见 [Agent 身份与数据治理](./Agent身份与数据治理.md)。
 
-**allowlist 控制哪些 MCP Server 可以连接**：
+## 7. 能力发现与版本兼容
 
-```python
-MCP_ALLOWLIST = {
-    "filesystem": {
-        "allowed_tools": ["read_file", "list_dir"],  # 只允许读，不允许写
-        "trusted": True,
-    },
-    "github": {
-        "allowed_tools": ["get_pr", "list_issues", "create_comment"],
-        "write_tools": ["create_pr", "push_branch"],  # 写操作需要 Grant
-        "trusted": False,  # 外部服务，内容视为 untrusted
-    },
-}
+能力目录需要版本化：
 
-def assemble_tool_pool(active_mcp_sessions: dict) -> list[dict]:
-    """每次 LLM 调用前重新组装工具池"""
-    tools = list(BUILTIN_TOOLS)  # 内置工具
-    for server_name, session in active_mcp_sessions.items():
-        config = MCP_ALLOWLIST.get(server_name, {})
-        mcp_tools = session.list_tools()
-        for tool in mcp_tools:
-            if tool.name in config.get("allowed_tools", []):
-                # 重命名为 mcp__{server}__{tool} 格式
-                tools.append(rename_tool(tool, f"mcp__{server_name}__{tool.name}"))
-    return tools
+- Server/工具稳定 ID 和版本；
+- 输入/输出 schema 版本；
+- 权限、资源类型和副作用标记；
+- 变更后重建模型可见工具目录；
+- 旧 Client 的兼容、拒绝和回滚路径。
+
+工具描述变化会改变模型选择，不能只当作普通文案修改；应进入 Tool/Eval 回归。大量工具先做域/Skill 路由，见 [Tool Calling](./02_Tool%20Calling.md)。
+
+## 8. 供应链与结果处理
+
+接入外部 Server 前检查：来源、版本/digest、依赖、权限声明、网络访问、凭证范围和更新通知。工具描述可能包含注入，工具结果也可能包含注入或 Secret：
+
+```text
+Server result
+  → 大小限制 / schema 验证
+  → Secret/PII 脱敏
+  → 来源标签（外部数据，不是指令）
+  → actor/tenant 过滤
+  → Trace 与 Context
 ```
 
-**写操作的 Grant 门控**：
+Server 不能通过工具描述诱导 Host 绕过 policy，也不能把“查到的结果”当作宿主已授权的事实。
 
-```python
-def execute_mcp_tool(tool_name: str, args: dict, context: ExecutionContext) -> str:
-    server, tool = parse_mcp_tool_name(tool_name)  # "github", "create_pr"
-    config = MCP_ALLOWLIST[server]
+## 9. Sampling 与 Server 回调模型
 
-    if tool in config.get("write_tools", []):
-        # 写操作：必须有有效的 Grant
-        grant = context.find_grant(action=tool_name, proposal=args)
-        if not grant or not consume_grant(grant.id, proposal=args):
-            return "Error: 写操作需要人工审批 Grant"
+某些协议实现允许 Server 请求 Host 代为调用模型。它会把信任边界扩大到 Server：
 
-    # 执行工具，但把结果视为 untrusted（可能含 prompt injection）
-    result = session.call_tool(tool, args)
-    return redact_secrets(result)  # 脱敏后返回
-```
+- Host 必须显式允许，不能默认接受；
+- Prompt、资源和模型参数经过策略/预算检查；
+- 结果按同样规则脱敏、审计和评测；
+- Server 不应借 sampling 获得用户秘密或无限模型预算。
 
----
+如果只是应用内部工具调用，直接 Function Calling 通常更简单；需要跨应用共享、独立部署或由多个宿主发现时，再考虑 MCP。
 
-## 11. Streamable HTTP Transport（版本化协议示例）
+## 10. 与其他方案怎么选
 
-MCP 的远程传输规范和 SDK 会随版本演进。本节用当前正式规范的 Streamable HTTP 展示远程 Server 的设计思路；端点、会话、协议版本头、流式响应和安全要求在实际实现前应以[官方 Transports 规范](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)及对应 SDK 文档为准。下面的 FastAPI 代码是教学示意，不是可直接复制的完整协议实现：
+| 需求 | 优先方案 |
+|---|---|
+| 单个应用自己的函数 | 直接 Tool Calling |
+| 固定业务流程 | Workflow + 内部工具 |
+| 多个 Host 复用一个工具服务 | MCP |
+| 工具很多、正文和流程按需加载 | MCP + Skills |
+| 跨产品委托另一个 Agent | A2A/跨 Agent 协议 |
 
-```
-旧方式（SSE）：
-  Client → POST /messages    ← 发送请求
-  Client ← GET /sse          ← 监听服务器推送（两个端点）
+MCP 不会自动提供多 Agent 协作、可靠恢复、评测或安全合规；这些能力回到对应主文档。
 
-新方式（Streamable HTTP）：
-  Client ↔ POST /mcp         ← 单一端点，支持流式响应
-  支持：普通 HTTP response + 流式 SSE response（同一端点）
-```
+## 11. 练习与验收
 
-**Server 实现（FastAPI）**：
+实现一个只读知识库 MCP Server，并验证：
 
-```pseudocode
-from fastapi import FastAPI, Request
-from fastapi.responses import StreamingResponse
-from mcp.server.fastmcp import FastMCP
-import json
+1. Client 能协商能力、列出工具并调用；
+2. 每次调用都校验 actor/tenant/resource；
+3. Server 结果不会被当作系统指令；
+4. 超时、取消、未知工具和过大结果有明确错误；
+5. Server 升级后工具 schema 变化能触发回归和回滚；
+6. 能解释何时直接函数比 MCP 更简单。
 
-mcp = FastMCP("my-server")
-app = FastAPI()
+实践：[MCP Server](./实践/ai-agent-learning/agent-learning-projects/11_mcp_server/main.py)、[learn-claude-code s19](./实践/learn-claude-code/s19_mcp_plugin/code.py)。
 
-@mcp.tool()
-async def search_docs(query: str) -> str:
-    results = await vector_store.search(query)
-    return json.dumps(results)
+## 官方来源
 
-# Streamable HTTP 端点
-@app.post("/mcp")
-async def handle_mcp(request: Request):
-    body = await request.json()
-
-    # 判断是否需要流式响应
-    if body.get("method") in ["tools/call"] and body.get("stream"):
-        async def generate():
-            async for chunk in mcp.handle_streaming(body):
-                yield f"data: {json.dumps(chunk)}\n\n"
-        return StreamingResponse(generate(), media_type="text/event-stream")
-
-    # 普通 HTTP 响应
-    result = await mcp.handle(body)
-    return result
-
-# Client 连接
-from mcp import ClientSession
-from mcp.client.streamable_http import streamablehttp_client
-
-async def connect_remote_server():
-    async with streamablehttp_client("https://my-server.com/mcp") as (read, write, _):
-        async with ClientSession(read, write) as session:
-            await session.initialize()
-            tools = await session.list_tools()
-            result = await session.call_tool("search_docs", {"query": "退款政策"})
-```
-
-**与 stdio 的选择**：本地进程用 stdio（简单、低延迟）；远程服务用 Streamable HTTP（支持网络部署、多客户端）。
-
----
-
-## 12. MCP Authorization（OAuth / 版本化示例）
-
-远程 MCP Server 通常需要把 OAuth、Bearer Token、scope 和资源访问控制组合起来。本节代码只演示认证边界；发现流程、元数据、token audience 和客户端注册等细节应以[官方 Authorization 规范](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)为准：
-
-```python
-# MCP Server 端：声明 OAuth 配置
-from mcp.server.auth import OAuthProvider
-
-oauth_config = {
-    "issuer": "https://auth.mycompany.com",
-    "authorization_endpoint": "https://auth.mycompany.com/oauth/authorize",
-    "token_endpoint": "https://auth.mycompany.com/oauth/token",
-    "scopes_supported": ["mcp:read", "mcp:write", "mcp:admin"],
-}
-
-# Server 验证 Bearer Token
-from fastapi import HTTPException, Depends
-from fastapi.security import HTTPBearer
-
-security = HTTPBearer()
-
-async def verify_token(credentials = Depends(security)) -> dict:
-    token = credentials.credentials
-    # 验证 JWT token
-    payload = jwt.decode(token, PUBLIC_KEY, algorithms=["RS256"])
-    return payload
-
-@app.post("/mcp")
-async def handle_mcp(request: Request, user: dict = Depends(verify_token)):
-    # user 包含 sub（用户 ID）和 scopes
-    if "mcp:write" not in user.get("scopes", []):
-        raise HTTPException(status_code=403, detail="需要 mcp:write 权限")
-    ...
-
-# Client 端：使用 OAuth token
-async def connect_with_oauth():
-    token = await get_oauth_token(
-        client_id="my-agent-app",
-        scopes=["mcp:read"],
-        auth_url="https://auth.mycompany.com/oauth/authorize",
-    )
-    async with streamablehttp_client(
-        "https://my-server.com/mcp",
-        headers={"Authorization": f"Bearer {token}"},
-    ) as (read, write, _):
-        async with ClientSession(read, write) as session:
-            await session.initialize()
-```
-
----
-
-## 13. MCP Sampling — Server 回调 LLM
-
-MCP 有一个不常见但重要的特性：Server 可以请求 Client 调用 LLM（Sampling）。
-
-Sampling 属于 `2025-11-25` 当前正式规范的 Client 能力，但 `2026-07-28` draft 已提出弃用并建议直接集成模型 Provider。新系统使用前先确认目标 Client 是否声明支持，并避免让 Server 借 Sampling 绕过宿主的模型、成本、数据和审批策略。
-
-```
-普通 Tool Use：Client（Agent）→ 调用工具 → Server 执行 → 返回结果
-
-MCP Sampling：Server 执行工具时 → 发现需要 LLM 判断 → 请求 Client 调 LLM → 结果返回 Server
-```
-
-**用途**：Server 做 LLM 辅助决策（如判断检索到的内容是否相关），但不自己管理 API key——由 Client 代劳，Client 可以控制用哪个模型、费用怎么算。
-
-```python
-# Server 端：发起 sampling 请求
-from mcp.types import SamplingMessage, CreateMessageRequestParams
-
-@mcp.tool()
-async def smart_search(query: str, context) -> str:
-    raw_results = await search(query)
-
-    # 请求 Client 用 LLM 过滤结果
-    sampling_result = await context.session.create_message(
-        CreateMessageRequestParams(
-            messages=[
-                SamplingMessage(
-                    role="user",
-                    content=f"以下哪些搜索结果和'{query}'最相关？\n{raw_results}"
-                )
-            ],
-            max_tokens=512,
-            model_preferences={"hints": [{"name": "claude-haiku"}]},  # 建议用便宜模型
-        )
-    )
-    return sampling_result.content.text
-
-# Client 端：需要实现 sampling handler
-async def handle_sampling(params) -> str:
-    # Client 决定用哪个模型、是否允许这个 sampling 请求
-    response = await client.messages.create(
-        model=FAST_MODEL,   # 用便宜模型做辅助判断
-        messages=[{"role": m.role, "content": m.content.text} for m in params.messages],
-        max_tokens=params.max_tokens,
-    )
-    return response.content[0].text
-```
-
-**工程意义**：Sampling 让 MCP Server 可以构建"会思考"的工具，同时把 LLM 的控制权和成本留在 Client 端。
-
----
-
-## 13.1 MCP 调用边界（注释版）
-
-协议层成功不等于业务动作成功。Client 需要校验响应关联、超时、错误类型和工具结果大小，Server 仍需独立完成授权和幂等。
-
-```python
-import asyncio
-
-
-async def call_mcp_tool(client, request_id: str, name: str, arguments: dict):
-    # request_id 必须在请求、响应、Trace 和审计之间保持一致。
-    response = await asyncio.wait_for(
-        client.call_tool(request_id=request_id, name=name, arguments=arguments),
-        timeout=15,
-    )
-    if response.request_id != request_id:
-        # 关联错位时不能把别的请求结果当成当前业务结果。
-        raise ValueError("MCP response id mismatch")
-    if response.error:
-        # 协议错误和业务错误都转换为稳定内部错误码，避免原样泄露堆栈。
-        return {"ok": False, "error_code": response.error.code}
-    if len(response.content) > 1_000_000:
-        # 大结果应落受控存储并返回引用，不能直接挤爆上下文。
-        raise ValueError("MCP result exceeds size limit")
-    return {"ok": True, "content": response.content}
-```
-
-代码是 Client 侧示意；认证、租户授权、工具 schema、服务端超时和副作用幂等不能因为使用 MCP 就被协议层自动解决。工具发现结果变化时还要重建候选工具池和相关 prompt/cache。
-
-## learn-claude-code 对照：动态 MCP 工具池
-
-s19 用 mock server 演示 MCP 的最小不变量：连接 Server、发现工具、给工具加 `mcp__server__tool` 命名空间，再把它们合并进内置工具池；s20 把这套动态工具池放回完整 Agent Loop。
-
-这个实验特别适合补充本篇的协议细节：工具不是静态常量，连接状态、工具描述、权限标注和 prompt/cache 都会随 Server 变化。教学版只模拟 stdio 和 `tools/list`/`tools/call`，省略了多 Transport、OAuth、Server 反向通知、配置优先级和连接生命周期；这些部分不能从 mock 代码直接推断生产行为。对应实验：[s19_mcp_plugin/code.py](./实践/learn-claude-code/s19_mcp_plugin/code.py)、[s20_comprehensive/code.py](./实践/learn-claude-code/s20_comprehensive/code.py)。
+- [MCP Specification](https://modelcontextprotocol.io/specification)
+- [MCP Authorization](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)
+- [MCP Transports](https://modelcontextprotocol.io/specification/2025-11-25/basic/transports)

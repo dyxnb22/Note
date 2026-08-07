@@ -6,6 +6,8 @@ Computer Use 是一种视觉执行模式：模型读取屏幕截图，再提出�
 
 ---
 
+> **学习位置**：这是 Coding Agent 的高风险扩展。先完成 `05`、`07/08` 和 Eval，再学习 GUI；已有稳定 API 时不要默认使用 Computer Use。
+
 ## 1. 核心概念
 
 ### 普通 Tool Use vs Computer Use
@@ -108,6 +110,7 @@ def execute_computer_action(action: str, **params) -> str | None:
 
 def computer_use_loop(task: str):
     messages = [{"role": "user", "content": task}]
+    max_steps = 50
 
     tools = [
         {
@@ -118,7 +121,7 @@ def computer_use_loop(task: str):
         }
     ]
 
-    while True:
+    for step in range(max_steps):
         response = client.messages.create(
             model=PRIMARY_MODEL,
             max_tokens=4096,
@@ -137,7 +140,7 @@ def computer_use_loop(task: str):
             return "任务完成"
 
         if response.stop_reason != "tool_use":
-            break
+            return "任务停止：Provider 未返回可处理的 tool_use"
 
         # 执行所有工具调用
         tool_results = []
@@ -185,6 +188,8 @@ def computer_use_loop(task: str):
                     })
 
         messages.append({"role": "user", "content": tool_results})
+
+    return f"任务停止：超过最大步数 {max_steps}"
 ```
 
 ---
@@ -196,20 +201,24 @@ Computer Use **必须**在隔离环境里运行，不能直接操作宿主机桌
 ### Docker + Xvfb 方案（推荐）
 
 ```dockerfile
-FROM ubuntu:22.04
+# 这是可运行方向的示意；浏览器包和 Provider 运行时仍需按目标镜像核对。
+FROM debian:bookworm-slim
 
 RUN apt-get update && apt-get install -y \
-    xvfb \           # 虚拟显示
-    x11vnc \         # VNC 服务（可选，用于调试时查看屏幕）
-    xdotool \        # 模拟鼠标键盘
-    imagemagick \    # 截图工具（import 命令）
+    xvfb \
+    x11vnc \
+    xdotool \
+    imagemagick \
     python3 python3-pip \
-    chromium-browser \
+    chromium \
     && rm -rf /var/lib/apt/lists/*
 
-# 启动虚拟显示
 ENV DISPLAY=:1
-RUN echo '#!/bin/bash\nXvfb :1 -screen 0 1024x768x24 &\nsleep 1\nexec "$@"' > /entrypoint.sh \
+RUN printf '%s\n' \
+    '#!/bin/sh' \
+    'Xvfb :1 -screen 0 1024x768x24 &' \
+    'sleep 1' \
+    'exec "$@"' > /entrypoint.sh \
     && chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
@@ -315,7 +324,7 @@ def run_allowed_command(argv: list[str]) -> str:
     )
     return completed.stdout
 
-# 4. 人工确认高风险操作
+# 4. 人工确认高风险操作（仅示意；关键词不能替代策略引擎和资源级授权）
 HIGH_RISK_ACTIONS = ["购买", "付款", "删除", "提交", "发送邮件"]
 
 def needs_human_approval(action_description: str) -> bool:
@@ -324,6 +333,8 @@ def needs_human_approval(action_description: str) -> bool:
 # 5. 会话时长限制
 MAX_LOOP_SECONDS = 300  # 5 分钟超时
 ```
+
+关键词匹配最多只能作为用户体验层的提醒；真正的授权应根据 actor、资源、动作、审批范围和当前 State 由确定性策略判断，见 [安全与可控性](08_安全与可控性.md)。
 
 ---
 

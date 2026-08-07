@@ -14,11 +14,13 @@ description: |
 
 Build AI agents for any domain - customer service, research, operations, creative work, or specialized business processes.
 
+> **学习边界**：本 Skill 用 “model as agent” 强调动态策略主要来自模型；在本知识库的工程定义中，Agent 是模型、循环、工具、Context、状态、权限、验证和恢复共同组成的系统，不能因为追求简单就省略安全与可靠性边界。
+
 ## The Core Philosophy
 
-> **The model already knows how to be an agent. Your job is to get out of the way.**
+> **The model supplies dynamic policy; the harness gives it a bounded world in which to act.**
 
-An agent is not complex engineering. It's a simple loop that invites the model to act:
+The first useful agent can start as a simple loop that lets the model propose an action:
 
 ```
 LOOP:
@@ -28,7 +30,7 @@ LOOP:
   If respond: return to user
 ```
 
-**That's it.** The magic isn't in the code - it's in the model. Your code just provides the opportunity.
+This loop is the core mechanism, not the complete production system. The harness still owns execution, permissions, state, validation, recovery and observability.
 
 ## The Three Elements
 
@@ -73,7 +75,7 @@ Start simple. Add complexity only when real usage reveals the need:
 | Subagents | Isolated child agents | Exploration pollutes context |
 | Skills | On-demand knowledge | Domain expertise needed |
 
-**Most agents never need to go beyond Level 2.**
+**Many simple agents never need to go beyond Level 2; production complexity should be added only when evidence requires it.**
 
 ## Domain Examples
 
@@ -86,7 +88,7 @@ The pattern is universal. Only the capabilities change.
 
 ## Key Principles
 
-1. **The model IS the agent** - Code just runs the loop
+1. **The model provides the policy** - The harness runs and constrains the loop
 2. **Capabilities enable** - What it CAN do
 3. **Knowledge informs** - What it KNOWS how to do
 4. **Constraints focus** - Limits create clarity

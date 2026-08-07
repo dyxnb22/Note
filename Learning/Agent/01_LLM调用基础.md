@@ -1,591 +1,227 @@
 # LLM 调用基础
 
-这篇文档解决一个问题：**如何用 Python 正确、健壮、可维护地调用 LLM API**。
+这篇文章只解决一件事：**把模型 API 调用封装成可靠的应用边界**。读完应能处理消息、流式、结构化输出、用量、错误和 Provider 替换。
 
-不只是"能跑起来"，而是：多轮对话、流式输出、结构化输出、错误处理、多 Provider 切换——都能做对。
+> **学习位置**：这是 Agent 主线的第 1 篇。Context 的装配与压缩见 [Context 工程](./04_Context工程.md)，工具合同与执行见 [Tool Calling](./02_Tool%20Calling.md)。
+>
+> **职责边界**：本文负责 Provider/API 适配和调用级恢复；不维护 Agent Loop、工具权限、完整成本系统或部署 runbook。
 
-> **职责边界**：本文负责 Provider/API 适配、消息格式、流式、结构化输出、usage 和调用级恢复。Context 的构造、压缩和注入策略见 [Context 工程](./04_Context工程.md)，工具合同与执行边界见 [Tool Calling](./02_Tool%20Calling.md)。
-
----
-
-## 1. 安装与初始化
+## 1. 配置和客户端
 
 ```bash
-pip install openai anthropic python-dotenv
+pip install openai anthropic python-dotenv pydantic
 ```
 
-密钥管理：
 ```dotenv
-# .env 文件（不提交 git）
-OPENAI_API_KEY=sk-...
-ANTHROPIC_API_KEY=sk-ant-...
+# .env 不提交 git；生产环境改用 Secret Manager 或受控环境注入。
+OPENAI_API_KEY=...
+OPENAI_MODEL=...
 ```
 
 ```python
+import os
 from dotenv import load_dotenv
-load_dotenv()
-
 from openai import OpenAI
-client = OpenAI()  # 自动从环境变量读取
+
+load_dotenv()
+client = OpenAI()
+model = os.environ["OPENAI_MODEL"]  # 模型 ID 由部署配置提供，不写死在业务逻辑中。
 ```
 
-**生产项目建议**：把 client 初始化封装在 `services/llm_client.py`，不要在业务代码里直接 import SDK。
+客户端初始化应集中在适配层，业务代码只依赖自己的接口；这样密钥、超时、重试、usage 和 Provider 替换不会散落在各处。
 
----
+## 2. 消息和 Provider 合同
 
-## 2. Messages 与 Items
+不同 API 的外形不同，但 Agent 需要的最小信息相同：
 
-Chat Completions 和 Anthropic Messages 主要围绕 messages/blocks 组织上下文；OpenAI Responses 使用 `input` / `output` typed Items，一条 message、一次 reasoning、一次 function call 都是不同 Item。下面的 role 表用于理解兼容 messages 输入，不代表所有 Provider 的完整线协议。
+| 信息 | 作用 |
+|---|---|
+| 持久指令 | 角色、边界和输出合同；不要把每轮动态数据硬编码进去 |
+| 用户输入 | 当前目标和用户提供的数据 |
+| Assistant/Reasoning 结果 | 多轮状态或模型提出的下一步 |
+| Tool 结果 | 外部执行器返回的事实或错误 |
+| Usage/Request ID | 成本、限流、Trace 和重放关联 |
 
-### Role 说明
-
-| Role | 作用 | 何时使用 |
-|------|------|---------|
-| `system` / `developer` | 持久规则、身份、边界 | 每次对话开头，稳定不变 |
-| `user` | 用户当前输入 | 每轮用户发言 |
-| `assistant` | 模型历史回答 | 多轮对话时追加 |
-| `tool` | 工具执行结果 | Tool Calling 场景 |
-
-### Messages 设计原则
+OpenAI Responses 使用 typed Items；Chat Completions 和 Anthropic Messages 使用不同的 messages/blocks 形状。不要在业务层直接拼接某个 Provider 的原始字段，先转换成内部结果类型。
 
 ```python
 messages = [
-## system 设定稳定规则，不要把动态内容放这里
-{"role": "system", "content": "你是一个代码审查助手。只分析 Python 代码。"},
-
-## user 是当前输入
-{"role": "user", "content": "帮我看看这段代码有没有问题"},
-
-## 多轮时追加 assistant 历史
-{"role": "assistant", "content": "这段代码有个问题：..."},
-
-## 用户继续
-{"role": "user", "content": "那如果我改成这样呢？"},
+    # 稳定规则和权限边界；动态资料应由 Context 层装配。
+    {"role": "system", "content": "你是只读代码分析助手。"},
+    {"role": "user", "content": "分析这个函数的错误。"},
 ]
 ```
 
----
+## 3. 最小调用和会话历史
 
-## 3. 基础调用
-
-新项目优先使用 Responses API；下文较长的 Chat Completions 片段保留为兼容参考。模型 ID 不在教程里固定，统一通过环境变量显式指定；当前选型基线见 [版本与来源](./版本与来源.md)。
-
-### 单轮调用
+新项目优先使用当前 Provider 的推荐 API；下面示例只展示应用边界，不固定模型能力。
 
 ```python
-import os
-from openai import OpenAI
-
-client = OpenAI()
-model = os.environ["OPENAI_MODEL"]
-
 response = client.responses.create(
     model=model,
     instructions="你是一个 Python 助手。",
-    input="解释一下 Python 的 GIL",
+    input="解释 list 和 tuple 的区别。",
 )
 
-content = response.output_text
+answer = response.output_text
+usage = response.usage  # 记录 usage；不要把完整响应原样写入普通日志。
 ```
 
-### 多轮对话（维护历史）
+多轮对话可以维护内部历史，但历史增长必须交给 [Context 工程](./04_Context工程.md) 处理：
 
-```pseudocode
+```python
 class Conversation:
-def __init__(self, system_prompt: str, model: str):
-    self.model = model
-    self.messages = [{"role": "system", "content": system_prompt}]
+    def __init__(self, system_prompt: str) -> None:
+        self.messages = [{"role": "system", "content": system_prompt}]
 
-def chat(self, user_input: str) -> str:
-    self.messages.append({"role": "user", "content": user_input})
+    def append_user(self, text: str) -> None:
+        self.messages.append({"role": "user", "content": text})
 
-    response = client.chat.completions.create(
-        model=self.model,
-        messages=self.messages,
-    )
+    def append_assistant(self, text: str) -> None:
+        self.messages.append({"role": "assistant", "content": text})
 
-    assistant_msg = response.choices[0].message.content
-    self.messages.append({"role": "assistant", "content": assistant_msg})
-    return assistant_msg
+    # 调用前由 Context 层裁剪/摘要，不在这里静默丢最早消息。
 ```
-**注意**：messages 列表会无限增长，长对话需要截断策略（见 `04_Context工程.md`）。
 
----
+## 4. 流式输出和取消
 
-## 4. 流式输出（Streaming）
+流式只改变传输方式，不改变任务合同：服务端仍要保存最终结果、处理断线和区分“用户看到部分文本”与“任务已成功”。
 
-```pseudocode
-def stream_response(prompt: str):
-stream = client.chat.completions.create(
-    model=MODEL,
-    messages=[{"role": "user", "content": prompt}],
-    stream=True,
-)
-
-full_content = ""
-for chunk in stream:
-    delta = chunk.choices[0].delta.content
-    if delta:
-        print(delta, end="", flush=True)
-        full_content += delta
-
-print()
-return full_content
+```python
+def stream_text(prompt: str):
+    stream = client.responses.create(model=model, input=prompt, stream=True)
+    for event in stream:
+        # 只把安全的文本增量发给前端；工具事件走独立事件通道。
+        if event.type == "response.output_text.delta":
+            yield event.delta
 ```
-**async 版本（FastAPI / async 服务）**：
 
-```pseudocode
-async def stream_response_async(prompt: str):
-async_client = AsyncOpenAI()
-stream = await async_client.chat.completions.create(
-    model=MODEL,
-    messages=[{"role": "user", "content": prompt}],
-    stream=True,
-)
-
-async for chunk in stream:
-    delta = chunk.choices[0].delta.content
-    if delta:
-        yield delta
-```
----
+生产接口还要支持：请求级超时、用户取消、Provider 断线、重连后的重复事件过滤，以及最终结果落库。长任务不要占住一次 HTTP 连接，转到 [Durable Execution](./06_Durable%20Execution与分布式可靠性.md)。
 
 ## 5. 结构化输出
 
-### 方法一：JSON Mode（旧接口兼容）
+JSON Mode 通常只保证可解析 JSON；结构化输出通过 schema 降低字段错误，但仍要处理拒答、截断、业务约束和权限。
 
 ```python
-response = client.chat.completions.create(
-model=MODEL,
-messages=[
-    {"role": "system", "content": "总是返回 JSON。"},
-    {"role": "user", "content": "从这段文本里提取：姓名、年龄、职业"},
-],
-response_format={"type": "json_object"},
-)
+from pydantic import BaseModel, ValidationError
 
-import json
-data = json.loads(response.choices[0].message.content)
-```
 
-### 方法二：Responses + Pydantic 结构化（推荐）
+class Person(BaseModel):
+    name: str
+    age: int | None = None
+    occupation: str
 
-```pseudocode
-from pydantic import BaseModel
-from typing import Optional
-
-class ExtractedPerson(BaseModel):
-name: str
-age: Optional[int]
-occupation: str
-confidence: float
 
 response = client.responses.parse(
-model=os.environ["OPENAI_MODEL"],
-input=[
-    {"role": "user", "content": "John Smith, 35 岁，软件工程师"},
-],
-text_format=ExtractedPerson,
+    model=model,
+    input="John Smith，35 岁，软件工程师。",
+    text_format=Person,
 )
 
-person = response.output_parsed
-print(person.name, person.age)  # 类型安全，IDE 有补全
+try:
+    person = response.output_parsed
+except ValidationError:
+    # 结构校验失败时走明确的重试、拒答或人工路径，不把坏数据交给下游。
+    raise
 ```
-**为什么 Structured Outputs 比 JSON Mode 好**：JSON Mode 只保证合法 JSON，不保证字段名称和类型；Structured Outputs 按 schema 约束字段，并能让 SDK 解析成类型对象。仍要处理拒绝、截断、业务约束和下游权限。
 
----
+结构化输出不是业务事实验证。金额、权限、文件路径和外部动作仍由工具/服务端校验。
 
-## 6. Token 计算与成本意识
+## 6. Usage、成本和缓存
+
+调用层至少记录：`model`、`request_id`、输入/输出 token、缓存命中、延迟、结束原因和错误类别。价格不写死在本文，统一由 [成本与性能工程](./成本与性能工程.md) 使用版本化配置计算。
 
 ```python
-response = client.responses.create(...)
-
-print(response.usage.input_tokens)
-print(response.usage.output_tokens)
-
-# 单价必须来自带核对日期的版本化配置，不能写死在教程或业务逻辑中
-input_cost = response.usage.input_tokens * pricing.input_per_token
-output_cost = response.usage.output_tokens * pricing.output_per_token
+def usage_record(response) -> dict:
+    usage = response.usage
+    return {
+        "input_tokens": usage.input_tokens,
+        "output_tokens": usage.output_tokens,
+        "request_id": getattr(response, "id", None),
+    }
 ```
 
-**工程建议**：开发时记录每次调用的 token 用量；长期跑的系统必须有 cost monitoring；system prompt 太长 = 每次调用都在烧钱。
+Prompt Cache 只解决稳定前缀的重复计算；缓存条件、保留时间和价格随 Provider 变化，使用真实 usage 验证，不在这里维护固定折扣或实现。
 
----
+## 7. 超时、错误和重试
 
-## 7. 错误处理
-
-```python
-import openai
-import os
-from tenacity import retry, wait_exponential, stop_after_attempt
-
-MODEL = os.environ["OPENAI_MODEL"]  # 显式配置，避免无意使用过期默认值
-
-@retry(
-    wait=wait_exponential(multiplier=1, min=2, max=10),
-    stop=stop_after_attempt(3),
-    reraise=True,
-)
-def call_llm(messages: list) -> str:
-    try:
-        response = client.chat.completions.create(
-            model=MODEL,
-            messages=messages,
-        )
-        return response.choices[0].message.content
-
-    except openai.RateLimitError:
-        raise  # tenacity 会自动重试
-
-    except openai.APIConnectionError:
-        raise  # 重试
-
-    except openai.AuthenticationError:
-        raise RuntimeError("API Key 无效，请检查 OPENAI_API_KEY")
-
-    except openai.BadRequestError as e:
-        raise ValueError(f"请求格式错误: {e}")
-```
-
-### 常见错误对照表
-
-| 错误类型 | 原因 | 处理方式 |
-|---------|------|---------|
-| `RateLimitError` | 超过速率限制 | 指数退避重试 |
-| `APIConnectionError` | 网络超时 | 重试 + 超时设置 |
-| `AuthenticationError` | Key 无效 | 不重试，报警 |
-| `BadRequestError: context_length_exceeded` | 输入太长 | 截断 context 后重试 |
-| `BadRequestError: content_policy` | 触发内容过滤 | 不重试，返回友好提示 |
-
----
-
-## 8. 多 Provider 设计
-
-```pseudocode
-from typing import Protocol
-
-class LLMProvider(Protocol):
-def complete(self, messages: list[dict], **kwargs) -> str: ...
-
-class OpenAIProvider:
-def __init__(self, model: str):
-    self.client = OpenAI()
-    self.model = model
-
-def complete(self, messages, **kwargs) -> str:
-    response = self.client.chat.completions.create(
-        model=self.model, messages=messages, **kwargs,
-    )
-    return response.choices[0].message.content
-
-class AnthropicProvider:
-def __init__(self, model: str):
-    import anthropic
-    self.client = anthropic.Anthropic()
-    self.model = model
-
-def complete(self, messages, **kwargs) -> str:
-    system = next((m["content"] for m in messages if m["role"] == "system"), None)
-    user_messages = [m for m in messages if m["role"] != "system"]
-    response = self.client.messages.create(
-        model=self.model, system=system,
-        messages=user_messages, max_tokens=kwargs.get("max_tokens", 1024),
-    )
-    return response.content[0].text
-
-def get_provider(name: str) -> LLMProvider:
-providers = {
-    "primary": OpenAIProvider(settings.primary_model),
-    "fast": OpenAIProvider(settings.fast_model),
-    "anthropic": AnthropicProvider(settings.anthropic_model),
-}
-return providers[name]
-```
----
-
-## 8.5 Fallback Model 切换（容灾）
-
-生产环境主模型过载（529）时，自动切换到备用模型：
-
-```python
-PRIMARY_MODEL = settings.primary_model
-FALLBACK_MODEL = settings.fallback_model  # 更便宜、更快，质量略低
-
-class ModelSelector:
-    def __init__(self):
-        self.current = PRIMARY_MODEL
-        self.consecutive_529 = 0
-        self.MAX_CONSECUTIVE_529 = 3
-
-    def on_overloaded(self):
-        self.consecutive_529 += 1
-        if self.consecutive_529 >= self.MAX_CONSECUTIVE_529:
-            if self.current == PRIMARY_MODEL:
-                print(f"[429/529 x{self.MAX_CONSECUTIVE_529}] switching to fallback")
-                self.current = FALLBACK_MODEL
-                self.consecutive_529 = 0
-
-    def on_success(self):
-        self.consecutive_529 = 0
-        # 可选：成功多次后切回主模型
-        # self.current = PRIMARY_MODEL
-
-selector = ModelSelector()
-
-def call_with_fallback(messages: list, **kwargs):
-    for attempt in range(10):
-        try:
-            resp = client.messages.create(model=selector.current, messages=messages, **kwargs)
-            selector.on_success()
-            return resp
-        except Exception as e:
-            if "overloaded" in str(e).lower() or "529" in str(e):
-                selector.on_overloaded()
-                wait = min(0.5 * (2 ** attempt), 32)
-                time.sleep(wait)
-                continue
-            raise  # 非过载错误直接抛出
-    raise RuntimeError("Max retries exceeded")
-```
-
----
-
-## 9. 多模态输入（Vision + PDF）
-
-### 图片输入
-
-Agent 可以接受图片作为输入（截图分析、图表理解、UI 检查等）：
-
-```python
-import base64
-import anthropic
-
-client = anthropic.Anthropic()
-
-# 方式一：base64 编码（本地文件）
-with open("screenshot.png", "rb") as f:
-    image_data = base64.standard_b64encode(f.read()).decode("utf-8")
-
-response = client.messages.create(
-    model=PRIMARY_MODEL,
-    max_tokens=1024,
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "image",
-                    "source": {
-                        "type": "base64",
-                        "media_type": "image/png",   # image/jpeg, image/gif, image/webp
-                        "data": image_data,
-                    },
-                },
-                {
-                    "type": "text",
-                    "text": "这张截图里有什么错误？",
-                },
-            ],
-        }
-    ],
-)
-
-# 方式二：URL（公开可访问的图片）
-response = client.messages.create(
-    model=PRIMARY_MODEL,
-    max_tokens=1024,
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "image",
-                    "source": {
-                        "type": "url",
-                        "url": "https://example.com/chart.png",
-                    },
-                },
-                {"type": "text", "text": "分析这个图表的趋势"},
-            ],
-        }
-    ],
-)
-```
-
-图片格式、单张大小、每请求数量和 token 计算都属于 Provider 与模型能力，上传前按官方 Vision 指南校验；客户端也应先限制 MIME、像素、文件大小和解码资源，不能只依赖 API 拒绝。
-
-### PDF 文档输入
-
-部分 Claude 模型和请求形态支持直接提交 PDF；这不表示所有模型、平台或文档都能保留同等布局理解，运行前检查模型能力，并为扫描件、超大文件和敏感内容保留提取或拒绝路径：
-
-```python
-with open("technical_report.pdf", "rb") as f:
-    pdf_data = base64.standard_b64encode(f.read()).decode("utf-8")
-
-response = client.messages.create(
-    model=PRIMARY_MODEL,
-    max_tokens=4096,
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "document",
-                    "source": {
-                        "type": "base64",
-                        "media_type": "application/pdf",
-                        "data": pdf_data,
-                    },
-                },
-                {"type": "text", "text": "总结这份报告的核心结论"},
-            ],
-        }
-    ],
-)
-```
-
-**PDF 使用场景**：
-- 合同、法律文件分析（保留原始格式和布局）
-- 技术文档 QA
-- 财务报告提取（包含图表和表格）
-- 比先 OCR 再传文本质量更高（模型直接看 PDF 原始渲染）
-
-### 多模态在 Agent Pipeline 中的应用
-
-```python
-def analyze_ui_screenshot(screenshot_path: str) -> dict:
-    """Agent 工具：分析 UI 截图，返回结构化分析结果"""
-    with open(screenshot_path, "rb") as f:
-        img_data = base64.standard_b64encode(f.read()).decode("utf-8")
-
-    response = client.messages.create(
-        model=PRIMARY_MODEL,
-        max_tokens=1024,
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "image",
-                        "source": {"type": "base64", "media_type": "image/png", "data": img_data},
-                    },
-                    {
-                        "type": "text",
-                        "text": """分析这个界面截图，返回 JSON：
-{
-  "errors": ["可见的错误信息列表"],
-  "current_state": "当前界面状态描述",
-  "suggested_action": "建议的下一步操作"
-}""",
-                    },
-                ],
-            }
-        ],
-    )
-    import json
-    return json.loads(response.content[0].text)
-```
-
----
-
-## 9.5 模型选择与版本管理
-
-模型 ID、能力、价格和可用区域不是稳定知识，不在正文维护“当前最佳模型”榜单。把主力、轻量和回退模型作为部署配置，并对每次替换运行同一套质量、安全、延迟与成本回归。官方入口与升级检查见 [版本与来源](版本与来源.md)。
-
----
-
-## 9.6 可测试的 Provider 适配边界（注释版）
-
-把 Provider SDK 包在一个很薄的适配层里，Agent 层只依赖自己的结果类型。这样可以把“超时、空响应、可重试错误”等边界写成单元测试，而不是散落在业务代码中。
-
-下面是一个可运行的 Python 3.11 结构示意；`Provider` 是协议，具体厂商 SDK 需要在适配器中实现它。
+重试必须区分“暂时不可用”和“请求本身错误”。非幂等工具调用的重试由 [Tool Calling](./02_Tool%20Calling.md) 和 [Durable Execution](./06_Durable%20Execution与分布式可靠性.md) 决定，不能在 Provider 适配层盲目重试。
 
 ```python
 import asyncio
-from dataclasses import dataclass
-from typing import Any, Protocol
-
-
-@dataclass(frozen=True)
-class ProviderResult:
-    """统一后的模型结果；Agent 不需要知道底层 SDK 的字段名。"""
-
-    text: str | None
-    tool_calls: list[dict[str, Any]]
-    request_id: str | None = None  # 用于把模型调用和日志/账单关联起来。
-
-
-class Provider(Protocol):
-    async def complete(self, *, messages: list[dict[str, str]]) -> ProviderResult:
-        """厂商适配器必须提供的最小接口。"""
 
 
 class LLMCallError(RuntimeError):
-    """让上层按稳定错误码处理，而不是匹配厂商异常文本。"""
-
     def __init__(self, code: str) -> None:
         super().__init__(code)
         self.code = code
 
 
-async def call_model(
-    provider: Provider,
-    messages: list[dict[str, str]],
-    *,
-    timeout_s: float = 30.0,
-) -> ProviderResult:
-    # 超时必须在调用边界处理，避免一次卡住拖垮整个 Agent 请求。
+async def call_model(provider, messages: list[dict], *, timeout_s: float = 30.0):
     try:
-        result = await asyncio.wait_for(
-            provider.complete(messages=messages),
-            timeout=timeout_s,
+        # 超时在调用边界处理，避免一次 Provider 卡住整个 Agent。
+        return await asyncio.wait_for(
+            provider.complete(messages=messages), timeout=timeout_s
         )
     except TimeoutError as exc:
         raise LLMCallError("provider_timeout") from exc
-
-    # 空文本且没有工具调用通常不是有效的 Agent 步骤；尽早失败便于重试或降级。
-    if not result.text and not result.tool_calls:
-        raise LLMCallError("empty_provider_response")
-    return result
+    except PermissionError as exc:
+        # 认证/权限问题不应反复重试；应报警并返回明确失败。
+        raise LLMCallError("provider_auth") from exc
 ```
 
-这个边界还应至少覆盖三类测试：Provider 超时会被转换为稳定错误码；空响应不会进入下一轮循环；合法的工具调用不会被误判为空响应。重试策略建议放在更上层统一实现，并使用请求级幂等键，避免适配器和 Agent 各自重试造成倍增。
+建议把错误归一化为稳定错误码，例如 `rate_limited`、`provider_timeout`、`invalid_request`、`context_too_large`、`provider_unavailable`。指数退避、最大次数、fallback 和响应式压缩都应记录停止原因。
 
-## 10. Prompt Caching（成本优化）
+## 8. Provider 适配和 fallback
 
-Anthropic 和 OpenAI 支持对 system prompt 的 KV Cache 跨请求复用：
+Agent 层只依赖内部结果类型，不依赖某个 SDK 的字段名：
 
 ```python
-response = anthropic_client.messages.create(
-model=settings.anthropic_model,
-system=[
-    {
-        "type": "text",
-        "text": very_long_system_prompt,
-        "cache_control": {"type": "ephemeral"},
-    }
-],
-messages=[{"role": "user", "content": user_input}],
-max_tokens=1024,
-)
+from dataclasses import dataclass
+from typing import Any, Protocol
 
-print(response.usage.cache_read_input_tokens)   # 命中的 token 数
+
+@dataclass(frozen=True)
+class ModelResult:
+    text: str | None
+    tool_calls: list[dict[str, Any]]
+    request_id: str | None = None
+
+
+class Provider(Protocol):
+    async def complete(self, *, messages: list[dict]) -> ModelResult: ...
+
+
+async def complete_with_fallback(primary, fallback, messages: list[dict]) -> ModelResult:
+    try:
+        return await call_model(primary, messages)
+    except LLMCallError as exc:
+        if exc.code not in {"rate_limited", "provider_unavailable", "provider_timeout"}:
+            raise
+        # fallback 仍需通过相同的安全、数据和预算策略。
+        return await call_model(fallback, messages)
 ```
 
-**工程效益**：长而稳定的前缀更容易从缓存受益，但命中条件、最低长度、保留时间和折扣会变化。用真实 usage 与账单验证收益，不在教程里承诺固定节省比例。
+fallback 选择不仅看价格和可用性，还要检查数据区域、模型能力、工具调用兼容性、质量回归和租户策略。部署级灰度和回滚见 [部署与生产化](./12_部署与生产化.md)。
 
----
+## 9. 图片、PDF 和其他多模态输入
 
-## learn-claude-code 对照：错误恢复不是一个 retry 装饰器
+多模态输入属于 Provider 能力，不是 Agent 特有机制。上传前必须校验 MIME、大小、像素/页数、敏感信息和解析失败路径；不要把“模型能看 PDF”当作所有文档都能正确读取。
 
-s11 把模型调用失败分成不同恢复路径：临时限流或服务错误走指数退避；输出被截断时提高输出预算或请求 continuation；上下文超限时先做 reactive compact；连续失败时才考虑 fallback model。每条路径都需要上限、transition 原因和最终可诊断错误，不能无限重试。
+- PDF、扫描件、Office 和表格入库：看 [文档摄取与解析](./文档摄取与解析.md)。
+- 截图驱动操作：看 [Computer Use 与 GUI Agent](./Computer%20Use与GUI%20Agent.md)。
+- 语音实时通道：看 [语音与实时对话 Agent](./语音与实时对话Agent.md)。
 
-s20 把恢复层包在主循环外，使工具分发逻辑不必知道 429、529、输出预算和 prompt-too-long 的细节。对应实验：[s11_error_recovery/code.py](./实践/learn-claude-code/s11_error_recovery/code.py) 和 [s20_comprehensive/code.py](./实践/learn-claude-code/s20_comprehensive/code.py)；项目中的模型名、错误码和阈值只作为版本化示例，实际接入时以 Provider 文档为准。
+## 10. 测试和升级
+
+Provider 适配层至少测试：超时转稳定错误码、空响应被拒绝、结构化输出失败、工具调用被正确归一化、取消不会留下未关闭资源。Provider、模型 ID、媒体限制、结构化输出和错误字段在升级前重新核对 [版本与来源](./版本与来源.md)。
+
+实践对照：[ai-agent-learning 项目 03](./实践/ai-agent-learning/agent-learning-projects/03_openai_cli_chat/README.md)、[learn-claude-code s11](./实践/learn-claude-code/s11_error_recovery/code.py)。
 
 ## 官方来源
 
-- [OpenAI Responses 迁移](https://developers.openai.com/api/docs/guides/migrate-to-responses)
+- [OpenAI Responses API](https://developers.openai.com/api/docs/guides/migrate-to-responses)
 - [OpenAI Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
 - [Anthropic Messages API](https://platform.claude.com/docs/en/api/messages)
 
-核对日期：2026-07-30。模型、媒体限制、缓存条件、错误类型和存储默认值在部署或升级前重新核对。
+核对日期：2026-07-30。模型、媒体限制、错误类型、缓存条件和价格在部署或升级前重新核对。

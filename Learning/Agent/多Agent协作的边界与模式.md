@@ -4,6 +4,8 @@
 
 框架实现可参考 [LangGraph](./LangGraph.md) 的 Supervisor 示例；本文只讨论与框架无关的选型、状态、安全和评测边界。跨进程、跨厂商把任务委托给另一个 Agent 产品时，见 [跨Agent协议与A2A](./跨Agent协议与A2A.md)，不要与进程内多角色混为一谈。
 
+> **学习位置**：完成单 Agent、Workflow、Durable Execution 和 Eval 后阅读；先建立单 Agent/Workflow Baseline，再证明拆分的净收益。
+
 ## 1. 先做选型，不先画角色
 
 | 条件 | 更合适的方式 | 原因 |

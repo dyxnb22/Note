@@ -26,9 +26,9 @@
 
 ## 选择建议
 
-第一次系统学习 Agent：先完成 `ai-agent-learning/agent-learning-projects/01–09`，再按目标选择 RAG、MCP 或 LangGraph 专项。
+第一次系统学习 Agent：先完成 `ai-agent-learning/agent-learning-projects/01–06`，再按目标选择 `07–09` 的 LangGraph/Memory、`10` 的 RAG 或 `11` 的 MCP；不把所有分支当成必修重复通读。
 
-已经能调用模型并写过基础 Agent：直接进入 `learn-claude-code/s01–s20`，或用 `ai-agent-learning/DevPilot` 做综合项目。
+已经能调用模型并写过基础 Agent：从 `learn-claude-code` 选择与当前问题对应的实验（例如 s03 权限、s07–s08 Context、s12–s14 长任务、s18 Worktree、s19 MCP），不需要把 s01–s20 再完整重做；也可以直接用 `ai-agent-learning/DevPilot` 做综合项目。
 
 希望用 Rust 做 Agent：先完成基础 Agent Loop，再学习 Rust 01–12 中的目标章节，最后进入 `rust-agent-runtime`；完整顺序见 [Rust Agent 与 Go 后端学习地图](../../00_Navigation/Rust-Agent与Go后端学习地图.md)。
 

@@ -210,17 +210,7 @@ Human-in-the-loop 的典型触发条件：
 - 超过预设成本阈值
 - 处理敏感数据或个人信息
 
-```python
-### LangGraph 里的中断示例（详见 LangGraph.md）
-from langgraph.graph import StateGraph
-from langgraph.checkpoint.memory import MemorySaver
-
-### `interrupt_before` 让图在这个节点前暂停，等待人工确认
-compiled = graph.compile(
-checkpointer=MemorySaver(),
-interrupt_before=["sensitive_action_node"],
-)
-```
+实现上，通用 Agent 只需要把任务置为 `waiting_human`，持久化待审批动作和当前状态，收到决定后再恢复；LangGraph 的 `interrupt`、`Command(resume=...)` 和持久化 Checkpoint 见 [LangGraph](./LangGraph.md)。本文不再复制框架 API。
 
 ---
 

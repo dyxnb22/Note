@@ -11,7 +11,7 @@
 | 03 | [OpenAI CLI Chat](./03_openai_cli_chat/README.md) | 多轮 messages 和 Provider 调用 | [LLM 调用基础](../../../01_LLM调用基础.md) |
 | 04 | [Tool Calling Agent](./04_tool_calling_agent/README.md) | schema → tool call → tool result | [Tool Calling](../../../02_Tool%20Calling.md) |
 | 05 | [Simple Agent Loop](./05_simple_agent_loop/README.md) | 不依赖框架的有限 Agent Loop | [Agent 架构与设计](../../../03_Agent架构与设计.md) |
-| 06 | [FastAPI Agent Service](./06_fastapi_agent_service/README.md) | Agent 服务化和请求边界 | [部署与生产化](../../../12_部署与生产化.md) |
+| 06 | [FastAPI Agent Service](./06_fastapi_agent_service/README.md) | Agent 服务化和请求边界 | [Agent 架构与设计](../../../03_Agent架构与设计.md) · [部署与生产化](../../../12_部署与生产化.md) |
 | 07 | [LangGraph Basic Workflow](./07_langgraph_basic_workflow/README.md) | State、Node、Edge 和 Graph | [Workflow 与编排](../../../Workflow与编排.md) |
 | 08 | [LangGraph Tool Agent](./08_langgraph_tool_agent/README.md) | 图中的工具节点和条件边 | [LangGraph](../../../LangGraph.md) |
 | 09 | [LangGraph Memory Agent](./09_langgraph_memory_agent/README.md) | State、thread_id 和 Checkpoint | [Memory 与状态管理](../../../Memory与状态管理.md) |
