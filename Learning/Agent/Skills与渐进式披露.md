@@ -53,25 +53,6 @@ Skill「订单排查」
 
 Skill 可以**不绑定** MCP（纯本地函数），也可以把 MCP 工具作为实现后端。换模型时：MCP Server 与 Skill 文档可复用；变的是 Client 侧的工具格式适配。
 
-## 4.1 Skill 加载边界（注释版）
-
-Skill 目录常驻、正文按需加载；加载器需要校验来源、版本和授权，不能让 Skill 文档绕过工具策略。
-
-```python
-def load_skill(name, *, catalog, reader, actor, budget):
-    entry = catalog.get(name)
-    if not entry or not entry.allowed_for(actor):
-        raise PermissionError("skill is not available")
-    if entry.token_estimate > budget:
-        raise ValueError("skill exceeds context budget")
-
-    # 正文作为能力说明注入，不等同于系统指令；工具层仍需重新授权。
-    content = reader.read(entry.path, expected_version=entry.version)
-    return {"name": name, "version": entry.version, "content": content}
-```
-
-Skill 更新后要重跑关联任务 Eval；目录摘要、完整正文和工具 schema 的版本必须能在 Trace 中对应起来。
-
 ## 5. 面试口述要点
 
 - Skill = 可复用能力单元 + 渐进式披露，不是又一个 Function Calling 别名。

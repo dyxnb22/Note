@@ -135,25 +135,6 @@ A 让 B 做、B 又派回 A。防护：
 
 跨产品委托的状态机与取消见 [跨Agent协议与A2A](跨Agent协议与A2A.md)。
 
-## 8.1 共享事实写入门禁（注释版）
-
-多 Agent 的共享黑板只允许写入经过 Schema、来源和冲突检查的事实；Worker 的“分析意见”不能直接升级成公共事实。
-
-```python
-def publish_fact(fact, *, schema, evidence_store, blackboard):
-    # 先校验结构，再检查每个关键字段是否有可追溯证据。
-    schema.validate(fact)
-    for claim in fact.claims:
-        if not evidence_store.supports(claim, fact.source_ids):
-            return {"published": False, "reason": "missing_evidence"}
-    if blackboard.conflicts_with(fact):
-        return {"published": False, "reason": "conflict_requires_arbitration"}
-    blackboard.put(fact)
-    return {"published": True}
-```
-
-只有通过门禁的对象才允许被后续 Agent 读取；无法裁决的冲突应升级给仲裁 Agent 或人工，而不是按最后写入者覆盖。
-
 ## 9. 最小实践
 
 选择一个可分成三份只读分析的任务：先用单 Agent 完成，再实现 Manager–Worker。每个 Worker 只接收必要上下文并返回固定 JSON；Manager 检查 Schema、去重证据并汇总。随后注入一个 Worker 超时、一个重复结果和一个错误证据，验证系统能降级完成且不会把未验证产物标为成功。额外注入「两个 Worker 结论冲突」与「互相指派」，验证仲裁与 TTL。

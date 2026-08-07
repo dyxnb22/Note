@@ -1,400 +1,139 @@
 # Computer Use 与 GUI Agent
 
-这篇文档解决一个问题：**如何让 AI Agent 操作图形界面（浏览器、桌面应用），而不仅仅是调用 API**。
+Computer Use 让 Agent 通过截图观察界面，再提出点击、输入、滚动或快捷键动作。它适合没有稳定 API 的旧系统，但成本、脆弱性和安全风险都高；已有 API 时优先 [Tool Calling](./02_Tool%20Calling.md)。Provider 的工具名、动作 schema、模型 ID 和支持平台都随版本变化，下面的名称只作概念示例。
 
-Computer Use 是一种视觉执行模式：模型读取屏幕截图，再提出点击、输入、滚动或快捷键等操作。Provider 的工具名称、版本字段、模型 ID 和支持的平台都会变化；本笔记中的 `computer_*`、`text_editor_*`、`bash_*` 以及模型名都是版本化示例，运行前必须核对对应 Provider 的官方文档。
+> **学习位置**：这是 Coding Agent 的高风险扩展。先完成 `05`、`07/08` 和 Eval，再学习 GUI；运行前核对 Provider 官方文档。
 
----
+## 1. 视觉执行循环
 
-> **学习位置**：这是 Coding Agent 的高风险扩展。先完成 `05`、`07/08` 和 Eval，再学习 GUI；已有稳定 API 时不要默认使用 Computer Use。
-
-## 1. 核心概念
-
-### 普通 Tool Use vs Computer Use
-
-```
-普通 Tool Use：
-  模型 → 调用函数(参数) → 返回文本结果 → 模型
-
-Computer Use：
-  模型 → 决定操作(点击/输入/截图) → 执行操作 → 截图 → 模型
-                    ↑_______________________________________↓
-                           视觉感知循环（Visual Loop）
+```text
+普通 Tool：模型 → 函数(参数) → 文本事实 → 模型
+GUI Agent：模型 → 屏幕动作 → 隔离环境执行 → 截图/事件 → 模型
 ```
 
-**关键差别**：Computer Use 的"工具结果"是截图（图片），不是文本。模型通过"看"屏幕来感知当前状态，而不是读取 API 返回值。
+关键差异是：工具结果主要是视觉状态，不是结构化 API 事实。因此每个动作都可能受布局、焦点、弹窗、登录状态和分辨率影响，不能只凭“动作已发送”判断成功。
 
-### 常见能力组合（Provider 示例）
+典型能力组合可以包括 `computer`、文件编辑和 `bash`，但它们不是跨 Provider 的标准：OpenAI Responses 与 Anthropic Messages 的工具类型、事件和回填格式不同。
 
-```python
-tools = [
-    {
-        "type": settings.computer_tool_type,
-        "name": "computer",
-        "display_width_px": 1024,
-        "display_height_px": 768,
-        "display_number": 1,           # X display number，Linux 环境
-    },
-    {
-        "type": settings.text_editor_tool_type,
-        "name": "str_replace_editor",  # 文件编辑工具（比截图更高效的文件操作）
-    },
-    {
-        "type": settings.bash_tool_type,
-        "name": "bash",                # 执行 shell 命令
-    },
-]
+## 2. 原子动作
+
+| 动作 | 输入 | 用途 |
+|---|---|---|
+| `screenshot` | 无 | 获取当前屏幕 |
+| `left_click` / `right_click` | 坐标 | 点击控件 |
+| `double_click` | 坐标 | 打开项目或文件 |
+| `type` | 文本 | 在当前焦点输入 |
+| `key` | 按键组合 | 提交、复制、退出等 |
+| `scroll` | 方向、步数、坐标 | 浏览页面 |
+| `drag` / `mouse_move` | 坐标 | 拖动或定位 |
+
+Provider 可能返回不同名称和坐标单位；适配器负责把版本化动作转换成内部动作，并在执行前做参数、窗口和权限校验。
+
+## 3. 最小执行合同
+
+```text
+for step in range(max_steps):
+    response = provider.decide(task, screenshot, allowed_actions)
+    record(response)
+
+    if response.final:
+        return verify_state_or_stop(response)
+
+    results = []
+    for action in response.actions:
+        policy.check(actor, action, current_state)
+        result = sandbox.execute(action, timeout=action_timeout)
+        results.append(result)
+        if result.side_effecting:
+            verify_or_request_approval(result)
+
+    screenshot = capture_at_checkpoint(results)
+    record(results, screenshot)
+
+return stopped("max_steps")
 ```
 
-这只是 Anthropic 风格的能力组合，不是跨 Provider 标准。OpenAI 在 Responses API 中使用自己的 `computer` 工具与 typed Items；工具类型、动作名、请求字段和模型兼容性分别以官方文档为准。
+实现时至少保证：
 
----
+- 模型只能提出动作，沙箱/策略层决定能否执行；
+- 每个动作有 `action_id`、超时、取消和结果状态；
+- 必要时回填截图，但不要把每个中间画面都送入模型；
+- 不可逆动作先预览或人工审批，完成后用 UI 状态或 API 事实验证；
+- 最大步数、总时长、费用、网络和文件范围都有硬上限。
 
-## 2. Computer 工具的原子操作
+## 4. 何时使用
 
-Computer 工具通常提供以下原子动作；精确动作名和参数随 Provider/版本变化：
+| 方案 | 定位方式 | 成本/稳定性 | 优先场景 |
+|---|---|---|---|
+| API / 普通工具 | 结构化资源 ID | 最低、最稳定 | 有可靠接口的业务 |
+| Playwright/Selenium | DOM、selector | 较低、可精确断言 | 结构稳定的网页自动化 |
+| Computer Use | 视觉与坐标 | 较高、受 UI 变化影响 | 旧系统、无 API、非结构化界面 |
 
-| action | 参数 | 说明 |
-|--------|------|------|
-| `screenshot` | 无 | 截取当前屏幕，返回 base64 图片 |
-| `left_click` | `coordinate: [x, y]` | 左键单击 |
-| `right_click` | `coordinate: [x, y]` | 右键单击 |
-| `double_click` | `coordinate: [x, y]` | 双击 |
-| `type` | `text: str` | 在当前焦点位置输入文字 |
-| `key` | `text: str` | 按键（如 `"ctrl+c"`, `"Return"`, `"Escape"`）|
-| `scroll` | `coordinate`, `direction`, `amount` | 滚动 |
-| `mouse_move` | `coordinate: [x, y]` | 移动鼠标（不点击）|
-| `left_click_drag` | `start_coordinate`, `coordinate` | 拖拽 |
-| `cursor_position` | 无 | 返回当前鼠标位置 |
+选择顺序：有 API 用 API；没有 API 但 DOM 稳定用 Playwright；只有 GUI 或界面需要视觉判断时才用 Computer Use。文件和 CLI 任务直接使用受限的编辑/Shell 工具，不要截图读文件。
 
----
+## 5. 隔离环境
 
-## 3. 完整执行循环
+Computer Use 不应直接操作宿主机桌面。最小环境通常是容器或独立虚拟机中的浏览器、虚拟显示（如 Xvfb）和动作驱动器：
 
-```python
-import anthropic
-import base64
-import subprocess
-
-client = anthropic.Anthropic()
-
-def take_screenshot() -> str:
-    """截取屏幕，返回 base64 编码的 PNG"""
-    # Linux with Xvfb
-    result = subprocess.run(
-        ["import", "-window", "root", "-display", ":1", "/tmp/screen.png"],
-        capture_output=True,
-    )
-    with open("/tmp/screen.png", "rb") as f:
-        return base64.standard_b64encode(f.read()).decode("utf-8")
-
-def execute_computer_action(action: str, **params) -> str | None:
-    """执行 computer action，有些 action 需要返回截图"""
-    if action == "screenshot":
-        return take_screenshot()
-
-    elif action == "left_click":
-        x, y = params["coordinate"]
-        subprocess.run(["xdotool", "mousemove", str(x), str(y), "click", "1"])
-        return None
-
-    elif action == "type":
-        subprocess.run(["xdotool", "type", "--", params["text"]])
-        return None
-
-    elif action == "key":
-        subprocess.run(["xdotool", "key", "--", params["text"]])
-        return None
-
-    # ... 其他 action 类似
-
-def computer_use_loop(task: str):
-    messages = [{"role": "user", "content": task}]
-    max_steps = 50
-
-    tools = [
-        {
-            "type": settings.computer_tool_type,
-            "name": "computer",
-            "display_width_px": 1024,
-            "display_height_px": 768,
-        }
-    ]
-
-    for step in range(max_steps):
-        response = client.messages.create(
-            model=PRIMARY_MODEL,
-            max_tokens=4096,
-            tools=tools,
-            messages=messages,
-        )
-
-        # 追加 assistant 回复
-        messages.append({"role": "assistant", "content": response.content})
-
-        if response.stop_reason == "end_turn":
-            # 任务完成，返回最终文本
-            for block in response.content:
-                if hasattr(block, "text"):
-                    return block.text
-            return "任务完成"
-
-        if response.stop_reason != "tool_use":
-            return "任务停止：Provider 未返回可处理的 tool_use"
-
-        # 执行所有工具调用
-        tool_results = []
-        for block in response.content:
-            if block.type != "tool_use":
-                continue
-
-            if block.name == "computer":
-                action = block.input["action"]
-                params = {k: v for k, v in block.input.items() if k != "action"}
-                result = execute_computer_action(action, **params)
-
-                if result is not None:  # screenshot 返回图片
-                    tool_results.append({
-                        "type": "tool_result",
-                        "tool_use_id": block.id,
-                        "content": [
-                            {
-                                "type": "image",
-                                "source": {
-                                    "type": "base64",
-                                    "media_type": "image/png",
-                                    "data": result,
-                                },
-                            }
-                        ],
-                    })
-                else:  # 非截图操作，返回成功确认
-                    # 操作完成后立即截图，让模型看到结果
-                    screenshot = take_screenshot()
-                    tool_results.append({
-                        "type": "tool_result",
-                        "tool_use_id": block.id,
-                        "content": [
-                            {"type": "text", "text": f"action '{action}' executed"},
-                            {
-                                "type": "image",
-                                "source": {
-                                    "type": "base64",
-                                    "media_type": "image/png",
-                                    "data": screenshot,
-                                },
-                            },
-                        ],
-                    })
-
-        messages.append({"role": "user", "content": tool_results})
-
-    return f"任务停止：超过最大步数 {max_steps}"
+```text
+宿主机
+  └─ 受限容器/VM
+       ├─ DISPLAY=:1 + Xvfb
+       ├─ 浏览器或目标应用
+       ├─ computer adapter
+       └─ workspace（只挂载必要目录）
 ```
 
----
+启动前固定并验证：
 
-## 4. 沙箱环境搭建
+- 只读或最小可写文件系统，禁止访问宿主机敏感目录；
+- 网络默认关闭，按域名/端口放行；
+- CPU、内存、进程、墙钟时间、截图大小和日志容量上限；
+- 容器启动后用测试页面截图，确认显示、焦点、浏览器和清理流程正常；
+- 任务结束销毁会话，避免 Cookie、下载文件和截图残留。
 
-Computer Use **必须**在隔离环境里运行，不能直接操作宿主机桌面。
+## 6. 成本与可靠性
 
-### Docker + Xvfb 方案（推荐）
-
-```dockerfile
-# 这是可运行方向的示意；浏览器包和 Provider 运行时仍需按目标镜像核对。
-FROM debian:bookworm-slim
-
-RUN apt-get update && apt-get install -y \
-    xvfb \
-    x11vnc \
-    xdotool \
-    imagemagick \
-    python3 python3-pip \
-    chromium \
-    && rm -rf /var/lib/apt/lists/*
-
-ENV DISPLAY=:1
-RUN printf '%s\n' \
-    '#!/bin/sh' \
-    'Xvfb :1 -screen 0 1024x768x24 &' \
-    'sleep 1' \
-    'exec "$@"' > /entrypoint.sh \
-    && chmod +x /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+```text
+任务成本 = 图片/文本输入 + 模型输出 + 工具/沙箱费用
+总延迟 = 模型延迟 + 截图/动作延迟 + 页面等待
 ```
 
-```bash
-# 构建并运行
-docker build -t computer-use-sandbox .
-docker run -it --rm \
-    -e ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY \
-    computer-use-sandbox \
-    python3 agent.py "打开浏览器，访问 github.com，截图"
-```
+先记录每轮图片尺寸、Token、动作数、等待时间、失败率和重试次数，再优化：
 
-### 验证环境
+1. 能用结构化工具完成的步骤不要走 GUI；
+2. 只在导航、提交、错误或关键状态处截图；
+3. 选择足以识别小字和控件的分辨率，用 Eval 验证；
+4. 对页面等待、重复点击和弹窗设置超时与去重；
+5. 用 `max_steps`、总时长和费用预算切断卡死循环。
 
-```bash
-# 在容器里验证虚拟显示正常工作
-export DISPLAY=:1
-Xvfb :1 -screen 0 1024x768x24 &
-sleep 1
-
-# 截图测试
-import -window root -display :1 /tmp/test.png
-echo "截图大小: $(wc -c < /tmp/test.png) bytes"
-```
-
----
-
-## 5. 成本注意事项
-
-Computer Use 通常比结构化工具调用消耗更多输入、推理和交互轮次：
-
-```
-任务成本 = 图片与文本输入 + 模型输出/推理 + 工具或沙箱费用
-总延迟 = 每轮模型延迟 + 截图/动作延迟 + 页面或应用等待时间
-```
-
-具体单价随模型和计费政策变化，估算时从 [版本与来源](版本与来源.md) 进入 Provider 官方价格页，并记录核对日期。
-
-**成本优化策略：**
-
-```pseudocode
-# 1. 操作后不是每次都截图，只在关键节点截图
-# 错误：每个 click 后都截图
-# 正确：执行一系列操作后，统一截图确认状态
-
-# 2. 在可识别和成本之间选择足够的截图分辨率，并用实测验证小字与缩放
-
-# 3. 优先用 bash/str_replace_editor 工具
-# 如果任务可以用 CLI 完成，不要用 computer 截图
-# bash("cat /etc/hosts") 远比截图看文件内容便宜
-
-# 4. 设置 max_steps 上限
-MAX_STEPS = 50
-step = 0
-while step < MAX_STEPS:
-    step += 1
-    ...
-```
----
-
-## 6. 与 Playwright/Selenium 的对比
-
-| 维度 | Claude Computer Use | Playwright / Selenium |
-|------|--------------------|-----------------------|
-| **如何定位元素** | 视觉（看坐标）| CSS selector / XPath |
-| **处理动态页面** | 截图感知，不关心 DOM | 需要等待特定元素 |
-| **可测试性** | 难以精确断言 | 精确 assert |
-| **脆弱性** | UI 布局变化时影响坐标 | selector 失效 |
-| **无障碍站点** | 可以操作任何可见元素 | 需要有 DOM 结构 |
-| **成本** | 高（LLM 每步都调用）| 低（纯本地执行）|
-| **适合场景** | 复杂非结构化任务、旧系统 | 确定性自动化测试 |
-
-**选择原则**：
-- 有 API 就用 API（最便宜）
-- API 没有但网站结构规整 → Playwright
-- 网站复杂/旧系统/任务需要判断 → Computer Use
-- 纯文件/CLI 操作 → bash 工具（不需要 computer）
-
----
+具体价格和模型限制进入 [版本与来源](./版本与来源.md) 核对，不在本文维护固定数字。
 
 ## 7. 安全边界
 
-Computer Use 是高风险操作，必须加安全约束：
+至少分开治理以下边界：
 
-```python
-# 1. 隔离环境（不能访问宿主机文件系统）
-# 2. 网络隔离（限制容器能访问的域名）
-# 3. 禁止执行危险命令
-ALLOWED_COMMANDS = {"pwd", "ls", "git"}
+| 边界 | 最小控制 |
+|---|---|
+| 身份与资源 | actor、租户、目标窗口、资源范围、策略版本 |
+| 文件与命令 | allowlist、`shell=False`、沙箱、超时、最小目录 |
+| 网络 | 默认拒绝、域名/端口 allowlist、出站审计 |
+| 高风险动作 | 购买、付款、删除、提交、发信前预览/审批 |
+| 证据与审计 | 记录动作、策略决定、审批、截图摘要和最终验证 |
 
-def run_allowed_command(argv: list[str]) -> str:
-    if not argv or argv[0] not in ALLOWED_COMMANDS:
-        raise PermissionError("command is not allowed")
-    completed = subprocess.run(
-        argv,
-        shell=False,
-        check=True,
-        capture_output=True,
-        text=True,
-        timeout=30,
-    )
-    return completed.stdout
+关键词匹配最多只能提醒用户，不能替代资源级授权。真正的策略应根据 actor、动作、资源、当前 State 和审批状态确定，见 [安全与可控性](./08_安全与可控性.md)。
 
-# 4. 人工确认高风险操作（仅示意；关键词不能替代策略引擎和资源级授权）
-HIGH_RISK_ACTIONS = ["购买", "付款", "删除", "提交", "发送邮件"]
+## 8. 场景与 Eval
 
-def needs_human_approval(action_description: str) -> bool:
-    return any(keyword in action_description for keyword in HIGH_RISK_ACTIONS)
+适合：旧系统自动化、跨站点表单、JavaScript 页面、探索性测试和没有 API 的开发环境。评测至少覆盖：布局变化、弹窗、登录过期、网络抖动、焦点丢失、半成功状态、重复提交、危险动作拦截、截图过大和会话清理。
 
-# 5. 会话时长限制
-MAX_LOOP_SECONDS = 300  # 5 分钟超时
-```
+若系统后来提供稳定 API，应重新评估是否回到普通工具；若需要更强的截图/DOM 双通道、动作幂等、人工审批和任务恢复，先补齐这些 Harness 能力，再增加模型自由度。
 
-关键词匹配最多只能作为用户体验层的提醒；真正的授权应根据 actor、资源、动作、审批范围和当前 State 由确定性策略判断，见 [安全与可控性](08_安全与可控性.md)。
-
----
-
-## 8. 典型应用场景
-
-```
-✓ 旧系统自动化（没有 API，只有 GUI）
-✓ 需要跨多个网站/应用完成的任务
-✓ 表单填写（复杂 web 表单）
-✓ 数据抓取（JavaScript 渲染的页面，Playwright 处理困难的）
-✓ 软件测试（探索性测试，不只是回归）
-✓ 开发工作流自动化（打开 IDE、运行命令、查看结果）
-```
-
-### 深化边界（何时继续加能力）
-
-Computer Use 文档主体已覆盖循环、沙箱、成本与安全。继续深化前先确认：
-
-- 目标系统是否仍无稳定 API；有 API 则回到普通 Tool Calling，成本与可靠性通常更好；
-- 是否已有截图/DOM 双通道、动作幂等与会话超时；
-- 是否具备「不可逆动作」人工确认与环境销毁流程；
-- Eval 是否包含嘈杂 UI、弹窗、登录过期和半成功状态。
-
-语音实时交互的额外约束见 [语音与实时对话 Agent](语音与实时对话Agent.md)；跨产品委托见 [跨 Agent 协议与 A2A](跨Agent协议与A2A.md)。
+语音通道见 [语音与实时对话 Agent](./语音与实时对话Agent.md)，跨产品委托见 [跨 Agent 协议与 A2A](./跨Agent协议与A2A.md)。
 
 ## 官方来源
 
 - [OpenAI Computer use](https://developers.openai.com/api/docs/guides/tools-computer-use)
 - [Anthropic Computer use tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool)
 
-核对日期：2026-07-30。实现前重新核对工具版本、动作 schema、截图格式、模型兼容、价格和安全建议。
-
----
-
-## 8.1 GUI 动作安全门（注释版）
-
-坐标点击和键盘输入必须经过动作分类与确认，不能把截图中的按钮文字直接当作授权。
-
-```python
-def approve_gui_action(action, *, policy, user_confirmation=False):
-    # 删除、付款、发送和权限变更等动作默认进入人工确认。
-    if policy.is_high_risk(action.kind) and not user_confirmation:
-        return {"allowed": False, "reason": "confirmation_required"}
-    if not policy.in_allowed_window(action.target):
-        return {"allowed": False, "reason": "target_outside_allowlist"}
-    return {"allowed": True, "reason": "policy_passed"}
-```
-
-每次动作都应保存截图摘要、动作参数、确认来源、结果和失败原因；敏感界面应遮罩或禁止截图，避免 Trace 变成凭证泄露源。
-
-## 9. 面试高频
-
-**Q：Computer Use 和普通 tool call 的本质区别是什么？**
-
-> 普通 tool call 是模型调用函数，结果是文本。Computer Use 是模型看截图（图片）来感知当前界面状态，然后决定下一个操作（点击/输入），操作执行后再截图，形成视觉感知循环。模型靠"看"而不是靠"读 API 返回值"来理解环境。
-
-**Q：Computer Use 的主要工程挑战是什么？**
-
-> 三个主要挑战：一是成本，截图 token 很贵，任务复杂时累积成本快；二是可靠性，UI 布局变化会导致坐标偏移（比 selector 更脆弱）；三是安全，模型可以执行任意鼠标键盘操作，必须在隔离环境里运行，且高风险操作需要人工确认。工程上一般结合 bash 工具使用，能用 CLI 完成的不用截图，只有真正需要视觉判断的环节才调用 computer 工具。
-
-**Q：什么情况下用 Computer Use 而不是 Playwright？**
-
-> Playwright 适合有确定性 DOM 结构的网站，可以精确 assert，成本低，速度快。Computer Use 适合：旧系统（无 DOM 可操作）、高度动态的 JS 页面（Playwright 难以等待）、需要视觉判断的任务（判断按钮是否灰色/可点击）、以及跨多个不同类型应用的复合任务。如果有 API 永远优先用 API，Computer Use 是没有更好选项时的最后手段。
+核对日期：2026-07-30。实现前重新核对动作 schema、截图格式、模型兼容、价格和安全建议。

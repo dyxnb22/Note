@@ -67,21 +67,7 @@ answer = response.output_text
 usage = response.usage  # 记录 usage；不要把完整响应原样写入普通日志。
 ```
 
-多轮对话可以维护内部历史，但历史增长必须交给 [Context 工程](./04_Context工程.md) 处理：
-
-```python
-class Conversation:
-    def __init__(self, system_prompt: str) -> None:
-        self.messages = [{"role": "system", "content": system_prompt}]
-
-    def append_user(self, text: str) -> None:
-        self.messages.append({"role": "user", "content": text})
-
-    def append_assistant(self, text: str) -> None:
-        self.messages.append({"role": "assistant", "content": text})
-
-    # 调用前由 Context 层裁剪/摘要，不在这里静默丢最早消息。
-```
+多轮对话的历史应由外部 State 持久化；调用前交给 [Context 工程](./04_Context工程.md) 做裁剪、摘要、检索或拒绝，不在 Provider 适配层静默丢消息。
 
 ## 4. 流式输出和取消
 
@@ -131,15 +117,7 @@ except ValidationError:
 
 调用层至少记录：`model`、`request_id`、输入/输出 token、缓存命中、延迟、结束原因和错误类别。价格不写死在本文，统一由 [成本与性能工程](./成本与性能工程.md) 使用版本化配置计算。
 
-```python
-def usage_record(response) -> dict:
-    usage = response.usage
-    return {
-        "input_tokens": usage.input_tokens,
-        "output_tokens": usage.output_tokens,
-        "request_id": getattr(response, "id", None),
-    }
-```
+最小记录可以是：`model`、`request_id`、输入/输出 token、缓存命中、延迟、结束原因和错误类别。
 
 Prompt Cache 只解决稳定前缀的重复计算；缓存条件、保留时间和价格随 Provider 变化，使用真实 usage 验证，不在这里维护固定折扣或实现。
 
@@ -176,31 +154,11 @@ async def call_model(provider, messages: list[dict], *, timeout_s: float = 30.0)
 
 Agent 层只依赖内部结果类型，不依赖某个 SDK 的字段名：
 
-```python
-from dataclasses import dataclass
-from typing import Any, Protocol
-
-
-@dataclass(frozen=True)
-class ModelResult:
-    text: str | None
-    tool_calls: list[dict[str, Any]]
-    request_id: str | None = None
-
-
-class Provider(Protocol):
-    async def complete(self, *, messages: list[dict]) -> ModelResult: ...
-
-
-async def complete_with_fallback(primary, fallback, messages: list[dict]) -> ModelResult:
-    try:
-        return await call_model(primary, messages)
-    except LLMCallError as exc:
-        if exc.code not in {"rate_limited", "provider_unavailable", "provider_timeout"}:
-            raise
-        # fallback 仍需通过相同的安全、数据和预算策略。
-        return await call_model(fallback, messages)
+```text
+Agent → Provider Adapter → ModelResult(text, tool_calls, usage, request_id)
 ```
+
+fallback 只对 `rate_limited`、`provider_unavailable`、`provider_timeout` 等暂时错误生效；仍要检查数据区域、模型能力、工具兼容性、质量回归和租户策略，并复用相同的安全与预算边界。
 
 fallback 选择不仅看价格和可用性，还要检查数据区域、模型能力、工具调用兼容性、质量回归和租户策略。部署级灰度和回滚见 [部署与生产化](./12_部署与生产化.md)。
 

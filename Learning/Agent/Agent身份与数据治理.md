@@ -164,22 +164,6 @@ Secret Manager
 
 Fallback 不能只按价格和可用性选择，也要检查数据分类和合规边界。
 
-## 9.1 Provider 出站字段过滤（注释版）
-
-在请求离开本地边界前做字段级过滤，不能只靠 Prompt 告诉模型“不要泄露”。
-
-```python
-def prepare_provider_payload(record: dict, *, classification: str, policy) -> dict:
-    # 过滤发生在网络调用前；Trace 也应使用同一套分类规则。
-    allowed_fields = policy.allowed_fields(classification)
-    payload = {key: value for key, value in record.items() if key in allowed_fields}
-    if policy.contains_secret(payload):
-        raise ValueError("secret detected in provider payload")
-    return payload
-```
-
-不同 Provider、Fallback 和日志管道可能有不同数据边界，必须分别记录允许字段、保留期、区域和删除路径。合规结论不能只依赖供应商宣传，需要保存合同、配置和实际出站检查证据。
-
 ## 10. 练习与验收
 
 为一个多租户知识型 Agent 设计数据治理方案：

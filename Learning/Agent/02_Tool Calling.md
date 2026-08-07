@@ -73,67 +73,31 @@ parse → allowlist → schema → resource scope → policy/approval
 ```
 
 ```python
-from dataclasses import dataclass
-from typing import Any, Awaitable, Callable
-import asyncio
-
-
-@dataclass(frozen=True)
-class ToolCall:
-    call_id: str
-    name: str
-    arguments: dict[str, Any]
-
-
-@dataclass(frozen=True)
-class ToolPolicy:
-    timeout_s: float = 10.0
-    side_effecting: bool = False
-    idempotent: bool = False
-
-
-async def execute_tool_call(
-    call: ToolCall,
-    *,
-    registry: dict[str, Callable[..., Awaitable[Any]]],
-    policies: dict[str, ToolPolicy],
-    allowed_tools: set[str],
-    validate: Callable[[str, dict[str, Any]], dict[str, Any]],
-    authorize: Callable[[ToolCall, ToolPolicy], None],
-) -> dict[str, Any]:
-    # 未知或未授权工具不能进入参数解析和动态分发。
+async def execute_tool_call(call, *, registry, policies, allowed_tools):
     if call.name not in registry or call.name not in allowed_tools:
         return {"ok": False, "call_id": call.call_id, "error_code": "tool_denied"}
 
-    policy = policies.get(call.name, ToolPolicy())
+    policy = policies[call.name]
     try:
-        args = validate(call.name, call.arguments)
-        authorize(call, policy)  # 模型理由只能作为证据，不能替代策略判断。
-        if policy.side_effecting and not args.get("idempotency_key"):
-            return {
-                "ok": False,
-                "call_id": call.call_id,
-                "error_code": "missing_idempotency_key",
-            }
+        args = validate_schema(call.name, call.arguments)
+        authorize(call, policy)  # 策略判断不依赖模型的理由。
+        if policy.side_effecting:
+            require_idempotency_key(args)
         async with asyncio.timeout(policy.timeout_s):
-            value = await registry[call.name](**args)
+            value = await registry.get(call.name)(**args)
+        return {"ok": True, "call_id": call.call_id, "value": limit_result(value)}
     except TimeoutError:
         return {"ok": False, "call_id": call.call_id, "error_code": "tool_timeout"}
     except PermissionError:
         return {"ok": False, "call_id": call.call_id, "error_code": "policy_denied"}
-    except Exception as exc:  # noqa: BLE001 - 执行边界统一转成稳定错误码。
-        # 不把堆栈、密钥和内部路径直接暴露给模型；详细信息写入受控 Trace。
-        return {
-            "ok": False,
-            "call_id": call.call_id,
-            "error_code": "tool_failed",
-            "error_type": type(exc).__name__,
-        }
-
-    return {"ok": True, "call_id": call.call_id, "value": value}
+    except Exception as exc:  # 详细堆栈进入受控 Trace，不回给模型。
+        return {"ok": False, "call_id": call.call_id,
+                "error_code": "tool_failed", "error_type": type(exc).__name__}
 ```
 
 生产实现还要限制工具结果大小，并在进入 Context、Trace、日志和用户界面前分别执行敏感信息处理。
+
+下面省略类型定义和依赖注入，只保留执行器边界；真实实现应把 `validate_schema`、`authorize`、`limit_result` 和错误映射接到项目的确定性组件。
 
 ## 4. Loop 中如何回填结果
 

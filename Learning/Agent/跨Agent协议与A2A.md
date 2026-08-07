@@ -50,36 +50,6 @@ MCP 让 **Client 调 Tool**；跨 Agent 协议让 **Agent 委托另一个 Agent*
 - 供应链：能力卡片、端点与证书要有变更审计；不要信任任意公开注册表条目。
 - 计费与配额：跨 Agent 调用要有独立预算，防止委托环路烧尽额度。
 
-## 5.1 委托信封与状态合同（注释版）
-
-跨 Agent 调用至少要携带任务 ID、发起方、委托范围、TTL 和验收合同；只传一段自然语言无法处理取消、重试和责任归属。
-
-```python
-def build_delegation(*, task_id, issuer, target, prompt, ttl_s, acceptance):
-    # 委托范围是能力边界，不是对端可以继续转发全部权限的授权。
-    return {
-        "task_id": task_id,
-        "issuer": issuer,
-        "target": target,
-        "prompt": prompt,
-        "expires_at": now() + ttl_s,
-        "max_hops": 1,
-        "acceptance": acceptance,
-        "idempotency_key": f"delegate:{task_id}",
-    }
-
-
-def accept_result(envelope, result):
-    # 先检查 TTL 和程序化验收，再把自然语言结果写入共享状态。
-    if now() > envelope["expires_at"]:
-        return {"accepted": False, "reason": "expired"}
-    if not envelope["acceptance"].check(result):
-        return {"accepted": False, "reason": "acceptance_failed"}
-    return {"accepted": True, "result": result}
-```
-
-这是协议无关的伪代码。真实实现还要定义取消传播、重试责任、错误分类、审计字段和对端输出的注入隔离。
-
 ## 5. 失败模式
 
 - **委托环**：A→B→A 无限派发 → 需要跳数、TTL、任务图去环。

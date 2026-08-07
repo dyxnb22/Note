@@ -42,23 +42,6 @@
 - 高风险动作默认要求明确口头确认词或切到可视审批。
 - 识别低置信时主动澄清，不猜着调用写操作。
 
-## 4.1 打断与取消边界（注释版）
-
-实时语音需要把音频流、模型生成和工具副作用分开取消；用户打断模型输出，不代表已经发出的写操作可以撤销。
-
-```python
-async def handle_turn(audio_stream, *, asr, agent, playback, cancel_token):
-    transcript = await asr.transcribe(audio_stream)
-    result = await agent.respond(transcript, cancel_token=cancel_token)
-    if result.requires_confirmation:
-        # 高风险动作先播报摘要并等待明确确认，不能在语音模糊词上直接执行。
-        return await playback.say(result.confirmation_prompt)
-    await playback.stream(result.audio)
-    return result
-```
-
-验收要覆盖用户打断、重复确认、网络抖动、识别低置信和工具已提交后的取消；至少记录首字节时间、打断恢复时间和误触发副作用率。
-
 ## 5. 何时不该上语音 Agent
 
 - 任务以长表格、长代码、精确编辑为主；

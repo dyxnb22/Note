@@ -42,30 +42,6 @@
 
 框架的成本是：升级破坏、抽象泄漏、调试多一层。评测「是否值得采用」看：状态模型是否清晰、失败可否恢复、能否接入现有观测与权限、团队能否读懂源码级行为。
 
-## 3.1 选型评分卡（注释版）
-
-框架选型应以待解决的工程约束评分，不按社区热度直接下注。
-
-```python
-def score_option(option, requirements):
-    scores = {}
-    for requirement, weight in requirements.items():
-        # 每项评分必须附证据：最小 Demo、故障测试或团队维护经验。
-        scores[requirement] = option.evidence_based_score(requirement) * weight
-    return sum(scores.values()), scores
-
-
-requirements = {
-    "durable_resume": 3,
-    "human_approval": 2,
-    "tool_policy_boundary": 3,
-    "trace_export": 2,
-    "team_operability": 2,
-}
-```
-
-评分卡不能替代 PoC：至少用一个真实业务流程验证状态恢复、权限、评测、升级和故障排查，否则“支持某能力”只是文档声明。
-
 ## 4. 低代码平台怎么答（尤其字节生态）
 
 面试常问「怎么看扣子 / Dify」。稳妥立场：

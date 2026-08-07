@@ -29,31 +29,7 @@ Case 数据集 + 版本
 ```
 
 ```python
-from dataclasses import dataclass
-from typing import Callable
-
-
-@dataclass(frozen=True)
-class EvalCase:
-    case_id: str
-    input: dict
-    expected: dict
-    slice: str = "default"
-
-
-@dataclass(frozen=True)
-class EvalResult:
-    case_id: str
-    scores: dict[str, float]
-    passed: bool
-    reason: str
-
-
-def run_eval(
-    cases: list[EvalCase],
-    system: Callable[[dict], dict],
-    checkers: dict[str, Callable[[dict, dict], float]],
-) -> list[EvalResult]:
+def run_eval(cases, system, checkers):
     results = []
     for case in cases:
         try:
@@ -62,13 +38,13 @@ def run_eval(
                 name: checker(actual, case.expected)
                 for name, checker in checkers.items()
             }
-            passed = all(score >= 0.8 for score in scores.values())
+            passed = all(score >= case.threshold for score in scores.values())
             reason = "ok" if passed else "metric_below_threshold"
-        except Exception as exc:  # noqa: BLE001 - Harness 要把失败保存成结果。
-            scores = {}
-            passed = False
+        except Exception as exc:  # 失败也要成为可比较的结果。
+            scores, passed = {}, False
             reason = f"runner_error:{type(exc).__name__}"
-        results.append(EvalResult(case.case_id, scores, passed, reason))
+        results.append({"case_id": case.case_id, "scores": scores,
+                        "passed": passed, "reason": reason})
     return results
 ```
 

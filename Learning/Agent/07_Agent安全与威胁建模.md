@@ -140,32 +140,6 @@
 
 MCP 的 HTTP 授权规范可以作为协议层学习材料，但协议授权不等于业务权限；业务系统仍需检查 actor、tenant、resource 和 operation。[MCP Authorization（当前正式规范）](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)
 
-## 8.1 工具授权决策（注释版）
-
-授权必须是确定性策略的输出，模型的自然语言理由只能作为输入证据，不能直接成为允许条件。
-
-```python
-def authorize(actor, tool, resource, *, policy, approval=None):
-    # 先按主体、租户、资源和动作判断基础权限。
-    decision = policy.check(
-        subject_id=actor.id,
-        tenant_id=actor.tenant_id,
-        action=tool.action,
-        resource_id=resource.id,
-    )
-    if decision != "allow":
-        return {"allowed": False, "reason": "policy_denied"}
-
-    if tool.side_effecting:
-        # 高风险动作必须绑定一次性、范围明确且未过期的审批。
-        if not approval or not approval.matches(tool, resource) or approval.expired:
-            return {"allowed": False, "reason": "approval_required"}
-
-    return {"allowed": True, "reason": "policy_and_approval_passed"}
-```
-
-授权结果应写入审计事件，但不要把完整密钥、原始隐私字段和不必要的 Prompt 复制进去。策略变更、审批范围变化和工具 schema 变化都应进入安全回归集。
-
 ## 9. 练习与验收
 
 为一个“代码修改 Agent”画一份威胁模型：

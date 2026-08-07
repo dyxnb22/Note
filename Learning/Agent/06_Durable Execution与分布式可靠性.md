@@ -52,21 +52,7 @@ ALLOWED_TRANSITIONS = {
 
 ### Journal
 
-Journal 记录已经发生的事件：
-
-```json
-{
-  "event_id": "evt_123",
-  "task_id": "task_456",
-  "seq": 17,
-  "type": "tool_completed",
-  "operation_id": "op_789",
-  "payload_ref": "blob://...",
-  "created_at": "..."
-}
-```
-
-Checkpoint 负责快速恢复，Journal 负责审计、replay 和定位问题。两者可以同时存在。
+Journal 记录 `event_id`、`task_id`、顺序、事件类型、`operation_id`、结果引用和时间。Checkpoint 负责快速恢复，Journal 负责审计、Replay 和定位问题；两者可以同时存在。
 
 ## 4. Queue、Lease 与 Worker
 
@@ -81,12 +67,7 @@ API 创建 task
   → 完成、失败或重新入队
 ```
 
-Lease 防止一个失联 worker 永久占有任务：
-
-- claim 时写入 `lease_owner` 和 `lease_until`；
-- worker 定期 heartbeat；
-- lease 过期后允许其他 worker 接管；
-- 接管前必须重新读取状态并检查 operation_id，避免重复副作用。
+Lease 防止失联 worker 永久占有任务：claim 写入 `lease_owner/lease_until`，worker heartbeat，过期后允许接管；接管前重新读状态并核对 `operation_id`，避免重复副作用。
 
 ## 5. Retry、Timeout 与 Cancellation
 
@@ -100,14 +81,7 @@ Lease 防止一个失联 worker 永久占有任务：
 
 取消不是简单地把 HTTP 请求断开。任务恢复时必须识别“取消已请求但动作可能已发生”的中间状态。
 
-```python
-def can_retry(error, tool) -> bool:
-    return (
-        error.transient
-        and tool.is_idempotent
-        and error.retry_count < tool.max_retries
-    )
-```
+重试的最小条件是：错误暂时、工具幂等、次数未超限；取消还要传播到队列、模型请求和工具进程。
 
 ## 6. Outbox 与外部副作用
 
@@ -126,19 +100,7 @@ Outbox 模式：
 
 ## 7. 并发与资源隔离
 
-要明确哪些状态可以并发，哪些必须串行：
-
-- 同一文件的 patch 通常串行；
-- 互不相关的只读检索可以并行；
-- 同一订单、账户或审批 Grant 的写操作必须有资源级锁；
-- 不同 worktree 可以并行，但合并时仍需要冲突检查。
-
-每个任务还要有独立的：
-
-- token / cost budget；
-- CPU、内存和执行时长；
-- 网络出口策略；
-- 日志和 trace correlation id。
+同一文件、订单、账户或审批 Grant 的写操作通常串行或加资源锁；互不相关的只读检索、不同 worktree 可以并行，但合并仍需冲突检查。每个任务独立设置 Token/费用、CPU/内存/时长、网络出口和 Trace correlation ID。
 
 ## 8. Resume 的正确姿势
 
@@ -155,35 +117,6 @@ Outbox 模式：
 
 尤其是发送、删除、发布等动作，不能因为 worker 崩溃就盲目重试。
 
-## 8.1 Operation Journal 与幂等恢复（注释版）
-
-恢复的关键问题是“工具调用到底有没有产生副作用”。因此要把 operation 写入 Journal，并在重试前先查询状态，而不是只看 Worker 是否崩溃。
-
-```python
-def execute_operation(operation_id: str, tool, arguments: dict):
-    record = journal.get(operation_id)
-    if record and record.status == "SUCCEEDED":
-        # 已确认成功时直接复用结果，不能因为 ACK 丢失再次执行副作用。
-        return record.result
-
-    if record and record.status == "STARTED":
-        # STARTED 只证明曾经开始，不能假设成功；优先调用查询接口或转人工。
-        status = tool.query_status(operation_id)
-        if status == "SUCCEEDED":
-            journal.mark_succeeded(operation_id, result=tool.read_result(operation_id))
-            return journal.get(operation_id).result
-        if status == "UNKNOWN":
-            raise RuntimeError("side effect status requires reconciliation")
-
-    # 写入唯一 operation_id，再执行；Journal 存储必须具备条件更新/唯一约束。
-    journal.mark_started(operation_id, arguments=arguments)
-    result = tool.call(operation_id=operation_id, **arguments)
-    journal.mark_succeeded(operation_id, result=result)
-    return result
-```
-
-这是伪代码，`journal` 和 `tool` 需要替换成数据库记录与具备查询能力的真实客户端。若外部系统既不能幂等也不能查询状态，自动重试的安全性无法证明，应把该动作改成审批或对账任务。
-
 ## 9. 练习与验收
 
 把本地 Coding Agent 改造成后台任务系统：
@@ -198,12 +131,6 @@ def execute_operation(operation_id: str, tool, arguments: dict):
 
 最终要能解释：**系统失败后，如何知道动作有没有发生，以及下一步为什么安全**。
 
-## learn-claude-code 对照：文件任务图、后台通知与调度边界
+## learn-claude-code 对照
 
-s12-s14 是把可靠性原语落到 Harness 的小型实现：
-
-- **Task System（s12）**：任务以 JSON 文件持久化，使用 `pending → in_progress → completed` 状态和 `blockedBy` 依赖图；`claim_task` 必须具备 owner 检查和原子性，不能靠“先读再写”的无锁流程。
-- **Background Tasks（s13）**：慢操作先返回 placeholder，完成后通过通知队列注入下一轮 Agent；后台任务的状态、取消、超时和结果保留必须独立于主循环。
-- **Cron Scheduler（s14）**：调度器和执行器解耦，但教学版调度器仍在 Agent 进程内运行。任务定义跨重启保存，不等于进程关闭后仍会触发；真正的外部调度需要 systemd timer、系统 cron 或独立队列服务。
-
-对应实验：[s12_task_system/code.py](./实践/learn-claude-code/s12_task_system/code.py)、[s13_background_tasks/code.py](./实践/learn-claude-code/s13_background_tasks/code.py)、[s14_cron_scheduler/code.py](./实践/learn-claude-code/s14_cron_scheduler/code.py)。学习重点不是记住 JSON 文件名，而是理解状态机、投递、租约、重复执行和进程生命周期之间的边界。
+`s12` 的任务状态与依赖图、`s13` 的后台通知、`s14` 的调度器分别对应状态机、投递和进程生命周期边界。教学版任务定义可跨重启保存，但进程关闭后仍要依赖外部调度器；真正实现还需 owner 检查、原子 claim、取消、超时和重试。实验入口：[s12](./实践/learn-claude-code/s12_task_system/code.py)、[s13](./实践/learn-claude-code/s13_background_tasks/code.py)、[s14](./实践/learn-claude-code/s14_cron_scheduler/code.py)。
