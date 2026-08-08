@@ -124,5 +124,3 @@ Candidate 与 Baseline 至少比较任务成功、风险、成本和延迟，并
 最小实践应在这些测试之上增加十个隔离场景，覆盖成功、失败、越权和注入，并把程序结果、轨迹和副作用一起纳入报告。
 
 参考：[Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
-
-`#agent #eval #trajectory #replay`

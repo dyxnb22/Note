@@ -1,6 +1,6 @@
 # Learning/AI
 
-这个目录是 AI 应用工程的**理论地基**，不追求算法推导深度，追求能支撑三件事：
+这个目录提供 AI 与模型原理的按需参考，不是进入 Agent 前必须全部完成的理论课程。它主要支撑三件事：
 
 1. **读懂论文和技术博客**：理解模型行为和设计决策背后的原理
 2. **解释 LLM 工作原理**：能在面试中清楚讲清 tokenization、generation、fine-tuning、alignment
@@ -12,7 +12,7 @@
 
 | 文档 | 定位 | 适合什么时候看 |
 |------|------|----------------|
-| `LLM基础.md` | LLM 工作原理全链路：从 token 到 generation 到 alignment | 进入 AI 应用开发前必读；面试前复习 |
+| `LLM基础.md` | LLM 工作原理全链路：从 token 到 generation 到 alignment | 遇到模型原理问题或准备面试时查阅 |
 | `DeepLearning/` | 以 D2L 路线系统学习训练原理、CNN、RNN、Transformer、视觉与 NLP | 需要系统补模型训练基础时 |
 | `DeepLearning.md` | 深度学习到 LLM 的工程桥接速览 | 想快速补训练循环、Transformer、LoRA 和 HuggingFace 时 |
 | `ML系统与MLOps.md` | 数据、实验、模型注册、推理服务、漂移、灰度与回滚 | 需要把训练结果做成可运营系统时 |
@@ -44,13 +44,13 @@
 ## 按场景选文档
 
 **准备面试**
-→ 必读 `LLM基础.md`（全篇，尤其是面试高频部分）
+→ 按岗位范围阅读 `LLM基础.md`，不默认扩展到全部深度学习章节
 → 按需按 `DeepLearning/README.md` 顺序学习
 → 然后去 `Agent/` 看工程应用文档
 
 **开始做 AI 项目**
-→ 先读 `LLM基础.md` 的 tokenization、context window、generation 参数章节
-→ 再直接进 `Agent/01_LLM调用基础.md`
+→ 直接进入 `Agent/01_LLM调用基础.md`
+→ 遇到 tokenization、context window 或 generation 参数问题时，再回到 `LLM基础.md` 对应章节
 
 **补 LLM 理论短板**
 → 顺序读：`DeepLearning/README.md` → `LLM基础.md`
@@ -62,14 +62,16 @@
 **把模型部署成生产服务**
 → `DeepLearning/` 或 `DeepLearning.md` → `ML系统与MLOps.md` → `Backend/Delivery/07_生产系统工程.md`
 
-## 必读 vs 按需
+## 最小入口与按需分支
 
 | 文档 | 分类 | 说明 |
 |------|------|------|
-| `LLM基础.md` | **必读** | 做 AI 应用工程的理论地基，面试高频来源 |
+| `LLM基础.md` | 核心参考 | Agent 应用不要求先通读；模型原理和面试问题出现时进入 |
 | `DeepLearning/` | 按需 | 需要系统理解训练过程、Transformer 或微调时读 |
 | `ML系统与MLOps.md` | 按需 | 自己训练、注册、部署和监控模型时读 |
 | `AI工具与编程助手.md` | 按需 | 开始用 AI Coding Agent 时读 |
+
+这里没有全员必读清单。当前目标若是 Agent 应用，以 [当前学习](../00_当前学习.md) 为准；只有自己训练模型时，才把 `DeepLearning/` 当作系统路线。
 
 ## 常见混淆边界
 

@@ -1,123 +1,47 @@
-# Python → AI → Agent 学习地图
+# Python、AI 与 Agent 的边界地图
 
-这张地图解决三个目录之间最容易混淆的问题：先学什么、哪些内容只看一份、实践代码应该去哪里。
+本页只解决三个目录的分工和起点选择，不复制各自目录，也不记录学习进度。当前正在学什么统一看 [当前学习](../00_当前学习.md)。
 
-## 一句话边界
+## 三层关系
 
 ```text
-Python：可复用的语言、工程和服务基础
-   ↓
+Python：语言、工程、HTTP、异步和服务基础
+   ↓ 只补项目缺少的能力
 AI：模型、训练、表示和 LLM 原理
-   ↓
+   ↓ 只在需要理解模型行为时进入
 Agent：模型调用、工具、状态、编排、治理和交付
 ```
 
-实践代码不单独形成第四套理论，而是回链到上面三层：
+实践代码属于对应主题的验证材料，不再形成第四套理论：
 
-- `Learning/Python/`：Python 语言、标准库、工程化、HTTP 和服务化。
-- `Learning/AI/`：深度学习、Transformer、LLM 原理和 AI 工具认知。
-- `Learning/Agent/`：LLM 调用、Tool Calling、Agent Loop、RAG/摄取/检索、Workflow、MCP、Skills、安全、评测和生产交付。
-- `Learning/Python/实践/`：只放 Python 基础或通用工程练习。
-- `Learning/AI/实践/`：深度学习和 LLM 课程实验。
-- `Learning/Agent/实践/`：Agent 应用与 Agent Harness 代码实验。
+- [Python](../Python/README.md)：语言与通用工程问题。
+- [AI](../AI/README.md)：模型为什么这样工作、如何训练。
+- [Agent](../Agent/00_学习路线图.md)：如何调用模型并构建可控系统。
 
-Rust 是 Agent 的实现分支，不替换这条概念主线：先用 Python/现有 SDK 理解模型调用、Tool、状态和 Eval，再按 [Rust Agent 与 Go 后端学习地图](./Rust-Agent与Go后端学习地图.md)实现自己的 Runtime、工具执行器或可靠 Harness。
+## 根据当前目标选择起点
 
-## 推荐主线
-
-### 0. Python 基础与工程化
-
-适合 Python 不熟或希望补工程基础时：
-
-1. [Python 工程基础与学习路径](../Python/README.md)
-2. [Python 核心语法](../Python/01_Python核心语法.md)
-3. [Python 工程化](../Python/02_Python工程化.md)
-4. [HTTP 与 API 调用](../Python/03_HTTP与API调用.md)
-5. 按需阅读 [FastAPI](../Python/FastAPI.md)、[代码组织与设计模式](../Python/Python代码组织与设计模式.md)、[错误与 Debug](../Python/错误与Debug.md)
-6. 需要理解 GIL、GC、并发调度与性能时进入 [Python 运行时与性能](../Python/05_Python运行时与性能.md)
-
-### 1. Python 到 Agent 的桥接
-
-[Python Agent 工程化补充](../Python/04_Python%20Agent工程化补充.md)是唯一的 Python/Agent 桥接主文档，集中练习：
-
-- Pydantic、TypedDict、Protocol 和外部数据边界；
-- asyncio、并发上限、取消、超时和重试；
-- 幂等、配置、日志、装饰器和上下文管理器；
-- 如何为模型输出、工具参数和运行时状态建立可测试的合同。
-
-已有 Python 基础时，不需要重复通读所有语法，直接从这篇桥接文档进入 Agent 主线即可。
-
-### 2. AI 模型与 LLM 原理
-
-根据目标选择一条，不需要把所有摘要重复读两遍：
-
-| 目标 | 入口 | 作用 |
+| 当前目标 | 从哪里开始 | 不需要先做什么 |
 |---|---|---|
-| 系统学习神经网络和训练 | [动手学深度学习路线](../AI/DeepLearning/README.md) | D2L 顺序：自动微分、线性模型、MLP、CNN、RNN、Transformer、NLP |
-| 快速建立 LLM 心智模型 | [LLM 基础](../AI/LLM基础.md) | Token、Embedding、Transformer、生成、对齐、RAG 和 Context |
-| 连接深度学习与 LLM 工程 | [深度学习基础桥接笔记](../AI/DeepLearning.md) | 只补够用的数学、训练循环、Transformer、LoRA 和 HuggingFace |
-| 训练与交付自己的模型 | [ML 系统与 MLOps](../AI/ML系统与MLOps.md) | 数据/实验版本、模型注册、推理服务、漂移、灰度和回滚 |
-| 构建可恢复训练系统 | [训练系统与实验方法](../AI/DeepLearning/14_训练系统与实验方法/训练系统与实验方法.md) | Manifest、AMP、Checkpoint、DDP、性能和故障恢复 |
+| 做 Agent 应用 | [当前 Agent 里程碑](../00_当前学习.md) | 不先通读 Python、深度学习和全部 LLM 原理 |
+| Python 基础不足 | [Python 问题地图](../Python/README.md) | 不默认重做已经会的语法练习 |
+| 理解 LLM 行为 | [LLM 基础](../AI/LLM基础.md) 的相关章节 | 不为了 Agent 调用先完成整套模型训练 |
+| 自己训练模型 | [DeepLearning](../AI/DeepLearning/README.md) | 不并行展开 Agent、RAG 和全部应用分支 |
+| 把模型做成服务 | [ML 系统与 MLOps](../AI/ML系统与MLOps.md) | 不在概念页重复实现部署练习 |
 
-`AI/DeepLearning/` 是系统课程；`AI/DeepLearning.md` 是桥接速览；`AI/LLM基础.md` 是应用工程需要的 LLM 原理。三者职责不同，不再互相复制正文。
+遇到概念阻塞时才向上一层补课。例如看不懂异步取消回到 Python；看不懂 token、生成或训练回到 AI；工具、State、Context 和恢复问题留在 Agent。
 
-## Agent 文档职责
+## 实践如何选择
 
-下面是 `Learning/Agent/` 的唯一主题地图。看起来相近的文档保留，是因为它们分别承担设计、实现、评测或交付职责：
+- Agent 入门默认使用 [ai-agent-learning 03–05](../Agent/实践/ai-agent-learning/agent-learning-projects/LEARNING_PATH.md)。
+- 深度学习只选择与当前模型目标对应的 [DeepPath Lab](../AI/实践/DeepPathLab/README.md) 模块。
+- LLM 研究、微调或评测按需使用 [llm_learning](../AI/实践/llm_learning/README.md)，不与 Agent 主线重复通读。
+- Python 基础练习只在语法和工程基础确实阻塞项目时使用。
 
-| 层次 | 主文档 | 负责的问题 |
-|---|---|---|
-| 核心运行时 | [LLM 调用基础](../Agent/01_LLM调用基础.md)、[Tool Calling](../Agent/02_Tool%20Calling.md)、[Agent 架构与设计](../Agent/03_Agent架构与设计.md)、[Agent框架与平台选型](../Agent/Agent框架与平台选型.md) | 模型调用、工具合同与路由、Agent Loop、框架选型 |
-| Harness 工程 | [Context 工程](../Agent/04_Context工程.md)、[Skills与渐进式披露](../Agent/Skills与渐进式披露.md)、[代码 Agent 基础设施](../Agent/05_代码%20Agent%20基础设施.md)、[Durable Execution](../Agent/06_Durable%20Execution与分布式可靠性.md) | 上下文、Skill、代码库操作、验证、Checkpoint、恢复和隔离 |
-| 知识与编排 | [RAG](../Agent/RAG.md)、[检索系统工程](../Agent/检索系统工程.md)、[知识系统](../Agent/知识系统.md)、[文档摄取与解析](../Agent/文档摄取与解析.md)、[GraphRAG与关系检索](../Agent/GraphRAG与关系检索.md)、[Memory 与状态管理](../Agent/Memory与状态管理.md)、[Workflow 与编排](../Agent/Workflow与编排.md)、[LangGraph](../Agent/LangGraph.md)、[MCP 与工具协议](../Agent/MCP与工具协议.md)、[多 Agent 协作](../Agent/多Agent协作的边界与模式.md)、[跨Agent协议与A2A](../Agent/跨Agent协议与A2A.md) | RAG 应用链路、文档解析、ANN/混合检索、知识治理、关系增强、持久记忆、固定流程、框架实现、工具协议和协作边界 |
-| 产品与协同 | [Agent 产品与人机协同](../Agent/Agent产品与人机协同.md) | 是否适合 AI、自主性、澄清、审批、接管和产品指标 |
-| 质量与治理 | [Agent 安全与威胁建模](../Agent/07_Agent安全与威胁建模.md)、[安全与可控性](../Agent/08_安全与可控性.md)、[Agent 身份与数据治理](../Agent/Agent身份与数据治理.md) | 威胁分析、防御实现、身份、租户和数据生命周期 |
-| 评测与运维 | [Agent Eval 实验方法](../Agent/09_Agent%20Eval实验方法.md)、[Eval 与测试体系](../Agent/10_Eval与测试体系.md)、[可观测性与调试](../Agent/11_可观测性与调试.md)、[Agent 运维与事故响应](../Agent/Agent运维与事故响应.md) | Task/Trajectory、Harness、CI、Trace、发布、告警和事故 |
-| 生产交付 | [成本与性能工程](../Agent/成本与性能工程.md)、[部署与生产化](../Agent/12_部署与生产化.md)、[推理服务速答](../Agent/推理服务速答.md) | 预算、延迟、限流、部署、灰度和回滚、推理八股速答 |
-| 扩展与表达 | [推理模型与 Extended Thinking](../Agent/推理模型与Extended%20Thinking.md)、[模型行为与工具调用训练](../Agent/模型行为与工具调用训练.md)、[Computer Use 与 GUI Agent](../Agent/Computer%20Use与GUI%20Agent.md)、[语音与实时对话Agent](../Agent/语音与实时对话Agent.md)、[项目表达与面试](../Agent/项目表达与面试.md) | 研究分支、GUI/语音、模型行为实验和项目输出 |
+同一个机制选择一条主要实践；其他实现用于对照，不形成新的待办。
 
-两组重点边界：
+## 维护边界
 
-- [Agent 安全与威胁建模](../Agent/07_Agent安全与威胁建模.md)先回答“谁能影响系统、资产是什么、攻击面在哪里”；[安全与可控性](../Agent/08_安全与可控性.md)再回答“用什么策略、沙箱、脱敏和恢复机制防御”。
-- [Agent Eval 实验方法](../Agent/09_Agent%20Eval实验方法.md)评估完整任务轨迹、环境副作用和发布门槛；[Eval 与测试体系](../Agent/10_Eval与测试体系.md)建设通用 Harness、测试集、指标、Mock 和 CI。
-
-### 3. Agent 核心主线
-
-完成 Python 桥接后，按下面顺序阅读：
-
-```text
-LLM 调用基础
-  → Tool Calling
-  → Agent 架构与设计
-  → Context 工程
-  → 安全与可控性 / Agent 安全与威胁建模
-  → Eval 与测试体系 / Agent Eval 实验方法
-  → 部署与生产化
-```
-
-知识型产品在主线后选修：`文档摄取与解析 → RAG → 检索系统工程 → 知识系统`。  
-工具很多或面试对比框架时选修：`Skills与渐进式披露`、`Agent框架与平台选型`。  
-夹带推理八股时看：`推理服务速答`（细节回链 `AI/LLM基础`）。
-
-完整分支表见 [Agent 学习路线图](../Agent/00_学习路线图.md) 阶段 4。入口：[Agent 工程知识库](../Agent/README.md)。
-
-## 实践项目如何选择
-
-| 实践项目 | 所在目录 | 定位 | 是否需要全部完成 |
-|---|---|---|---|
-| Python 基础练习 | [Python/实践/Python基础练习](../Python/实践/Python基础练习/README.md) | 变量、类型、输出和条件判断 Notebook | Python 不熟时选做 |
-| DeepPath Lab | [AI/实践/DeepPathLab](../AI/实践/DeepPathLab/README.md) | 自动微分、线性模型、MLP、CNN 的项目制从零实现 | 想补模型训练基础时完成 |
-| llm_learning | [AI/实践/llm_learning](../AI/实践/llm_learning/README.md) | 从深度学习、Transformer 到 Agent、RAG、评测、微调和研究的宽路线 | 作为 LLM 工程扩展，不与 Agent 主线重复通读 |
-| ai-agent-learning | [Agent/实践/ai-agent-learning](../Agent/实践/ai-agent-learning/README.md) | SDK/API → Tool Calling → Agent Loop → LangGraph → RAG/MCP 的入门主线 | Agent 应用开发优先完成 01–09 |
-| learn-claude-code | [Agent/实践/learn-claude-code](../Agent/实践/learn-claude-code/README.md) | Agent Harness 的 Context、权限、任务、恢复、团队和 MCP 机制 | 已会基础 Agent 后选修 |
-| rust-agent-runtime | [Agent/实践/rust-agent-runtime](../Agent/实践/rust-agent-runtime/README.md) | 用 Rust 实现有限 Agent Loop、Tool Registry、预算、取消、Trace 与后续恢复 | 已完成基础 Agent 与 Rust 语言核心后选修 |
-
-选择原则：同一知识点优先完成一条实践路线，再用另一条路线做对照；不要因为目录里有多份代码就把它们当成多门必修课。
-
-## 后续维护规则
-
-1. 新增理论时先判断是否已有主文档；已有主题只补原文，不新建同义标题。
-2. 新增实践时只保留代码、运行说明、实验结果和项目 README；理论解释回链主题文档。
-3. 一篇文档如果同时承担“速查”和“完整教程”，优先拆成入口页 + 唯一主文档，不复制正文。
-4. 删除内容前先做全文链接检查；可回退的历史代码优先移入废纸篓，不直接永久删除。
-5. 价格、模型名、协议版本和产品命令属于易变信息，保留来源和核对日期，不把它们当成稳定理论。
+- Python 正文不解释模型和 Agent Loop。
+- AI 正文不维护 Provider 调用、工具执行和应用编排。
+- Agent 正文不重复 Python 语法、神经网络训练和模型架构推导。
+- 跨目录关系只在本页维护；具体主题顺序回到各自唯一入口。

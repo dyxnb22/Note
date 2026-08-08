@@ -1,6 +1,6 @@
 # Web3 安全速查
 
-本页只做威胁定位；合约细节见 [智能合约工程](../03_Smart_Contracts_and_Development/智能合约工程速查.md)，高级治理见 [Web3 高级工程与协议安全](../08_Advanced_Engineering/Web3高级工程与协议安全.md)。
+本页只做威胁定位；合约细节见 [Solidity 合约](../03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)，高级治理见 [Web3 高级工程与协议安全](../08_Advanced_Engineering/Web3高级工程与协议安全.md)。
 
 | 攻击面 | 最小防线 |
 |---|---|
@@ -12,5 +12,3 @@
 | 前端/供应链 | 固定依赖、发布验证、域名/消息确认和应急开关 |
 
 安全评审要回答：资产是什么、攻击者能控制什么、失败会损失什么、哪个层阻断、如何检测和恢复。审计报告不是运行时安全证明。
-
-`#web3 #security #smart-contract #quick-reference`

@@ -314,12 +314,6 @@ def attention(query, key, value):
 
 模型结构、上下文长度、量化能力和 Provider 参数会随版本变化；本文的公式和教学代码用于建立机制直觉，具体模型规格与 API 以锁定版本文档和本地实验为准。
 
-## 复习抓手
+## 何时回到本页
 
-- [ ] 能用一句话解释 tokenization、embedding、attention、generation 各是什么
-- [ ] 能画出 Decoder-only 模型的推理流程
-- [ ] 能解释 temperature 和 top_p 的区别和适用场景
-- [ ] 能对比 SFT / RLHF / DPO 各自做了什么
-- [ ] 能说清楚幻觉的来源和三类缓解策略
-- [ ] 能解释 KV Cache 是什么，对成本和延迟有什么影响
-- [ ] 能给出 fine-tuning vs RAG vs prompt 的选择判断框架
+当当前项目需要解释 tokenization、embedding、attention、generation、采样参数、对齐方法、幻觉、KV Cache，或需要在 Prompt、RAG 和 Fine-tuning 之间选型时，再打开对应章节。做 Agent 应用不需要把这些主题预先全部复习一遍。

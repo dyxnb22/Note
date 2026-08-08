@@ -1,7 +1,3 @@
----
-type: guide
-status: developing
----
 # AI 产品界面与交互
 
 AI 产品的前端不是把聊天框接上模型，而是把不确定的生成过程、工具状态、权限和人工接管变成用户能理解、能控制的交互。
@@ -69,7 +65,7 @@ Idle
 
 用任务完成率、误操作、澄清次数、人工接管、恢复成功和用户信任反馈评估交互，不只看停留时间。
 
-## 6. 验收
+## 6. 项目使用时检查
 
 为一个 Agent 任务画状态机和失败矩阵，覆盖：
 
@@ -95,4 +91,3 @@ Idle
 
 - [WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
 - [Web Content Accessibility Guidelines](https://www.w3.org/TR/WCAG22/)
-

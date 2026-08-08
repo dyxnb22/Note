@@ -1,79 +1,56 @@
 # Learning 总索引
 
-这里是按“可复用知识”组织的长期学习库。课程、项目和资料只作为来源或案例，最终知识归入主题。
+这里按“可复用知识”组织长期内容。它只负责选择主题，不维护逐篇阅读顺序和完成度。
 
-本页（`INDEX.md`）负责学习路线、目标导航和推荐阅读；目录结构、内容边界和维护规则见 [维护规范](./00_Navigation/维护规范.md)。
+日常学习从 [当前学习](./00_当前学习.md) 开始；目录边界和维护规则见 [维护规范](./00_Navigation/维护规范.md)。不要把本页或任何目录当成连续必修课。
 
-## 技术主线
+## 技术与产品
+
+| 主题 | 什么时候进入 |
+|---|---|
+| [CS](./CS/README.md) | 补计算机系统、网络、操作系统、算法与理论基础 |
+| [Backend](./Backend/README.md) | 做服务、数据库、中间件、系统设计和交付 |
+| [Python](./Python/README.md) | 项目需要 Python 语言、HTTP、异步或服务能力 |
+| [AI](./AI/README.md) | 需要理解模型、训练、表示和 LLM 原理 |
+| [Agent](./Agent/00_学习路线图.md) | 构建模型调用、工具、状态、编排和治理系统 |
+| [TypeScript](./TypeScript/README.md) | 做 Node、前端或 AI 产品界面 |
+| [数据科学](./Data_Science/README.md) | 从数据问题、基线和实验形成决策 |
+| [产品与业务决策](./Product_and_Decision/README.md) | 处理需求、指标、实验、定价和反馈闭环 |
+| [安全、隐私与治理](./Security_and_Governance/README.md) | 真实系统出现身份、数据、供应链或治理风险 |
+| [Case Studies](./Case_Studies/README.md) | 用项目、源码或实验验证主题知识 |
+| [References](./References/README.md) | 查产品文档、技术资料、开源项目和证据方法 |
+| [Career](./Career/README.md) | 求职、项目表达、协作和职业阶段问题 |
+
+技术主线不是固定课程。常见关系是：
 
 ```text
-计算机基础 → 后端工程 → 系统设计 → AI 应用工程 → 案例验证 → 职业表达
+计算机基础 → 工程实现 → 系统设计 → AI/Agent 应用 → 项目验证
 ```
 
-金融、健康、历史与社会、Web3、写作与表达是并列的专题路线，不是技术主线的后续阶段。进入这些主题时直接使用对应索引，不需要先读完技术目录。
+已经具备的能力直接跳过；具体学习顺序回到对应主题入口。
 
-## 按目标进入
+## 其他长期主题
 
-| 目标 | 入口 |
+| 主题 | 使用方式 |
 |---|---|
-| 补计算机底座 | [CS](./CS/README.md) |
-| 做 Java/Go/Rust 后端 | [Backend](./Backend/README.md) |
-| 用 Go 做生产后端 | [Go 正式路线](./Backend/Go/README.md) → [Go 后端实战](./Backend/Go/05_Go后端项目实战.md) |
-| 学 PostgreSQL 并做数据库故障/恢复实践 | [PostgreSQL](./Backend/Data/PostgreSQL.md) → [PostgreSQL 实践路线](./Backend/Data/PostgreSQL/README.md) |
-| 学 LLM 原理 | [AI](./AI/README.md) |
-| 学通用数据科学 | [数据科学](./Data_Science/README.md) |
-| 学 Python → AI → Agent | [学习地图](./00_Navigation/AI-Python-Agent学习地图.md) |
-| 用 Rust 做 Agent Runtime | [Rust/Go 目标地图](./00_Navigation/Rust-Agent与Go后端学习地图.md) → [Rust Agent 工程化](./Backend/Rust/16_Rust%20Agent工程化.md) |
-| 学企业知识入库 / OCR 表格 | [文档摄取与解析](./Agent/文档摄取与解析.md) → [知识系统](./Agent/知识系统.md) → [RAG](./Agent/RAG.md) → [检索系统工程](./Agent/检索系统工程.md) |
-| 做 Agent、RAG、MCP | [Python](./Python/README.md) → [AI](./AI/README.md) → [Agent](./Agent/README.md) |
-| 对比 Agent 框架 / 低代码 | [Agent框架与平台选型](./Agent/Agent框架与平台选型.md) |
-| 理解 Skills 与工具膨胀 | [Skills与渐进式披露](./Agent/Skills与渐进式披露.md) → [Tool Calling](./Agent/02_Tool%20Calling.md) |
-| 准备 Agent 岗面试 | [大厂真题汇总](./Agent/面试/大厂真题汇总.md) → [项目表达与面试](./Agent/项目表达与面试.md) → [推理服务速答](./Agent/推理服务速答.md) |
-| 练系统设计 | [Backend/Architecture](./Backend/Architecture/README.md) |
-| 做产品、指标与实验决策 | [产品与业务决策](./Product_and_Decision/README.md) |
-| 学安全、隐私与 AI 治理 | [安全、隐私与治理](./Security_and_Governance/README.md) |
-| 看真实项目取舍 | [Case Studies](./Case_Studies/README.md) |
-| 查术语、产品和技术资料 | [References](./References/README.md) |
-| 准备面试和职业发展 | [Career](./Career/README.md) |
-| 写 RFC、ADR、Runbook、复盘和困难沟通 | [专业技术文档与困难沟通](./Writing_and_Expression/05_Professional_Documents/专业技术文档与困难沟通.md) |
-| 学金融与投资 | [Finance](./Finance/README.md) |
-| 建立个人财务与规则核对系统 | [个人财务与规则核对](./Finance/16_Personal_Finance/README.md) |
-| 做金融实证与量化研究 | [金融进阶与实证研究](./Finance/15_Advanced_Practice/金融进阶与实证研究.md) |
-| 管理健康与精力 | [Health and Energy](./Health_and_Energy/INDEX.md) |
-| 建立长期电脑工作与恢复系统 | [长期工作健康与恢复](./Health_and_Energy/05_Sustainable_Work/长期工作健康与恢复.md) |
-| 理解历史、制度和组织 | [History and Society](./History_and_Society/INDEX.md) |
-| 理解计算机、AI 产业与数字社会 | [计算机、AI 产业与数字社会](./History_and_Society/05_Digital_Age/计算机AI产业与数字社会.md) |
-| 学 Web3 机制和工程 | [Web3](./Web3/INDEX.md) |
-| 学 Web3 高级工程与协议安全 | [Web3 高级工程与协议安全](./Web3/08_Advanced_Engineering/Web3高级工程与协议安全.md) |
-| 学 TypeScript 工程 | [TypeScript](./TypeScript/README.md) |
-| 做 AI 产品前端与交互 | [AI 产品界面与交互](./TypeScript/AI产品界面与交互.md) |
-| 补算法、证明、安全、编译与计算理论 | [CS 完整路线](./CS/README.md) |
-| 学数据库系统原理 | [数据库系统原理](./Backend/Data/数据库系统原理.md) |
-| 学性能、可观测性与 SRE | [生产系统工程](./Backend/Delivery/07_生产系统工程.md) |
-| 学 ML 系统与模型交付 | [ML 系统与 MLOps](./AI/ML系统与MLOps.md) |
-| 学数据工程与流处理 | [数据工程与流处理](./Backend/Data/数据工程与流处理.md) |
-| 学云平台与 IaC | [云原生与 IaC](./Backend/Delivery/08_云原生与IaC.md) |
-| 学重构与遗留系统演进 | [软件工程与演进式架构](./Backend/SoftwareEngineering.md) |
-| 做系统故障实验 | [系统实验路线](./Case_Studies/System_Labs/README.md) |
+| [金融与经济学](./Finance/README.md) | 围绕真实研究、投资或个人财务问题查询 |
+| [健康与精力](./Health_and_Energy/INDEX.md) | 从当前最影响日常功能的问题进入 |
+| [历史、制度与组织](./History_and_Society/INDEX.md) | 解释长期因果、制度与组织问题 |
+| [Web3](./Web3/INDEX.md) | 理解链上状态、交易、合约、协议和风险 |
+| [写作与表达](./Writing_and_Expression/INDEX.md) | 为正在交付的汇报、方案、沟通或演示服务 |
 
-## 如何使用这个索引
+这些主题彼此并列，不是技术主线之后的额外必修。
 
-1. 直接从“按目标进入”选择当前目标；需要判断事实可靠性时读[来源与证据](./00_Navigation/来源与证据.md)。
-2. 从“按目标进入”中只选择一个当前目标，不把所有目录当成连续必修课。
-3. 每个目标都按“主题正文 → 最小实践 → 故障或反例 → 证据记录 → 项目表达”形成闭环。
+## 跨目录路线
 
-技术学习按目标选择路线：
+- [Python、AI 与 Agent 的边界地图](./00_Navigation/AI-Python-Agent学习地图.md)：判断应该在哪一层补课。
+- [Rust Agent 与 Go 后端学习地图](./00_Navigation/Rust-Agent与Go后端学习地图.md)：仅在这两个明确目标之间协调顺序。
+- [来源与证据](./00_Navigation/来源与证据.md)：区分主题提炼、正文核验、源码审计和本地复现。
 
-- 通用软件系统： [CS](./CS/README.md) → [Backend](./Backend/README.md) → [系统实验](./Case_Studies/System_Labs/README.md)。
-- Python、模型与 Agent 应用： [Python → AI → Agent 学习地图](./00_Navigation/AI-Python-Agent学习地图.md)。
-- Go 生产后端与 Rust Agent Runtime： [Rust Agent 与 Go 后端学习地图](./00_Navigation/Rust-Agent与Go后端学习地图.md)。
-- 项目和源码验证： [Case Studies](./Case_Studies/README.md) → [技术资料证据与复现工作流](./References/技术资料证据与复现工作流.md)。
+## 使用规则
 
-金融、健康、历史与社会、Web3、写作与表达等专题，直接从上方目标表进入各自索引；它们各自维护先修关系、来源边界和实践方式。
-
-## 内容边界
-
-- 理论和方法进入主题文档；项目名称、源码结构和运行证据进入案例文档。
-- 文档正文、README、源码和配置可以作为证据；视频不自动转写为已学习内容。
-- “主题级提炼”“正文核验”“源码审计”“本地复现”分开记录，不混淆完成度。
-- 每篇新增文档都应写清边界、失败场景、来源和相关主题。
+1. 同时只在 [当前学习](./00_当前学习.md) 保留一个目标和少量下一步。
+2. 先处理真实问题；遇到知识缺口再进入相应主题。
+3. 概念正文用于理解，不默认附带必须完成的练习；实践和项目负责运行与验证。
+4. 格式、措辞和轻微重复进入维护待办，不中断学习去重整全库。
+5. 跨主题导航只链接稳定入口，局部拆分和重命名尽量留在主题内部。

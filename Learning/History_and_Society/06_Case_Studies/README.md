@@ -1,7 +1,3 @@
----
-type: map
-status: developing
----
 # 历史与社会案例研究
 
 现有历史、制度与组织文档提供分析框架；本目录补充具体案例，用来检查抽象概念在时间、地区、技术和利益分配中是否真的成立。
@@ -40,4 +36,3 @@ status: developing
 - [国家能力与经济发展](../03_Institutional_Evolution/国家能力与经济发展.md)
 - [组织为什么会出现](../04_Organization_and_Society/组织为什么会出现.md)
 - [计算机、AI 产业与数字社会](../05_Digital_Age/计算机AI产业与数字社会.md)
-

@@ -145,9 +145,9 @@ async def traced(operation: str):
 
 模型质量用独立 Eval；Python 单元测试负责确定性边界，集成测试负责真实协议和临时资源。
 
-## 9. 最小练习项目
+## 9. 项目遇到对应边界时
 
-实现一个本地 Tool Agent：
+下列能力不单独再做一套练习；当 Agent 项目需要对应边界时，逐项落到项目里：
 
 1. 用 Pydantic 校验搜索和写入参数；
 2. 用 `asyncio` 并发执行两个只读查询，并限制并发与超时；
@@ -158,5 +158,3 @@ async def traced(operation: str):
 验收重点不是模型回答漂亮，而是“坏输入、坏工具、进程取消和重复投递时不会越过执行边界”。
 
 配套实践：[04 Tool Calling](./../Agent/实践/ai-agent-learning/agent-learning-projects/04_tool_calling_agent/README.md)、[05 Simple Agent Loop](./../Agent/实践/ai-agent-learning/agent-learning-projects/05_simple_agent_loop/README.md)。
-
-`#python #agent #pydantic #asyncio #reliability`

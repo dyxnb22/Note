@@ -25,6 +25,6 @@ pip install -r agent-learning-projects/07_langgraph_basic_workflow/requirements.
 python agent-learning-projects/07_langgraph_basic_workflow/main.py
 ```
 
-先按理论主线读完 `01–04`；00 号练习是可选的无 API 预热，也可以在读到 `03` 时运行。进入后续具体项目，再按它的 README 安装依赖；需要模型的项目先复制 `.env.example`，不要提交真实密钥。每完成一个项目，只记录：输入与入口、状态/工具轨迹、一次失败边界、你的修改及验证结果。
+理论主线与实践 `03–05` 交替进行：读到 Provider、Tool 和 Loop 时就运行对应项目，不必先把四篇正文全部读完。00 号是可选的无 API 预热；`01–02` 只补 Python/HTTP，`06` 只在需要服务化时进入。需要模型的项目先复制 `.env.example`，不要提交真实密钥。每完成一个项目，只记录：输入与入口、状态/工具轨迹、一次失败边界、你的修改及验证结果。
 
 `langgraph-advanced/` 用于机制对照，`DevPilot/` 用于综合练习；二者完成主路线后再选，不要把同一机制重复实现多遍。代码是教学快照，模型名、依赖、权限和本地存储都要按当前环境复核。

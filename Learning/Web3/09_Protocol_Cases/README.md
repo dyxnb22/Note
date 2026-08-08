@@ -1,7 +1,3 @@
----
-type: map
-status: developing
----
 # Web3 协议案例
 
 现有 Web3 目录已经覆盖概念、钱包、交易、智能合约、DeFi 和安全。本目录补充从协议机制到经济不变量、攻击面、链上证据和安全审计的完整案例。
@@ -32,4 +28,3 @@ status: developing
 - [借贷协议为什么离不开超额抵押](../04_DeFi_and_Tokenomics/借贷协议为什么离不开超额抵押.md)
 - [Web3 安全速查](../05_Security_and_Risks/Web3安全速查.md)
 - [如何研究一个协议](../07_Research_and_Build_Workflow/如何研究一个协议.md)
-

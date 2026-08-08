@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1786169496272-pulvzy2wr",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786169496309-8fl4w32",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1786169496270-2cxbuxh",
+      "timestamp": 1786169496270,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent/01_LLM调用基础.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent/01_LLM调用基础.md",
+          "mode": "selection",
+          "selectedText": "Reasoning/thinking 指某些 Provider 返回的推理相关状态；如果它以摘要、签名或 typed item 返回，只保留完成协议、恢复和审计所需的状态，不要把它等同于必须暴露或保存的原始思维链",
+          "lineCount": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerUserMessageId": "019fdfff-b6c0-7813-9f7e-b99c2377d933",
+      "providerAssistantMessageId": "msg_0644311f02e37d09016a76c8bb2db88190a4ef4adede458333"
+    }
+  ]
+}

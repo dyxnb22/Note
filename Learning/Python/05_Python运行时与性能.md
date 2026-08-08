@@ -162,7 +162,7 @@ async def fetch_with_cleanup(client, url, *, timeout_s=5):
 
 具体 HTTP 客户端的关闭方法可能不同；验收时用任务计数、连接池指标和取消测试证明资源确实回收。
 
-## 最小实验
+## 出现性能或资源问题时验证
 
 1. 比较线程、进程、asyncio 处理 I/O 和 CPU 任务。
 2. 制造未关闭 Task 和引用环，用工具定位。
@@ -170,7 +170,7 @@ async def fetch_with_cleanup(client, url, *, timeout_s=5):
 4. 比较逐条处理、批处理和向量化。
 5. 验证取消后 HTTP、文件和数据库资源被释放。
 
-## 验收清单
+## 生产项目使用时检查
 
 - 能区分语言语义、CPython、GIL 和 C 扩展行为。
 - 能解释对象引用、GC 与 RSS 不下降。
@@ -181,5 +181,3 @@ async def fetch_with_cleanup(client, url, *, timeout_s=5):
 ## 来源与验证边界
 
 运行时语义参考 Python Language Reference、CPython 文档和标准库文档。实现细节会随 Python 版本变化，性能结论必须在项目锁定的解释器、依赖和工作负载上验证。
-
-`#python #cpython #asyncio #gil #profiling`

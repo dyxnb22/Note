@@ -166,7 +166,7 @@ LangGraph API、Checkpointer、stream 事件和 Provider 集成会变化。升�
 
 实践按顺序阅读：[07 基础 Workflow](./实践/ai-agent-learning/agent-learning-projects/07_langgraph_basic_workflow/README.md)、[08 Tool Agent](./实践/ai-agent-learning/agent-learning-projects/08_langgraph_tool_agent/README.md)、[09 Memory Agent](./实践/ai-agent-learning/agent-learning-projects/09_langgraph_memory_agent/README.md)，再看 [LangGraph Advanced](./实践/ai-agent-learning/langgraph-advanced/README.md) 和 [DevPilot](./实践/ai-agent-learning/DevPilot/README.md)。
 
-## 12. 验收
+## 12. 开始使用框架前检查
 
 能用 LangGraph 实现一个有限循环，并说明：
 

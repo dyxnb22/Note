@@ -14,7 +14,7 @@
 
 ## 入口
 
-- [总阅读清单](./阅读清单.md)
+- [当前学习](./Learning/00_当前学习.md)
 - [Learning 总索引](./Learning/INDEX.md)
 - [Projects](./Projects/README.md)
 - [Resources](./Resources/README.md)

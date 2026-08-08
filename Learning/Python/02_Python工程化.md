@@ -183,5 +183,3 @@ Agent 项目至少把以下边界显式化：
 - 失败能定位到输入、代码、依赖或环境。
 
 下一步：[Python Agent 工程化补充](./04_Python%20Agent工程化补充.md)。
-
-`#python #engineering #dependencies #testing`

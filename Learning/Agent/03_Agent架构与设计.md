@@ -2,7 +2,9 @@
 
 本文只回答三件事：Agent 与普通调用/Workflow 的边界、常见运行时模式，以及如何把动态决策放进可控的工程系统。工具合同见 [Tool Calling](./02_Tool%20Calling.md)，Context 见 [Context 工程](./04_Context工程.md)，编排 API 见 [LangGraph](./LangGraph.md)。
 
-> **前提与完成标准**：先完成 [LLM 调用基础](./01_LLM调用基础.md) 和 [Tool Calling](./02_Tool%20Calling.md)；[00 号无 API 练习](./实践/ai-agent-learning/agent-learning-projects/00_agent_mental_model/README.md) 可作为短练习。读完能画出任务状态转移并明确每一种停止原因，不能只说“让模型自己循环”。
+> **前提与完成标准**：先完成 [LLM 调用基础](./01_LLM调用基础.md) 和 [Tool Calling](./02_Tool%20Calling.md)。读完能画出任务状态转移并明确每一种停止原因，不能只说“让模型自己循环”；需要观察代码时直接使用已有的最小 Agent Loop。
+
+> **第一遍只读**：`0–3 → 5 → 9`。先建立状态机、Loop、模式选择和终止条件；自主性、完整 Harness、机制归属和设计评审在开始做复杂项目时再用。
 
 ## 0. 先把 Agent 看成状态机
 
@@ -171,17 +173,13 @@ Harness 决定模型能看见什么、能执行什么、如何暂停恢复、如
 
 如果答案只有“靠 Prompt 约束”，说明系统边界还没有建立。
 
-## 9. 最小实践与验收
+## 9. 在已有项目中验证
 
-先实现一个窄任务的 ReAct 循环，再逐项接入 Tool、Context、权限、验证、Checkpoint、Trace 和 Eval；每次只增加一种机制，并记录它改善的指标与新增成本。
+使用 [最小 Agent Loop](./实践/ai-agent-learning/agent-learning-projects/05_simple_agent_loop/README.md) 或自己的项目观察一条完整轨迹，不需要为本文重写一套循环。至少能指出：
 
-验收至少包括：
+- 循环从哪个状态开始，哪些条件会成功、失败或停止；
+- 模型提出下一步后，参数校验、权限和成功判定由哪一层完成；
+- State 保存什么，Context 又只选择了其中哪些内容；
+- 步数、Token、费用或时间耗尽时，系统如何留下明确停止原因。
 
-- 有限步数和明确停止原因；
-- 工具参数校验、权限检查和高风险审批；
-- 可审查的状态与工具 Trace；
-- 写操作后的程序化验证；
-- 失败、取消、恢复和人工接管路径；
-- 可重复的成功、拒绝、边界和历史事故 Case。
-
-实践选择见 [Agent 学习路线图](./00_学习路线图.md)：`ai-agent-learning` 走应用主线，`learn-claude-code` 拆 Harness，Rust Runtime 做跨语言对照。
+Checkpoint、恢复、审批和 Eval 等机制等到真实项目需要时再接入；它们不属于理解核心循环的前置。后续分支见 [Agent 学习地图](./00_学习路线图.md)。

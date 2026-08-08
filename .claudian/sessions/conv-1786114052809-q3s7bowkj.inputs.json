@@ -193,6 +193,61 @@
       "contentDigest": "4ac80e86c08eb0708794bb6e27069faeb5a78ba6548dfcc69ea8fbd5954d1562",
       "providerUserMessageId": "019fdf1c-c936-79a0-938c-99d752dbcb4f",
       "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a768f81a87081949b339a3dac41003f"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786157758384-ote7o7h",
+      "userTurnOrdinal": 11,
+      "state": "accepted",
+      "localMessageId": "msg-1786157758381-4uc56kr",
+      "timestamp": 1786157758381,
+      "rawDisplayText": "最顶部的阅读清单，你来删除吧",
+      "canonicalText": "最顶部的阅读清单，你来删除吧",
+      "images": [],
+      "contentDigest": "997d268b8353953015d155c1d05486f86ce5c6006efa78d57dbb767d33ef43ee",
+      "providerUserMessageId": "019fdf4c-827d-7301-af09-2cb9b1ce615f",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a769adf1f0881948f2f6e8c38fd279a"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786158015117-5r1d0bs",
+      "userTurnOrdinal": 12,
+      "state": "accepted",
+      "localMessageId": "msg-1786158015114-5jrpbju",
+      "timestamp": 1786158015114,
+      "rawDisplayText": "Agent下的学习笔记，你看是否需要重新且全部地加上编号",
+      "canonicalText": "Agent下的学习笔记，你看是否需要重新且全部地加上编号",
+      "images": [],
+      "contentDigest": "66f584c85bb741077310fc0fcced637b7c4f30a9b4aae7be51c133ea1ea022c9",
+      "providerUserMessageId": "019fdf50-62c1-7ed2-aad0-670f88cbf00c",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a769bdd8f14819499b674643773a50c"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786165441098-bkqmwkx",
+      "userTurnOrdinal": 13,
+      "state": "accepted",
+      "localMessageId": "msg-1786165441094-b62fvw5",
+      "timestamp": 1786165441094,
+      "rawDisplayText": "那你来优化下",
+      "canonicalText": "那你来优化下",
+      "images": [],
+      "contentDigest": "cf57b621b05d690c8bb8066acd5baa3df0c8f8a9a41ef7aea26a6899aa15ba82",
+      "providerUserMessageId": "019fdfc1-bce0-7cb3-872e-73d1e5c1ed12"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786165490060-8hkghai",
+      "userTurnOrdinal": 14,
+      "state": "accepted",
+      "localMessageId": "msg-1786165490057-hgcaseg",
+      "timestamp": 1786165490057,
+      "rawDisplayText": "你给我加上一个打勾的列表吧，记录下学习进度",
+      "canonicalText": "你给我加上一个打勾的列表吧，记录下学习进度",
+      "images": [],
+      "contentDigest": "ee1f8134d425e18c94d0a1eb8e16999f374abe7bd1950570fb9a43ec1c87273c",
+      "providerUserMessageId": "019fdfc2-9201-7891-9cbe-765828826883",
+      "providerAssistantMessageId": "msg_0dc830b7b6e4e22f016a76b9d0599c819484cf18c5a71fa262"
     }
   ]
 }

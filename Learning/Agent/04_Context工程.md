@@ -6,6 +6,8 @@
 >
 > **边界**：本文负责当前请求的 Context 选择、排序、压缩、注入和预算；跨会话 Memory、工具权限和工具 schema 回到各自主文档。
 
+> **第一遍只读**：`0–5 → 8–9`。先分清 State、Memory、Context，理解装配、压缩和不可信输入；结构化输出、工具目录和缓存按实际需求再查。
+
 ## 0. 先分清三件事
 
 ```text
@@ -152,14 +154,14 @@ def fit_context(messages: list[dict], max_tokens: int) -> list[dict]:
 - 压缩不得删除当前目标、硬约束、审批状态和未验证证据；
 - 上下文超限必须明确停止或降级，不能静默截断成“看似成功”。
 
-## 9. 练习与验收
+## 9. 读完应能说明
 
-为一个代码修改 Agent 实现三种 Context：首次请求、工具失败后重试、长任务恢复。验收：
+不需要为本文单独实现三套 Context。结合当前项目的一次首次调用和一次工具返回，确认自己能说明：
 
 1. 能说明每条消息来自哪里、可信度是什么；
-2. 超限时按策略压缩，并保留目标、约束和错误；
-3. 注入文本不能扩大工具权限；
-4. Trace 能恢复本轮 Context 的版本、预算和来源；
-5. Memory、工具 schema 和系统规则没有重复注入。
+2. State、Memory 和 Context 为什么不能混为一谈；
+3. 为什么检索文本和用户输入不能扩大工具权限；
+4. 超限时哪些内容必须保留，哪些可以删除或压缩；
+5. 为什么不应把完整历史、全部工具和全部 Memory 每轮都发给模型。
 
-实践对照：[learn-claude-code s07 Skill Loading](./实践/learn-claude-code/s07_skill_loading/code.py)、[s08 Context Compact](./实践/learn-claude-code/s08_context_compact/code.py)、[s10 System Prompt](./实践/learn-claude-code/s10_system_prompt/code.py)。
+只有项目开始遇到工具膨胀、上下文超限或长任务恢复时，再按问题查看 [s07 Skill Loading](./实践/learn-claude-code/s07_skill_loading/code.py)、[s08 Context Compact](./实践/learn-claude-code/s08_context_compact/code.py) 和 [s10 System Prompt](./实践/learn-claude-code/s10_system_prompt/code.py)，不需要提前全部重做。

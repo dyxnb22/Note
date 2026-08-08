@@ -1,7 +1,3 @@
----
-type: map
-status: developing
----
 # 健康测量与医学素养
 
 这里补充健康与精力主线中的观察、训练、人体工学、营养和求助边界。目标是建立低风险的自我管理和与专业人士沟通的能力，不做个人诊断或治疗方案。
@@ -45,4 +41,3 @@ status: developing
 - [健康与精力总索引](../INDEX.md)
 - [长期工作健康与恢复](../05_Sustainable_Work/长期工作健康与恢复.md)
 - [饮食与代谢速查](../03_Nutrition_and_Metabolism/饮食与代谢速查.md)
-

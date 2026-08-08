@@ -2,7 +2,7 @@
 
 这里负责 AI 应用之前的 Python 语言、工程、HTTP 和服务化能力；Agent、RAG 和工具协议回到 [Agent 知识库](../Agent/README.md)。完整跨目录路线见 [Python → AI → Agent 学习地图](../00_Navigation/AI-Python-Agent学习地图.md)。
 
-## 主线
+## 问题地图
 
 ```text
 01 核心语法 → 02 工程化 → 03 HTTP/API → 04 Agent 工程化
@@ -16,16 +16,14 @@
 | 做 API 服务 | [FastAPI](./FastAPI.md) → [代码组织与设计模式](./Python代码组织与设计模式.md) |
 | 排查线上问题 | [错误与 Debug](./错误与Debug.md) → [运行时与性能](./05_Python运行时与性能.md) |
 
-## 第一遍路线
+## 怎么进入
 
-先读 [核心语法](./01_Python核心语法.md)，并完成 [基础练习](./实践/Python基础练习/README.md)；再读 [工程化](./02_Python工程化.md) 和 [HTTP/API](./03_HTTP与API调用.md)，之后按目标选择 [FastAPI](./FastAPI.md) 或 [代码组织与设计模式](./Python代码组织与设计模式.md)。准备做 Agent 时再读 [Agent 工程化补充](./04_Python%20Agent工程化补充.md)；运行时、性能和 Debug 放到遇到问题时学习。
+Python 不熟时才从核心语法和基础练习开始；已经能写函数、模块、虚拟环境和基本测试时，直接从当前项目需要的工程化、HTTP/API 或 FastAPI 进入。做 Agent 不要求先读完整目录，只有遇到类型合同、异步、取消或重试问题时再看 [Agent 工程化补充](./04_Python%20Agent工程化补充.md)。运行时、性能和 Debug 始终按问题学习。
 
-## 完成标准
+## 当前目标的完成标准
 
-能独立完成一个小型命令行程序、一个带超时和错误处理的 HTTP 客户端，以及一个能运行测试的 FastAPI 端点；外部输入经过解析和校验，资源能关闭，失败有可定位的错误。
+完成标准由项目决定，不要求重新做三套练习：命令行项目关注配置、错误和测试；HTTP 客户端关注超时、取消和资源关闭；API 服务再增加输入校验与端点测试。已有项目能证明对应能力时直接跳过。
 
 ## 边界与约定
 
 `python` 代码块应通过语法解析；`text`/`pseudocode` 只是结构示意。完整可运行链路进入 [实践](./实践/Python基础练习/README.md)。语言、依赖、HTTP 和服务边界放在本目录；LLM、Agent、RAG、工具协议放在 `Agent/`。
-
-`#python #engineering #index`

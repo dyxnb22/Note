@@ -144,9 +144,9 @@
 
 MCP 的 HTTP 授权规范可以作为协议层学习材料，但协议授权不等于业务权限；业务系统仍需检查 actor、tenant、resource 和 operation。[MCP Authorization（当前正式规范）](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)
 
-## 9. 练习与验收
+## 9. 高风险项目落地时检查
 
-为一个“代码修改 Agent”画一份威胁模型：
+当 Agent 能读取私有数据、联网或产生写操作时，再为当前项目建立威胁模型。没有这些能力时理解信任边界即可，不需要预先完成完整练习：
 
 1. 列出至少 8 个资产和 5 类主体；
 2. 标出用户、仓库、模型、工具、沙箱和网络之间的信任边界；

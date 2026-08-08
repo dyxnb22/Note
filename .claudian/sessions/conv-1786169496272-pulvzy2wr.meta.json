@@ -1,0 +1,28 @@
+{
+  "id": "conv-1786169496272-pulvzy2wr",
+  "providerId": "codex",
+  "title": "Explain meaning of unclear phrase",
+  "titleGenerationStatus": "success",
+  "createdAt": 1786169496279,
+  "lastActivityAt": 1786169535294,
+  "sessionId": "019fdfff-9cae-7751-a4b9-b0eafd8fa11a",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "019fdfff-9cae-7751-a4b9-b0eafd8fa11a",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/08/rollout-2026-08-08T14-11-38-019fdfff-9cae-7751-a4b9-b0eafd8fa11a.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "currentNote": "Learning/Agent/01_LLM调用基础.md",
+  "usage": {
+    "inputTokens": 16235,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 13056,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 16235,
+    "percentage": 6,
+    "model": "gpt-5.6-luna"
+  }
+}

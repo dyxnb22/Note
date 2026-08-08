@@ -111,9 +111,9 @@ def select_memories(memories: list[dict], *, actor, query: str, max_items: int):
 
 租户、隐私和 Provider 出站边界见 [Agent 身份与数据治理](./Agent身份与数据治理.md)。
 
-## 7. 练习与验收
+## 7. 项目确实需要长期记忆时检查
 
-为一个知识型 Agent 实现一条“明确记忆 → 召回 → 注入 → 用户更正 → 删除”的闭环：
+只有项目需要跨会话保存用户信息时才实现完整闭环；普通任务状态、聊天历史和 Context 压缩不需要先引入 Memory：
 
 1. 区分 Context、会话、长期 Memory 和 Workflow State；
 2. 证明跨租户 Memory 不会进入召回结果；

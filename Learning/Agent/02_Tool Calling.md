@@ -6,6 +6,8 @@
 >
 > **边界**：Provider 合同规定消息如何传输，Tool 合同规定动作如何校验和执行，Agent Loop 决定拿到结果后是否继续；本文负责工具执行边界，不展开整体 Loop、安全威胁和治理。
 
+> **第一遍只读**：`0–5 → 11`。先分清动作提案、Tool Contract、执行顺序和结果回填；幂等、权限、后台工具、流式参数和工具路由按项目风险进入。
+
 ## 0. 先看一次工具循环
 
 ```text
@@ -211,17 +213,17 @@ def resolve_tool(name: str):
 
 优先级通常是：静态规则 → 工具描述的语义召回 → 两级模型路由。路由只解决模型“看见谁”，不解决权限、参数、幂等和副作用；`Skills` 负责能力正文的渐进式披露，见 [Skills 与渐进式披露](./Skills与渐进式披露.md)。
 
-## 11. 练习与验收
+## 11. 读完应能说明
 
-实现三个工具：一个查询、一个可审批写操作、一个会超时的外部调用，并证明：
+不需要为本文单独实现三个新工具。打开 [Tool Calling Agent](./实践/ai-agent-learning/agent-learning-projects/04_tool_calling_agent/README.md) 或你正在做的项目，确认自己能说明：
 
-1. 未知工具和越权工具不会执行；
-2. 参数错误变成结构化结果；
-3. 查询可限次重试，写操作不会因不明结果重复执行；
-4. 每个调用都能按 `call_id` 回放和解释；
-5. 预算、取消、超时和审批都有明确停止原因。
+1. 为什么模型输出的 `ToolCall` 不是执行权限？
+2. schema 校验、授权和实际执行分别发生在哪里？
+3. `call_id` 如何把请求、结果和重试配对？
+4. 查询失败和有副作用写操作的重试策略为什么不同？
+5. 工具错误如何作为结构化 `ToolResult` 返回，而不是伪装成成功文本？
 
-实践：[Tool Calling Agent](./实践/ai-agent-learning/agent-learning-projects/04_tool_calling_agent/README.md)、[Simple Agent Loop](./实践/ai-agent-learning/agent-learning-projects/05_simple_agent_loop/README.md)。
+需要观察完整循环时再进入 [Simple Agent Loop](./实践/ai-agent-learning/agent-learning-projects/05_simple_agent_loop/README.md)。只有当前项目确实涉及写操作、审批或外部超时时，才增加相应失败实验。
 
 ## 官方来源
 

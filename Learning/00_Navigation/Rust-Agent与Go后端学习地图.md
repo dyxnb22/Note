@@ -135,5 +135,3 @@ Go 是主线，Rust 是专项支线。没有固定周数要求，但同一时间
 - Rust：一个可终止、可取消、权限受控、可恢复、可评测的 Agent Runtime/Harness。
 - 每个项目记录版本、环境、运行命令、原始结果、失败路径和未完成边界。
 - 能分别解释业务正确性、并发正确性、生产可靠性和 Agent 质量，避免用“测试通过”替代所有证明。
-
-`#map #go #rust #backend #agent #learning-path`

@@ -73,7 +73,7 @@ MEV 来自交易可见性、排序和组合权；分析抢跑、夹子、清算�
 
 治理安全不只看投票数量，还要看实际控制：谁能改参数、升级实现、暂停资产、管理预言机、执行提案和恢复故障。记录 token 分布、委托集中度、quorum、timelock、否决权、核心团队权限和退出机制。
 
-## 8. 最小安全实验
+## 8. 安全相关项目落地时
 
 1. 选一个小型合约，列出资产、主体、权限和 5 条不变量。
 2. 用 Foundry/Hardhat 写正常、边界、权限和模糊测试。
@@ -89,7 +89,7 @@ function invariant_totalSupplyMatchesBalances() public view {
 
 示例只是测试骨架，真实不变量要按协议定义，不能直接复制到生产合约。
 
-## 验收清单
+## 协议实现时检查
 
 - 能沿一笔交易解释状态、Gas、事件、receipt 和确认；
 - 能说明 RPC、Indexer、重组和数据可用性的边界；
@@ -98,5 +98,3 @@ function invariant_totalSupplyMatchesBalances() public view {
 - 部署、升级、暂停、治理和回滚都有可审计记录。
 
 主要参考：[Ethereum 开发文档](https://ethereum.org/developers/docs/)、[Solidity 文档](https://docs.soliditylang.org/)、[OpenZeppelin 文档](https://docs.openzeppelin.com/)。实现前核对目标链、升级、编译器和依赖版本。
-
-`#web3 #evm #smart-contract #protocol-security`

@@ -203,21 +203,8 @@ model.print_trainable_parameters()
 
 ---
 
-## 6. 面试自测
-
----
-
 ## D2L 系统学习入口
 
-本页保留为深度学习概念总览；若要按“动手学深度学习”的实践路线学习，请从 [DeepLearning/README.md](DeepLearning/README.md) 开始。
-
-建议顺序：预备知识 → 线性网络 → MLP → 深度学习计算 → CNN → RNN/Seq2Seq → 注意力与 Transformer → 优化与性能 → CV/NLP。每完成一个模块，都应运行最小实验、修改一个超参数并记录现象。
+本页保留为深度学习概念总览。只有需要自己训练模型、补数学或架构基础时，才进入 [DeepLearning 按需路线](DeepLearning/README.md)；当前项目只选相关分支，不默认从预备知识走到 CV/NLP。
 
 与 `LLM基础.md` 的边界：本目录解释模型训练与架构基础；`LLM基础.md` 聚焦现代大语言模型的 token、生成、对齐与应用边界。
-
-- [ ] 能解释反向传播的流程（梯度是什么、怎么流）
-- [ ] 能说清楚 Dropout 的作用和推理时要关闭的原因
-- [ ] 能解释 LoRA 的原理（低秩矩阵、只更新 adapter、原始权重冻结）
-- [ ] 能说清楚 train loss / val loss 的几种典型曲线代表什么
-- [ ] 能解释为什么 Transformer 需要 Position Encoding
-- [ ] 能说出 LayerNorm 和 BatchNorm 的区别（序列长度不固定，BatchNorm 不适合）

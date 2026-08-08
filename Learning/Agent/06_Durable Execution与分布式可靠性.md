@@ -119,9 +119,9 @@ Outbox 模式：
 
 尤其是发送、删除、发布等动作，不能因为 worker 崩溃就盲目重试。
 
-## 9. 练习与验收
+## 9. 项目需要恢复能力时检查
 
-把本地 Coding Agent 改造成后台任务系统：
+只有任务需要跨进程运行、重试或恢复时才进入这一层。可以在当前后台任务项目中检查以下机制，不必为了学习本文专门改造一个 Coding Agent：
 
 1. 使用 SQLite 或 PostgreSQL 保存 task、checkpoint 和 journal；
 2. 用一个 worker + lease 执行任务；

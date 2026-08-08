@@ -199,9 +199,9 @@ def release_gate(candidate, baseline, *, hard_limits, required_artifacts):
 
 真实门禁还应比较分桶质量、延迟、成本、输入 Schema 兼容性和回滚耗时；“离线准确率更高”不能单独证明线上发布值得。
 
-## 15. 最小项目
+## 15. 模型准备生产化时
 
-完成一个小模型的生产闭环：
+将真实小模型进入生产闭环时，按需完成：
 
 1. 版本化数据和 Schema。
 2. 记录训练配置、代码与指标。
@@ -210,7 +210,7 @@ def release_gate(candidate, baseline, *, hard_limits, required_artifacts):
 5. Shadow/Canary 发布新版本。
 6. 制造 Schema 漂移并验证告警与回滚。
 
-## 验收清单
+## 生产发布时检查
 
 - 任一模型版本都能追溯代码、数据、配置和评测。
 - 训练/推理转换有一致性测试。
@@ -221,5 +221,3 @@ def release_gate(candidate, baseline, *, hard_limits, required_artifacts):
 ## 来源与验证边界
 
 课程框架参考 Google《Rules of ML》、Chip Huyen《Designing Machine Learning Systems》和主流 ML 平台的生命周期模型。工具、硬件与服务行为会变化；质量、成本和性能必须以具体模型、数据和生产流量验证。
-
-`#mlops #ml-system #model-serving #data-versioning`

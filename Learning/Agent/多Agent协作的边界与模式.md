@@ -135,10 +135,8 @@ A 让 B 做、B 又派回 A。防护：
 
 跨产品委托的状态机与取消见 [跨Agent协议与A2A](跨Agent协议与A2A.md)。
 
-## 9. 最小实践
+## 9. 真正需要多 Agent 时验证
 
-选择一个可分成三份只读分析的任务：先用单 Agent 完成，再实现 Manager–Worker。每个 Worker 只接收必要上下文并返回固定 JSON；Manager 检查 Schema、去重证据并汇总。随后注入一个 Worker 超时、一个重复结果和一个错误证据，验证系统能降级完成且不会把未验证产物标为成功。额外注入「两个 Worker 结论冲突」与「互相指派」，验证仲裁与 TTL。
+先用单 Agent 建立基线，只在任务确实可拆分时再实现 Manager–Worker。每个 Worker 只接收必要上下文并返回固定 JSON；Manager 检查 Schema、去重证据并汇总。项目落地时再注入 Worker 超时、重复结果、错误证据、结论冲突与互相指派，验证降级、仲裁和 TTL。
 
 最终结论应回答：多 Agent 改善了哪个指标，增加了多少成本，在哪类任务上应退回单 Agent 或 Workflow。
-
-`#multi-agent #orchestration #workflow #reliability #evaluation`

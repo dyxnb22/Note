@@ -180,9 +180,9 @@ Agent 不能擅自覆盖用户已有修改。至少要区分：
 
 面试或设计评审可用五个检查点回答“怎么知道改动有效”：基线先可运行；过滤生成物、lockfile 和纯格式化 diff；用覆盖率关注变更行而不只看退出码；apply 后做编译/类型检查/定向测试；记录失败 fingerprint 并禁止无审批的危险 Git/网络命令。它们只是 `search → edit → verify` 的验证加深，不是另一套架构。
 
-## 9. 练习与验收
+## 9. 项目落地时检查
 
-在一个小型 Python 仓库上实现：
+只有正在实现代码 Agent 时才使用本清单。可以直接检查当前项目，不必另建一个小型 Python 仓库：
 
 1. `search → read_file → apply_patch → run_tests → git_diff` 五工具循环；
 2. patch 只允许修改 workspace 内文件；

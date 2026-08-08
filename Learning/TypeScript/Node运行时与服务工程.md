@@ -146,9 +146,9 @@ npm、pnpm、yarn 都解决依赖安装和脚本执行，但锁文件语义和�
 
 使用 CPU/Heap Profile 定位问题，不能根据“Node 单线程”直接得出扩容结论。
 
-## 最小项目
+## 服务项目需要这些边界时
 
-实现一个 TypeScript API：
+可在正在开发的 TypeScript API 中逐项落地：
 
 1. 使用 Schema 校验输入和配置。
 2. 为所有下游调用设置 Timeout/AbortSignal。
@@ -157,7 +157,7 @@ npm、pnpm、yarn 都解决依赖安装和脚本执行，但锁文件语义和�
 5. 实现 SIGTERM 优雅退出。
 6. 做负载测试，观察 Event Loop Lag、p99 和内存。
 
-## 验收清单
+## 项目使用时检查
 
 - 能解释事件循环、Microtask 和线程池的边界。
 - CPU 密集任务不会阻塞所有请求。

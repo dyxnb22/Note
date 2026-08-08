@@ -8,6 +8,8 @@
 
 > **边界**：本文只负责 Provider/API 适配和调用级恢复，不维护 Agent Loop、工具权限、完整成本系统或部署 runbook。
 
+> **第一遍只读**：`0–3 → 7 → 11`。先理解调用链、消息合同、最小调用和错误边界；流式、结构化输出、成本缓存、fallback、多模态和升级测试等到项目遇到时再查。
+
 ## 0. 本章先看一条链路
 
 ```text
@@ -261,16 +263,16 @@ Provider 适配层至少测试：超时转稳定错误码、空响应被拒绝�
 
 实践对照：[ai-agent-learning 项目 03](./实践/ai-agent-learning/agent-learning-projects/03_openai_cli_chat/README.md)、[learn-claude-code s11](./实践/learn-claude-code/s11_error_recovery/code.py)。
 
-## 11. 本章验收与常见阻塞
+## 11. 读完应能说明
 
-可以运行 [00 号最小 Agent Loop 练习](./实践/ai-agent-learning/agent-learning-projects/00_agent_mental_model/README.md) 做预热，再做 [项目 03](./实践/ai-agent-learning/agent-learning-projects/03_openai_cli_chat/README.md)。完成后应能回答：
+不需要为本章单独再造练习。结合 [项目 03](./实践/ai-agent-learning/agent-learning-projects/03_openai_cli_chat/README.md) 中已有的调用代码，确认自己能回答：
 
 1. 为什么 Agent 不应该直接依赖 `choices[0].message` 之类的 Provider 字段？
 2. `ModelResult.text`、`tool_calls`、`usage` 和 `request_id` 分别给谁使用？
 3. 为什么 Usage/Request ID 不进入 messages？
 4. Provider 超时和结构化输出失败，为什么要先归一化再交给上层？
 
-如果你还分不清“模型输入”和“调用元数据”，先回到本章第 2 节；如果分不清 State、Context 和 Memory，再读 [Context 工程](./04_Context工程.md) 的第 0 节，不要先钻进 fallback 和多模态。
+如果你还分不清“模型输入”和“调用元数据”，先回到本章第 2 节；如果分不清 State、Context 和 Memory，再读 [Context 工程](./04_Context工程.md) 的第 0 节，不要先钻进 fallback 和多模态。能结合已有项目解释清楚即可，不要求重新实现一套 Provider Adapter。
 
 ## 官方来源
 

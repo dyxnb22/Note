@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "golang.go",
+    "rust-lang.rust-analyzer",
+    "tamasfe.even-better-toml",
+    "vscjava.vscode-java-pack",
+    "ms-azuretools.vscode-containers",
+    "redhat.vscode-yaml",
+    "davidanson.vscode-markdownlint",
+    "yzhang.markdown-all-in-one"
+  ]
+}

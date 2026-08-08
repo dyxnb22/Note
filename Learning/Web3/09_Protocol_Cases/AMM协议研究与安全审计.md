@@ -1,7 +1,3 @@
----
-type: case
-status: developing
----
 # AMM 协议研究与安全审计
 
 这个案例把 AMM 的数学机制、流动性提供者收益、交易者价格、合约状态和安全风险连起来。它不是对某个具体协议的安全结论，而是一套可复用的研究骨架。
@@ -73,9 +69,9 @@ x × y = k
 | 链上读取和事件 | 实际状态与历史动作 | 未来安全 |
 | 审计报告 | 审计范围内的发现 | 无风险保证 |
 
-## 6. 最小实验
+## 6. 需要验证 AMM 实现时
 
-实现一个小型本地池：
+可在当前项目或审计沙盒中用一个小型本地池验证：
 
 1. 添加和移除流动性。
 2. 兑换和手续费。
@@ -90,7 +86,6 @@ x × y = k
 ## 关联
 
 - [AMM 机制](../04_DeFi_and_Tokenomics/AMM 为什么能在没有订单簿时完成交易.md)
-- [智能合约工程](../03_Smart_Contracts_and_Development/智能合约工程速查.md)
+- [Solidity 合约](../03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)
 - [Web3 安全](../05_Security_and_Risks/Web3安全速查.md)
 - [Web3 研究与构建工作流](../07_Research_and_Build_Workflow/如何研究一个协议.md)
-
