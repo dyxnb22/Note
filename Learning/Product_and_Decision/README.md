@@ -50,6 +50,10 @@ status: developing
 上线风险、回滚条件和反馈窗口
 ~~~
 
+## 第一遍完成标准
+
+拿一个真实但规模很小的需求填完上面的记录，先做一次访谈、原型或小范围实验，再写出“继续、修改或停止”的判断。没有证据和停止条件，不把它写成成功案例。
+
 ## 关联
 
 - [数据科学](../Data_Science/README.md)
@@ -57,4 +61,3 @@ status: developing
 - [Agent 产品与人机协同](../Agent/Agent产品与人机协同.md)
 - [BigMarket 项目](../../Projects/BigMarket/00-项目学习地图.md)
 - [职业发展全流程](../Career/职业发展全流程.md)
-

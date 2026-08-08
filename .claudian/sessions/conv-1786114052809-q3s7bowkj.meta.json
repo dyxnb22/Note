@@ -4,7 +4,7 @@
   "title": "Explain the topic",
   "titleGenerationStatus": "success",
   "createdAt": 1786114052825,
-  "lastActivityAt": 1786120904565,
+  "lastActivityAt": 1786154886145,
   "sessionId": "019fdcb1-9365-73b1-8695-877dec0a927a",
   "selectedModel": "gpt-5.6-luna",
   "providerState": {
@@ -14,15 +14,14 @@
     "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
     "workspaceDependencyToolVersion": 1
   },
-  "currentNote": "Learning/Agent/01_LLM调用基础.md",
   "usage": {
-    "inputTokens": 151696,
+    "inputTokens": 204231,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 150272,
+    "cacheReadInputTokens": 202624,
     "contextWindow": 258400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 151696,
-    "percentage": 59,
+    "contextTokens": 204231,
+    "percentage": 79,
     "model": "gpt-5.6-luna"
   }
 }

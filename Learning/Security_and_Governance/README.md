@@ -41,6 +41,10 @@ status: developing
 
 安全设计不能只写“已加强安全”。至少要有资产清单、威胁模型、控制措施、测试结果、日志/审计证据和残余风险。
 
+## 第一遍完成标准
+
+选一个真实系统，按 `资产 → 信任边界 → 威胁 → 控制 → 测试 → 残余风险` 写一页评审记录。第一遍先完成 01–05，06 用一次演练把发现、遏制、恢复和复盘串起来；不要同时铺开所有合规框架。
+
 ## 参考资料
 
 - [OWASP Application Security Verification Standard](https://owasp.org/www-project-application-security-verification-standard/)
@@ -48,4 +52,3 @@ status: developing
 - [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
 - [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
 - [CISA Secure by Design](https://www.cisa.gov/securebydesign)
-

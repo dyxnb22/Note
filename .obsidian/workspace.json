@@ -192,8 +192,9 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "1b6ad053d401dde2",
+  "active": "b55c65997e2b1b75",
   "lastOpenFiles": [
+    "Learning/Agent/01_LLM调用基础.md",
     "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/12_claude_api_agent/README.md",
     "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/11_mcp_server/README.md",
     "Learning/Web3/09_Protocol_Cases/AMM协议研究与安全审计.md",
@@ -221,7 +222,6 @@
     "Learning/History_and_Society/06_Case_Studies/全球化、供应链与平台经济.md",
     "Learning/History_and_Society/06_Case_Studies/东亚工业化与发展型国家.md",
     "Learning/History_and_Society/06_Case_Studies/中国改革、增长与国家能力.md",
-    "Learning/History_and_Society/06_Case_Studies/README.md",
     "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/12_claude_api_agent/__pycache__/main.cpython-312.pyc",
     "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/12_claude_api_agent/__pycache__",
     "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/11_mcp_server/__pycache__/main.cpython-312.pyc",

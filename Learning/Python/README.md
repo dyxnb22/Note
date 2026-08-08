@@ -16,6 +16,14 @@
 | 做 API 服务 | [FastAPI](./FastAPI.md) → [代码组织与设计模式](./Python代码组织与设计模式.md) |
 | 排查线上问题 | [错误与 Debug](./错误与Debug.md) → [运行时与性能](./05_Python运行时与性能.md) |
 
+## 第一遍路线
+
+先读 [核心语法](./01_Python核心语法.md)，并完成 [基础练习](./实践/Python基础练习/README.md)；再读 [工程化](./02_Python工程化.md) 和 [HTTP/API](./03_HTTP与API调用.md)，之后按目标选择 [FastAPI](./FastAPI.md) 或 [代码组织与设计模式](./Python代码组织与设计模式.md)。准备做 Agent 时再读 [Agent 工程化补充](./04_Python%20Agent工程化补充.md)；运行时、性能和 Debug 放到遇到问题时学习。
+
+## 完成标准
+
+能独立完成一个小型命令行程序、一个带超时和错误处理的 HTTP 客户端，以及一个能运行测试的 FastAPI 端点；外部输入经过解析和校验，资源能关闭，失败有可定位的错误。
+
 ## 边界与约定
 
 `python` 代码块应通过语法解析；`text`/`pseudocode` 只是结构示意。完整可运行链路进入 [实践](./实践/Python基础练习/README.md)。语言、依赖、HTTP 和服务边界放在本目录；LLM、Agent、RAG、工具协议放在 `Agent/`。

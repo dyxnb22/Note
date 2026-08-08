@@ -18,10 +18,16 @@
 | DeFi | [AMM](04_DeFi_and_Tokenomics/AMM%20为什么能在没有订单簿时完成交易.md)、[借贷](04_DeFi_and_Tokenomics/借贷协议为什么离不开超额抵押.md)、[稳定币](04_DeFi_and_Tokenomics/稳定币的几种基本路线.md) |
 | 高级与研究 | [协议研究](07_Research_and_Build_Workflow/如何研究一个协议.md)、[高级工程与安全](08_Advanced_Engineering/Web3高级工程与协议安全.md)、[协议案例](09_Protocol_Cases/README.md) |
 
+## 第一遍路线
+
+先读 `00 → 01 → 02 → 03 → 04 → 05`，建立身份、状态、交易、合约、经济机制和安全边界；`06–09` 用于治理、研究、构建和案例，不是入门前置。网络参数、合约地址、标准和监管结论使用前回到官方来源核验。
+
 ## 验证原则
 
 先写清资产、主体、权限和信任来源；沿交易生命周期检查签名、广播、排序、执行、确认和失败；对协议同时分析平静期与极端状态；测试覆盖示例、模糊测试和业务不变量；标准、网络参数、合约地址和监管结论使用前重新核验。
 
 目录内的“速查”页只做复习和问题定位，不替代主文档。主要入口：[Ethereum](https://ethereum.org/developers/docs/)、[Solidity](https://docs.soliditylang.org/)、[EIPs](https://eips.ethereum.org/)、[OpenZeppelin](https://docs.openzeppelin.com/)。核对日期：2026-07-30。
+
+第一遍完成标准：能画出一次交易从签名、广播、排序、执行到确认/失败的轨迹，并用一个协议案例写出状态、不变量、权限、攻击面和证据边界。
 
 `#web3 #blockchain #smart-contract #index`
