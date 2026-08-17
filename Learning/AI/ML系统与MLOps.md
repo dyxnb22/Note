@@ -1,6 +1,6 @@
 # ML 系统与 MLOps
 
-本篇关注模型从实验走向稳定服务的完整生命周期。模型结构和训练原理见 [DeepLearning](DeepLearning/README.md)；Agent 应用的模型调用、评测和部署见 [Agent](../Agent/README.md)。
+本篇关注模型从实验走向稳定服务的完整生命周期。模型结构和训练原理见 [DeepLearning](DeepLearning/README.md)；Agent 应用的模型调用、评测和部署见 [Agent 面试题库](../Agent面试题库/README.md)。
 
 ## 1. ML 系统不是一个模型文件
 

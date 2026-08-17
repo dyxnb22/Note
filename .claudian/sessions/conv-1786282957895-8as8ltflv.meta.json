@@ -1,0 +1,27 @@
+{
+  "id": "conv-1786282957895-8as8ltflv",
+  "providerId": "codex",
+  "title": "Create Obsidian learning progress checklist",
+  "titleGenerationStatus": "success",
+  "createdAt": 1786282957914,
+  "lastActivityAt": 1786289858628,
+  "sessionId": "019fe6c2-ddd4-7d01-b2e4-7237ae1a98e3",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "019fe6c2-ddd4-7d01-b2e4-7237ae1a98e3",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/09/rollout-2026-08-09T21-42-38-019fe6c2-ddd4-7d01-b2e4-7237ae1a98e3.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "usage": {
+    "inputTokens": 37506,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 36608,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 37506,
+    "percentage": 15,
+    "model": "gpt-5.6-luna"
+  }
+}

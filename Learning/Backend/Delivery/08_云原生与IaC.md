@@ -156,6 +156,6 @@ Ingress/Gateway 处理南北向路由；Service Mesh 处理服务间身份、策
 
 ## 导航与关联
 
-- 同一路线：[生产系统工程](./07_生产系统工程.md) · [Agent 部署与生产化](../../Agent/12_部署与生产化.md)
+- 同一路线：[生产系统工程](./07_生产系统工程.md) · [Agent 部署与生产化题](../../Agent面试题库/12_课程深化/03_Durable与生产运维/Durable与生产运维.md)
 
 `#cloud-native #terraform #iac #gitops #iam`

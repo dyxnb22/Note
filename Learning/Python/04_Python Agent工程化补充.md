@@ -1,6 +1,6 @@
 # Python Agent 工程化补充
 
-本文只补 Python 如何承载 Agent Runtime：数据边界、Pydantic、异步、类型、重试、超时、幂等和测试。Agent 的整体架构与安全策略回到 [Agent](../Agent/README.md)；Python 基础见 [核心语法](./01_Python核心语法.md) 与 [工程化](./02_Python工程化.md)。
+本文只补 Python 如何承载 Agent Runtime：数据边界、Pydantic、异步、类型、重试、超时、幂等和测试。Agent 的整体架构与安全策略回到 [Agent 面试题库](../Agent面试题库/README.md)；Python 基础见 [核心语法](./01_Python核心语法.md) 与 [工程化](./02_Python工程化.md)。
 
 ## 学习位置
 
@@ -157,4 +157,4 @@ async def traced(operation: str):
 
 验收重点不是模型回答漂亮，而是“坏输入、坏工具、进程取消和重复投递时不会越过执行边界”。
 
-配套实践：[04 Tool Calling](./../Agent/实践/ai-agent-learning/agent-learning-projects/04_tool_calling_agent/README.md)、[05 Simple Agent Loop](./../Agent/实践/ai-agent-learning/agent-learning-projects/05_simple_agent_loop/README.md)。
+配套刷题：[Tool Calling 与 MCP](../Agent面试题库/04_Tool与协议/Tool Calling与MCP.md)、[Agent 基础与架构](../Agent面试题库/01_基础架构/Agent基础与架构.md)。

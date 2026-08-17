@@ -28,8 +28,8 @@
 
 - [CS 信息安全与密码学](../CS/08_信息安全与密码学.md)
 - [Backend 应用安全](../Backend/Architecture/应用安全.md)
-- [Agent 安全与威胁建模](../Agent/07_Agent安全与威胁建模.md)
-- [Agent 身份与数据治理](../Agent/Agent身份与数据治理.md)
+- [Agent 安全与威胁建模题](../Agent面试题库/07_可靠性与安全/可靠性与安全.md)
+- [Agent 身份与数据治理题](../Agent面试题库/12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md)
 - [ML 系统与 MLOps](../AI/ML系统与MLOps.md)
 - [Web3 安全](../Web3/05_Security_and_Risks/Web3安全速查.md)
 

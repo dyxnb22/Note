@@ -30,7 +30,7 @@
 - 通用后端：完成 01–14；只有原生边界确有需要时进入 15。
 - CLI/系统工具：完成 01–10，再按并发和嵌入需求选择 11–15。
 
-Rust Agent 的跨目录顺序、Go 后端并行主线与验收产物见：[Rust Agent 与 Go 后端学习地图](../../00_Navigation/Rust-Agent与Go后端学习地图.md)。可运行的第一阶段见：[rust-agent-runtime](../../Agent/实践/rust-agent-runtime/README.md)。
+Rust Agent 的跨目录顺序、Go 后端并行主线与验收产物见：[Rust Agent 与 Go 后端学习地图](../../00_Navigation/Rust-Agent与Go后端学习地图.md)。可运行实践的面试提炼见：[Agent 实践与项目表达题](../../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md)。
 
 ## 每个阶段都要做什么
 

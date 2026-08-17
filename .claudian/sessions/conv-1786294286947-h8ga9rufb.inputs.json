@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1786294286947-h8ga9rufb",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786294286981-yuaga17",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1786294286944-751f9qb",
+      "timestamp": 1786294286944,
+      "rawDisplayText": "你看下这篇文章，内容是否都ok，可以畅通无阻地阅读",
+      "canonicalText": "你看下这篇文章，内容是否都ok，可以畅通无阻地阅读",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent/01_LLM调用基础.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "3bcbfb184654bcff362c8b0266cf37c00f273685c6b38a4cd132753412a5a480",
+      "providerUserMessageId": "019fe76f-bb55-7b22-b248-b492c9ff183b",
+      "providerAssistantMessageId": "msg_0994e25744becf74016a78b0d99b688195909d59078031e205"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786337288524-qn825ut",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1786337288516-g53z6si",
+      "timestamp": 1786337288516,
+      "rawDisplayText": "yield是干嘛的",
+      "canonicalText": "yield是干嘛的",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent/01_LLM调用基础.md",
+          "mode": "selection",
+          "selectedText": " yield event.delta",
+          "lineCount": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "83f119911a82960f7653852503d01414f107ef9726844496fd324c88199efebb",
+      "providerUserMessageId": "019fe9ff-e16e-7f50-a22b-b557e13e8ebf",
+      "providerAssistantMessageId": "msg_0994e25744becf74016a79580eae24819590bdd778e820df10"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786363197974-bucli8d",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1786363197966-bclk3k5",
+      "timestamp": 1786363197966,
+      "rawDisplayText": "讲一下这个过程",
+      "canonicalText": "讲一下这个过程",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent/02_Tool Calling.md",
+          "mode": "selection",
+          "selectedText": "parse → allowlist → schema → resource scope → policy/approval\n→ idempotency check → timeout/limit → execute\n→ sanitize result → audit → return stable result",
+          "lineCount": 3
+        }
+      },
+      "images": [],
+      "contentDigest": "dd6f06f957b865a312b74066ef5eaf9ac87b612bcebd218b3ccaf239924a7b30",
+      "providerUserMessageId": "019feb8b-3a3d-7cb3-9427-19d543d32b06",
+      "providerAssistantMessageId": "msg_0994e25744becf74016a79bd4957508195a865251305236fea"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786447204599-cczaaj8",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1786447204596-nd26muc",
+      "timestamp": 1786447204596,
+      "rawDisplayText": "你能把harness在agent里面的定义给我讲一下吗",
+      "canonicalText": "你能把harness在agent里面的定义给我讲一下吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent/03_Agent架构与设计.md",
+          "mode": "selection",
+          "selectedText": "Harness = Tools + Context + Observation + Permissions + State + Recovery",
+          "lineCount": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "64ee9720e5a1b82f3f6053f3039f7d1b65aac85cebddd92034cc9506068d8694",
+      "providerUserMessageId": "019ff08d-1122-78a1-8c56-169b963ce899",
+      "providerAssistantMessageId": "msg_0994e25744becf74016a7b057cfc7c8195a6fbfa62ec50acad"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786516911073-0nl9ggw",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1786516911056-mmq21gk",
+      "timestamp": 1786516911056,
+      "rawDisplayText": "这两个什么意思",
+      "canonicalText": "这两个什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent/05_代码 Agent 基础设施.md",
+          "mode": "selection",
+          "selectedText": "  → AST / Tree-sitter\n  → LSP（定义、引用、类型、诊断）",
+          "lineCount": 2
+        }
+      },
+      "images": [],
+      "contentDigest": "3aa2cea1e7413466091b1c897f7f171b4e1c405144887a88e8fdb256477f4b64",
+      "providerUserMessageId": "019ff4b4-cd48-7e90-a081-f3f87be0fdee",
+      "providerAssistantMessageId": "msg_0994e25744becf74016a7c15caa5d881958915e36709dc142a"
+    }
+  ]
+}

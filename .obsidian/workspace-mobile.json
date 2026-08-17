@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning/Agent/06_Durable Execution与分布式可靠性.md",
-                "mode": "source",
+                "file": "Learning/Agent/09_Agent Eval实验方法.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "06_Durable Execution与分布式可靠性"
+              "title": "09_Agent Eval实验方法"
             }
           }
         ],
@@ -129,7 +129,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Learning/Agent/06_Durable Execution与分布式可靠性.md",
+            "file": "Learning/Agent/05_代码 Agent 基础设施.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -185,7 +185,11 @@
   },
   "active": "7f2fb647724ea8d9",
   "lastOpenFiles": [
+    "Learning/Agent/08_安全与可控性.md",
+    "Learning/Agent/07_Agent安全与威胁建模.md",
+    "Learning/Agent/09_Agent Eval实验方法.md",
     "Learning/Agent/05_代码 Agent 基础设施.md",
+    "Learning/Agent/06_Durable Execution与分布式可靠性.md",
     "Learning/Agent/03_Agent架构与设计.md",
     "CS6290-Privacy-考试临时资料/Lecture/07-Lecture4-PoS与Gasper.md",
     "CS6290-Privacy-考试临时资料/Lecture/03-Lecture1B-Bitcoin所有权与脚本.md",

@@ -24,7 +24,7 @@
 
 - [LLM 课程实践](./实践/llm_learning/README.md)：00–11 课程，从深度学习和 Transformer 到 Agent、RAG、评测、微调、生产系统与研究方法。
 - [DeepPath Lab](./实践/DeepPathLab/README.md)：以项目制方式从自动微分、线性模型、MLP 和 CNN 开始，逐步走向序列模型、Transformer 与 NLP。
-- [Agent Runtime 实践](../Agent/实践/learn-claude-code/README.md)：s01–s20 课程，验证 Agent Loop、工具、Context、可靠性和 MCP。
+- [Agent 实践与项目表达题](../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md)：提炼 Agent Loop、工具、Context、可靠性和 MCP 的实践要点。
 
 ## 与 xfg-planet 案例的连接
 
@@ -36,7 +36,7 @@
 
 - 模型是什么、怎么工作、为什么这样设计 → 放这里
 - Python 语言和服务工程 → 放 `Learning/Python/`
-- 如何调用模型、如何构建 Agent、如何做 RAG → 放 `Learning/Agent/`
+- 如何调用模型、如何构建 Agent、如何做 RAG → 刷 `Learning/Agent面试题库/`
 - 训练数据、实验追踪、模型注册、模型服务与漂移 → 放 `ML系统与MLOps.md`
 - 可运行的课程实验、样例输入和实验输出 → 放 `Learning/AI/实践/`
 - 边界案例：context window 的原理（这里）vs 如何管理 context 窗口（Agent）
@@ -46,10 +46,10 @@
 **准备面试**
 → 按岗位范围阅读 `LLM基础.md`，不默认扩展到全部深度学习章节
 → 按需按 `DeepLearning/README.md` 顺序学习
-→ 然后去 `Agent/` 看工程应用文档
+→ 然后去 `Agent面试题库/` 刷工程应用题
 
 **开始做 AI 项目**
-→ 直接进入 `Agent/01_LLM调用基础.md`
+→ 直接进入 `Agent面试题库/01_基础架构/Agent基础与架构.md`
 → 遇到 tokenization、context window 或 generation 参数问题时，再回到 `LLM基础.md` 对应章节
 
 **补 LLM 理论短板**
@@ -71,13 +71,13 @@
 | `ML系统与MLOps.md` | 按需 | 自己训练、注册、部署和监控模型时读 |
 | `AI工具与编程助手.md` | 按需 | 开始用 AI Coding Agent 时读 |
 
-这里没有全员必读清单。当前问题若是 Agent 应用，从 [Agent 学习地图](../Agent/00_学习路线图.md) 选择入口；只有自己训练模型时，才把 `DeepLearning/` 当作系统路线。
+这里没有全员必读清单。当前问题若是 Agent 应用，从 [Agent 面试题库](../Agent面试题库/README.md) 选择入口；只有自己训练模型时，才把 `DeepLearning/` 当作系统路线。
 
 ## 常见混淆边界
 
 | 问题 | 答案 |
 |------|------|
-| context window 放哪里？ | 原理放这里（`LLM基础.md`）；如何在代码里管理放 `Agent/04_Context工程.md` |
-| tokenization 放哪里？ | 放这里；tiktoken 的实际用法放 `Agent/04_Context工程.md` |
-| fine-tuning 放哪里？ | 原理（LoRA 数学、训练流程）放这里；什么场景选 fine-tuning vs RAG 的工程判断放 [RAG](../Agent/RAG.md) |
-| RAG 是理论还是工程？ | 检索与生成链路放 [RAG](../Agent/RAG.md)，来源、权限和版本治理放 [知识系统](../Agent/知识系统.md)；为什么 RAG 能减少幻觉的原理放 `LLM基础.md` |
+| context window 放哪里？ | 原理放这里（`LLM基础.md`）；如何在代码里管理刷 `Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md` |
+| tokenization 放哪里？ | 放这里；Context 的实际管理刷 `Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md` |
+| fine-tuning 放哪里？ | 原理（LoRA 数学、训练流程）放这里；模型行为训练的工程判断刷 [推理与模型行为](../Agent面试题库/12_课程深化/06_推理与模型行为/推理与模型行为.md) |
+| RAG 是理论还是工程？ | 检索与生成链路刷 [RAG 与检索](../Agent面试题库/06_RAG与知识库/RAG与检索.md)，来源、权限和版本治理刷 [知识摄取与 GraphRAG](../Agent面试题库/12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md)；为什么 RAG 能减少幻觉的原理放 `LLM基础.md` |

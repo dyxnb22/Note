@@ -1,8 +1,8 @@
 # Rust Agent 工程化
 
-这篇连接 Rust 语言能力与 [Agent 工程知识库](../../Agent/README.md)。目标不是用 Rust 重写所有 Python 框架，而是理解什么时候需要自己掌控 Agent Runtime、工具执行、资源边界和可恢复性，并用 Rust 的类型、所有权与并发模型把这些约束变成代码。
+这篇连接 Rust 语言能力与 [Agent 面试题库](../../Agent面试题库/README.md)。目标不是用 Rust 重写所有 Python 框架，而是理解什么时候需要自己掌控 Agent Runtime、工具执行、资源边界和可恢复性，并用 Rust 的类型、所有权与并发模型把这些约束变成代码。
 
-可运行的无外部依赖基线位于 [rust-agent-runtime](../../Agent/实践/rust-agent-runtime/README.md)。它先验证有限状态循环、Tool Registry、预算、重复调用检测、取消和 Trace；真实 Provider、Async、MCP、沙箱与持久化按阶段加入。
+可运行实践提炼为 [Agent 实践与项目表达题](../../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md)。它覆盖有限状态循环、Tool Registry、预算、重复调用检测、取消和 Trace，以及真实 Provider、Async、MCP、沙箱与持久化的演进边界。
 
 ## 1. Rust 在 Agent 系统中的位置
 

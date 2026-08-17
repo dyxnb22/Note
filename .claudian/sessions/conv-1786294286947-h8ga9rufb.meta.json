@@ -1,0 +1,27 @@
+{
+  "id": "conv-1786294286947-h8ga9rufb",
+  "providerId": "codex",
+  "title": "Review article for readability and content",
+  "titleGenerationStatus": "success",
+  "createdAt": 1786294286952,
+  "lastActivityAt": 1786516954127,
+  "sessionId": "019fe76f-bace-70f1-9348-fb0746f31c0a",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "019fe76f-bace-70f1-9348-fb0746f31c0a",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/10/rollout-2026-08-10T00-51-27-019fe76f-bace-70f1-9348-fb0746f31c0a.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "usage": {
+    "inputTokens": 79825,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 78592,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 79825,
+    "percentage": 31,
+    "model": "gpt-5.6-luna"
+  }
+}

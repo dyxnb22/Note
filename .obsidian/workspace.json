@@ -8,17 +8,19 @@
         "type": "tabs",
         "children": [
           {
-            "id": "cdf4826b3980fc9c",
+            "id": "e725a654be78ae5e",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning/Agent/实践/README.md",
-                "mode": "source",
+                "file": "Learning/Agent/学习进度.md",
+                "mode": "preview",
                 "source": false
               },
+              "pinned": true,
               "icon": "lucide-file",
-              "title": "README"
+              "title": "学习进度"
             }
           }
         ]
@@ -173,8 +175,8 @@
             "state": {
               "type": "claudian-view",
               "state": {},
-              "icon": "bot",
-              "title": "Claudian"
+              "icon": "lucide-ghost",
+              "title": "claudian-view"
             }
           }
         ],
@@ -193,47 +195,46 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:新建数据库": false,
-      "realclaudian:Open Claudian": false
+      "bases:新建数据库": false
     }
   },
-  "active": "cdf4826b3980fc9c",
+  "active": "b55c65997e2b1b75",
   "lastOpenFiles": [
-    "Learning/Agent/实践/rust-agent-runtime/README.md",
-    "Learning/Agent/知识系统.md",
-    "Learning/00_当前学习.md",
-    "Learning/Agent/01_LLM调用基础.md",
-    "scripts/__pycache__/verify_notes.cpython-312.pyc",
-    "scripts/__pycache__",
-    "scripts/verify_notes.py",
-    "scripts",
-    "Learning/Agent/00_学习路线图.md",
-    "Learning/Agent/版本与来源.md",
-    "阅读清单.md",
-    "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/12_claude_api_agent/README.md",
-    "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/11_mcp_server/README.md",
-    "Learning/Web3/09_Protocol_Cases/AMM协议研究与安全审计.md",
-    "Learning/Web3/09_Protocol_Cases/README.md",
-    "Learning/Web3/09_Protocol_Cases",
-    "Learning/Finance/16_Personal_Finance/跨境账户与规则核对清单.md",
-    "Learning/Finance/16_Personal_Finance/个人财务系统与决策.md",
-    "Learning/Finance/16_Personal_Finance/README.md",
-    "Learning/Finance/16_Personal_Finance",
-    "Learning/Career/团队协作、项目管理与技术领导.md",
-    "Learning/Data_Science/09_不确定性与决策理论.md",
-    "Learning/TypeScript/AI产品界面与交互.md",
-    "Learning/Health_and_Energy/06_Measurement_and_Medical_Literacy/心理健康、压力与求助边界.md",
-    "Learning/Health_and_Energy/06_Measurement_and_Medical_Literacy/营养计划与代谢观察.md",
-    "Learning/Health_and_Energy/06_Measurement_and_Medical_Literacy/久坐、疼痛与人体工学.md",
-    "Learning/Health_and_Energy/06_Measurement_and_Medical_Literacy/力量训练与有氧进阶.md",
-    "Learning/Health_and_Energy/06_Measurement_and_Medical_Literacy/健康指标与体检素养.md",
-    "Learning/Health_and_Energy/06_Measurement_and_Medical_Literacy/README.md",
-    "Learning/Writing_and_Expression/06_Oral_Visual_and_Collaboration/教学与知识传递.md",
-    "Learning/Writing_and_Expression/06_Oral_Visual_and_Collaboration/谈判反馈与冲突沟通.md",
-    "Learning/Writing_and_Expression/06_Oral_Visual_and_Collaboration/数据可视化与信息设计.md",
-    "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/12_claude_api_agent/__pycache__/main.cpython-312.pyc",
-    "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/12_claude_api_agent/__pycache__",
-    "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/11_mcp_server/__pycache__/main.cpython-312.pyc",
-    "Learning/Agent/实践/ai-agent-learning/agent-learning-projects/11_mcp_server/__pycache__"
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经/海外/OpenAI_Anthropic.md",
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/米哈游_其他国内.md",
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/小红书_拼多多.md",
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/美团_快手.md",
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/百度.md",
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/阿里_淘宝_蚂蚁.md",
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/腾讯.md",
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/字节跳动.md",
+    "Learning/Agent面试题库/13_逐题答案/11_编码与后端/编码题与后端基础.md",
+    "Learning/Agent面试题库/13_逐题答案/10_模型与推理/模型与推理基础.md",
+    "Learning/Agent面试题库/13_逐题答案/09_工程化与系统设计/生产工程与系统设计.md",
+    "Learning/Agent面试题库/13_逐题答案/08_评测与可观测/评测与可观测性.md",
+    "Learning/Agent面试题库/13_逐题答案/07_可靠性与安全/可靠性与安全.md",
+    "Learning/Agent面试题库/13_逐题答案/06_RAG与知识库/RAG与检索.md",
+    "Learning/Agent面试题库/13_逐题答案/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md",
+    "Learning/Agent面试题库/13_逐题答案/04_Tool与协议/Tool Calling与MCP.md",
+    "Learning/Agent面试题库/13_逐题答案/03_Memory与状态/Memory与State.md",
+    "Learning/Agent面试题库/13_逐题答案/02_Prompt与上下文/Prompt与Context Engineering.md",
+    "Learning/Agent面试题库/13_逐题答案/01_基础架构/Agent基础与架构.md",
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经/海外",
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内",
+    "Learning/Agent面试题库/13_逐题答案/12_公司面经",
+    "Learning/Agent面试题库/13_逐题答案/11_编码与后端",
+    "Learning/Agent面试题库/13_逐题答案/10_模型与推理",
+    "Learning/Agent面试题库/13_逐题答案/09_工程化与系统设计",
+    "Learning/Agent面试题库/13_逐题答案/08_评测与可观测",
+    "Learning/Agent面试题库/13_逐题答案/07_可靠性与安全",
+    "Learning/Agent面试题库/13_逐题答案/06_RAG与知识库",
+    "Learning/Agent面试题库/13_逐题答案/05_Multi-Agent与Workflow",
+    "Learning/Agent/面试/大厂真题汇总.md",
+    "Learning/Agent/面试/Agent主题速答.md",
+    "Learning/Agent/面试/学习范围与面试题型.md",
+    "Learning/Agent/面试/README.md",
+    "Learning/Agent面试题库/00_主题速答卡.md",
+    "Learning/Agent面试题库/00_复习路线与答题模板.md",
+    "Learning/Agent面试题库/12_公司面经/海外/Amazon_Salesforce及其他.md"
   ]
 }

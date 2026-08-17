@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1786282957895-8as8ltflv",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786282958018-afi8ant",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1786282957889-mmnk9nc",
+      "timestamp": 1786282957889,
+      "rawDisplayText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Learning/Agent 帮我在这下面创建一个简单的学习进度文档，我每学习完一个章节会打上✅来记录学习进度",
+      "canonicalText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Learning/Agent 帮我在这下面创建一个简单的学习进度文档，我每学习完一个章节会打上✅来记录学习进度",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent/01_LLM调用基础.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "9f984eea08f737630fac70f9352231b8f43b0bb74b358834140636729975db81",
+      "providerUserMessageId": "019fe6c2-fb10-7b62-988c-63438595f93d",
+      "providerAssistantMessageId": "msg_0ed232040a106453016a78840a7b248195ba5f52f3b5f718eb"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786286865405-buipiau",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1786286865400-4izdc22",
+      "timestamp": 1786286865400,
+      "rawDisplayText": "不止啊，其他没编号的文章也加进去。另外你看下其他没编号的文章，是否需要加上编号",
+      "canonicalText": "不止啊，其他没编号的文章也加进去。另外你看下其他没编号的文章，是否需要加上编号",
+      "images": [],
+      "contentDigest": "bbc20edcb8fa6e185b3891a78cada45754357223165a144305a281de2b40f6f9",
+      "providerUserMessageId": "019fe6fe-7c74-7ff3-89e5-1f9f1621cb5b",
+      "providerAssistantMessageId": "msg_0ed232040a106453016a78938bdd3881958c8d9d1253a47504"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1786289812922-ppng7wy",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1786289812915-9fpmsdr",
+      "timestamp": 1786289812915,
+      "rawDisplayText": "这个阅读清单的框 我点击了 并不会显示一道划痕来记录进度啊，你重新改一下",
+      "canonicalText": "这个阅读清单的框 我点击了 并不会显示一道划痕来记录进度啊，你重新改一下",
+      "images": [],
+      "contentDigest": "b44fa6498933e87616900e9de3aaf75bc3029e2bc8477cbe7ec6fdb519dd6f85",
+      "providerUserMessageId": "019fe72b-761f-7bb0-a169-979be116660e",
+      "providerAssistantMessageId": "msg_0ed232040a106453016a789ec1d6608195b610660f3bbb8b04"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Python 工程基础
 
-这里负责 AI 应用之前的 Python 语言、工程、HTTP 和服务化能力；Agent、RAG 和工具协议回到 [Agent 知识库](../Agent/README.md)。完整跨目录路线见 [Python → AI → Agent 学习地图](../00_Navigation/AI-Python-Agent学习地图.md)。
+这里负责 AI 应用之前的 Python 语言、工程、HTTP 和服务化能力；Agent、RAG 和工具协议回到 [Agent 面试题库](../Agent面试题库/README.md)。完整跨目录路线见 [Python → AI → Agent 学习地图](../00_Navigation/AI-Python-Agent学习地图.md)。
 
 ## 问题地图
 
@@ -26,4 +26,4 @@ Python 不熟时才从核心语法和基础练习开始；已经能写函数、�
 
 ## 边界与约定
 
-`python` 代码块应通过语法解析；`text`/`pseudocode` 只是结构示意。完整可运行链路进入 [实践](./实践/Python基础练习/README.md)。语言、依赖、HTTP 和服务边界放在本目录；LLM、Agent、RAG、工具协议放在 `Agent/`。
+`python` 代码块应通过语法解析；`text`/`pseudocode` 只是结构示意。完整可运行链路进入 [实践](./实践/Python基础练习/README.md)。语言、依赖、HTTP 和服务边界放在本目录；LLM、Agent、RAG、工具协议放在 `Agent面试题库/`。

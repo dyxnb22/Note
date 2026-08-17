@@ -65,7 +65,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 R0：Agent 机制前置
 
-先完成 [Agent 学习路线图](../Agent/00_学习路线图.md) 的阶段 0–1：LLM 调用、Tool Calling、有限 Agent Loop。优先用现有 Python 实践看清模型和协议行为，不要同时与借用检查器、Async 和 Provider 差异搏斗。
+先完成 [Agent 面试题库](../Agent面试题库/README.md) 的基础架构、工具协议和可靠性题，再用现有 Python 实践看清模型和协议行为，不要同时与借用检查器、Async 和 Provider 差异搏斗。
 
 验收：已有一个具备参数校验、终止条件、错误回填和固定测试的最小 Agent。
 
@@ -89,7 +89,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 阅读：[Rust Agent 工程化](../Backend/Rust/16_Rust%20Agent工程化.md)。
 
-实践：[rust-agent-runtime](../Agent/实践/rust-agent-runtime/README.md) 阶段 A–B。
+实践要点：[Rust Agent Runtime 题](../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md) 阶段 A–B。
 
 验收：Provider 与 Runtime 解耦；Agent Loop 有 Step/时间/费用/Tool 预算；流中断、限流、重复调用和取消有测试。
 

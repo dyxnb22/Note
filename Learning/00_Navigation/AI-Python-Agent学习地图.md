@@ -16,13 +16,13 @@ Agent：模型调用、工具、状态、编排、治理和交付
 
 - [Python](../Python/README.md)：语言与通用工程问题。
 - [AI](../AI/README.md)：模型为什么这样工作、如何训练。
-- [Agent](../Agent/00_学习路线图.md)：如何调用模型并构建可控系统。
+- [Agent 面试题库](../Agent面试题库/README.md)：如何调用模型并构建可控系统。
 
 ## 根据当前目标选择起点
 
 | 当前目标 | 从哪里开始 | 不需要先做什么 |
 |---|---|---|
-| 做 Agent 应用 | [Agent 学习地图](../Agent/00_学习路线图.md) | 不先通读 Python、深度学习和全部 LLM 原理 |
+| 做 Agent 应用 | [Agent 面试题库](../Agent面试题库/README.md) | 不先通读 Python、深度学习和全部 LLM 原理 |
 | Python 基础不足 | [Python 问题地图](../Python/README.md) | 不默认重做已经会的语法练习 |
 | 理解 LLM 行为 | [LLM 基础](../AI/LLM基础.md) 的相关章节 | 不为了 Agent 调用先完成整套模型训练 |
 | 自己训练模型 | [DeepLearning](../AI/DeepLearning/README.md) | 不并行展开 Agent、RAG 和全部应用分支 |
@@ -32,7 +32,7 @@ Agent：模型调用、工具、状态、编排、治理和交付
 
 ## 实践如何选择
 
-- Agent 入门默认使用 [ai-agent-learning 03–05](../Agent/实践/ai-agent-learning/agent-learning-projects/LEARNING_PATH.md)。
+- Agent 入门默认刷 [Agent 实践与项目表达题](../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md)。
 - 深度学习只选择与当前模型目标对应的 [DeepPath Lab](../AI/实践/DeepPathLab/README.md) 模块。
 - LLM 研究、微调或评测按需使用 [llm_learning](../AI/实践/llm_learning/README.md)，不与 Agent 主线重复通读。
 - Python 基础练习只在语法和工程基础确实阻塞项目时使用。

@@ -39,4 +39,4 @@
 - 偏部署、运维、交付流程的内容放这里
 - 偏服务本身的设计与拆分，放 `Architecture`
 - 偏数据库、中间件使用方式，放 `Data`
-- Prompt/模型版本、Eval 门禁、Agent 状态恢复和 LLM 预算等特有问题见 [12_部署与生产化](../../Agent/12_部署与生产化.md)
+- Prompt/模型版本、Eval 门禁、Agent 状态恢复和 LLM 预算等特有问题见 [Agent 部署与生产化题](../../Agent面试题库/12_课程深化/03_Durable与生产运维/Durable与生产运维.md)

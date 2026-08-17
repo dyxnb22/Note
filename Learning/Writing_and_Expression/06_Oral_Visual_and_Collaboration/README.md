@@ -28,4 +28,4 @@
 - [写作与表达总索引](../INDEX.md)
 - [专业技术文档与困难沟通](../05_Professional_Documents/专业技术文档与困难沟通.md)
 - [数据科学](../../Data_Science/README.md)
-- [Agent 产品与人机协同](../../Agent/Agent产品与人机协同.md)
+- [Agent 产品与人机协同题](../../Agent面试题库/12_课程深化/07_实时交互与产品/实时交互与产品.md)
