@@ -103,7 +103,7 @@ See the supporting docs:
 - [docs/learning-sources.md](./docs/learning-sources.md)
 - [docs/d2l-mapping.md](./docs/d2l-mapping.md)
 - [docs/agent-execution.md](./docs/agent-execution.md)
-- [docs/roadmap.md](./docs/roadmap.md)
+- docs/roadmap.md
 - [docs/module-template.md](./docs/module-template.md)
 - [docs/report-template.md](./docs/report-template.md)
 
@@ -123,7 +123,7 @@ That keeps the lab focused on understanding, not just API usage.
 
 ## Notes Integration
 
-This project is connected to the Chinese theory notes through [与 Notes 的对应关系](./与%20Notes%20的对应关系.md). Use that page to move between a concept and its corresponding module; use [TASKS.md](./TASKS.md) to choose the next smallest implementation task.
+This project is connected to the Chinese theory notes through [与 Notes 的对应关系](./与%20Notes%20的对应关系.md). Use that page to move between a concept and its corresponding module; use TASKS.md to choose the next smallest implementation task.
 
 ## Evidence Record
 

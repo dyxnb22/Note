@@ -21,7 +21,3 @@ BERT 是 encoder-only Transformer，利用双向上下文表示文本。其经�
 D2L 的 token/embedding、交叉熵、teacher forcing、自注意力、位置编码、Transformer、Adam、预训练与微调，都是理解 LLM 的直接基础。规模变化没有取消这些机制，只改变了数据、算力、工程与能力边界。
 
 需要额外补充的现代话题包括 tokenizer 细节、decoder-only、KV cache、指令微调、偏好优化、上下文工程、RAG、工具调用和评测。它们分别在 `Learning/AI/LLM基础.md` 与 `Learning/Agent面试题库/` 中继续刷题。
-
-## 导航与关联
-
-- 同一路线：[计算机视觉任务与迁移学习](../12_计算机视觉/计算机视觉任务与迁移学习.md) · [训练系统与实验方法](../14_训练系统与实验方法/训练系统与实验方法.md)

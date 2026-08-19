@@ -205,6 +205,6 @@ model.print_trainable_parameters()
 
 ## D2L 系统学习入口
 
-本页保留为深度学习概念总览。只有需要自己训练模型、补数学或架构基础时，才进入 [DeepLearning 按需路线](DeepLearning/README.md)；当前项目只选相关分支，不默认从预备知识走到 CV/NLP。
+本页保留为深度学习概念总览。只有需要自己训练模型、补数学或架构基础时，才进入 DeepLearning 按需路线；当前项目只选相关分支，不默认从预备知识走到 CV/NLP。
 
 与 `LLM基础.md` 的边界：本目录解释模型训练与架构基础；`LLM基础.md` 聚焦现代大语言模型的 token、生成、对齐与应用边界。

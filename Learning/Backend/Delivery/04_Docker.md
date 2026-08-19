@@ -256,7 +256,3 @@ docker compose stop
 docker compose down
 docker compose down -v
 ~~~
-
-## 导航与关联
-
-- 同一路线：[Linux 命令详解指南](./03_Linux%20命令详解指南.md) · [日志与可观测性](./日志与可观测性.md)

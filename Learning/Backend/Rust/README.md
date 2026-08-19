@@ -1,6 +1,6 @@
 # Rust
 
-本目录现在保留 Rust 的面试入口。语言核心、Cargo、IO、Serde、Async、Tokio、Web、数据库、性能、unsafe/FFI 和 Agent Runtime 已合并进 [Rust 面试题库](./面试题库/README.md)。
+本目录现在保留 Rust 的面试入口。语言核心、Cargo、IO、Serde、Async、Tokio、Web、数据库、性能、unsafe/FFI 和 Agent Runtime 已合并进 Rust 面试题库。
 
 ## 进入方式
 

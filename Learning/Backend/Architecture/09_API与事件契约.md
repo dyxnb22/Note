@@ -183,8 +183,6 @@ SSE 适合服务端单向事件，WebSocket 适合双向消息，gRPC Streaming 
 
 HTTP 语义参考 IETF HTTP Semantics，消息模式参考《Enterprise Integration Patterns》，Protobuf/gRPC 行为以当前官方规范为准。本文给出设计不变量，不替代具体网关、SDK 和消息中间件的版本文档。
 
-## 导航与关联
-
-- 同一路线：[网关、接口治理与 SDK](./06_网关、接口治理与SDK.md) · [认证、授权与多租户](./认证、授权与多租户.md)
+## 标签
 
 `#api #grpc #protobuf #event-contract #webhook`

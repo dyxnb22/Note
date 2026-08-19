@@ -18,8 +18,23 @@
               "icon": "lucide-file",
               "title": "新标签页"
             }
+          },
+          {
+            "id": "b4cfe9832948b70b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Learning/CS/算法/动态规划.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "动态规划"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -194,8 +209,10 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "e725a654be78ae5e",
+  "active": "b4cfe9832948b70b",
   "lastOpenFiles": [
+    "Learning/CS/算法/动态规划.md",
+    "Learning/CS/算法/贪心.md",
     "Learning/Backend/Java/面试题库/16_Maven.md",
     "Learning/AI/面试题库/00_复习路线与答题模板.md",
     "Learning/AI/面试题库/README.md",
@@ -222,8 +239,6 @@
     "Learning/Backend/Java/面试题库/05_并发与JUC.md",
     "Learning/Backend/Java/面试题库/04_JVM.md",
     "Learning/Backend/Java/面试题库/03_集合与容器.md",
-    "Learning/Backend/Java/面试题库/02_IO与网络编程.md",
-    "Learning/Backend/Java/面试题库/01_语言与运行时.md",
     "Learning/Backend/Java/面试题库",
     "Learning/Backend/Rust/面试题库",
     "Learning/Backend/Go/面试题库",

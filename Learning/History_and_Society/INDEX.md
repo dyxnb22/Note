@@ -16,7 +16,7 @@
 | 制度演化 | [制度是什么](03_Institutional_Evolution/制度是什么：规则如何塑造行为.md)、[国家能力与经济发展](03_Institutional_Evolution/国家能力与经济发展.md)、[比较社会制度](03_Institutional_Evolution/比较社会制度：资本主义与社会主义的形态谱系.md) | 规则、执行、激励和分配 |
 | 组织社会 | [组织为什么会出现](04_Organization_and_Society/组织为什么会出现.md)、[激励相容与委托代理问题](04_Organization_and_Society/激励相容与委托代理问题.md) | 交易成本、信息、权力和问责 |
 | 数字时代 | [计算机、AI 产业与数字社会](05_Digital_Age/计算机AI产业与数字社会.md) | 技术、产业、平台和治理的连接 |
-| 案例研究 | [历史与社会案例研究](06_Case_Studies/README.md) | 用具体国家、产业和平台案例检验抽象机制 |
+| 案例研究 | 历史与社会案例研究 | 用具体国家、产业和平台案例检验抽象机制 |
 
 ## 需要系统入门时的路线
 

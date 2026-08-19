@@ -154,8 +154,6 @@ Ingress/Gateway 处理南北向路由；Service Mesh 处理服务间身份、策
 
 资源语义以使用的云平台、Terraform Provider、Kubernetes/Gateway/GitOps 工具官方文档为准。IAM、网络和托管服务默认值可能变化，生产变更必须审阅 Plan 并在隔离环境验证。
 
-## 导航与关联
-
-- 同一路线：[生产系统工程](./07_生产系统工程.md) · [Agent 部署与生产化题](../../Agent面试题库/12_课程深化/03_Durable与生产运维/Durable与生产运维.md)
+## 标签
 
 `#cloud-native #terraform #iac #gitops #iam`

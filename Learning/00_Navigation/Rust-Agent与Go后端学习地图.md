@@ -30,7 +30,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 G1：Runtime 与并发
 
-阅读：[Go 面试题库](../Backend/Go/面试题库/README.md)。
+阅读 Go 面试题库。
 
 产物：有界 Worker Pool；能主动制造并修复 Race 和 Goroutine 泄漏。
 
@@ -38,7 +38,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 G2：网络服务
 
-阅读：[Go 面试题库](../Backend/Go/面试题库/README.md)。
+阅读 Go 面试题库。
 
 实践：[go-backend-service](../Backend/Go/实践/go-backend-service/README.md) 阶段 0–3。
 
@@ -46,7 +46,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 G3：测试、性能与交付
 
-阅读：[Go 面试题库](../Backend/Go/面试题库/README.md)。
+阅读 Go 面试题库。
 
 验收：Race、Fuzz、集成、故障、负载和关闭测试有固定入口；一次 Profile 能解释瓶颈；部署和回滚可重复。
 
@@ -68,7 +68,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 R2：I/O 与 Async
 
-阅读 [Rust 面试题库](../Backend/Rust/面试题库/README.md)：文件/进程/网络、Serde/配置/日志、并发/Async 和 Tokio。
+阅读 Rust 面试题库：文件/进程/网络、Serde/配置/日志、并发/Async 和 Tokio。
 
 产物：有界并发 Tool Executor，支持超时、取消、输出限制和优雅关闭。
 
@@ -76,7 +76,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 R3：Agent Runtime
 
-阅读：[Rust 面试题库](../Backend/Rust/面试题库/README.md) 的 Agent Runtime 部分。
+阅读 Rust 面试题库的 Agent Runtime 部分。
 
 实践要点：[Rust Agent Runtime 题](../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md) 阶段 A–B。
 

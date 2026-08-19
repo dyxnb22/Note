@@ -82,10 +82,3 @@ x × y = k
 ## 结论边界
 
 不要把本地模型、单一审计或前端显示当作链上协议安全证明。具体协议必须锁定合约地址、部署网络、源码版本、依赖、权限和核验区块。
-
-## 关联
-
-- [AMM 机制](../04_DeFi_and_Tokenomics/AMM 为什么能在没有订单簿时完成交易.md)
-- [Solidity 合约](../03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)
-- [Web3 安全](../05_Security_and_Risks/Web3安全速查.md)
-- [Web3 研究与构建工作流](../07_Research_and_Build_Workflow/如何研究一个协议.md)

@@ -22,8 +22,8 @@ Agent：模型调用、工具、状态、编排、治理和交付
 
 | 当前目标 | 从哪里开始 | 不需要先做什么 |
 |---|---|---|
-| 做 Agent 应用 | [Agent 面试题库](../Agent面试题库/README.md) | 不先通读 Python、深度学习和全部 LLM 原理 |
-| Python 基础不足 | [Python 问题地图](../Python/README.md) | 不默认重做已经会的语法练习 |
+| 做 Agent 应用 | Agent 面试题库 | 不先通读 Python、深度学习和全部 LLM 原理 |
+| Python 基础不足 | Python 问题地图 | 不默认重做已经会的语法练习 |
 | 理解 LLM 行为 | [LLM 基础](../AI/LLM基础.md) 的相关章节 | 不为了 Agent 调用先完成整套模型训练 |
 | 自己训练模型 | [DeepLearning](../AI/DeepLearning/README.md) | 不并行展开 Agent、RAG 和全部应用分支 |
 | 把模型做成服务 | [ML 系统与 MLOps](../AI/ML系统与MLOps.md) | 不在概念页重复实现部署练习 |

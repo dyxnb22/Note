@@ -40,22 +40,22 @@ export LLM_MODEL="deepseek-chat"
 
 ## 在 Notes 中的位置
 
-这是 `Learning/AI` 下的课程实践快照：课程说明和可运行项目放在这里，模型原理以 `Learning/AI` 的理论笔记和 [AI 面试题库](../../面试题库/README.md) 为准，Agent Runtime、工具治理和生产可靠性以 `Learning/Agent面试题库` 为准。不要把本目录的课程说明再复制成新的理论主文档。
+这是 `Learning/AI` 下的课程实践快照：课程说明和可运行项目放在这里，模型原理以 `Learning/AI` 的理论笔记和 AI 面试题库为准，Agent Runtime、工具治理和生产可靠性以 `Learning/Agent面试题库` 为准。不要把本目录的课程说明再复制成新的理论主文档。
 
-| 课程 | 实践入口 | 对齐笔记 |
+| 课程 | 实践入口 | 对齐方向 |
 |---|---|---|
-| 00 深度学习 | [tiny_next_token_model.py](./00_deep_learning_for_llm/project/tiny_next_token_model.py) | [DeepLearning](../../DeepLearning/README.md) |
-| 00 Transformer | [self_attention_demo.py](./00_transformer_foundation/project/self_attention_demo.py) | [Transformer 从结构到实现](../../DeepLearning/09_注意力与Transformer/注意力与Transformer.md) |
-| 01 Agent | [simple_agent.py](./01_agent_basics/project/simple_agent.py) | [Agent 架构题](../../../Agent面试题库/01_基础架构/Agent基础与架构.md) |
-| 02 RAG | [mini_rag.py](./02_rag_knowledge_base/project/mini_rag.py) | [RAG 题](../../../Agent面试题库/06_RAG与知识库/RAG与检索.md)、[知识系统题](../../../Agent面试题库/12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md) |
-| 03 Workflow | [workflow_agent.py](./03_tool_calling_workflow/project/workflow_agent.py) | [Workflow 题](../../../Agent面试题库/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md)、[LangGraph 题](../../../Agent面试题库/12_课程深化/01_Provider与框架/Provider适配与框架选型.md) |
-| 04 评测 | [prompt_eval.py](./04_llm_evaluation/project/prompt_eval.py) | [Agent Eval 题](../../../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md) |
-| 05 微调与推理 | [prepare_sft_dataset.py](./05_finetune_and_inference/project/prepare_sft_dataset.py) | [LLM 基础](../../LLM基础.md) |
-| 06 生产系统 | [llm_gateway.py](./06_production_llm_system/project/llm_gateway.py) | [Agent 部署与生产化题](../../../Agent面试题库/12_课程深化/03_Durable与生产运维/Durable与生产运维.md) |
-| 07 开源 LLM | [architecture_budget_estimator.py](./07_open_llm_deepseek_study/project/architecture_budget_estimator.py) | [LLM 基础](../../LLM基础.md) |
-| 08 研究复现 | [paper_review_generator.py](./08_research_methods_and_reproduction/project/paper_review_generator.py) | [LLM 学习计划](./00_learning_plan/学习计划.md) |
-| 09 对齐与推理 | [tiny_dpo_loss.py](./09_alignment_reasoning_research/project/tiny_dpo_loss.py) | [LLM 基础](../../LLM基础.md) |
-| 10 可解释性与评测 | [eval_significance.py](./10_interpretability_and_evaluation/project/eval_significance.py) | [Agent Eval 题](../../../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md) |
-| 11 研究作品集 | [research_idea_scorer.py](./11_phd_research_portfolio/project/research_idea_scorer.py) | [项目表达与面试题](../../../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md) |
+| 00 深度学习 | [tiny_next_token_model.py](./00_deep_learning_for_llm/project/tiny_next_token_model.py) | DeepLearning |
+| 00 Transformer | [self_attention_demo.py](./00_transformer_foundation/project/self_attention_demo.py) | Transformer 从结构到实现 |
+| 01 Agent | [simple_agent.py](./01_agent_basics/project/simple_agent.py) | Agent 架构题 |
+| 02 RAG | [mini_rag.py](./02_rag_knowledge_base/project/mini_rag.py) | RAG 题、知识系统题 |
+| 03 Workflow | [workflow_agent.py](./03_tool_calling_workflow/project/workflow_agent.py) | Workflow 题、LangGraph 题 |
+| 04 评测 | [prompt_eval.py](./04_llm_evaluation/project/prompt_eval.py) | Agent Eval 题 |
+| 05 微调与推理 | [prepare_sft_dataset.py](./05_finetune_and_inference/project/prepare_sft_dataset.py) | LLM 基础 |
+| 06 生产系统 | [llm_gateway.py](./06_production_llm_system/project/llm_gateway.py) | Agent 部署与生产化题 |
+| 07 开源 LLM | [architecture_budget_estimator.py](./07_open_llm_deepseek_study/project/architecture_budget_estimator.py) | LLM 基础 |
+| 08 研究复现 | [paper_review_generator.py](./08_research_methods_and_reproduction/project/paper_review_generator.py) | LLM 学习计划 |
+| 09 对齐与推理 | [tiny_dpo_loss.py](./09_alignment_reasoning_research/project/tiny_dpo_loss.py) | LLM 基础 |
+| 10 可解释性与评测 | [eval_significance.py](./10_interpretability_and_evaluation/project/eval_significance.py) | Agent Eval 题 |
+| 11 研究作品集 | [research_idea_scorer.py](./11_phd_research_portfolio/project/research_idea_scorer.py) | 项目表达与面试题 |
 
 课程中的 `workflow_report.md`、`sft_dataset.jsonl`、`lora_config.json` 和论文模板是实验产物/示例，不是理论主文档；重新运行脚本可能覆盖它们。

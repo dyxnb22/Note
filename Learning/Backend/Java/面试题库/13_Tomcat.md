@@ -41,7 +41,3 @@ Tomcat 通常为每个 Web 应用创建独立的 `WebappClassLoader`：
 ## Tomcat 集群如何处理 Session？
 
 常见方案是集中式 Session（Redis 等）、无状态 Token，或容器 Session 复制/粘性会话。Session 复制会带来网络和一致性成本；能无状态化时优先无状态，必须保留 Session 时使用集中存储并设置过期与故障策略。
-
-## 导航与关联
-
-- 同一路线：[Spring](./07_Spring与框架.md) · [正则表达式](./14_正则表达式.md)

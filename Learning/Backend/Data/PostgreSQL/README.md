@@ -43,7 +43,7 @@ status: developing
 
 ## 相关主题
 
-- [PostgreSQL 原理](../PostgreSQL.md)
+- PostgreSQL 原理
 - [数据库系统原理](../数据库系统原理.md)
 - [SQL](../SQL.md)
 - [生产系统工程](../../Delivery/07_生产系统工程.md)
@@ -58,4 +58,3 @@ status: developing
 - [High Availability, Load Balancing, and Replication](https://www.postgresql.org/docs/current/high-availability.html)
 
 具体命令和参数随 PostgreSQL 版本变化；实践时记录版本和扩展清单。
-

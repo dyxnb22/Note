@@ -15,7 +15,7 @@ DeepPathLab 是一个项目制的深度学习实践仓库。每个模块都遵�
 | [微积分、自动微分与反向传播](../../DeepLearning/01_预备知识/微积分、自动微分与反向传播.md) | [01_preliminaries_autograd](./modules/01_preliminaries_autograd/README.md) | 最小自动微分引擎、梯度检查、实现报告 |
 | [线性回归](../../DeepLearning/02_线性神经网络/线性回归：从零实现与简洁实现.md) / [Softmax 回归](../../DeepLearning/02_线性神经网络/Softmax回归与图像分类.md) | [02_linear_models](./modules/02_linear_models/README.md) | 线性回归、softmax 分类、基线对比、优化实验 |
 | [多层感知机与激活函数](../../DeepLearning/03_多层感知机/多层感知机与激活函数.md) | [03_mlp](./modules/03_mlp/README.md) | MLP 训练器、激活函数/优化器对比、训练诊断 |
-| [从全连接层到卷积](../../DeepLearning/05_卷积神经网络/卷积神经网络基础.md) / [LeNet](../../DeepLearning/05_卷积神经网络/卷积神经网络基础.md) | [04_cnn](./modules/04_cnn/README.md) | 卷积/池化实现、LeNet 基线、特征与错误分析 |
+| [从全连接层到卷积 / LeNet](../../DeepLearning/05_卷积神经网络/卷积神经网络基础.md) | [04_cnn](./modules/04_cnn/README.md) | 卷积/池化实现、LeNet 基线、特征与错误分析 |
 
 ## 推荐学习顺序
 
