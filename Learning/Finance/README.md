@@ -11,13 +11,15 @@
 
 | 阶段 | 目录 | 学习重点 |
 |---|---|---|
-| 1 | `00_Foundations`、`12_Math_and_Statistics` | 时间价值、风险、概率、收益率、统计 |
-| 2 | `01_Economics`、`02_Markets` | 供需、货币信用、周期、金融体系 |
-| 3 | `03_Stocks`、`04_Fixed_Income`、`05_Funds_and_ETF` | 资产结构、定价、风险和产品比较 |
-| 4 | `07_Corporate_Finance`、`08_Valuation` | 资本配置、现金流、DCF、相对估值 |
-| 5 | `09_Portfolio_and_Risk`、`06_Derivatives`、`10_Behavioral_Finance` | 组合、对冲、杠杆、决策偏差 |
-| 6 | `11_Quant`、`13_Research_Workflow` | 数据、回测、执行、备忘录、复盘 |
-| 7 | `14_Fraud_and_Pitfalls`、`15_Advanced_Practice` | 防骗、会计、税务、监管和综合实证 |
+| 1 | [基础金融](./00_Foundations/README.md)、[数学与统计](./12_Math_and_Statistics/README.md) | 时间价值、风险、概率、收益率、统计 |
+| 2 | [经济学](./01_Economics/README.md)、[金融市场](./02_Markets/README.md) | 供需、货币信用、周期、金融体系 |
+| 3 | [股票与公司分析](./03_Stocks/README.md)、[固定收益](./04_Fixed_Income/README.md)、[基金与 ETF](./05_Funds_and_ETF/README.md) | 资产结构、定价、风险和产品比较 |
+| 4 | [公司金融](./07_Corporate_Finance/README.md)、[估值](./08_Valuation/README.md) | 资本配置、现金流、DCF、相对估值 |
+| 5 | [组合与风险](./09_Portfolio_and_Risk/README.md)、[衍生品](./06_Derivatives/README.md)、[行为金融](./10_Behavioral_Finance/README.md) | 组合、对冲、杠杆、决策偏差 |
+| 6 | [量化与执行](./11_Quant/README.md)、[研究工作流](./13_Research_Workflow/README.md) | 数据、回测、执行、备忘录、复盘 |
+| 7 | [风险识别与防骗](./14_Fraud_and_Pitfalls/README.md)、[金融进阶与实证研究](./15_Advanced_Practice/金融进阶与实证研究.md) | 防骗、会计、税务、监管和综合实证 |
+
+每个多文章主题目录只维护一个局部入口页；正文不互相添加泛化关联链接。个人财务入口见[个人财务与规则核对](./16_Personal_Finance/README.md)，来源和时效性边界见[来源与验证](./来源与验证.md)。
 
 ## 需要系统入门时的最短路线
 
