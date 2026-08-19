@@ -621,4 +621,4 @@ git fsck
 
 ## 导航与关联
 
-- 同一路线：[AI DevOps 与交付](./AI%20DevOps与交付.md) · [Maven](./02_Maven.md)
+- 同一路线：[AI DevOps 与交付](./AI%20DevOps与交付.md) · [Java Maven 题](../Java/面试题库/16_Maven.md)

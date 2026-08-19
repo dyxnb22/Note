@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787038757625-ketqoxacj",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787038757691-dihij8z",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787038757623-nptxxzv",
+      "timestamp": 1787038757623,
+      "rawDisplayText": "Context/Memory 这两个区别在哪",
+      "canonicalText": "Context/Memory 这两个区别在哪",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "Context/Memory",
+          "lineCount": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "89fcab71bee19940f38c5af36b8d994437cf275e282a224895a380a54b76b627",
+      "providerUserMessageId": "01a013cf-7dae-74a2-a59c-2887119ed602",
+      "providerAssistantMessageId": "msg_01da28b33a32a15b016a840c3e506487d19a8a2fcb74e2fbe9"
+    }
+  ]
+}

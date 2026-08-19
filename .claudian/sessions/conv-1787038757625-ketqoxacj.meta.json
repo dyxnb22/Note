@@ -1,0 +1,28 @@
+{
+  "id": "conv-1787038757625-ketqoxacj",
+  "providerId": "codex",
+  "title": "Explain Context vs Memory in LLMs",
+  "titleGenerationStatus": "success",
+  "createdAt": 1787038757626,
+  "lastActivityAt": 1787038789720,
+  "sessionId": "01a013cf-7d12-7c43-9f2d-b6b0da10a5bf",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "01a013cf-7d12-7c43-9f2d-b6b0da10a5bf",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/18/rollout-2026-08-18T15-39-20-01a013cf-7d12-7c43-9f2d-b6b0da10a5bf.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "currentNote": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+  "usage": {
+    "inputTokens": 17238,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 13056,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 17238,
+    "percentage": 7,
+    "model": "gpt-5.6-luna"
+  }
+}

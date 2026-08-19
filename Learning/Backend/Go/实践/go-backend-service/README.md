@@ -1,6 +1,6 @@
 # Go Backend Service
 
-这是 [Go 后端项目实战](../../05_Go后端项目实战.md) 的阶段 0 可运行基线：标准库 HTTP Server、Handler/Service/Repository 分层、内存幂等、请求超时、稳定错误响应、并发安全与优雅关闭。
+这是 [Go 后端面试题库：编码与系统设计](../../面试题库/04_编码题与系统设计.md) 对应的阶段 0 可运行基线：标准库 HTTP Server、Handler/Service/Repository 分层、内存幂等、请求超时、稳定错误响应、并发安全与优雅关闭。
 
 ## 运行
 

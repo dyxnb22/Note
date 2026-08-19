@@ -12,15 +12,11 @@
             "type": "leaf",
             "pinned": true,
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Learning/Agent/学习进度.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "pinned": true,
               "icon": "lucide-file",
-              "title": "学习进度"
+              "title": "新标签页"
             }
           }
         ]
@@ -98,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CS6290-Privacy-考试临时资料/Lecture/11-Lecture8-扩容-支付通道-桥-Rollup.md",
+                "file": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "11-Lecture8-扩容-支付通道-桥-Rollup 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -117,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Projects/BigMarket/微服务.md",
+                "file": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "微服务 的出链列表"
+              "title": "出链"
             }
           },
           {
@@ -160,23 +156,23 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Learning/Agent/01_LLM调用基础.md",
-                "followCursor": false,
+                "file": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+                "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "01_LLM调用基础 的大纲"
+              "title": "大纲"
             }
           },
           {
-            "id": "1b6ad053d401dde2",
+            "id": "69a2bc9ea88f98e7",
             "type": "leaf",
             "state": {
               "type": "claudian-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "claudian-view"
+              "icon": "bot",
+              "title": "Claudian"
             }
           }
         ],
@@ -184,8 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 412.18359375,
-    "collapsed": true
+    "width": 412.18359375
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,46 +190,47 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:新建数据库": false
+      "bases:新建数据库": false,
+      "realclaudian:Open Claudian": false
     }
   },
-  "active": "b55c65997e2b1b75",
+  "active": "e725a654be78ae5e",
   "lastOpenFiles": [
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经/海外/OpenAI_Anthropic.md",
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/米哈游_其他国内.md",
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/小红书_拼多多.md",
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/美团_快手.md",
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/百度.md",
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/阿里_淘宝_蚂蚁.md",
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/腾讯.md",
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内/字节跳动.md",
-    "Learning/Agent面试题库/13_逐题答案/11_编码与后端/编码题与后端基础.md",
-    "Learning/Agent面试题库/13_逐题答案/10_模型与推理/模型与推理基础.md",
-    "Learning/Agent面试题库/13_逐题答案/09_工程化与系统设计/生产工程与系统设计.md",
-    "Learning/Agent面试题库/13_逐题答案/08_评测与可观测/评测与可观测性.md",
-    "Learning/Agent面试题库/13_逐题答案/07_可靠性与安全/可靠性与安全.md",
-    "Learning/Agent面试题库/13_逐题答案/06_RAG与知识库/RAG与检索.md",
-    "Learning/Agent面试题库/13_逐题答案/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md",
-    "Learning/Agent面试题库/13_逐题答案/04_Tool与协议/Tool Calling与MCP.md",
-    "Learning/Agent面试题库/13_逐题答案/03_Memory与状态/Memory与State.md",
-    "Learning/Agent面试题库/13_逐题答案/02_Prompt与上下文/Prompt与Context Engineering.md",
-    "Learning/Agent面试题库/13_逐题答案/01_基础架构/Agent基础与架构.md",
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经/海外",
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经/国内",
-    "Learning/Agent面试题库/13_逐题答案/12_公司面经",
-    "Learning/Agent面试题库/13_逐题答案/11_编码与后端",
-    "Learning/Agent面试题库/13_逐题答案/10_模型与推理",
-    "Learning/Agent面试题库/13_逐题答案/09_工程化与系统设计",
-    "Learning/Agent面试题库/13_逐题答案/08_评测与可观测",
-    "Learning/Agent面试题库/13_逐题答案/07_可靠性与安全",
-    "Learning/Agent面试题库/13_逐题答案/06_RAG与知识库",
-    "Learning/Agent面试题库/13_逐题答案/05_Multi-Agent与Workflow",
-    "Learning/Agent/面试/大厂真题汇总.md",
-    "Learning/Agent/面试/Agent主题速答.md",
-    "Learning/Agent/面试/学习范围与面试题型.md",
-    "Learning/Agent/面试/README.md",
-    "Learning/Agent面试题库/00_主题速答卡.md",
-    "Learning/Agent面试题库/00_复习路线与答题模板.md",
-    "Learning/Agent面试题库/12_公司面经/海外/Amazon_Salesforce及其他.md"
+    "Learning/Backend/Java/面试题库/16_Maven.md",
+    "Learning/AI/面试题库/00_复习路线与答题模板.md",
+    "Learning/AI/面试题库/README.md",
+    "Learning/AI/面试题库/01_大模型基础.md",
+    "Learning/AI/面试题库",
+    "Learning/Backend/Delivery/日志与可观测性.md",
+    "Learning/Backend/Java/面试题库/17_Java日志与可观测性.md",
+    "Learning/Agent面试题库/13_跨主题综合题/新增题簇_Agent与AI后端.md",
+    "Learning/Agent面试题库/13_跨主题综合题",
+    "Learning/Backend/Java/面试题库/00_复习路线与答题模板.md",
+    "Learning/Backend/Java/面试题库/00_主题速答卡.md",
+    "Learning/Backend/Java/面试题库/README.md",
+    "Learning/Backend/Java/面试题库/17_日志与可观测性.md",
+    "Learning/Backend/Java/面试题库/15_调试与问题定位.md",
+    "Learning/Backend/Java/面试题库/14_正则表达式.md",
+    "Learning/Backend/Java/面试题库/13_Tomcat.md",
+    "Learning/Backend/Java/面试题库/12_Spring生产机制与排障.md",
+    "Learning/Backend/Java/面试题库/11_SpringCloud.md",
+    "Learning/Backend/Java/面试题库/10_SpringWeb与Boot.md",
+    "Learning/Backend/Java/面试题库/09_Spring核心.md",
+    "Learning/Backend/Java/面试题库/08_Java数据访问.md",
+    "Learning/Backend/Java/面试题库/07_Spring与框架.md",
+    "Learning/Backend/Java/面试题库/06_设计模式.md",
+    "Learning/Backend/Java/面试题库/05_并发与JUC.md",
+    "Learning/Backend/Java/面试题库/04_JVM.md",
+    "Learning/Backend/Java/面试题库/03_集合与容器.md",
+    "Learning/Backend/Java/面试题库/02_IO与网络编程.md",
+    "Learning/Backend/Java/面试题库/01_语言与运行时.md",
+    "Learning/Backend/Java/面试题库",
+    "Learning/Backend/Rust/面试题库",
+    "Learning/Backend/Go/面试题库",
+    "Learning/Python/面试题库",
+    "Learning/编程语言面试题库/04_跨语言",
+    "Learning/编程语言面试题库/03_Rust",
+    "Learning/编程语言面试题库/02_Go",
+    "Learning/编程语言面试题库/01_Python"
   ]
 }

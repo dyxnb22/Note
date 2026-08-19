@@ -13,21 +13,22 @@
 
 - [AI DevOps 与交付](./AI%20DevOps与交付.md)：环境、容器、远程操作、压测、观测和本地模型
 - [01_Git](01_Git.md)：版本控制、分支协作、冲突处理、回退
-- [02_Maven](02_Maven.md)：依赖、生命周期、多模块和私服
 - [03_Linux 命令详解指南](03_Linux%20命令详解指南.md)：登录服务器后最常用的排查命令
 - [04_Docker](04_Docker.md)：镜像、容器、Dockerfile、Compose
-- [日志与可观测性](日志与可观测性.md)：日志门面、结构化日志、TraceId 和集中采集
+- [日志与可观测性](日志与可观测性.md)：语言无关的日志、指标、Trace、采样和故障定位
 - [Kubernetes](Kubernetes.md)：Pod、Service、发布、探针、资源与弹性
 - [05_部署与上线](05_部署与上线.md)：从单服务启动到可回滚上线
 - [06_CI_CD](06_CI_CD.md)：自动构建、自动测试、自动发布
 - [07_生产系统工程](07_生产系统工程.md)：性能剖析、容量、Metrics/Trace、SLI/SLO、告警与事故响应
 - [08_云原生与 IaC](08_云原生与IaC.md)：云身份与网络、Terraform、GitOps、服务网格、多集群、灾备与成本
 
+Java 专属的 [Maven](../Java/面试题库/16_Maven.md) 与 [Java 日志实现](../Java/面试题库/17_Java日志与可观测性.md) 题目放在 Java 题库；本目录只维护语言无关的交付和生产能力。
+
 ## 建议顺序
 
 1. 先掌握 `Git`
-2. 再掌握 `Maven`
-3. 再熟悉 `Linux 命令详解指南`
+2. 再熟悉 `Linux 命令详解指南`
+3. 如果走 Java 路线，再补 [Maven](../Java/面试题库/16_Maven.md)
 4. 然后看 `Docker`
 5. 再读 `部署与上线`
 6. 补 `CI_CD`

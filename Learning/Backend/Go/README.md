@@ -1,30 +1,26 @@
 # Go
 
-本目录面向后端工程，重点是组合、显式错误、并发生命周期、HTTP、数据库和性能验证。
+本目录现在保留 Go 的面试入口和实践入口。语言、Runtime、并发、网络、数据库、测试、性能与项目实战知识已经合并进 [Go 面试题库](./面试题库/README.md)。
 
-- [00_Go基础语法与惯用法](./00_Go基础语法与惯用法.md)：从其他语言迁移到 Go 的正式入口，覆盖语法、数据语义、接口、错误、Module 与惯用法。
-- [Go 后端工程基础](./Go后端工程基础.md)：从语言语义到并发、Context、服务、事务、测试和性能的完整主线。
-- [01_Go语言与Runtime](./01_Go语言与Runtime.md)：对象语义、接口、逃逸、调度器和 GC。
-- [02_Go并发与内存模型](./02_Go并发与内存模型.md)：Goroutine 生命周期、Channel、Context、同步与 Race。
-- [03_Go网络服务工程](./03_Go网络服务工程.md)：HTTP/gRPC、客户端、数据库、观测与优雅退出。
-- [04_Go测试与性能诊断](./04_Go测试与性能诊断.md)：单元/集成/Fuzz、Benchmark、pprof 和生产诊断。
-- [05_Go后端项目实战](./05_Go后端项目实战.md)：订单服务的持久化、可靠性、观测、性能与交付闭环。
-- [Go 实践](./实践/README.md)：实践维护规则与项目入口；当前从 [go-backend-service](./实践/go-backend-service/README.md) 阶段 0 基线开始。
+## 进入方式
 
-`Go后端工程基础.md` 保留为快速总览；专项文档负责可独立学习、实验和验收的深度内容。
+- 面试与系统化复习：先读 [Go 面试题库](./面试题库/README.md)。
+- 可运行项目：进入 [Go 实践](./实践/README.md) 和 [go-backend-service](./实践/go-backend-service/README.md)。
 
-## 正式学习顺序
+## Go 题库覆盖
 
-```text
-00 基础与惯用法
-→ 工程基础总览
-→ 01 Runtime
-→ 02 并发与内存模型
-→ 03 网络服务
-→ 04 测试与性能
-→ 05 项目实战
-```
+- 语言与 Runtime：值语义、slice/map/interface、错误、逃逸、GMP、GC 和构建。
+- 并发与内存模型：Goroutine、Channel、Context、同步、背压、Race 和泄漏。
+- 网络与后端：HTTP/RPC、数据库、Redis、Kafka、幂等、观测、发布和恢复。
+- 编码与系统设计：算法、Worker Pool、限流、任务队列、订单服务和项目深挖。
 
-希望同时推进 Rust Agent 时，使用 [Rust Agent 与 Go 后端学习地图](../../00_Navigation/Rust-Agent与Go后端学习地图.md)，不要并行维护重复的可靠性和交付理论。
+实践目录下的项目和测试保持独立，不作为题库页面处理。
 
-`#go #backend #index`
+## 实践验收
+
+题库负责可迁移的知识和问答；实践目录负责可运行证据。建议按以下顺序把题库内容落到实验中：
+
+- 用小程序验证 slice 扩容共享、interface 携带 nil 指针、逃逸分析和方法集。
+- 用 `go test`、Race Detector、Benchmark、pprof 和 trace 验证 Worker Pool、取消、背压、泄漏与性能结论。
+- 用 [go-backend-service](./实践/go-backend-service/README.md) 验证 HTTP、领域服务、存储替换、测试和优雅关闭；项目代码、测试和配置不与题库混写。
+- 复习时对每个结论补一句“如何实验或观测”，避免把 Runtime 微基准当成生产性能证明。

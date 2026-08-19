@@ -18,7 +18,7 @@
 12. [09 对齐与推理研究](./09_alignment_reasoning_research/学习文档.md)：SFT、DPO、RL、reasoning model 和 CoT 研究。
 13. [10 可解释性与评测](./10_interpretability_and_evaluation/学习文档.md)：可解释性、评测、安全与鲁棒性。
 14. [11 研究作品集](./11_phd_research_portfolio/学习文档.md)：PhD 申请作品集、研究路线和选题筛选。
-15. [大模型八股](./大模型八股.md)：面试高频知识点。
+15. [AI 面试题库](../../面试题库/README.md)：统一维护模型、训练、推理和 AI 系统问答。
 
 ## 运行环境
 
@@ -40,7 +40,7 @@ export LLM_MODEL="deepseek-chat"
 
 ## 在 Notes 中的位置
 
-这是 `Learning/AI` 下的课程实践快照：课程说明和可运行项目放在这里，模型原理以 `Learning/AI` 的理论笔记为准，Agent Runtime、工具治理和生产可靠性以 `Learning/Agent面试题库` 为准。不要把本目录的课程说明再复制成新的理论主文档。
+这是 `Learning/AI` 下的课程实践快照：课程说明和可运行项目放在这里，模型原理以 `Learning/AI` 的理论笔记和 [AI 面试题库](../../面试题库/README.md) 为准，Agent Runtime、工具治理和生产可靠性以 `Learning/Agent面试题库` 为准。不要把本目录的课程说明再复制成新的理论主文档。
 
 | 课程 | 实践入口 | 对齐笔记 |
 |---|---|---|

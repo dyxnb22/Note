@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787033350667-1xiddokdt",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787033350781-cwg4n8p",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787033350660-o1w2w93",
+      "timestamp": 1787033350660,
+      "rawDisplayText": "RPA是什么",
+      "canonicalText": "RPA是什么",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "dabcb7ef0b973829ddfc8b7ad62135601cbe830881813307f37fbade86456b40",
+      "providerUserMessageId": "01a0137c-fd5a-7d01-b3ad-00a36a427315",
+      "providerAssistantMessageId": "msg_04b7a5d9e2fa6f8b016a83f71d759c81938ce13b04cd59a96d"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787033690206-p0i620x",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787033690205-1ex1nuu",
+      "timestamp": 1787033690205,
+      "rawDisplayText": "RPA 和 workflow的区别，你能具体讲一下吗",
+      "canonicalText": "RPA 和 workflow的区别，你能具体讲一下吗",
+      "images": [],
+      "contentDigest": "599cf76f7317e49e3021e8bc0f8c153ae2ec247f4be8332a6142bb3231eed403",
+      "providerUserMessageId": "01a01382-206a-7f43-ae88-9e425fd9340f",
+      "providerAssistantMessageId": "msg_04b7a5d9e2fa6f8b016a83f86641c0819394834ddd132f0e3b"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787038531816-ms3buoe",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1787038531803-9gw9fza",
+      "timestamp": 1787038531803,
+      "rawDisplayText": "这两个区别在哪",
+      "canonicalText": "这两个区别在哪",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": " Context/Memory",
+          "lineCount": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "989c8c938d57337d35d4579f9abff614b0b6ce4e70b6e0d2686e9d48b0dc4e85"
+    }
+  ]
+}

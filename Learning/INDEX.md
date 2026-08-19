@@ -47,6 +47,7 @@
 - [Python、AI 与 Agent 的边界地图](./00_Navigation/AI-Python-Agent学习地图.md)：判断应该在哪一层补课。
 - [Rust Agent 与 Go 后端学习地图](./00_Navigation/Rust-Agent与Go后端学习地图.md)：仅在这两个明确目标之间协调顺序。
 - [来源与证据](./00_Navigation/来源与证据.md)：区分主题提炼、正文核验、源码审计和本地复现。
+- [内容治理与迁移记录](./00_Navigation/内容治理与迁移记录.md)：查看主题归属、旧新入口映射、保护规则和最近验证结果。
 
 ## 使用规则
 

@@ -22,10 +22,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 G0：语言入口
 
-阅读：
-
-1. [Go 基础语法与惯用法](../Backend/Go/00_Go基础语法与惯用法.md)
-2. [Go 后端工程基础](../Backend/Go/Go后端工程基础.md)
+阅读：[Go 面试题库](../Backend/Go/面试题库/README.md)。
 
 产物：文本统计 CLI、带超时 HTTP Client、内存 Todo Service。
 
@@ -33,10 +30,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 G1：Runtime 与并发
 
-阅读：
-
-1. [Go 语言与 Runtime](../Backend/Go/01_Go语言与Runtime.md)
-2. [Go 并发与内存模型](../Backend/Go/02_Go并发与内存模型.md)
+阅读：[Go 面试题库](../Backend/Go/面试题库/README.md)。
 
 产物：有界 Worker Pool；能主动制造并修复 Race 和 Goroutine 泄漏。
 
@@ -44,7 +38,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 G2：网络服务
 
-阅读：[Go 网络服务工程](../Backend/Go/03_Go网络服务工程.md)。
+阅读：[Go 面试题库](../Backend/Go/面试题库/README.md)。
 
 实践：[go-backend-service](../Backend/Go/实践/go-backend-service/README.md) 阶段 0–3。
 
@@ -52,12 +46,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 G3：测试、性能与交付
 
-阅读：
-
-1. [Go 测试与性能诊断](../Backend/Go/04_Go测试与性能诊断.md)
-2. [Go 后端项目实战](../Backend/Go/05_Go后端项目实战.md)
-3. [后端测试体系](../Backend/Testing.md)
-4. [生产系统工程](../Backend/Delivery/07_生产系统工程.md)
+阅读：[Go 面试题库](../Backend/Go/面试题库/README.md)。
 
 验收：Race、Fuzz、集成、故障、负载和关闭测试有固定入口；一次 Profile 能解释瓶颈；部署和回滚可重复。
 
@@ -71,7 +60,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 R1：Rust 语言核心
 
-按 [Rust README](../Backend/Rust/README.md) 完成 01–07；重点是所有权、借用、Enum、Trait、Result、模块和测试。
+按 [Rust 面试题库](../Backend/Rust/面试题库/README.md) 完成语言核心；重点是所有权、借用、Enum、Trait、Result、模块和测试。
 
 产物：CLI、文本处理库、带单元/集成测试的 Tool Registry。
 
@@ -79,7 +68,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 R2：I/O 与 Async
 
-阅读 Rust 09–12：文件/进程/网络、Serde/配置/日志、并发/Async 和 Tokio。
+阅读 [Rust 面试题库](../Backend/Rust/面试题库/README.md)：文件/进程/网络、Serde/配置/日志、并发/Async 和 Tokio。
 
 产物：有界并发 Tool Executor，支持超时、取消、输出限制和优雅关闭。
 
@@ -87,7 +76,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 R3：Agent Runtime
 
-阅读：[Rust Agent 工程化](../Backend/Rust/16_Rust%20Agent工程化.md)。
+阅读：[Rust 面试题库](../Backend/Rust/面试题库/README.md) 的 Agent Runtime 部分。
 
 实践要点：[Rust Agent Runtime 题](../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md) 阶段 A–B。
 

@@ -80,5 +80,4 @@ status: developing
 - [PostgreSQL](../PostgreSQL.md)
 - [API 与事件契约](../../Architecture/09_API与事件契约.md)
 - [可靠性与一致性](../../Architecture/04_可靠性与一致性.md)
-- [Go 后端项目实战](../../Go/05_Go后端项目实战.md)
-
+- [Go 后端面试题库：编码与系统设计](../../Go/面试题库/04_编码题与系统设计.md)

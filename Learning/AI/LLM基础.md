@@ -1,5 +1,7 @@
 # LLM 基础
 
+本页负责模型原理正文；按题目复习见 [AI 面试题库](./面试题库/README.md)。Provider、Tool、State、RAG 应用和 Agent Loop 进入 [Agent 面试题库](../Agent面试题库/README.md)。
+
 这篇文档解决一个问题：**作为 AI 应用工程师，你需要理解 LLM 到底是怎么工作的**。
 
 不是为了训练模型，而是为了：

@@ -2,18 +2,20 @@
 
 这里放传统后端开发内容，重点是服务、数据库、中间件和系统设计。
 
+题库入口按语言分开，统一采用问答形式；公共后端能力仍由 `Data`、`Architecture` 和 `Delivery` 维护为概念/指南正文，语言题库只补语言差异和面试追问，不复制公共机制。
+
 ## 目录
 
-- [Java](Java/README.md)：语言、集合、并发、JVM、Spring 与工程工具
+- [Java](Java/README.md)：Java 语言、JVM、并发、Spring、Maven 与 Java 工程排障题库
 - [Go](Go/README.md)：正式语言路线、并发服务、Context、HTTP、性能、测试与项目实战
 - [Rust](Rust/README.md)：所有权、并发安全、异步服务、性能模型与 Agent Runtime
 - [Data](Data/README.md)：数据库、缓存、消息队列
 - [Architecture](Architecture/README.md)：分布式、系统设计
-- [Delivery](Delivery/README.md)：Git、Linux、Docker、部署上线
+- [Delivery](Delivery/README.md)：Git、Linux、Docker、部署上线、CI/CD、云原生与生产系统
 - [后端测试体系](Testing.md)：单元、集成、契约、端到端、性能与韧性测试
 - [软件工程与演进式架构](SoftwareEngineering.md)：需求、模块、重构、Review、ADR、技术债和遗留系统迁移
 
-补充：[调试与问题定位](./Java/调试与问题定位.md)。
+补充：[Java 调试与问题定位](./Java/面试题库/15_调试与问题定位.md)。
 
 系统设计新增主线：
 
@@ -36,8 +38,9 @@
 
 ## 建议使用原则
 
-- 写业务代码时碰到的语言和框架问题，放 `Java`
+- 写业务代码时碰到的 Java 语言和框架问题，放 `Java/面试题库`
 - Go 与 Rust 的语言/服务工程笔记分别放对应子目录
 - 存储、缓存、MQ 相关内容，放 `Data`
 - 架构层面的总结，放 `Architecture`
 - 运维、环境、交付流程，放 `Delivery`
+- Java 特有的 Maven、日志门面和 Java 运行时排障放 `Java/面试题库`，不要混入公共交付目录
