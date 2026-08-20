@@ -128,9 +128,9 @@
 
 答：至少区分 running、waiting_human、executing_tool、succeeded、failed、stopped、cancelled 等状态，并为每条转移定义触发事件、前置条件、持久化动作和可重试性。状态机的价值是让恢复、审计和指标有确定语义。
 
-### 31. 如何让长任务跨进程、跨机器持续运行？
+### 31. 为什么长任务不能只靠一次 Agent Loop 持续运行？
 
-答：把任务放入持久化队列，Worker 用租约/心跳领取，节点完成后提交 Checkpoint 和事件；Worker 崩溃后由新 Worker 从最近检查点恢复。外部动作必须幂等或先查状态，不能把任务进度只放在进程内存里。
+答：一次 Loop 绑定当前进程、连接和内存，无法可靠跨越重启、排队、人工等待与版本发布。长任务要提升为显式任务状态机，把状态、Checkpoint 和事件持久化，并由独立 Worker 接管；Lease、幂等、未知副作用和跨版本恢复统一见 [[../12_课程深化/03_Durable与生产运维/Durable与生产运维|Durable Execution 与生产运维]]。
 
 ### 32. 如何处理 Agent 运行中模型、工具、数据库或网络故障？
 

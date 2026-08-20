@@ -211,6 +211,11 @@
   },
   "active": "b55c65997e2b1b75",
   "lastOpenFiles": [
+    "Learning/Cpp/面试题库/01_语言、内存与工程.md",
+    "Learning/Cpp/README.md",
+    "Learning/References/小林Coding与JavaGuide知识体系提炼.md",
+    "Learning/Cpp/面试题库",
+    "Learning/Cpp",
     "Learning/Agent面试题库/12_课程深化/09_代码Agent通用机制与安全补充.md",
     "Learning/Python/面试题库/04_项目驱动的Python工程补充.md",
     "Learning/Finance/14_Fraud_and_Pitfalls/README.md",
@@ -234,18 +239,13 @@
     "Learning/Backend/Java/面试题库/16_Maven.md",
     "Learning/AI/面试题库/00_复习路线与答题模板.md",
     "Learning/AI/面试题库/README.md",
-    "Learning/AI/面试题库/01_大模型基础.md",
     "Learning/AI/面试题库",
-    "Learning/Backend/Delivery/日志与可观测性.md",
-    "Learning/Backend/Java/面试题库/17_Java日志与可观测性.md",
     "Learning/Agent面试题库/13_跨主题综合题",
     "Learning/Backend/Java/面试题库",
     "Learning/Backend/Rust/面试题库",
     "Learning/Backend/Go/面试题库",
     "Learning/Python/面试题库",
     "Learning/编程语言面试题库/04_跨语言",
-    "Learning/编程语言面试题库/03_Rust",
-    "Learning/编程语言面试题库/02_Go",
-    "Learning/编程语言面试题库/01_Python"
+    "Learning/编程语言面试题库/03_Rust"
   ]
 }

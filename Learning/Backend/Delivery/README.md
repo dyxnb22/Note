@@ -22,13 +22,13 @@
 - [07_生产系统工程](07_生产系统工程.md)：性能剖析、容量、Metrics/Trace、SLI/SLO、告警与事故响应
 - [08_云原生与 IaC](08_云原生与IaC.md)：云身份与网络、Terraform、GitOps、服务网格、多集群、灾备与成本
 
-Java 专属的 Maven 与 [Java 日志实现](../Java/面试题库/17_Java日志与可观测性.md) 题目放在 Java 题库；本目录只维护语言无关的交付和生产能力。
+Java 专属的 [Maven/Gradle](../Java/面试题库/16_Maven.md) 与 [Java 日志实现](../Java/面试题库/17_Java日志与可观测性.md) 题目放在 Java 题库；本目录只维护语言无关的交付和生产能力。
 
 ## 建议顺序
 
 1. 先掌握 `Git`
 2. 再熟悉 `Linux 命令详解指南`
-3. 如果走 Java 路线，再补 [Maven](../Java/面试题库/16_Maven.md)
+3. 如果走 Java 路线，再补 [Maven/Gradle](../Java/面试题库/16_Maven.md)
 4. 然后看 `Docker`
 5. 再读 `部署与上线`
 6. 补 `CI_CD`

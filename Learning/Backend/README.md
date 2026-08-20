@@ -6,7 +6,7 @@
 
 ## 目录
 
-- [Java](Java/README.md)：Java 语言、JVM、并发、Spring、Maven 与 Java 工程排障题库
+- [Java](Java/README.md)：Java 语言、JVM、并发、Spring、Maven/Gradle 与 Java 工程排障题库
 - [Go](Go/README.md)：正式语言路线、并发服务、Context、HTTP、性能、测试与项目实战
 - [Rust](Rust/README.md)：所有权、并发安全、异步服务、性能模型与 Agent Runtime
 - [Data](Data/README.md)：数据库、缓存、消息队列
@@ -43,4 +43,4 @@
 - 存储、缓存、MQ 相关内容，放 `Data`
 - 架构层面的总结，放 `Architecture`
 - 运维、环境、交付流程，放 `Delivery`
-- Java 特有的 Maven、日志门面和 Java 运行时排障放 `Java/面试题库`，不要混入公共交付目录
+- Java 特有的 Maven/Gradle、日志门面和 Java 运行时排障放 `Java/面试题库`，不要混入公共交付目录

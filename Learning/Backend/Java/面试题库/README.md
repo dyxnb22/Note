@@ -9,14 +9,14 @@
 3. [[04_JVM]]、[[05_并发与JUC]]、[[06_设计模式]]
 4. [[07_Spring与框架]]、[[08_Java数据访问]]、[[09_Spring核心]]、[[10_SpringWeb与Boot]]
 5. [[11_SpringCloud]]、[[12_Spring生产机制与排障]]、[[13_Tomcat]]
-6. [[14_正则表达式]]、[[15_调试与问题定位]]、[[16_Maven]]、[[17_Java日志与可观测性]]
+6. [[14_正则表达式]]、[[15_调试与问题定位]]、[[16_Maven|16_Maven（Maven 与 Gradle）]]、[[17_Java日志与可观测性]]
 
 ## 覆盖范围
 
 - 语言与 Runtime：类型、异常、反射、集合、JVM 和 GC。
 - 并发与服务：JUC、线程池、I/O、网络线程模型和 Spring Web。
 - 框架与数据访问：Spring、Spring Boot、Spring Cloud、JDBC、MyBatis、JPA。
-- 工程与排障：Maven、Tomcat、日志、可观测性、调试和生产问题定位。
+- 工程与排障：Maven/Gradle、Tomcat、日志、可观测性、调试和生产问题定位。
 
 ## 公共后端边界
 

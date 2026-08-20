@@ -1,6 +1,6 @@
 # Java 并发编程
 
-## Java 线程基础应该如何理解？
+## Java 线程基础
 
 ## Java 线程和操作系统线程是什么关系？
 
@@ -87,7 +87,7 @@ t.start(); // 新线程执行；只能调用一次
 
 线程未捕获异常时，该线程会终止，可以通过 `Thread.UncaughtExceptionHandler` 记录和告警。在线程池中还要注意：`execute()` 的异常通常会交给线程的未捕获异常处理器，而 `submit()` 会把异常封装在 `Future` 中，需要调用 `Future.get()` 才能观察到。
 
-## Java 内存模型如何保证线程安全？
+## Java 内存模型与线程安全
 
 ## 如何保证多线程安全？
 
@@ -142,6 +142,16 @@ CAS（Compare And Swap）包含内存值 V、预期值 A 和新值 B：只有 V 
 - 自旋开销：竞争激烈时 CAS 反复失败，会浪费 CPU。
 - 多变量一致性有限：需要用 `AtomicReference` 封装对象或使用锁。
 
+## AtomicLong 和 LongAdder 如何选择？LongAdder 为什么不适合生成序列号？
+
+核心回答：`AtomicLong` 对单个值做线性化 CAS，`incrementAndGet()` 能返回本次操作确定的结果；`LongAdder` 在竞争时把更新分散到多个 Cell，读取时再求和，通常能降低高竞争计数的热点，但 `sum()` 不是与所有并发更新处于同一个原子快照。
+
+因此订单序列、配额扣减、状态版本等需要“每次更新的精确返回值或条件更新”时用 `AtomicLong`、锁或数据库约束；请求数、命中数等允许短暂统计偏差的高并发指标可用 `LongAdder`。二者都不能自动维护多个字段的不变量，`LongAdder.sumThenReset()` 与并发写组合时也不能当作无损结算边界。
+
+常见追问：低竞争时两者差距可能很小，选择要用目标 JDK、线程数和读写比例压测；不要因为类名含 `Atomic` 就认为一段复合业务逻辑已经原子化。
+
+> 参考：[JavaGuide：Java 并发常见面试题（中）](https://javaguide.cn/java/concurrent/java-concurrent-questions-02.html)（AtomicLong/LongAdder）；CAS 基础见[小林 Coding：Java 并发编程面试题](https://www.xiaolincoding.com/interview/juc.html)。
+
 ## 悲观锁和乐观锁有什么区别？
 
 | 对比项 | 悲观锁 | 乐观锁 |
@@ -151,7 +161,7 @@ CAS（Compare And Swap）包含内存值 V、预期值 A 和新值 B：只有 V 
 | 优点 | 逻辑简单，适合强互斥 | 无阻塞，低冲突时性能好 |
 | 缺点 | 可能阻塞和上下文切换 | 冲突高时重试成本高 |
 
-## Java 锁机制与 AQS 如何工作？
+## Java 锁机制与 AQS
 
 ## synchronized 的工作原理是什么？
 
@@ -272,7 +282,7 @@ protected boolean tryAcquire(int acquires) {
 }
 ```
 
-## Java 线程如何协作，ThreadLocal 有什么边界？
+## Java 线程协作与 ThreadLocal
 
 ## sleep、wait 和 notify 有什么区别？
 
@@ -330,7 +340,7 @@ try {
 }
 ```
 
-## Java 线程池与异步编程应该如何设计？
+## Java 线程池与异步编程
 
 ## ThreadPoolExecutor 提交任务的流程是什么？
 
@@ -431,7 +441,28 @@ CompletableFuture<Integer> future = CompletableFuture
 
 默认异步任务可能使用公共 `ForkJoinPool.commonPool()`。生产环境应根据任务类型指定自定义线程池，尤其要避免阻塞 I/O 任务耗尽公共线程池。
 
-## Java 并发场景题如何落地？
+## CompletableFuture 上线时如何处理异常、超时、取消和线程池隔离？
+
+核心回答：先为不同依赖使用有界且可观测的执行器，再让每个外部调用自己有 deadline；组合层显式规定“一个失败是否取消兄弟任务、能否返回部分结果、fallback 是否掩盖错误”。`orTimeout` 只会让 Future 以超时异常完成，不保证底层阻塞 I/O 已经停止，因此还要向客户端/任务传播取消并配置底层连接与读取超时。
+
+```java
+CompletableFuture<Result> left = CompletableFuture
+        .supplyAsync(() -> queryLeft(requestId), ioExecutor)
+        .orTimeout(300, TimeUnit.MILLISECONDS);
+
+CompletableFuture<Result> right = CompletableFuture
+        .supplyAsync(() -> queryRight(requestId), ioExecutor)
+        .orTimeout(300, TimeUnit.MILLISECONDS);
+
+return left.thenCombine(right, this::merge)
+        .whenComplete((value, error) -> recordOutcome(requestId, error));
+```
+
+易错点：在 `exceptionally` 中无条件返回空对象会把依赖故障伪装成业务成功；在异步阶段依赖 ThreadLocal 可能丢失认证或 Trace 上下文；`allOf()` 只返回完成信号，仍需逐个读取结果并处理异常。验收时应覆盖单分支失败、整体超时、队列满、取消和服务关闭，观测活跃线程、队列长度、拒绝数与端到端 P95/P99。
+
+> 参考：[JavaGuide：Java 并发常见面试题（下）](https://javaguide.cn/java/concurrent/java-concurrent-questions-03.html)（CompletableFuture 与自定义线程池）；线程池基础见[小林 Coding：Java 并发编程面试题](https://www.xiaolincoding.com/interview/juc.html)。
+
+## Java 并发场景题
 
 ## 什么情况下会产生死锁？如何避免？
 

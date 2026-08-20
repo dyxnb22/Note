@@ -38,6 +38,8 @@
 - 通用数据库、缓存、消息、系统设计和交付：分别以 [Backend/Data](../Backend/Data/README.md)、[Backend/Architecture](../Backend/Architecture/README.md) 和 [Backend/Delivery](../Backend/Delivery/README.md) 为主文档；本库只保留 Agent 的状态、工具、幂等、权限和评测连接。
 - Python/Go/Java/Rust 的语言实现：进入对应语言题库；Agent 页面不重复完整语言教程，只补模型/工具/状态与该语言的组合边界。
 - 同一问题需要同时出现在两个入口时，主入口写完整答案，桥接入口只保留差异点和链接；基础评测题与 `12_课程深化` 的实验/发布门禁也按这个层级区分。
+- 生产系统页只保留平台架构与容量总览；任务租约、Checkpoint、版本迁移、灰度、降级和事故恢复以 [[12_课程深化/03_Durable与生产运维/Durable与生产运维]] 为主答案。
+- RAG 页维护召回、排序和检索指标；评测页维护跨层 Eval、数据集与 Trace；Prompt 页不重复可靠性与安全页的执行权限防线。
 
 ## 答案形式
 

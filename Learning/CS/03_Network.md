@@ -77,6 +77,14 @@ Client → ACK(y+1)
 
 服务端收到 SYN 后维护半连接状态，第三次 ACK 后进入全连接队列。SYN Flood 会消耗半连接资源，可结合 SYN Cookies、队列调优、限流和流量清洗防护。
 
+## TCP 半连接队列、全连接队列和 `accept()` 是什么关系？
+
+核心回答：服务端 `listen` 后，尚未完成握手的连接处于半连接管理结构；握手完成后等待应用取走的连接进入全连接/accept 队列；`accept()` 从已完成队列取得一个连接并返回新的已连接 Socket。TCP 握手由内核协议栈完成，因此应用暂时没有调用 `accept()` 时，队列未满的连接仍可能完成握手，但得不到及时处理。
+
+队列满时的丢弃、重传或 Cookie 行为受内核版本和配置影响。排障要同时看 SYN backlog、accept queue、监听 Socket、应用 accept 速率、文件描述符和 CPU，而不是只调大 `backlog`：应用卡住时更大的队列只是延后失败。
+
+> 参考：[小林 Coding：TCP 半连接队列和全连接队列](https://www.xiaolincoding.com/network/3_tcp/tcp_queue.html)、[没有 accept，可以建立 TCP 连接吗](https://www.xiaolincoding.com/network/3_tcp/tcp_no_accpet.html)
+
 ## TCP 关闭连接
 
 TCP 是全双工连接，两个方向需要分别关闭，因此常表现为四次挥手。主动关闭方进入 TIME_WAIT，用于吸收旧报文并确保最后 ACK 可以重传。
@@ -93,6 +101,16 @@ TCP 通过序列号、确认、校验和、重传、滑动窗口和拥塞控制�
 - Keepalive 探测长时间无数据的连接，不等于业务心跳。
 
 应用仍需请求级 Deadline，因为 TCP 连接正常不代表业务能在可接受时间内返回。
+
+## TCP 连接的一端断电、进程崩溃或拔网线，另一端会立即知道吗？
+
+核心回答：不一定。进程正常退出时内核通常关闭 Socket 并发送 FIN/RST；主机断电或网络中断无法保证发出任何报文，对端可能继续保持连接，直到下一次读写失败、重传超时、TCP Keepalive 或业务心跳判定失联。拔网线后若网络及时恢复，原连接甚至可能继续工作。
+
+因此“Socket 还在 ESTABLISHED”不能证明对端业务健康。长连接协议需要业务心跳、请求 Deadline、断线重连、重复请求幂等和会话恢复；TCP Keepalive 的探测周期通常也不足以替代业务级故障检测。
+
+常见追问：服务端没有 `listen` 时，目标主机通常会对 SYN 返回 RST 或无响应，具体受防火墙影响；已经建立的连接收到异常 SYN/FIN 时按序列号和当前状态机处理，不能背成“必然立即断开”。
+
+> 参考：[小林 Coding：TCP 连接一端断电和进程崩溃有什么区别](https://www.xiaolincoding.com/network/3_tcp/tcp_down_and_crash.html)、[TCP Keepalive 和 HTTP Keep-Alive 是一个东西吗](https://www.xiaolincoding.com/network/3_tcp/tcp_http_keepalive.html)
 
 ## 粘包与拆包
 
@@ -244,6 +262,24 @@ sudo tcpdump -i any -nn 'host example.com and port 443'
 6. 将浏览器、`curl -v`、服务日志和 `tcpdump` 时间线对齐。
 
 抓包内容可能含 Token、Cookie 和个人数据，应只在授权环境中操作并安全保存。
+
+## 线上接口突然大量超时，如何区分网络、应用和下游问题？
+
+核心回答：先用同一时间窗口把超时拆成 DNS、建连、TLS、TTFB 和响应下载，再从客户端/网关 Trace 找第一个耗时异常的跨度；连接都未建立时查解析、路由、丢包和监听，已建连但 TTFB 高时查线程池、连接池、GC、锁和下游，响应已产生但客户端未收到时再查代理缓冲、带宽、重传与客户端取消。
+
+证据链应至少包含：`dig` 的解析结果和 TTL、`ss` 的连接状态、客户端分阶段耗时、网关与服务端同一 traceId、目标进程线程/连接池指标，以及必要时授权抓包中的 SYN 重传、RST、零窗口或应用数据时间线。`ping` 通、端口通、HTTP 200 都只能证明各自一层，不能替代业务成功证据。
+
+常见追问：超时后服务端可能仍在执行，因此写操作要有 deadline 传播、取消、幂等键和状态查询；重试应基于错误分类和总预算，避免把局部慢请求放大成重试风暴。
+
+> 参考：[小林 Coding：计算机网络面试题](https://www.xiaolincoding.com/interview/network.html)、[JavaGuide：计算机网络常见面试题](https://javaguide.cn/cs-basics/network/other-network-questions.html)
+
+## TIME_WAIT 和 CLOSE_WAIT 很多分别说明什么？可以直接调小内核参数吗？
+
+核心回答：TIME_WAIT 通常出现在主动关闭连接的一方，用于吸收旧报文并保证最后 ACK 可重传；CLOSE_WAIT 表示对端已发 FIN，而本地应用尚未完成关闭。前者多要检查短连接创建率、连接复用和端口压力，后者优先检查代码是否遗漏关闭、线程是否卡住以及资源清理是否执行。
+
+不能看到数量大就直接调小等待时间：高 QPS 短连接服务可能有大量正常 TIME_WAIT；贸然复用端口或缩短时间会增加旧报文干扰风险。先按本机角色、状态增长速度、源/目标四元组、文件描述符和端口范围判断是否真的耗尽，再修复连接生命周期或调整架构，最后才在压测和回滚方案下评估参数。
+
+> 参考：[小林 Coding：计算机网络面试题](https://www.xiaolincoding.com/interview/network.html)（TIME_WAIT/CLOSE_WAIT）。网络分层与常见协议追问可延伸到[JavaGuide：计算机网络常见面试题](https://javaguide.cn/cs-basics/network/other-network-questions.html)。
 
 ## 来源与验证边界
 

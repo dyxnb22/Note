@@ -12,6 +12,6 @@
 
 ## Java 的边界
 
-- Java 特有的语言、Runtime、JVM、Spring、Maven 和 Java 客户端放本目录。
+- Java 特有的语言、Runtime、JVM、Spring、Maven/Gradle 和 Java 客户端放本目录。
 - 数据库本身、消息系统、分布式一致性和生产交付方法不复制到 Java，使用公共后端正文。
 - Java 实践项目出现后，放入本目录的 `实践/`；可迁移结论再回链到公共能力或案例目录。

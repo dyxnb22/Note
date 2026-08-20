@@ -11,6 +11,7 @@
 | [CS](./CS/README.md) | 补计算机系统、网络、操作系统、算法与理论基础 |
 | [Backend](./Backend/README.md) | 做服务、数据库、中间件、系统设计和交付 |
 | [Python](./Python/README.md) | 项目需要 Python 语言、HTTP、异步或服务能力 |
+| [C++](./Cpp/README.md) | 查指针、对象模型、STL、智能指针、内存和系统编程面试边界 |
 | [AI](./AI/README.md) | 需要理解模型、训练、表示和 LLM 原理 |
 | [Agent 面试题库](./Agent面试题库/README.md) | 构建模型调用、工具、状态、编排和治理系统 |
 | [TypeScript](./TypeScript/README.md) | 做 Node、前端或 AI 产品界面 |
@@ -47,6 +48,7 @@
 - [Python、AI 与 Agent 的边界地图](./00_Navigation/AI-Python-Agent学习地图.md)：判断应该在哪一层补课。
 - [Rust Agent 与 Go 后端学习地图](./00_Navigation/Rust-Agent与Go后端学习地图.md)：仅在这两个明确目标之间协调顺序。
 - [来源与证据](./00_Navigation/来源与证据.md)：区分主题提炼、正文核验、源码审计和本地复现。
+- [小林 Coding 与 JavaGuide 知识体系提炼](./References/小林Coding与JavaGuide知识体系提炼.md)：按两站公开目录检查本地覆盖和直接来源。
 - [内容治理与迁移记录](./00_Navigation/内容治理与迁移记录.md)：查看主题归属、旧新入口映射、保护规则和最近验证结果。
 
 ## 使用规则

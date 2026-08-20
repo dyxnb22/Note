@@ -59,6 +59,25 @@ AOP 把日志、事务、鉴权、指标等横切逻辑织入业务方法。Spri
 
 数据库事务只能保证本地资源，不能直接保证消息和远程服务的一致性；跨边界方案见 [可靠性与一致性](../../Architecture/04_可靠性与一致性.md)。
 
+## Spring 事务传播和数据库隔离级别分别解决什么问题？
+
+核心回答：传播行为解决“一个带事务的方法调用另一个事务方法时如何组合”，隔离级别解决“多个数据库事务并发时能看到什么”。二者不在同一层，`REQUIRES_NEW` 不能替代更高隔离级别，`SERIALIZABLE` 也不能自动决定内部方法是否新开事务。
+
+高频传播行为：
+
+| 行为 | 语义 | 主要边界 |
+| --- | --- | --- |
+| `REQUIRED` | 有事务就加入，没有就新建 | 内层标记 rollback-only 后，外层即使捕获异常也可能在提交时得到 `UnexpectedRollbackException` |
+| `REQUIRES_NEW` | 挂起外层，开启独立物理事务 | 需要额外连接；内层提交后外层回滚也撤不回内层效果 |
+| `NESTED` | 同一物理事务内建立保存点 | 依赖事务管理器和数据库保存点支持；外层最终回滚仍会撤销全部 |
+| `SUPPORTS` / `NOT_SUPPORTED` | 可加入事务 / 挂起事务后无事务执行 | 适合明确的只读或非事务边界，不能凭名称假设一致性 |
+
+隔离级别应从脏读、不可重复读、幻读和写冲突的业务风险出发，`DEFAULT` 表示沿用数据库默认值。即使使用较高隔离，也要通过唯一约束、条件更新、版本号或显式锁保护业务不变量；长事务和外部 RPC 会放大锁等待与连接池占用。
+
+自调用失效的首选修复是拆分 Bean，让调用真正经过代理，或把事务边界上移到公开用例方法；不建议为了绕过设计问题普遍使用 `AopContext.currentProxy()`。测试至少覆盖代理类型、回滚规则、内外层组合、连接池容量和并发冲突。
+
+> 参考：[小林 Coding：Spring 面试题](https://www.xiaolincoding.com/interview/spring.html)、[JavaGuide：Spring 常见面试题总结](https://javaguide.cn/system-design/framework/spring/spring-knowledge-and-questions-summary.html)
+
 ## Spring 常用扩展点分别在什么时候执行？
 
 | 扩展点 | 适用场景 |
