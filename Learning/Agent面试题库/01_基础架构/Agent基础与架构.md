@@ -30,7 +30,7 @@
 
 ### 5. Agent Framework、Agent Runtime 和 Agent Application 有什么区别？
 
-答：Framework 提供抽象和编排 API，Runtime 负责循环、状态、工具、恢复、观测和执行边界，Application 才是面向具体业务的提示词、工具、数据和产品体验。面试时要能把框架 API 翻译回这些通用机制。
+答：Framework （**LangChain / LangGraph**）提供抽象和编排 API，Runtime （**LangGraph 的 executor**）负责循环、状态、工具、恢复、观测和执行边界，Application 才是面向具体业务的提示词、工具、数据和产品体验
 
 ### 6. 如何从 Demo 演进到生产级 Agent？
 

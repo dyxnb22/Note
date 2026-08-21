@@ -92,6 +92,94 @@
       "images": [],
       "contentDigest": "f9450531b5bebf69ef977e31b44be8589fca19fea96800a84ed75c3c7ea2e892",
       "providerAssistantMessageId": "msg_02425e6e1001OHbjFrNafOL48L"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787313078526-e8ohjqk",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1787313078519-hcqc44x",
+      "timestamp": 1787313078519,
+      "rawDisplayText": "这个你能给我解释下吗？用具体的产品举例子",
+      "canonicalText": "这个你能给我解释下吗？用具体的产品举例子",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 5. Agent Framework、Agent Runtime 和 Agent Application 有什么区别？\n\n答：Framework 提供抽象和编排 API，Runtime 负责循环、状态、工具、恢复、观测和执行边界，Application 才是面向具体业务的提示词、工具、数据和产品体验",
+          "lineCount": 3,
+          "startLine": 31
+        }
+      },
+      "images": [],
+      "contentDigest": "501d70657c5985c8e97090f91ebda36f6b0733136e0076a6254e8255f9be27f3",
+      "providerAssistantMessageId": "msg_024296448001VNYd50wZozigh2"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787313256608-24guu6p",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1787313256604-egvohdj",
+      "timestamp": 1787313256604,
+      "rawDisplayText": "这个什么意思，没太懂",
+      "canonicalText": "这个什么意思，没太懂",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 6. 如何从 Demo 演进到生产级 Agent？\n\n答：先固定任务合同和成功指标，再补工具合同、权限、状态/Checkpoint、预算、失败恢复、Trace、Eval、限流和灰度发布。生产化的关键不是加更多 Agent，而是让每次运行可控、可解释、可恢复和可回滚。",
+          "lineCount": 3,
+          "startLine": 35
+        }
+      },
+      "images": [],
+      "contentDigest": "f816e3602a3966f393b43a4b8c42aca569be747c10d22af6ec476facc04b8b37",
+      "providerAssistantMessageId": "msg_0242bf910001Tcc4EnxF3JTvsj"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787313463531-21h7b9s",
+      "userTurnOrdinal": 7,
+      "state": "accepted",
+      "localMessageId": "msg-1787313463528-2uqsxoc",
+      "timestamp": 1787313463528,
+      "rawDisplayText": "这两个有必要合并吗",
+      "canonicalText": "这两个有必要合并吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "6. 如何从 Demo 演进到生产级 Agent？\n\n答：先固定任务合同和成功指标，再补工具合同、权限、状态/Checkpoint、预算、失败恢复、Trace、Eval、限流和灰度发布。生产化的关键不是加更多 Agent，而是让每次运行可控、可解释、可恢复和可回滚。\n\n### 7. Agent 系统最重要的设计部分是什么？\n\n答：最重要的是把模型的开放式决策放在一个可验证的执行边界内：明确 State、工具权限、终止条件和成功证据。架构图上少画一个 Agent，通常比没有边界地增加 Agent 更可靠。",
+          "lineCount": 7,
+          "startLine": 35
+        }
+      },
+      "images": [],
+      "contentDigest": "d3cf062ff120123893f36fbd06f1d324406fdec68e4d41cd7ee65be2bdd3d7b4",
+      "providerAssistantMessageId": "msg_0242f212a001e5ex0BchFzwGWV"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787314486078-p620dzc",
+      "userTurnOrdinal": 8,
+      "state": "accepted",
+      "localMessageId": "msg-1787314486075-wtxpwh3",
+      "timestamp": 1787314486075,
+      "rawDisplayText": "这里是不是没有把问题回答好啊",
+      "canonicalText": "这里是不是没有把问题回答好啊",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 8. ReAct 是什么？Reasoning、Action、Observation 如何循环？\n\n答：ReAct 把任务拆成“根据当前信息判断下一步 → 执行动作 → 观察结果”的循环，直到得到答案或触发停止条件。工程实现中不需要暴露模型的私有思维链，只需记录可审计的动作、工具结果、状态变化和停止原因。",
+          "lineCount": 3,
+          "startLine": 45
+        }
+      },
+      "images": [],
+      "contentDigest": "c9b62f2331003878bb6175abae3077be8a62b745d6c60829e892fa5990bdb6fc",
+      "providerAssistantMessageId": "msg_024408f65001HPKAQYkM8SSrR9"
     }
   ]
 }
