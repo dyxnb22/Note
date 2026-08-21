@@ -1,0 +1,25 @@
+{
+  "id": "conv-1787310591153-jmph3ljh8",
+  "providerId": "opencode",
+  "title": "这里是不是做成表格比较好",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787310591161,
+  "lastActivityAt": 1787310691209,
+  "sessionId": "ses_fdbfcaf35ffelfI8wQIXPCQdgj",
+  "selectedModel": "opencode:opencode-go/mimo-v2.5",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "currentNote": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 13442,
+    "contextWindow": 1000000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 1
+  }
+}
