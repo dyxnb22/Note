@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787307661984-egtkcx2iz",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787307662002-b4xe9af",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787307661979-dpmk7ob",
+      "timestamp": 1787307661979,
+      "rawDisplayText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Interview 我希望整个interview都删除了吧，并且确保没有断链",
+      "canonicalText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Interview 我希望整个interview都删除了吧，并且确保没有断链",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "75000121eea40815614f4a6431747dfba120987ceab0c14aa8177247c09f7268",
+      "providerUserMessageId": "01a023d6-b577-7182-af5a-a2ae3793efd8",
+      "providerAssistantMessageId": "msg_006fe9b954d430c3016a88276a334487d1a51d2109fe9adb77"
+    }
+  ]
+}

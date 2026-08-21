@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787306236693-draqxufvx",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787306236788-a8ubvms",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787306236690-2cx149i",
+      "timestamp": 1787306236690,
+      "rawDisplayText": "这几个你看下有必要合并吗",
+      "canonicalText": "这几个你看下有必要合并吗",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 2. Agent 的最小闭环是什么？一次请求从输入到回答经过哪些阶段？\n\n答：目标 → 读取当前状态（含加载相关 Context/Memory）→ 模型决定下一步（文本或工具调用提案）→ 校验/授权 → 执行工具 → 结果写回 State → 判断继续或结束。整条链路结束后，还必须通过成功证据、格式和安全校验，才把结果返回用户。**闭环必须有预算上限和明确停止原因**，否则只是一个可能无限循环的模型调用。\n\n### 3. Agent 如何理解任务、制定计划、调用工具、观察结果并结束任务？\n\n答：系统先把自然语言目标转成带约束的任务状态，模型根据状态选择直接回答、规划或调用工具；执行器返回事实结果，模型再基于新状态调整计划。结束条件不能只看模型说“完成”，还要看业务验证器是否拿到成功证据。\n\n### 4. Agent 的自主性体现在哪里？自主性越强一定越好吗？\n\n答：自主性主要体现在任务分解、路径选择、工具选择和根据观察结果重规划。不是越强越好；高风险、有副作用或路径稳定的任务应减少自由度，用 Workflow、规则、审批和硬预算换取可控性。",
+          "lineCount": 11,
+          "startLine": 19
+        }
+      },
+      "images": [],
+      "contentDigest": "becee969f824e4781429ec6bccfd669e42dd6ca02037ddd5f15d76851ac12f7a",
+      "providerAssistantMessageId": "msg_023c0f14a001m1JncnvFC9mrz8",
+      "providerUserMessageId": "msg_023c0dfd6001QQ9MoRDYHf4VPQ"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787306298961-sfesrw6",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787306298958-sxullao",
+      "timestamp": 1787306298958,
+      "rawDisplayText": "你来合并下",
+      "canonicalText": "你来合并下",
+      "images": [],
+      "contentDigest": "922e0f1582e5d2d9998b5bd1887aea1b720f4a877458a5fda4358f846ac9b354",
+      "providerAssistantMessageId": "msg_023c1df0d001QB1NpUsszUDc4l",
+      "providerUserMessageId": "msg_023c1ce690012AYZKFnDiTNAsf"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787306468908-1p9k7oh",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1787306468903-c2bdrlt",
+      "timestamp": 1787306468903,
+      "rawDisplayText": "锚点链接到题库：题库在哪，它们两个分别给我展示下",
+      "canonicalText": "锚点链接到题库：题库在哪，它们两个分别给我展示下",
+      "images": [],
+      "contentDigest": "36393a9aefea795f443fcb2521e13a63f8d737dedc6971cee472225471ce34a7",
+      "providerAssistantMessageId": "msg_023c4a0df001tPgRqdVBXYKitJ",
+      "providerUserMessageId": "msg_023c46645001FH238hHJ8pWa6V"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787306771606-8eqjuq6",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1787306771603-yndumqd",
+      "timestamp": 1787306771603,
+      "rawDisplayText": "continue",
+      "canonicalText": "continue",
+      "images": [],
+      "contentDigest": "61b00692723054a5a149bf4fbe7176ccd6af5efb8445c87903bfb287b52a662a",
+      "providerUserMessageId": "msg_023c904c2001Ry5kX7RgOxwJRl",
+      "providerAssistantMessageId": "msg_023c904d4001O7OspMGPU2a0Bz"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787306829963-pdc1p5a",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1787306829959-ar3gua7",
+      "timestamp": 1787306829959,
+      "rawDisplayText": "Interview 这个你直接删除吧，保持不要断链",
+      "canonicalText": "Interview 这个你直接删除吧，保持不要断链",
+      "images": [],
+      "contentDigest": "b3fa1f6409715a05e7b267fc8f0eb1647fa4d6cd176431c9742f76094ceaf44f",
+      "providerUserMessageId": "msg_023c9ec1f0017iRo3i8yvudO3w",
+      "providerAssistantMessageId": "msg_023ce46b9001sdytO7yLVFR6Df"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787307145803-wn1rn9p",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1787307145800-lpwgmq0",
+      "timestamp": 1787307145800,
+      "rawDisplayText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Interview 我希望整个interview都删除了吧",
+      "canonicalText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Interview 我希望整个interview都删除了吧",
+      "images": [],
+      "contentDigest": "686f26f233d9655ae227c7bcce00b4d65579c5edc0e5736a0cd5817c20a14eb6"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787307326518-sooqyz6",
+      "userTurnOrdinal": 7,
+      "state": "accepted",
+      "localMessageId": "msg-1787307326515-9qt01o6",
+      "timestamp": 1787307326515,
+      "rawDisplayText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Interview 我希望整个interview都删除了吧。断链也处理下",
+      "canonicalText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Interview 我希望整个interview都删除了吧。断链也处理下",
+      "images": [],
+      "contentDigest": "65f7cfc120a442488d0dfa926b1db2bab01fdb3c97a9fc52e3ed5a8245423c7c"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787307361761-azrhl6c",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1787307361748-dz25wce",
+      "timestamp": 1787307361748,
+      "rawDisplayText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Interview 我希望整个interview都删除了吧",
+      "canonicalText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Interview 我希望整个interview都删除了吧",
+      "images": [],
+      "contentDigest": "686f26f233d9655ae227c7bcce00b4d65579c5edc0e5736a0cd5817c20a14eb6"
+    }
+  ]
+}

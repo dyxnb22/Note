@@ -1,0 +1,28 @@
+{
+  "id": "conv-1787307661984-egtkcx2iz",
+  "providerId": "codex",
+  "title": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787307661988,
+  "lastActivityAt": 1787307883651,
+  "sessionId": "01a023d6-9adb-7593-8441-2eea560e324c",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "01a023d6-9adb-7593-8441-2eea560e324c",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/21/rollout-2026-08-21T18-21-02-01a023d6-9adb-7593-8441-2eea560e324c.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "currentNote": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+  "usage": {
+    "inputTokens": 49626,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 47872,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 49626,
+    "percentage": 19,
+    "model": "gpt-5.6-luna"
+  }
+}

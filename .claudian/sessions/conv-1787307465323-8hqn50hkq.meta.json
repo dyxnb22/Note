@@ -1,0 +1,17 @@
+{
+  "id": "conv-1787307465323-8hqn50hkq",
+  "providerId": "opencode",
+  "title": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787307465326,
+  "lastActivityAt": 1787307466332,
+  "sessionId": "ses_fdc2c61c5ffelp9EPQGphAyC1C",
+  "selectedModel": "opencode:opencode-go/hy3",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "currentNote": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+  "isPinned": false,
+  "isArchived": true
+}

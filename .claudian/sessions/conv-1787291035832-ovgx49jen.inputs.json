@@ -27,6 +27,28 @@
       "images": [],
       "contentDigest": "b98c07e9c7b80cd688ca919fa9955fe9cb8cdad3fdeafb7bb32d1be45afa9d73",
       "providerAssistantMessageId": "msg_022e3cfa5001A6AK9GRr7G9klT"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787305329719-9kqf14z",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1787305329716-9rd4p29",
+      "timestamp": 1787305329716,
+      "rawDisplayText": "这里是不是回答做成表格更好？能更好地区分？如果是的话，你来处理下",
+      "canonicalText": "这里是不是回答做成表格更好？能更好地区分？如果是的话，你来处理下",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 1. 什么是 Agent？与普通 LLM Chat、Workflow、RPA 和传统后端服务有什么区别？\n\n答：Agent 是围绕目标运行的有限循环：读取状态，让模型提出下一步，校验并执行动作，再根据结果继续或结束。普通 Chat 主要生成一次回复，Workflow 的路径预先确定，RPA (**机器人流程自动化**)按固定规则操作；Agent 的部分路径由模型根据中间结果动态决定，但权限、事实和成功判定仍应由代码控制。",
+          "lineCount": 3,
+          "startLine": 7
+        }
+      },
+      "images": [],
+      "contentDigest": "75f95c615f6a85d26e0f945a16715c03f5590cbf41b8b83257c423b67042df03",
+      "providerAssistantMessageId": "msg_023b36963001SZBvmbEw16HvqM"
     }
   ]
 }

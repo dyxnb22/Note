@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787305537120-psu95btui",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787305537168-lf8hf6m",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787305537117-oc50i03",
+      "timestamp": 1787305537117,
+      "rawDisplayText": "这里有必要合并吗",
+      "canonicalText": "这里有必要合并吗",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 1. 什么是 Agent？与普通 LLM Chat、Workflow、RPA 和传统后端服务有什么区别？\n\n答：Agent 是围绕目标运行的有限循环：读取状态，让模型提出下一步，校验并执行动作，再根据结果继续或结束。\n\n| 形态 | 路径由谁决定 | 交互/执行方式 | 典型边界 |\n|---|---|---|---|\n| 普通 LLM Chat | 模型一次生成 | 单轮回复，无工具执行 | 只产出文本，不产生副作用 |\n| Workflow | 预先编排（人写死） | 固定节点顺序执行 | 路径确定，模型只在节点内辅助 |\n| RPA（机器人流程自动化） | 固定规则脚本 | 按规则重复操作界面/系统 | 不理解语义，界面变化即失效 |\n| 传统后端服务 | 确定性代码 | API 触发、同步/异步处理 | 无模型参与，逻辑完全可枚举 |\n| Agent | 模型根据中间结果动态决定部分路径 | 目标驱动的有限循环 + 工具调用 | 权限、事实和成功判定仍由代码控制 |\n\n### 2. Agent 的最小闭环是什么？\n\n答：目标 → 读取当前状态 → 模型决定下一步 → 校验/授权 → 执行工具 → 回填结果 → 判断继续或结束。**最小闭环必须有预算上限和明确停止原因**，否则只是一个可能无限循环的模型调用。\n\n### 3. 一次 Agent 请求从用户输入到最终回答经过哪些阶段？\n\n答：先解析目标和权限，再加载相关 Context/Memory，调用模型得到文本或工具调用；工具执行器负责校验、授权和执行，结果写回 State 后进入下一轮。最后必须经过成功证据、格式和安全校验，才把结果返回用户。",
+          "lineCount": 19,
+          "startLine": 7
+        }
+      },
+      "images": [],
+      "contentDigest": "f4309c3f16444f62b0810949595efd65b6a01addcec07bfab2c1dc8e788c98b2"
+    }
+  ]
+}

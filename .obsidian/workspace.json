@@ -4,37 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "b1f47e41ed903746",
+        "id": "adbc2483735a2be3",
         "type": "tabs",
         "children": [
           {
-            "id": "e725a654be78ae5e",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "empty",
-              "state": {},
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "新标签页"
-            }
-          },
-          {
-            "id": "b8922bc2a83f2c4f",
+            "id": "7ead4bbb2336d487",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "Agent基础与架构"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -89,8 +76,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -190,13 +176,23 @@
               "icon": "bot",
               "title": "Claudian"
             }
+          },
+          {
+            "id": "510e7e02b7dc54d5",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 412.18359375
+    "width": 320.171875
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -207,12 +203,15 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "bases:新建数据库": false,
-      "realclaudian:Open Claudian": false
+      "realclaudian:Open Claudian": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "69a2bc9ea88f98e7",
   "lastOpenFiles": [
+    "Interview/Agent-LLM/02_Context、Memory与Tool.md",
     "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+    "Interview/Agent-LLM/01_Agent架构与Prompt.md",
     "Learning/Agent面试题库/12_课程深化/01_Provider与框架/Provider适配与框架选型.md",
     "Interview/README.md",
     "Interview/Agent-LLM/README.md",
@@ -220,8 +219,6 @@
     "Interview/Agent-LLM/05_评测、可观测与生产工程.md",
     "Interview/Agent-LLM/04_RAG、可靠性与安全.md",
     "Interview/Agent-LLM/03_Tool、MCP与Multi-Agent.md",
-    "Interview/Agent-LLM/02_Context、Memory与Tool.md",
-    "Interview/Agent-LLM/01_Agent架构与Prompt.md",
     "Interview/Agent-LLM",
     "Interview/Java后端/README.md",
     "Interview/Java后端/06_Redis、消息队列与系统设计.md",

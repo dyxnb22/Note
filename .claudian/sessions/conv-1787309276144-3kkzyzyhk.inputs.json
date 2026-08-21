@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787309276144-3kkzyzyhk",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787309276171-2q4mh9q",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787309276142-y4ae2yq",
+      "timestamp": 1787309276142,
+      "rawDisplayText": "这个是不是做成表格好",
+      "canonicalText": "这个是不是做成表格好",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 4. Agent 系统中哪些部分应该由模型决定，哪些部分应该由代码决定？\n\n答：模型适合做意图理解、候选计划、工具选择和自然语言生成；代码应负责权限、参数校验、状态持久化、预算、幂等、沙箱、成功判定和审计。凡是不可逆副作用和安全边界，都不能只依赖 Prompt。",
+          "lineCount": 3,
+          "startLine": 47
+        }
+      },
+      "images": [],
+      "contentDigest": "86205fe7bc490460fd734ce1782c127dca3fb046d91e12a0dc92625bb1c913c5",
+      "providerAssistantMessageId": "msg_023f5bbbc001V5bOUkiJjEPpuo"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787309713223-60wpk2r",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787309713220-5dshhij",
+      "timestamp": 1787309713220,
+      "rawDisplayText": "还是撤回吧",
+      "canonicalText": "还是撤回吧",
+      "images": [],
+      "contentDigest": "1a4a806f9a0c9af71d2de61a703f1b110ab39afef7a1597ddeb57fec097ae45e",
+      "providerAssistantMessageId": "msg_023fcd1ae00154RhLUhnsMM1A1"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787310169420-9u348lx",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1787310169418-wxc40v2",
+      "timestamp": 1787310169418,
+      "rawDisplayText": "我的意思是Q4表格回退，其他内容不用动啊",
+      "canonicalText": "我的意思是Q4表格回退，其他内容不用动啊",
+      "images": [],
+      "contentDigest": "e131da7a8569d9d64c833528ef1e79a1541add9e08ca0754f347455c22c89724",
+      "providerAssistantMessageId": "msg_023fd15b40018opycKjAlI8Bep"
+    }
+  ]
+}

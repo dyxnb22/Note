@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787308010921-j2l3lc9sj",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787308010962-lzay7j5",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787308010917-s2okdn8",
+      "timestamp": 1787308010917,
+      "rawDisplayText": "这个是不是需要整合下啊，一个链条把所有的步骤都说清楚",
+      "canonicalText": "这个是不是需要整合下啊，一个链条把所有的步骤都说清楚",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 2. Agent 的最小闭环是什么？一次请求从输入到回答经过哪些阶段？\n\n答：目标 → 读取当前状态（含加载相关 Context/Memory）→ 模型决定下一步（文本或工具调用提案）→ 校验/授权 → 执行工具 → 结果写回 State → 判断继续或结束。系统先把自然语言目标转成带约束的任务状态，模型根据状态选择直接回答、规划或调用工具；执行器返回事实结果后，模型基于新状态调整计划。整条链路结束后，必须通过业务验证器拿到成功证据并通过格式和安全校验，才把结果返回用户——不能只看模型自己说“完成”。**闭环必须有预算上限和明确停止原因**，否则只是一个可能无限循环的模型调用。\n",
+          "lineCount": 4,
+          "startLine": 19
+        }
+      },
+      "images": [],
+      "contentDigest": "721588b78833b56093abfb0b6d0a9d4e34ec91ab11f69e2fc93c49edd8c9c094",
+      "providerAssistantMessageId": "msg_023dc9814001VhjulcqSipso2i"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787308186566-8chkovm",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787308186561-uoauycz",
+      "timestamp": 1787308186561,
+      "rawDisplayText": "我希望整个回答简洁点，守门点也写进步骤里，加粗，不用写一句话总结这种",
+      "canonicalText": "我希望整个回答简洁点，守门点也写进步骤里，加粗，不用写一句话总结这种",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 2. Agent 的最小闭环是什么？一次请求从输入到回答经过哪些阶段？\n\n答：一次请求走完这条链：\n\n```\n用户输入\n  ↓ ① 目标解析：自然语言 → 带约束的任务状态（写入 State）\n  ↓ ② 组装上下文：读取 State + 加载相关 Context/Memory\n  ↓ ③ 模型决策：基于当前状态提出下一步（直接回答 / 规划 / 工具调用提案）\n  ↓ ④ 校验与授权：代码重新解析参数、检查权限、必要时人工审批\n  ↓ ⑤ 执行工具：执行器产生事实结果（不是模型想象的结果）\n  ↓ ⑥ 结果写回：观察结果更新 State，Trace 记录事件\n  ↓ ⑦ 循环判断：未完成且预算允许 → 回到 ②；否则退出循环\n  ↓ ⑧ 结果验证：业务验证器产出成功证据 + 格式/安全校验通过\n  ↓ ⑨ 返回用户：给出答案、部分结果或结构化失败原因\n```\n\n两个关键守门点：\n\n- **出口守门（⑧）**：不能只看模型自己说“完成”，必须由确定性验证器拿到成功证据才返回。\n- **循环守门（⑦）**：闭环必须有预算上限（步数/时间/Token/成本）和明确的停止原因，否则只是一个可能无限循环的模型调用。\n\n一句话总结：**模型只负责在每轮提出提案，链路的推进、校验、执行和终止都由代码控制**——这也是第 1 题“权限、事实和成功判定仍由代码控制”的具体展开。\n",
+          "lineCount": 24,
+          "startLine": 19
+        }
+      },
+      "images": [],
+      "contentDigest": "c18d9def8109f8d9134776166b661cf75ffe0cf05ab85785364205d6e1328dec",
+      "providerAssistantMessageId": "msg_023deb808001bRH8uDFzJlWTxA"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787308418327-cflkycv",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1787308418324-vpaj83o",
+      "timestamp": 1787308418324,
+      "rawDisplayText": "Q1，Q3, Q4有必要合并吗",
+      "canonicalText": "Q1，Q3, Q4有必要合并吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 3. Agent 的自主性体现在哪里？自主性越强一定越好吗？\n\n答：自主性主要体现在任务分解、路径选择、工具选择和根据观察结果重规划。不是越强越好；高风险、有副作用或路径稳定的任务应减少自由度，用 Workflow、规则、审批和硬预算换取可控性。\n\n### 4. 什么场景适合 Agent，什么场景应该使用确定性的 Workflow？\n\n答：步骤固定、输入输出稳定、合规要求高的流程优先 Workflow；目标明确但路径取决于检索、工具结果或环境反馈的任务才适合 Agent。通常先做 Workflow 基线，只有动态性带来可测量的成功率或覆盖率收益时才引入 Agent。",
+          "lineCount": 7,
+          "startLine": 36
+        }
+      },
+      "images": [],
+      "contentDigest": "199e14fa97cfb9620fece1ea78bac07a5bb26c0f0cf099508b4a359d08ab7d07",
+      "providerAssistantMessageId": "msg_023e22546001E8TpZLjrlAa6Vb"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787308533330-wtjs5c0",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1787308533327-e86ou4t",
+      "timestamp": 1787308533327,
+      "rawDisplayText": "动手把 Q3+Q4 合并并重排序号吗",
+      "canonicalText": "动手把 Q3+Q4 合并并重排序号吗",
+      "images": [],
+      "contentDigest": "d3c42dcab930bdd3a8f2cbf15395f7a86ec44c0b783519a41b0a3823867de6d9",
+      "providerAssistantMessageId": "msg_023e4be5c001Z2kC0Ra38CZhth"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787308643818-4kb8xtm",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1787308643814-i12ckoj",
+      "timestamp": 1787308643814,
+      "rawDisplayText": "是不是文本+表格更好啊",
+      "canonicalText": "是不是文本+表格更好啊",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 3. Agent 的自主性体现在哪里？自主性越强越好吗？什么场景适合用 Agent，什么场景该用 Workflow？\n\n答：自主性主要体现在任务分解、路径选择、工具选择和根据观察结果重规划；但**不是越强越好**——高风险、有副作用或路径稳定的任务应减少自由度，用 Workflow、规则、审批和硬预算换取可控性。落到选型上：步骤固定、输入输出稳定、合规要求高的流程优先 Workflow；目标明确但路径取决于检索、工具结果或环境反馈的任务才适合 Agent。通常先做 Workflow 基线，只有动态性带来可测量的成功率或覆盖率收益时才引入 Agent。",
+          "lineCount": 3,
+          "startLine": 36
+        }
+      },
+      "images": [],
+      "contentDigest": "f7909d8a691fde83bc3272d29819ff9951fa14586dea42ad22f688f956bc450a",
+      "providerAssistantMessageId": "msg_023e5d3a2001k5Se2f7U76d5Ob"
+    }
+  ]
+}
