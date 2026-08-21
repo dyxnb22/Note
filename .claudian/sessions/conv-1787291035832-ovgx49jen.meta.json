@@ -1,0 +1,24 @@
+{
+  "id": "conv-1787291035832-ovgx49jen",
+  "providerId": "opencode",
+  "title": "我想补充 @on(Input",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787291035841,
+  "lastActivityAt": 1787291763639,
+  "sessionId": "ses_fdd271370ffeFYn4j6OOQ9QKV9",
+  "selectedModel": "opencode:opencode-go/mimo-v2.5",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 62311,
+    "contextWindow": 1000000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 6
+  }
+}

@@ -20,17 +20,17 @@
             }
           },
           {
-            "id": "b4cfe9832948b70b",
+            "id": "b8922bc2a83f2c4f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning/CS/算法/动态规划.md",
-                "mode": "source",
+                "file": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "动态规划"
+              "title": "Agent基础与架构"
             }
           }
         ],
@@ -89,7 +89,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -209,8 +210,29 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "b55c65997e2b1b75",
+  "active": "69a2bc9ea88f98e7",
   "lastOpenFiles": [
+    "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+    "Learning/Agent面试题库/12_课程深化/01_Provider与框架/Provider适配与框架选型.md",
+    "Interview/README.md",
+    "Interview/Agent-LLM/README.md",
+    "Interview/Agent-LLM/06_系统设计、LLM与编码.md",
+    "Interview/Agent-LLM/05_评测、可观测与生产工程.md",
+    "Interview/Agent-LLM/04_RAG、可靠性与安全.md",
+    "Interview/Agent-LLM/03_Tool、MCP与Multi-Agent.md",
+    "Interview/Agent-LLM/02_Context、Memory与Tool.md",
+    "Interview/Agent-LLM/01_Agent架构与Prompt.md",
+    "Interview/Agent-LLM",
+    "Interview/Java后端/README.md",
+    "Interview/Java后端/06_Redis、消息队列与系统设计.md",
+    "Interview/Java后端/05_工程化、MySQL与Redis.md",
+    "Interview/Java后端/04_Spring、Tomcat与生产排障.md",
+    "Interview/Java后端/03_JUC、设计模式与数据访问.md",
+    "Interview/Java后端/02_集合、JVM与内存.md",
+    "Interview/Java后端/01_Java语言、I-O与集合.md",
+    "Interview/Java后端",
+    "Interview/_build.mjs",
+    "Interview",
     "Learning/Cpp/面试题库/01_语言、内存与工程.md",
     "Learning/Cpp/README.md",
     "Learning/References/小林Coding与JavaGuide知识体系提炼.md",
@@ -222,30 +244,9 @@
     "Learning/Finance/13_Research_Workflow/README.md",
     "Learning/Finance/12_Math_and_Statistics/README.md",
     "Learning/Finance/11_Quant/README.md",
-    "Learning/Finance/10_Behavioral_Finance/README.md",
-    "Learning/Finance/09_Portfolio_and_Risk/README.md",
-    "Learning/Finance/08_Valuation/README.md",
-    "Learning/Finance/07_Corporate_Finance/README.md",
-    "Learning/Finance/06_Derivatives/README.md",
-    "Learning/Finance/05_Funds_and_ETF/README.md",
-    "Learning/Finance/04_Fixed_Income/README.md",
-    "Learning/Finance/03_Stocks/README.md",
-    "Learning/Finance/02_Markets/README.md",
-    "Learning/Finance/01_Economics/README.md",
-    "Learning/Finance/00_Foundations/README.md",
-    "Learning/Finance/主题索引.md",
-    "Learning/CS/算法/动态规划.md",
-    "Learning/CS/算法/贪心.md",
-    "Learning/Backend/Java/面试题库/16_Maven.md",
-    "Learning/AI/面试题库/00_复习路线与答题模板.md",
-    "Learning/AI/面试题库/README.md",
     "Learning/AI/面试题库",
     "Learning/Agent面试题库/13_跨主题综合题",
     "Learning/Backend/Java/面试题库",
-    "Learning/Backend/Rust/面试题库",
-    "Learning/Backend/Go/面试题库",
-    "Learning/Python/面试题库",
-    "Learning/编程语言面试题库/04_跨语言",
-    "Learning/编程语言面试题库/03_Rust"
+    "Learning/Backend/Rust/面试题库"
   ]
 }

@@ -218,6 +218,50 @@
 
 答：依赖方向和组合根约束靠人工记忆很容易回退，自动检查能在提交时阻止反向导入和隐藏适配器依赖。架构检查不是为了限制所有重构，而是把“哪些层可以知道什么”变成可执行合同。
 
+## Level 6 补充｜Textual TUI 框架
+
+> Textual 是 Python 生态中现代 TUI 框架的代表，基于 Rich 构建，采用异步消息驱动架构。以下题目覆盖其核心设计模式、事件系统、响应式数据绑定和测试策略。
+
+### 51. Textual 的核心架构是什么？MessagePump 解决什么问题？
+
+答：Textual 采用异步消息驱动架构，所有组件（App、Screen、Widget）都继承自 `MessagePump`。MessagePump 维护一个异步消息队列，事件和消息通过 `post_message()` 入队，由 asyncio Task 按序处理。这保证了：①消息处理的顺序性；②UI 不会被长时间阻塞；③组件间通过消息通信而非直接调用。核心类层次：`MessagePump → DOMNode → Widget → Screen → App`。
+
+### 52. Widget 的生命周期有哪些阶段？各阶段做什么？
+
+答：Widget 生命周期包含：①`__init__()`：对象实例化，设置 ID、classes；②`compose()`：返回子 Widget 列表，声明式定义组件树；③`Mount` 事件：Widget 被挂载到 DOM，`_is_mounted = True`；④运行阶段：处理事件、更新渲染；⑤`Unmount` 事件：从 DOM 移除，清理定时器和 Worker。`compose()` 是声明式 API，`mount()` 是命令式 API，两者可配合使用。
+
+### 53. Textual 的事件冒泡机制是怎样的？如何停止冒泡？
+
+答：事件默认会冒泡到父组件。当子组件处理完消息后，如果消息的 `bubble=True`，会自动传递给父组件的消息队列。要停止冒泡，可在处理器中调用 `message.stop()`。例如：`Input` 组件处理按键后停止冒泡，避免父组件重复处理。`prevent_default()` 阻止后续基类处理器调用，但不影响冒泡。
+
+### 54. `@on(Input.Submitted, "#prompt")` 这种语法是什么含义？
+
+答：这是 Textual 的消息处理器装饰器语法。`@on(MessageType, selector)` 将方法注册为特定消息的处理器，`selector` 是 CSS 选择器，用于过滤只处理匹配的 Widget。例如 `@on(Button.Pressed, ".confirm")` 只处理 class 为 confirm 的按钮点击。相比命名约定（`on_button_pressed`），装饰器语法更灵活，支持选择器过滤和多消息处理。
+
+### 55. Reactive 响应式系统如何工作？watch/compute 方法的作用是什么？
+
+答：`reactive` 属性是带超能力的属性：①赋值时自动触发 `refresh()` 更新 UI；②调用 `validate_*` 方法做校验；③调用 `watch_*` 方法响应变化（接收 old/new 值）；④调用 `compute_*` 方法计算派生值。`var` 是简化版，不触发 UI 刷新。`data_bind()` 可将父子 Widget 的 reactive 属性绑定，实现数据同步。
+
+### 56. Textual 的 CSS 系统与 Web CSS 有什么区别？
+
+答：Textual CSS（TCSS）语法类似 Web CSS，但针对终端优化：①支持 `grid`、`horizontal`、`vertical` 等终端布局；②属性如 `scrollbar-gutter`、`text-opacity` 是终端特有；③特异性计算包含 `is_user_css` 和 `!important` 标志；④样式通过描述符（Descriptor）系统应用，赋值时自动触发验证和刷新。选择器支持 ID、class、type 和伪类（`:focus`、`:hover` 等）。
+
+### 57. Worker 系统解决什么问题？异步 Worker 和线程 Worker 有什么区别？
+
+答：Worker 用于在后台执行耗时操作，避免阻塞 UI。`run_worker()` 或 `@work` 装饰器创建 Worker。异步 Worker 运行协程，适合 I/O 密集任务；线程 Worker（`thread=True`）运行同步函数，适合 CPU 密集或不支持异步的库。线程 Worker 不能直接操作 UI，需通过 `call_from_thread()` 回调主线程。Worker 有 PENDING→RUNNING→SUCCESS/ERROR/CANCELLED 状态机。
+
+### 58. 如何测试 Textual 应用？快照测试的作用是什么？
+
+答：Textual 内置测试框架，基于 pytest。使用 `async with App.run_test() as pilot` 启动测试，`pilot` 可模拟点击、按键和等待渲染。快照测试（Snapshot Testing）将渲染结果输出为 SVG，用于视觉回归测试，能捕获布局和样式变化。测试时应覆盖：事件处理、状态变化、Worker 生命周期和边界情况。
+
+### 59. Textual 应用如何支持 Web 部署？
+
+答：`textual serve app.py` 启动内置 Web 服务器，通过 WebSocket 将 TUI 渲染到浏览器。Python 进程运行在服务端，浏览器只显示渲染结果。这使得 TUI 应用可跨平台、支持远程访问，适合 DevOps 工具和内部仪表盘。Web 模式下鼠标和键盘事件通过 WebSocket 传输，交互体验接近原生终端。
+
+### 60. Textual 与传统 Web 框架（如 FastAPI）相比，适合什么场景？
+
+答：Textual 适合：①DevOps/运维工具（需要远程 SSH 访问）；②离线/内网环境（无浏览器依赖）；③数据仪表盘（实时更新、低延迟）；④CLI 增强（交互式表单、表格）。不适合：①需要图形/3D 的应用；②面向普通用户的营销网站；③需要 SEO 的页面。Textual 是终端优先，Web 是浏览器优先，两者定位不同。
+
 ## 验证边界
 
 - 连接池、异步取消、数据库隔离和队列语义需要结合实际框架/驱动版本实验。

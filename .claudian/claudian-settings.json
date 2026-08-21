@@ -22,7 +22,7 @@
     "focusInputKey": "i"
   },
   "requireCommandOrControlEnterToSend": false,
-  "locale": "en",
+  "locale": "zh-CN",
   "providerConfigs": {
     "claude": {
       "enabled": true,
@@ -289,7 +289,7 @@
       "reasoningSummary": "detailed",
       "environmentVariables": "",
       "environmentHash": "",
-      "catalogTimestamp": 1787126862893,
+      "catalogTimestamp": 1787205116847,
       "catalogFingerprint": "2:b849c92561cd4d851b6422d432141511469cfd42d164dffa38115a4e33889840",
       "installationMethodsByHost": {},
       "wslDistroOverridesByHost": {}
@@ -308,15 +308,45 @@
     },
     "opencode": {
       "cliPath": "",
-      "cliPathsByHost": {},
-      "enabled": false,
-      "environmentHash": "",
+      "cliPathsByHost": {
+        "device:f857fc16-5fd4-4e0f-8089-a14e8d13a737": "/Users/diaoyuxuan/.nvm/versions/node/v22.22.3/bin/opencode"
+      },
+      "enabled": true,
+      "environmentHash": "runtime-input:v1:7c750d6485019833911586bf6c26263821f20423cc650385e616fc0f183a2e39",
       "environmentVariables": "OPENCODE_ENABLE_EXA=1",
       "modelAliases": {},
-      "preferredThinkingByModel": {},
+      "preferredThinkingByModel": {
+        "opencode-go/muse-spark-1.2-contributor": "xhigh"
+      },
       "selectedMode": "",
-      "thinkingOptionsByModel": {},
-      "visibleModels": []
+      "thinkingOptionsByModel": {
+        "opencode-go/muse-spark-1.2-contributor": [
+          {
+            "label": "Minimal",
+            "value": "minimal"
+          },
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "Xhigh",
+            "value": "xhigh"
+          }
+        ]
+      },
+      "visibleModels": [
+        "opencode-go/mimo-v2.5",
+        "opencode-go/muse-spark-1.2-contributor"
+      ]
     },
     "pi": {
       "cliPath": "",
@@ -334,11 +364,13 @@
   "settingsProvider": "claude",
   "savedProviderModel": {
     "claude": "haiku",
-    "codex": "gpt-5.6-luna"
+    "codex": "gpt-5.6-luna",
+    "opencode": "opencode:opencode-go/muse-spark-1.2-contributor"
   },
   "savedProviderEffort": {
     "claude": "high",
-    "codex": "max"
+    "codex": "max",
+    "opencode": "xhigh"
   },
   "savedProviderServiceTier": {
     "codex": "default"
@@ -346,7 +378,8 @@
   "savedProviderThinkingBudget": {},
   "savedProviderPermissionMode": {
     "claude": "normal",
-    "codex": "normal"
+    "codex": "normal",
+    "opencode": "normal"
   },
   "pendingProviderSessionInvalidations": {},
   "lastCustomModel": "",

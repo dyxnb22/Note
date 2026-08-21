@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787291035832-ovgx49jen",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787291035926-4dil9nj",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787291035827-kyvq88t",
+      "timestamp": 1787291035827,
+      "rawDisplayText": "我想补充 @on(Input.Submitted, \"#prompt\") 的python TUI架构的知识点，把这类的知识点都补齐 你觉得放在哪里比较好？需要写进面试题库吗",
+      "canonicalText": "我想补充 @on(Input.Submitted, \"#prompt\") 的python TUI架构的知识点，把这类的知识点都补齐 你觉得放在哪里比较好？需要写进面试题库吗",
+      "images": [],
+      "contentDigest": "1142842917fefd6c7afe65f4a0dcf406e41b8a0583a7cc577319bb8e99f17242",
+      "providerAssistantMessageId": "msg_022d97700001bN6HV904IXGO53"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787291444990-zdkl47a",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787291444984-t37fkfy",
+      "timestamp": 1787291444984,
+      "rawDisplayText": "你来把整个Textual知识体系的面试题先收集一下，再回填进去，不破坏原先的内容，我的要求：能把Textual 的内容比较好地涵盖，基于真题",
+      "canonicalText": "你来把整个Textual知识体系的面试题先收集一下，再回填进去，不破坏原先的内容，我的要求：能把Textual 的内容比较好地涵盖，基于真题",
+      "images": [],
+      "contentDigest": "b98c07e9c7b80cd688ca919fa9955fe9cb8cdad3fdeafb7bb32d1be45afa9d73",
+      "providerAssistantMessageId": "msg_022e3cfa5001A6AK9GRr7G9klT"
+    }
+  ]
+}
