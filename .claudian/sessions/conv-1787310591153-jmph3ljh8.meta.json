@@ -4,7 +4,7 @@
   "title": "这里是不是做成表格比较好",
   "titleGenerationStatus": "failed",
   "createdAt": 1787310591161,
-  "lastActivityAt": 1787310691209,
+  "lastActivityAt": 1787312863617,
   "sessionId": "ses_fdbfcaf35ffelfI8wQIXPCQdgj",
   "selectedModel": "opencode:opencode-go/mimo-v2.5",
   "providerState": {
@@ -15,11 +15,11 @@
   "usage": {
     "cacheCreationInputTokens": 0,
     "cacheReadInputTokens": 0,
-    "contextTokens": 13442,
-    "contextWindow": 1000000,
-    "contextWindowIsAuthoritative": true,
+    "contextTokens": 25352,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": false,
     "inputTokens": 0,
-    "model": "haiku",
-    "percentage": 1
+    "model": "opencode:opencode-go/mimo-v2.5",
+    "percentage": 13
   }
 }
