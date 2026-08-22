@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787380313102-4zjdmxv6n",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787380313140-uhlu2je",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787380313099-uox2if8",
+      "timestamp": 1787380313099,
+      "rawDisplayText": "这个是指什么",
+      "canonicalText": "这个是指什么",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+          "mode": "selection",
+          "selectedText": "输出 Schema",
+          "lineCount": 1,
+          "startLine": 9
+        }
+      },
+      "images": [],
+      "contentDigest": "1ecb00862dc210dd529314633c5e5ab4fddc87bebe9b6b0eb40c73c5e64932c6",
+      "providerUserMessageId": "01a0282b-4ca3-7093-aa32-367f3f33b3c3"
+    }
+  ]
+}

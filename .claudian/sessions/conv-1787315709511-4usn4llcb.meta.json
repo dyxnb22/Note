@@ -1,0 +1,25 @@
+{
+  "id": "conv-1787315709511-4usn4llcb",
+  "providerId": "opencode",
+  "title": "Q11 和 Q13是否需要合并？",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787315709519,
+  "lastActivityAt": 1787367957299,
+  "sessionId": "ses_fdbae9475ffeQLVtyA6nwLlp4b",
+  "selectedModel": "opencode:opencode-go/mimo-v2.5",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "currentNote": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 14427,
+    "contextWindow": 1000000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 1
+  }
+}

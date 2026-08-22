@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787315709511-4usn4llcb",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787315709546-ublpbka",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787315709507-4lgtx8v",
+      "timestamp": 1787315709507,
+      "rawDisplayText": "Q11 和 Q13是否需要合并？",
+      "canonicalText": "Q11 和 Q13是否需要合并？",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 11. Reflection、Critic、Self-Consistency 分别解决什么问题？\n\n答：Reflection 让系统对结果或过程进行复盘，Critic 负责按标准找问题，Self-Consistency 通过多次候选和聚合提高部分推理任务的稳定性。它们都会增加调用成本，只有存在可操作的验证标准时才值得使用。\n\n### 12. Router 模式是什么？如何设计路由条件和兜底分支？\n\n答：Router 先判断请求属于哪个领域、复杂度或风险等级，再进入专用 Workflow/Agent。路由条件应尽量可评测，设置低置信度兜底、人工转接和未知类别分支，避免错误路由后继续自动执行高风险动作。\n\n### 13. Planner、Executor、Critic 分别负责什么？\n\n答：Planner 负责把目标拆成可执行步骤，Executor 负责按权限执行工具和状态更新，Critic 负责检查中间产出是否满足标准并提出修正建议。三者不是必须拆成三个模型，固定步骤可以由代码实现。",
+          "lineCount": 11,
+          "startLine": 57
+        }
+      },
+      "images": [],
+      "contentDigest": "f99dc3b94fea4aa1e65f5a62e0ed5ebb20b444ede4583d0b715c52bafe9946d8",
+      "providerAssistantMessageId": "msg_024516bb7001xrH0m2WXbKUTPh"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787331219218-4ppwkk1",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787331219210-quk0oxz",
+      "timestamp": 1787331219210,
+      "rawDisplayText": "这里是不是得扩充啊",
+      "canonicalText": "这里是不是得扩充啊",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 27. 如何设计 Agent 的状态机？\n\n答：至少区分 running、waiting_human、executing_tool、succeeded、failed、stopped、cancelled 等状态，并为每条转移定义触发事件、前置条件、持久化动作和可重试性。状态机的价值是让恢复、审计和指标有确定语义。",
+          "lineCount": 3,
+          "startLine": 123
+        }
+      },
+      "images": [],
+      "contentDigest": "cd26958cb041d44c509838a192622ed0cf4c72b3feacd237519e511a3ff24157",
+      "providerAssistantMessageId": "msg_0253e26390016wRwVPz5afGwii"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787331265170-v1kgfte",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1787331265166-4w2mx7o",
+      "timestamp": 1787331265167,
+      "rawDisplayText": "你来补充吧",
+      "canonicalText": "你来补充吧",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "### 27. 如何设计 Agent 的状态机？\n\n答：至少区分 running、waiting_human、executing_tool、succeeded、failed、stopped、cancelled 等状态，并为每条转移定义触发事件、前置条件、持久化动作和可重试性。状态机的价值是让恢复、审计和指标有确定语义。",
+          "lineCount": 3,
+          "startLine": 123
+        }
+      },
+      "images": [],
+      "contentDigest": "2a4f14d225db62bada355c77a58612847a9b60d1f42465d99daef0ec902cd07e",
+      "providerAssistantMessageId": "msg_0253f123d001EfdeB2NkDaAXEq"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787334125714-41pvaqn",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1787334125707-zgzdudp",
+      "timestamp": 1787334125707,
+      "rawDisplayText": "这个解释的是不是有点片面了？不是还有上下文等限制吗（我不确定），另外Agent loop的概念你看是否需要补充？你先别急着改，先回答下我的问题",
+      "canonicalText": "这个解释的是不是有点片面了？不是还有上下文等限制吗（我不确定），另外Agent loop的概念你看是否需要补充？你先别急着改，先回答下我的问题",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "一次 Loop 绑定当前进程、连接和内存，无法可靠跨越重启、排队、人工等待与版本发布",
+          "lineCount": 1,
+          "startLine": 157
+        }
+      },
+      "images": [],
+      "contentDigest": "d4ae1f784f60bd4f75149867dd6f310816f1f1cba4c051ec02d76b0a85558211",
+      "providerAssistantMessageId": "msg_0256a68e0001nzSSkDN060kFa6"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787334635256-9xz3gdg",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1787334635251-9x3s6q7",
+      "timestamp": 1787334635251,
+      "rawDisplayText": "agent loop的定义就不用再补了，你把Q28的回答从你的三个层次补充一下",
+      "canonicalText": "agent loop的定义就不用再补了，你把Q28的回答从你的三个层次补充一下",
+      "images": [],
+      "contentDigest": "34de50ae230f1fbf86ef3568836e2c9459f996246604c207caf3b3b1b603b467",
+      "providerAssistantMessageId": "msg_025727a90001O2krG7lQCKyO6Q"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787367945912-t06tzhn",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1787367945903-3fa0m2v",
+      "timestamp": 1787367945903,
+      "rawDisplayText": "这个worker是指什么？一个单独的agent吗",
+      "canonicalText": "这个worker是指什么？一个单独的agent吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+          "mode": "selection",
+          "selectedText": "并由独立 Worker 接管",
+          "lineCount": 1,
+          "startLine": 163
+        }
+      },
+      "images": [],
+      "contentDigest": "63602477e68c127a4816ad7870e0597557dc8c0c0770dd2b8cb3420338137499",
+      "providerAssistantMessageId": "msg_0276e7705001OnvVjZ1AnOZCbI"
+    }
+  ]
+}

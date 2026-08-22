@@ -1,0 +1,18 @@
+{
+  "id": "conv-1787380313102-4zjdmxv6n",
+  "providerId": "codex",
+  "title": "这个是指什么",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787380313109,
+  "lastActivityAt": 1787380313109,
+  "sessionId": "01a0282b-3792-7742-8279-9fdb36765a1e",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "01a0282b-3792-7742-8279-9fdb36765a1e",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/22/rollout-2026-08-22T14-31-56-01a0282b-3792-7742-8279-9fdb36765a1e.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "currentNote": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md"
+}
