@@ -1,0 +1,47 @@
+{
+  "phase": 1,
+  "status": "passed",
+  "markdown_file_count": 29,
+  "question_file_count": 25,
+  "excluded_files": [
+    {
+      "file": "00_主题速答卡.md",
+      "sha256": "5b7eb4aa54be71f8e1aa0a35a9f91d4ac0ad3bb82fb0c48cabc23aee948b7b6b",
+      "layer": "review",
+      "exclusion_reason": "review",
+      "numbered_question_count": 0
+    },
+    {
+      "file": "00_复习路线与答题模板.md",
+      "sha256": "cf5b292d74a875dcc6b1bbf1e4704ce9e4f4ff9ca9525308992edac7ef7404b6",
+      "layer": "review",
+      "exclusion_reason": "review",
+      "numbered_question_count": 0
+    },
+    {
+      "file": "12_课程深化/README.md",
+      "sha256": "b898fb684b918a0007bc05d4175ef6f3decf44e1e1aa11982e746afb976aaf9f",
+      "layer": "deepening",
+      "exclusion_reason": "navigation",
+      "numbered_question_count": 0
+    },
+    {
+      "file": "README.md",
+      "sha256": "fc69a2bab4cc343c6d6be5ed4eb919b0ae813db24138db75c457c841662f9e26",
+      "layer": "core",
+      "exclusion_reason": "navigation",
+      "numbered_question_count": 0
+    }
+  ],
+  "scanned_numbered_questions": 736,
+  "inventory_count": 736,
+  "question_coverage_percent": 100,
+  "counts_by_layer": {
+    "core": 385,
+    "deepening": 239,
+    "integrated": 11,
+    "supplement": 101
+  },
+  "duplicate_question_ids": [],
+  "errors": []
+}

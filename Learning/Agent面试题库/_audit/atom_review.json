@@ -1,0 +1,155 @@
+{
+  "phase": 2,
+  "scope": "Knowledge Atom semantic boundary review; not question duplicate adjudication",
+  "lexical_candidate_method": "canonical_name + definition 的规范化字符二元组 Jaccard > 0.12，仅作候选；当前4对均已复核。其余为人工跨领域边界核对。",
+  "reviews": [
+    {
+      "atom_ids": [
+        "METRIC-001",
+        "METRIC-002"
+      ],
+      "result": "distinct",
+      "reason": "Recall 的分母是全部相关证据，Precision 的分母是返回候选，词面相似不能合并。"
+    },
+    {
+      "atom_ids": [
+        "ALG-015",
+        "ALG-016"
+      ],
+      "result": "distinct",
+      "reason": "编辑操作代价与公共子序列长度是不同目标与转移。"
+    },
+    {
+      "atom_ids": [
+        "EVAL-018",
+        "EVAL-020"
+      ],
+      "result": "distinct",
+      "reason": "Case 定义可执行环境与验收合同；隔离清理确保实际运行不会污染真实世界或其他 Case。"
+    },
+    {
+      "atom_ids": [
+        "PROV-009",
+        "UI-002"
+      ],
+      "result": "distinct",
+      "reason": "图原语到运行语义映射与无I/O的界面事件投影不承担相同职责。"
+    },
+    {
+      "atom_ids": [
+        "LOOP-011",
+        "CTX-003",
+        "REASON-005"
+      ],
+      "result": "distinct",
+      "reason": "分别约束整个任务累计消耗、单次模型工作集窗口、模型内部推理投入，计量范围与控制对象不同。"
+    },
+    {
+      "atom_ids": [
+        "STATE-006",
+        "CTX-004",
+        "DUR-006"
+      ],
+      "result": "distinct",
+      "reason": "恢复快照、模型上下文压缩以及快照和有序操作日志分工分别处理不同存储与恢复合同。"
+    },
+    {
+      "atom_ids": [
+        "TOOL-001",
+        "LOOP-010",
+        "BACK-002"
+      ],
+      "result": "distinct",
+      "reason": "业务幂等、无进展识别与消息投递保证不互相替代，尤其不能用重复检测证明外部效果唯一。"
+    },
+    {
+      "atom_ids": [
+        "SEC-005",
+        "IDENT-004"
+      ],
+      "result": "distinct",
+      "reason": "人工审批绑定具体动作及预览；能力凭证是授权范围的可验证载体，未必来自人工审批。"
+    },
+    {
+      "atom_ids": [
+        "SEC-010",
+        "IDENT-005"
+      ],
+      "result": "distinct",
+      "reason": "前者关注凭证与模型隔离及最小Scope，后者关注注入轮换撤销的生命周期，映射时只标注题目实际覆盖部分。"
+    },
+    {
+      "atom_ids": [
+        "LOOP-008",
+        "HARNESS-002",
+        "CODE-002"
+      ],
+      "result": "distinct",
+      "reason": "任务完成证据、步骤前后条件与最终文件版本绑定的检查时序可复用但合同不同。"
+    },
+    {
+      "atom_ids": [
+        "PROMPT-003",
+        "CTX-002",
+        "SKILL-003"
+      ],
+      "result": "distinct",
+      "reason": "能力描述消歧、按需检索展开、依赖版本与卸载清理分别处理选择语义、加载成本与资产生命周期。"
+    },
+    {
+      "atom_ids": [
+        "RAG-010",
+        "GRAPH-004",
+        "SEC-004"
+      ],
+      "result": "distinct",
+      "reason": "租户贯穿隔离是通用边界；检索前过滤与图边扩展有特定存在性泄漏和TopK污染风险。"
+    },
+    {
+      "atom_ids": [
+        "MEM-011",
+        "INGEST-002",
+        "DATA-005"
+      ],
+      "result": "distinct",
+      "reason": "记忆纠正失效、知识索引发布传播和全派生数据删除血缘具有不同执行范围；不能只凭均含删除判同义。"
+    },
+    {
+      "atom_ids": [
+        "EVAL-010",
+        "LOOP-006"
+      ],
+      "result": "distinct",
+      "reason": "LLM Judge 是校准评分机制，Critic 是协作中的审查职责，实际实现可组合但不等同。"
+    },
+    {
+      "atom_ids": [
+        "EVAL-021",
+        "EVAL-022"
+      ],
+      "result": "distinct",
+      "reason": "CI层级描述何时运行哪些检查；发布门禁描述何种结果阻断发布。"
+    },
+    {
+      "atom_ids": [
+        "MCP-004",
+        "STREAM-001",
+        "UI-003"
+      ],
+      "result": "distinct",
+      "reason": "协议调用进度聚合、用户事件续传与权威/瞬态事件背压具有不同边界。"
+    },
+    {
+      "atom_ids": [
+        "PROMPT-006",
+        "EVAL-001",
+        "DATA-001",
+        "EVAL-022"
+      ],
+      "result": "needs_review",
+      "reason": "提示版本分桶回归可能是已有原子的场景组合；保留待审状态，Phase 3 对照逐题合同后解决。"
+    }
+  ],
+  "pending_count": 1,
+  "not_claimed": "词面检查和本轮边界复核不证明全库语义原子唯一；Question Atom Map 尚未完成。"
+}

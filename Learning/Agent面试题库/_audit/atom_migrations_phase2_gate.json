@@ -1,0 +1,82 @@
+{
+  "phase": "2-gate",
+  "base_registry_blob_sha": "9bf7f7ca81f700a7f16a8f123d64478ab832164d",
+  "gate_status": "passed_with_migrations",
+  "historical_registry_entries": 318,
+  "effective_registry_entries": 320,
+  "effective_active_entries": 319,
+  "effective_pending_entries": 0,
+  "rules": [
+    {
+      "type": "deprecate_composite",
+      "atom_id": "PROMPT-006",
+      "replacement_atoms": ["EVAL-001", "DATA-001", "EVAL-013", "EVAL-022"],
+      "reason": "来源题 02#9/#10/#32 的稳定知识合同是版本化对照、样本分层、线上稳定分组与关键切片门禁的组合；不存在一个只能用于 Prompt 且不可由既有原子表达的独立最小知识单元。Phase 3 禁止继续引用 PROMPT-006。"
+    },
+    {
+      "type": "alias_override",
+      "atom_id": "LLM-018",
+      "effective_aliases": ["PPO"],
+      "removed_aliases": ["Reward Model", "Value Model"],
+      "reason": "PPO、Reward Model 与 Value Model 在来源题 10#24 中承担不同合同；后两者不能作为 PPO 的别名。"
+    },
+    {
+      "type": "add_atom",
+      "atom": {
+        "id": "LLM-027",
+        "canonical_name": "偏好评分的奖励模型",
+        "definition": "从偏好或评分数据学习对答案或轨迹输出奖励信号，为偏好优化或强化学习提供评价；模型偏差与真实任务价值需独立校准。",
+        "domain": "llm",
+        "aliases": ["Reward Model", "RM"],
+        "status": "active",
+        "canonical_owner": "external:AI/面试题库",
+        "source_question_ids": [
+          "Q::10_模型与推理/模型与推理基础.md::19",
+          "Q::10_模型与推理/模型与推理基础.md::24"
+        ]
+      }
+    },
+    {
+      "type": "add_atom",
+      "atom": {
+        "id": "LLM-028",
+        "canonical_name": "状态未来回报的价值模型",
+        "definition": "估计给定状态或前缀下的期望未来回报，用于优势估计与策略优化；区别于对完整答案或轨迹给分的 Reward Model。",
+        "domain": "llm",
+        "aliases": ["Value Model", "VM"],
+        "status": "active",
+        "canonical_owner": "external:AI/面试题库",
+        "source_question_ids": [
+          "Q::10_模型与推理/模型与推理基础.md::19",
+          "Q::10_模型与推理/模型与推理基础.md::24",
+          "Q::10_模型与推理/模型与推理基础.md::25"
+        ]
+      }
+    },
+    {
+      "type": "canonical_owner_override",
+      "atom_id": "OPS-006",
+      "from": "11",
+      "to": "external:Backend/Architecture",
+      "reason": "cgroup、内核版本与 profiling 复现实验属于通用系统/后端运行知识；Agent 题库只消费其在 Agent 工作负载中的场景应用。"
+    }
+  ],
+  "watchlist_non_blocking": [
+    {
+      "atom_ids": ["EVAL-009", "EVAL-024"],
+      "decision": "keep_distinct_for_phase3",
+      "reason": "前者测完整任务的人力节省，后者测 AI 编程工具对团队交付链（澄清、审查、测试、缺陷、回滚、周期、维护）的净收益。Phase 3 观察是否长期成组共现。"
+    },
+    {
+      "atom_ids": ["EVAL-023"],
+      "decision": "keep",
+      "reason": "脱敏前后效用/泄漏的配对实验可跨具体 RAG 题复用，具备独立评价合同。"
+    },
+    {
+      "atom_ids": ["OBS-004", "STREAM-002"],
+      "decision": "keep",
+      "reason": "分别表达观测数据管道与跨流片段敏感检测，均不是综合题整体场景原子。"
+    }
+  ],
+  "phase3_effective_registry_rule": "Phase 3 使用 atom_registry.json 加本迁移覆盖层形成 effective registry；不得覆写 Phase 2 历史文件或伪造原哈希链。"
+}

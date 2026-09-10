@@ -1,0 +1,11 @@
+{
+  "phase": 5,
+  "status": "passed",
+  "candidate_edges": 47,
+  "adjudicated_edges": 47,
+  "pending": 0,
+  "rewrite_actions": 5,
+  "existing_bridges": 2,
+  "lost_atom_edges": 0,
+  "errors": []
+}

@@ -1,0 +1,211 @@
+{
+  "phase": 1,
+  "source_commit": "a5f564d8e51b7a47018d8cd9f6244db55044bf61",
+  "branch": "agent-kb-dedup-v1",
+  "question_count": 736,
+  "files": [
+    {
+      "file": "00_主题速答卡.md",
+      "sha256": "5b7eb4aa54be71f8e1aa0a35a9f91d4ac0ad3bb82fb0c48cabc23aee948b7b6b",
+      "layer": "review",
+      "exclusion_reason": "review",
+      "numbered_question_count": 0
+    },
+    {
+      "file": "00_复习路线与答题模板.md",
+      "sha256": "cf5b292d74a875dcc6b1bbf1e4704ce9e4f4ff9ca9525308992edac7ef7404b6",
+      "layer": "review",
+      "exclusion_reason": "review",
+      "numbered_question_count": 0
+    },
+    {
+      "file": "01_基础架构/Agent基础与架构.md",
+      "sha256": "5e5371e92b2fdc5461a66658f5dcd0a3913325612cf3a593ad1caf5c8889cb74",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 37
+    },
+    {
+      "file": "02_Prompt与上下文/Prompt与Context Engineering.md",
+      "sha256": "5814c4e4c3f896aa4664d56a6f955e42653b5cc2c1717c715b4c4b03e3f293a6",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 32
+    },
+    {
+      "file": "03_Memory与状态/Memory与State.md",
+      "sha256": "0f01f844210d1d149bd8d79aae35ffdae5b36946e9f9cd7bdb282eebc2518f82",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 33
+    },
+    {
+      "file": "04_Tool与协议/Tool Calling与MCP.md",
+      "sha256": "8897328ba5873c9596b5938841dde1666980e45d0371feaa7debe6abd63d1e19",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 47
+    },
+    {
+      "file": "05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md",
+      "sha256": "ca50c494bf0cac22ec4d7b1de7a527995c226ec889ae928ce84d4035c0f3198e",
+      "layer": "supplement",
+      "exclusion_reason": null,
+      "numbered_question_count": 24
+    },
+    {
+      "file": "05_Multi-Agent与Workflow/Multi-Agent与Workflow.md",
+      "sha256": "9957a0ef57a83807212edcd9468c935e5840062f8543a2e20e340eb65a16d000",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 24
+    },
+    {
+      "file": "05_Multi-Agent与Workflow/Skill编排与协作面经补充.md",
+      "sha256": "0e747fafd5d2ed0d9dc7e46844448c4f786f1ddd7316c733d8a3394aa8d20b44",
+      "layer": "supplement",
+      "exclusion_reason": null,
+      "numbered_question_count": 14
+    },
+    {
+      "file": "06_RAG与知识库/RAG与检索.md",
+      "sha256": "e414490470b1e2a70db97f49a0bd01eb31a2ff23d286b747346b0ae5b6251b0e",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 28
+    },
+    {
+      "file": "07_可靠性与安全/可靠性与安全.md",
+      "sha256": "d5a9e3e7c30b90105d7969f862138d04ed742ceec924b0414746c325f18854f3",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 39
+    },
+    {
+      "file": "08_评测与可观测/评测、轨迹与线上故障面经补充.md",
+      "sha256": "23f0d10ae6eee118a97ba13f90a7d0d3d4d15d897018f3e492d3dbfac808ee7c",
+      "layer": "supplement",
+      "exclusion_reason": null,
+      "numbered_question_count": 19
+    },
+    {
+      "file": "08_评测与可观测/评测与可观测性.md",
+      "sha256": "770a242b3286fc4fe8ca751f86d5e05c9079829e7de907c2694ab70efbb0922f",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 40
+    },
+    {
+      "file": "09_工程化与系统设计/生产工程与系统设计.md",
+      "sha256": "00c460715d3bdaa3da6f6360fcc5afa1c5800afbd052ca462bb77047ec9400a7",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 30
+    },
+    {
+      "file": "09_工程化与系统设计/系统设计与取舍面经补充.md",
+      "sha256": "83b0b5a15a76c2c1d703dc7b2fff9b8734197f3b4bfe2bb3601cf4bbaefefc50",
+      "layer": "supplement",
+      "exclusion_reason": null,
+      "numbered_question_count": 21
+    },
+    {
+      "file": "10_模型与推理/模型与推理基础.md",
+      "sha256": "9d93affd0a9034dd2b7b619f89e8e2addb430c5eafc429082c8dbd139a6b010d",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 31
+    },
+    {
+      "file": "10_模型与推理/高频八股与手撕面经补充.md",
+      "sha256": "944ab89ce10095a0576029d317e6d62927286200163e254240ece52e650ff9be",
+      "layer": "supplement",
+      "exclusion_reason": null,
+      "numbered_question_count": 23
+    },
+    {
+      "file": "11_编码与后端/编码题与后端基础.md",
+      "sha256": "b1f3c06445e46b2b63af0207fc4297d0c6eed95c661cd4b642a71c172c3f994c",
+      "layer": "core",
+      "exclusion_reason": null,
+      "numbered_question_count": 44
+    },
+    {
+      "file": "12_课程深化/01_Provider与框架/Provider适配与框架选型.md",
+      "sha256": "9655bde25ba4655b775453f8790750d06ba552d49e2149cc3387c330f11aa75f",
+      "layer": "deepening",
+      "exclusion_reason": null,
+      "numbered_question_count": 33
+    },
+    {
+      "file": "12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md",
+      "sha256": "dd4f6c085b0d0cb9ace312c38f63981d4d5fd59e4b984c4f0d10af20cef25c7a",
+      "layer": "deepening",
+      "exclusion_reason": null,
+      "numbered_question_count": 29
+    },
+    {
+      "file": "12_课程深化/03_Durable与生产运维/Durable与生产运维.md",
+      "sha256": "eeab64a7378db5094b676af2cfb9330622b9d4db6fca04bf16a9b7495e322a33",
+      "layer": "deepening",
+      "exclusion_reason": null,
+      "numbered_question_count": 37
+    },
+    {
+      "file": "12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md",
+      "sha256": "7450820a7216a6bb4e997a0d654ae116740d13dcce03ad5b129302afa81946b5",
+      "layer": "deepening",
+      "exclusion_reason": null,
+      "numbered_question_count": 34
+    },
+    {
+      "file": "12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md",
+      "sha256": "d3fba9307cbbf3a0d8115ea2b8ba69f14201388206decb1e0905e1e714a143cb",
+      "layer": "deepening",
+      "exclusion_reason": null,
+      "numbered_question_count": 19
+    },
+    {
+      "file": "12_课程深化/06_推理与模型行为/推理与模型行为.md",
+      "sha256": "47bb8efdbcae134746501e1fa4533b79a6c22e61e1bf9ceca5685fb3d390fdf0",
+      "layer": "deepening",
+      "exclusion_reason": null,
+      "numbered_question_count": 26
+    },
+    {
+      "file": "12_课程深化/07_实时交互与产品/实时交互与产品.md",
+      "sha256": "639a17c8f08e2031fd0cf60438b48987f015fc17c2189674d71ac105f59976f9",
+      "layer": "deepening",
+      "exclusion_reason": null,
+      "numbered_question_count": 33
+    },
+    {
+      "file": "12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md",
+      "sha256": "b70e60cd6433e0e8ee2ab0a5ee394e85e5c39c2a0e63a3bea95d9c8ce8a1e8a4",
+      "layer": "deepening",
+      "exclusion_reason": null,
+      "numbered_question_count": 28
+    },
+    {
+      "file": "12_课程深化/README.md",
+      "sha256": "b898fb684b918a0007bc05d4175ef6f3decf44e1e1aa11982e746afb976aaf9f",
+      "layer": "deepening",
+      "exclusion_reason": "navigation",
+      "numbered_question_count": 0
+    },
+    {
+      "file": "13_跨主题综合题/新增题簇_Agent与AI后端.md",
+      "sha256": "a2cf142b87032aae749276fff549a588a781b50f632c83c5618326db5aef58f6",
+      "layer": "integrated",
+      "exclusion_reason": null,
+      "numbered_question_count": 11
+    },
+    {
+      "file": "README.md",
+      "sha256": "fc69a2bab4cc343c6d6be5ed4eb919b0ae813db24138db75c457c841662f9e26",
+      "layer": "core",
+      "exclusion_reason": "navigation",
+      "numbered_question_count": 0
+    }
+  ]
+}

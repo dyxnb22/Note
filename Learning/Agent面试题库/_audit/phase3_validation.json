@@ -1,0 +1,14 @@
+{
+  "phase": 3,
+  "structural_status": "passed",
+  "inventory_questions": 736,
+  "mapped_questions": 736,
+  "question_coverage": 1.0,
+  "effective_active_atoms": 319,
+  "covered_active_atoms": 319,
+  "uncovered_active_atoms": [],
+  "unknown_atom_refs": [],
+  "pending_semantic_reviews": 0,
+  "errors": [],
+  "note": "Every question without Phase2 provenance requires an explicit manual shard mapping before freeze. Similarity output is provisional candidate evidence only."
+}

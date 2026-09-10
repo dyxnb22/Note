@@ -1,0 +1,2170 @@
+{
+  "phase": 3,
+  "review_kind": "explicit_semantic_review",
+  "reviewed_pending_questions": 205,
+  "questions": [
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::7",
+      "atoms": [
+        "CTX-004",
+        "CTX-001",
+        "STATE-004"
+      ],
+      "primary_atom": "CTX-004",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::9",
+      "atoms": [
+        "REL-001",
+        "LOOP-003",
+        "TOOL-001"
+      ],
+      "primary_atom": "REL-001",
+      "intent": "scenario",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::10",
+      "atoms": [
+        "LOOP-003",
+        "DUR-003"
+      ],
+      "primary_atom": "LOOP-003",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::19",
+      "atoms": [
+        "CODE-001",
+        "SEC-001"
+      ],
+      "primary_atom": "CODE-001",
+      "intent": "design",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::20",
+      "atoms": [
+        "TRACE-002",
+        "DUR-003",
+        "LOOP-001"
+      ],
+      "primary_atom": "TRACE-002",
+      "intent": "debugging",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::21",
+      "atoms": [
+        "CTX-004",
+        "CTX-002"
+      ],
+      "primary_atom": "CTX-004",
+      "intent": "scenario",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::22",
+      "atoms": [
+        "STATE-001",
+        "CTX-004",
+        "SEC-001"
+      ],
+      "primary_atom": "STATE-001",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::2",
+      "atoms": [
+        "LOOP-002"
+      ],
+      "primary_atom": "LOOP-002",
+      "intent": "comparison",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::5",
+      "atoms": [
+        "MULTI-001",
+        "TOOL-008",
+        "STATE-004"
+      ],
+      "primary_atom": "MULTI-001",
+      "intent": "scenario",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::10",
+      "atoms": [
+        "MULTI-006",
+        "REL-001"
+      ],
+      "primary_atom": "MULTI-006",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::15",
+      "atoms": [
+        "HARNESS-002",
+        "LOOP-008",
+        "LOOP-010"
+      ],
+      "primary_atom": "HARNESS-002",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::19",
+      "atoms": [
+        "SEC-006",
+        "SANDBOX-001",
+        "SEC-001"
+      ],
+      "primary_atom": "SEC-006",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::23",
+      "atoms": [
+        "LOOP-002",
+        "MULTI-001",
+        "MULTI-002"
+      ],
+      "primary_atom": "LOOP-002",
+      "intent": "tradeoff",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::3",
+      "atoms": [
+        "CTX-001",
+        "SKILL-002"
+      ],
+      "primary_atom": "CTX-001",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::14",
+      "atoms": [
+        "SKILL-001",
+        "MULTI-001",
+        "MULTI-006"
+      ],
+      "primary_atom": "SKILL-001",
+      "intent": "design",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::06_RAG与知识库/RAG与检索.md::24",
+      "atoms": [
+        "RAG-008",
+        "CTX-003",
+        "RAG-001"
+      ],
+      "primary_atom": "RAG-008",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::1",
+      "atoms": [
+        "EVAL-002",
+        "TRACE-002"
+      ],
+      "primary_atom": "EVAL-002",
+      "intent": "debugging",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::2",
+      "atoms": [
+        "HARNESS-002",
+        "EVAL-002"
+      ],
+      "primary_atom": "HARNESS-002",
+      "intent": "evaluation",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::3",
+      "atoms": [
+        "LOOP-008",
+        "TRACE-002",
+        "SEC-001"
+      ],
+      "primary_atom": "LOOP-008",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::4",
+      "atoms": [
+        "REL-001",
+        "REL-002",
+        "TOOL-001"
+      ],
+      "primary_atom": "REL-001",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::5",
+      "atoms": [
+        "REL-001",
+        "REL-002"
+      ],
+      "primary_atom": "REL-001",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::6",
+      "atoms": [
+        "TOOL-006",
+        "TOOL-001",
+        "TOOL-002"
+      ],
+      "primary_atom": "TOOL-006",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::10",
+      "atoms": [
+        "SEC-003",
+        "SEC-013",
+        "EVAL-003"
+      ],
+      "primary_atom": "SEC-003",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::13",
+      "atoms": [
+        "SEC-003",
+        "SEC-006",
+        "SEC-010"
+      ],
+      "primary_atom": "SEC-003",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::16",
+      "atoms": [
+        "SANDBOX-001",
+        "SEC-012"
+      ],
+      "primary_atom": "SANDBOX-001",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::18",
+      "atoms": [
+        "SANDBOX-001"
+      ],
+      "primary_atom": "SANDBOX-001",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::19",
+      "atoms": [
+        "SEC-005",
+        "REL-003",
+        "SEC-001"
+      ],
+      "primary_atom": "SEC-005",
+      "intent": "scenario",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::20",
+      "atoms": [
+        "SEC-005",
+        "TOOL-006"
+      ],
+      "primary_atom": "SEC-005",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::22",
+      "atoms": [
+        "TRACE-002"
+      ],
+      "primary_atom": "TRACE-002",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::26",
+      "atoms": [
+        "TOOL-002",
+        "TOOL-001",
+        "REL-001"
+      ],
+      "primary_atom": "TOOL-002",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::32",
+      "atoms": [
+        "TOOL-011",
+        "REL-001",
+        "TRACE-001"
+      ],
+      "primary_atom": "TOOL-011",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::35",
+      "atoms": [
+        "TOOL-002",
+        "TOOL-006",
+        "TOOL-001"
+      ],
+      "primary_atom": "TOOL-002",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::38",
+      "atoms": [
+        "TOOL-002",
+        "TOOL-001",
+        "TOOL-006"
+      ],
+      "primary_atom": "TOOL-002",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::5",
+      "atoms": [
+        "MODEL-003",
+        "EVAL-004",
+        "EVAL-013"
+      ],
+      "primary_atom": "MODEL-003",
+      "intent": "design",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::6",
+      "atoms": [
+        "EVAL-004",
+        "EVAL-009"
+      ],
+      "primary_atom": "EVAL-004",
+      "intent": "evaluation",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::9",
+      "atoms": [
+        "TRACE-003",
+        "DATA-002",
+        "EVAL-003"
+      ],
+      "primary_atom": "TRACE-003",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::10",
+      "atoms": [
+        "REPLAY-001",
+        "TRACE-002"
+      ],
+      "primary_atom": "REPLAY-001",
+      "intent": "scenario",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::16",
+      "atoms": [
+        "TRACE-002",
+        "LOOP-010",
+        "EVAL-004"
+      ],
+      "primary_atom": "TRACE-002",
+      "intent": "debugging",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::5",
+      "atoms": [
+        "EVAL-002",
+        "EVAL-004",
+        "EVAL-015"
+      ],
+      "primary_atom": "EVAL-002",
+      "intent": "evaluation",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::15",
+      "atoms": [
+        "EVAL-004",
+        "DATA-001",
+        "EVAL-013"
+      ],
+      "primary_atom": "EVAL-004",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::24",
+      "atoms": [
+        "REPLAY-001",
+        "TRACE-002"
+      ],
+      "primary_atom": "REPLAY-001",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::34",
+      "atoms": [
+        "EVAL-015",
+        "EVAL-002"
+      ],
+      "primary_atom": "EVAL-015",
+      "intent": "debugging",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::35",
+      "atoms": [
+        "EVAL-001",
+        "DATA-001",
+        "EVAL-016"
+      ],
+      "primary_atom": "EVAL-001",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::37",
+      "atoms": [
+        "TRACE-002",
+        "TRACE-003",
+        "REPLAY-001"
+      ],
+      "primary_atom": "TRACE-002",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::40",
+      "atoms": [
+        "EVAL-009",
+        "EVAL-004",
+        "DATA-001"
+      ],
+      "primary_atom": "EVAL-009",
+      "intent": "evaluation",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::5",
+      "atoms": [
+        "DUR-003",
+        "DUR-001",
+        "TOOL-009"
+      ],
+      "primary_atom": "DUR-003",
+      "intent": "implementation",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::13",
+      "atoms": [
+        "CACHE-001",
+        "SEC-004"
+      ],
+      "primary_atom": "CACHE-001",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::17",
+      "atoms": [
+        "TRACE-002",
+        "STREAM-001"
+      ],
+      "primary_atom": "TRACE-002",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::18",
+      "atoms": [
+        "SEC-004",
+        "CAP-001"
+      ],
+      "primary_atom": "SEC-004",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::20",
+      "atoms": [
+        "MODEL-002",
+        "EVAL-017",
+        "TRACE-002"
+      ],
+      "primary_atom": "MODEL-002",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::22",
+      "atoms": [
+        "ARCH-005",
+        "TOOL-005",
+        "TRACE-002",
+        "CAP-003"
+      ],
+      "primary_atom": "ARCH-005",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::23",
+      "atoms": [
+        "ARCH-007",
+        "INGEST-002",
+        "BACK-004",
+        "TOOL-005"
+      ],
+      "primary_atom": "ARCH-007",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::24",
+      "atoms": [
+        "ARCH-007",
+        "TRACE-002",
+        "CAP-003"
+      ],
+      "primary_atom": "ARCH-007",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::27",
+      "atoms": [
+        "ARCH-003",
+        "TRACE-002",
+        "CAP-003",
+        "EVAL-017"
+      ],
+      "primary_atom": "ARCH-003",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::28",
+      "atoms": [
+        "SEC-005",
+        "ARCH-005",
+        "ARCH-003"
+      ],
+      "primary_atom": "SEC-005",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::29",
+      "atoms": [
+        "ARCH-005",
+        "ARCH-002",
+        "CAP-001",
+        "DUR-004"
+      ],
+      "primary_atom": "ARCH-005",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::3",
+      "atoms": [
+        "MODEL-002",
+        "MODEL-003",
+        "EVAL-001"
+      ],
+      "primary_atom": "MODEL-002",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::6",
+      "atoms": [
+        "LOOP-002",
+        "EVAL-001"
+      ],
+      "primary_atom": "LOOP-002",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::7",
+      "atoms": [
+        "CAP-003",
+        "MODEL-002",
+        "LOOP-002"
+      ],
+      "primary_atom": "CAP-003",
+      "intent": "design",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::8",
+      "atoms": [
+        "LOOP-007",
+        "EVAL-017",
+        "CAP-003"
+      ],
+      "primary_atom": "LOOP-007",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::9",
+      "atoms": [
+        "TOOL-005"
+      ],
+      "primary_atom": "TOOL-005",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::10",
+      "atoms": [
+        "MODEL-002",
+        "LOOP-007"
+      ],
+      "primary_atom": "MODEL-002",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::12",
+      "atoms": [
+        "SEC-004",
+        "CAP-001",
+        "ARCH-002"
+      ],
+      "primary_atom": "SEC-004",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::13",
+      "atoms": [
+        "EVAL-001",
+        "EVAL-017",
+        "CAP-003"
+      ],
+      "primary_atom": "EVAL-001",
+      "intent": "scenario",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::15",
+      "atoms": [
+        "CACHE-001",
+        "INGEST-002",
+        "DUR-002"
+      ],
+      "primary_atom": "CACHE-001",
+      "intent": "design",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::16",
+      "atoms": [
+        "CAP-003",
+        "TOOL-005",
+        "PROJECT-001"
+      ],
+      "primary_atom": "CAP-003",
+      "intent": "design",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::19",
+      "atoms": [
+        "STATE-006",
+        "DUR-003",
+        "DUR-001"
+      ],
+      "primary_atom": "STATE-006",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::20",
+      "atoms": [
+        "ARCH-005",
+        "CAP-003",
+        "MODEL-002",
+        "LOOP-002"
+      ],
+      "primary_atom": "ARCH-005",
+      "intent": "design",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::21",
+      "atoms": [
+        "EVAL-008",
+        "EVAL-017",
+        "CAP-003",
+        "EVAL-001"
+      ],
+      "primary_atom": "EVAL-008",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/模型与推理基础.md::11",
+      "atoms": [
+        "CTX-003",
+        "LLM-022"
+      ],
+      "primary_atom": "CTX-003",
+      "intent": "comparison",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::10_模型与推理/模型与推理基础.md::17",
+      "atoms": [
+        "MODEL-002",
+        "EVAL-008",
+        "MODEL-003"
+      ],
+      "primary_atom": "MODEL-002",
+      "intent": "tradeoff",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::10_模型与推理/模型与推理基础.md::18",
+      "atoms": [
+        "CTX-003",
+        "CTX-004"
+      ],
+      "primary_atom": "CTX-003",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::10_模型与推理/模型与推理基础.md::26",
+      "atoms": [
+        "MODEL-003",
+        "MODEL-002"
+      ],
+      "primary_atom": "MODEL-003",
+      "intent": "tradeoff",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::10_模型与推理/模型与推理基础.md::28",
+      "atoms": [
+        "DATA-003",
+        "DATA-004",
+        "EVAL-015"
+      ],
+      "primary_atom": "DATA-003",
+      "intent": "evaluation",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::10_模型与推理/模型与推理基础.md::29",
+      "atoms": [
+        "MODEL-002",
+        "LOOP-004",
+        "MODEL-005"
+      ],
+      "primary_atom": "MODEL-002",
+      "intent": "scenario",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::10_模型与推理/模型与推理基础.md::30",
+      "atoms": [
+        "MODEL-003",
+        "MODEL-002",
+        "DATA-004"
+      ],
+      "primary_atom": "MODEL-003",
+      "intent": "scenario",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::12",
+      "atoms": [
+        "LOOP-001",
+        "LOOP-004",
+        "TOOL-003"
+      ],
+      "primary_atom": "LOOP-001",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::13",
+      "atoms": [
+        "LOOP-009",
+        "LOOP-004"
+      ],
+      "primary_atom": "LOOP-009",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::14",
+      "atoms": [
+        "TOOL-003",
+        "TOOL-011"
+      ],
+      "primary_atom": "TOOL-003",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::15",
+      "atoms": [
+        "REL-001",
+        "REL-002",
+        "TOOL-011"
+      ],
+      "primary_atom": "REL-001",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::16",
+      "atoms": [
+        "TOOL-001",
+        "TOOL-003"
+      ],
+      "primary_atom": "TOOL-001",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::17",
+      "atoms": [
+        "TOOL-008",
+        "MODEL-001"
+      ],
+      "primary_atom": "TOOL-008",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::18",
+      "atoms": [
+        "CTX-004"
+      ],
+      "primary_atom": "CTX-004",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::19",
+      "atoms": [
+        "RAG-006",
+        "CTX-005",
+        "RAG-007",
+        "RAG-012"
+      ],
+      "primary_atom": "RAG-006",
+      "intent": "comparison",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::20",
+      "atoms": [
+        "EVAL-010",
+        "TEST-002"
+      ],
+      "primary_atom": "EVAL-010",
+      "intent": "evaluation",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::21",
+      "atoms": [
+        "LOOP-001",
+        "LOOP-011",
+        "SEC-006",
+        "PROMPT-005"
+      ],
+      "primary_atom": "LOOP-001",
+      "intent": "scenario",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::22",
+      "atoms": [
+        "TOOL-001",
+        "TOOL-011",
+        "REL-002"
+      ],
+      "primary_atom": "TOOL-001",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::23",
+      "atoms": [
+        "TOOL-008",
+        "CAP-001",
+        "TOOL-009"
+      ],
+      "primary_atom": "TOOL-008",
+      "intent": "mechanism",
+      "layer": "supplement"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::15",
+      "atoms": [
+        "BACK-001"
+      ],
+      "primary_atom": "BACK-001",
+      "intent": "scenario",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::16",
+      "atoms": [
+        "BACK-001"
+      ],
+      "primary_atom": "BACK-001",
+      "intent": "scenario",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::17",
+      "atoms": [
+        "REL-002"
+      ],
+      "primary_atom": "REL-002",
+      "intent": "scenario",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::18",
+      "atoms": [
+        "TOOL-001"
+      ],
+      "primary_atom": "TOOL-001",
+      "intent": "implementation",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::39",
+      "atoms": [
+        "TEST-002"
+      ],
+      "primary_atom": "TEST-002",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::40",
+      "atoms": [
+        "OPS-002",
+        "TEST-002"
+      ],
+      "primary_atom": "OPS-002",
+      "intent": "mechanism",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::42",
+      "atoms": [
+        "DUR-004",
+        "TOOL-001",
+        "TOOL-009",
+        "DUR-003"
+      ],
+      "primary_atom": "DUR-004",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::43",
+      "atoms": [
+        "TOOL-010",
+        "TOOL-001",
+        "BACK-001",
+        "SEC-006",
+        "TRACE-001",
+        "MODEL-002"
+      ],
+      "primary_atom": "TOOL-010",
+      "intent": "design",
+      "layer": "core"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::1",
+      "atoms": [
+        "PROV-001",
+        "PROV-008"
+      ],
+      "primary_atom": "PROV-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::3",
+      "atoms": [
+        "STATE-001"
+      ],
+      "primary_atom": "STATE-001",
+      "intent": "comparison",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::5",
+      "atoms": [
+        "PROV-006",
+        "TOOL-009"
+      ],
+      "primary_atom": "PROV-006",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::6",
+      "atoms": [
+        "PROMPT-005"
+      ],
+      "primary_atom": "PROMPT-005",
+      "intent": "definition",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10",
+      "atoms": [
+        "TOOL-003",
+        "SEC-001"
+      ],
+      "primary_atom": "TOOL-003",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::14",
+      "atoms": [
+        "STATE-006"
+      ],
+      "primary_atom": "STATE-006",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::16",
+      "atoms": [
+        "STATE-006",
+        "SEC-005",
+        "DUR-003"
+      ],
+      "primary_atom": "STATE-006",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::18",
+      "atoms": [
+        "PROV-002"
+      ],
+      "primary_atom": "PROV-002",
+      "intent": "tradeoff",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+      "atoms": [
+        "OPS-002",
+        "STATE-003",
+        "TEST-002"
+      ],
+      "primary_atom": "OPS-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::23",
+      "atoms": [
+        "PROV-001",
+        "TOOL-003",
+        "SEC-005"
+      ],
+      "primary_atom": "PROV-001",
+      "intent": "design",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::24",
+      "atoms": [
+        "PROV-002",
+        "PROV-009",
+        "STATE-006",
+        "STATE-004"
+      ],
+      "primary_atom": "PROV-002",
+      "intent": "project_expression",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::26",
+      "atoms": [
+        "STATE-006",
+        "STATE-004",
+        "STATE-003",
+        "DUR-002"
+      ],
+      "primary_atom": "STATE-006",
+      "intent": "debugging",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::11",
+      "atoms": [
+        "TOOL-007",
+        "CODE-002"
+      ],
+      "primary_atom": "TOOL-007",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::14",
+      "atoms": [
+        "LOOP-010",
+        "CODE-008",
+        "CODE-001"
+      ],
+      "primary_atom": "LOOP-010",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::17",
+      "atoms": [
+        "LOOP-008",
+        "CODE-001",
+        "CODE-008"
+      ],
+      "primary_atom": "LOOP-008",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::22",
+      "atoms": [
+        "SANDBOX-001",
+        "SANDBOX-002"
+      ],
+      "primary_atom": "SANDBOX-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::24",
+      "atoms": [
+        "SEC-005",
+        "GUI-002",
+        "GUI-001"
+      ],
+      "primary_atom": "SEC-005",
+      "intent": "evaluation",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::26",
+      "atoms": [
+        "CODE-001",
+        "CODE-008",
+        "CODE-005",
+        "CODE-006",
+        "SEC-005"
+      ],
+      "primary_atom": "CODE-001",
+      "intent": "design",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::1",
+      "atoms": [
+        "DUR-001"
+      ],
+      "primary_atom": "DUR-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::2",
+      "atoms": [
+        "DUR-001",
+        "LOOP-003",
+        "DUR-003"
+      ],
+      "primary_atom": "DUR-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::3",
+      "atoms": [
+        "BACK-002",
+        "TOOL-001"
+      ],
+      "primary_atom": "BACK-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::4",
+      "atoms": [
+        "TOOL-001"
+      ],
+      "primary_atom": "TOOL-001",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::6",
+      "atoms": [
+        "DUR-004",
+        "CAP-002"
+      ],
+      "primary_atom": "DUR-004",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::7",
+      "atoms": [
+        "BACK-014",
+        "BACK-002"
+      ],
+      "primary_atom": "BACK-014",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8",
+      "atoms": [
+        "DUR-002",
+        "TOOL-002",
+        "STATE-006"
+      ],
+      "primary_atom": "DUR-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::9",
+      "atoms": [
+        "DUR-001",
+        "STATE-001"
+      ],
+      "primary_atom": "DUR-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10",
+      "atoms": [
+        "TOOL-002",
+        "TOOL-001",
+        "BACK-002"
+      ],
+      "primary_atom": "TOOL-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11",
+      "atoms": [
+        "CAP-001",
+        "SEC-004",
+        "STATE-004"
+      ],
+      "primary_atom": "CAP-001",
+      "intent": "design",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::13",
+      "atoms": [
+        "CAP-002",
+        "CAP-001"
+      ],
+      "primary_atom": "CAP-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::15",
+      "atoms": [
+        "OBS-003",
+        "OBS-001"
+      ],
+      "primary_atom": "OBS-003",
+      "intent": "evaluation",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::16",
+      "atoms": [
+        "OPS-002"
+      ],
+      "primary_atom": "OPS-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+      "atoms": [
+        "OPS-002",
+        "STATE-003"
+      ],
+      "primary_atom": "OPS-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::18",
+      "atoms": [
+        "EVAL-013",
+        "OPS-002"
+      ],
+      "primary_atom": "EVAL-013",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::19",
+      "atoms": [
+        "CAP-001",
+        "LOOP-011",
+        "CAP-002"
+      ],
+      "primary_atom": "CAP-001",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::21",
+      "atoms": [
+        "OBS-001",
+        "OPS-001"
+      ],
+      "primary_atom": "OBS-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::24",
+      "atoms": [
+        "OPS-003",
+        "OPS-004"
+      ],
+      "primary_atom": "OPS-003",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::26",
+      "atoms": [
+        "CAP-002",
+        "LOOP-011"
+      ],
+      "primary_atom": "CAP-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+      "atoms": [
+        "STATE-003",
+        "OPS-002",
+        "DUR-002"
+      ],
+      "primary_atom": "STATE-003",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::28",
+      "atoms": [
+        "DUR-001",
+        "DUR-004",
+        "STATE-006",
+        "OPS-002"
+      ],
+      "primary_atom": "DUR-001",
+      "intent": "design",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::29",
+      "atoms": [
+        "TOOL-002",
+        "REL-001",
+        "REL-003"
+      ],
+      "primary_atom": "TOOL-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::30",
+      "atoms": [
+        "EVAL-013",
+        "EVAL-022",
+        "REL-003"
+      ],
+      "primary_atom": "EVAL-013",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::31",
+      "atoms": [
+        "CAP-002",
+        "DUR-004",
+        "STATE-006",
+        "OBS-001"
+      ],
+      "primary_atom": "CAP-002",
+      "intent": "debugging",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+      "atoms": [
+        "DUR-004"
+      ],
+      "primary_atom": "DUR-004",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35",
+      "atoms": [
+        "STATE-003",
+        "DUR-001",
+        "OPS-002"
+      ],
+      "primary_atom": "STATE-003",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::36",
+      "atoms": [
+        "REPLAY-001",
+        "STATE-005"
+      ],
+      "primary_atom": "REPLAY-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::5",
+      "atoms": [
+        "RAG-010"
+      ],
+      "primary_atom": "RAG-010",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::6",
+      "atoms": [
+        "INGEST-001",
+        "RAG-012",
+        "INGEST-004"
+      ],
+      "primary_atom": "INGEST-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7",
+      "atoms": [
+        "INGEST-002",
+        "INGEST-004",
+        "GRAPH-005"
+      ],
+      "primary_atom": "INGEST-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::16",
+      "atoms": [
+        "RAG-003",
+        "INGEST-011"
+      ],
+      "primary_atom": "RAG-003",
+      "intent": "evaluation",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::17",
+      "atoms": [
+        "RAG-007",
+        "EVAL-002",
+        "RAG-008"
+      ],
+      "primary_atom": "RAG-007",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::19",
+      "atoms": [
+        "RAG-010",
+        "INGEST-005",
+        "RAG-008"
+      ],
+      "primary_atom": "RAG-010",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::20",
+      "atoms": [
+        "RAG-006",
+        "RAG-007",
+        "RAG-008",
+        "RAG-005"
+      ],
+      "primary_atom": "RAG-006",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::21",
+      "atoms": [
+        "RAG-007",
+        "CTX-005",
+        "RAG-006",
+        "RAG-009"
+      ],
+      "primary_atom": "RAG-007",
+      "intent": "comparison",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::23",
+      "atoms": [
+        "METRIC-002",
+        "INGEST-009",
+        "INGEST-011",
+        "RAG-010"
+      ],
+      "primary_atom": "METRIC-002",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::31",
+      "atoms": [
+        "INGEST-002",
+        "INGEST-003",
+        "INGEST-004",
+        "INGEST-005"
+      ],
+      "primary_atom": "INGEST-002",
+      "intent": "design",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::6",
+      "atoms": [
+        "SEC-004"
+      ],
+      "primary_atom": "SEC-004",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::9",
+      "atoms": [
+        "SEC-005",
+        "IDENT-004",
+        "IDENT-002"
+      ],
+      "primary_atom": "SEC-005",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::10",
+      "atoms": [
+        "SEC-005"
+      ],
+      "primary_atom": "SEC-005",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::11",
+      "atoms": [
+        "MCP-001",
+        "A2A-001",
+        "MULTI-001"
+      ],
+      "primary_atom": "MCP-001",
+      "intent": "comparison",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::12",
+      "atoms": [
+        "A2A-001",
+        "IDENT-001",
+        "IDENT-002"
+      ],
+      "primary_atom": "A2A-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::13",
+      "atoms": [
+        "MULTI-001",
+        "IDENT-004",
+        "MULTI-005"
+      ],
+      "primary_atom": "MULTI-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::15",
+      "atoms": [
+        "MULTI-004",
+        "A2A-001"
+      ],
+      "primary_atom": "MULTI-004",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::16",
+      "atoms": [
+        "MULTI-005",
+        "IDENT-006"
+      ],
+      "primary_atom": "MULTI-005",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::18",
+      "atoms": [
+        "REL-003",
+        "MULTI-004"
+      ],
+      "primary_atom": "REL-003",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::1",
+      "atoms": [
+        "MODEL-006",
+        "EVAL-001"
+      ],
+      "primary_atom": "MODEL-006",
+      "intent": "definition",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::2",
+      "atoms": [
+        "REASON-007",
+        "LLM-014",
+        "LLM-017"
+      ],
+      "primary_atom": "REASON-007",
+      "intent": "comparison",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::3",
+      "atoms": [
+        "CAP-003",
+        "REASON-006"
+      ],
+      "primary_atom": "CAP-003",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::4",
+      "atoms": [
+        "REASON-006",
+        "CAP-003",
+        "REASON-005"
+      ],
+      "primary_atom": "REASON-006",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::12",
+      "atoms": [
+        "REASON-006",
+        "MODEL-003"
+      ],
+      "primary_atom": "REASON-006",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::15",
+      "atoms": [
+        "MODEL-003",
+        "CTX-001"
+      ],
+      "primary_atom": "MODEL-003",
+      "intent": "tradeoff",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::16",
+      "atoms": [
+        "PROMPT-005",
+        "SEC-001"
+      ],
+      "primary_atom": "PROMPT-005",
+      "intent": "tradeoff",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::17",
+      "atoms": [
+        "DATA-006",
+        "REASON-007",
+        "LLM-014",
+        "REASON-006"
+      ],
+      "primary_atom": "DATA-006",
+      "intent": "tradeoff",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::18",
+      "atoms": [
+        "DATA-006",
+        "DATA-004",
+        "LLM-014",
+        "REASON-007"
+      ],
+      "primary_atom": "DATA-006",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::23",
+      "atoms": [
+        "EVAL-006",
+        "MODEL-003",
+        "SEC-001",
+        "CTX-001"
+      ],
+      "primary_atom": "EVAL-006",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::7",
+      "atoms": [
+        "TRACE-003",
+        "VOICE-004"
+      ],
+      "primary_atom": "TRACE-003",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::14",
+      "atoms": [
+        "REASON-004",
+        "UI-003"
+      ],
+      "primary_atom": "REASON-004",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::17",
+      "atoms": [
+        "EVAL-008",
+        "EVAL-009"
+      ],
+      "primary_atom": "EVAL-008",
+      "intent": "evaluation",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18",
+      "atoms": [
+        "SKILL-001",
+        "MCP-001",
+        "TOOL-004"
+      ],
+      "primary_atom": "SKILL-001",
+      "intent": "comparison",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::19",
+      "atoms": [
+        "CTX-002"
+      ],
+      "primary_atom": "CTX-002",
+      "intent": "definition",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::20",
+      "atoms": [
+        "SKILL-001",
+        "SKILL-003"
+      ],
+      "primary_atom": "SKILL-001",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::21",
+      "atoms": [
+        "SKILL-001",
+        "MCP-001",
+        "SEC-006"
+      ],
+      "primary_atom": "SKILL-001",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::22",
+      "atoms": [
+        "SKILL-001",
+        "CTX-001",
+        "RAG-001"
+      ],
+      "primary_atom": "SKILL-001",
+      "intent": "comparison",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::23",
+      "atoms": [
+        "SKILL-001",
+        "EVAL-009",
+        "LOOP-002"
+      ],
+      "primary_atom": "SKILL-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::26",
+      "atoms": [
+        "ARCH-004",
+        "CTX-006",
+        "EVAL-009"
+      ],
+      "primary_atom": "ARCH-004",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::27",
+      "atoms": [
+        "SKILL-001",
+        "CTX-002",
+        "EVAL-006"
+      ],
+      "primary_atom": "SKILL-001",
+      "intent": "tradeoff",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::32",
+      "atoms": [
+        "TOOL-009",
+        "UI-003"
+      ],
+      "primary_atom": "TOOL-009",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::1",
+      "atoms": [
+        "EVAL-004",
+        "EVAL-008"
+      ],
+      "primary_atom": "EVAL-004",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::4",
+      "atoms": [
+        "EVAL-004",
+        "EVAL-008",
+        "DATA-002"
+      ],
+      "primary_atom": "EVAL-004",
+      "intent": "evaluation",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::5",
+      "atoms": [
+        "TRACE-002",
+        "REPLAY-001",
+        "EVAL-018",
+        "TOOL-003"
+      ],
+      "primary_atom": "TRACE-002",
+      "intent": "scenario",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6",
+      "atoms": [
+        "EVAL-010",
+        "TEST-002",
+        "EVAL-019"
+      ],
+      "primary_atom": "EVAL-010",
+      "intent": "evaluation",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::8",
+      "atoms": [
+        "DATA-001",
+        "EVAL-019"
+      ],
+      "primary_atom": "DATA-001",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::9",
+      "atoms": [
+        "TEST-002",
+        "PROV-008"
+      ],
+      "primary_atom": "TEST-002",
+      "intent": "comparison",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::13",
+      "atoms": [
+        "DATA-003",
+        "REPLAY-001",
+        "EVAL-014"
+      ],
+      "primary_atom": "DATA-003",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::15",
+      "atoms": [
+        "PROJECT-001",
+        "MCP-002",
+        "TOOL-003"
+      ],
+      "primary_atom": "PROJECT-001",
+      "intent": "project_expression",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::17",
+      "atoms": [
+        "TOOL-003"
+      ],
+      "primary_atom": "TOOL-003",
+      "intent": "definition",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::18",
+      "atoms": [
+        "TOOL-003"
+      ],
+      "primary_atom": "TOOL-003",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19",
+      "atoms": [
+        "MCP-002"
+      ],
+      "primary_atom": "MCP-002",
+      "intent": "comparison",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::20",
+      "atoms": [
+        "CODE-005",
+        "TEST-002",
+        "EVAL-021"
+      ],
+      "primary_atom": "CODE-005",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::21",
+      "atoms": [
+        "PROJECT-001",
+        "PROJECT-002"
+      ],
+      "primary_atom": "PROJECT-001",
+      "intent": "project_expression",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::22",
+      "atoms": [
+        "PROJECT-001",
+        "PROJECT-002"
+      ],
+      "primary_atom": "PROJECT-001",
+      "intent": "project_expression",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::23",
+      "atoms": [
+        "EVAL-004",
+        "DATA-001"
+      ],
+      "primary_atom": "EVAL-004",
+      "intent": "project_expression",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::24",
+      "atoms": [
+        "PROJECT-001",
+        "EVAL-004",
+        "EVAL-018",
+        "TOOL-003"
+      ],
+      "primary_atom": "PROJECT-001",
+      "intent": "project_expression",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::25",
+      "atoms": [
+        "ARCH-004",
+        "PROJECT-001",
+        "EVAL-004"
+      ],
+      "primary_atom": "ARCH-004",
+      "intent": "mechanism",
+      "layer": "deepening"
+    },
+    {
+      "question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::1",
+      "atoms": [
+        "ARCH-005",
+        "PROV-001",
+        "SEC-001"
+      ],
+      "primary_atom": "ARCH-005",
+      "intent": "scenario",
+      "layer": "integrated"
+    },
+    {
+      "question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::2",
+      "atoms": [
+        "TOOL-002",
+        "BACK-002",
+        "PROV-006"
+      ],
+      "primary_atom": "TOOL-002",
+      "intent": "mechanism",
+      "layer": "integrated"
+    },
+    {
+      "question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5",
+      "atoms": [
+        "EVAL-002"
+      ],
+      "primary_atom": "EVAL-002",
+      "intent": "mechanism",
+      "layer": "integrated"
+    },
+    {
+      "question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::6",
+      "atoms": [
+        "ARCH-002",
+        "PROV-002",
+        "PROV-001"
+      ],
+      "primary_atom": "ARCH-002",
+      "intent": "mechanism",
+      "layer": "integrated"
+    },
+    {
+      "question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9",
+      "atoms": [
+        "PROJECT-001",
+        "ARCH-004",
+        "EVAL-009"
+      ],
+      "primary_atom": "PROJECT-001",
+      "intent": "project_expression",
+      "layer": "integrated"
+    },
+    {
+      "question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::11",
+      "atoms": [
+        "PROJECT-002"
+      ],
+      "primary_atom": "PROJECT-002",
+      "intent": "project_expression",
+      "layer": "integrated"
+    }
+  ]
+}
