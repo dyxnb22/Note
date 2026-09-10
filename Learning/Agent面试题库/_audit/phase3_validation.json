@@ -8,7 +8,7 @@
   "covered_active_atoms": 319,
   "uncovered_active_atoms": [],
   "unknown_atom_refs": [],
-  "pending_semantic_reviews": 216,
+  "pending_semantic_reviews": 0,
   "errors": [],
   "note": "Every question without Phase2 provenance requires an explicit manual shard mapping before freeze. Similarity output is provisional candidate evidence only."
 }
