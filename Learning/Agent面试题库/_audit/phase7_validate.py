@@ -24,7 +24,8 @@ def current_questions():
             qid=f'Q::{rel}::{int(m.group(1))}'; ids.append(qid)
             end=heads[i+1].start() if i+1<len(heads) else len(text)
             block=text[m.end():end]
-            if not re.search(r'(?m)^答：',block): errors.append(f'missing answer: {qid}')
+            # Existing corpus legitimately uses labels such as 答（项目补充）：.
+            if not re.search(r'(?m)^答(?:（[^）]+）)?：',block): errors.append(f'missing answer: {qid}')
     return ids,errors
 
 def effective_active_ids():
@@ -76,7 +77,6 @@ def main():
     if set(changed)!=expected_files:
         errors.append(f'unexpected source markdown changes: actual={sorted(changed)} expected={sorted(expected_files)}')
 
-    # Integrated questions are hints only and must remain byte-identical.
     integrated_changed=[f for f in changed if f.startswith('13_')]
     if integrated_changed: errors.append(f'integrated questions modified: {integrated_changed}')
 
