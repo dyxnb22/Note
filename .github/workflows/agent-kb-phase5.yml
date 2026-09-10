@@ -1,0 +1,43 @@
+name: Agent KB Phase 5 Adjudication
+on:
+  push:
+    branches: [agent-kb-dedup-chatgpt-phase3]
+    paths:
+      - '.github/workflows/agent-kb-phase5.yml'
+      - 'Learning/Agent面试题库/_audit/phase5_adjudicate.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  adjudicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent-kb-dedup-chatgpt-phase3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build adjudications
+        run: python3 'Learning/Agent面试题库/_audit/phase5_adjudicate.py'
+      - name: Enforce Phase 5 gate
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          v=json.loads(Path('Learning/Agent面试题库/_audit/phase5_validation.json').read_text())
+          assert v['status']=='passed'
+          assert v['pending']==0
+          assert v['lost_atom_edges']==0
+          print(v)
+          PY
+      - name: Commit Phase 5 assets
+        run: |
+          git config user.name 'agent-kb-audit-bot'
+          git config user.email 'agent-kb-audit-bot@users.noreply.github.com'
+          git add 'Learning/Agent面试题库/_audit/duplicate_adjudications.json' \
+                  'Learning/Agent面试题库/_audit/phase5_validation.json' \
+                  'Learning/Agent面试题库/_audit/PHASE5_REPORT.md'
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'audit(agent-kb): adjudicate phase 5 duplicate candidates'
+          git push origin HEAD:agent-kb-dedup-chatgpt-phase3
