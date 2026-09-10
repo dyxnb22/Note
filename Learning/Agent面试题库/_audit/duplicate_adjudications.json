@@ -1,0 +1,1158 @@
+{
+  "phase": 5,
+  "decisions": [
+    {
+      "candidate_index": 1,
+      "a": "Q::09_工程化与系统设计/生产工程与系统设计.md::8",
+      "b": "Q::11_编码与后端/编码题与后端基础.md::15",
+      "relation": "DISTINCT_INTENT",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::09_工程化与系统设计/生产工程与系统设计.md::8",
+          "Q::11_编码与后端/编码题与后端基础.md::15"
+        ]
+      },
+      "retained_atoms": [
+        "BACK-001"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "tradeoff",
+        "b": "scenario"
+      },
+      "reason": "共享知识原子但题型/考察目标不同（实现、设计或组合场景），不是可去重的同题。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 2,
+      "a": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1",
+      "b": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5",
+      "relation": "DISTINCT_INTENT",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1",
+          "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5"
+        ]
+      },
+      "retained_atoms": [
+        "CODE-004"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "scenario",
+        "b": "tradeoff"
+      },
+      "reason": "共享知识原子但题型/考察目标不同（实现、设计或组合场景），不是可去重的同题。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 3,
+      "a": "Q::08_评测与可观测/评测与可观测性.md::14",
+      "b": "Q::08_评测与可观测/评测与可观测性.md::31",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::08_评测与可观测/评测与可观测性.md::14",
+          "Q::08_评测与可观测/评测与可观测性.md::31"
+        ]
+      },
+      "retained_atoms": [
+        "EVAL-012"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 4,
+      "a": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9",
+      "b": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::10",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9",
+          "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::10"
+        ]
+      },
+      "retained_atoms": [
+        "IDENT-001"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 5,
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+      "b": "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+          "Q::04_Tool与协议/Tool Calling与MCP.md::2"
+        ]
+      },
+      "retained_atoms": [
+        "SEC-001",
+        "TOOL-003"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "comparison"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 6,
+      "a": "Q::03_Memory与状态/Memory与State.md::22",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::03_Memory与状态/Memory与State.md::22",
+          "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17"
+        ]
+      },
+      "retained_atoms": [
+        "OPS-002",
+        "STATE-003"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "design",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 7,
+      "a": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+      "b": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::9",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+          "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::9"
+        ]
+      },
+      "retained_atoms": [
+        "MULTI-005"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 8,
+      "a": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14",
+      "b": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14",
+          "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19"
+        ]
+      },
+      "retained_atoms": [
+        "DATA-006"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "scenario",
+        "b": "scenario"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 9,
+      "a": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17",
+      "b": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::23",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17",
+          "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::23"
+        ]
+      },
+      "retained_atoms": [
+        "CACHE-001"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "scenario"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 10,
+      "a": "Q::11_编码与后端/编码题与后端基础.md::32",
+      "b": "Q::11_编码与后端/编码题与后端基础.md::33",
+      "relation": "DISTINCT_INTENT",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::11_编码与后端/编码题与后端基础.md::32",
+          "Q::11_编码与后端/编码题与后端基础.md::33"
+        ]
+      },
+      "retained_atoms": [
+        "BACK-016"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "scenario",
+        "b": "mechanism"
+      },
+      "reason": "共享知识原子但题型/考察目标不同（实现、设计或组合场景），不是可去重的同题。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 11,
+      "a": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::21",
+      "b": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::33",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::21",
+          "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::33"
+        ]
+      },
+      "retained_atoms": [
+        "PROV-008"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "scenario",
+        "b": "scenario"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 12,
+      "a": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1",
+      "b": "Q::08_评测与可观测/评测与可观测性.md::38",
+      "relation": "OWNERSHIP_CONFLICT",
+      "action": "REWRITE_A_AS_BRIDGE",
+      "canonical_owner": "Q::08_评测与可观测/评测与可观测性.md::38",
+      "retained_atoms": [
+        "EVAL-014"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "evaluation",
+        "b": "evaluation"
+      },
+      "reason": "主线题拥有离线/在线/生产监控三层定义；补充题只应保留目标、数据和反馈速度差异。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 13,
+      "a": "Q::07_可靠性与安全/可靠性与安全.md::14",
+      "b": "Q::07_可靠性与安全/可靠性与安全.md::15",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::07_可靠性与安全/可靠性与安全.md::14",
+          "Q::07_可靠性与安全/可靠性与安全.md::15"
+        ]
+      },
+      "retained_atoms": [
+        "SEC-009"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 14,
+      "a": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::7",
+      "b": "Q::08_评测与可观测/评测与可观测性.md::10",
+      "relation": "OWNERSHIP_CONFLICT",
+      "action": "REWRITE_A_AS_BRIDGE",
+      "canonical_owner": "Q::08_评测与可观测/评测与可观测性.md::10",
+      "retained_atoms": [
+        "EVAL-010"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "evaluation",
+        "b": "definition"
+      },
+      "reason": "主线题拥有 LLM-as-Judge 的通用定义；补充题只保留程序验证/Judge/人工评审的分工。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 15,
+      "a": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::13",
+      "b": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::13",
+          "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17"
+        ]
+      },
+      "retained_atoms": [
+        "PROV-009"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "comparison"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 16,
+      "a": "Q::11_编码与后端/编码题与后端基础.md::37",
+      "b": "Q::11_编码与后端/编码题与后端基础.md::44",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::11_编码与后端/编码题与后端基础.md::37",
+          "Q::11_编码与后端/编码题与后端基础.md::44"
+        ]
+      },
+      "retained_atoms": [
+        "TEST-002"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "design",
+        "b": "evaluation"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 17,
+      "a": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30",
+      "b": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30",
+          "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33"
+        ]
+      },
+      "retained_atoms": [
+        "GRAPH-001"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "evaluation"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 18,
+      "a": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+      "b": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+          "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6"
+        ]
+      },
+      "retained_atoms": [
+        "SKILL-001"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "definition",
+        "b": "comparison"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 19,
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+      "b": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+          "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10"
+        ]
+      },
+      "retained_atoms": [
+        "SEC-001",
+        "TOOL-003"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "comparison",
+        "b": "scenario"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 20,
+      "a": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+      "b": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+          "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21"
+        ]
+      },
+      "retained_atoms": [
+        "REPLAY-001",
+        "TRACE-002"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "design",
+        "b": "design"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 21,
+      "a": "Q::01_基础架构/Agent基础与架构.md::13",
+      "b": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+      "relation": "OWNERSHIP_CONFLICT",
+      "action": "KEEP_EXISTING_BRIDGE",
+      "canonical_owner": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+      "retained_atoms": [
+        "LOOP-004",
+        "LOOP-006",
+        "LOOP-007",
+        "MULTI-002"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "comparison",
+        "b": "comparison"
+      },
+      "reason": "基础架构题已是桥接入口，完整职责归 Multi-Agent 主文档。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 22,
+      "a": "Q::01_基础架构/Agent基础与架构.md::2",
+      "b": "Q::01_基础架构/Agent基础与架构.md::7",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::01_基础架构/Agent基础与架构.md::2",
+          "Q::01_基础架构/Agent基础与架构.md::7"
+        ]
+      },
+      "retained_atoms": [
+        "LOOP-001",
+        "LOOP-003",
+        "LOOP-008",
+        "LOOP-011",
+        "SEC-001",
+        "STATE-001"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "design"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 23,
+      "a": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+          "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17"
+        ]
+      },
+      "retained_atoms": [
+        "OPS-002",
+        "STATE-003",
+        "TEST-002"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 24,
+      "a": "Q::01_基础架构/Agent基础与架构.md::10",
+      "b": "Q::10_模型与推理/高频八股与手撕面经补充.md::13",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::01_基础架构/Agent基础与架构.md::10",
+          "Q::10_模型与推理/高频八股与手撕面经补充.md::13"
+        ]
+      },
+      "retained_atoms": [
+        "LOOP-001",
+        "LOOP-004",
+        "LOOP-009"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "comparison",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 25,
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+      "b": "Q::07_可靠性与安全/可靠性与安全.md::20",
+      "relation": "OWNERSHIP_CONFLICT",
+      "action": "REWRITE_A_AS_BRIDGE",
+      "canonical_owner": "Q::07_可靠性与安全/可靠性与安全.md::20",
+      "retained_atoms": [
+        "SEC-005",
+        "STATE-006",
+        "TOOL-006"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "design",
+        "b": "mechanism"
+      },
+      "reason": "用户确认、撤销与回滚属于安全/HITL 主答案；Tool 页只保留 waiting_human、approval_id 与执行前再校验等工具合同差异。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 26,
+      "a": "Q::09_工程化与系统设计/生产工程与系统设计.md::18",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::09_工程化与系统设计/生产工程与系统设计.md::18",
+          "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11"
+        ]
+      },
+      "retained_atoms": [
+        "CAP-001",
+        "SEC-004",
+        "STATE-004"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "design"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 27,
+      "a": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+      "b": "Q::08_评测与可观测/评测与可观测性.md::37",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+          "Q::08_评测与可观测/评测与可观测性.md::37"
+        ]
+      },
+      "retained_atoms": [
+        "REPLAY-001",
+        "TRACE-002",
+        "TRACE-003"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "design",
+        "b": "design"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 28,
+      "a": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::6",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::6",
+          "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34"
+        ]
+      },
+      "retained_atoms": [
+        "CAP-002",
+        "DUR-004"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 29,
+      "a": "Q::03_Memory与状态/Memory与State.md::6",
+      "b": "Q::03_Memory与状态/Memory与State.md::9",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::03_Memory与状态/Memory与State.md::6",
+          "Q::03_Memory与状态/Memory与State.md::9"
+        ]
+      },
+      "retained_atoms": [
+        "MEM-009",
+        "MEM-014",
+        "RAG-010"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "comparison",
+        "b": "design"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 30,
+      "a": "Q::03_Memory与状态/Memory与State.md::22",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::03_Memory与状态/Memory与State.md::22",
+          "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27"
+        ]
+      },
+      "retained_atoms": [
+        "DUR-002",
+        "OPS-002",
+        "STATE-003"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "design",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 31,
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+      "b": "Q::07_可靠性与安全/可靠性与安全.md::26",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+          "Q::07_可靠性与安全/可靠性与安全.md::26"
+        ]
+      },
+      "retained_atoms": [
+        "REL-001",
+        "TOOL-001",
+        "TOOL-002"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 32,
+      "a": "Q::03_Memory与状态/Memory与State.md::22",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::03_Memory与状态/Memory与State.md::22",
+          "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35"
+        ]
+      },
+      "retained_atoms": [
+        "DUR-001",
+        "OPS-002",
+        "STATE-003"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "design",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 33,
+      "a": "Q::10_模型与推理/高频八股与手撕面经补充.md::20",
+      "b": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::10_模型与推理/高频八股与手撕面经补充.md::20",
+          "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6"
+        ]
+      },
+      "retained_atoms": [
+        "EVAL-010",
+        "EVAL-019",
+        "TEST-002"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "evaluation",
+        "b": "evaluation"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 34,
+      "a": "Q::03_Memory与状态/Memory与State.md::22",
+      "b": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::03_Memory与状态/Memory与State.md::22",
+          "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20"
+        ]
+      },
+      "retained_atoms": [
+        "OPS-002",
+        "STATE-003",
+        "TEST-002"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "design",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 35,
+      "a": "Q::07_可靠性与安全/可靠性与安全.md::9",
+      "b": "Q::07_可靠性与安全/可靠性与安全.md::31",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::07_可靠性与安全/可靠性与安全.md::9",
+          "Q::07_可靠性与安全/可靠性与安全.md::31"
+        ]
+      },
+      "retained_atoms": [
+        "SEC-007",
+        "SEC-008"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "comparison",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 36,
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::20",
+      "b": "Q::04_Tool与协议/Tool Calling与MCP.md::24",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::04_Tool与协议/Tool Calling与MCP.md::20",
+          "Q::04_Tool与协议/Tool Calling与MCP.md::24"
+        ]
+      },
+      "retained_atoms": [
+        "MCP-001",
+        "SEC-006"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "definition",
+        "b": "tradeoff"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 37,
+      "a": "Q::08_评测与可观测/评测与可观测性.md::33",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::15",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::08_评测与可观测/评测与可观测性.md::33",
+          "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::15"
+        ]
+      },
+      "retained_atoms": [
+        "OBS-001",
+        "OBS-003"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "evaluation",
+        "b": "evaluation"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 38,
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::7",
+      "b": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::9",
+      "relation": "OWNERSHIP_CONFLICT",
+      "action": "REWRITE_B_AS_BRIDGE",
+      "canonical_owner": "Q::04_Tool与协议/Tool Calling与MCP.md::7",
+      "retained_atoms": [
+        "CTX-004",
+        "TOOL-005"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "design",
+        "b": "mechanism"
+      },
+      "reason": "过滤/分页/摘要/游标由 Tool 页拥有；系统设计题只补 Context 预算、对象引用、Trace 与后续增量读取。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 39,
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::22",
+      "b": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19",
+      "relation": "OWNERSHIP_CONFLICT",
+      "action": "REWRITE_B_AS_BRIDGE",
+      "canonical_owner": "Q::04_Tool与协议/Tool Calling与MCP.md::22",
+      "retained_atoms": [
+        "MCP-002",
+        "SEC-006",
+        "TOOL-004"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "design",
+        "b": "comparison"
+      },
+      "reason": "Tool/Resource/Prompt 与 MCP Server 组织由协议主线拥有；课程深化只保留项目表达检查点。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 40,
+      "a": "Q::08_评测与可观测/评测与可观测性.md::24",
+      "b": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::5",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::08_评测与可观测/评测与可观测性.md::24",
+          "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::5"
+        ]
+      },
+      "retained_atoms": [
+        "EVAL-018",
+        "REPLAY-001",
+        "TOOL-003",
+        "TRACE-002"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "scenario"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 41,
+      "a": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::1",
+      "b": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_INTEGRATED_HINT",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::1",
+          "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9"
+        ]
+      },
+      "retained_atoms": [
+        "ARCH-004",
+        "EVAL-009",
+        "PROJECT-001"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "project_expression",
+        "b": "project_expression"
+      },
+      "reason": "跨主题综合题按政策默认保留；它把项目因果链用于 RAG/Agent 业务价值场景。",
+      "hint_only": true
+    },
+    {
+      "candidate_index": 42,
+      "a": "Q::01_基础架构/Agent基础与架构.md::29",
+      "b": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::2",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::01_基础架构/Agent基础与架构.md::29",
+          "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::2"
+        ]
+      },
+      "retained_atoms": [
+        "LOOP-002",
+        "SEC-001",
+        "SEC-005"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "scenario",
+        "b": "comparison"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 43,
+      "a": "Q::03_Memory与状态/Memory与State.md::24",
+      "b": "Q::03_Memory与状态/Memory与State.md::32",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::03_Memory与状态/Memory与State.md::24",
+          "Q::03_Memory与状态/Memory与State.md::32"
+        ]
+      },
+      "retained_atoms": [
+        "DUR-002",
+        "DUR-004",
+        "STATE-006",
+        "TOOL-001",
+        "TOOL-002"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "scenario"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 44,
+      "a": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+      "b": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+          "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18"
+        ]
+      },
+      "retained_atoms": [
+        "MCP-001",
+        "SKILL-001",
+        "TOOL-004"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "definition",
+        "b": "comparison"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 45,
+      "a": "Q::01_基础架构/Agent基础与架构.md::2",
+      "b": "Q::01_基础架构/Agent基础与架构.md::9",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::01_基础架构/Agent基础与架构.md::2",
+          "Q::01_基础架构/Agent基础与架构.md::9"
+        ]
+      },
+      "retained_atoms": [
+        "LOOP-001",
+        "LOOP-003",
+        "LOOP-008",
+        "LOOP-011",
+        "REL-001",
+        "SEC-001",
+        "STATE-001"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "mechanism",
+        "b": "mechanism"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 46,
+      "a": "Q::06_RAG与知识库/RAG与检索.md::27",
+      "b": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7",
+      "relation": "OWNERSHIP_CONFLICT",
+      "action": "KEEP_EXISTING_BRIDGE",
+      "canonical_owner": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7",
+      "retained_atoms": [
+        "GRAPH-005",
+        "INGEST-002",
+        "INGEST-004",
+        "RAG-010"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "scenario",
+        "b": "mechanism"
+      },
+      "reason": "RAG 题已只保留在线检索侧差异并链接完整摄取/同步流程。",
+      "hint_only": false
+    },
+    {
+      "candidate_index": 47,
+      "a": "Q::03_Memory与状态/Memory与State.md::6",
+      "b": "Q::03_Memory与状态/Memory与State.md::7",
+      "relation": "PARTIAL_OVERLAP",
+      "action": "KEEP_BOTH",
+      "canonical_owner": {
+        "mode": "split_by_intent",
+        "questions": [
+          "Q::03_Memory与状态/Memory与State.md::6",
+          "Q::03_Memory与状态/Memory与State.md::7"
+        ]
+      },
+      "retained_atoms": [
+        "MEM-009",
+        "MEM-014",
+        "RAG-010",
+        "STATE-007",
+        "TRACE-002"
+      ],
+      "lost_atoms": [],
+      "interview_intent": {
+        "a": "comparison",
+        "b": "comparison"
+      },
+      "reason": "存在共享 Atom，但问题的意图、场景、难度或边界不同；保留可维持题库覆盖面与递进梯度。",
+      "hint_only": false
+    }
+  ]
+}
