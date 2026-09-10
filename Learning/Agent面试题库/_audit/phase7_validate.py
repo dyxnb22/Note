@@ -17,15 +17,27 @@ def current_questions():
         rel=p.relative_to(KB).as_posix()
         if p.name=='README.md' or rel.startswith('00_'): continue
         text=p.read_text(encoding='utf-8')
-        heads=list(re.finditer(r'(?m)^### (\d+)\. ([^\n]+)$',text))
-        nums=[int(m.group(1)) for m in heads]
+        all_heads=list(re.finditer(r'(?m)^(#{1,6})\s+([^\n]+)$',text))
+        numbered=[]
+        for h in all_heads:
+            m=re.match(r'^(\d+)\.\s+(.+)$',h.group(2))
+            if len(h.group(1))==3 and m:
+                numbered.append((h,int(m.group(1)),m.group(2)))
+        nums=[num for _,num,_ in numbered]
         if nums and nums!=list(range(1,len(nums)+1)): errors.append(f'non-contiguous numbering: {rel}')
-        for i,m in enumerate(heads):
-            qid=f'Q::{rel}::{int(m.group(1))}'; ids.append(qid)
-            end=heads[i+1].start() if i+1<len(heads) else len(text)
-            block=text[m.end():end]
-            # Existing corpus legitimately uses labels such as 答（项目补充）：.
-            if not re.search(r'(?m)^答(?:（[^）]+）)?：',block): errors.append(f'missing answer: {qid}')
+        for h,num,_ in numbered:
+            qid=f'Q::{rel}::{num}'; ids.append(qid)
+            end=len(text)
+            for nxt in all_heads:
+                if nxt.start() <= h.start(): continue
+                if len(nxt.group(1)) <= 3:
+                    end=nxt.start(); break
+            block=text[h.end():end]
+            # Match Phase 1 semantics: answers may start with 答：, a qualified
+            # label such as 答（项目补充）：, a table, code, or another direct
+            # artifact. The invariant is non-empty answer content, not a label.
+            if not any(line.strip() for line in block.splitlines()):
+                errors.append(f'missing answer: {qid}')
     return ids,errors
 
 def effective_active_ids():
