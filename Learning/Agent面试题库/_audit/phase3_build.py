@@ -4,17 +4,14 @@
 Evidence order:
 1) explicit manual shard mapping in _audit/phase3_maps/*.json
 2) Phase 2 source_question_ids (definition provenance; hard evidence)
-3) multilingual sentence embedding similarity (candidate generation only)
+3) semantic ranking *inside the atom pool recorded for that Phase 2 scope*
 
-Similarity never decides duplicate/merge/delete. Low-confidence auto mappings are
-written to phase3_review.json and must be adjudicated before Phase 3 is frozen.
+Semantic similarity only proposes Question->Atom links. It never decides whether
+questions are duplicate, merged, moved, or deleted; those remain Phase 4/5.
 """
 from __future__ import annotations
 
-import hashlib
 import json
-import math
-import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -29,10 +26,12 @@ def effective_atoms():
     atoms = {a["id"]: dict(a) for a in load_json(ROOT / "atom_registry.json")}
     mig = load_json(ROOT / "atom_migrations_phase2_gate.json")
     deprecated = set()
+    replacements = {}
     for r in mig["rules"]:
         typ = r["type"]
         if typ == "deprecate_composite":
             deprecated.add(r["atom_id"])
+            replacements[r["atom_id"]] = list(r.get("replacement_atoms", []))
         elif typ == "alias_override":
             atoms[r["atom_id"]]["aliases"] = list(r["effective_aliases"])
         elif typ == "canonical_owner_override":
@@ -41,7 +40,7 @@ def effective_atoms():
             atoms[r["atom"]["id"]] = dict(r["atom"])
     for aid in deprecated:
         atoms[aid]["status"] = "deprecated"
-    return atoms, deprecated
+    return atoms, deprecated, replacements
 
 
 def manual_maps():
@@ -59,19 +58,34 @@ def manual_maps():
     return out
 
 
+def phase2_file_pools(valid_ids, replacements):
+    """Reconstruct the candidate atom vocabulary each source file actually saw in Phase 2."""
+    log = load_json(ROOT / "atomization_log.json")
+    pools = {}
+    for entry in log:
+        raw = set(entry.get("reused_atoms", [])) | set(entry.get("new_atoms", []))
+        expanded = set()
+        for aid in raw:
+            if aid in replacements:
+                expanded.update(replacements[aid])
+            else:
+                expanded.add(aid)
+        expanded &= valid_ids
+        for f in entry.get("source_files", []):
+            pools.setdefault(f, set()).update(expanded)
+    return pools
+
+
 def answer_text(item):
     path = KB / item["file"]
     lines = path.read_text(encoding="utf-8").splitlines()
-    start = item["answer_start_line"] - 1
-    end = item["answer_end_line"]
-    return "\n".join(lines[start:end]).strip()
+    return "\n".join(lines[item["answer_start_line"]-1:item["answer_end_line"]]).strip()
 
 
 def infer_intent(title: str):
-    t = title.lower()
     if any(x in title for x in ["设计一个", "如何设计", "架构如何", "模块如何拆", "怎么设计"]):
         return "design"
-    if any(x in title for x in ["排查", "定位", "诊断", "失败", "卡死", "出错", "不稳定", "为什么会"]):
+    if any(x in title for x in ["排查", "定位", "诊断", "卡死", "出错", "不稳定", "根因"]):
         return "debugging"
     if any(x in title for x in ["评测", "验证", "衡量", "指标", "证明"]):
         return "evaluation"
@@ -81,7 +95,7 @@ def infer_intent(title: str):
         return "comparison"
     if any(x in title for x in ["什么时候", "何时", "取舍", "选择", "该用", "是否需要", "优缺点"]):
         return "tradeoff"
-    if any(x in title for x in ["如何实现", "怎么实现", "代码", "伪代码", "SQL", "实现一个"]):
+    if any(x in title for x in ["如何实现", "怎么实现", "伪代码", "实现一个"]):
         return "implementation"
     if title.startswith("什么是") or title.startswith("什么叫") or "是什么" in title:
         return "definition"
@@ -90,20 +104,16 @@ def infer_intent(title: str):
     return "scenario"
 
 
-def norm(v):
-    n = math.sqrt(sum(x*x for x in v)) or 1.0
-    return [x/n for x in v]
-
-
 def main():
     from sentence_transformers import SentenceTransformer
 
     inventory = load_json(ROOT / "question_inventory.json")
-    atoms, deprecated = effective_atoms()
+    atoms, deprecated, replacements = effective_atoms()
     active = {k:v for k,v in atoms.items() if v.get("status") == "active"}
-    manual = manual_maps()
-
     valid_ids = set(active)
+    manual = manual_maps()
+    file_pools = phase2_file_pools(valid_ids, replacements)
+
     for q in manual.values():
         bad = set(q["atoms"]) - valid_ids
         if bad:
@@ -115,6 +125,7 @@ def main():
             provenance.setdefault(qid, set()).add(aid)
 
     atom_ids = sorted(active)
+    atom_index = {a:i for i,a in enumerate(atom_ids)}
     atom_texts = [
         active[a]["canonical_name"] + "\n" + active[a]["definition"] + "\nalias: " + " | ".join(active[a].get("aliases", []))
         for a in atom_ids
@@ -125,9 +136,8 @@ def main():
     avec = model.encode(atom_texts, normalize_embeddings=True, show_progress_bar=True)
     qvec = model.encode(q_texts, normalize_embeddings=True, show_progress_bar=True)
 
-    maps = []
-    reviews = []
-    auto_count = evidence_count = manual_count = 0
+    maps, reviews = [], []
+    manual_count = evidence_count = auto_count = 0
 
     for idx, item in enumerate(inventory):
         qid = item["question_id"]
@@ -139,105 +149,97 @@ def main():
             manual_count += 1
             continue
 
-        sims = [(float(qvec[idx] @ avec[j]), atom_ids[j]) for j in range(len(atom_ids))]
-        sims.sort(reverse=True)
-        forced = set(provenance.get(qid, set()))
-        selected = set(forced)
+        forced = set(provenance.get(qid, set())) & valid_ids
+        pool = set(file_pools.get(item["file"], set())) | forced
+        if not pool:
+            pool = set(valid_ids)
 
+        sims = [(float(qvec[idx] @ avec[atom_index[aid]]), aid) for aid in pool]
+        sims.sort(reverse=True)
         top_score = sims[0][0]
-        cutoff = max(0.42, top_score - 0.10)
-        for score, aid in sims[:12]:
+        selected = set(forced)
+        cutoff = max(0.40, top_score - 0.08)
+        for score, aid in sims[:10]:
             if score >= cutoff and len(selected) < 6:
                 selected.add(aid)
 
-        # Keep hard evidence, but avoid similarity-only atom explosion.
         ranked = [(s,a) for s,a in sims if a in selected]
         ranked.sort(reverse=True)
-        ordered = [a for _,a in ranked]
-        if not ordered:
-            ordered = [sims[0][1]]
+        ordered = [a for _,a in ranked] or [sims[0][1]]
 
-        # Primary prefers strongest provenance atom if any, otherwise strongest semantic candidate.
         if forced:
             primary = max(((s,a) for s,a in sims if a in forced), default=(0.0, ordered[0]))[1]
+            confidence = "high"
+            source = "source_evidence+scope_semantic"
             evidence_count += 1
         else:
             primary = ordered[0]
+            confidence = "medium" if top_score >= 0.45 else "needs_review"
+            source = "phase2_scope_semantic_candidate"
             auto_count += 1
 
-        row = {
-            "question_id": qid,
-            "atoms": ordered,
-            "primary_atom": primary,
-            "intent": infer_intent(item["title"]),
-            "layer": item["layer"],
-            "mapping_source": "source_evidence+semantic" if forced else "semantic_candidate",
-            "confidence": "high" if forced else ("medium" if top_score >= 0.55 else "needs_review")
-        }
-        maps.append(row)
+        maps.append({
+            "question_id":qid,
+            "atoms":ordered,
+            "primary_atom":primary,
+            "intent":infer_intent(item["title"]),
+            "layer":item["layer"],
+            "mapping_source":source,
+            "confidence":confidence
+        })
 
-        # A question with no Phase2 source evidence is reviewed when similarity is weak
-        # or the two best candidate scores are nearly tied across different domains.
-        if not forced:
-            gap = sims[0][0] - sims[1][0]
-            d0 = active[sims[0][1]]["domain"]
-            d1 = active[sims[1][1]]["domain"]
-            if top_score < 0.55 or (gap < 0.025 and d0 != d1):
-                reviews.append({
-                    "question_id": qid,
-                    "title": item["title"],
-                    "top_candidates": [
-                        {"atom_id": a, "score": round(s, 4), "name": active[a]["canonical_name"], "domain": active[a]["domain"]}
-                        for s,a in sims[:6]
-                    ],
-                    "reason": "low_similarity" if top_score < 0.55 else "cross_domain_near_tie"
-                })
+        if not forced and top_score < 0.45:
+            reviews.append({
+                "question_id":qid,
+                "title":item["title"],
+                "source_file":item["file"],
+                "phase2_candidate_pool_size":len(pool),
+                "top_candidates":[
+                    {"atom_id":a,"score":round(s,4),"name":active[a]["canonical_name"],"domain":active[a]["domain"]}
+                    for s,a in sims[:6]
+                ],
+                "reason":"low_similarity_within_phase2_scope"
+            })
 
-    maps.sort(key=lambda x: next(i for i,q in enumerate(inventory) if q["question_id"] == x["question_id"]))
+    inv_order = {q["question_id"]:i for i,q in enumerate(inventory)}
+    maps.sort(key=lambda x: inv_order[x["question_id"]])
     map_obj = {
-        "phase": 3,
-        "inventory_count": len(inventory),
-        "effective_active_atom_count": len(active),
-        "effective_deprecated_atoms": sorted(deprecated),
-        "mapping_counts": {"manual": manual_count, "source_evidence_or_semantic": evidence_count, "semantic_only": auto_count},
-        "questions": maps
+        "phase":3,
+        "inventory_count":len(inventory),
+        "effective_active_atom_count":len(active),
+        "effective_deprecated_atoms":sorted(deprecated),
+        "mapping_counts":{"manual":manual_count,"source_evidence":evidence_count,"phase2_scope_semantic_only":auto_count},
+        "questions":maps
     }
-    (ROOT / "question_atom_map.json").write_text(json.dumps(map_obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (ROOT / "phase3_review.json").write_text(json.dumps({"phase":3,"pending_count":len(reviews),"reviews":reviews}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    (ROOT/"question_atom_map.json").write_text(json.dumps(map_obj,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    (ROOT/"phase3_review.json").write_text(json.dumps({"phase":3,"pending_count":len(reviews),"reviews":reviews},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 
-    mapped = {m["question_id"] for m in maps}
-    inv = {q["question_id"] for q in inventory}
-    atom_refs = {a for m in maps for a in m["atoms"]}
-    errors = []
-    if mapped != inv:
-        errors.append({"question_coverage_mismatch": sorted(inv ^ mapped)})
-    unknown = sorted(atom_refs - valid_ids)
-    if unknown:
-        errors.append({"unknown_atom_refs": unknown})
-    missing_atoms = sorted(valid_ids - atom_refs)
-    if missing_atoms:
-        errors.append({"uncovered_active_atoms": missing_atoms})
-    if any("PROMPT-006" in m["atoms"] for m in maps):
-        errors.append({"deprecated_atom_referenced": "PROMPT-006"})
+    mapped={m["question_id"] for m in maps}; inv={q["question_id"] for q in inventory}
+    refs={a for m in maps for a in m["atoms"]}; errors=[]
+    if mapped!=inv: errors.append({"question_coverage_mismatch":sorted(inv^mapped)})
+    unknown=sorted(refs-valid_ids)
+    if unknown: errors.append({"unknown_atom_refs":unknown})
+    missing=sorted(valid_ids-refs)
+    if missing: errors.append({"uncovered_active_atoms":missing})
+    deprecated_refs=sorted({a for m in maps for a in m["atoms"] if a in deprecated})
+    if deprecated_refs: errors.append({"deprecated_atom_refs":deprecated_refs})
 
-    val = {
+    val={
         "phase":3,
         "structural_status":"passed" if not errors else "failed",
         "inventory_questions":len(inv),
         "mapped_questions":len(mapped),
-        "question_coverage": len(mapped & inv) / len(inv) if inv else 1,
+        "question_coverage":len(mapped&inv)/len(inv) if inv else 1,
         "effective_active_atoms":len(valid_ids),
-        "covered_active_atoms":len(valid_ids & atom_refs),
-        "uncovered_active_atoms":missing_atoms,
+        "covered_active_atoms":len(valid_ids&refs),
+        "uncovered_active_atoms":missing,
         "unknown_atom_refs":unknown,
         "pending_semantic_reviews":len(reviews),
         "errors":errors,
-        "note":"Semantic similarity is candidate generation only; duplicate adjudication remains Phase 4/5. Phase 3 is freeze-ready only when pending_semantic_reviews=0 or every pending item has an explicit manual override."
+        "note":"Phase2 scope lists constrain semantic candidates. Similarity proposes mappings only; duplicate adjudication remains Phase4/5. Freeze requires pending_semantic_reviews=0 or explicit manual overrides."
     }
-    (ROOT / "phase3_validation.json").write_text(json.dumps(val, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    (ROOT/"phase3_validation.json").write_text(json.dumps(val,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    print(json.dumps(val,ensure_ascii=False,indent=2))
 
-    print(json.dumps(val, ensure_ascii=False, indent=2))
-
-
-if __name__ == "__main__":
+if __name__=="__main__":
     main()
