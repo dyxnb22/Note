@@ -1,0 +1,4865 @@
+[
+  {
+    "id": "LOOP-001",
+    "canonical_name": "观察驱动的动作循环",
+    "definition": "根据目标与当前状态提出动作，经执行和结果回填后继续决策的有限闭环。",
+    "domain": "loop",
+    "aliases": [
+      "Agent Loop",
+      "ReAct",
+      "Tool-use Loop"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::1",
+      "Q::01_基础架构/Agent基础与架构.md::2",
+      "Q::01_基础架构/Agent基础与架构.md::8"
+    ]
+  },
+  {
+    "id": "LOOP-002",
+    "canonical_name": "动态决策与固定流程的选型边界",
+    "definition": "以路径不确定性、风险和可测收益决定采用模型动态选择还是确定性工作流。",
+    "domain": "loop",
+    "aliases": [
+      "Agent vs Workflow"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::1",
+      "Q::01_基础架构/Agent基础与架构.md::3",
+      "Q::01_基础架构/Agent基础与架构.md::29"
+    ]
+  },
+  {
+    "id": "SEC-001",
+    "canonical_name": "模型提案与确定性执行边界",
+    "definition": "模型只提出候选动作，权限、参数、预算及副作用执行由受信代码独立强制校验。",
+    "domain": "sec",
+    "aliases": [
+      "proposal versus execution",
+      "提案不是命令"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::4",
+      "Q::01_基础架构/Agent基础与架构.md::7",
+      "Q::01_基础架构/Agent基础与架构.md::33"
+    ]
+  },
+  {
+    "id": "ARCH-001",
+    "canonical_name": "框架、运行时与业务应用分层",
+    "definition": "分别承载编排抽象、运行控制和业务任务逻辑的职责划分。",
+    "domain": "arch",
+    "aliases": [
+      "Framework Runtime Application"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::5"
+    ]
+  },
+  {
+    "id": "LOOP-003",
+    "canonical_name": "结构化终止原因",
+    "definition": "区分成功、取消、拒绝、错误、无进展和预算耗尽等运行结束状态。",
+    "domain": "loop",
+    "aliases": [
+      "StopReason"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::9",
+      "Q::01_基础架构/Agent基础与架构.md::37"
+    ]
+  },
+  {
+    "id": "LOOP-004",
+    "canonical_name": "计划生成与分阶段执行",
+    "definition": "把任务显式拆成可检查计划并分阶段细化和执行，允许根据观察局部调整。",
+    "domain": "loop",
+    "aliases": [
+      "Plan-and-Execute",
+      "分阶段规划"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::10",
+      "Q::01_基础架构/Agent基础与架构.md::18"
+    ]
+  },
+  {
+    "id": "LOOP-005",
+    "canonical_name": "结果反思",
+    "definition": "按可操作标准复盘已有结果或过程以提出修正，收益需抵偿额外调用成本。",
+    "domain": "loop",
+    "aliases": [
+      "Reflection"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::11"
+    ]
+  },
+  {
+    "id": "LOOP-006",
+    "canonical_name": "独立批判与验收角色",
+    "definition": "由 Critic 按明确标准检查执行产物，区别于产物生成职责。",
+    "domain": "loop",
+    "aliases": [
+      "Critic"
+    ],
+    "status": "active",
+    "canonical_owner": "05",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::11",
+      "Q::01_基础架构/Agent基础与架构.md::13"
+    ]
+  },
+  {
+    "id": "MODEL-001",
+    "canonical_name": "多候选一致性聚合",
+    "definition": "通过生成多个候选并聚合判断提高部分推理任务的稳定性，同时承担采样成本。",
+    "domain": "model",
+    "aliases": [
+      "Self-Consistency"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::11"
+    ]
+  },
+  {
+    "id": "LOOP-007",
+    "canonical_name": "任务路由与未知类别兜底",
+    "definition": "按领域、复杂度或风险选择处理路径，并对低置信度和未知类别设置回退。",
+    "domain": "loop",
+    "aliases": [
+      "Router",
+      "任务路由"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::12"
+    ]
+  },
+  {
+    "id": "LOOP-008",
+    "canonical_name": "可验证任务完成证据",
+    "definition": "以数据库事实、测试或受信验证器结果证明任务完成，模型自然结束不等于成功。",
+    "domain": "loop",
+    "aliases": [
+      "completion evidence",
+      "成功证据"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::14",
+      "Q::01_基础架构/Agent基础与架构.md::31",
+      "Q::01_基础架构/Agent基础与架构.md::37"
+    ]
+  },
+  {
+    "id": "LOOP-009",
+    "canonical_name": "计划失效与局部重规划",
+    "definition": "以事实变化触发带版本和原因的局部计划调整，限制重规划次数以避免路线震荡。",
+    "domain": "loop",
+    "aliases": [
+      "replanning",
+      "计划震荡"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::15",
+      "Q::01_基础架构/Agent基础与架构.md::17"
+    ]
+  },
+  {
+    "id": "LOOP-010",
+    "canonical_name": "重复动作与无进展检测",
+    "definition": "通过规范化动作、结果摘要、状态版本和目标进展识别循环并改变策略或停止。",
+    "domain": "loop",
+    "aliases": [
+      "no-progress detection",
+      "循环检测"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::16"
+    ]
+  },
+  {
+    "id": "LOOP-011",
+    "canonical_name": "任务级多维硬预算",
+    "definition": "在模型和工具执行前约束步数、时间、Token、费用、并发和输出量，并使子任务消耗受父预算约束。",
+    "domain": "loop",
+    "aliases": [
+      "execution budget",
+      "运行预算"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::19",
+      "Q::01_基础架构/Agent基础与架构.md::36"
+    ]
+  },
+  {
+    "id": "TOOL-001",
+    "canonical_name": "副作用幂等执行",
+    "definition": "以稳定幂等键和执行记录确保同一业务动作的重复请求不会重复产生外部效果。",
+    "domain": "tool",
+    "aliases": [
+      "tool idempotency",
+      "工具幂等"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::16"
+    ]
+  },
+  {
+    "id": "TOOL-002",
+    "canonical_name": "未知副作用对账",
+    "definition": "调用超时或失联时先查询外部事实和对账，再决定补偿或重试，避免重复执行。",
+    "domain": "tool",
+    "aliases": [
+      "unknown side-effect reconciliation",
+      "未知结果对账"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::17",
+      "Q::01_基础架构/Agent基础与架构.md::25"
+    ]
+  },
+  {
+    "id": "MULTI-001",
+    "canonical_name": "子任务职责与合同边界",
+    "definition": "根据独立目标、权限、数据域、验收和并发性划分子任务，明确输入输出、预算与失败语义。",
+    "domain": "multi",
+    "aliases": [
+      "subtask contract",
+      "Agent 拆分"
+    ],
+    "status": "active",
+    "canonical_owner": "05",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::20",
+      "Q::01_基础架构/Agent基础与架构.md::21"
+    ]
+  },
+  {
+    "id": "ARCH-002",
+    "canonical_name": "平台通用约束与业务声明分离",
+    "definition": "平台统一提供身份、运行时、工具网关、状态和评测能力，业务仅声明任务和验收合同。",
+    "domain": "arch",
+    "aliases": [
+      "Agent platform layering"
+    ],
+    "status": "active",
+    "canonical_owner": "09",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::23"
+    ]
+  },
+  {
+    "id": "DUR-001",
+    "canonical_name": "跨进程持久任务状态机",
+    "definition": "把长任务从进程内循环提升为持久状态和调度驱动的执行，使等待、重启后可以恢复。",
+    "domain": "dur",
+    "aliases": [
+      "Durable Execution",
+      "持久执行"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::24"
+    ]
+  },
+  {
+    "id": "REL-001",
+    "canonical_name": "按错误语义选择恢复动作",
+    "definition": "区分暂时故障、未知结果、权限拒绝和不可恢复错误，再选择限次重试、对账、降级或终止。",
+    "domain": "rel",
+    "aliases": [
+      "错误分类恢复"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::25"
+    ]
+  },
+  {
+    "id": "MODEL-002",
+    "canonical_name": "能力与合同约束的模型路由",
+    "definition": "按任务能力、风险、延迟和成本选择模型，回退仅限输入输出及安全合同兼容的模型。",
+    "domain": "model",
+    "aliases": [
+      "model routing",
+      "model fallback"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::26"
+    ]
+  },
+  {
+    "id": "ARCH-003",
+    "canonical_name": "存量系统渐进接入",
+    "definition": "先旁路只读验证再审批写入和灰度放量，复用现有 API 与权限并提供回滚和对账。",
+    "domain": "arch",
+    "aliases": [
+      "incremental Agent adoption"
+    ],
+    "status": "active",
+    "canonical_owner": "09",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::27"
+    ]
+  },
+  {
+    "id": "ARCH-004",
+    "canonical_name": "业务目标到任务合同的分解",
+    "definition": "将业务目标转换为可观察结果、允许副作用、错误成本、性能约束与人工兜底。",
+    "domain": "arch",
+    "aliases": [
+      "task contract"
+    ],
+    "status": "active",
+    "canonical_owner": "09",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::6",
+      "Q::01_基础架构/Agent基础与架构.md::28"
+    ]
+  },
+  {
+    "id": "CODE-001",
+    "canonical_name": "受限工作区内的补丁与验证闭环",
+    "definition": "定位仓库证据后生成小范围补丁，在受限环境执行检查并据错误修复，保留用户改动。",
+    "domain": "code",
+    "aliases": [
+      "coding execution loop"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::30"
+    ]
+  },
+  {
+    "id": "STATE-001",
+    "canonical_name": "运行事实与模型视图分离",
+    "definition": "State 保存程序事实，Context 是选择后的输入，ModelResult 是提案，Trace 是事件记录，各自独立维护。",
+    "domain": "state",
+    "aliases": [
+      "State Context ModelResult Trace"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::01_基础架构/Agent基础与架构.md::34",
+      "Q::01_基础架构/Agent基础与架构.md::35"
+    ]
+  },
+  {
+    "id": "PROMPT-001",
+    "canonical_name": "任务提示模板的字段合同",
+    "definition": "用角色、目标、输入、工具、约束、输出和终止条件组成带类型与默认值的可验证提示模板。",
+    "domain": "prompt",
+    "aliases": [
+      "prompt template"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::1",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::3"
+    ]
+  },
+  {
+    "id": "PROMPT-002",
+    "canonical_name": "指令层级与外部数据分区",
+    "definition": "区分系统规则、用户目标、能力描述和检索事实的职责与优先级，外部数据不能取得指令地位。",
+    "domain": "prompt",
+    "aliases": [
+      "instruction hierarchy"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::2",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::4",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::31"
+    ]
+  },
+  {
+    "id": "PROMPT-003",
+    "canonical_name": "能力描述的可判别边界",
+    "definition": "以互斥适用条件、输入输出及不适用示例区分工具或 Skill，降低能力选择歧义。",
+    "domain": "prompt",
+    "aliases": [
+      "Skill Description",
+      "工具描述消歧"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::5",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::15",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::29"
+    ]
+  },
+  {
+    "id": "PROMPT-004",
+    "canonical_name": "示例驱动的格式与边界约束",
+    "definition": "利用少量高质量正负例表达稳定格式和边界，并评测示例占用预算及过拟合影响。",
+    "domain": "prompt",
+    "aliases": [
+      "Few-shot"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::6"
+    ]
+  },
+  {
+    "id": "PROMPT-005",
+    "canonical_name": "结构化输出与业务校验",
+    "definition": "用 Schema 或 Grammar 约束格式，再校验字段与业务规则并限次修复；格式正确不代表事实或授权正确。",
+    "domain": "prompt",
+    "aliases": [
+      "structured output",
+      "JSON Schema 校验"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::7",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::8"
+    ]
+  },
+  {
+    "id": "PROMPT-006",
+    "canonical_name": "提示版本的分桶回归",
+    "definition": "固定任务、难度、长度和风险分桶比较提示改动，识别此消彼长并设置长尾门槛。",
+    "domain": "prompt",
+    "aliases": [
+      "prompt regression"
+    ],
+    "status": "needs_review",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::9",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::10",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::32"
+    ],
+    "candidate_existing_atoms": [
+      "EVAL-001",
+      "DATA-001",
+      "EVAL-022"
+    ],
+    "review_reason": "定义中的固定任务、分桶比较及长尾门槛可能已由通用实验、数据切片和发布门禁表达。Phase 3 核对来源题9、10、32的完整答案合同后决定复用组合还是收窄为提示规则冲突；当前不创建额外同义原子。"
+  },
+  {
+    "id": "MODEL-003",
+    "canonical_name": "按失败类型选择模型干预",
+    "definition": "区分格式、流程、采样随机性和能力缺口，以评测决定约束、参数、换模型或稳定任务上的微调。",
+    "domain": "model",
+    "aliases": [
+      "Prompt versus SFT"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::11"
+    ]
+  },
+  {
+    "id": "PROV-001",
+    "canonical_name": "Provider 无关任务合同与薄适配",
+    "definition": "保留统一任务语义，以适配层转换不同模型的角色、工具格式、参数与错误限制。",
+    "domain": "prov",
+    "aliases": [
+      "provider adapter"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::12"
+    ]
+  },
+  {
+    "id": "CTX-001",
+    "canonical_name": "运行时上下文工作集组装",
+    "definition": "为当前任务选择最相关可信的信息，把规则、状态、能力、执行信息和外部证据分区组装。",
+    "domain": "ctx",
+    "aliases": [
+      "Context Engineering",
+      "context working set"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::13",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14"
+    ]
+  },
+  {
+    "id": "CTX-002",
+    "canonical_name": "能力目录检索与按需展开",
+    "definition": "先提供轻量能力索引或小候选集，确定需要后再加载完整说明和 Schema，以减少上下文消耗。",
+    "domain": "ctx",
+    "aliases": [
+      "progressive disclosure",
+      "渐进式披露"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::15"
+    ]
+  },
+  {
+    "id": "CTX-003",
+    "canonical_name": "上下文分区配额",
+    "definition": "为规则、任务、工具、历史、检索及输出预留窗口额度，按优先级动态分配与裁剪。",
+    "domain": "ctx",
+    "aliases": [
+      "context token budget"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::18",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::30"
+    ]
+  },
+  {
+    "id": "CTX-004",
+    "canonical_name": "可恢复的上下文压缩",
+    "definition": "移除低相关重复内容，把历史压缩为保留事实、约束、未完成项与来源的结构化摘要或引用。",
+    "domain": "ctx",
+    "aliases": [
+      "context compaction",
+      "结构化摘要"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::19",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::20"
+    ]
+  },
+  {
+    "id": "MEM-001",
+    "canonical_name": "事实冲突与用户纠正",
+    "definition": "按来源权威性、用户纠正、时间和业务状态处理冲突，保留旧值失效记录并在必要时查证。",
+    "domain": "mem",
+    "aliases": [
+      "memory conflict",
+      "事实纠正"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::21"
+    ]
+  },
+  {
+    "id": "CTX-005",
+    "canonical_name": "查询意图保持与多维改写",
+    "definition": "把口语、指代和多意图请求转为可追踪结构化查询，按实体、时间和权限拆分并限制扩展数量。",
+    "domain": "ctx",
+    "aliases": [
+      "query rewriting",
+      "查询改写"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::22",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::23"
+    ]
+  },
+  {
+    "id": "CTX-006",
+    "canonical_name": "最小槽位澄清",
+    "definition": "根据任务所缺关键字段和风险优先提出少量可回答问题，以最小交互补齐执行前提。",
+    "domain": "ctx",
+    "aliases": [
+      "clarification",
+      "槽位补全"
+    ],
+    "status": "active",
+    "canonical_owner": "02",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::24",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::25"
+    ]
+  },
+  {
+    "id": "STATE-002",
+    "canonical_name": "多轮输入的任务归属与目标变更",
+    "definition": "区分新任务、补充与纠正，目标改变时暂停旧计划，保留已发生动作并更新状态和剩余预算。",
+    "domain": "state",
+    "aliases": [
+      "goal change event",
+      "任务切换"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::17",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::26"
+    ]
+  },
+  {
+    "id": "SEC-002",
+    "canonical_name": "输入大小与敏感数据预处理",
+    "definition": "在进入模型工作集前限制长度、规范化与去重输入，并处理敏感信息和矛盾字段。",
+    "domain": "sec",
+    "aliases": [
+      "input sanitization"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28"
+    ]
+  },
+  {
+    "id": "MEM-002",
+    "canonical_name": "短期会话记忆",
+    "definition": "保存当前对话窗口内近期交互信息，生命周期受会话与上下文容量约束。",
+    "domain": "mem",
+    "aliases": [
+      "short-term memory"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::1"
+    ]
+  },
+  {
+    "id": "MEM-003",
+    "canonical_name": "长期事实与偏好记忆",
+    "definition": "保存跨时间稳定的用户事实和偏好，供后续任务在授权范围内复用。",
+    "domain": "mem",
+    "aliases": [
+      "long-term memory"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::1",
+      "Q::03_Memory与状态/Memory与State.md::4"
+    ]
+  },
+  {
+    "id": "MEM-004",
+    "canonical_name": "任务记忆",
+    "definition": "保存特定任务的目标、计划和中间产出，随任务进展维护而非作为通用用户偏好。",
+    "domain": "mem",
+    "aliases": [
+      "task memory"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::1"
+    ]
+  },
+  {
+    "id": "MEM-005",
+    "canonical_name": "当前推理工作记忆",
+    "definition": "承载当前一轮推理所需的临时变量和即时工作信息。",
+    "domain": "mem",
+    "aliases": [
+      "working memory"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::1"
+    ]
+  },
+  {
+    "id": "MEM-006",
+    "canonical_name": "跨会话持久化与恢复",
+    "definition": "在会话之间保存经授权的有用信息，并按用户、用途与时间范围恢复。",
+    "domain": "mem",
+    "aliases": [
+      "cross-session persistence",
+      "跨 Session 记忆"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::5"
+    ]
+  },
+  {
+    "id": "MEM-007",
+    "canonical_name": "记忆写入筛选与可信度",
+    "definition": "在写入前检查授权、稳定性、来源与置信度，不把模型猜测直接固化为用户事实。",
+    "domain": "mem",
+    "aliases": [
+      "memory write filtering"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::3",
+      "Q::03_Memory与状态/Memory与State.md::14",
+      "Q::03_Memory与状态/Memory与State.md::18"
+    ]
+  },
+  {
+    "id": "MEM-008",
+    "canonical_name": "记忆同步与异步写回",
+    "definition": "根据事实类型选择实时、任务结束或异步写回，并保证校验、幂等与失败可追踪。",
+    "domain": "mem",
+    "aliases": [
+      "memory write scheduling"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::8"
+    ]
+  },
+  {
+    "id": "MEM-009",
+    "canonical_name": "带权限与新鲜度的记忆召回",
+    "definition": "按任务需要检索记忆，先限定访问范围，再按相关性、时间和可信来源召回重排。",
+    "domain": "mem",
+    "aliases": [
+      "memory retrieval"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::9",
+      "Q::03_Memory与状态/Memory与State.md::10",
+      "Q::03_Memory与状态/Memory与State.md::11"
+    ]
+  },
+  {
+    "id": "MEM-010",
+    "canonical_name": "记忆事实主存储与文本引用",
+    "definition": "可验证字段以结构化记录为主，解释性文本保留引用，通过实体去重和版本关联避免双份事实。",
+    "domain": "mem",
+    "aliases": [
+      "memory canonical storage"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::12"
+    ]
+  },
+  {
+    "id": "MEM-011",
+    "canonical_name": "记忆失效与删除传播",
+    "definition": "撤销或删除记忆时同步更新索引、缓存、引用和恢复路径，防止旧事实再次进入当前任务。",
+    "domain": "mem",
+    "aliases": [
+      "memory deletion propagation"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::15",
+      "Q::03_Memory与状态/Memory与State.md::31",
+      "Q::03_Memory与状态/Memory与State.md::33"
+    ]
+  },
+  {
+    "id": "MEM-012",
+    "canonical_name": "记忆生命周期与时间衰减",
+    "definition": "按记忆类型、确认时间、使用及错误率调整有效性，过期后重确认或降级而非暗改事实。",
+    "domain": "mem",
+    "aliases": [
+      "memory decay",
+      "记忆遗忘"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::17"
+    ]
+  },
+  {
+    "id": "MEM-013",
+    "canonical_name": "记忆收益与风险评测",
+    "definition": "用有无记忆对照、写入召回质量、纠正删除与越权案例衡量记忆的净收益。",
+    "domain": "mem",
+    "aliases": [
+      "memory evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::13",
+      "Q::03_Memory与状态/Memory与State.md::19",
+      "Q::03_Memory与状态/Memory与State.md::33"
+    ]
+  },
+  {
+    "id": "MEM-014",
+    "canonical_name": "个性化记忆与外部知识及业务事实的边界",
+    "definition": "记忆维护用户或任务信息，RAG 访问外部知识，权威业务状态仍由业务存储维护。",
+    "domain": "mem",
+    "aliases": [
+      "Memory vs RAG",
+      "记忆与数据库边界"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::6",
+      "Q::03_Memory与状态/Memory与State.md::7"
+    ]
+  },
+  {
+    "id": "STATE-003",
+    "canonical_name": "状态字段所有权与版本化迁移",
+    "definition": "定义运行状态 Schema、字段读写主体和版本，结构升级需明确迁移与兼容策略。",
+    "domain": "state",
+    "aliases": [
+      "State Schema",
+      "state ownership"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::20",
+      "Q::03_Memory与状态/Memory与State.md::22",
+      "Q::03_Memory与状态/Memory与State.md::25"
+    ]
+  },
+  {
+    "id": "STATE-004",
+    "canonical_name": "并发写集隔离与确定性合并",
+    "definition": "通过命名空间、版本校验、串行化或事务管理并发状态更新，冲突由确定性规则处理。",
+    "domain": "state",
+    "aliases": [
+      "state concurrency",
+      "乐观锁状态合并"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::21",
+      "Q::03_Memory与状态/Memory与State.md::23",
+      "Q::03_Memory与状态/Memory与State.md::29"
+    ]
+  },
+  {
+    "id": "STATE-005",
+    "canonical_name": "不可变事件重建状态",
+    "definition": "保存有序不可变事件并通过确定的投影逻辑重建运行状态，以支持审计和回放。",
+    "domain": "state",
+    "aliases": [
+      "event sourcing",
+      "事件溯源"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::23"
+    ]
+  },
+  {
+    "id": "STATE-006",
+    "canonical_name": "持久检查点",
+    "definition": "保存明确执行边界处的状态快照与版本，作为恢复的已知起点，区别于当前上下文摘要。",
+    "domain": "state",
+    "aliases": [
+      "Checkpoint"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::24",
+      "Q::03_Memory与状态/Memory与State.md::32"
+    ]
+  },
+  {
+    "id": "STATE-007",
+    "canonical_name": "运行热状态与历史大对象分离",
+    "definition": "当前 State 仅保存可执行状态、必要摘要及引用，历史和原始大对象归档并保留恢复证据。",
+    "domain": "state",
+    "aliases": [
+      "state archival"
+    ],
+    "status": "active",
+    "canonical_owner": "03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::4",
+      "Q::03_Memory与状态/Memory与State.md::28"
+    ]
+  },
+  {
+    "id": "SEC-003",
+    "canonical_name": "上下文字段最小暴露",
+    "definition": "按字段 allowlist 向模型提供最少必要状态，隐藏 Secret、权限决策和内部审计内容。",
+    "domain": "sec",
+    "aliases": [
+      "context data minimization"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::25",
+      "Q::03_Memory与状态/Memory与State.md::26"
+    ]
+  },
+  {
+    "id": "SEC-004",
+    "canonical_name": "跨存储链路的租户与角色隔离",
+    "definition": "使查询、索引、缓存、异步 Worker 和审计继承可信主体范围，跨角色或租户共享需显式授权。",
+    "domain": "sec",
+    "aliases": [
+      "tenant isolation",
+      "角色记忆隔离"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::27",
+      "Q::03_Memory与状态/Memory与State.md::30"
+    ]
+  },
+  {
+    "id": "DUR-002",
+    "canonical_name": "恢复前版本与副作用核验",
+    "definition": "接管持久任务后验证检查点及代码、工具、策略兼容性，并对账未决动作后从安全边界继续。",
+    "domain": "dur",
+    "aliases": [
+      "crash recovery preconditions"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::03_Memory与状态/Memory与State.md::24",
+      "Q::03_Memory与状态/Memory与State.md::32"
+    ]
+  },
+  {
+    "id": "TOOL-003",
+    "canonical_name": "工具调用与结果关联合同",
+    "definition": "模型提出结构化工具调用，宿主执行并以调用 ID 关联结果，保持跨轮消息配对和可追踪性。",
+    "domain": "tool",
+    "aliases": [
+      "Function Calling",
+      "ToolCall ToolResult"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::6",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::27"
+    ]
+  },
+  {
+    "id": "TOOL-004",
+    "canonical_name": "工具注册与版本化接口合同",
+    "definition": "工具目录集中定义名称、版本、输入输出、错误、风险、资源范围及执行限制，缺少处理或策略时拒绝注册。",
+    "domain": "tool",
+    "aliases": [
+      "Tool Registry",
+      "tool contract"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::3",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::16",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::23",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::39"
+    ]
+  },
+  {
+    "id": "TOOL-005",
+    "canonical_name": "工具返回量控制与证据引用",
+    "definition": "通过过滤、分页、字段投影和带游标引用控制结果大小，并标明截断以保留关键证据可访问性。",
+    "domain": "tool",
+    "aliases": [
+      "tool result pagination"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::7",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::44"
+    ]
+  },
+  {
+    "id": "SEC-005",
+    "canonical_name": "精确动作审批与时效校验",
+    "definition": "审批绑定主体、工具版本、规范化参数、目标版本及预览摘要，执行前复核并一次性消费授权。",
+    "domain": "sec",
+    "aliases": [
+      "action approval",
+      "审批 TOCTOU"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::9",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::42"
+    ]
+  },
+  {
+    "id": "TOOL-006",
+    "canonical_name": "部分副作用补偿",
+    "definition": "区分可逆动作回滚与不可逆业务补偿，对部分完成记录逐项效果并提供恢复或人工处理。",
+    "domain": "tool",
+    "aliases": [
+      "compensation",
+      "副作用补偿"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::42"
+    ]
+  },
+  {
+    "id": "REL-002",
+    "canonical_name": "有界退避重试与熔断",
+    "definition": "仅对可重试且幂等的暂时故障限次退避，连续失败时熔断或降级以限制故障放大。",
+    "domain": "rel",
+    "aliases": [
+      "retry backoff",
+      "circuit breaker"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::29"
+    ]
+  },
+  {
+    "id": "TOOL-007",
+    "canonical_name": "工具观察的来源与完整性验证",
+    "definition": "按调用、资源版本、时效、完整性及业务证据验证返回值，外部文本仍不能改写系统权限。",
+    "domain": "tool",
+    "aliases": [
+      "tool result trust"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::15",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::41",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::44"
+    ]
+  },
+  {
+    "id": "SEC-006",
+    "canonical_name": "能力可见性与运行时授权分离",
+    "definition": "能力目录仅说明能做什么，每次执行仍须依据真实主体、资源、动作和当前策略决定是否允许。",
+    "domain": "sec",
+    "aliases": [
+      "capability vs permission"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::16",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::28",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::40"
+    ]
+  },
+  {
+    "id": "TOOL-008",
+    "canonical_name": "依赖约束的并行工具调度",
+    "definition": "仅并行无冲突调用，记录独立调用 ID、依赖、稳定聚合顺序与部分失败语义。",
+    "domain": "tool",
+    "aliases": [
+      "parallel tool calling"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::19",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::36",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::45"
+    ]
+  },
+  {
+    "id": "MCP-001",
+    "canonical_name": "跨宿主能力发现与调用协议",
+    "definition": "通过 Host、Client、Server 边界标准化发现和调用外部工具、资源及提示模板，不替代业务授权或运行循环。",
+    "domain": "mcp",
+    "aliases": [
+      "MCP",
+      "Model Context Protocol"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::20",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::21",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::24",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::27"
+    ]
+  },
+  {
+    "id": "MCP-002",
+    "canonical_name": "工具、资源与提示模板三类能力",
+    "definition": "Tools 表示动作、Resources 表示可读资源、Prompts 表示可复用模板，发现列表仍由宿主按策略筛选。",
+    "domain": "mcp",
+    "aliases": [
+      "MCP capability types"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::22"
+    ]
+  },
+  {
+    "id": "MCP-003",
+    "canonical_name": "远程流式传输与会话语义",
+    "definition": "区分单向事件推送与协议请求响应和会话传输，依据协议版本及双方能力选择承载方式。",
+    "domain": "mcp",
+    "aliases": [
+      "SSE vs Streamable HTTP"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::25"
+    ]
+  },
+  {
+    "id": "MCP-004",
+    "canonical_name": "调用进度流与最终结果分离",
+    "definition": "客户端关联增量事件、限速和拼接，用户可见进度与供模型决策的最终结构化结果分别处理。",
+    "domain": "mcp",
+    "aliases": [
+      "MCP progress streaming"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::26"
+    ]
+  },
+  {
+    "id": "TOOL-009",
+    "canonical_name": "端到端取消传播",
+    "definition": "把调用取消传到客户端、网络、服务端及实际执行任务，无法确认停止时保留未知状态并对账。",
+    "domain": "tool",
+    "aliases": [
+      "cancellation propagation"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::29",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::36"
+    ]
+  },
+  {
+    "id": "A2A-001",
+    "canonical_name": "跨系统 Agent 任务委派协议",
+    "definition": "标准化跨 Agent 能力发现、任务委派及状态结果交换，适用于独立自治任务而非普通函数调用。",
+    "domain": "a2a",
+    "aliases": [
+      "A2A",
+      "Agent-to-Agent"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::30",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::31"
+    ]
+  },
+  {
+    "id": "PROTO-001",
+    "canonical_name": "协议能力协商与向后兼容",
+    "definition": "用语言无关合同、版本协商、可选字段和契约回归保证跨客户端兼容，并记录实际版本。",
+    "domain": "proto",
+    "aliases": [
+      "protocol compatibility",
+      "capability negotiation"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::32",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::33",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::46"
+    ]
+  },
+  {
+    "id": "TOOL-010",
+    "canonical_name": "单一受控工具执行通道",
+    "definition": "把注册表查找、参数校验、事实采集、策略审批、执行与记录收敛到不可绕过的通道。",
+    "domain": "tool",
+    "aliases": [
+      "tool gateway",
+      "single execution path"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::38",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::42"
+    ]
+  },
+  {
+    "id": "TOOL-011",
+    "canonical_name": "结构化工具错误封装",
+    "definition": "在执行边界把异常映射为可恢复分类的 Tool Result，脱敏内部细节并保留关联标识。",
+    "domain": "tool",
+    "aliases": [
+      "structured tool error"
+    ],
+    "status": "active",
+    "canonical_owner": "04",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::11",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::43"
+    ]
+  },
+  {
+    "id": "TRACE-001",
+    "canonical_name": "可审计工具调用事件",
+    "definition": "记录调用及任务 ID、版本、主体范围、参数摘要、策略审批、时间、结果类别和证据引用。",
+    "domain": "trace",
+    "aliases": [
+      "tool audit record"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::47"
+    ]
+  },
+  {
+    "id": "LOOP-012",
+    "canonical_name": "Session 与 Turn 的运行边界",
+    "definition": "Session 承载长期任务容器，Turn 表示一次上下文、模型调用和结果处理的可提交推进单元。",
+    "domain": "loop",
+    "aliases": [
+      "LoopSession",
+      "LoopTurn"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::1",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::2"
+    ]
+  },
+  {
+    "id": "LOOP-013",
+    "canonical_name": "运行中的控制事件注入",
+    "definition": "明确 steering、followup 和 interrupt 的插入边界、未提交输出处理及正在执行动作的状态。",
+    "domain": "loop",
+    "aliases": [
+      "steering",
+      "followup",
+      "interrupt"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::3",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::8"
+    ]
+  },
+  {
+    "id": "LOOP-014",
+    "canonical_name": "循环阶段确定性中间件",
+    "definition": "在模型调用前、工具执行前后及回合结束插入代码钩子以强制校验、预算、记录和状态更新。",
+    "domain": "loop",
+    "aliases": [
+      "PreTurn MidTurn PostTurn",
+      "Loop Middleware"
+    ],
+    "status": "active",
+    "canonical_owner": "01",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::4"
+    ]
+  },
+  {
+    "id": "DUR-003",
+    "canonical_name": "显式暂停恢复与持久等待",
+    "definition": "区分停在检查点后的显式恢复和等待外部事件的任务状态，两者均需持久化并安全释放或管理资源。",
+    "domain": "dur",
+    "aliases": [
+      "Stop-Resume",
+      "Hang-Wait"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::5"
+    ]
+  },
+  {
+    "id": "MULTI-002",
+    "canonical_name": "中心调度与对等协作拓扑",
+    "definition": "根据责任、通信和故障成本选择 Leader-Workers、持续 Supervisor 或 Peer-to-Peer 协作。",
+    "domain": "multi",
+    "aliases": [
+      "Supervisor",
+      "Leader-and-Workers",
+      "Peer-to-Peer"
+    ],
+    "status": "active",
+    "canonical_owner": "05",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::7"
+    ]
+  },
+  {
+    "id": "MULTI-003",
+    "canonical_name": "消息、共享状态与事件通信",
+    "definition": "按一致性、实时性和审计需求选择请求消息、受控共享状态、黑板或事件总线。",
+    "domain": "multi",
+    "aliases": [
+      "Agent communication",
+      "blackboard"
+    ],
+    "status": "active",
+    "canonical_owner": "05",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::4"
+    ]
+  },
+  {
+    "id": "MULTI-004",
+    "canonical_name": "子结果证据聚合与冲突仲裁",
+    "definition": "父节点验证子结果来源、版本、范围和验收证据，通过确定性规则聚合，不能判定时保留冲突并升级。",
+    "domain": "multi",
+    "aliases": [
+      "multi-agent result aggregation"
+    ],
+    "status": "active",
+    "canonical_owner": "05",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::24"
+    ]
+  },
+  {
+    "id": "MULTI-005",
+    "canonical_name": "委派深度与通信放大控制",
+    "definition": "以任务 ID、增量消息、最小上下文、最大深度和并发预算限制重复委托、扇出和尾延迟。",
+    "domain": "multi",
+    "aliases": [
+      "delegation limits",
+      "fan-out control"
+    ],
+    "status": "active",
+    "canonical_owner": "05",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::12",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::9"
+    ]
+  },
+  {
+    "id": "MULTI-006",
+    "canonical_name": "控制权交接与子 Agent 工具调用",
+    "definition": "Handoff 转移后续控制权；Agent as Tool 保留调用方主流程，仅返回合同约束的子任务结果。",
+    "domain": "multi",
+    "aliases": [
+      "Agent Handoff",
+      "Agent as Tool"
+    ],
+    "status": "active",
+    "canonical_owner": "05",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::16",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::8"
+    ]
+  },
+  {
+    "id": "HARNESS-001",
+    "canonical_name": "运行控制面与执行环境分离",
+    "definition": "Harness 用确定性控制面协调上下文、状态和约束，执行面提供工具与环境并强制落实权限。",
+    "domain": "harness",
+    "aliases": [
+      "Harness control plane",
+      "Harness execution plane"
+    ],
+    "status": "active",
+    "canonical_owner": "05",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::11",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::13",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::14"
+    ]
+  },
+  {
+    "id": "HARNESS-002",
+    "canonical_name": "步骤前后条件与证据门禁",
+    "definition": "把取数、分析和结论等步骤建成带前置条件与验收函数的状态转移，后续只能消费验证后的字段。",
+    "domain": "harness",
+    "aliases": [
+      "step verification gates"
+    ],
+    "status": "active",
+    "canonical_owner": "05",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::16",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::17",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::18",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::20"
+    ]
+  },
+  {
+    "id": "SANDBOX-001",
+    "canonical_name": "执行环境资源与出站隔离",
+    "definition": "限定工作区、命令、网络、浏览器身份和进程资源，使工具执行受操作系统或隔离环境约束。",
+    "domain": "sandbox",
+    "aliases": [
+      "Sandbox permissions"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::12",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::13"
+    ]
+  },
+  {
+    "id": "SANDBOX-002",
+    "canonical_name": "隔离环境启动、快照与回收",
+    "definition": "在冷启动、恢复、快照和空闲保留之间权衡延迟与容量，处理残留数据、凭证和依赖再验证。",
+    "domain": "sandbox",
+    "aliases": [
+      "sandbox lifecycle"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::13",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::15"
+    ]
+  },
+  {
+    "id": "SKILL-001",
+    "canonical_name": "可加载能力流程资产",
+    "definition": "将触发边界、输入输出、步骤、依赖和退出条件组织为可版本化能力包，区别于独立 Agent 生命周期。",
+    "domain": "skill",
+    "aliases": [
+      "Skill asset"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::2",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6"
+    ]
+  },
+  {
+    "id": "SKILL-002",
+    "canonical_name": "Skill 嵌套与参数作用域",
+    "definition": "复用参数化子流程时限定依赖、递归深度、预算与参数 Schema，子能力不得自行扩大授权。",
+    "domain": "skill",
+    "aliases": [
+      "nested skills",
+      "parameterized skills"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::4"
+    ]
+  },
+  {
+    "id": "SKILL-003",
+    "canonical_name": "Skill 版本依赖与完整卸载",
+    "definition": "跟踪说明、工具、脚本和评测的兼容版本，加载检查依赖，卸载清除映射、进程、缓存与残留上下文。",
+    "domain": "skill",
+    "aliases": [
+      "Skill lifecycle",
+      "Skill unloading"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::14",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::5"
+    ]
+  },
+  {
+    "id": "SKILL-004",
+    "canonical_name": "Skill 生命周期评测",
+    "definition": "覆盖触发与误触发、选择混淆、加载开销、任务执行和卸载残留，并验证权限和版本边界。",
+    "domain": "skill",
+    "aliases": [
+      "Skill evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::11"
+    ]
+  },
+  {
+    "id": "SKILL-005",
+    "canonical_name": "反馈驱动能力变更的审核发布",
+    "definition": "把轨迹和反馈转换为候选能力变更，经脱敏、来源核查、隐藏集评测和灰度后发布且不自动增权。",
+    "domain": "skill",
+    "aliases": [
+      "Skill self-improvement"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::12"
+    ]
+  },
+  {
+    "id": "IDENT-001",
+    "canonical_name": "委托链的最小权限身份传播",
+    "definition": "用带期限和 Scope 的子身份传递原始用户与实际执行者，每次工具调用重新授权，禁止父权限全量继承。",
+    "domain": "ident",
+    "aliases": [
+      "delegated identity",
+      "委托身份链"
+    ],
+    "status": "active",
+    "canonical_owner": "12/05",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::8",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::8",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::10"
+    ]
+  },
+  {
+    "id": "CACHE-001",
+    "canonical_name": "权限与版本绑定的结果缓存",
+    "definition": "仅复用输入、模型、数据、权限与新鲜度兼容的纯读或计算结果，缓存不替代业务副作用执行。",
+    "domain": "cache",
+    "aliases": [
+      "safe result caching"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::23"
+    ]
+  },
+  {
+    "id": "EVAL-001",
+    "canonical_name": "固定基线与组件消融",
+    "definition": "在相同任务、预算和环境下移除或替换组件，分桶比较成功、安全、成本与延迟以证明增量收益。",
+    "domain": "eval",
+    "aliases": [
+      "ablation",
+      "消融实验"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::24",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::1",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::22"
+    ]
+  },
+  {
+    "id": "TRACE-002",
+    "canonical_name": "完整运行轨迹与上下文版本",
+    "definition": "记录每轮输入来源与裁剪、模型决策、状态、工具、策略、验证、消耗和停止原因以重建执行经过。",
+    "domain": "trace",
+    "aliases": [
+      "Agent Trace"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::6",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21"
+    ]
+  },
+  {
+    "id": "REPLAY-001",
+    "canonical_name": "冻结响应的无副作用回放",
+    "definition": "固定模型响应、工具 Fixture、输入及版本重放控制逻辑，使调试不再触发真实写操作。",
+    "domain": "replay",
+    "aliases": [
+      "safe trace replay"
+    ],
+    "status": "active",
+    "canonical_owner": "12/08",
+    "source_question_ids": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::11",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21"
+    ]
+  },
+  {
+    "id": "RAG-001",
+    "canonical_name": "检索增强生成的离线在线分工",
+    "definition": "离线解析和建索引，在线按权限检索并组装证据生成答案，同时维护引用、版本与失败处理。",
+    "domain": "rag",
+    "aliases": [
+      "retrieval augmented generation"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::1"
+    ]
+  },
+  {
+    "id": "RAG-002",
+    "canonical_name": "文档切块与父子上下文",
+    "definition": "按固定长度、结构或语义边界切块，以小块检索和父块补全平衡召回粒度与上下文完整性。",
+    "domain": "rag",
+    "aliases": [
+      "chunking",
+      "parent-child chunks"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::2",
+      "Q::06_RAG与知识库/RAG与检索.md::3"
+    ]
+  },
+  {
+    "id": "INGEST-001",
+    "canonical_name": "结构与位置可追溯的文档解析",
+    "definition": "解析保留标题树、表格、脚注、页码坐标、父子关系和片段 ID，使证据能反查原文位置。",
+    "domain": "ingest",
+    "aliases": [
+      "document parsing provenance"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::4",
+      "Q::06_RAG与知识库/RAG与检索.md::6",
+      "Q::06_RAG与知识库/RAG与检索.md::25"
+    ]
+  },
+  {
+    "id": "RAG-003",
+    "canonical_name": "结构化与非结构化数据源协同",
+    "definition": "按问题类型选择受限 SQL/API 或文档检索，在统一证据合同下合并结果。",
+    "domain": "rag",
+    "aliases": [
+      "SQL and document retrieval"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::5"
+    ]
+  },
+  {
+    "id": "RAG-004",
+    "canonical_name": "词面稀有词召回",
+    "definition": "利用词项匹配与统计权重召回编号、专名和精确关键词证据。",
+    "domain": "rag",
+    "aliases": [
+      "BM25",
+      "lexical retrieval"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::7"
+    ]
+  },
+  {
+    "id": "RAG-005",
+    "canonical_name": "向量语义召回",
+    "definition": "用查询和文档的向量表示检索表达不同但语义相关的候选，不把相似度直接当事实正确性。",
+    "domain": "rag",
+    "aliases": [
+      "dense retrieval",
+      "vector retrieval"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::7"
+    ]
+  },
+  {
+    "id": "RAG-006",
+    "canonical_name": "多路召回融合",
+    "definition": "对词面和向量候选去重，以归一化分数、秩融合或学习排序合并并保留各路来源。",
+    "domain": "rag",
+    "aliases": [
+      "hybrid retrieval",
+      "Reciprocal Rank Fusion",
+      "RRF"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::7",
+      "Q::06_RAG与知识库/RAG与检索.md::8",
+      "Q::06_RAG与知识库/RAG与检索.md::9"
+    ]
+  },
+  {
+    "id": "RAG-007",
+    "canonical_name": "查询文档联合重排",
+    "definition": "在初召回后、上下文组装前使用查询与候选的联合相关性重新排序。",
+    "domain": "rag",
+    "aliases": [
+      "Rerank",
+      "Reranker"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::10",
+      "Q::06_RAG与知识库/RAG与检索.md::26"
+    ]
+  },
+  {
+    "id": "RAG-008",
+    "canonical_name": "证据数量与多样性预算",
+    "definition": "依据答案所需互补证据、召回收益、重复率和成本选择 TopK，结合阈值、MMR 与来源上限裁剪。",
+    "domain": "rag",
+    "aliases": [
+      "dynamic TopK",
+      "MMR",
+      "证据去重"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::11",
+      "Q::06_RAG与知识库/RAG与检索.md::12",
+      "Q::06_RAG与知识库/RAG与检索.md::13",
+      "Q::06_RAG与知识库/RAG与检索.md::14"
+    ]
+  },
+  {
+    "id": "RAG-009",
+    "canonical_name": "假设答案辅助召回",
+    "definition": "用假设答案的语义表示辅助检索，保留真实来源证据并评估新增噪声和调用成本。",
+    "domain": "rag",
+    "aliases": [
+      "HyDE"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::15"
+    ]
+  },
+  {
+    "id": "EVAL-002",
+    "canonical_name": "证据链分层故障归因",
+    "definition": "依次检查证据是否进入候选和上下文、是否被使用、推理是否正确及输出格式引用是否合格。",
+    "domain": "eval",
+    "aliases": [
+      "retrieval reading reasoning expression diagnosis"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::16",
+      "Q::06_RAG与知识库/RAG与检索.md::20",
+      "Q::06_RAG与知识库/RAG与检索.md::28"
+    ]
+  },
+  {
+    "id": "INGEST-002",
+    "canonical_name": "文档版本和删除权限事件传播",
+    "definition": "用版本事件驱动摄取、索引、缓存与引用失效，在线侧按当前有效版本与权限过滤。",
+    "domain": "ingest",
+    "aliases": [
+      "knowledge change propagation"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::17",
+      "Q::06_RAG与知识库/RAG与检索.md::27"
+    ]
+  },
+  {
+    "id": "INGEST-003",
+    "canonical_name": "增量索引与原子版本发布",
+    "definition": "按变更块重建受影响索引，通过双版本或原子切换发布并保留失败回退与查询版本。",
+    "domain": "ingest",
+    "aliases": [
+      "incremental indexing",
+      "index hot update"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::18"
+    ]
+  },
+  {
+    "id": "RAG-010",
+    "canonical_name": "召回前授权过滤与输出复核",
+    "definition": "由真实身份构造检索强制权限范围，输出前复核证据权限，避免无权内容进入候选及缓存。",
+    "domain": "rag",
+    "aliases": [
+      "retrieval ACL filtering"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::19",
+      "Q::06_RAG与知识库/RAG与检索.md::27"
+    ]
+  },
+  {
+    "id": "METRIC-001",
+    "canonical_name": "金标准证据召回率",
+    "definition": "衡量相关证据集合中被候选结果找回的比例，用于判断证据是否找全。",
+    "domain": "metric",
+    "aliases": [
+      "Recall",
+      "Recall@K"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::20",
+      "Q::06_RAG与知识库/RAG与检索.md::21"
+    ]
+  },
+  {
+    "id": "METRIC-002",
+    "canonical_name": "检索候选精确率",
+    "definition": "衡量返回候选中真正相关证据的比例，用于评估召回噪声。",
+    "domain": "metric",
+    "aliases": [
+      "Precision",
+      "Precision@K"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::21"
+    ]
+  },
+  {
+    "id": "METRIC-003",
+    "canonical_name": "首个相关结果倒数排名",
+    "definition": "以首个相关结果名次的倒数汇总排序质量，关注最先找到正确结果的位置。",
+    "domain": "metric",
+    "aliases": [
+      "MRR",
+      "Mean Reciprocal Rank"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::21"
+    ]
+  },
+  {
+    "id": "METRIC-004",
+    "canonical_name": "分级相关性的折损排序收益",
+    "definition": "按位置折损多级相关证据收益并归一化，衡量整体排序质量。",
+    "domain": "metric",
+    "aliases": [
+      "NDCG"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::21"
+    ]
+  },
+  {
+    "id": "METRIC-005",
+    "canonical_name": "上下文证据实际利用",
+    "definition": "衡量模型是否实际使用已召回并进入上下文的有效证据，而不是只统计调用检索次数。",
+    "domain": "metric",
+    "aliases": [
+      "context utilization"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::21",
+      "Q::06_RAG与知识库/RAG与检索.md::22"
+    ]
+  },
+  {
+    "id": "RAG-011",
+    "canonical_name": "按知识缺口触发检索",
+    "definition": "依据任务对实时或外部事实的需要选择检索，并限制数据源、次数和预算且验证证据覆盖。",
+    "domain": "rag",
+    "aliases": [
+      "retrieval routing"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::22"
+    ]
+  },
+  {
+    "id": "RAG-012",
+    "canonical_name": "结论与有效引用的支持关系",
+    "definition": "将最终具体结论映射到进入上下文且权限有效的文档版本和片段，验证引用确实支持该结论。",
+    "domain": "rag",
+    "aliases": [
+      "citation grounding"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::06_RAG与知识库/RAG与检索.md::23"
+    ]
+  },
+  {
+    "id": "REL-003",
+    "canonical_name": "证据不足时的拒答与人工升级",
+    "definition": "按证据、冲突和风险阈值进入可解释的拒答、补充信息或人工状态，而非在不确定时继续副作用。",
+    "domain": "rel",
+    "aliases": [
+      "abstention",
+      "human escalation"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::7",
+      "Q::07_可靠性与安全/可靠性与安全.md::8",
+      "Q::07_可靠性与安全/可靠性与安全.md::24"
+    ]
+  },
+  {
+    "id": "SEC-007",
+    "canonical_name": "直接与间接提示注入",
+    "definition": "攻击性文本从用户或外部文档工具结果进入模型，诱导其偏离目标、泄露数据或越权。",
+    "domain": "sec",
+    "aliases": [
+      "Prompt Injection",
+      "indirect injection"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::9",
+      "Q::07_可靠性与安全/可靠性与安全.md::25",
+      "Q::07_可靠性与安全/可靠性与安全.md::31"
+    ]
+  },
+  {
+    "id": "SEC-008",
+    "canonical_name": "显示文本的控制字符隔离",
+    "definition": "渲染模型或仓库文本前处理 ANSI、恶意 Unicode 与超长输出，并与可执行命令分离。",
+    "domain": "sec",
+    "aliases": [
+      "display injection",
+      "ANSI sanitization"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::9"
+    ]
+  },
+  {
+    "id": "SEC-009",
+    "canonical_name": "敏感信息识别与脱敏有效性",
+    "definition": "结合字段分类、规则与实体识别阻断或掩码敏感数据，并验证脱敏后重识别风险。",
+    "domain": "sec",
+    "aliases": [
+      "PII redaction",
+      "data masking"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::11",
+      "Q::07_可靠性与安全/可靠性与安全.md::14",
+      "Q::07_可靠性与安全/可靠性与安全.md::15"
+    ]
+  },
+  {
+    "id": "SEC-010",
+    "canonical_name": "短期凭证与模型隔离",
+    "definition": "使用最小 Scope 和短期身份访问外部服务，真实凭证由受控执行层持有而不暴露给模型。",
+    "domain": "sec",
+    "aliases": [
+      "credential isolation"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::12"
+    ]
+  },
+  {
+    "id": "SANDBOX-003",
+    "canonical_name": "威胁模型驱动的隔离强度选择",
+    "definition": "按共享内核风险、租户信任、攻击面及启动成本选择容器、虚拟机或专用沙箱。",
+    "domain": "sandbox",
+    "aliases": [
+      "container vs VM isolation"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::17",
+      "Q::07_可靠性与安全/可靠性与安全.md::30"
+    ]
+  },
+  {
+    "id": "TRACE-003",
+    "canonical_name": "审计数据隐私与留存治理",
+    "definition": "对日志和轨迹实施脱敏、受控访问、保留期限与防篡改，避免观测链路成为泄密渠道。",
+    "domain": "trace",
+    "aliases": [
+      "audit privacy",
+      "trace retention"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::21"
+    ]
+  },
+  {
+    "id": "EVAL-003",
+    "canonical_name": "攻击集与安全边界回归",
+    "definition": "用注入、越权、外泄、逃逸和审批绕过样本测误放行及误拒绝，把安全边界纳入发布验证。",
+    "domain": "eval",
+    "aliases": [
+      "security evaluation",
+      "adversarial suite"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::23",
+      "Q::07_可靠性与安全/可靠性与安全.md::27"
+    ]
+  },
+  {
+    "id": "SEC-011",
+    "canonical_name": "文件路径规范化与真实目标校验",
+    "definition": "以工作区为根检查规范化路径、符号链接及受保护目标，并在执行前后核实实际访问对象。",
+    "domain": "sec",
+    "aliases": [
+      "path traversal defense",
+      "symlink escape"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::28"
+    ]
+  },
+  {
+    "id": "SEC-012",
+    "canonical_name": "命令解释语义与受限参数执行",
+    "definition": "Shell 的重定向、管道和替换会扩大副作用，优先窄工具或固定 argv、环境及工作目录并配合沙箱。",
+    "domain": "sec",
+    "aliases": [
+      "shell injection boundary",
+      "argv execution"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::29"
+    ]
+  },
+  {
+    "id": "CODE-002",
+    "canonical_name": "最终产物版本绑定的验证证据",
+    "definition": "验证记录必须关联真实工作区、检查配方、退出状态和资源版本，并发生在最后一次写入之后。",
+    "domain": "code",
+    "aliases": [
+      "post-write evidence",
+      "Evidence Gate"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::33",
+      "Q::07_可靠性与安全/可靠性与安全.md::34",
+      "Q::07_可靠性与安全/可靠性与安全.md::36",
+      "Q::07_可靠性与安全/可靠性与安全.md::37"
+    ]
+  },
+  {
+    "id": "SEC-013",
+    "canonical_name": "受保护控制资源的篡改检测",
+    "definition": "通过前后快照核验工具及子进程未改变受保护资源，发现控制面篡改即标记运行失败。",
+    "domain": "sec",
+    "aliases": [
+      "protected resource integrity"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::07_可靠性与安全/可靠性与安全.md::39"
+    ]
+  },
+  {
+    "id": "EVAL-004",
+    "canonical_name": "组件、任务与产品的分层验收",
+    "definition": "分别评估模型、提示、工具、运行时、任务与产品，局部步骤或答案正确不自动证明端到端任务成功。",
+    "domain": "eval",
+    "aliases": [
+      "evaluation layers"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::1",
+      "Q::08_评测与可观测/评测与可观测性.md::2",
+      "Q::08_评测与可观测/评测与可观测性.md::25",
+      "Q::08_评测与可观测/评测与可观测性.md::39",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::3",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::17"
+    ]
+  },
+  {
+    "id": "EVAL-005",
+    "canonical_name": "开放式答案的多维评分",
+    "definition": "用事实、必要字段、相关性、可读性和可验证约束评价允许多种正确表述的答案。",
+    "domain": "eval",
+    "aliases": [
+      "answer rubric"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::3",
+      "Q::08_评测与可观测/评测与可观测性.md::9"
+    ]
+  },
+  {
+    "id": "EVAL-006",
+    "canonical_name": "工具选择、参数与顺序评分",
+    "definition": "基于正确工具、参数、依赖顺序和可接受替代路径标注，分别计算局部行为与无效调用指标。",
+    "domain": "eval",
+    "aliases": [
+      "tool behavior evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::4",
+      "Q::08_评测与可观测/评测与可观测性.md::30"
+    ]
+  },
+  {
+    "id": "EVAL-007",
+    "canonical_name": "有据回答与拒答质量评测",
+    "definition": "针对有证据、缺失、冲突和恶意证据场景评估具体结论支持性、恰当拒答及伪执行。",
+    "domain": "eval",
+    "aliases": [
+      "groundedness evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::6"
+    ]
+  },
+  {
+    "id": "EVAL-008",
+    "canonical_name": "质量安全约束下的效率评测",
+    "definition": "联合报告任务成功、尾延迟、Token、费用及失败分布，防止把少做验证或提前失败计作优化。",
+    "domain": "eval",
+    "aliases": [
+      "quality cost latency evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::7",
+      "Q::08_评测与可观测/评测与可观测性.md::36",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::4"
+    ]
+  },
+  {
+    "id": "EVAL-009",
+    "canonical_name": "端到端人工节省测量",
+    "definition": "比较基线与 Agent 完整任务时间、人工操作和纠正接管次数，控制任务难度而非只比较模型响应速度。",
+    "domain": "eval",
+    "aliases": [
+      "human effort savings"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::8"
+    ]
+  },
+  {
+    "id": "EVAL-010",
+    "canonical_name": "模型评审偏差与人工校准",
+    "definition": "用明确 Rubric、参考证据、盲评或多评审降低位置长度及自偏好，并以人工和确定性断言校准。",
+    "domain": "eval",
+    "aliases": [
+      "LLM-as-a-Judge"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::10",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::7"
+    ]
+  },
+  {
+    "id": "EVAL-011",
+    "canonical_name": "标注规范与评审一致性",
+    "definition": "规定成功、部分成功、风险、证据和不确定处理的正反例，多人独立标注并复盘分歧。",
+    "domain": "eval",
+    "aliases": [
+      "annotation agreement"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::11"
+    ]
+  },
+  {
+    "id": "DATA-001",
+    "canonical_name": "代表性与长尾评测样本分层",
+    "definition": "按任务、长度、风险、依赖和失败模式组织正常、长尾、对抗及不可回答样本并保留评分期望。",
+    "domain": "data",
+    "aliases": [
+      "evaluation dataset stratification"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::12",
+      "Q::08_评测与可观测/评测与可观测性.md::18",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::8"
+    ]
+  },
+  {
+    "id": "DATA-002",
+    "canonical_name": "评测数据隔离与污染防护",
+    "definition": "按用户、模板、实体和时间去重隔离开发训练测试数据，防止答案或近似改写泄漏进提示、检索和训练。",
+    "domain": "data",
+    "aliases": [
+      "evaluation leakage",
+      "hidden test set"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::13",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::11"
+    ]
+  },
+  {
+    "id": "EVAL-012",
+    "canonical_name": "随机运行的重复测量与不确定性",
+    "definition": "固定可控版本和参数，多次运行报告分布、分位数和置信区间，避免单次成功代表可靠性。",
+    "domain": "eval",
+    "aliases": [
+      "stochastic evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::14",
+      "Q::08_评测与可观测/评测与可观测性.md::31"
+    ]
+  },
+  {
+    "id": "EVAL-013",
+    "canonical_name": "稳定分组的线上对照实验",
+    "definition": "用稳定用户或任务分组比较版本，在一致预算与环境下观察分桶质量、安全和成本并设停机条件。",
+    "domain": "eval",
+    "aliases": [
+      "A/B testing"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::16"
+    ]
+  },
+  {
+    "id": "EVAL-014",
+    "canonical_name": "线上离线分布与环境一致性诊断",
+    "definition": "对照真实业务反馈与离线评分，定位泄漏、数据新鲜度、版本、依赖、权限与分布差异。",
+    "domain": "eval",
+    "aliases": [
+      "offline-online parity"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::17",
+      "Q::08_评测与可观测/评测与可观测性.md::38",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::18"
+    ]
+  },
+  {
+    "id": "TRACE-004",
+    "canonical_name": "异步边界的父子关联传播",
+    "definition": "使 task、trace、span、event 和 parent 标识贯穿网关、队列、Worker、模型和外部服务。",
+    "domain": "trace",
+    "aliases": [
+      "distributed tracing",
+      "correlation IDs"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::22",
+      "Q::08_评测与可观测/评测与可观测性.md::23"
+    ]
+  },
+  {
+    "id": "EVAL-015",
+    "canonical_name": "首个偏离节点与失败路径归因",
+    "definition": "沿时间和因果关系寻找首次违反验收或引入错误事实的位置，区分根因与后续传播并绑定修复组件。",
+    "domain": "eval",
+    "aliases": [
+      "first divergence",
+      "badcase attribution"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::19",
+      "Q::08_评测与可观测/评测与可观测性.md::20",
+      "Q::08_评测与可观测/评测与可观测性.md::26",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::15"
+    ]
+  },
+  {
+    "id": "DATA-003",
+    "canonical_name": "反馈到可追溯回归样本的闭环",
+    "definition": "将用户反馈、错误和安全信号关联 Trace，脱敏去重后标注根因并纳入对应修复与回归。",
+    "domain": "data",
+    "aliases": [
+      "badcase feedback loop"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::21",
+      "Q::08_评测与可观测/评测与可观测性.md::27",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::13"
+    ]
+  },
+  {
+    "id": "OBS-001",
+    "canonical_name": "任务级指标与可执行告警",
+    "definition": "按版本、租户和复杂度记录端到端与分段指标，对异常设阈值、负责人及限流回滚等处置。",
+    "domain": "obs",
+    "aliases": [
+      "Agent monitoring",
+      "actionable alerts"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::28",
+      "Q::08_评测与可观测/评测与可观测性.md::29",
+      "Q::08_评测与可观测/评测与可观测性.md::32"
+    ]
+  },
+  {
+    "id": "OBS-002",
+    "canonical_name": "缺少即时标签时的质量代理信号",
+    "definition": "用验证失败、重问撤销、重复动作和接管等代理指标结合延迟业务结果与人工抽检监控质量。",
+    "domain": "obs",
+    "aliases": [
+      "delayed labels",
+      "quality proxies"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::12"
+    ]
+  },
+  {
+    "id": "OBS-003",
+    "canonical_name": "任务成功与安全服务目标",
+    "definition": "围绕任务完成、尾延迟、恢复和越权等设置内部服务目标及对外承诺，而非以接口成功码代替。",
+    "domain": "obs",
+    "aliases": [
+      "Agent SLO",
+      "Agent SLA"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测与可观测性.md::33"
+    ]
+  },
+  {
+    "id": "EVAL-016",
+    "canonical_name": "多轮状态演化与长程任务评测",
+    "definition": "在完整任务上验证压缩、记忆、用户干预、恢复和停止等跨回合行为，不能以各回合平均分代替任务结果。",
+    "domain": "eval",
+    "aliases": [
+      "multi-turn evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::2",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::19"
+    ]
+  },
+  {
+    "id": "OPS-001",
+    "canonical_name": "事故证据保全与整改闭环",
+    "definition": "保留现场、影响及配置时间线，定位首次故障与防线失效，将临时止损和根治绑定负责人及回归。",
+    "domain": "ops",
+    "aliases": [
+      "incident postmortem"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::14"
+    ]
+  },
+  {
+    "id": "ARCH-005",
+    "canonical_name": "任务入口网关职责",
+    "definition": "入口统一身份、请求校验、任务创建、配额和 Trace，把短请求与长任务转为可追踪标识并传递约束。",
+    "domain": "arch",
+    "aliases": [
+      "Agent Gateway"
+    ],
+    "status": "active",
+    "canonical_owner": "09",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::1"
+    ]
+  },
+  {
+    "id": "ARCH-006",
+    "canonical_name": "请求生命周期与交互通道选择",
+    "definition": "按任务时长和交互方向选择同步、异步、轮询、SSE 或 WebSocket，并处理重连、取消和鉴权。",
+    "domain": "arch",
+    "aliases": [
+      "sync async streaming selection"
+    ],
+    "status": "active",
+    "canonical_owner": "09",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::2",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::11"
+    ]
+  },
+  {
+    "id": "STREAM-001",
+    "canonical_name": "用户进度事件投影与断线续传",
+    "definition": "把内部运行状态转为脱敏版本化事件，以事件序号和游标去重补发，连接恢复不重做业务动作。",
+    "domain": "stream",
+    "aliases": [
+      "progress event projection",
+      "Last-Event-ID"
+    ],
+    "status": "active",
+    "canonical_owner": "09",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::3",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::4",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::11"
+    ]
+  },
+  {
+    "id": "DUR-004",
+    "canonical_name": "任务租约与过期执行者隔离",
+    "definition": "用 owner、到期时间和单调 fencing token 领取续租，提交以版本条件拒绝过期 Worker。",
+    "domain": "dur",
+    "aliases": [
+      "Lease",
+      "Heartbeat",
+      "fencing token"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::6"
+    ]
+  },
+  {
+    "id": "CAP-001",
+    "canonical_name": "多层配额与隔舱并发控制",
+    "definition": "在入口、租户、任务、模型及工具层共同限定并发与配额，阻止单任务扇出耗尽共享容量。",
+    "domain": "cap",
+    "aliases": [
+      "bulkhead",
+      "hierarchical quotas"
+    ],
+    "status": "active",
+    "canonical_owner": "09",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::7",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::9"
+    ]
+  },
+  {
+    "id": "BACK-001",
+    "canonical_name": "流量整形与窗口限流算法",
+    "definition": "根据突发容忍、平滑需求和统计精度选择令牌桶、漏桶、固定或滑动窗口。",
+    "domain": "back",
+    "aliases": [
+      "token bucket",
+      "leaky bucket",
+      "sliding window"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Architecture",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::8"
+    ]
+  },
+  {
+    "id": "CAP-002",
+    "canonical_name": "有界任务队列与背压传播",
+    "definition": "以有界队列和优先级调度长任务，饱和时拒绝延后或降级并向内部调用层传播压力。",
+    "domain": "cap",
+    "aliases": [
+      "bounded queues",
+      "backpressure"
+    ],
+    "status": "active",
+    "canonical_owner": "09",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::10"
+    ]
+  },
+  {
+    "id": "CAP-003",
+    "canonical_name": "基于真实任务分布的容量与瓶颈分析",
+    "definition": "从 Trace 的调用、Token、对象量和长尾估算资源及峰值，分段压测并包含重试和扇出放大。",
+    "domain": "cap",
+    "aliases": [
+      "Agent capacity planning"
+    ],
+    "status": "active",
+    "canonical_owner": "09",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::11",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::12",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::21"
+    ]
+  },
+  {
+    "id": "ARCH-007",
+    "canonical_name": "运行数据按存储职责分配",
+    "definition": "任务一致性状态、事件流、缓存、大对象和分析数据各自放入匹配的持久存储与查询系统。",
+    "domain": "arch",
+    "aliases": [
+      "Agent storage architecture"
+    ],
+    "status": "active",
+    "canonical_owner": "09",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::14"
+    ]
+  },
+  {
+    "id": "BACK-002",
+    "canonical_name": "消息投递语义与外部效果边界",
+    "definition": "确认、持久化和消费提交降低消息丢失，至少一次投递需要消费幂等，消息 Exactly-once 不覆盖任意外部副作用。",
+    "domain": "back",
+    "aliases": [
+      "message delivery semantics",
+      "Kafka exactly-once boundary"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::15",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::16"
+    ]
+  },
+  {
+    "id": "DUR-005",
+    "canonical_name": "跨区域任务归属与故障接管",
+    "definition": "明确状态复制、分片和租约归属，在跨区域切换前核验恢复点及副作用以防双执行。",
+    "domain": "dur",
+    "aliases": [
+      "cross-region failover"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::19"
+    ]
+  },
+  {
+    "id": "EVAL-017",
+    "canonical_name": "容量压测与故障注入",
+    "definition": "按真实及最坏任务负载注入超时、断网、崩溃和重复投递，验证恢复时间、丢失及重复副作用。",
+    "domain": "eval",
+    "aliases": [
+      "fault injection",
+      "Agent load testing"
+    ],
+    "status": "active",
+    "canonical_owner": "12/08",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::21"
+    ]
+  },
+  {
+    "id": "BACK-003",
+    "canonical_name": "事件时间聚合与迟到修正",
+    "definition": "对流数据按事件时间窗口去重聚合，使用水位处理乱序迟到并支持回溯重算。",
+    "domain": "back",
+    "aliases": [
+      "event-time aggregation",
+      "watermark"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::25"
+    ]
+  },
+  {
+    "id": "BACK-004",
+    "canonical_name": "大批量上传的分片与幂等导入",
+    "definition": "分片上传带校验版本的大对象，以后台批次校验入库、进度和失败重试支撑最终目录切换。",
+    "domain": "back",
+    "aliases": [
+      "bulk upload pipeline"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Architecture",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::26"
+    ]
+  },
+  {
+    "id": "OPS-002",
+    "canonical_name": "组合版本发布与运行任务兼容",
+    "definition": "将代码、模型、提示、工具、策略、索引和状态作为可追踪组合版本，通过灰度验证和兼容恢复发布。",
+    "domain": "ops",
+    "aliases": [
+      "release version matrix"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::30"
+    ]
+  },
+  {
+    "id": "OPS-003",
+    "canonical_name": "独立撤权与紧急停止",
+    "definition": "高风险事故时由独立控制通道停止运行或撤销能力，并保留现场和恢复依据。",
+    "domain": "ops",
+    "aliases": [
+      "Kill Switch"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::30"
+    ]
+  },
+  {
+    "id": "PROJECT-001",
+    "canonical_name": "项目因果链与贡献证据",
+    "definition": "按业务约束、任务运行、状态工具、失败处理、指标和本人贡献讲述项目，并说明取舍及实测依据。",
+    "domain": "project",
+    "aliases": [
+      "project narrative"
+    ],
+    "status": "active",
+    "canonical_owner": "12/08",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::1"
+    ]
+  },
+  {
+    "id": "PROV-002",
+    "canonical_name": "编排复杂度与迁移成本选型",
+    "definition": "以真实分支、状态恢复、可测试性和运维收益衡量代码、图或框架，并保持内部稳定接口与迁移基线。",
+    "domain": "prov",
+    "aliases": [
+      "framework selection",
+      "vendor lock-in"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::2",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::18"
+    ]
+  },
+  {
+    "id": "MODEL-004",
+    "canonical_name": "固定标签分类与生成推理的取舍",
+    "definition": "在标签稳定且数据充分时优先受约束分类，动态证据和多标准场景再评估生成式方案。",
+    "domain": "model",
+    "aliases": [
+      "classifier versus generation"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::4"
+    ]
+  },
+  {
+    "id": "MODEL-005",
+    "canonical_name": "多任务条件与旧任务回归",
+    "definition": "显式区分任务标签、规则和私有能力，分桶监控新任务对旧任务的干扰并按需要拆专家。",
+    "domain": "model",
+    "aliases": [
+      "multitask interference"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::5"
+    ]
+  },
+  {
+    "id": "RAG-013",
+    "canonical_name": "按时效权威性选择知识源",
+    "definition": "根据事实新鲜度、权威性和权限在实时 API、搜索、缓存和长期知识库之间路由。",
+    "domain": "rag",
+    "aliases": [
+      "knowledge source routing"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::14"
+    ]
+  },
+  {
+    "id": "RAG-014",
+    "canonical_name": "多步检索与专用检索器选型",
+    "definition": "以单次混合检索为基线，仅在多跳补证或数据源权限目标分离有收益时引入 Agentic 或专用检索器。",
+    "domain": "rag",
+    "aliases": [
+      "Agentic RAG"
+    ],
+    "status": "active",
+    "canonical_owner": "06",
+    "source_question_ids": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::17"
+    ]
+  },
+  {
+    "id": "LLM-001",
+    "canonical_name": "Transformer 自回归架构",
+    "definition": "嵌入及位置表示经注意力、前馈、残差和归一化块后预测后续 Token，区分编码与因果解码结构。",
+    "domain": "llm",
+    "aliases": [
+      "Transformer architecture"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::1"
+    ]
+  },
+  {
+    "id": "LLM-002",
+    "canonical_name": "Query-Key 匹配与 Value 聚合",
+    "definition": "Query 与 Key 的缩放内积经掩码和 Softmax 形成权重，再聚合 Value；多头在不同投影空间建模关系。",
+    "domain": "llm",
+    "aliases": [
+      "scaled dot-product attention",
+      "QKV",
+      "Self-Attention",
+      "MHA"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::2",
+      "Q::10_模型与推理/模型与推理基础.md::3",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::1"
+    ]
+  },
+  {
+    "id": "LLM-003",
+    "canonical_name": "全注意力的序列复杂度",
+    "definition": "标准全注意力形成序列位置两两交互，计算与中间矩阵成本随长度二次增长。",
+    "domain": "llm",
+    "aliases": [
+      "attention complexity"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::4",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::1"
+    ]
+  },
+  {
+    "id": "LLM-004",
+    "canonical_name": "因果遮罩与填充遮罩",
+    "definition": "因果遮罩阻止当前位置读取未来 Token，填充遮罩排除用于批次对齐的无效位置。",
+    "domain": "llm",
+    "aliases": [
+      "causal mask",
+      "padding mask"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::5"
+    ]
+  },
+  {
+    "id": "LLM-005",
+    "canonical_name": "前馈、残差与归一化职责",
+    "definition": "前馈提供逐位置非线性变换，残差传递信息和梯度，归一化稳定激活尺度与优化。",
+    "domain": "llm",
+    "aliases": [
+      "FFN",
+      "LayerNorm",
+      "residual connection"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::6"
+    ]
+  },
+  {
+    "id": "LLM-006",
+    "canonical_name": "上下文化词表示与位置信息",
+    "definition": "相同词嵌入经过位置表示及上下文交互形成不同隐藏状态，位置机制为注意力提供顺序。",
+    "domain": "llm",
+    "aliases": [
+      "positional encoding",
+      "contextual embedding"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::7",
+      "Q::10_模型与推理/模型与推理基础.md::8"
+    ]
+  },
+  {
+    "id": "LLM-007",
+    "canonical_name": "数值稳定的归一化指数",
+    "definition": "通过减最大值等数值处理计算 Softmax 权重，掩码在归一化前排除无效位置。",
+    "domain": "llm",
+    "aliases": [
+      "stable softmax"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::9"
+    ]
+  },
+  {
+    "id": "LLM-008",
+    "canonical_name": "温度与截断采样",
+    "definition": "温度调节分布尖锐度，Top-K 和 Top-P 分别按固定数量或累计概率限制采样候选。",
+    "domain": "llm",
+    "aliases": [
+      "Temperature",
+      "Top-K sampling",
+      "Top-P"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::10"
+    ]
+  },
+  {
+    "id": "CACHE-002",
+    "canonical_name": "跨请求前缀计算复用",
+    "definition": "对兼容模型及有效版本下相同输入前缀复用计算或缓存，减少重复处理稳定提示和工具描述。",
+    "domain": "cache",
+    "aliases": [
+      "Prefix Caching"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::12",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::9"
+    ]
+  },
+  {
+    "id": "LLM-009",
+    "canonical_name": "自回归键值缓存与容量",
+    "definition": "缓存历史 Key/Value 供未来 Query 读取，节省重复投影但显存随层数、KV 头数、长度和并发增长。",
+    "domain": "llm",
+    "aliases": [
+      "KV Cache"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::12",
+      "Q::10_模型与推理/模型与推理基础.md::16",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::3"
+    ]
+  },
+  {
+    "id": "LLM-010",
+    "canonical_name": "动态连续批处理",
+    "definition": "生成过程中允许请求动态进入和退出批次以提高利用率，同时协调尾延迟、取消和优先级。",
+    "domain": "llm",
+    "aliases": [
+      "Continuous Batching"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::13",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::9"
+    ]
+  },
+  {
+    "id": "LLM-011",
+    "canonical_name": "分页键值内存管理",
+    "definition": "用分页方式组织不同请求的 KV 状态以改善推理服务内存利用和并发调度。",
+    "domain": "llm",
+    "aliases": [
+      "PagedAttention",
+      "Paged KV"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::14"
+    ]
+  },
+  {
+    "id": "LLM-012",
+    "canonical_name": "预填充与逐 Token 解码",
+    "definition": "预填充处理输入上下文，解码逐步生成输出，二者瓶颈及其对首 Token 和后续延迟的贡献不同。",
+    "domain": "llm",
+    "aliases": [
+      "Prefill",
+      "Decode"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::15",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::9"
+    ]
+  },
+  {
+    "id": "LLM-013",
+    "canonical_name": "通用语料预训练",
+    "definition": "从通用语言数据学习语言模式及知识，形成后续任务适配的基础模型能力。",
+    "domain": "llm",
+    "aliases": [
+      "pretraining"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::19"
+    ]
+  },
+  {
+    "id": "LLM-014",
+    "canonical_name": "示范监督微调",
+    "definition": "利用任务示范训练模型的格式、协议和基础行为，为稳定任务或后续强化优化提供初始策略。",
+    "domain": "llm",
+    "aliases": [
+      "SFT",
+      "supervised fine-tuning"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/面试题库",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::19",
+      "Q::10_模型与推理/模型与推理基础.md::20"
+    ]
+  },
+  {
+    "id": "LLM-015",
+    "canonical_name": "低秩适配与量化低秩微调",
+    "definition": "用低秩可训练增量并可结合量化基础权重降低微调参数及显存开销。",
+    "domain": "llm",
+    "aliases": [
+      "LoRA",
+      "QLoRA"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/面试题库",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::19"
+    ]
+  },
+  {
+    "id": "LLM-016",
+    "canonical_name": "人类偏好奖励对齐",
+    "definition": "将偏好或评分转换为奖励信号以优化模型行为，需要验证奖励偏差与实际任务价值。",
+    "domain": "llm",
+    "aliases": [
+      "RLHF"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/面试题库",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::19"
+    ]
+  },
+  {
+    "id": "LLM-017",
+    "canonical_name": "偏好对的直接策略优化",
+    "definition": "直接用成对偏好数据优化模型相对偏好，区别于显式奖励模型驱动的强化流程。",
+    "domain": "llm",
+    "aliases": [
+      "DPO"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/面试题库",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::19"
+    ]
+  },
+  {
+    "id": "LLM-018",
+    "canonical_name": "带价值估计的近端策略优化",
+    "definition": "结合奖励、价值估计与优势，以受约束的裁剪目标更新策略并监控偏离和训练稳定性。",
+    "domain": "llm",
+    "aliases": [
+      "PPO",
+      "Value Model",
+      "Reward Model"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/面试题库",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::19",
+      "Q::10_模型与推理/模型与推理基础.md::24"
+    ]
+  },
+  {
+    "id": "LLM-019",
+    "canonical_name": "组内相对奖励策略优化",
+    "definition": "利用同组样本相对奖励构造优化基线，迁移奖励时需检查尺度、方差和估计假设。",
+    "domain": "llm",
+    "aliases": [
+      "GRPO"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/面试题库",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::19",
+      "Q::10_模型与推理/模型与推理基础.md::25"
+    ]
+  },
+  {
+    "id": "REASON-001",
+    "canonical_name": "任务进展与安全约束的奖励设计",
+    "definition": "把终局成功、可验证步骤、工具行为和消耗对应到奖励，缓解稀疏性但不奖励表面格式。",
+    "domain": "reason",
+    "aliases": [
+      "Agent reward design"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::21"
+    ]
+  },
+  {
+    "id": "REASON-002",
+    "canonical_name": "评分捷径与真实任务偏离",
+    "definition": "策略以伪造引用、迎合评委或跳过执行获得高奖励，需独立事实验证比较评分与实际成功。",
+    "domain": "reason",
+    "aliases": [
+      "Reward Hacking"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::22"
+    ]
+  },
+  {
+    "id": "REASON-003",
+    "canonical_name": "动作分布熵与策略坍塌",
+    "definition": "监测动作或输出分布、多样性和长尾表现以识别过度集中与探索退化，结合目标数据和采样定位。",
+    "domain": "reason",
+    "aliases": [
+      "entropy collapse",
+      "熵坍塌"
+    ],
+    "status": "active",
+    "canonical_owner": "12/06",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::23"
+    ]
+  },
+  {
+    "id": "DATA-004",
+    "canonical_name": "可验证困难负例构造",
+    "definition": "收集相似但错误的工具、文档、计划和安全边界案例，保留正确行为与来源以训练细粒度区分。",
+    "domain": "data",
+    "aliases": [
+      "Hard Negative"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::27"
+    ]
+  },
+  {
+    "id": "LLM-020",
+    "canonical_name": "查询头与键值头共享",
+    "definition": "MQA 共享一组 K/V，GQA 让多组 Query 共享组内 K/V，在容量和表达能力之间取舍。",
+    "domain": "llm",
+    "aliases": [
+      "MQA",
+      "GQA"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::2"
+    ]
+  },
+  {
+    "id": "LLM-021",
+    "canonical_name": "分块注意力的 IO 优化",
+    "definition": "以分块、片上内存与在线 Softmax 避免物化完整注意力矩阵，优化数据搬运而非改成线性注意力。",
+    "domain": "llm",
+    "aliases": [
+      "FlashAttention"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::4"
+    ]
+  },
+  {
+    "id": "LLM-022",
+    "canonical_name": "子词分词与任务 Token 成本",
+    "definition": "BPE 和 WordPiece 以不同子词合并准则建立词表，实际成本需按目标语言代码与工具名测量。",
+    "domain": "llm",
+    "aliases": [
+      "BPE",
+      "WordPiece",
+      "tokenization"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::5"
+    ]
+  },
+  {
+    "id": "LLM-023",
+    "canonical_name": "旋转位置表示与长度外推",
+    "definition": "按位置旋转 Q/K 子空间注入相对位置，超训练长度的频率与注意力分布失配需实测验证。",
+    "domain": "llm",
+    "aliases": [
+      "RoPE"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::6"
+    ]
+  },
+  {
+    "id": "LLM-024",
+    "canonical_name": "稀疏专家路由与负载均衡",
+    "definition": "为 Token 选择少量专家并约束专家容量与负载，节省激活计算但增加通信和溢出处理。",
+    "domain": "llm",
+    "aliases": [
+      "MoE"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::7"
+    ]
+  },
+  {
+    "id": "LLM-025",
+    "canonical_name": "权重量化的误差补偿与敏感通道保护",
+    "definition": "GPTQ 以近似二阶信息补偿量化误差，AWQ 利用激活统计保护敏感权重通道，效果依赖校准与实现。",
+    "domain": "llm",
+    "aliases": [
+      "GPTQ",
+      "AWQ"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/面试题库",
+    "source_question_ids": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::8"
+    ]
+  },
+  {
+    "id": "LLM-026",
+    "canonical_name": "草稿生成与目标模型验证",
+    "definition": "小模型提出 Token 串，大模型验证并接受或修正，收益受接受率、输出长度及验证成本影响。",
+    "domain": "llm",
+    "aliases": [
+      "Speculative Decoding"
+    ],
+    "status": "active",
+    "canonical_owner": "external:AI/LLM基础",
+    "source_question_ids": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::10"
+    ]
+  },
+  {
+    "id": "MODEL-006",
+    "canonical_name": "低精度对工具行为与长尾的影响",
+    "definition": "量化评测需分别验证结构化参数、拒答、安全、长上下文和尾延迟，不能只看平均精度与吞吐。",
+    "domain": "model",
+    "aliases": [
+      "Agent quantization evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::10_模型与推理/模型与推理基础.md::31",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::11"
+    ]
+  },
+  {
+    "id": "ALG-001",
+    "canonical_name": "双边高度不变量的积水计算",
+    "definition": "维护左右最大高度，以较矮边决定当前位置积水并单向推进指针。",
+    "domain": "alg",
+    "aliases": [
+      "trapping rain water"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::1"
+    ]
+  },
+  {
+    "id": "ALG-002",
+    "canonical_name": "以当前位置结尾的最优子数组",
+    "definition": "以延续前缀或重新开始的局部最优递推维护最大连续子数组和。",
+    "domain": "alg",
+    "aliases": [
+      "Kadane",
+      "maximum subarray"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::2"
+    ]
+  },
+  {
+    "id": "ALG-003",
+    "canonical_name": "选择撤销式子集枚举",
+    "definition": "按索引递归选择或跳过元素，回退撤销状态，并在重复元素场景处理同层去重。",
+    "domain": "alg",
+    "aliases": [
+      "subset backtracking"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::3"
+    ]
+  },
+  {
+    "id": "ALG-004",
+    "canonical_name": "互补值哈希查找",
+    "definition": "遍历时先查询目标互补值再保存当前下标，避免同一元素被重复使用。",
+    "domain": "alg",
+    "aliases": [
+      "two sum"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::4"
+    ]
+  },
+  {
+    "id": "ALG-005",
+    "canonical_name": "单调队列窗口极值",
+    "definition": "按单调顺序维护有效窗口候选下标，淘汰过期与不可能最优的元素。",
+    "domain": "alg",
+    "aliases": [
+      "monotonic deque"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::5"
+    ]
+  },
+  {
+    "id": "ALG-006",
+    "canonical_name": "计数约束的最小覆盖窗口",
+    "definition": "扩张右边界满足所需字符计数，再收缩左边界寻找最小合法区间。",
+    "domain": "alg",
+    "aliases": [
+      "minimum covering window"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::5"
+    ]
+  },
+  {
+    "id": "ALG-007",
+    "canonical_name": "全边路线的欧拉路径构造",
+    "definition": "根据邻接关系和度条件构造使用全部边的路线，以栈处理回路并校验断链或重复边。",
+    "domain": "alg",
+    "aliases": [
+      "Hierholzer",
+      "Eulerian path"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::6"
+    ]
+  },
+  {
+    "id": "ALG-008",
+    "canonical_name": "障碍约束的方向射线遍历",
+    "definition": "沿棋子合法方向逐格探索，在障碍或边界停止，明确单步可达性假设。",
+    "domain": "alg",
+    "aliases": [
+      "grid ray traversal"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::7"
+    ]
+  },
+  {
+    "id": "ALG-009",
+    "canonical_name": "排序后的区间合并",
+    "definition": "按左端点排序并维护当前右界，以端点开闭规则决定重叠合并或输出新区间。",
+    "domain": "alg",
+    "aliases": [
+      "merge intervals"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::8"
+    ]
+  },
+  {
+    "id": "ALG-010",
+    "canonical_name": "树的深度与层次遍历",
+    "definition": "用递归或栈表达前中后序，用队列按层访问并处理空树边界。",
+    "domain": "alg",
+    "aliases": [
+      "tree traversal",
+      "level order"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::9"
+    ]
+  },
+  {
+    "id": "ALG-011",
+    "canonical_name": "子树命中汇合的公共祖先",
+    "definition": "递归返回目标节点在左右子树的命中，双侧汇合时确定最近公共祖先。",
+    "domain": "alg",
+    "aliases": [
+      "lowest common ancestor",
+      "LCA"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::9"
+    ]
+  },
+  {
+    "id": "ALG-012",
+    "canonical_name": "图可达性搜索",
+    "definition": "通过 BFS 或 DFS 遍历邻接关系并记录已访问节点以判断可达性。",
+    "domain": "alg",
+    "aliases": [
+      "graph BFS",
+      "graph DFS"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::10"
+    ]
+  },
+  {
+    "id": "ALG-013",
+    "canonical_name": "依赖拓扑排序与环检测",
+    "definition": "以入度队列或三色 DFS 生成依赖顺序，无法消除的依赖识别循环。",
+    "domain": "alg",
+    "aliases": [
+      "Kahn",
+      "topological sorting"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::10",
+      "Q::11_编码与后端/编码题与后端基础.md::12"
+    ]
+  },
+  {
+    "id": "ALG-014",
+    "canonical_name": "容量状态的背包递推",
+    "definition": "按物品与容量定义最优状态，区分零一和完全背包的转移及遍历方向。",
+    "domain": "alg",
+    "aliases": [
+      "knapsack"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::11"
+    ]
+  },
+  {
+    "id": "ALG-015",
+    "canonical_name": "插入删除替换的编辑距离",
+    "definition": "以两个前缀状态递推最少编辑操作，处理相等与插入删除替换分支。",
+    "domain": "alg",
+    "aliases": [
+      "edit distance"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::11"
+    ]
+  },
+  {
+    "id": "ALG-016",
+    "canonical_name": "公共子序列长度递推",
+    "definition": "以两序列前缀状态在相等匹配和舍弃一端之间递推最长公共子序列。",
+    "domain": "alg",
+    "aliases": [
+      "longest common subsequence",
+      "LCS"
+    ],
+    "status": "active",
+    "canonical_owner": "external:CS/算法",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::11"
+    ]
+  },
+  {
+    "id": "BACK-005",
+    "canonical_name": "哈希索引与链表访问淘汰",
+    "definition": "哈希定位缓存节点，双向链表维护访问新旧顺序，容量不足淘汰最旧项。",
+    "domain": "back",
+    "aliases": [
+      "LRU Cache"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::13"
+    ]
+  },
+  {
+    "id": "BACK-006",
+    "canonical_name": "概率成员过滤与二次确认",
+    "definition": "用多哈希位数组快速判断可能存在，阳性需权威存储复核，删除需额外机制且不能代替授权。",
+    "domain": "back",
+    "aliases": [
+      "Bloom filter"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::14"
+    ]
+  },
+  {
+    "id": "BACK-007",
+    "canonical_name": "可重入锁的持有者与计数",
+    "definition": "记录持有主体及递归次数，重复获取增加计数，释放到零才允许其他主体取得。",
+    "domain": "back",
+    "aliases": [
+      "RLock",
+      "reentrant lock"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Architecture",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::19",
+      "Q::11_编码与后端/编码题与后端基础.md::21"
+    ]
+  },
+  {
+    "id": "LANG-001",
+    "canonical_name": "Python 字节码并发与 I/O 调度",
+    "definition": "区分受 GIL 约束的字节码执行、I/O 等待及扩展或多进程并行，并为共享状态显式同步。",
+    "domain": "lang",
+    "aliases": [
+      "CPython GIL"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Python/面试题库",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::20"
+    ]
+  },
+  {
+    "id": "BACK-008",
+    "canonical_name": "共享写竞争与循环等待控制",
+    "definition": "用短临界区、固定锁顺序、超时、不可变消息和队列控制竞态、死锁与饥饿。",
+    "domain": "back",
+    "aliases": [
+      "race condition",
+      "deadlock",
+      "starvation"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Architecture",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::22"
+    ]
+  },
+  {
+    "id": "BACK-009",
+    "canonical_name": "Redis 结构选择与原子操作边界",
+    "definition": "按值、字段、队列、集合、排序或消息流需求选择 Redis 类型，并考虑编码与原子命令边界。",
+    "domain": "back",
+    "aliases": [
+      "Redis data structures"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::23"
+    ]
+  },
+  {
+    "id": "BACK-010",
+    "canonical_name": "Redis 过期淘汰与持久复制",
+    "definition": "以过期清理和内存淘汰管理容量，以快照或日志及分片复制支撑恢复而不默认视为唯一事实源。",
+    "domain": "back",
+    "aliases": [
+      "Redis persistence",
+      "RDB",
+      "AOF"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::24"
+    ]
+  },
+  {
+    "id": "BACK-011",
+    "canonical_name": "查询谓词与索引访问路径",
+    "definition": "结合函数类型转换、前缀匹配、联合列顺序、选择性和执行计划判断索引是否有效。",
+    "domain": "back",
+    "aliases": [
+      "MySQL index access",
+      "LIKE prefix"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::25",
+      "Q::11_编码与后端/编码题与后端基础.md::26"
+    ]
+  },
+  {
+    "id": "BACK-012",
+    "canonical_name": "数据库隔离级别与事务边界",
+    "definition": "用隔离级别、锁及约束控制读写异常，明确单库事务不能直接覆盖跨服务外部副作用。",
+    "domain": "back",
+    "aliases": [
+      "transaction isolation"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::27"
+    ]
+  },
+  {
+    "id": "BACK-013",
+    "canonical_name": "行版本与一致性读视图",
+    "definition": "通过历史版本和读视图判断事务可见行，减少普通读写阻塞而写操作仍需并发控制。",
+    "domain": "back",
+    "aliases": [
+      "MVCC",
+      "Read View"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::28"
+    ]
+  },
+  {
+    "id": "BACK-014",
+    "canonical_name": "事务状态与事件 Outbox 同提交",
+    "definition": "在短事务中提交任务状态、唯一约束及待发事件，把慢模型或远程工具执行置于事务外。",
+    "domain": "back",
+    "aliases": [
+      "transactional Outbox"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Architecture",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::27",
+      "Q::11_编码与后端/编码题与后端基础.md::29"
+    ]
+  },
+  {
+    "id": "BACK-015",
+    "canonical_name": "分区追加与批量消息吞吐",
+    "definition": "利用分区并行、顺序追加、批量压缩和消费组提高吞吐，同时权衡顺序、延迟和重平衡。",
+    "domain": "back",
+    "aliases": [
+      "Kafka throughput"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::30",
+      "Q::11_编码与后端/编码题与后端基础.md::31"
+    ]
+  },
+  {
+    "id": "BACK-016",
+    "canonical_name": "事件列式分析与事务事实分离",
+    "definition": "列式 OLAP 适合轨迹成本和事件聚合，分析结果不能替代任务权限与幂等的事务事实。",
+    "domain": "back",
+    "aliases": [
+      "ClickHouse",
+      "OLAP vs OLTP"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Data",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::32",
+      "Q::11_编码与后端/编码题与后端基础.md::33"
+    ]
+  },
+  {
+    "id": "TEST-001",
+    "canonical_name": "执行插桩与分支覆盖范围",
+    "definition": "通过语句分支探针计数衡量实际测试路径覆盖，但覆盖比例不能证明逻辑正确或任务成功。",
+    "domain": "test",
+    "aliases": [
+      "branch coverage",
+      "instrumentation"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Delivery",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::34"
+    ]
+  },
+  {
+    "id": "TEST-002",
+    "canonical_name": "可替换依赖与分层验证",
+    "definition": "在稳定边界注入模型、工具、存储和时间的 Mock/Fixture，纯逻辑单测之外验证真实协议与完整任务。",
+    "domain": "test",
+    "aliases": [
+      "dependency injection",
+      "Mock testing"
+    ],
+    "status": "active",
+    "canonical_owner": "11",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::35",
+      "Q::11_编码与后端/编码题与后端基础.md::37",
+      "Q::11_编码与后端/编码题与后端基础.md::44"
+    ]
+  },
+  {
+    "id": "CODE-003",
+    "canonical_name": "静态结构信息与运行语义边界",
+    "definition": "AST 和 LSP 提供代码结构符号信息，难以替代运行时语义，需隔离副作用并辅以执行验证。",
+    "domain": "code",
+    "aliases": [
+      "AST",
+      "LSP"
+    ],
+    "status": "active",
+    "canonical_owner": "11",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::36"
+    ]
+  },
+  {
+    "id": "UI-001",
+    "canonical_name": "交互展示与后台命令状态分层",
+    "definition": "界面展示异步任务进度、日志和取消，命令状态与媒体或文件服务分离，实际执行受校验和恢复约束。",
+    "domain": "ui",
+    "aliases": [
+      "TUI architecture"
+    ],
+    "status": "active",
+    "canonical_owner": "11",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::38"
+    ]
+  },
+  {
+    "id": "LANG-002",
+    "canonical_name": "Java 类加载与命名隔离",
+    "definition": "通过加载验证准备解析初始化及加载器委派管理类身份、静态初始化和卸载边界。",
+    "domain": "lang",
+    "aliases": [
+      "Java class loading"
+    ],
+    "status": "active",
+    "canonical_owner": "external:Backend/Java/面试题库",
+    "source_question_ids": [
+      "Q::11_编码与后端/编码题与后端基础.md::41"
+    ]
+  },
+  {
+    "id": "PROV-003",
+    "canonical_name": "中立模型结果与分类事件",
+    "definition": "以内部合同区分文本、推理摘要、工具片段、usage、请求 ID、结束原因和错误，避免供应商对象传播进运行时。",
+    "domain": "prov",
+    "aliases": [
+      "normalized ModelResult",
+      "provider-neutral events"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::2",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::4",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::7",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::27",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::29"
+    ]
+  },
+  {
+    "id": "PROV-004",
+    "canonical_name": "多模态载荷格式适配",
+    "definition": "将图片音频文件转换为供应商内容块并统一格式大小错误，使用权限与数据治理仍由业务层负责。",
+    "domain": "prov",
+    "aliases": [
+      "multimodal adapter"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::8"
+    ]
+  },
+  {
+    "id": "PROV-005",
+    "canonical_name": "增量工具提案完整组装",
+    "definition": "按调用 ID 与事件顺序拼接工具名称参数片段，明确结束边界后才产出完整提案，半截 JSON 不执行。",
+    "domain": "prov",
+    "aliases": [
+      "streaming tool call assembly"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::9",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::30"
+    ]
+  },
+  {
+    "id": "PROV-006",
+    "canonical_name": "首事件超时与中途断流分类",
+    "definition": "区分未开始响应与已有部分输出或计费的中断，保存接收进度并按未知结果语义处理。",
+    "domain": "prov",
+    "aliases": [
+      "first-event timeout",
+      "mid-stream disconnect"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::11",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::28"
+    ]
+  },
+  {
+    "id": "PROV-007",
+    "canonical_name": "显式能力缺失与适配错误合同",
+    "definition": "对供应商不支持能力返回 unsupported，并把认证、限流、协议、窗口和取消错误映射为稳定可处置分类。",
+    "domain": "prov",
+    "aliases": [
+      "provider capabilities",
+      "unsupported"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::19",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::31"
+    ]
+  },
+  {
+    "id": "PROV-008",
+    "canonical_name": "适配器异常协议回归",
+    "definition": "以相同内部合同测试空响应、工具配对、流式乱断重复、usage 缺失和错误脱敏，区别于真实模型效果评测。",
+    "domain": "prov",
+    "aliases": [
+      "adapter contract tests",
+      "Fake Provider"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::21",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::25",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::32",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::33"
+    ]
+  },
+  {
+    "id": "PROV-009",
+    "canonical_name": "图原语到运行语义的映射",
+    "definition": "将 State、Node、Edge、Reducer、子图和 Send 映射为状态转移与聚合职责，节点数量不等于独立 Agent 数。",
+    "domain": "prov",
+    "aliases": [
+      "graph runtime primitives"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::13",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::22"
+    ]
+  },
+  {
+    "id": "PROV-010",
+    "canonical_name": "条件边的受限枚举路由",
+    "definition": "将模型意图解析成有限候选并按状态权限及前置条件映射到允许节点，未知值进入兜底。",
+    "domain": "prov",
+    "aliases": [
+      "allowlisted graph edges"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::15"
+    ]
+  },
+  {
+    "id": "PROV-011",
+    "canonical_name": "低代码编排与受控服务分工",
+    "definition": "低代码承担快速连接和流程验证，复杂权限、幂等、状态与性能由可测试代码服务补齐。",
+    "domain": "prov",
+    "aliases": [
+      "low-code platform boundary"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::12"
+    ]
+  },
+  {
+    "id": "CODE-004",
+    "canonical_name": "仓库事实导航与代码地图校验",
+    "definition": "组合文本符号搜索、调用类型关系及实际测试定位修改，地图仅作可能过期的索引，语义相似不能替代精确名称。",
+    "domain": "code",
+    "aliases": [
+      "repository navigation",
+      "code map"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::2",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::3",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::4",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::6"
+    ]
+  },
+  {
+    "id": "CODE-005",
+    "canonical_name": "补丁上下文与并发基线校验",
+    "definition": "比较覆盖、唯一替换和统一差异的应用条件，执行前验证路径、旧内容和版本匹配以防误覆盖。",
+    "domain": "code",
+    "aliases": [
+      "Unified Diff",
+      "patch preconditions"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::7",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::8",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::9",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::27"
+    ]
+  },
+  {
+    "id": "CODE-006",
+    "canonical_name": "已有工作区变更与 Agent 修改归因",
+    "definition": "任务开始记录 commit 和未提交差异，分层保留后续补丁，冲突时重新定位而非清除用户修改。",
+    "domain": "code",
+    "aliases": [
+      "workspace baseline",
+      "user diff preservation"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::12",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::16",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::27"
+    ]
+  },
+  {
+    "id": "CODE-007",
+    "canonical_name": "独立工作树的文件隔离边界",
+    "definition": "每任务使用独立目录和分支隔离代码差异，但外部服务副作用、依赖、权限和合并仍需单独管理。",
+    "domain": "code",
+    "aliases": [
+      "Git Worktree"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::13"
+    ]
+  },
+  {
+    "id": "CODE-008",
+    "canonical_name": "按变更范围选择渐进验证",
+    "definition": "由语法、定向测试、类型与集成检查逐步验证真实改动，结合覆盖但以任务验收作为最终标准。",
+    "domain": "code",
+    "aliases": [
+      "targeted verification"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::10",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::15"
+    ]
+  },
+  {
+    "id": "GUI-001",
+    "canonical_name": "视觉动作后的重新观察",
+    "definition": "根据截图提出动作后重新读取 UI 状态，处理焦点、布局、登录和加载变化，事件发送成功不等于任务成功。",
+    "domain": "gui",
+    "aliases": [
+      "Computer Use observation loop"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::18",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::20"
+    ]
+  },
+  {
+    "id": "GUI-002",
+    "canonical_name": "窗口绑定的 GUI 原子动作合同",
+    "definition": "动作带类型、参数、ID、目标窗口会话、取消超时和副作用状态，由内部适配及策略校验后执行。",
+    "domain": "gui",
+    "aliases": [
+      "GUI action contract"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::19",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::29"
+    ]
+  },
+  {
+    "id": "GUI-003",
+    "canonical_name": "结构化接口与视觉交互选择",
+    "definition": "优先稳定 API，其次 DOM 选择器，仅在纯 GUI 或视觉判断场景使用截图动作，并统一状态与授权。",
+    "domain": "gui",
+    "aliases": [
+      "API DOM GUI selection"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::21",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::28"
+    ]
+  },
+  {
+    "id": "GUI-004",
+    "canonical_name": "视觉交互成本与等待分解",
+    "definition": "记录图片尺寸、截图、动作、页面等待和重试，把图像推理与沙箱成本纳入任务预算。",
+    "domain": "gui",
+    "aliases": [
+      "GUI latency cost"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::23"
+    ]
+  },
+  {
+    "id": "GUI-005",
+    "canonical_name": "界面扰动与会话清理评测",
+    "definition": "覆盖布局、弹窗、焦点、登录、网络、半成功、重复提交及清理异常，联合检验任务结果和越权动作。",
+    "domain": "gui",
+    "aliases": [
+      "GUI robustness evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "12/02",
+    "source_question_ids": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::25"
+    ]
+  },
+  {
+    "id": "DUR-006",
+    "canonical_name": "恢复快照与操作日志分工",
+    "definition": "检查点保存继续执行的最小快照，Journal 保存有序事件和操作结果，两者共同提供恢复入口与解释证据。",
+    "domain": "dur",
+    "aliases": [
+      "Checkpoint and Journal"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::5"
+    ]
+  },
+  {
+    "id": "DUR-007",
+    "canonical_name": "重试耗尽后的死信保全",
+    "definition": "无法自动恢复或超出预算的任务进入死信队列，保留上下文与证据供人工处置而非继续盲目重试。",
+    "domain": "dur",
+    "aliases": [
+      "DLQ",
+      "dead-letter queue"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::12"
+    ]
+  },
+  {
+    "id": "DUR-008",
+    "canonical_name": "Worker 安全排空与优雅关闭",
+    "definition": "停止领取新任务，在安全点停止运行并保存检查点和副作用状态，释放租约连接后交给后继接管。",
+    "domain": "dur",
+    "aliases": [
+      "graceful worker shutdown",
+      "drain"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::14",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::25"
+    ]
+  },
+  {
+    "id": "OPS-004",
+    "canonical_name": "显式降级能力档位",
+    "definition": "将完整执行、低成本、只读、固定流程、建议和人工定义为受控权限档位，切换须处理现有任务及用户状态。",
+    "domain": "ops",
+    "aliases": [
+      "degradation tiers"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::20",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::32"
+    ]
+  },
+  {
+    "id": "OPS-005",
+    "canonical_name": "按影响与风险划分事故等级",
+    "definition": "根据外泄越权破坏、大面积可用性成本或局部退化区分事故级别，以风险和影响决定响应。",
+    "domain": "ops",
+    "aliases": [
+      "incident severity"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::22",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::23"
+    ]
+  },
+  {
+    "id": "DUR-009",
+    "canonical_name": "副作用确认窗口的故障验证",
+    "definition": "在调用前后与确认日志前后注入崩溃，联合重复领取和租约过期测试未知状态分类及不重复执行。",
+    "domain": "dur",
+    "aliases": [
+      "crash-window testing"
+    ],
+    "status": "active",
+    "canonical_owner": "12/03",
+    "source_question_ids": [
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::33",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::37"
+    ]
+  },
+  {
+    "id": "INGEST-004",
+    "canonical_name": "权威源版本与可重建索引分离",
+    "definition": "Source、DocumentVersion 和授权是事实，Chunk、向量、倒排及图索引是可重建派生物，引用回指原始版本。",
+    "domain": "ingest",
+    "aliases": [
+      "knowledge object lifecycle"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::1",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::2",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::4"
+    ]
+  },
+  {
+    "id": "INGEST-005",
+    "canonical_name": "格式分类与保结构标准化",
+    "definition": "按数字或扫描 PDF、Office 和表格选择解析策略，切分前统一编码、结构、类型与版本元数据。",
+    "domain": "ingest",
+    "aliases": [
+      "format-aware ingestion"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::3",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::8",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::11",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::13"
+    ]
+  },
+  {
+    "id": "INGEST-006",
+    "canonical_name": "复杂版面的阅读顺序恢复",
+    "definition": "处理多栏、页眉脚注、旋转和编码以恢复阅读顺序，同时保存页面区域而非仅输出纯文本。",
+    "domain": "ingest",
+    "aliases": [
+      "PDF reading order"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::9"
+    ]
+  },
+  {
+    "id": "INGEST-007",
+    "canonical_name": "关键区域 OCR 质量分桶",
+    "definition": "按字符行块及数字专名表格区域评估识别与置信度，对低质量片段降权隔离或复核。",
+    "domain": "ingest",
+    "aliases": [
+      "OCR quality gates"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::10",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::32"
+    ]
+  },
+  {
+    "id": "INGEST-008",
+    "canonical_name": "表格行列语义与数值查询",
+    "definition": "保留表头、单位、合并跨页及行级定位关系，数值密集问题可由结构化查询执行而非纯文本切块。",
+    "domain": "ingest",
+    "aliases": [
+      "table structure preservation"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::12"
+    ]
+  },
+  {
+    "id": "INGEST-009",
+    "canonical_name": "文档摄取质量门禁与失败隔离",
+    "definition": "以独立版本任务验证空乱码、结构、来源、权限和注入等质量，失败隔离以免坏文件阻塞批次或污染索引。",
+    "domain": "ingest",
+    "aliases": [
+      "ingestion quality quarantine"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::14",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::15"
+    ]
+  },
+  {
+    "id": "INGEST-010",
+    "canonical_name": "向量空间版本与近似索引取舍",
+    "definition": "Embedding 改版需重建或双索引避免混用空间，ANN 选型权衡过滤、更新、召回和内存延迟。",
+    "domain": "ingest",
+    "aliases": [
+      "Embedding version",
+      "ANN index"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::18",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::22"
+    ]
+  },
+  {
+    "id": "INGEST-011",
+    "canonical_name": "索引容量与重建成本测量",
+    "definition": "按块数、维度、类型、副本与元数据估算存储，在代表性权限过滤下测试召回、尾延迟和重建时间。",
+    "domain": "ingest",
+    "aliases": [
+      "vector index capacity"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::24"
+    ]
+  },
+  {
+    "id": "GRAPH-001",
+    "canonical_name": "关系检索的任务适用性",
+    "definition": "在实体消歧、多跳路径和全局主题问题中评估图增强，相对混合检索衡量证据收益及维护成本。",
+    "domain": "graph",
+    "aliases": [
+      "GraphRAG suitability"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::25",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33"
+    ]
+  },
+  {
+    "id": "GRAPH-002",
+    "canonical_name": "带证据版本的实体关系对象",
+    "definition": "实体具有规范 ID 与别名，关系保存证据、来源版本、时间和有效性，社区摘要能回链原文。",
+    "domain": "graph",
+    "aliases": [
+      "knowledge graph provenance"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::26"
+    ]
+  },
+  {
+    "id": "GRAPH-003",
+    "canonical_name": "图优先、检索优先与社区摘要路径",
+    "definition": "按明确关系路径、局部扩展或全局主题需求选择先图后文、先文后图或群落摘要。",
+    "domain": "graph",
+    "aliases": [
+      "Graph-first",
+      "retrieve-first",
+      "community summary"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::27"
+    ]
+  },
+  {
+    "id": "GRAPH-004",
+    "canonical_name": "图遍历的实体边授权",
+    "definition": "在实体、边及来源文档版本上检查权限再扩展聚合，防止关系与存在性泄漏。",
+    "domain": "graph",
+    "aliases": [
+      "graph authorization"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::28",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::34"
+    ]
+  },
+  {
+    "id": "GRAPH-005",
+    "canonical_name": "实体消歧与关系有效性更新",
+    "definition": "防止实体过度或不足合并及虚假过时关系，以证据置信度版本管理冲突、增量更新和删除。",
+    "domain": "graph",
+    "aliases": [
+      "entity resolution",
+      "relation validity"
+    ],
+    "status": "active",
+    "canonical_owner": "12/04",
+    "source_question_ids": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::29"
+    ]
+  },
+  {
+    "id": "IDENT-002",
+    "canonical_name": "发起主体、逻辑 Agent、服务与资源区分",
+    "definition": "授权明确谁代表谁对什么对象执行什么动作，服务来源或 Agent 名称不能替代原始主体身份。",
+    "domain": "ident",
+    "aliases": [
+      "Actor Agent Service Resource"
+    ],
+    "status": "active",
+    "canonical_owner": "12/05",
+    "source_question_ids": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::1",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::2"
+    ]
+  },
+  {
+    "id": "IDENT-003",
+    "canonical_name": "用途与风险驱动的数据分类",
+    "definition": "公开、内部、机密及受限数据按用途、保留、脱敏和模型传输要求进入检索工具日志及路由策略。",
+    "domain": "ident",
+    "aliases": [
+      "data purpose classification"
+    ],
+    "status": "active",
+    "canonical_owner": "12/05",
+    "source_question_ids": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::3",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::4"
+    ]
+  },
+  {
+    "id": "IDENT-004",
+    "canonical_name": "资源动作绑定的能力凭证",
+    "definition": "凭证绑定真实主体、租户、资源动作、参数摘要、策略版本、时限及一次性语义，限制授权重用范围。",
+    "domain": "ident",
+    "aliases": [
+      "capability credential"
+    ],
+    "status": "active",
+    "canonical_owner": "12/05",
+    "source_question_ids": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::8",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::17"
+    ]
+  },
+  {
+    "id": "IDENT-005",
+    "canonical_name": "秘密注入、轮换与撤销",
+    "definition": "密钥由秘密系统受控注入并限制生命周期，轮换撤销使旧凭证失效且避免进入模型和普通日志。",
+    "domain": "ident",
+    "aliases": [
+      "secret lifecycle"
+    ],
+    "status": "active",
+    "canonical_owner": "12/05",
+    "source_question_ids": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::5"
+    ]
+  },
+  {
+    "id": "DATA-005",
+    "canonical_name": "派生数据血缘与删除闭环",
+    "definition": "沿主数据到索引、摘要、检查点、日志、回放、备份及训练派生物追踪删除或不可访问状态。",
+    "domain": "data",
+    "aliases": [
+      "data lineage deletion"
+    ],
+    "status": "active",
+    "canonical_owner": "12/05",
+    "source_question_ids": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::7"
+    ]
+  },
+  {
+    "id": "IDENT-006",
+    "canonical_name": "委派尝试与过期结果隔离",
+    "definition": "在稳定父任务下记录独立 attempt、deadline 和副作用状态，旧或迟到结果不得覆盖更新状态。",
+    "domain": "ident",
+    "aliases": [
+      "delegation attempt",
+      "stale result"
+    ],
+    "status": "active",
+    "canonical_owner": "12/05",
+    "source_question_ids": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::14",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::19"
+    ]
+  },
+  {
+    "id": "REASON-004",
+    "canonical_name": "可见推理摘要的证据边界",
+    "definition": "供应商可见摘要或连续性状态不等于内部全部思维，不能证明事实和授权，审计依赖动作与验证记录。",
+    "domain": "reason",
+    "aliases": [
+      "reasoning summary boundary"
+    ],
+    "status": "active",
+    "canonical_owner": "12/06",
+    "source_question_ids": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::5",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::8"
+    ]
+  },
+  {
+    "id": "REASON-005",
+    "canonical_name": "自适应与固定推理投入控制",
+    "definition": "通过供应商适配区分自动推理等级和固定投入上限，按任务需要调节而不假设通用字段一致。",
+    "domain": "reason",
+    "aliases": [
+      "reasoning effort",
+      "adaptive reasoning"
+    ],
+    "status": "active",
+    "canonical_owner": "10",
+    "source_question_ids": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::6",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::10"
+    ]
+  },
+  {
+    "id": "REASON-006",
+    "canonical_name": "推理投入的分桶收益曲线",
+    "definition": "固定任务上下文环境对不同投入多次测量成功、推理Token、工具行为和尾延迟，确定适用路由阈值。",
+    "domain": "reason",
+    "aliases": [
+      "reasoning budget experiment"
+    ],
+    "status": "active",
+    "canonical_owner": "12/06",
+    "source_question_ids": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::7",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::11",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::25"
+    ]
+  },
+  {
+    "id": "PROV-012",
+    "canonical_name": "工具回合 typed items 连续性",
+    "definition": "按供应商合同原样维护需回传的签名块、typed items 或引用，版本化适配并避免删除重排造成状态断裂。",
+    "domain": "prov",
+    "aliases": [
+      "reasoning continuity",
+      "typed item roundtrip"
+    ],
+    "status": "active",
+    "canonical_owner": "12/01",
+    "source_question_ids": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::9",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::26"
+    ]
+  },
+  {
+    "id": "REASON-007",
+    "canonical_name": "模型训练阶段与运行约束的行为合成",
+    "definition": "预训练能力、示范格式、偏好选择与 Harness 反馈共同塑造线上行为，必须区分训练改善与执行约束。",
+    "domain": "reason",
+    "aliases": [
+      "Agent behavior composition"
+    ],
+    "status": "active",
+    "canonical_owner": "12/06",
+    "source_question_ids": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::13",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::20",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::22"
+    ]
+  },
+  {
+    "id": "DATA-006",
+    "canonical_name": "工具行为训练的正负轨迹分布",
+    "definition": "训练样本同时覆盖应调用、不应调用、参数、失败、拒绝、澄清和停止，避免成功轨迹偏置导致无条件调用。",
+    "domain": "data",
+    "aliases": [
+      "tool trajectory training coverage"
+    ],
+    "status": "active",
+    "canonical_owner": "12/06",
+    "source_question_ids": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::21",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::24"
+    ]
+  },
+  {
+    "id": "VOICE-001",
+    "canonical_name": "实时语音识别到播放链路",
+    "definition": "音频经识别、端点检测、任务决策和工具再合成播放，各阶段产生独立延迟与失败。",
+    "domain": "voice",
+    "aliases": [
+      "ASR VAD TTS pipeline"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::1"
+    ]
+  },
+  {
+    "id": "VOICE-002",
+    "canonical_name": "识别假设稳定性与关键槽位确认",
+    "definition": "语音中间识别可修正，稳定前仅做可撤销只读操作，金额专名等高风险槽位需复述或屏显核对。",
+    "domain": "voice",
+    "aliases": [
+      "partial ASR hypotheses"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::2",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::3",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::5",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::25"
+    ]
+  },
+  {
+    "id": "VOICE-003",
+    "canonical_name": "用户插话的播放和运行取消",
+    "definition": "打断时停止 TTS 及尚可取消的模型工具等待，已发出的外部动作仍须查询和对账。",
+    "domain": "voice",
+    "aliases": [
+      "Barge-in"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::4",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::25"
+    ]
+  },
+  {
+    "id": "VOICE-004",
+    "canonical_name": "跨语音文本通道的任务身份绑定",
+    "definition": "通道共享授权用户、租户和任务标识，切换时重新核验 Scope，不能把设备或电话当长期授权。",
+    "domain": "voice",
+    "aliases": [
+      "voice session identity"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::6"
+    ]
+  },
+  {
+    "id": "VOICE-005",
+    "canonical_name": "可听交互与可视交互分工",
+    "definition": "以简短诚实播报解释等待和长任务，对精确数字、代码或长表格转可视主通道以减少理解风险。",
+    "domain": "voice",
+    "aliases": [
+      "voice UX modality"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::8",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::9"
+    ]
+  },
+  {
+    "id": "VOICE-006",
+    "canonical_name": "噪声与打断场景的语音评测",
+    "definition": "按口音、设备、网络和语言测试关键槽位、误工具、打断恢复及任务成功，而非仅字错率。",
+    "domain": "voice",
+    "aliases": [
+      "voice evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::10"
+    ]
+  },
+  {
+    "id": "PRODUCT-001",
+    "canonical_name": "风险与预授权范围决定自主等级",
+    "definition": "从仅建议、逐次确认到限定范围或后台自治分级，以风险、可逆性和用户信任决定边界。",
+    "domain": "product",
+    "aliases": [
+      "autonomy levels"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::11",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::12",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::13",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::24"
+    ]
+  },
+  {
+    "id": "PRODUCT-002",
+    "canonical_name": "失败说明与可恢复人工接管",
+    "definition": "向用户展示已完成、缺口和副作用证据，交接可审查的状态与待办，人工修改后重新校验再恢复。",
+    "domain": "product",
+    "aliases": [
+      "human takeover UX"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::15",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::16",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::28"
+    ]
+  },
+  {
+    "id": "UI-002",
+    "canonical_name": "纯事件状态投影",
+    "definition": "Presenter 或纯 Reducer 从旧状态和事件产生展示状态，不直接执行 I/O，使实时、回放及测试共用语义。",
+    "domain": "ui",
+    "aliases": [
+      "Presenter",
+      "pure Reducer"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::29",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::30",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::33"
+    ]
+  },
+  {
+    "id": "UI-003",
+    "canonical_name": "瞬态进度与权威事件交付",
+    "definition": "允许合并丢弃过载 Token 进度，但状态、审批、错误和终止必须持久化或背压，关闭时仍交付最终状态。",
+    "domain": "ui",
+    "aliases": [
+      "authoritative UI events"
+    ],
+    "status": "active",
+    "canonical_owner": "12/07",
+    "source_question_ids": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::31"
+    ]
+  },
+  {
+    "id": "EVAL-018",
+    "canonical_name": "可执行评测 Case 的环境与效果合同",
+    "definition": "Case 指定输入之外的工作区、允许资源、副作用、预期外部状态、验证器和清理方式。",
+    "domain": "eval",
+    "aliases": [
+      "executable Agent case"
+    ],
+    "status": "active",
+    "canonical_owner": "12/08",
+    "source_question_ids": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::2",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::26"
+    ]
+  },
+  {
+    "id": "EVAL-019",
+    "canonical_name": "评测运行器与结果比较流水线",
+    "definition": "用版本化数据集、Runner、Checker、结果存储及切片报告组织 Baseline/Candidate 实验并保留失败原因证据。",
+    "domain": "eval",
+    "aliases": [
+      "Eval Harness"
+    ],
+    "status": "active",
+    "canonical_owner": "12/08",
+    "source_question_ids": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::7",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::11"
+    ]
+  },
+  {
+    "id": "EVAL-020",
+    "canonical_name": "测试环境隔离与跨 Case 清理",
+    "definition": "临时工作区、测试租户及模拟外部服务限制真实副作用，运行后检查清理状态避免样本相互污染。",
+    "domain": "eval",
+    "aliases": [
+      "isolated scenario"
+    ],
+    "status": "active",
+    "canonical_owner": "12/08",
+    "source_question_ids": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::3",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::10"
+    ]
+  },
+  {
+    "id": "EVAL-021",
+    "canonical_name": "按反馈成本分层执行 CI",
+    "definition": "提交、PR、周期和发布分别执行快速逻辑协议、核心安全回归与完整隔离评测，所有结果关联版本。",
+    "domain": "eval",
+    "aliases": [
+      "Agent CI test tiers"
+    ],
+    "status": "active",
+    "canonical_owner": "12/08",
+    "source_question_ids": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::12"
+    ]
+  },
+  {
+    "id": "EVAL-022",
+    "canonical_name": "安全与关键切片发布门禁",
+    "definition": "基线比较后以安全违规及关键切片退化阈值阻断发布，再进入影子灰度并按既定条件停止回滚。",
+    "domain": "eval",
+    "aliases": [
+      "CI Gate",
+      "Agent release gate"
+    ],
+    "status": "active",
+    "canonical_owner": "12/08",
+    "source_question_ids": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::14"
+    ]
+  },
+  {
+    "id": "PROJECT-002",
+    "canonical_name": "实测、离线、估算与未观测证据分级",
+    "definition": "项目陈述区分真实观测、离线实验和估计，明确数据规模、环境限制及尚未验证的生产能力。",
+    "domain": "project",
+    "aliases": [
+      "project evidence levels"
+    ],
+    "status": "active",
+    "canonical_owner": "12/08",
+    "source_question_ids": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::16",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::27",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::28"
+    ]
+  },
+  {
+    "id": "STREAM-002",
+    "canonical_name": "跨增量边界的敏感内容检测",
+    "definition": "在有界缓冲中拼接流片段检测跨块敏感内容，处理 Unicode 和延迟并在最终输出执行完整安全校验。",
+    "domain": "stream",
+    "aliases": [
+      "streaming redaction"
+    ],
+    "status": "active",
+    "canonical_owner": "07",
+    "source_question_ids": [
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::3"
+    ]
+  },
+  {
+    "id": "EVAL-023",
+    "canonical_name": "脱敏前后检索收益与泄漏对照",
+    "definition": "以配对样本分桶比较脱敏前后的召回、排序、引用、答案及越权，检验隐私处理是否损伤有效证据。",
+    "domain": "eval",
+    "aliases": [
+      "redaction utility evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::4"
+    ]
+  },
+  {
+    "id": "OBS-004",
+    "canonical_name": "事件采集到分析展示的数据管道",
+    "definition": "事件经采样脱敏批传、消息缓冲、实时或分析存储再聚合展示，明确丢失重复迟到及隐私成本边界。",
+    "domain": "obs",
+    "aliases": [
+      "observability data pipeline"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::7"
+    ]
+  },
+  {
+    "id": "OPS-006",
+    "canonical_name": "容器内核配额与观测开销复现",
+    "definition": "区分应用、运行时、内核及资源配额瓶颈，以相同镜像、内核、负载和采样开销复现性能结论。",
+    "domain": "ops",
+    "aliases": [
+      "Agent Linux profiling"
+    ],
+    "status": "active",
+    "canonical_owner": "11",
+    "source_question_ids": [
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::8"
+    ]
+  },
+  {
+    "id": "EVAL-024",
+    "canonical_name": "编程辅助的团队交付收益",
+    "definition": "按任务与人员经验比较澄清、审查、测试、缺陷回滚、交付周期及维护成本，而非生成代码量。",
+    "domain": "eval",
+    "aliases": [
+      "AI coding team evaluation"
+    ],
+    "status": "active",
+    "canonical_owner": "08",
+    "source_question_ids": [
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::10"
+    ]
+  }
+]
