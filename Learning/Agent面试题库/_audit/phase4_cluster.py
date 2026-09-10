@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Phase 4 deterministic candidate generation; rerunnable in CI.
 from __future__ import annotations
 import json, re
 from difflib import SequenceMatcher
@@ -53,9 +54,6 @@ def main():
             integrated='integrated' in (a['kind'],b['kind'])
             deep_bridge=('deepening' in (a['kind'],b['kind'])) and not (a['kind']==b['kind']=='deepening')
 
-            # Conservative candidate gate: Atom overlap is mandatory; weak one-atom
-            # overlaps need substantially similar wording. Integrated questions are
-            # hint-only even when admitted.
             admitted=False
             reasons=[]
             if a['atoms']==b['atoms'] and ts>=0.42:
@@ -85,7 +83,6 @@ def main():
             })
     edges.sort(key=lambda x:(-x['score'],x['a'],x['b']))
 
-    # Connected components are review clusters, not automatic merge groups.
     adj=defaultdict(set)
     for e in edges:
         adj[e['a']].add(e['b']); adj[e['b']].add(e['a'])
