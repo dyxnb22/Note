@@ -2,16 +2,19 @@
 from __future__ import annotations
 import hashlib,json,re
 from pathlib import Path
-from collections import Counter
 
 ROOT=Path(__file__).resolve().parent
 KB=ROOT.parent
 
 def load(n): return json.loads((ROOT/n).read_text(encoding='utf-8'))
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+def parse_qid(qid):
+    body=qid[3:]
+    file,num=body.rsplit('::',1)
+    return file,int(num)
 
 def current_questions():
-    ids=[]; errors=[]
+    ids=[]; errors=[]; blocks={}
     for p in sorted(KB.rglob('*.md')):
         if ROOT in p.parents: continue
         rel=p.relative_to(KB).as_posix()
@@ -33,12 +36,12 @@ def current_questions():
                 if len(nxt.group(1)) <= 3:
                     end=nxt.start(); break
             block=text[h.end():end]
-            # Match Phase 1 semantics: answers may start with 答：, a qualified
-            # label such as 答（项目补充）：, a table, code, or another direct
-            # artifact. The invariant is non-empty answer content, not a label.
+            blocks[qid]=block
+            # Match Phase 1 semantics: answers may be paragraphs, qualified
+            # labels, tables or code. The invariant is non-empty content.
             if not any(line.strip() for line in block.splitlines()):
                 errors.append(f'missing answer: {qid}')
-    return ids,errors
+    return ids,blocks,errors
 
 def effective_active_ids():
     atoms={a['id']:a for a in load('atom_registry.json')}
@@ -50,9 +53,19 @@ def effective_active_ids():
         elif r['type']=='add_atom' and r['atom'].get('status')=='active': active.add(r['atom']['id'])
     return active,deprecated
 
+def resolved_wiki_targets(source_file, block):
+    out=[]
+    for raw in re.findall(r'\[\[([^\]|]+)(?:\|[^\]]*)?\]\]', block):
+        path_part=raw.split('#',1)[0].strip()
+        if not path_part: continue
+        p=(KB/source_file).parent/path_part
+        if p.suffix!='.md': p=p.with_suffix('.md')
+        out.append(p.resolve())
+    return out
+
 def main():
     errors=[]
-    qids,parse_errors=current_questions(); errors+=parse_errors
+    qids,blocks,parse_errors=current_questions(); errors+=parse_errors
     if len(qids)!=736: errors.append(f'question count changed: {len(qids)} != 736')
     if len(set(qids))!=len(qids): errors.append('duplicate question IDs')
 
@@ -73,11 +86,25 @@ def main():
     if any(d.get('canonical_owner') is None for d in adj): errors.append('missing canonical owner')
 
     p6=load('phase6_validation.json')
-    rewrite_expected=set()
+    rewrite_expected=set(); bridge_pairs=[]
     for d in adj:
-        if d['action']=='REWRITE_A_AS_BRIDGE': rewrite_expected.add(d['a'])
-        if d['action']=='REWRITE_B_AS_BRIDGE': rewrite_expected.add(d['b'])
+        if d['action']=='REWRITE_A_AS_BRIDGE':
+            rewrite_expected.add(d['a']); bridge_pairs.append((d['a'],d['canonical_owner']))
+        if d['action']=='REWRITE_B_AS_BRIDGE':
+            rewrite_expected.add(d['b']); bridge_pairs.append((d['b'],d['canonical_owner']))
     if set(p6['changed_question_ids'])!=rewrite_expected: errors.append('Phase 6 rewrite set differs from Phase 5 decisions')
+
+    bridge_link_errors=[]
+    for bridge_qid,canonical_qid in bridge_pairs:
+        if not isinstance(canonical_qid,str) or canonical_qid not in blocks:
+            bridge_link_errors.append(f'invalid canonical owner for {bridge_qid}: {canonical_qid}')
+            continue
+        source_file,_=parse_qid(bridge_qid); canonical_file,_=parse_qid(canonical_qid)
+        expected=(KB/canonical_file).resolve()
+        targets=resolved_wiki_targets(source_file,blocks[bridge_qid])
+        if expected not in targets:
+            bridge_link_errors.append(f'bridge target mismatch: {bridge_qid} -> {canonical_qid}')
+    errors += bridge_link_errors
 
     baseline=load('baseline.json')
     old={f['file']:f['sha256'] for f in baseline['files']}
@@ -100,11 +127,12 @@ def main():
         'unknown_atom_refs':unknown,'deprecated_atom_refs':dep_refs,
         'candidate_edges':len(cand),'adjudicated_edges':len(adj),
         'lost_atoms':[], 'rewritten_bridge_entries':len(rewrite_expected),
-        'modified_source_files':sorted(changed),'integrated_questions_modified':False if not integrated_changed else True,
+        'bridge_targets_checked':len(bridge_pairs),'bridge_target_errors':bridge_link_errors,
+        'modified_source_files':sorted(changed),'integrated_questions_modified':bool(integrated_changed),
         'errors':errors
     }
     (ROOT/'phase7_validation.json').write_text(json.dumps(val,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    lines=['# Phase 7 — Coverage Regression & Final Freeze','',f'- Status: **{status.upper()}**',f'- Questions: **736 → {len(qids)}**',f'- Active Atom coverage: **{len(active&refs)}/{len(active)}**',f'- Candidate adjudication: **{len(adj)}/{len(cand)}**',f'- Lost atoms: **0**',f'- Bridge rewrites: **{len(rewrite_expected)}**',f'- Source files changed: **{len(changed)}**',f'- Integrated/system-design deletions: **0**','', '## Final decision','', 'Phase 1–7 gates are closed. The corpus keeps all interview intents and question IDs; duplicated canonical explanations are replaced only by adjudicated bridge answers.','', '## Modified source files','']
+    lines=['# Phase 7 — Coverage Regression & Final Freeze','',f'- Status: **{status.upper()}**',f'- Questions: **736 → {len(qids)}**',f'- Active Atom coverage: **{len(active&refs)}/{len(active)}**',f'- Candidate adjudication: **{len(adj)}/{len(cand)}**',f'- Lost atoms: **0**',f'- Bridge rewrites: **{len(rewrite_expected)}**',f'- Bridge targets checked: **{len(bridge_pairs)}**',f'- Source files changed: **{len(changed)}**',f'- Integrated/system-design deletions: **0**','', '## Final decision','', 'Phase 1–7 gates are closed. The corpus keeps all interview intents and question IDs; duplicated canonical explanations are replaced only by adjudicated bridge answers.','', '## Modified source files','']
     lines += [f'- `{f}`' for f in sorted(changed)]
     if errors:
         lines += ['', '## Errors','']+[f'- {e}' for e in errors]
