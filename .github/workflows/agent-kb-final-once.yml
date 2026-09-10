@@ -1,0 +1,57 @@
+name: Agent KB Final Bridge Verification
+on:
+  push:
+    branches: [agent-kb-dedup-chatgpt-phase3]
+    paths:
+      - '.github/workflows/agent-kb-final-once.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent-kb-dedup-chatgpt-phase3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reapply reviewed bridge rewrites
+        run: python3 'Learning/Agent面试题库/_audit/phase6_rewrite.py'
+      - name: Run final coverage and bridge-link regression
+        run: python3 'Learning/Agent面试题库/_audit/phase7_validate.py'
+      - name: Enforce final invariants
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('Learning/Agent面试题库/_audit')
+          p6=json.loads((root/'phase6_validation.json').read_text())
+          p7=json.loads((root/'phase7_validation.json').read_text())
+          assert p6['status']=='passed' and p6['rewrite_questions']==5 and p6['deleted_questions']==0
+          assert p7['status']=='passed'
+          assert p7['questions_after']==736 and p7['question_ids_preserved'] is True
+          assert p7['active_atoms']==p7['covered_active_atoms']==319
+          assert p7['uncovered_active_atoms']==[] and p7['unknown_atom_refs']==[] and p7['deprecated_atom_refs']==[]
+          assert p7['candidate_edges']==p7['adjudicated_edges']==47
+          assert p7['lost_atoms']==[]
+          assert p7['bridge_targets_checked']==5 and p7['bridge_target_errors']==[]
+          assert p7['integrated_questions_modified'] is False
+          print(p7)
+          PY
+      - name: Commit corrected bridge and final reports
+        run: |
+          git config user.name 'agent-kb-audit-bot'
+          git config user.email 'agent-kb-audit-bot@users.noreply.github.com'
+          git add 'Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md' \
+                  'Learning/Agent面试题库/08_评测与可观测/评测、轨迹与线上故障面经补充.md' \
+                  'Learning/Agent面试题库/09_工程化与系统设计/系统设计与取舍面经补充.md' \
+                  'Learning/Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md' \
+                  'Learning/Agent面试题库/_audit/phase6_validation.json' \
+                  'Learning/Agent面试题库/_audit/PHASE6_REPORT.md' \
+                  'Learning/Agent面试题库/_audit/phase7_validation.json' \
+                  'Learning/Agent面试题库/_audit/PHASE7_REPORT.md'
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'fix(agent-kb): correct bridge target and refreeze coverage'
+          git push origin HEAD:agent-kb-dedup-chatgpt-phase3
