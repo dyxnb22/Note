@@ -1,0 +1,3257 @@
+[
+  {
+    "atom_id": "A2A-001",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::27",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::28",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::11",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::12"
+    ]
+  },
+  {
+    "atom_id": "ALG-001",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::1"
+    ]
+  },
+  {
+    "atom_id": "ALG-002",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::2"
+    ]
+  },
+  {
+    "atom_id": "ALG-003",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::3"
+    ]
+  },
+  {
+    "atom_id": "ALG-004",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::4"
+    ]
+  },
+  {
+    "atom_id": "ALG-005",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::5"
+    ]
+  },
+  {
+    "atom_id": "ALG-006",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::5"
+    ]
+  },
+  {
+    "atom_id": "ALG-007",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::6"
+    ]
+  },
+  {
+    "atom_id": "ALG-008",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::7"
+    ]
+  },
+  {
+    "atom_id": "ALG-009",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::8"
+    ]
+  },
+  {
+    "atom_id": "ALG-010",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::9"
+    ]
+  },
+  {
+    "atom_id": "ALG-011",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::9"
+    ]
+  },
+  {
+    "atom_id": "ALG-012",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::10"
+    ]
+  },
+  {
+    "atom_id": "ALG-013",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::10",
+      "Q::11_编码与后端/编码题与后端基础.md::12"
+    ]
+  },
+  {
+    "atom_id": "ALG-014",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::11"
+    ]
+  },
+  {
+    "atom_id": "ALG-015",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::11"
+    ]
+  },
+  {
+    "atom_id": "ALG-016",
+    "canonical_owner": "external:CS/算法",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::11"
+    ]
+  },
+  {
+    "atom_id": "ARCH-001",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::5"
+    ]
+  },
+  {
+    "atom_id": "ARCH-002",
+    "canonical_owner": "09",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::23",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::29",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::12",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::6"
+    ]
+  },
+  {
+    "atom_id": "ARCH-003",
+    "canonical_owner": "09",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::27",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::27",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::28"
+    ]
+  },
+  {
+    "atom_id": "ARCH-004",
+    "canonical_owner": "09",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::22",
+      "Q::01_基础架构/Agent基础与架构.md::28",
+      "Q::01_基础架构/Agent基础与架构.md::6",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::23",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::26",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::26",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::22",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9"
+    ]
+  },
+  {
+    "atom_id": "ARCH-005",
+    "canonical_owner": "09",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::23",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::1",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::22",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::28",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::29",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::20",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::1"
+    ]
+  },
+  {
+    "atom_id": "ARCH-006",
+    "canonical_owner": "09",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::2",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::11"
+    ]
+  },
+  {
+    "atom_id": "ARCH-007",
+    "canonical_owner": "09",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::14",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::23",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::24"
+    ]
+  },
+  {
+    "atom_id": "BACK-001",
+    "canonical_owner": "external:Backend/Architecture",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::8",
+      "Q::11_编码与后端/编码题与后端基础.md::15",
+      "Q::11_编码与后端/编码题与后端基础.md::41"
+    ]
+  },
+  {
+    "atom_id": "BACK-002",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::15",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::16",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::3",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::7",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::2"
+    ]
+  },
+  {
+    "atom_id": "BACK-003",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::25"
+    ]
+  },
+  {
+    "atom_id": "BACK-004",
+    "canonical_owner": "external:Backend/Architecture",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::23",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::26"
+    ]
+  },
+  {
+    "atom_id": "BACK-005",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::13"
+    ]
+  },
+  {
+    "atom_id": "BACK-006",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::14"
+    ]
+  },
+  {
+    "atom_id": "BACK-007",
+    "canonical_owner": "external:Backend/Architecture",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::18",
+      "Q::11_编码与后端/编码题与后端基础.md::20"
+    ]
+  },
+  {
+    "atom_id": "BACK-008",
+    "canonical_owner": "external:Backend/Architecture",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::21"
+    ]
+  },
+  {
+    "atom_id": "BACK-009",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::22"
+    ]
+  },
+  {
+    "atom_id": "BACK-010",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::23"
+    ]
+  },
+  {
+    "atom_id": "BACK-011",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::24",
+      "Q::11_编码与后端/编码题与后端基础.md::25"
+    ]
+  },
+  {
+    "atom_id": "BACK-012",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::26"
+    ]
+  },
+  {
+    "atom_id": "BACK-013",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::27"
+    ]
+  },
+  {
+    "atom_id": "BACK-014",
+    "canonical_owner": "external:Backend/Architecture",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::23",
+      "Q::11_编码与后端/编码题与后端基础.md::26",
+      "Q::11_编码与后端/编码题与后端基础.md::28",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::7"
+    ]
+  },
+  {
+    "atom_id": "BACK-015",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::15",
+      "Q::11_编码与后端/编码题与后端基础.md::29"
+    ]
+  },
+  {
+    "atom_id": "BACK-016",
+    "canonical_owner": "external:Backend/Data",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::30",
+      "Q::11_编码与后端/编码题与后端基础.md::31"
+    ]
+  },
+  {
+    "atom_id": "CACHE-001",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::22",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::13",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::15"
+    ]
+  },
+  {
+    "atom_id": "CACHE-002",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::12",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::8"
+    ]
+  },
+  {
+    "atom_id": "CAP-001",
+    "canonical_owner": "09",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::36",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::18",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::29",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::7",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::9",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::12",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::22",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::13",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::19"
+    ]
+  },
+  {
+    "atom_id": "CAP-002",
+    "canonical_owner": "09",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::10",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::13",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::19",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::26",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::30",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::6"
+    ]
+  },
+  {
+    "atom_id": "CAP-003",
+    "canonical_owner": "09",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::11",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::12",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::21",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::22",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::24",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::27",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::13",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::16",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::20",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::21",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::7",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::8",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::3",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::4"
+    ]
+  },
+  {
+    "atom_id": "CODE-001",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::30",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::14",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::16",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::25"
+    ]
+  },
+  {
+    "atom_id": "CODE-002",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::30",
+      "Q::01_基础架构/Agent基础与架构.md::37",
+      "Q::07_可靠性与安全/可靠性与安全.md::31",
+      "Q::07_可靠性与安全/可靠性与安全.md::32",
+      "Q::07_可靠性与安全/可靠性与安全.md::33",
+      "Q::07_可靠性与安全/可靠性与安全.md::34",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::11"
+    ]
+  },
+  {
+    "atom_id": "CODE-003",
+    "canonical_owner": "11",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::34"
+    ]
+  },
+  {
+    "atom_id": "CODE-004",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::30",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::2",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::3",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::4",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::6"
+    ]
+  },
+  {
+    "atom_id": "CODE-005",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::25",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::26",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::7",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::8",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::9",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::18"
+    ]
+  },
+  {
+    "atom_id": "CODE-006",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::12",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::25",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::26"
+    ]
+  },
+  {
+    "atom_id": "CODE-007",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::13"
+    ]
+  },
+  {
+    "atom_id": "CODE-008",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::10",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::14",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::15",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::16",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::25"
+    ]
+  },
+  {
+    "atom_id": "CTX-001",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::13",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::7",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::2",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::15",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::23",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::22"
+    ]
+  },
+  {
+    "atom_id": "CTX-002",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::18",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::15",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::16",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::20",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::19",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::27"
+    ]
+  },
+  {
+    "atom_id": "CTX-003",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::17",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::18",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::29",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::6",
+      "Q::06_RAG与知识库/RAG与检索.md::24",
+      "Q::10_模型与推理/模型与推理基础.md::11",
+      "Q::10_模型与推理/模型与推理基础.md::18"
+    ]
+  },
+  {
+    "atom_id": "CTX-004",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::35",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::18",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::19",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::29",
+      "Q::03_Memory与状态/Memory与State.md::2",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::7",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::20",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::21",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::7",
+      "Q::10_模型与推理/模型与推理基础.md::18",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::17"
+    ]
+  },
+  {
+    "atom_id": "CTX-005",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::21",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::22",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::18",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::21"
+    ]
+  },
+  {
+    "atom_id": "CTX-006",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::23",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::24",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::26",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::27",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::26"
+    ]
+  },
+  {
+    "atom_id": "DATA-001",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::10",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::31",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::9",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::7",
+      "Q::08_评测与可观测/评测与可观测性.md::12",
+      "Q::08_评测与可观测/评测与可观测性.md::15",
+      "Q::08_评测与可观测/评测与可观测性.md::18",
+      "Q::08_评测与可观测/评测与可观测性.md::35",
+      "Q::08_评测与可观测/评测与可观测性.md::40",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::20",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6"
+    ]
+  },
+  {
+    "atom_id": "DATA-002",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::8",
+      "Q::08_评测与可观测/评测与可观测性.md::13",
+      "Q::08_评测与可观测/评测与可观测性.md::39"
+    ]
+  },
+  {
+    "atom_id": "DATA-003",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::10",
+      "Q::08_评测与可观测/评测与可观测性.md::21",
+      "Q::08_评测与可观测/评测与可观测性.md::27",
+      "Q::10_模型与推理/模型与推理基础.md::28",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::11"
+    ]
+  },
+  {
+    "atom_id": "DATA-004",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::27",
+      "Q::10_模型与推理/模型与推理基础.md::28",
+      "Q::10_模型与推理/模型与推理基础.md::30",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::18"
+    ]
+  },
+  {
+    "atom_id": "DATA-005",
+    "canonical_owner": "12/05",
+    "covering_questions": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::7"
+    ]
+  },
+  {
+    "atom_id": "DATA-006",
+    "canonical_owner": "12/06",
+    "covering_questions": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::17",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::18",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::21",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::24"
+    ]
+  },
+  {
+    "atom_id": "DUR-001",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::24",
+      "Q::01_基础架构/Agent基础与架构.md::6",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::5",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::19",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::1",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::2",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::9"
+    ]
+  },
+  {
+    "atom_id": "DUR-002",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::24",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::15",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::25",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8"
+    ]
+  },
+  {
+    "atom_id": "DUR-003",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::10",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::19",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::5",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::5",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::19",
+      "Q::11_编码与后端/编码题与后端基础.md::40",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::15",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::2"
+    ]
+  },
+  {
+    "atom_id": "DUR-004",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::24",
+      "Q::01_基础架构/Agent基础与架构.md::32",
+      "Q::03_Memory与状态/Memory与State.md::24",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::29",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::6",
+      "Q::11_编码与后端/编码题与后端基础.md::40",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::30",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::33",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::6"
+    ]
+  },
+  {
+    "atom_id": "DUR-005",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::19"
+    ]
+  },
+  {
+    "atom_id": "DUR-006",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::24",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::5"
+    ]
+  },
+  {
+    "atom_id": "DUR-007",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::12"
+    ]
+  },
+  {
+    "atom_id": "DUR-008",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::14",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::25"
+    ]
+  },
+  {
+    "atom_id": "DUR-009",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::32",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::36"
+    ]
+  },
+  {
+    "atom_id": "EVAL-001",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::10",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::11",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::31",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::6",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::9",
+      "Q::03_Memory与状态/Memory与State.md::13",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::1",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::22",
+      "Q::08_评测与可观测/评测与可观测性.md::35",
+      "Q::08_评测与可观测/评测与可观测性.md::36",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::13",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::21",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::3",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::6",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::1"
+    ]
+  },
+  {
+    "atom_id": "EVAL-002",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::16",
+      "Q::06_RAG与知识库/RAG与检索.md::20",
+      "Q::07_可靠性与安全/可靠性与安全.md::1",
+      "Q::07_可靠性与安全/可靠性与安全.md::2",
+      "Q::08_评测与可观测/评测与可观测性.md::34",
+      "Q::08_评测与可观测/评测与可观测性.md::5",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::17",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5"
+    ]
+  },
+  {
+    "atom_id": "EVAL-003",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::07_可靠性与安全/可靠性与安全.md::10",
+      "Q::07_可靠性与安全/可靠性与安全.md::22",
+      "Q::07_可靠性与安全/可靠性与安全.md::25",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::8"
+    ]
+  },
+  {
+    "atom_id": "EVAL-004",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::22",
+      "Q::01_基础架构/Agent基础与架构.md::26",
+      "Q::01_基础架构/Agent基础与架构.md::6",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::13",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::14",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::3",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::4",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::5",
+      "Q::08_评测与可观测/评测与可观测性.md::1",
+      "Q::08_评测与可观测/评测与可观测性.md::15",
+      "Q::08_评测与可观测/评测与可观测性.md::2",
+      "Q::08_评测与可观测/评测与可观测性.md::25",
+      "Q::08_评测与可观测/评测与可观测性.md::39",
+      "Q::08_评测与可观测/评测与可观测性.md::40",
+      "Q::08_评测与可观测/评测与可观测性.md::5",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::20",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::21",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::22"
+    ]
+  },
+  {
+    "atom_id": "EVAL-005",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测与可观测性.md::3",
+      "Q::08_评测与可观测/评测与可观测性.md::9"
+    ]
+  },
+  {
+    "atom_id": "EVAL-006",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::15",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::16",
+      "Q::08_评测与可观测/评测与可观测性.md::30",
+      "Q::08_评测与可观测/评测与可观测性.md::4",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::23",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::27"
+    ]
+  },
+  {
+    "atom_id": "EVAL-007",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测与可观测性.md::6"
+    ]
+  },
+  {
+    "atom_id": "EVAL-008",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测与可观测性.md::36",
+      "Q::08_评测与可观测/评测与可观测性.md::39",
+      "Q::08_评测与可观测/评测与可观测性.md::7",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::21",
+      "Q::10_模型与推理/模型与推理基础.md::17",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::17"
+    ]
+  },
+  {
+    "atom_id": "EVAL-009",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::5",
+      "Q::08_评测与可观测/评测与可观测性.md::40",
+      "Q::08_评测与可观测/评测与可观测性.md::8",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::17",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::23",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::26",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9"
+    ]
+  },
+  {
+    "atom_id": "EVAL-010",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::6",
+      "Q::08_评测与可观测/评测与可观测性.md::10",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::19",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::4"
+    ]
+  },
+  {
+    "atom_id": "EVAL-011",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测与可观测性.md::11"
+    ]
+  },
+  {
+    "atom_id": "EVAL-012",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测与可观测性.md::14",
+      "Q::08_评测与可观测/评测与可观测性.md::31"
+    ]
+  },
+  {
+    "atom_id": "EVAL-013",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::31",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::4",
+      "Q::08_评测与可观测/评测与可观测性.md::15",
+      "Q::08_评测与可观测/评测与可观测性.md::16",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::18",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::29"
+    ]
+  },
+  {
+    "atom_id": "EVAL-014",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::15",
+      "Q::08_评测与可观测/评测与可观测性.md::17",
+      "Q::08_评测与可观测/评测与可观测性.md::38",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::11"
+    ]
+  },
+  {
+    "atom_id": "EVAL-015",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::12",
+      "Q::08_评测与可观测/评测与可观测性.md::19",
+      "Q::08_评测与可观测/评测与可观测性.md::20",
+      "Q::08_评测与可观测/评测与可观测性.md::26",
+      "Q::08_评测与可观测/评测与可观测性.md::34",
+      "Q::08_评测与可观测/评测与可观测性.md::5",
+      "Q::10_模型与推理/模型与推理基础.md::28"
+    ]
+  },
+  {
+    "atom_id": "EVAL-016",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::16",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::2",
+      "Q::08_评测与可观测/评测与可观测性.md::35"
+    ]
+  },
+  {
+    "atom_id": "EVAL-017",
+    "canonical_owner": "12/08",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::20",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::21",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::27",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::13",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::21",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::8"
+    ]
+  },
+  {
+    "atom_id": "EVAL-018",
+    "canonical_owner": "12/08",
+    "covering_questions": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::1",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::21",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::23",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::3"
+    ]
+  },
+  {
+    "atom_id": "EVAL-019",
+    "canonical_owner": "12/08",
+    "covering_questions": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::4",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::5",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::9"
+    ]
+  },
+  {
+    "atom_id": "EVAL-020",
+    "canonical_owner": "12/08",
+    "covering_questions": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::2",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::8"
+    ]
+  },
+  {
+    "atom_id": "EVAL-021",
+    "canonical_owner": "12/08",
+    "covering_questions": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::10",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::18"
+    ]
+  },
+  {
+    "atom_id": "EVAL-022",
+    "canonical_owner": "12/08",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::31",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::9",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::29",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::12"
+    ]
+  },
+  {
+    "atom_id": "EVAL-023",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::4"
+    ]
+  },
+  {
+    "atom_id": "EVAL-024",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::10"
+    ]
+  },
+  {
+    "atom_id": "GRAPH-001",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::25",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33"
+    ]
+  },
+  {
+    "atom_id": "GRAPH-002",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::26"
+    ]
+  },
+  {
+    "atom_id": "GRAPH-003",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::27"
+    ]
+  },
+  {
+    "atom_id": "GRAPH-004",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::28",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::34"
+    ]
+  },
+  {
+    "atom_id": "GRAPH-005",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::29",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7"
+    ]
+  },
+  {
+    "atom_id": "GUI-001",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::17",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::19",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::23"
+    ]
+  },
+  {
+    "atom_id": "GUI-002",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::18",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::23",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::28"
+    ]
+  },
+  {
+    "atom_id": "GUI-003",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::20",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::27"
+    ]
+  },
+  {
+    "atom_id": "GUI-004",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::22"
+    ]
+  },
+  {
+    "atom_id": "GUI-005",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::24"
+    ]
+  },
+  {
+    "atom_id": "HARNESS-001",
+    "canonical_owner": "05",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::11",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::13",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::14"
+    ]
+  },
+  {
+    "atom_id": "HARNESS-002",
+    "canonical_owner": "05",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::15",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::16",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::17",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::18",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::20",
+      "Q::07_可靠性与安全/可靠性与安全.md::2"
+    ]
+  },
+  {
+    "atom_id": "IDENT-001",
+    "canonical_owner": "12/05",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::20",
+      "Q::01_基础架构/Agent基础与架构.md::21",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::8",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::7",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::9",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::12"
+    ]
+  },
+  {
+    "atom_id": "IDENT-002",
+    "canonical_owner": "12/05",
+    "covering_questions": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::1",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::12",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::2",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::9"
+    ]
+  },
+  {
+    "atom_id": "IDENT-003",
+    "canonical_owner": "12/05",
+    "covering_questions": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::3",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::4"
+    ]
+  },
+  {
+    "atom_id": "IDENT-004",
+    "canonical_owner": "12/05",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::25",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::13",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::16",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::8",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::9"
+    ]
+  },
+  {
+    "atom_id": "IDENT-005",
+    "canonical_owner": "12/05",
+    "covering_questions": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::5"
+    ]
+  },
+  {
+    "atom_id": "IDENT-006",
+    "canonical_owner": "12/05",
+    "covering_questions": [
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::14",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::15",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::18"
+    ]
+  },
+  {
+    "atom_id": "INGEST-001",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::25",
+      "Q::06_RAG与知识库/RAG与检索.md::4",
+      "Q::06_RAG与知识库/RAG与检索.md::6",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::6"
+    ]
+  },
+  {
+    "atom_id": "INGEST-002",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::15",
+      "Q::06_RAG与知识库/RAG与检索.md::17",
+      "Q::06_RAG与知识库/RAG与检索.md::26",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::23",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::15",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::31",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7"
+    ]
+  },
+  {
+    "atom_id": "INGEST-003",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::18",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::31"
+    ]
+  },
+  {
+    "atom_id": "INGEST-004",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::1",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::2",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::31",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::4",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::6",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7"
+    ]
+  },
+  {
+    "atom_id": "INGEST-005",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::11",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::13",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::19",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::3",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::31",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::8"
+    ]
+  },
+  {
+    "atom_id": "INGEST-006",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::9"
+    ]
+  },
+  {
+    "atom_id": "INGEST-007",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::10",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::32"
+    ]
+  },
+  {
+    "atom_id": "INGEST-008",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::12"
+    ]
+  },
+  {
+    "atom_id": "INGEST-009",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::14",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::15",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::23"
+    ]
+  },
+  {
+    "atom_id": "INGEST-010",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::18",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::22"
+    ]
+  },
+  {
+    "atom_id": "INGEST-011",
+    "canonical_owner": "12/04",
+    "covering_questions": [
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::16",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::23",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::24"
+    ]
+  },
+  {
+    "atom_id": "LANG-001",
+    "canonical_owner": "external:Python/面试题库",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::19"
+    ]
+  },
+  {
+    "atom_id": "LANG-002",
+    "canonical_owner": "external:Backend/Java/面试题库",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::39"
+    ]
+  },
+  {
+    "atom_id": "LLM-001",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::1"
+    ]
+  },
+  {
+    "atom_id": "LLM-002",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::2",
+      "Q::10_模型与推理/模型与推理基础.md::3",
+      "Q::10_模型与推理/模型与推理基础.md::4"
+    ]
+  },
+  {
+    "atom_id": "LLM-003",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::4"
+    ]
+  },
+  {
+    "atom_id": "LLM-004",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::5"
+    ]
+  },
+  {
+    "atom_id": "LLM-005",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::6"
+    ]
+  },
+  {
+    "atom_id": "LLM-006",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::7",
+      "Q::10_模型与推理/模型与推理基础.md::8"
+    ]
+  },
+  {
+    "atom_id": "LLM-007",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::9"
+    ]
+  },
+  {
+    "atom_id": "LLM-008",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::10"
+    ]
+  },
+  {
+    "atom_id": "LLM-009",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::12",
+      "Q::10_模型与推理/模型与推理基础.md::16",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::2"
+    ]
+  },
+  {
+    "atom_id": "LLM-010",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::13",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::8"
+    ]
+  },
+  {
+    "atom_id": "LLM-011",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::14"
+    ]
+  },
+  {
+    "atom_id": "LLM-012",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::15",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::8"
+    ]
+  },
+  {
+    "atom_id": "LLM-013",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::19"
+    ]
+  },
+  {
+    "atom_id": "LLM-014",
+    "canonical_owner": "external:AI/面试题库",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::19",
+      "Q::10_模型与推理/模型与推理基础.md::20",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::17",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::18",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::2"
+    ]
+  },
+  {
+    "atom_id": "LLM-015",
+    "canonical_owner": "external:AI/面试题库",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::19"
+    ]
+  },
+  {
+    "atom_id": "LLM-016",
+    "canonical_owner": "external:AI/面试题库",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::19"
+    ]
+  },
+  {
+    "atom_id": "LLM-017",
+    "canonical_owner": "external:AI/面试题库",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::19",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::2"
+    ]
+  },
+  {
+    "atom_id": "LLM-018",
+    "canonical_owner": "external:AI/面试题库",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::19",
+      "Q::10_模型与推理/模型与推理基础.md::24"
+    ]
+  },
+  {
+    "atom_id": "LLM-019",
+    "canonical_owner": "external:AI/面试题库",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::19",
+      "Q::10_模型与推理/模型与推理基础.md::25"
+    ]
+  },
+  {
+    "atom_id": "LLM-020",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::1"
+    ]
+  },
+  {
+    "atom_id": "LLM-021",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::3"
+    ]
+  },
+  {
+    "atom_id": "LLM-022",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::11",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::4"
+    ]
+  },
+  {
+    "atom_id": "LLM-023",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::5"
+    ]
+  },
+  {
+    "atom_id": "LLM-024",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::6"
+    ]
+  },
+  {
+    "atom_id": "LLM-025",
+    "canonical_owner": "external:AI/面试题库",
+    "covering_questions": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::7"
+    ]
+  },
+  {
+    "atom_id": "LLM-026",
+    "canonical_owner": "external:AI/LLM基础",
+    "covering_questions": [
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::9"
+    ]
+  },
+  {
+    "atom_id": "LLM-027",
+    "canonical_owner": "external:AI/面试题库",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::19",
+      "Q::10_模型与推理/模型与推理基础.md::24"
+    ]
+  },
+  {
+    "atom_id": "LLM-028",
+    "canonical_owner": "external:AI/面试题库",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::19",
+      "Q::10_模型与推理/模型与推理基础.md::24",
+      "Q::10_模型与推理/模型与推理基础.md::25"
+    ]
+  },
+  {
+    "atom_id": "LOOP-001",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::1",
+      "Q::01_基础架构/Agent基础与架构.md::10",
+      "Q::01_基础架构/Agent基础与架构.md::2",
+      "Q::01_基础架构/Agent基础与架构.md::8",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::19",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::11",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::20"
+    ]
+  },
+  {
+    "atom_id": "LOOP-002",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::1",
+      "Q::01_基础架构/Agent基础与架构.md::29",
+      "Q::01_基础架构/Agent基础与架构.md::3",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::2",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::23",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::20",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::6",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::7",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::23"
+    ]
+  },
+  {
+    "atom_id": "LOOP-003",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::19",
+      "Q::01_基础架构/Agent基础与架构.md::2",
+      "Q::01_基础架构/Agent基础与架构.md::37",
+      "Q::01_基础架构/Agent基础与架构.md::7",
+      "Q::01_基础架构/Agent基础与架构.md::9",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::3",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::10",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::9",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::2"
+    ]
+  },
+  {
+    "atom_id": "LOOP-004",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::10",
+      "Q::01_基础架构/Agent基础与架构.md::13",
+      "Q::01_基础架构/Agent基础与架构.md::18",
+      "Q::01_基础架构/Agent基础与架构.md::3",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::15",
+      "Q::10_模型与推理/模型与推理基础.md::29",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::11",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::12"
+    ]
+  },
+  {
+    "atom_id": "LOOP-005",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::11"
+    ]
+  },
+  {
+    "atom_id": "LOOP-006",
+    "canonical_owner": "05",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::11",
+      "Q::01_基础架构/Agent基础与架构.md::13"
+    ]
+  },
+  {
+    "atom_id": "LOOP-007",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::12",
+      "Q::01_基础架构/Agent基础与架构.md::13",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::10",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::8"
+    ]
+  },
+  {
+    "atom_id": "LOOP-008",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::14",
+      "Q::01_基础架构/Agent基础与架构.md::2",
+      "Q::01_基础架构/Agent基础与架构.md::22",
+      "Q::01_基础架构/Agent基础与架构.md::28",
+      "Q::01_基础架构/Agent基础与架构.md::31",
+      "Q::01_基础架构/Agent基础与架构.md::37",
+      "Q::01_基础架构/Agent基础与架构.md::7",
+      "Q::01_基础架构/Agent基础与架构.md::9",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::15",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::15",
+      "Q::07_可靠性与安全/可靠性与安全.md::3",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::16"
+    ]
+  },
+  {
+    "atom_id": "LOOP-009",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::10",
+      "Q::01_基础架构/Agent基础与架构.md::15",
+      "Q::01_基础架构/Agent基础与架构.md::17",
+      "Q::01_基础架构/Agent基础与架构.md::18",
+      "Q::01_基础架构/Agent基础与架构.md::3",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::25",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::12"
+    ]
+  },
+  {
+    "atom_id": "LOOP-010",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::15",
+      "Q::01_基础架构/Agent基础与架构.md::16",
+      "Q::01_基础架构/Agent基础与架构.md::32",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::15",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::13",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::14"
+    ]
+  },
+  {
+    "atom_id": "LOOP-011",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::16",
+      "Q::01_基础架构/Agent基础与架构.md::19",
+      "Q::01_基础架构/Agent基础与架构.md::2",
+      "Q::01_基础架构/Agent基础与架构.md::21",
+      "Q::01_基础架构/Agent基础与架构.md::34",
+      "Q::01_基础架构/Agent基础与架构.md::36",
+      "Q::01_基础架构/Agent基础与架构.md::4",
+      "Q::01_基础架构/Agent基础与架构.md::6",
+      "Q::01_基础架构/Agent基础与架构.md::9",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::17",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::20",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::19",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::26"
+    ]
+  },
+  {
+    "atom_id": "LOOP-012",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::1",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::2"
+    ]
+  },
+  {
+    "atom_id": "LOOP-013",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::3",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::8"
+    ]
+  },
+  {
+    "atom_id": "LOOP-014",
+    "canonical_owner": "01",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::4"
+    ]
+  },
+  {
+    "atom_id": "MCP-001",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::18",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::19",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::22",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::28",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::11",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::21"
+    ]
+  },
+  {
+    "atom_id": "MCP-002",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::20",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::13",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::17"
+    ]
+  },
+  {
+    "atom_id": "MCP-003",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::23"
+    ]
+  },
+  {
+    "atom_id": "MCP-004",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::24"
+    ]
+  },
+  {
+    "atom_id": "MEM-001",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::16",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::19",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::20",
+      "Q::03_Memory与状态/Memory与State.md::14",
+      "Q::03_Memory与状态/Memory与State.md::15",
+      "Q::03_Memory与状态/Memory与State.md::16",
+      "Q::03_Memory与状态/Memory与State.md::17",
+      "Q::03_Memory与状态/Memory与State.md::18"
+    ]
+  },
+  {
+    "atom_id": "MEM-002",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::1"
+    ]
+  },
+  {
+    "atom_id": "MEM-003",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::1",
+      "Q::03_Memory与状态/Memory与State.md::3",
+      "Q::03_Memory与状态/Memory与State.md::4",
+      "Q::03_Memory与状态/Memory与State.md::5"
+    ]
+  },
+  {
+    "atom_id": "MEM-004",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::1",
+      "Q::03_Memory与状态/Memory与State.md::4"
+    ]
+  },
+  {
+    "atom_id": "MEM-005",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::1"
+    ]
+  },
+  {
+    "atom_id": "MEM-006",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::27",
+      "Q::03_Memory与状态/Memory与State.md::29",
+      "Q::03_Memory与状态/Memory与State.md::5"
+    ]
+  },
+  {
+    "atom_id": "MEM-007",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::14",
+      "Q::03_Memory与状态/Memory与State.md::16",
+      "Q::03_Memory与状态/Memory与State.md::18",
+      "Q::03_Memory与状态/Memory与State.md::3",
+      "Q::03_Memory与状态/Memory与State.md::8"
+    ]
+  },
+  {
+    "atom_id": "MEM-008",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::8"
+    ]
+  },
+  {
+    "atom_id": "MEM-009",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14",
+      "Q::03_Memory与状态/Memory与State.md::10",
+      "Q::03_Memory与状态/Memory与State.md::11",
+      "Q::03_Memory与状态/Memory与State.md::18",
+      "Q::03_Memory与状态/Memory与State.md::2",
+      "Q::03_Memory与状态/Memory与State.md::6",
+      "Q::03_Memory与状态/Memory与State.md::9"
+    ]
+  },
+  {
+    "atom_id": "MEM-010",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::12"
+    ]
+  },
+  {
+    "atom_id": "MEM-011",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::12",
+      "Q::03_Memory与状态/Memory与State.md::15",
+      "Q::03_Memory与状态/Memory与State.md::29",
+      "Q::03_Memory与状态/Memory与State.md::30",
+      "Q::03_Memory与状态/Memory与State.md::5"
+    ]
+  },
+  {
+    "atom_id": "MEM-012",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::10",
+      "Q::03_Memory与状态/Memory与State.md::17"
+    ]
+  },
+  {
+    "atom_id": "MEM-013",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::13",
+      "Q::03_Memory与状态/Memory与State.md::19",
+      "Q::03_Memory与状态/Memory与State.md::30"
+    ]
+  },
+  {
+    "atom_id": "MEM-014",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::6",
+      "Q::03_Memory与状态/Memory与State.md::7",
+      "Q::03_Memory与状态/Memory与State.md::9"
+    ]
+  },
+  {
+    "atom_id": "METRIC-001",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::19",
+      "Q::06_RAG与知识库/RAG与检索.md::20",
+      "Q::06_RAG与知识库/RAG与检索.md::21"
+    ]
+  },
+  {
+    "atom_id": "METRIC-002",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::19",
+      "Q::06_RAG与知识库/RAG与检索.md::21",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::23"
+    ]
+  },
+  {
+    "atom_id": "METRIC-003",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::21"
+    ]
+  },
+  {
+    "atom_id": "METRIC-004",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::21"
+    ]
+  },
+  {
+    "atom_id": "METRIC-005",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::21",
+      "Q::06_RAG与知识库/RAG与检索.md::22"
+    ]
+  },
+  {
+    "atom_id": "MODEL-001",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::11",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::16"
+    ]
+  },
+  {
+    "atom_id": "MODEL-002",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::26",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::12",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::20",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::10",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::20",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::3",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::7",
+      "Q::10_模型与推理/模型与推理基础.md::17",
+      "Q::10_模型与推理/模型与推理基础.md::26",
+      "Q::10_模型与推理/模型与推理基础.md::29",
+      "Q::10_模型与推理/模型与推理基础.md::30",
+      "Q::11_编码与后端/编码题与后端基础.md::41"
+    ]
+  },
+  {
+    "atom_id": "MODEL-003",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::11",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::16",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::4",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::3",
+      "Q::10_模型与推理/模型与推理基础.md::17",
+      "Q::10_模型与推理/模型与推理基础.md::26",
+      "Q::10_模型与推理/模型与推理基础.md::30",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::12",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::15",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::23"
+    ]
+  },
+  {
+    "atom_id": "MODEL-004",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::4"
+    ]
+  },
+  {
+    "atom_id": "MODEL-005",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::10",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::5",
+      "Q::10_模型与推理/模型与推理基础.md::29"
+    ]
+  },
+  {
+    "atom_id": "MODEL-006",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::31",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::10",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::1"
+    ]
+  },
+  {
+    "atom_id": "MULTI-001",
+    "canonical_owner": "05",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::20",
+      "Q::01_基础架构/Agent基础与架构.md::21",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::22",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::27",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::23",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::5",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::13",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::11",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::13"
+    ]
+  },
+  {
+    "atom_id": "MULTI-002",
+    "canonical_owner": "05",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::13",
+      "Q::01_基础架构/Agent基础与架构.md::20",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::23",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6"
+    ]
+  },
+  {
+    "atom_id": "MULTI-003",
+    "canonical_owner": "05",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::4"
+    ]
+  },
+  {
+    "atom_id": "MULTI-004",
+    "canonical_owner": "05",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::20",
+      "Q::03_Memory与状态/Memory与State.md::21",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::17"
+    ]
+  },
+  {
+    "atom_id": "MULTI-005",
+    "canonical_owner": "05",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::12",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::8",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::13",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::15"
+    ]
+  },
+  {
+    "atom_id": "MULTI-006",
+    "canonical_owner": "05",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::16",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::10",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::13",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::7"
+    ]
+  },
+  {
+    "atom_id": "OBS-001",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测与可观测性.md::28",
+      "Q::08_评测与可观测/评测与可观测性.md::29",
+      "Q::08_评测与可观测/评测与可观测性.md::32",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::15",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::21",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::30"
+    ]
+  },
+  {
+    "atom_id": "OBS-002",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::9"
+    ]
+  },
+  {
+    "atom_id": "OBS-003",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测与可观测性.md::33",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::15"
+    ]
+  },
+  {
+    "atom_id": "OBS-004",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::7"
+    ]
+  },
+  {
+    "atom_id": "OPS-001",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::11",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::21"
+    ]
+  },
+  {
+    "atom_id": "OPS-002",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::27",
+      "Q::01_基础架构/Agent基础与架构.md::6",
+      "Q::03_Memory与状态/Memory与State.md::22",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::30",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::40",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::30",
+      "Q::11_编码与后端/编码题与后端基础.md::38",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::19",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::16",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::18",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34"
+    ]
+  },
+  {
+    "atom_id": "OPS-003",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::30",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::24"
+    ]
+  },
+  {
+    "atom_id": "OPS-004",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::25",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::20",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::24",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::31"
+    ]
+  },
+  {
+    "atom_id": "OPS-005",
+    "canonical_owner": "12/03",
+    "covering_questions": [
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::22",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::23"
+    ]
+  },
+  {
+    "atom_id": "OPS-006",
+    "canonical_owner": "external:Backend/Architecture",
+    "covering_questions": [
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::8"
+    ]
+  },
+  {
+    "atom_id": "PRODUCT-001",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::11",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::12",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::13",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::24"
+    ]
+  },
+  {
+    "atom_id": "PRODUCT-002",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::28",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::15",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::16",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::28"
+    ]
+  },
+  {
+    "atom_id": "PROJECT-001",
+    "canonical_owner": "12/08",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::1",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::16",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::13",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::21",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::22",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9"
+    ]
+  },
+  {
+    "atom_id": "PROJECT-002",
+    "canonical_owner": "12/08",
+    "covering_questions": [
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::14",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::24",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::25",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::11"
+    ]
+  },
+  {
+    "atom_id": "PROMPT-001",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::1",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::13",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::3"
+    ]
+  },
+  {
+    "atom_id": "PROMPT-002",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::2",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::30",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::4"
+    ]
+  },
+  {
+    "atom_id": "PROMPT-003",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::5",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::15",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::16",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::4"
+    ]
+  },
+  {
+    "atom_id": "PROMPT-004",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::6"
+    ]
+  },
+  {
+    "atom_id": "PROMPT-005",
+    "canonical_owner": "02",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::1",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::11",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::26",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::3",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::7",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::8",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::3",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::31",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::33",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::5",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::20",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::5",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::16"
+    ]
+  },
+  {
+    "atom_id": "PROTO-001",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::21",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::29",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::30",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::40"
+    ]
+  },
+  {
+    "atom_id": "PROV-001",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::23",
+      "Q::01_基础架构/Agent基础与架构.md::26",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::12",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::29",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::1",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::22",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::1",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::6"
+    ]
+  },
+  {
+    "atom_id": "PROV-002",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::18",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::2",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::23",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::6"
+    ]
+  },
+  {
+    "atom_id": "PROV-003",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::2",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::26",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::28",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::6"
+    ]
+  },
+  {
+    "atom_id": "PROV-004",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::7"
+    ]
+  },
+  {
+    "atom_id": "PROV-005",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::29",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::8"
+    ]
+  },
+  {
+    "atom_id": "PROV-006",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::27",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::4",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::2"
+    ]
+  },
+  {
+    "atom_id": "PROV-007",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::18",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::30"
+    ]
+  },
+  {
+    "atom_id": "PROV-008",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::12",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::1",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::24",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::31",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::7"
+    ]
+  },
+  {
+    "atom_id": "PROV-009",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::12",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::16",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::21",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::23"
+    ]
+  },
+  {
+    "atom_id": "PROV-010",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::14"
+    ]
+  },
+  {
+    "atom_id": "PROV-011",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::11"
+    ]
+  },
+  {
+    "atom_id": "PROV-012",
+    "canonical_owner": "12/01",
+    "covering_questions": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::26",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::9"
+    ]
+  },
+  {
+    "atom_id": "RAG-001",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::1",
+      "Q::06_RAG与知识库/RAG与检索.md::24",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::22"
+    ]
+  },
+  {
+    "atom_id": "RAG-002",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::2",
+      "Q::06_RAG与知识库/RAG与检索.md::3"
+    ]
+  },
+  {
+    "atom_id": "RAG-003",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::5",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::16"
+    ]
+  },
+  {
+    "atom_id": "RAG-004",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::7"
+    ]
+  },
+  {
+    "atom_id": "RAG-005",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::11",
+      "Q::06_RAG与知识库/RAG与检索.md::7",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::20"
+    ]
+  },
+  {
+    "atom_id": "RAG-006",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::11",
+      "Q::06_RAG与知识库/RAG与检索.md::7",
+      "Q::06_RAG与知识库/RAG与检索.md::8",
+      "Q::06_RAG与知识库/RAG与检索.md::9",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::18",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::20",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::21"
+    ]
+  },
+  {
+    "atom_id": "RAG-007",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::10",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::18",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::17",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::20",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::21"
+    ]
+  },
+  {
+    "atom_id": "RAG-008",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::11",
+      "Q::06_RAG与知识库/RAG与检索.md::12",
+      "Q::06_RAG与知识库/RAG与检索.md::13",
+      "Q::06_RAG与知识库/RAG与检索.md::14",
+      "Q::06_RAG与知识库/RAG与检索.md::24",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::17",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::19",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::20"
+    ]
+  },
+  {
+    "atom_id": "RAG-009",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::15",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::21"
+    ]
+  },
+  {
+    "atom_id": "RAG-010",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::6",
+      "Q::06_RAG与知识库/RAG与检索.md::19",
+      "Q::06_RAG与知识库/RAG与检索.md::26",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::19",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::23",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::5"
+    ]
+  },
+  {
+    "atom_id": "RAG-011",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::21",
+      "Q::06_RAG与知识库/RAG与检索.md::22"
+    ]
+  },
+  {
+    "atom_id": "RAG-012",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::06_RAG与知识库/RAG与检索.md::23",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::18",
+      "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::6"
+    ]
+  },
+  {
+    "atom_id": "RAG-013",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::14"
+    ]
+  },
+  {
+    "atom_id": "RAG-014",
+    "canonical_owner": "06",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::17"
+    ]
+  },
+  {
+    "atom_id": "REASON-001",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::21"
+    ]
+  },
+  {
+    "atom_id": "REASON-002",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::22"
+    ]
+  },
+  {
+    "atom_id": "REASON-003",
+    "canonical_owner": "12/06",
+    "covering_questions": [
+      "Q::10_模型与推理/模型与推理基础.md::23"
+    ]
+  },
+  {
+    "atom_id": "REASON-004",
+    "canonical_owner": "12/06",
+    "covering_questions": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::5",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::8",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::14"
+    ]
+  },
+  {
+    "atom_id": "REASON-005",
+    "canonical_owner": "10",
+    "covering_questions": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::10",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::4",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::6"
+    ]
+  },
+  {
+    "atom_id": "REASON-006",
+    "canonical_owner": "12/06",
+    "covering_questions": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::11",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::12",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::17",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::25",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::3",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::4",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::7"
+    ]
+  },
+  {
+    "atom_id": "REASON-007",
+    "canonical_owner": "12/06",
+    "covering_questions": [
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::13",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::17",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::18",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::2",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::20",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::22"
+    ]
+  },
+  {
+    "atom_id": "REL-001",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::25",
+      "Q::01_基础架构/Agent基础与架构.md::34",
+      "Q::01_基础架构/Agent基础与架构.md::9",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::8",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::9",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::10",
+      "Q::07_可靠性与安全/可靠性与安全.md::30",
+      "Q::07_可靠性与安全/可靠性与安全.md::4",
+      "Q::07_可靠性与安全/可靠性与安全.md::5",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::14",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::28"
+    ]
+  },
+  {
+    "atom_id": "REL-002",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::25",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::26",
+      "Q::07_可靠性与安全/可靠性与安全.md::4",
+      "Q::07_可靠性与安全/可靠性与安全.md::5",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::14",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::21",
+      "Q::11_编码与后端/编码题与后端基础.md::16"
+    ]
+  },
+  {
+    "atom_id": "REL-003",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::12",
+      "Q::07_可靠性与安全/可靠性与安全.md::18",
+      "Q::07_可靠性与安全/可靠性与安全.md::23",
+      "Q::07_可靠性与安全/可靠性与安全.md::7",
+      "Q::07_可靠性与安全/可靠性与安全.md::8",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::28",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::29",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::17"
+    ]
+  },
+  {
+    "atom_id": "REPLAY-001",
+    "canonical_owner": "12/08",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::35",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::32",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::11",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+      "Q::08_评测与可观测/评测与可观测性.md::24",
+      "Q::08_评测与可观测/评测与可观测性.md::37",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::11",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::3"
+    ]
+  },
+  {
+    "atom_id": "SANDBOX-001",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::30",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::8",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::12",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::19",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::12",
+      "Q::07_可靠性与安全/可靠性与安全.md::15",
+      "Q::07_可靠性与安全/可靠性与安全.md::17",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::21"
+    ]
+  },
+  {
+    "atom_id": "SANDBOX-002",
+    "canonical_owner": "12/02",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::13",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::15",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::21"
+    ]
+  },
+  {
+    "atom_id": "SANDBOX-003",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::07_可靠性与安全/可靠性与安全.md::16",
+      "Q::07_可靠性与安全/可靠性与安全.md::28"
+    ]
+  },
+  {
+    "atom_id": "SEC-001",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::1",
+      "Q::01_基础架构/Agent基础与架构.md::2",
+      "Q::01_基础架构/Agent基础与架构.md::22",
+      "Q::01_基础架构/Agent基础与架构.md::29",
+      "Q::01_基础架构/Agent基础与架构.md::3",
+      "Q::01_基础架构/Agent基础与架构.md::31",
+      "Q::01_基础架构/Agent基础与架构.md::33",
+      "Q::01_基础架构/Agent基础与架构.md::4",
+      "Q::01_基础架构/Agent基础与架构.md::6",
+      "Q::01_基础架构/Agent基础与架构.md::7",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::2",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::30",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::7",
+      "Q::03_Memory与状态/Memory与State.md::20",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::31",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::33",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::34",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::37",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::38",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::4",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::5",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::21",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::19",
+      "Q::07_可靠性与安全/可靠性与安全.md::18",
+      "Q::07_可靠性与安全/可靠性与安全.md::3",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::9",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::16",
+      "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::23",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::1"
+    ]
+  },
+  {
+    "atom_id": "SEC-002",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::27"
+    ]
+  },
+  {
+    "atom_id": "SEC-003",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::27",
+      "Q::03_Memory与状态/Memory与State.md::25",
+      "Q::03_Memory与状态/Memory与State.md::26",
+      "Q::03_Memory与状态/Memory与State.md::3",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::6",
+      "Q::07_可靠性与安全/可靠性与安全.md::10",
+      "Q::07_可靠性与安全/可靠性与安全.md::13"
+    ]
+  },
+  {
+    "atom_id": "SEC-004",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::10",
+      "Q::03_Memory与状态/Memory与State.md::19",
+      "Q::03_Memory与状态/Memory与State.md::27",
+      "Q::03_Memory与状态/Memory与State.md::29",
+      "Q::03_Memory与状态/Memory与State.md::30",
+      "Q::03_Memory与状态/Memory与State.md::5",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::25",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::13",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::18",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::12",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::6"
+    ]
+  },
+  {
+    "atom_id": "SEC-005",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::27",
+      "Q::01_基础架构/Agent基础与架构.md::29",
+      "Q::01_基础架构/Agent基础与架构.md::33",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::24",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::31",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::38",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::8",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::9",
+      "Q::07_可靠性与安全/可靠性与安全.md::18",
+      "Q::07_可靠性与安全/可靠性与安全.md::19",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::28",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::15",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::22",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::23",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::25",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::10",
+      "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::9"
+    ]
+  },
+  {
+    "atom_id": "SEC-006",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::33",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::30",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::4",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::5",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::20",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::22",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::25",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::3",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::36",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::9",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::19",
+      "Q::07_可靠性与安全/可靠性与安全.md::13",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::20",
+      "Q::11_编码与后端/编码题与后端基础.md::41",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::21"
+    ]
+  },
+  {
+    "atom_id": "SEC-007",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::27",
+      "Q::07_可靠性与安全/可靠性与安全.md::24",
+      "Q::07_可靠性与安全/可靠性与安全.md::29",
+      "Q::07_可靠性与安全/可靠性与安全.md::9"
+    ]
+  },
+  {
+    "atom_id": "SEC-008",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::07_可靠性与安全/可靠性与安全.md::9"
+    ]
+  },
+  {
+    "atom_id": "SEC-009",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::30",
+      "Q::07_可靠性与安全/可靠性与安全.md::11",
+      "Q::07_可靠性与安全/可靠性与安全.md::14"
+    ]
+  },
+  {
+    "atom_id": "SEC-010",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::26",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::25",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::41",
+      "Q::07_可靠性与安全/可靠性与安全.md::12",
+      "Q::07_可靠性与安全/可靠性与安全.md::13"
+    ]
+  },
+  {
+    "atom_id": "SEC-011",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::07_可靠性与安全/可靠性与安全.md::26"
+    ]
+  },
+  {
+    "atom_id": "SEC-012",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::07_可靠性与安全/可靠性与安全.md::15",
+      "Q::07_可靠性与安全/可靠性与安全.md::27"
+    ]
+  },
+  {
+    "atom_id": "SEC-013",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::07_可靠性与安全/可靠性与安全.md::10",
+      "Q::07_可靠性与安全/可靠性与安全.md::36"
+    ]
+  },
+  {
+    "atom_id": "SKILL-001",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::4",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::13",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::5",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::20",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::21",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::22",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::23",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::27"
+    ]
+  },
+  {
+    "atom_id": "SKILL-002",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::2",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::3"
+    ]
+  },
+  {
+    "atom_id": "SKILL-003",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::14",
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::4",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::20"
+    ]
+  },
+  {
+    "atom_id": "SKILL-004",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::10"
+    ]
+  },
+  {
+    "atom_id": "SKILL-005",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::11"
+    ]
+  },
+  {
+    "atom_id": "STATE-001",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::15",
+      "Q::01_基础架构/Agent基础与架构.md::17",
+      "Q::01_基础架构/Agent基础与架构.md::2",
+      "Q::01_基础架构/Agent基础与架构.md::23",
+      "Q::01_基础架构/Agent基础与架构.md::34",
+      "Q::01_基础架构/Agent基础与架构.md::35",
+      "Q::01_基础架构/Agent基础与架构.md::7",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::15",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::19",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::29",
+      "Q::03_Memory与状态/Memory与State.md::2",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::21",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::3",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::9"
+    ]
+  },
+  {
+    "atom_id": "STATE-002",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::16",
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::25"
+    ]
+  },
+  {
+    "atom_id": "STATE-003",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::20",
+      "Q::03_Memory与状态/Memory与State.md::22",
+      "Q::03_Memory与状态/Memory与State.md::25",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::19",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::25",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34"
+    ]
+  },
+  {
+    "atom_id": "STATE-004",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::21",
+      "Q::03_Memory与状态/Memory与State.md::23",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::17",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::7",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::5",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::23",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::25",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11"
+    ]
+  },
+  {
+    "atom_id": "STATE-005",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::23",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35"
+    ]
+  },
+  {
+    "atom_id": "STATE-006",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::18",
+      "Q::01_基础架构/Agent基础与架构.md::24",
+      "Q::01_基础架构/Agent基础与架构.md::30",
+      "Q::01_基础架构/Agent基础与架构.md::32",
+      "Q::01_基础架构/Agent基础与架构.md::34",
+      "Q::03_Memory与状态/Memory与State.md::24",
+      "Q::03_Memory与状态/Memory与State.md::27",
+      "Q::03_Memory与状态/Memory与State.md::28",
+      "Q::03_Memory与状态/Memory与State.md::8",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::19",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::13",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::15",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::23",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::25",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::30",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8"
+    ]
+  },
+  {
+    "atom_id": "STATE-007",
+    "canonical_owner": "03",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::2",
+      "Q::03_Memory与状态/Memory与State.md::28",
+      "Q::03_Memory与状态/Memory与State.md::4",
+      "Q::03_Memory与状态/Memory与State.md::7"
+    ]
+  },
+  {
+    "atom_id": "STREAM-001",
+    "canonical_owner": "09",
+    "covering_questions": [
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::17",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::3",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::4",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::11"
+    ]
+  },
+  {
+    "atom_id": "STREAM-002",
+    "canonical_owner": "07",
+    "covering_questions": [
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::3"
+    ]
+  },
+  {
+    "atom_id": "TEST-001",
+    "canonical_owner": "external:Backend/Delivery",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::32"
+    ]
+  },
+  {
+    "atom_id": "TEST-002",
+    "canonical_owner": "11",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::31",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::19",
+      "Q::11_编码与后端/编码题与后端基础.md::33",
+      "Q::11_编码与后端/编码题与后端基础.md::35",
+      "Q::11_编码与后端/编码题与后端基础.md::37",
+      "Q::11_编码与后端/编码题与后端基础.md::38",
+      "Q::11_编码与后端/编码题与后端基础.md::42",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::19",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::18",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::4",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::7"
+    ]
+  },
+  {
+    "atom_id": "TOOL-001",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::16",
+      "Q::01_基础架构/Agent基础与架构.md::24",
+      "Q::01_基础架构/Agent基础与架构.md::4",
+      "Q::03_Memory与状态/Memory与State.md::24",
+      "Q::03_Memory与状态/Memory与State.md::8",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::32",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::8",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::9",
+      "Q::07_可靠性与安全/可靠性与安全.md::35",
+      "Q::07_可靠性与安全/可靠性与安全.md::4",
+      "Q::07_可靠性与安全/可靠性与安全.md::6",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::15",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::21",
+      "Q::11_编码与后端/编码题与后端基础.md::17",
+      "Q::11_编码与后端/编码题与后端基础.md::40",
+      "Q::11_编码与后端/编码题与后端基础.md::41",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::3",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::4",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8"
+    ]
+  },
+  {
+    "atom_id": "TOOL-002",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::17",
+      "Q::01_基础架构/Agent基础与架构.md::24",
+      "Q::01_基础架构/Agent基础与架构.md::25",
+      "Q::01_基础架构/Agent基础与架构.md::32",
+      "Q::03_Memory与状态/Memory与State.md::24",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::26",
+      "Q::07_可靠性与安全/可靠性与安全.md::35",
+      "Q::07_可靠性与安全/可靠性与安全.md::6",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::28",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8",
+      "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::2"
+    ]
+  },
+  {
+    "atom_id": "TOOL-003",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::19",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::28",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::6",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::11",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::13",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::15",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::22",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::9",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::13",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::15",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::16",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::21",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::3"
+    ]
+  },
+  {
+    "atom_id": "TOOL-004",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::20",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::21",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::29",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::3",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::35",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::40",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::8",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18"
+    ]
+  },
+  {
+    "atom_id": "TOOL-005",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::29",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::37",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::6",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::7",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::22",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::23",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::16",
+      "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::9"
+    ]
+  },
+  {
+    "atom_id": "TOOL-006",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::25",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::38",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::8",
+      "Q::07_可靠性与安全/可靠性与安全.md::19",
+      "Q::07_可靠性与安全/可靠性与安全.md::35",
+      "Q::07_可靠性与安全/可靠性与安全.md::6",
+      "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8"
+    ]
+  },
+  {
+    "atom_id": "TOOL-007",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::02_Prompt与上下文/Prompt与Context Engineering.md::20",
+      "Q::03_Memory与状态/Memory与State.md::11",
+      "Q::03_Memory与状态/Memory与State.md::14",
+      "Q::03_Memory与状态/Memory与State.md::4",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::13",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::37",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::6",
+      "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::11"
+    ]
+  },
+  {
+    "atom_id": "TOOL-008",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::17",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::32",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::5",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::16",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::22"
+    ]
+  },
+  {
+    "atom_id": "TOOL-009",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::24",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::26",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::32",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::5",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::22",
+      "Q::11_编码与后端/编码题与后端基础.md::40",
+      "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::4",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::32"
+    ]
+  },
+  {
+    "atom_id": "TOOL-010",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::23",
+      "Q::01_基础架构/Agent基础与架构.md::27",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::31",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::34",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::38",
+      "Q::11_编码与后端/编码题与后端基础.md::41"
+    ]
+  },
+  {
+    "atom_id": "TOOL-011",
+    "canonical_owner": "04",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::11",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::21",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::39",
+      "Q::07_可靠性与安全/可靠性与安全.md::30",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::13",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::14",
+      "Q::10_模型与推理/高频八股与手撕面经补充.md::21"
+    ]
+  },
+  {
+    "atom_id": "TRACE-001",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::25",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::30",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::32",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::41",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::8",
+      "Q::07_可靠性与安全/可靠性与安全.md::30",
+      "Q::11_编码与后端/编码题与后端基础.md::41"
+    ]
+  },
+  {
+    "atom_id": "TRACE-002",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::01_基础架构/Agent基础与架构.md::22",
+      "Q::01_基础架构/Agent基础与架构.md::23",
+      "Q::01_基础架构/Agent基础与架构.md::25",
+      "Q::01_基础架构/Agent基础与架构.md::32",
+      "Q::01_基础架构/Agent基础与架构.md::35",
+      "Q::01_基础架构/Agent基础与架构.md::6",
+      "Q::01_基础架构/Agent基础与架构.md::8",
+      "Q::03_Memory与状态/Memory与State.md::26",
+      "Q::03_Memory与状态/Memory与State.md::28",
+      "Q::03_Memory与状态/Memory与State.md::7",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::16",
+      "Q::04_Tool与协议/Tool Calling与MCP.md::17",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::19",
+      "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::6",
+      "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+      "Q::07_可靠性与安全/可靠性与安全.md::1",
+      "Q::07_可靠性与安全/可靠性与安全.md::21",
+      "Q::07_可靠性与安全/可靠性与安全.md::3",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::13",
+      "Q::08_评测与可观测/评测与可观测性.md::24",
+      "Q::08_评测与可观测/评测与可观测性.md::37",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::17",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::20",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::22",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::24",
+      "Q::09_工程化与系统设计/生产工程与系统设计.md::27",
+      "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::3"
+    ]
+  },
+  {
+    "atom_id": "TRACE-003",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::03_Memory与状态/Memory与State.md::30",
+      "Q::07_可靠性与安全/可靠性与安全.md::20",
+      "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::8",
+      "Q::08_评测与可观测/评测与可观测性.md::37",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::7"
+    ]
+  },
+  {
+    "atom_id": "TRACE-004",
+    "canonical_owner": "08",
+    "covering_questions": [
+      "Q::08_评测与可观测/评测与可观测性.md::22",
+      "Q::08_评测与可观测/评测与可观测性.md::23"
+    ]
+  },
+  {
+    "atom_id": "UI-001",
+    "canonical_owner": "11",
+    "covering_questions": [
+      "Q::11_编码与后端/编码题与后端基础.md::36"
+    ]
+  },
+  {
+    "atom_id": "UI-002",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::29",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::30",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::33"
+    ]
+  },
+  {
+    "atom_id": "UI-003",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::14",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::31",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::32"
+    ]
+  },
+  {
+    "atom_id": "VOICE-001",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::1"
+    ]
+  },
+  {
+    "atom_id": "VOICE-002",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::2",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::25",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::3",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::5"
+    ]
+  },
+  {
+    "atom_id": "VOICE-003",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::25",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::4"
+    ]
+  },
+  {
+    "atom_id": "VOICE-004",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::6",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::7"
+    ]
+  },
+  {
+    "atom_id": "VOICE-005",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::8",
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::9"
+    ]
+  },
+  {
+    "atom_id": "VOICE-006",
+    "canonical_owner": "12/07",
+    "covering_questions": [
+      "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::10"
+    ]
+  }
+]

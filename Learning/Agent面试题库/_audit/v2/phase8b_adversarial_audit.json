@@ -1,0 +1,1819 @@
+{
+  "phase": "8B",
+  "status": "passed",
+  "source_files_modified_by_audit": [],
+  "retained_random_sample_seed": 20260911,
+  "retained_question_reviews": [
+    {
+      "old_question_id": "Q::01_基础架构/Agent基础与架构.md::23",
+      "new_question_id": "Q::01_基础架构/Agent基础与架构.md::23",
+      "title": "如果让你从零设计一个企业级 Agent 平台，模块如何拆分？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "ARCH-002",
+        "ARCH-005",
+        "PROV-001",
+        "STATE-001",
+        "TOOL-010",
+        "TRACE-002"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::01_基础架构/Agent基础与架构.md::24",
+      "new_question_id": "Q::01_基础架构/Agent基础与架构.md::24",
+      "title": "为什么长任务不能只靠一次 Agent Loop 持续运行？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "DUR-001",
+        "DUR-004",
+        "DUR-006",
+        "STATE-006",
+        "TOOL-001",
+        "TOOL-002"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::01_基础架构/Agent基础与架构.md::32",
+      "new_question_id": "Q::01_基础架构/Agent基础与架构.md::32",
+      "title": "如果线上任务偶发卡死，你会优先检查 Loop、State、工具还是外部依赖？为什么？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "DUR-004",
+        "LOOP-010",
+        "STATE-006",
+        "TOOL-002",
+        "TRACE-002"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+      "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::27",
+      "title": "如何处理过长、重复、矛盾或恶意的用户输入？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "CTX-006",
+        "SEC-002",
+        "SEC-003",
+        "SEC-007"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::30",
+      "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::29",
+      "title": "上下文窗口只剩一半预算，但任务还需要历史、工具结果和检索文档，如何排序和裁剪？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "CTX-003",
+        "CTX-004",
+        "STATE-001",
+        "TOOL-005"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::03_Memory与状态/Memory与State.md::3",
+      "new_question_id": "Q::03_Memory与状态/Memory与State.md::3",
+      "title": "什么信息应该写入长期记忆？什么信息不应该写？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "MEM-003",
+        "MEM-007",
+        "SEC-003"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::03_Memory与状态/Memory与State.md::5",
+      "new_question_id": "Q::03_Memory与状态/Memory与State.md::5",
+      "title": "跨 Session 应该保留哪些信息？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "MEM-003",
+        "MEM-006",
+        "MEM-011",
+        "SEC-004"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::37",
+      "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::33",
+      "title": "Tool Schema 为什么不能只依赖模型遵守？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "PROMPT-005",
+        "SEC-001"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::1",
+      "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::1",
+      "title": "LoopSession 与 LoopTurn 分别表示什么？为什么不直接用一串 message 表示？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "LOOP-012"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::11",
+      "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::11",
+      "title": "Harness 的执行面和控制面分别包含什么？为什么要把两者分开？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "HARNESS-001"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::10",
+      "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::10",
+      "title": "子 Agent 失败时，父 Agent 如何重试、降级和接管？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "MULTI-006",
+        "REL-001"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+      "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+      "title": "Planner、Executor、Critic、Router、Supervisor 分别负责什么？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "MULTI-002"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+      "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+      "title": "如何避免多 Agent 之间重复劳动、循环调用和责任不清？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "MULTI-005"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::14",
+      "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::13",
+      "title": "设计一个研究型 Agent：它同时具备检索、数据分析、写作和审校能力。哪些能力做成 Skill，哪些环节才值得拆成独立 Agent？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "MULTI-001",
+        "MULTI-006",
+        "SKILL-001"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::28",
+      "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::26",
+      "title": "代码 Agent 如何防止路径越界？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "SEC-011"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::9",
+      "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::9",
+      "title": "什么是 Prompt Injection？直接注入和间接注入有什么区别？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "SEC-007",
+        "SEC-008"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::10",
+      "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::10",
+      "title": "LLM-as-a-Judge 的优点、问题和改进方法是什么？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "EVAL-010"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::2",
+      "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::2",
+      "title": "如何定义 Agent 的任务成功率？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "EVAL-004"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::19",
+      "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::19",
+      "title": "如何做跨区域部署和故障转移？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "DUR-005"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::23",
+      "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::23",
+      "title": "设计一个带 OCR、切分、Embedding、索引和权限的知识库系统。",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "ARCH-007",
+        "BACK-004",
+        "INGEST-002",
+        "TOOL-005"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::10_模型与推理/模型与推理基础.md::13",
+      "new_question_id": "Q::10_模型与推理/模型与推理基础.md::13",
+      "title": "continuous batching 解决什么问题？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "LLM-010"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::10_模型与推理/模型与推理基础.md::28",
+      "new_question_id": "Q::10_模型与推理/模型与推理基础.md::28",
+      "title": "Badcase 如何回流到训练集或评测集？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "DATA-003",
+        "DATA-004",
+        "EVAL-015"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::10_模型与推理/模型与推理基础.md::3",
+      "new_question_id": "Q::10_模型与推理/模型与推理基础.md::3",
+      "title": "为什么 Attention 使用 Q、K、V？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "LLM-002"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::1",
+      "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::1",
+      "title": "接雨水。",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "ALG-001"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::15",
+      "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::15",
+      "title": "实现令牌桶、漏桶或滑动窗口限流。",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "BACK-001"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::20",
+      "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::19",
+      "title": "Python 是否真正支持多线程？为什么有 GIL？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "LANG-001"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::37",
+      "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::35",
+      "title": "如何设计可测试的 Agent 代码？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "TEST-002"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::8",
+      "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::8",
+      "title": "合并区间和区间覆盖。",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "ALG-009"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::15",
+      "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::14",
+      "title": "图中的条件边应该如何设计，才能避免模型输出直接成为任意跳转？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "PROV-010"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::14",
+      "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::14",
+      "title": "如何防止 Agent 因为测试失败进入重复修复循环？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "CODE-001",
+        "CODE-008",
+        "LOOP-010"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::18",
+      "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::17",
+      "title": "Computer Use 与普通 Tool Calling 的执行循环有什么不同？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "GUI-001"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::6",
+      "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::6",
+      "title": "为什么代码中的精确名称和类型关系通常不能只用向量检索替代？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "CODE-004"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::7",
+      "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::7",
+      "title": "直接覆盖、唯一替换和 Unified Diff 各有什么风险？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "CODE-005"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::36",
+      "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35",
+      "title": "为什么 Replay 必须与真实执行分离？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "REPLAY-001",
+        "STATE-005"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::15",
+      "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::15",
+      "title": "如何设计解析失败隔离、重试和可观测性？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "INGEST-009"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::27",
+      "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::27",
+      "title": "Graph-first、retrieve-first 和 community summary 有什么差异？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "GRAPH-003"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::3",
+      "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::3",
+      "title": "文档摄取的标准流水线应有哪些阶段？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "INGEST-005"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33",
+      "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33",
+      "title": "企业问题需要跨文档、多跳关系推理，你会如何证明 GraphRAG 比混合检索更适合？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "GRAPH-001"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::16",
+      "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::15",
+      "title": "如何避免委托循环、语义漂移和错误传播？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "IDENT-006",
+        "MULTI-005"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::9",
+      "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::9",
+      "title": "人工审批合同至少要展示什么？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "IDENT-002",
+        "IDENT-004",
+        "SEC-005"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19",
+      "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19",
+      "title": "工具调用训练数据应有哪些安全要求？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "DATA-006"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::20",
+      "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::20",
+      "title": "SFT、Preference/RL 和程序化奖励各自适合什么监督信号？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "REASON-007"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::3",
+      "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::3",
+      "title": "Agent 的端到端延迟应如何拆解？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "CAP-003",
+        "REASON-006"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::1",
+      "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::1",
+      "title": "语音 Agent 的端到端链路包括哪些组件？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "VOICE-001"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::2",
+      "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::2",
+      "title": "语音 Agent 与文本 Agent 的核心差异是什么？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "VOICE-002"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::6",
+      "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::6",
+      "title": "语音 session、thread_id 和用户身份应如何关联？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "VOICE-004"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::11",
+      "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::9",
+      "title": "Baseline、Candidate 和 Slice 应如何比较？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "EVAL-019"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::20",
+      "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::18",
+      "title": "DevPilot 这类 Coding Agent MVP 为什么先生成建议级 diff？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "CODE-005",
+        "EVAL-021",
+        "TEST-002"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::24",
+      "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::21",
+      "title": "Agent 项目面试时应重点准备哪些追问？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "EVAL-004",
+        "EVAL-018",
+        "PROJECT-001",
+        "TOOL-003"
+      ],
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::8",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::8",
+      "title": "Agent 在 Linux 上运行时，cgroup、内核版本和 profiling 会如何影响线上结论？",
+      "answer_nonempty": true,
+      "atom_refs": [
+        "OPS-006"
+      ],
+      "review": "passed"
+    }
+  ],
+  "destructive_action_reviews": [
+    {
+      "victim": "Q::03_Memory与状态/Memory与State.md::29",
+      "victim_title": "如何处理并发任务对同一份 State 的读写？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "DELETE",
+      "canonical_question": "Q::03_Memory与状态/Memory与State.md::21",
+      "canonical_title": "多 Agent 并行更新共享 State 时，如何避免覆盖？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "两题同为 design intent，均要求隔离写集、串行/锁、版本校验和确定性合并；#21 的合同更完整。"
+    },
+    {
+      "victim": "Q::03_Memory与状态/Memory与State.md::31",
+      "victim_title": "用户先说“我住在上海”，后来改成“我住在深圳”，旧记忆如何处理？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::03_Memory与状态/Memory与State.md::15",
+      "canonical_title": "用户明确纠正旧信息时，如何更新和删除旧记忆？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "上海改深圳是“用户明确纠正旧记忆”的具体场景；保留为追问可保全 scenario intent。"
+    },
+    {
+      "victim": "Q::03_Memory与状态/Memory与State.md::32",
+      "victim_title": "长任务运行到一半进程崩溃，如何判断哪些工具副作用已经发生，再从 Checkpoint 恢复？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::03_Memory与状态/Memory与State.md::24",
+      "canonical_title": "进程崩溃后如何从 Checkpoint 恢复？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "Checkpoint 恢复主题已要求核对副作用；#32 作为 unknown-side-effect 场景追问保留对账合同。"
+    },
+    {
+      "victim": "Q::04_Tool与协议/Tool Calling与MCP.md::13",
+      "victim_title": "什么操作必须幂等？如何生成幂等键？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+      "canonical_title": "如何设计工具的超时、重试、熔断、降级、幂等和补偿？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "幂等对象与幂等键是综合可靠性设计中的高频子问题，保留为追问而不维护第二份主答案。"
+    },
+    {
+      "victim": "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+      "victim_title": "工具调用如何避免重复执行外部副作用？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+      "canonical_title": "如何设计工具的超时、重试、熔断、降级、幂等和补偿？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "重复副作用防护是综合超时/重试/幂等合同的深化追问，实施细节完整保留。"
+    },
+    {
+      "victim": "Q::04_Tool与协议/Tool Calling与MCP.md::27",
+      "victim_title": "没有 MCP 时，大模型调用工具的完整流程是什么？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+      "canonical_title": "Function Calling 的完整流程是什么？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "无 MCP 的调用流程与 Function Calling 主流程相同，只需保留 MCP 并未改变执行边界的差异追问。"
+    },
+    {
+      "victim": "Q::04_Tool与协议/Tool Calling与MCP.md::34",
+      "victim_title": "一个工具既可以通过 REST API 调用，也可以封装成 MCP，你会如何选择？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::28",
+      "canonical_title": "什么时候用 API，什么时候用 MCP，什么时候让一个 Agent 调另一个 Agent？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "REST 与 MCP 的选择是 API/MCP/A2A 选型合同的二选一场景，适合挂为追问。"
+    },
+    {
+      "victim": "Q::04_Tool与协议/Tool Calling与MCP.md::44",
+      "victim_title": "工具结果何时可以成为后续决策的事实？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::37",
+      "canonical_title": "工具结果为什么也应该被当作不可信输入？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "不可信工具结果的正向判定条件是同一 trust contract 的高频追问。"
+    },
+    {
+      "victim": "Q::04_Tool与协议/Tool Calling与MCP.md::45",
+      "victim_title": "并行工具调用需要额外保证什么？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "DELETE",
+      "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::17",
+      "canonical_title": "并行 Tool Calling 如何提升吞吐，同时保证一致性、顺序和可回放？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "同为 mechanism intent，Atom 集完全相同，都要求并行独立性、合并顺序、共享 State 和回放保证；#19 完整覆盖。"
+    },
+    {
+      "victim": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+      "victim_title": "如何设计 Loop Trace，使它既能解释决策，又能安全回放而不重复真实副作用？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "MERGE",
+      "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+      "canonical_title": "如何设计 Harness 的日志、Trace 和回放能力？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "两题都要求 Trace 字段和安全回放；补充题独有的脱敏、只读 Fixture 和不记录隐藏思维链约束并入 canonical。"
+    },
+    {
+      "victim": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::24",
+      "victim_title": "两个子 Agent 对同一个事实给出冲突结论，父 Agent 如何判断、合并或升级人工？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6",
+      "canonical_title": "并行 Agent 的结果如何合并？冲突如何解决？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "事实冲突仲裁是并行结果合并的具体 scenario，证据回查与人工升级作为追问保留。"
+    },
+    {
+      "victim": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::15",
+      "victim_title": "多 Agent 之间出现结论冲突时如何仲裁？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "MERGE",
+      "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6",
+      "canonical_title": "并行 Agent 的结果如何合并？冲突如何解决？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "同为 mechanism intent 的多 Agent 结论冲突仲裁；将跨 A2A 的证据和版本语义并入主题后移除重复主答案。"
+    },
+    {
+      "victim": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::2",
+      "victim_title": "为什么说 Skill 是经验编排，而不只是换了名字的 Prompt？一个合格 Skill 应包含什么？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "MERGE",
+      "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::20",
+      "canonical_title": "一个 Skill 应该包含哪些内容？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "两题共享“合格 Skill 包含什么”的 answer contract；将不等于 Prompt/权限的边界并入产品化 canonical。"
+    },
+    {
+      "victim": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::24",
+      "victim_title": "为什么\"减少 Token\"不一定是有效优化？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::36",
+      "canonical_title": "如何证明一个 Agent 优化不仅减少了 Token，还提升了任务成功率？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "“减少 Token 不等于优化”已被质量+效率联合验证合同覆盖，作为反例追问保留。"
+    },
+    {
+      "victim": "Q::06_RAG与知识库/RAG与检索.md::26",
+      "victim_title": "如果 BM25 召回了关键词正确但语义不相关的文档，向量检索和 Rerank 如何配合修复？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::10",
+      "canonical_title": "Rerank 为什么有效？放在什么位置？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "BM25 词面正确但语义不相关是混合召回后 Rerank 的典型场景，保留为调参追问。"
+    },
+    {
+      "victim": "Q::06_RAG与知识库/RAG与检索.md::28",
+      "victim_title": "检索结果正确但最终回答仍然幻觉，如何区分是上下文组织、模型推理还是输出校验问题？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::16",
+      "canonical_title": "如何区分检索失败、阅读失败、推理失败和表达失败？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "检索正确但最终幻觉是分层归因合同的特定 debugging 场景，固定证据回放细节保留。"
+    },
+    {
+      "victim": "Q::07_可靠性与安全/可靠性与安全.md::15",
+      "victim_title": "如何做敏感信息识别和脱敏？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::14",
+      "canonical_title": "如何处理模型输出中的敏感信息？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "识别和脱敏是“如何处理敏感输出”的实现追问，保留规则/NER/重识别风险细节。"
+    },
+    {
+      "victim": "Q::07_可靠性与安全/可靠性与安全.md::26",
+      "victim_title": "工具调用已经成功但前端断线了，重试前如何判断外部副作用是否已经发生？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10",
+      "canonical_title": "如何处理“外部请求已经成功，但 Agent 没收到响应”的未知结果？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "前端断线是“外部已成功但未收到响应”的具体 unknown-result 场景，保留为追问。"
+    },
+    {
+      "victim": "Q::07_可靠性与安全/可靠性与安全.md::35",
+      "victim_title": "进程在副作用中途崩溃时，为什么“不明确就不自动重放”？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8",
+      "canonical_title": "长任务恢复前为什么必须核对外部副作用？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "崩溃窗口的不明确结果是恢复前核对外部副作用的动机追问。"
+    },
+    {
+      "victim": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::4",
+      "victim_title": "如何衡量 Agent 是否“少走弯路”，而不是只看最终答对没有？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::36",
+      "canonical_title": "如何证明一个 Agent 优化不仅减少了 Token，还提升了任务成功率？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "“少走弯路”是质量与成本联合证明的轨迹指标追问，保留有效调用、重试和人工接管切片。"
+    },
+    {
+      "victim": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::10",
+      "victim_title": "怎样做 Agent Trajectory 的 Replay？哪些部分应该冻结，哪些部分可以重新执行？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "MERGE",
+      "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::24",
+      "canonical_title": "如何回放一次历史 Agent 运行？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "两题的 Replay answer contract 相同；将可选节点重执行、新旧轨迹对比和沙箱/幂等对账并入 canonical。"
+    },
+    {
+      "victim": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::11",
+      "victim_title": "如何防止评测集泄漏到 Prompt、检索库、示例或训练数据中？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::13",
+      "canonical_title": "如何避免评测集泄漏、重复和过拟合？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "Prompt/检索库/Few-shot/训练流水线是评测泄漏合同的具体渠道追问。"
+    },
+    {
+      "victim": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::1",
+      "victim_title": "为什么 Agent Eval 不能只评最终文本？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "MERGE",
+      "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::39",
+      "canonical_title": "Agent 评测为什么要拆成任务、工具、安全和成本多个指标？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "两题都论证为何 Agent Eval 不能只看最终文本；将产物/外部状态和环境归因并入主线指标合同。"
+    },
+    {
+      "victim": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::4",
+      "victim_title": "Agent 专项指标应关注哪些轨迹和安全信号？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::39",
+      "canonical_title": "Agent 评测为什么要拆成任务、工具、安全和成本多个指标？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "专项轨迹和安全信号是多指标 Agent Eval 的实施追问，指标列表完整保留。"
+    },
+    {
+      "victim": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::22",
+      "victim_title": "AI 项目的项目表达骨架是什么？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "MERGE",
+      "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19",
+      "canonical_title": "如何把一个练习项目讲成“自己解决了什么工程问题”？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "两题同为 project_expression，都要求问题、责任、难点、取舍和证据骨架；合并后不损失独立意图。"
+    },
+    {
+      "victim": "Q::10_模型与推理/高频八股与手撕面经补充.md::1",
+      "victim_title": "Scaled Dot-Product Attention 的公式是什么？计算和显存复杂度如何随序列长度变化？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::10_模型与推理/模型与推理基础.md::4",
+      "canonical_title": "Attention 的时间和空间复杂度是什么？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "Attention 公式是复杂度题的基础推导追问；保留 QK^T/缩放/mask 与 Agent 长上下文影响。"
+    },
+    {
+      "victim": "Q::11_编码与后端/编码题与后端基础.md::16",
+      "victim_title": "滑动窗口限流结构体有哪些字段？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::15",
+      "canonical_title": "实现令牌桶、漏桶或滑动窗口限流。",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "滑动窗口结构体字段是限流实现题的编码追问，保留并发、时钟和空间上限合同。"
+    },
+    {
+      "victim": "Q::11_编码与后端/编码题与后端基础.md::30",
+      "victim_title": "Kafka 分区、顺序性、重复消费、消息丢失和 Exactly-once 的边界是什么？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "MERGE",
+      "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::15",
+      "canonical_title": "Kafka 如何处理消息重复？如何保证消息不丢失？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "Kafka 重复、丢失和 Exactly-once 边界是同一 mechanism contract；将分区顺序和外部副作用边界并入 Agent 生产题。"
+    },
+    {
+      "victim": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::4",
+      "victim_title": "为什么不能把某一家 Provider 的响应字段直接传到 Agent Runtime？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "MERGE",
+      "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::26",
+      "canonical_title": "为什么 Provider Adapter 应输出内部事件，而不是把供应商响应对象传遍系统？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "两题都要求 Provider 对象不能泄漏到 Runtime；将 tool-call 已生成不等于已执行的边界并入内部事件 canonical。"
+    },
+    {
+      "victim": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::33",
+      "victim_title": "Provider Adapter 的契约测试至少要覆盖哪些情况？",
+      "relation": "SEMANTIC_DUPLICATE",
+      "action": "MERGE",
+      "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+      "canonical_title": "Adapter 层应该测试哪些异常和边界？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "同为 scenario intent 的 Adapter 契约测试清单；合并 reasoning/SSE/认证/脱敏细节后不再维护两份清单。"
+    },
+    {
+      "victim": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::16",
+      "victim_title": "代码 Agent 如何处理用户已有的未提交修改？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::12",
+      "canonical_title": "如何区分任务开始前已有的 diff 和 Agent 新产生的 diff？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "用户已有未提交修改是基线 diff 归因合同的高风险场景追问。"
+    },
+    {
+      "victim": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+      "victim_title": "State Schema 或策略前向迁移后，为什么不能只回滚应用代码？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+      "canonical_title": "如何处理状态 Schema 或执行策略升级后的旧任务？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "旧任务的 Schema/策略升级处理完整覆盖为何不能只回滚代码；外部副作用对账作为追问保留。"
+    },
+    {
+      "victim": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::15",
+      "victim_title": "两个 Skill 内容不同但 Description 相似，Agent 经常选错，如何解决？",
+      "relation": "SUBSUMED",
+      "action": "CONVERT_TO_FOLLOWUP",
+      "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+      "canonical_title": "一个 Skill 经常被错误选择，你会先改 Description、路由器、上下文还是模型？为什么？",
+      "victim_formal_heading_removed": true,
+      "atom_coverage_preserved": true,
+      "intent_preserved": true,
+      "followup_attached": true,
+      "unique_scenario_lost": false,
+      "super_question_created": false,
+      "review": "passed",
+      "reason": "两个 Description 相似 Skill 的误选是通用 Skill 误选 debugging 流程的具体追问。"
+    }
+  ],
+  "canonical_bridge_reviews": [
+    {
+      "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::9",
+      "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::9",
+      "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::18",
+      "origin": "v2",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::9",
+      "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::8",
+      "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+      "origin": "v2",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::10",
+      "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::9",
+      "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9",
+      "origin": "v2",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6",
+      "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::5",
+      "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18",
+      "origin": "v2",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::38",
+      "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::35",
+      "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8",
+      "origin": "v2",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::01_基础架构/Agent基础与架构.md::13",
+      "new_question_id": "Q::01_基础架构/Agent基础与架构.md::13",
+      "canonical_question": null,
+      "origin": "phase1-7",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+      "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+      "canonical_question": null,
+      "origin": "phase1-7",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::27",
+      "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::26",
+      "canonical_question": null,
+      "origin": "phase1-7",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1",
+      "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1",
+      "canonical_question": null,
+      "origin": "phase1-7",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::9",
+      "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::9",
+      "canonical_question": null,
+      "origin": "phase1-7",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    },
+    {
+      "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19",
+      "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::17",
+      "canonical_question": null,
+      "origin": "phase1-7",
+      "formal_question_retained": true,
+      "canonical_link_present": true,
+      "review": "passed"
+    }
+  ],
+  "integrated_question_reviews": [
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::1",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::1",
+      "title": "一个 Python AI 服务从请求进入到最终返回，应该经过哪些确定性边界？",
+      "retained_unchanged": true
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::10",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::10",
+      "title": "如何评价 AI 编程工具在团队中的真实收益？",
+      "retained_unchanged": true
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::11",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::11",
+      "title": "当前 AI 案例只有设计文档或源码审计时，如何回答“你真的做过吗”？",
+      "retained_unchanged": true
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::2",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::2",
+      "title": "LLM/第三方接口超时后，如何处理可能已经执行或扣费的未知结果？",
+      "retained_unchanged": true
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::3",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::3",
+      "title": "SSE/Streaming 输出如何处理跨事件边界的敏感词和断线？",
+      "retained_unchanged": true
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::4",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::4",
+      "title": "RAG 的脱敏策略应该放在哪些位置？如何证明脱敏没有破坏召回？",
+      "retained_unchanged": true
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5",
+      "title": "如何区分“RAG 没召回”“召回了但没用上”和“模型推理错”？",
+      "retained_unchanged": true
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::6",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::6",
+      "title": "已有 Agent 平台能力时，为什么还要做定制开发？",
+      "retained_unchanged": true
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::7",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::7",
+      "title": "一个 Agent/可观测平台的数据链路如何从“产生”走到“展示”？",
+      "retained_unchanged": true
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::8",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::8",
+      "title": "Agent 在 Linux 上运行时，cgroup、内核版本和 profiling 会如何影响线上结论？",
+      "retained_unchanged": true
+    },
+    {
+      "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9",
+      "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9",
+      "title": "如何把一个 RAG/Agent 项目讲出业务价值，而不是只讲调用了模型？",
+      "retained_unchanged": true
+    }
+  ],
+  "high_overlap_keep_reviews": [
+    {
+      "pair_key": "Q::01_基础架构/Agent基础与架构.md::13||Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+      "current_questions": [
+        "Q::01_基础架构/Agent基础与架构.md::13",
+        "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3"
+      ],
+      "score": 0.6873,
+      "relation": "ALREADY_BRIDGED",
+      "answer_contract_review": "现有答案已通过 Obsidian 链接指向 canonical，并且只保留当前入口的差分合同。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::09_工程化与系统设计/生产工程与系统设计.md::8||Q::11_编码与后端/编码题与后端基础.md::15",
+      "current_questions": [
+        "Q::09_工程化与系统设计/生产工程与系统设计.md::8",
+        "Q::11_编码与后端/编码题与后端基础.md::15"
+      ],
+      "score": 0.6789,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 tradeoff 型回答，B 要求 scenario 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30||Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33",
+      "current_questions": [
+        "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30",
+        "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33"
+      ],
+      "score": 0.6596,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 evaluation 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::08_评测与可观测/评测与可观测性.md::14||Q::08_评测与可观测/评测与可观测性.md::31",
+      "current_questions": [
+        "Q::08_评测与可观测/评测与可观测性.md::14",
+        "Q::08_评测与可观测/评测与可观测性.md::31"
+      ],
+      "score": 0.6526,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 EVAL-012，但 A 需独立回答“如何处理模型输出的随机性？”，B 需独立回答“如何在模型输出随机的情况下做线上实验？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::04_Tool与协议/Tool Calling与MCP.md::10||Q::07_可靠性与安全/可靠性与安全.md::20",
+      "current_questions": [
+        "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+        "Q::07_可靠性与安全/可靠性与安全.md::19"
+      ],
+      "score": 0.6516,
+      "relation": "ALREADY_BRIDGED",
+      "answer_contract_review": "现有答案已通过 Obsidian 链接指向 canonical，并且只保留当前入口的差分合同。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1||Q::08_评测与可观测/评测与可观测性.md::38",
+      "current_questions": [
+        "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1",
+        "Q::08_评测与可观测/评测与可观测性.md::38"
+      ],
+      "score": 0.648,
+      "relation": "ALREADY_BRIDGED",
+      "answer_contract_review": "现有答案已通过 Obsidian 链接指向 canonical，并且只保留当前入口的差分合同。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17||Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::23",
+      "current_questions": [
+        "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17",
+        "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::22"
+      ],
+      "score": 0.6441,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 scenario 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::11_编码与后端/编码题与后端基础.md::37||Q::11_编码与后端/编码题与后端基础.md::44",
+      "current_questions": [
+        "Q::11_编码与后端/编码题与后端基础.md::35",
+        "Q::11_编码与后端/编码题与后端基础.md::42"
+      ],
+      "score": 0.643,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 design 型回答，B 要求 evaluation 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::7||Q::08_评测与可观测/评测与可观测性.md::10",
+      "current_questions": [
+        "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::6",
+        "Q::08_评测与可观测/评测与可观测性.md::10"
+      ],
+      "score": 0.64,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 evaluation 型回答，B 要求 definition 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::2||Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::26",
+      "current_questions": [
+        "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::1",
+        "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::23"
+      ],
+      "score": 0.6371,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 scenario 型回答，B 要求 design 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::09_工程化与系统设计/生产工程与系统设计.md::6||Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+      "current_questions": [
+        "Q::09_工程化与系统设计/生产工程与系统设计.md::6",
+        "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::33"
+      ],
+      "score": 0.6236,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 DUR-004，但 A 需独立回答“跨机器任务接管时，如何避免两个 Worker 同时执行？”，B 需独立回答“为什么恢复需要 Lease、Heartbeat 或 CAS？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1||Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5",
+      "current_questions": [
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1",
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5"
+      ],
+      "score": 0.6217,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 scenario 型回答，B 要求 tradeoff 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::08_评测与可观测/评测与可观测性.md::30||Q::08_评测与可观测/评测与可观测性.md::4",
+      "current_questions": [
+        "Q::08_评测与可观测/评测与可观测性.md::30",
+        "Q::08_评测与可观测/评测与可观测性.md::4"
+      ],
+      "score": 0.6197,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 tradeoff 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14||Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19",
+      "current_questions": [
+        "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14",
+        "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19"
+      ],
+      "score": 0.6183,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 DATA-006，但 A 需独立回答“工具调用训练轨迹应该包含哪些成功和失败样本？”，B 需独立回答“工具调用训练数据应有哪些安全要求？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::06_RAG与知识库/RAG与检索.md::16||Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5",
+      "current_questions": [
+        "Q::06_RAG与知识库/RAG与检索.md::16",
+        "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5"
+      ],
+      "score": 0.6118,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "综合题要求跨组件系统设计与角色约束，而另一题只验证局部机制；合并会破坏综合答案的端到端验收合同。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::06_RAG与知识库/RAG与检索.md::28||Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5",
+      "current_questions": [
+        "Q::06_RAG与知识库/RAG与检索.md::16",
+        "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5"
+      ],
+      "score": 0.6117,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "综合题要求跨组件系统设计与角色约束，而另一题只验证局部机制；合并会破坏综合答案的端到端验收合同。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::11_编码与后端/编码题与后端基础.md::32||Q::11_编码与后端/编码题与后端基础.md::33",
+      "current_questions": [
+        "Q::11_编码与后端/编码题与后端基础.md::30",
+        "Q::11_编码与后端/编码题与后端基础.md::31"
+      ],
+      "score": 0.6115,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 scenario 型回答，B 要求 mechanism 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::8||Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::9",
+      "current_questions": [
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::8",
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::9"
+      ],
+      "score": 0.6109,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 scenario 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::10_模型与推理/模型与推理基础.md::16||Q::10_模型与推理/高频八股与手撕面经补充.md::3",
+      "current_questions": [
+        "Q::10_模型与推理/模型与推理基础.md::16",
+        "Q::10_模型与推理/高频八股与手撕面经补充.md::2"
+      ],
+      "score": 0.6102,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 LLM-009，但 A 需独立回答“如何估算模型服务的吞吐、并发和显存？”，B 需独立回答“如何估算单个请求 KV Cache 的显存占用？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::6||Q::07_可靠性与安全/可靠性与安全.md::22",
+      "current_questions": [
+        "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::6",
+        "Q::07_可靠性与安全/可靠性与安全.md::21"
+      ],
+      "score": 0.6091,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 TRACE-002，但 A 需独立回答“如何保证每一轮 Context Assembly 稳定、可解释且可回放？”，B 需独立回答“如何让 Agent 行为可解释、可追踪和可回放？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::13||Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17",
+      "current_questions": [
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::12",
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::16"
+      ],
+      "score": 0.6065,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 comparison 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20||Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+      "current_questions": [
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::19",
+        "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17"
+      ],
+      "score": 0.6063,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 OPS-002, STATE-003，但 A 需独立回答“模型、工具 Schema、Prompt 和 State Schema 升级时，兼容性应如何管理？”，B 需独立回答“Prompt、模型、工具、策略、索引和 State Schema 应如何版本化？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1||Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6",
+      "current_questions": [
+        "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+        "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::5"
+      ],
+      "score": 0.6061,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 definition 型回答，B 要求 comparison 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::30||Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::33",
+      "current_questions": [
+        "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::30",
+        "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::33"
+      ],
+      "score": 0.605,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 definition 型回答，B 要求 mechanism 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::11_编码与后端/编码题与后端基础.md::25||Q::11_编码与后端/编码题与后端基础.md::26",
+      "current_questions": [
+        "Q::11_编码与后端/编码题与后端基础.md::24",
+        "Q::11_编码与后端/编码题与后端基础.md::25"
+      ],
+      "score": 0.6035,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 scenario 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::2||Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5",
+      "current_questions": [
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::2",
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5"
+      ],
+      "score": 0.6007,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 debugging 型回答，B 要求 tradeoff 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::08_评测与可观测/评测与可观测性.md::2||Q::08_评测与可观测/评测与可观测性.md::39",
+      "current_questions": [
+        "Q::08_评测与可观测/评测与可观测性.md::2",
+        "Q::08_评测与可观测/评测与可观测性.md::39"
+      ],
+      "score": 0.6004,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 evaluation 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3||Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::7",
+      "current_questions": [
+        "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+        "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6"
+      ],
+      "score": 0.5997,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 comparison 型回答，B 要求 tradeoff 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::25||Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30",
+      "current_questions": [
+        "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::25",
+        "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30"
+      ],
+      "score": 0.5987,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 GRAPH-001，但 A 需独立回答“GraphRAG 解决什么类型的问题？为什么不应该默认使用？”，B 需独立回答“如何评估 GraphRAG 是否值得相对普通混合检索增加复杂度？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::13||Q::08_评测与可观测/评测与可观测性.md::27",
+      "current_questions": [
+        "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::10",
+        "Q::08_评测与可观测/评测与可观测性.md::27"
+      ],
+      "score": 0.5984,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 evaluation 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::25||Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33",
+      "current_questions": [
+        "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::25",
+        "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33"
+      ],
+      "score": 0.5975,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 evaluation 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::17||Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::18",
+      "current_questions": [
+        "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::15",
+        "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::16"
+      ],
+      "score": 0.5962,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 definition 型回答，B 要求 mechanism 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::04_Tool与协议/Tool Calling与MCP.md::1||Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10",
+      "current_questions": [
+        "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::9"
+      ],
+      "score": 0.5956,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 scenario 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::27||Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::29",
+      "current_questions": [
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::26",
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::28"
+      ],
+      "score": 0.5954,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 PROV-003，但 A 需独立回答“为什么 Provider Adapter 应输出内部事件，而不是把供应商响应对象传遍系统？”，B 需独立回答“为什么 reasoning、answer 和 tool call 应分成不同事件？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::18||Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::18",
+      "current_questions": [
+        "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::18",
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17"
+      ],
+      "score": 0.5949,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 PROV-002，但 A 需独立回答“选择或自研 Agent 框架时，如何保留迁移路径、避免版本和供应商锁定？”，B 需独立回答“选择框架时如何权衡控制力、开发速度和运维成本？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::09_工程化与系统设计/生产工程与系统设计.md::15||Q::09_工程化与系统设计/生产工程与系统设计.md::16",
+      "current_questions": [
+        "Q::09_工程化与系统设计/生产工程与系统设计.md::15",
+        "Q::09_工程化与系统设计/生产工程与系统设计.md::16"
+      ],
+      "score": 0.5938,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 design 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19||Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::21",
+      "current_questions": [
+        "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19",
+        "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::21"
+      ],
+      "score": 0.5934,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 DATA-006，但 A 需独立回答“工具调用训练数据应有哪些安全要求？”，B 需独立回答“训练后至少要做哪些行为回归？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::11||Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::7",
+      "current_questions": [
+        "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::11",
+        "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::7"
+      ],
+      "score": 0.5931,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 design 型回答，B 要求 scenario 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::10_模型与推理/模型与推理基础.md::2||Q::10_模型与推理/模型与推理基础.md::3",
+      "current_questions": [
+        "Q::10_模型与推理/模型与推理基础.md::2",
+        "Q::10_模型与推理/模型与推理基础.md::3"
+      ],
+      "score": 0.5927,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 definition 型回答，B 要求 mechanism 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::08_评测与可观测/评测与可观测性.md::1||Q::08_评测与可观测/评测与可观测性.md::39",
+      "current_questions": [
+        "Q::08_评测与可观测/评测与可观测性.md::1",
+        "Q::08_评测与可观测/评测与可观测性.md::39"
+      ],
+      "score": 0.5925,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 scenario 型回答，B 要求 evaluation 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::25||Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::33",
+      "current_questions": [
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::24",
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20"
+      ],
+      "score": 0.5924,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 debugging 型回答，B 要求 scenario 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::08_评测与可观测/评测与可观测性.md::36||Q::08_评测与可观测/评测与可观测性.md::7",
+      "current_questions": [
+        "Q::08_评测与可观测/评测与可观测性.md::36",
+        "Q::08_评测与可观测/评测与可观测性.md::7"
+      ],
+      "score": 0.5915,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 evaluation 型回答，B 要求 mechanism 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::12||Q::07_可靠性与安全/可靠性与安全.md::18",
+      "current_questions": [
+        "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::12",
+        "Q::07_可靠性与安全/可靠性与安全.md::17"
+      ],
+      "score": 0.5914,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 SANDBOX-001，但 A 需独立回答“如何为代码 Agent 划分浏览器、文件系统、Shell、网络和进程权限？”，B 需独立回答“如何限制 CPU、内存、磁盘、网络、进程和执行时间？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::14||Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::19",
+      "current_questions": [
+        "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::14",
+        "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::18"
+      ],
+      "score": 0.5912,
+      "relation": "PARTIAL_OVERLAP",
+      "answer_contract_review": "两题虽共享 IDENT-006，但 A 需独立回答“多 Agent 如何处理部分成功、超时、失败和过期结果？”，B 需独立回答“一个委托 Agent 超时后上游想重新派发任务，如何避免重复副作用？”；未发现同一份答案可完整代替两者。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::19||Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::31",
+      "current_questions": [
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::18",
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::30"
+      ],
+      "score": 0.5908,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 design 型回答，B 要求 mechanism 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::11_编码与后端/编码题与后端基础.md::35||Q::11_编码与后端/编码题与后端基础.md::37",
+      "current_questions": [
+        "Q::11_编码与后端/编码题与后端基础.md::33",
+        "Q::11_编码与后端/编码题与后端基础.md::35"
+      ],
+      "score": 0.59,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 implementation 型回答，B 要求 design 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::11_编码与后端/编码题与后端基础.md::35||Q::11_编码与后端/编码题与后端基础.md::44",
+      "current_questions": [
+        "Q::11_编码与后端/编码题与后端基础.md::33",
+        "Q::11_编码与后端/编码题与后端基础.md::42"
+      ],
+      "score": 0.5896,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 implementation 型回答，B 要求 evaluation 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1||Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::2",
+      "current_questions": [
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1",
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::2"
+      ],
+      "score": 0.5896,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 scenario 型回答，B 要求 debugging 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::16||Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::18",
+      "current_questions": [
+        "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::16",
+        "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::18"
+      ],
+      "score": 0.589,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 mechanism 型回答，B 要求 evaluation 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    },
+    {
+      "pair_key": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::19||Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::29",
+      "current_questions": [
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::18",
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::28"
+      ],
+      "score": 0.5886,
+      "relation": "RELATED_DISTINCT",
+      "answer_contract_review": "A 要求 scenario 型回答，B 要求 mechanism 型回答；合并会丢失其中一种面试交付形式。",
+      "review": "distinct"
+    }
+  ],
+  "unresolved_high_confidence_duplicates": [],
+  "checks": {
+    "consecutive_answer_duplication": "passed",
+    "core_supplement_definition_ownership": "passed",
+    "core_deepening_differentiation": "passed",
+    "canonical_definition_single_owner": "passed",
+    "delete_unique_scenario_loss": "passed",
+    "merge_super_question_risk": "passed",
+    "followup_context_attachment": "passed",
+    "obsidian_numeric_anchor_links": "passed",
+    "question_id_traceability": "passed"
+  },
+  "errors": []
+}

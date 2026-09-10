@@ -1,0 +1,17 @@
+{
+  "phase": "6B",
+  "status": "passed",
+  "questions_before": 736,
+  "questions_after": 703,
+  "actions": {
+    "DELETE": 2,
+    "MERGE": 9,
+    "CONVERT_TO_FOLLOWUP": 22,
+    "MOVE_OR_BRIDGE": 5
+  },
+  "modified_source_files": 20,
+  "integrated_source_files_modified": 0,
+  "all_changes_in_adjudicated_scope": true,
+  "numbering_contiguous": true,
+  "errors": []
+}

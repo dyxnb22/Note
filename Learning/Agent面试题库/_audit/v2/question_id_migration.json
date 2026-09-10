@@ -1,0 +1,4418 @@
+[
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::1",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::1",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::1"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::2",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::2",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::2"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::3",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::3",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::3"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::4",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::4",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::4"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::5",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::5",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::5"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::6",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::6",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::6"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::7",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::7",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::7"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::8",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::8",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::8"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::9",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::9",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::9"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::10",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::10",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::10"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::11",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::11",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::11"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::12",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::12",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::12"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::13",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::13",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::13"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::14",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::14",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::14"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::15",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::15",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::15"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::16",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::16",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::16"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::17",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::17",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::17"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::18",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::18",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::18"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::19",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::19",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::19"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::20",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::20",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::20"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::21",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::21",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::21"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::22",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::22",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::22"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::23",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::23",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::23"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::24",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::24",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::24"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::25",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::25",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::25"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::26",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::26",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::26"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::27",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::27",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::27"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::28",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::28",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::28"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::29",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::29",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::29"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::30",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::30",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::30"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::31",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::31",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::31"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::32",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::32",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::32"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::33",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::33",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::33"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::34",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::34",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::34"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::35",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::35",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::35"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::36",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::36",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::36"
+  },
+  {
+    "old_question_id": "Q::01_基础架构/Agent基础与架构.md::37",
+    "new_question_id": "Q::01_基础架构/Agent基础与架构.md::37",
+    "status": "retained",
+    "canonical_question": "Q::01_基础架构/Agent基础与架构.md::37"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::1",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::1",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::1"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::2",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::2",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::2"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::3",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::3",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::3"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::4",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::4",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::4"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::5",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::5",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::5"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::6",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::6",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::6"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::7",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::7",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::7"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::8",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::8",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::8"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::9",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::9",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::9"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::10",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::10",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::10"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::11",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::11",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::11"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::12",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::12",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::12"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::13",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::13",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::13"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::14"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::15",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+    "status": "followup",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::16",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::15",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::15"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::17",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::16",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::16"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::18",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::17",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::17"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::19",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::18",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::18"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::20",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::19",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::19"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::21",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::20",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::20"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::22",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::21",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::21"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::23",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::22",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::22"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::24",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::23",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::23"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::25",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::24",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::24"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::26",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::25",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::25"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::27",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::26",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::26"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::27",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::27"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::29",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::28"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::30",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::29",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::29"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::31",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::30",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::30"
+  },
+  {
+    "old_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::32",
+    "new_question_id": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::31",
+    "status": "retained",
+    "canonical_question": "Q::02_Prompt与上下文/Prompt与Context Engineering.md::31"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::1",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::1",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::1"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::2",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::2",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::2"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::3",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::3",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::3"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::4",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::4",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::4"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::5",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::5",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::5"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::6",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::6",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::6"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::7",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::7",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::7"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::8",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::8",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::8"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::9",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::9",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::9"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::10",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::10",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::10"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::11",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::11",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::11"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::12",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::12",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::12"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::13",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::13",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::13"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::14",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::14",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::14"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::15",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::15",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::15"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::16",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::16",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::16"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::17",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::17",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::17"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::18",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::18",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::18"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::19",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::19",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::19"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::20",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::20",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::20"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::21",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::21",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::21"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::22",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::22",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::22"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::23",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::23",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::23"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::24",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::24",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::24"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::25",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::25",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::25"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::26",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::26",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::26"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::27",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::27",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::27"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::28",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::28",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::28"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::29",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::21",
+    "status": "deleted",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::21"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::30",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::29",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::29"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::31",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::15",
+    "status": "followup",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::15"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::32",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::24",
+    "status": "followup",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::24"
+  },
+  {
+    "old_question_id": "Q::03_Memory与状态/Memory与State.md::33",
+    "new_question_id": "Q::03_Memory与状态/Memory与State.md::30",
+    "status": "retained",
+    "canonical_question": "Q::03_Memory与状态/Memory与State.md::30"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::1"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::2"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::3",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::3",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::3"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::4",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::4",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::4"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::5",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::5",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::5"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::6",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::6",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::6"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::7",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::7",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::7"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::8",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::8",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::8"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::9",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::9",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::18"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::10"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::11",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::11",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::11"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::12"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::13",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+    "status": "followup",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::12"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::12",
+    "status": "followup",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::12"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::15",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::13",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::13"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::16",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::14"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::17",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::15",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::15"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::18",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::16",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::16"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::19",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::17",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::17"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::20",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::18",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::18"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::21",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::19",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::19"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::22",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::20",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::20"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::23",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::21",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::21"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::24",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::22",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::22"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::25",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::23",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::23"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::26",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::24",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::24"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::27",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+    "status": "followup",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::1"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::28",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::25",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::25"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::29",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::26",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::26"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::30",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::27",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::27"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::31",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::28",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::28"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::32",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::29",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::29"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::33",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::30",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::30"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::34",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::28",
+    "status": "followup",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::28"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::35",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::31",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::31"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::36",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::32",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::32"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::37",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::33",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::33"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::38",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::34",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::34"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::39",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::35",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::35"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::40",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::36",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::36"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::41",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::37",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::37"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::42",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::38",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::38"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::43",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::39",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::39"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::44",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::37",
+    "status": "followup",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::37"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::45",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::17",
+    "status": "deleted",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::17"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::46",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::40",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::40"
+  },
+  {
+    "old_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::47",
+    "new_question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::41",
+    "status": "retained",
+    "canonical_question": "Q::04_Tool与协议/Tool Calling与MCP.md::41"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::1",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::1",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::1"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::2",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::2",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::2"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::3",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::3",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::3"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::4",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::4",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::4"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::5",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::5",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::5"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::6",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::6",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::6"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::7",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::7",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::7"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::8",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::8",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::8"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::9",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::9",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::9"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::10",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::10",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::10"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::11",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::11",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::11"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::12",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::12",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::12"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::13",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::13",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::13"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::14",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::14",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::14"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::15",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::15",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::15"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::16",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::16",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::16"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+    "status": "merged",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::19",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::20",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::19",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::19"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::21",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::20",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::20"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::22",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::21",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::21"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::23",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::22",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::22"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::24",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::36",
+    "status": "followup",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::36"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::1",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::1",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::1"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::2",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::2",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::2"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::4",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::4",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::4"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::5",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::5",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::5"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::8",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::8",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::8"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::10",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::10",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::10"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::11",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::11",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::11"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::12",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::12",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::12"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::13",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::13",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::13"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::14",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::14",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::14"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::15",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::15",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::15"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::16",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::16",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::16"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::17",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::17",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::17"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::18",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::18",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::18"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::19",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::19",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::19"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::20",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::20",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::20"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::22",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::22",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::22"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::23",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::23",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::23"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::24",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6",
+    "status": "followup",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::2",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::20",
+    "status": "merged",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::20"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::3",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::2",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::2"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::4",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::3",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::3"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::5",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::4",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::4"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::5",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::7",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::8",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::7",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::7"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::9",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::8",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::10",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::9",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::11",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::10",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::10"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::12",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::11",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::11"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::13",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::12",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::12"
+  },
+  {
+    "old_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::14",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::13",
+    "status": "retained",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::13"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::1",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::1",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::1"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::2",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::2",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::2"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::3",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::3",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::3"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::4",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::4",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::4"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::5",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::5",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::5"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::6",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::6",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::6"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::7",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::7",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::7"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::8",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::8",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::8"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::9",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::9",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::9"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::10",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::10",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::10"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::11",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::11",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::11"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::12",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::12",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::12"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::13",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::13",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::13"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::14",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::14",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::14"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::15",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::15",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::15"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::16",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::16",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::16"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::17",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::17",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::17"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::18",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::18",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::18"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::19",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::19",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::19"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::20",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::20",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::20"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::21",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::21",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::21"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::22",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::22",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::22"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::23",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::23",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::23"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::24",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::24",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::24"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::25",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::25",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::25"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::26",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::10",
+    "status": "followup",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::10"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::27",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::26",
+    "status": "retained",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::26"
+  },
+  {
+    "old_question_id": "Q::06_RAG与知识库/RAG与检索.md::28",
+    "new_question_id": "Q::06_RAG与知识库/RAG与检索.md::16",
+    "status": "followup",
+    "canonical_question": "Q::06_RAG与知识库/RAG与检索.md::16"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::1",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::1",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::1"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::2",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::2",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::2"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::3",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::3",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::3"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::4",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::4",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::4"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::5",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::5",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::5"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::6",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::6",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::6"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::7",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::7",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::7"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::8",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::8",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::8"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::9",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::9",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::9"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::10",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::10",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::10"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::11",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::11",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::11"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::12",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::12",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::12"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::13",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::13",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::13"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::14",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::14",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::14"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::15",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::14",
+    "status": "followup",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::14"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::16",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::15",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::15"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::17",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::16",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::16"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::18",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::17",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::17"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::19",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::18",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::18"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::20",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::19",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::19"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::21",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::20",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::20"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::22",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::21",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::21"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::23",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::22",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::22"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::24",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::23",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::23"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::25",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::24",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::24"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::26",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10",
+    "status": "followup",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::27",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::25",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::25"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::28",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::26",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::26"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::29",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::27",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::27"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::30",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::28",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::28"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::31",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::29",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::29"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::32",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::30",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::30"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::33",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::31",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::31"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::34",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::32",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::32"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::35",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8",
+    "status": "followup",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::36",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::33",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::33"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::37",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::34",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::34"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::38",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::35",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8"
+  },
+  {
+    "old_question_id": "Q::07_可靠性与安全/可靠性与安全.md::39",
+    "new_question_id": "Q::07_可靠性与安全/可靠性与安全.md::36",
+    "status": "retained",
+    "canonical_question": "Q::07_可靠性与安全/可靠性与安全.md::36"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::2",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::2",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::2"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::3",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::3",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::3"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::4",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::36",
+    "status": "followup",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::36"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::5",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::4",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::4"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::6",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::5",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::5"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::7",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::6",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::6"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::8",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::7",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::7"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::9",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::8",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::8"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::10",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::24",
+    "status": "merged",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::24"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::11",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::13",
+    "status": "followup",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::13"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::12",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::9",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::9"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::13",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::10",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::10"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::14",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::11",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::11"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::15",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::12",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::12"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::16",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::13",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::13"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::17",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::14",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::14"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::18",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::15",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::15"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::19",
+    "new_question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::16",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::16"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::1",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::1",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::1"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::2",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::2",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::2"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::3",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::3",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::3"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::4",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::4",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::4"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::5",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::5",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::5"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::6",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::6",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::6"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::7",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::7",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::7"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::8",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::8",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::8"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::9",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::9",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::9"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::10",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::10",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::10"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::11",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::11",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::11"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::12",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::12",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::12"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::13",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::13",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::13"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::14",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::14",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::14"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::15",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::15",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::15"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::16",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::16",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::16"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::17",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::17",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::17"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::18",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::18",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::18"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::19",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::19",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::19"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::20",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::20",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::20"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::21",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::21",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::21"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::22",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::22",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::22"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::23",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::23",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::23"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::24",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::24",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::24"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::25",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::25",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::25"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::26",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::26",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::26"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::27",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::27",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::27"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::28",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::28",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::28"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::29",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::29",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::29"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::30",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::30",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::30"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::31",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::31",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::31"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::32",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::32",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::32"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::33",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::33",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::33"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::34",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::34",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::34"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::35",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::35",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::35"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::36",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::36",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::36"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::37",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::37",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::37"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::38",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::38",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::38"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::39",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::39",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::39"
+  },
+  {
+    "old_question_id": "Q::08_评测与可观测/评测与可观测性.md::40",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::40",
+    "status": "retained",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::40"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::1",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::1",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::1"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::2",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::2",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::2"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::3",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::3",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::3"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::4",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::4",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::4"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::5",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::5",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::5"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::6",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::6",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::6"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::7",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::7",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::7"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::8",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::8",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::8"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::9",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::9",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::9"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::10",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::10",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::10"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::11",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::11",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::11"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::12",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::12",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::12"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::13",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::13",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::13"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::14",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::14",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::14"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::15",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::15",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::15"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::16",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::16",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::16"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::17",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::17",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::17"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::18",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::18",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::18"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::19",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::19",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::19"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::20",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::20",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::20"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::21",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::21",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::21"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::22",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::22",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::22"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::23",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::23",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::23"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::24",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::24",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::24"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::25",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::25",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::25"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::26",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::26",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::26"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::27",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::27",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::27"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::28",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::28",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::28"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::29",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::29",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::29"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::30",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::30",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::30"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::1",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::1",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::1"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::2",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::2",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::2"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::3",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::3",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::3"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::4",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::4",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::4"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::5",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::5",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::5"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::6",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::6",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::6"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::7",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::7",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::7"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::8",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::8",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::8"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::9",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::9",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::9"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::10",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::10",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::10"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::11",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::11",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::11"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::12",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::12",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::12"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::13",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::13",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::13"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::14",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::14",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::14"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::15",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::15",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::15"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::16",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::16",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::16"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::17",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::17",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::17"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::18",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::18",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::18"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::19",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::19",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::19"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::20",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::20",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::20"
+  },
+  {
+    "old_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::21",
+    "new_question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::21",
+    "status": "retained",
+    "canonical_question": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::21"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::1",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::1",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::1"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::2",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::2",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::2"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::3",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::3",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::3"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::4",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::4",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::4"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::5",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::5",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::5"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::6",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::6",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::6"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::7",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::7",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::7"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::8",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::8",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::8"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::9",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::9",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::9"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::10",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::10",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::10"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::11",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::11",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::11"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::12",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::12",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::12"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::13",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::13",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::13"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::14",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::14",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::14"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::15",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::15",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::15"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::16",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::16",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::16"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::17",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::17",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::17"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::18",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::18",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::18"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::19",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::19",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::19"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::20",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::20",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::20"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::21",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::21",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::21"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::22",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::22",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::22"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::23",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::23",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::23"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::24",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::24",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::24"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::25",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::25",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::25"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::26",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::26",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::26"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::27",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::27",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::27"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::28",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::28",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::28"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::29",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::29",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::29"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::30",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::30",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::30"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/模型与推理基础.md::31",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::31",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::31"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::1",
+    "new_question_id": "Q::10_模型与推理/模型与推理基础.md::4",
+    "status": "followup",
+    "canonical_question": "Q::10_模型与推理/模型与推理基础.md::4"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::2",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::1",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::1"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::3",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::2",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::2"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::4",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::3",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::3"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::5",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::4",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::4"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::6",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::5",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::5"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::7",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::6",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::6"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::8",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::7",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::7"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::9",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::8",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::8"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::10",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::9",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::9"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::11",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::10",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::10"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::12",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::11",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::11"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::13",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::12",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::12"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::14",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::13",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::13"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::15",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::14",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::14"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::16",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::15",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::15"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::17",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::16",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::16"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::18",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::17",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::17"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::19",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::18",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::18"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::20",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::19",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::19"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::21",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::20",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::20"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::22",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::21",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::21"
+  },
+  {
+    "old_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::23",
+    "new_question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::22",
+    "status": "retained",
+    "canonical_question": "Q::10_模型与推理/高频八股与手撕面经补充.md::22"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::1",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::1",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::1"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::2",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::2",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::2"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::3",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::3",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::3"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::4",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::4",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::4"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::5",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::5",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::5"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::6",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::6",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::6"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::7",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::7",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::7"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::8",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::8",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::8"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::9",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::9",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::9"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::10",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::10",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::10"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::11",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::11",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::11"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::12",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::12",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::12"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::13",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::13",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::13"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::14",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::14",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::14"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::15",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::15",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::15"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::16",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::15",
+    "status": "followup",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::15"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::17",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::16",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::16"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::18",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::17",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::17"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::19",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::18",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::18"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::20",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::19",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::19"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::21",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::20",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::20"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::22",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::21",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::21"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::23",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::22",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::22"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::24",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::23",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::23"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::25",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::24",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::24"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::26",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::25",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::25"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::27",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::26",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::26"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::28",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::27",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::27"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::29",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::28",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::28"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::30",
+    "new_question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::15",
+    "status": "merged",
+    "canonical_question": "Q::09_工程化与系统设计/生产工程与系统设计.md::15"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::31",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::29",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::29"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::32",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::30",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::30"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::33",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::31",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::31"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::34",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::32",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::32"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::35",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::33",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::33"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::36",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::34",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::34"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::37",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::35",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::35"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::38",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::36",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::36"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::39",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::37",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::37"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::40",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::38",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::38"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::41",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::39",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::39"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::42",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::40",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::40"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::43",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::41",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::41"
+  },
+  {
+    "old_question_id": "Q::11_编码与后端/编码题与后端基础.md::44",
+    "new_question_id": "Q::11_编码与后端/编码题与后端基础.md::42",
+    "status": "retained",
+    "canonical_question": "Q::11_编码与后端/编码题与后端基础.md::42"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::1",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::1",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::1"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::2",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::2",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::2"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::3",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::3",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::3"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::4",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::26",
+    "status": "merged",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::26"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::5",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::4",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::4"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::6",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::5",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::5"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::7",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::6",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::6"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::8",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::7",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::7"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::9",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::8",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::8"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::9",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::9"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::11",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::12",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::11",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::11"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::13",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::12",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::12"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::14",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::13",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::13"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::15",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::14",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::14"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::16",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::15",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::15"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::16",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::16"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::18",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::19",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::18",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::18"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::19",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::19"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::21",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::22",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::21",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::21"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::23",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::22",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::22"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::24",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::23",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::23"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::25",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::24",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::24"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::26",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::25",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::25"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::27",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::26",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::26"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::28",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::27",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::27"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::29",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::28",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::28"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::30",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::29",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::29"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::31",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::30",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::30"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::32",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::31",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::31"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::33",
+    "new_question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+    "status": "merged",
+    "canonical_question": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::2",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::2",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::2"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::3",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::3",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::3"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::4",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::4",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::4"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::6",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::6",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::6"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::7",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::7",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::7"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::8",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::8",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::8"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::9",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::9",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::9"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::10",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::10",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::10"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::11",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::11",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::11"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::12",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::12",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::12"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::13",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::13",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::13"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::14",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::14",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::14"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::15",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::15",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::15"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::16",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::12",
+    "status": "followup",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::12"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::17",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::16",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::16"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::18",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::17",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::17"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::19",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::18",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::18"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::20",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::19",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::19"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::21",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::20",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::20"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::22",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::21",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::21"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::23",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::22",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::22"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::24",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::23",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::23"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::25",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::24",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::24"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::26",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::25",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::25"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::27",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::26",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::26"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::28",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::27",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::27"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::29",
+    "new_question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::28",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::28"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::1",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::1",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::1"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::2",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::2",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::2"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::3",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::3",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::3"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::4",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::4",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::4"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::5",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::5",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::5"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::6",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::6",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::6"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::7",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::7",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::7"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::8"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::9",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::9",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::9"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::10"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::12",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::12",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::12"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::13",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::13",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::13"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::14",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::14",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::14"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::15",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::15",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::15"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::16",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::16",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::16"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::18",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::18",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::18"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::19",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::19",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::19"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::20",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::20",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::20"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::21",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::21",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::21"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::22",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::22",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::22"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::23",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::23",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::23"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::24",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::24",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::24"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::25",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::25",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::25"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::26",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::26",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::26"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+    "status": "followup",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::28",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::29",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::28",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::28"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::30",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::29",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::29"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::31",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::30",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::30"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::32",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::31",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::31"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::33",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::32",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::32"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::33",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::33"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::36",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::37",
+    "new_question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::36",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::36"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::1",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::1",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::1"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::2",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::2",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::2"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::3",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::3",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::3"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::4",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::4",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::4"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::5",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::5",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::5"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::6",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::6",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::6"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::8",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::8",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::8"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::9",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::9",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::9"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::10",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::10",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::10"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::11",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::11",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::11"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::12",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::12",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::12"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::13",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::13",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::13"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::14",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::14",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::14"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::15",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::15",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::15"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::16",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::16",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::16"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::17",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::17",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::17"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::18",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::18",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::18"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::19",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::19",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::19"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::20",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::20",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::20"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::21",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::21",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::21"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::22",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::22",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::22"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::23",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::23",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::23"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::24",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::24",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::24"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::25",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::25",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::25"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::26",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::26",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::26"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::27",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::27",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::27"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::28",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::28",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::28"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::29",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::29",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::29"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::31",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::31",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::31"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::32",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::32",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::32"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::34",
+    "new_question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::34",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::34"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::1",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::1",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::1"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::2",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::2",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::2"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::3",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::3",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::3"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::4",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::4",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::4"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::5",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::5",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::5"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::6",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::6",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::6"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::7",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::7",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::7"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::8",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::8",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::8"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::9",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::9",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::9"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::10",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::10",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::10"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::11",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::11",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::11"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::12",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::12",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::12"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::13",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::13",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::13"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::14",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::14",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::14"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::15",
+    "new_question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6",
+    "status": "merged",
+    "canonical_question": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::6"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::16",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::15",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::15"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::17",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::16",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::16"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::18",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::17",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::17"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::19",
+    "new_question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::18",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::18"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::1",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::1",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::1"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::2",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::2",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::2"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::3",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::3",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::3"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::4",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::4",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::4"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::5",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::5",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::5"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::6",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::6",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::6"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::7",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::7",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::7"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::8",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::8",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::8"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::9",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::9",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::9"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::10",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::10",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::10"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::11",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::11",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::11"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::12",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::12",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::12"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::13",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::13",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::13"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::15",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::15",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::15"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::16",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::16",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::16"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::17",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::17",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::17"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::18",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::18",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::18"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::20",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::20",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::20"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::21",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::21",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::21"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::22",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::22",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::22"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::23",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::23",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::23"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::24",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::24",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::24"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::25",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::25",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::25"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::26",
+    "new_question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::26",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::26"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::1",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::1",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::1"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::2",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::2",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::2"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::3",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::3",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::3"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::4",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::4",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::4"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::5",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::5",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::5"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::6",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::6",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::6"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::7",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::7",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::7"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::8",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::8",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::8"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::9",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::9",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::9"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::10",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::10",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::10"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::11",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::11",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::11"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::12",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::12",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::12"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::13",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::13",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::13"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::14",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::14",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::14"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::15",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::15",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::15"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::16",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::16",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::16"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::17",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::17",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::17"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::19",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::19",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::19"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::20",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::20",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::20"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::21",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::21",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::21"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::22",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::22",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::22"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::23",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::23",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::23"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::24",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::24",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::24"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::25",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::25",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::25"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::26",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::26",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::26"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::27",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::27",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::27"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::28",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::28",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::28"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::29",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::29",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::29"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::30",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::30",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::30"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::31",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::31",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::31"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::32",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::32",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::32"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::33",
+    "new_question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::33",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::33"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::1",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::39",
+    "status": "merged",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::39"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::2",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::1",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::1"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::3",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::2",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::2"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::4",
+    "new_question_id": "Q::08_评测与可观测/评测与可观测性.md::39",
+    "status": "followup",
+    "canonical_question": "Q::08_评测与可观测/评测与可观测性.md::39"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::5",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::3",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::3"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::4",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::4"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::7",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::5",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::5"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::8",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::9",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::7",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::7"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::10",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::8",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::8"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::11",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::9",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::9"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::12",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::10",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::10"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::13",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::11",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::11"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::14",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::12",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::12"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::15",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::13",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::13"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::16",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::14",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::14"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::17",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::15",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::15"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::18",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::16",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::16"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::17",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::17"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::20",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::18",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::18"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::21",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::22",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19",
+    "status": "merged",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::23",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::20",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::20"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::24",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::21",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::21"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::25",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::22",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::22"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::26",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::23",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::23"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::27",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::24",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::24"
+  },
+  {
+    "old_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::28",
+    "new_question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::25",
+    "status": "retained",
+    "canonical_question": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::25"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::1",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::1",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::1"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::2",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::2",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::2"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::3",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::3",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::3"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::4",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::4",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::4"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::6",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::6",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::6"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::7",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::7",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::7"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::8",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::8",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::8"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::10",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::10",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::10"
+  },
+  {
+    "old_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::11",
+    "new_question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::11",
+    "status": "retained",
+    "canonical_question": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::11"
+  }
+]
