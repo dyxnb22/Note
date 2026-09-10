@@ -1,28 +1,59 @@
-name: Agent KB Phase 3 Review Render
+name: Agent KB Phase 3 Finalize
 on:
   push:
-    branches: [agent-kb-dedup-v1]
+    branches: [agent-kb-dedup-chatgpt-phase3]
     paths:
       - '.github/workflows/agent-kb-phase3.yml'
-      - 'Learning/Agent面试题库/_audit/phase3_compact_review.py'
+      - 'Learning/Agent面试题库/_audit/phase3_finalize_reviews.py'
   workflow_dispatch:
 permissions:
   contents: write
 jobs:
-  render:
+  finalize:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: agent-kb-dedup-v1
+          ref: agent-kb-dedup-chatgpt-phase3
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python3 'Learning/Agent面试题库/_audit/phase3_compact_review.py'
-      - run: |
+      - name: Materialize explicit semantic review shard
+        run: python3 'Learning/Agent面试题库/_audit/phase3_finalize_reviews.py'
+      - name: Install semantic builder dependency
+        run: python3 -m pip install --quiet 'sentence-transformers>=3,<6'
+      - name: Rebuild Phase 3 map and validation
+        run: |
+          python3 'Learning/Agent面试题库/_audit/phase3_build.py'
+          python3 'Learning/Agent面试题库/_audit/phase3_compact_review.py'
+      - name: Enforce Phase 3 freeze gate
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('Learning/Agent面试题库/_audit')
+          v = json.loads((root/'phase3_validation.json').read_text(encoding='utf-8'))
+          m = json.loads((root/'question_atom_map.json').read_text(encoding='utf-8'))
+          assert v['structural_status'] == 'passed', v
+          assert v['inventory_questions'] == 736, v
+          assert v['mapped_questions'] == 736, v
+          assert v['question_coverage'] == 1.0, v
+          assert v['pending_semantic_reviews'] == 0, v
+          assert v['unknown_atom_refs'] == [], v
+          assert v['uncovered_active_atoms'] == [], v
+          assert m['mapping_counts']['unreviewed_semantic_candidates'] == 0, m['mapping_counts']
+          print(json.dumps({'validation': v, 'mapping_counts': m['mapping_counts']}, ensure_ascii=False, indent=2))
+          PY
+      - name: Commit generated audit assets
+        run: |
           git config user.name 'agent-kb-audit-bot'
           git config user.email 'agent-kb-audit-bot@users.noreply.github.com'
-          git add 'Learning/Agent面试题库/_audit/PHASE3_COMPACT_REVIEW.md'
+          git add \
+            'Learning/Agent面试题库/_audit/phase3_maps/05-13_semantic_review.json' \
+            'Learning/Agent面试题库/_audit/question_atom_map.json' \
+            'Learning/Agent面试题库/_audit/phase3_review.json' \
+            'Learning/Agent面试题库/_audit/phase3_validation.json' \
+            'Learning/Agent面试题库/_audit/PHASE3_COMPACT_REVIEW.md'
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'audit(agent-kb): render compact phase 3 review'
-          git push origin HEAD:agent-kb-dedup-v1
+          git commit -m 'audit(agent-kb): freeze phase 3 question atom map'
+          git push origin HEAD:agent-kb-dedup-chatgpt-phase3
