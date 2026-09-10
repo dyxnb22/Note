@@ -1,0 +1,14 @@
+{
+  "phase": 3,
+  "structural_status": "passed",
+  "inventory_questions": 736,
+  "mapped_questions": 736,
+  "question_coverage": 1.0,
+  "effective_active_atoms": 319,
+  "covered_active_atoms": 319,
+  "uncovered_active_atoms": [],
+  "unknown_atom_refs": [],
+  "pending_semantic_reviews": 104,
+  "errors": [],
+  "note": "Semantic similarity is candidate generation only; duplicate adjudication remains Phase 4/5. Phase 3 is freeze-ready only when pending_semantic_reviews=0 or every pending item has an explicit manual override."
+}

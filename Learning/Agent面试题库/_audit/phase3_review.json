@@ -1,0 +1,4478 @@
+{
+  "phase": 3,
+  "pending_count": 104,
+  "reviews": [
+    {
+      "question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+      "title": "Tool Calling 与普通函数调用有什么区别？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-006",
+          "score": 0.5724,
+          "name": "工具选择、参数与顺序评分",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.5481,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "PROV-001",
+          "score": 0.5421,
+          "name": "Provider 无关任务合同与薄适配",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "SEC-001",
+          "score": 0.5414,
+          "name": "模型提案与确定性执行边界",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "ARCH-001",
+          "score": 0.5394,
+          "name": "框架、运行时与业务应用分层",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "SKILL-002",
+          "score": 0.5133,
+          "name": "Skill 嵌套与参数作用域",
+          "domain": "skill"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::5",
+      "title": "工具参数校验应该由模型、服务端还是两者共同完成？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.7291,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.7064,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "EVAL-006",
+          "score": 0.671,
+          "name": "工具选择、参数与顺序评分",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "REASON-007",
+          "score": 0.6573,
+          "name": "模型训练阶段与运行约束的行为合成",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "SKILL-002",
+          "score": 0.6364,
+          "name": "Skill 嵌套与参数作用域",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "PROMPT-005",
+          "score": 0.6359,
+          "name": "结构化输出与业务校验",
+          "domain": "prompt"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::8",
+      "title": "如何设计数据库查询、搜索、代码执行、发邮件和支付工具？",
+      "top_candidates": [
+        {
+          "atom_id": "RAG-003",
+          "score": 0.6211,
+          "name": "结构化与非结构化数据源协同",
+          "domain": "rag"
+        },
+        {
+          "atom_id": "IDENT-003",
+          "score": 0.6009,
+          "name": "用途与风险驱动的数据分类",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "CTX-002",
+          "score": 0.5602,
+          "name": "能力目录检索与按需展开",
+          "domain": "ctx"
+        },
+        {
+          "atom_id": "BACK-011",
+          "score": 0.5569,
+          "name": "查询谓词与索引访问路径",
+          "domain": "back"
+        },
+        {
+          "atom_id": "BACK-012",
+          "score": 0.5508,
+          "name": "数据库隔离级别与事务边界",
+          "domain": "back"
+        },
+        {
+          "atom_id": "MULTI-001",
+          "score": 0.535,
+          "name": "子任务职责与合同边界",
+          "domain": "multi"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::13",
+      "title": "什么操作必须幂等？如何生成幂等键？",
+      "top_candidates": [
+        {
+          "atom_id": "IDENT-004",
+          "score": 0.5663,
+          "name": "资源动作绑定的能力凭证",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "TOOL-001",
+          "score": 0.5462,
+          "name": "副作用幂等执行",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "MULTI-001",
+          "score": 0.5041,
+          "name": "子任务职责与合同边界",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "BACK-007",
+          "score": 0.4992,
+          "name": "可重入锁的持有者与计数",
+          "domain": "back"
+        },
+        {
+          "atom_id": "SKILL-002",
+          "score": 0.4977,
+          "name": "Skill 嵌套与参数作用域",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "SEC-006",
+          "score": 0.4925,
+          "name": "能力可见性与运行时授权分离",
+          "domain": "sec"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::17",
+      "title": "工具数量非常多时，如何做发现、分组、路由、动态加载和淘汰？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-006",
+          "score": 0.6559,
+          "name": "工具选择、参数与顺序评分",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6414,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "DATA-004",
+          "score": 0.6375,
+          "name": "可验证困难负例构造",
+          "domain": "data"
+        },
+        {
+          "atom_id": "CTX-002",
+          "score": 0.629,
+          "name": "能力目录检索与按需展开",
+          "domain": "ctx"
+        },
+        {
+          "atom_id": "MCP-002",
+          "score": 0.6265,
+          "name": "工具、资源与提示模板三类能力",
+          "domain": "mcp"
+        },
+        {
+          "atom_id": "CTX-006",
+          "score": 0.5986,
+          "name": "最小槽位澄清",
+          "domain": "ctx"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::18",
+      "title": "线上 Agent 选错工具，如何从候选集、Description、参数、上下文和模型分别排查？",
+      "top_candidates": [
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.664,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "TRACE-002",
+          "score": 0.6598,
+          "name": "完整运行轨迹与上下文版本",
+          "domain": "trace"
+        },
+        {
+          "atom_id": "REASON-007",
+          "score": 0.6596,
+          "name": "模型训练阶段与运行约束的行为合成",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6499,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "EVAL-006",
+          "score": 0.6431,
+          "name": "工具选择、参数与顺序评分",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MULTI-006",
+          "score": 0.6346,
+          "name": "控制权交接与子 Agent 工具调用",
+          "domain": "multi"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::7",
+      "title": "多轮对话变长时，如何做上下文压缩而不破坏任务状态和证据链？",
+      "top_candidates": [
+        {
+          "atom_id": "MODEL-005",
+          "score": 0.6083,
+          "name": "多任务条件与旧任务回归",
+          "domain": "model"
+        },
+        {
+          "atom_id": "CTX-004",
+          "score": 0.6067,
+          "name": "可恢复的上下文压缩",
+          "domain": "ctx"
+        },
+        {
+          "atom_id": "EVAL-016",
+          "score": 0.5944,
+          "name": "多轮状态演化与长程任务评测",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CAP-002",
+          "score": 0.5859,
+          "name": "有界任务队列与背压传播",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.585,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "MULTI-005",
+          "score": 0.5818,
+          "name": "委派深度与通信放大控制",
+          "domain": "multi"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::19",
+      "title": "设计一个代码 Agent Harness：从用户提出修改需求，到生成 Patch、运行测试、人工确认和交付，状态如何流转？",
+      "top_candidates": [
+        {
+          "atom_id": "CODE-001",
+          "score": 0.6398,
+          "name": "受限工作区内的补丁与验证闭环",
+          "domain": "code"
+        },
+        {
+          "atom_id": "REASON-007",
+          "score": 0.6393,
+          "name": "模型训练阶段与运行约束的行为合成",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "TEST-002",
+          "score": 0.6281,
+          "name": "可替换依赖与分层验证",
+          "domain": "test"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.6121,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "CODE-008",
+          "score": 0.6114,
+          "name": "按变更范围选择渐进验证",
+          "domain": "code"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6016,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::20",
+      "title": "一个长程任务出现目标漂移、上下文爆炸和错误累积，你如何定位根因并设计恢复策略？",
+      "top_candidates": [
+        {
+          "atom_id": "STATE-002",
+          "score": 0.6952,
+          "name": "多轮输入的任务归属与目标变更",
+          "domain": "state"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.6738,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "ARCH-004",
+          "score": 0.6715,
+          "name": "业务目标到任务合同的分解",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "LOOP-001",
+          "score": 0.659,
+          "name": "观察驱动的动作循环",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "TRACE-002",
+          "score": 0.6523,
+          "name": "完整运行轨迹与上下文版本",
+          "domain": "trace"
+        },
+        {
+          "atom_id": "DUR-005",
+          "score": 0.6484,
+          "name": "跨区域任务归属与故障接管",
+          "domain": "dur"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::5",
+      "title": "哪些子任务适合并行，哪些必须串行？",
+      "top_candidates": [
+        {
+          "atom_id": "MULTI-001",
+          "score": 0.6545,
+          "name": "子任务职责与合同边界",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "MODEL-005",
+          "score": 0.6503,
+          "name": "多任务条件与旧任务回归",
+          "domain": "model"
+        },
+        {
+          "atom_id": "CTX-001",
+          "score": 0.6334,
+          "name": "运行时上下文工作集组装",
+          "domain": "ctx"
+        },
+        {
+          "atom_id": "LOOP-004",
+          "score": 0.6035,
+          "name": "计划生成与分阶段执行",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "TOOL-008",
+          "score": 0.5996,
+          "name": "依赖约束的并行工具调度",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "GRAPH-001",
+          "score": 0.5978,
+          "name": "关系检索的任务适用性",
+          "domain": "graph"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::10",
+      "title": "子 Agent 失败时，父 Agent 如何重试、降级和接管？",
+      "top_candidates": [
+        {
+          "atom_id": "IDENT-006",
+          "score": 0.638,
+          "name": "委派尝试与过期结果隔离",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "MULTI-006",
+          "score": 0.6194,
+          "name": "控制权交接与子 Agent 工具调用",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.5753,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "REL-001",
+          "score": 0.5666,
+          "name": "按错误语义选择恢复动作",
+          "domain": "rel"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.557,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.5404,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::19",
+      "title": "如何设计模型不可绕过的权限边界？",
+      "top_candidates": [
+        {
+          "atom_id": "PROMPT-002",
+          "score": 0.6519,
+          "name": "指令层级与外部数据分区",
+          "domain": "prompt"
+        },
+        {
+          "atom_id": "SANDBOX-001",
+          "score": 0.6478,
+          "name": "执行环境资源与出站隔离",
+          "domain": "sandbox"
+        },
+        {
+          "atom_id": "SEC-006",
+          "score": 0.6415,
+          "name": "能力可见性与运行时授权分离",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "IDENT-004",
+          "score": 0.6246,
+          "name": "资源动作绑定的能力凭证",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "PROV-003",
+          "score": 0.622,
+          "name": "中立模型结果与分类事件",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "PROV-010",
+          "score": 0.6195,
+          "name": "条件边的受限枚举路由",
+          "domain": "prov"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::23",
+      "title": "一个研究任务包含检索、分析、写作三个阶段，你会选择 Workflow、Supervisor 还是多个独立 Agent？",
+      "top_candidates": [
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.586,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.5799,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MULTI-001",
+          "score": 0.5675,
+          "name": "子任务职责与合同边界",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "MULTI-002",
+          "score": 0.5614,
+          "name": "中心调度与对等协作拓扑",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "GRAPH-001",
+          "score": 0.5614,
+          "name": "关系检索的任务适用性",
+          "domain": "graph"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.5505,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::06_RAG与知识库/RAG与检索.md::24",
+      "title": "文档库很大时如何控制延迟和成本？",
+      "top_candidates": [
+        {
+          "atom_id": "CTX-002",
+          "score": 0.6284,
+          "name": "能力目录检索与按需展开",
+          "domain": "ctx"
+        },
+        {
+          "atom_id": "OBS-004",
+          "score": 0.606,
+          "name": "事件采集到分析展示的数据管道",
+          "domain": "obs"
+        },
+        {
+          "atom_id": "BACK-015",
+          "score": 0.5987,
+          "name": "分区追加与批量消息吞吐",
+          "domain": "back"
+        },
+        {
+          "atom_id": "INGEST-002",
+          "score": 0.5985,
+          "name": "文档版本和删除权限事件传播",
+          "domain": "ingest"
+        },
+        {
+          "atom_id": "LLM-010",
+          "score": 0.5821,
+          "name": "动态连续批处理",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "RAG-001",
+          "score": 0.5756,
+          "name": "检索增强生成的离线在线分工",
+          "domain": "rag"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::3",
+      "title": "如何识别 Agent 没有真正执行工具而是编造结果？",
+      "top_candidates": [
+        {
+          "atom_id": "IDENT-002",
+          "score": 0.6808,
+          "name": "发起主体、逻辑 Agent、服务与资源区分",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "MULTI-006",
+          "score": 0.6673,
+          "name": "控制权交接与子 Agent 工具调用",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "A2A-001",
+          "score": 0.6483,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6272,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LOOP-008",
+          "score": 0.6261,
+          "name": "可验证任务完成证据",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.6247,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::5",
+      "title": "如何区分可重试错误和不可重试错误？",
+      "top_candidates": [
+        {
+          "atom_id": "PROV-008",
+          "score": 0.6571,
+          "name": "适配器异常协议回归",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "REL-001",
+          "score": 0.6438,
+          "name": "按错误语义选择恢复动作",
+          "domain": "rel"
+        },
+        {
+          "atom_id": "IDENT-006",
+          "score": 0.6039,
+          "name": "委派尝试与过期结果隔离",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "EVAL-012",
+          "score": 0.5947,
+          "name": "随机运行的重复测量与不确定性",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.5751,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.5721,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::6",
+      "title": "如何处理部分成功、部分失败和不可逆动作？",
+      "top_candidates": [
+        {
+          "atom_id": "TOOL-006",
+          "score": 0.6344,
+          "name": "部分副作用补偿",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "LOOP-010",
+          "score": 0.631,
+          "name": "重复动作与无进展检测",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "TOOL-001",
+          "score": 0.6288,
+          "name": "副作用幂等执行",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "IDENT-006",
+          "score": 0.6197,
+          "name": "委派尝试与过期结果隔离",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "REL-001",
+          "score": 0.6104,
+          "name": "按错误语义选择恢复动作",
+          "domain": "rel"
+        },
+        {
+          "atom_id": "LOOP-005",
+          "score": 0.6045,
+          "name": "结果反思",
+          "domain": "loop"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::10",
+      "title": "如何防止用户输入覆盖系统约束？",
+      "top_candidates": [
+        {
+          "atom_id": "SEC-003",
+          "score": 0.5988,
+          "name": "上下文字段最小暴露",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "EVAL-003",
+          "score": 0.5985,
+          "name": "攻击集与安全边界回归",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-022",
+          "score": 0.585,
+          "name": "安全与关键切片发布门禁",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "BACK-012",
+          "score": 0.5721,
+          "name": "数据库隔离级别与事务边界",
+          "domain": "back"
+        },
+        {
+          "atom_id": "SEC-013",
+          "score": 0.5717,
+          "name": "受保护控制资源的篡改检测",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "SEC-002",
+          "score": 0.5663,
+          "name": "输入大小与敏感数据预处理",
+          "domain": "sec"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::13",
+      "title": "如何让不同 Agent 只能看到自己需要的数据？",
+      "top_candidates": [
+        {
+          "atom_id": "IDENT-002",
+          "score": 0.6617,
+          "name": "发起主体、逻辑 Agent、服务与资源区分",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "PROMPT-002",
+          "score": 0.6386,
+          "name": "指令层级与外部数据分区",
+          "domain": "prompt"
+        },
+        {
+          "atom_id": "A2A-001",
+          "score": 0.6236,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        },
+        {
+          "atom_id": "ARCH-002",
+          "score": 0.6097,
+          "name": "平台通用约束与业务声明分离",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "SEC-010",
+          "score": 0.6025,
+          "name": "短期凭证与模型隔离",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "ARCH-005",
+          "score": 0.602,
+          "name": "任务入口网关职责",
+          "domain": "arch"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::18",
+      "title": "如何限制 CPU、内存、磁盘、网络、进程和执行时间？",
+      "top_candidates": [
+        {
+          "atom_id": "OPS-004",
+          "score": 0.5782,
+          "name": "显式降级能力档位",
+          "domain": "ops"
+        },
+        {
+          "atom_id": "CAP-001",
+          "score": 0.5715,
+          "name": "多层配额与隔舱并发控制",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "MULTI-005",
+          "score": 0.5712,
+          "name": "委派深度与通信放大控制",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "CODE-001",
+          "score": 0.5276,
+          "name": "受限工作区内的补丁与验证闭环",
+          "domain": "code"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.5215,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CAP-002",
+          "score": 0.5183,
+          "name": "有界任务队列与背压传播",
+          "domain": "cap"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::19",
+      "title": "哪些动作必须 Human-in-the-Loop？",
+      "top_candidates": [
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.5622,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.5575,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "REASON-001",
+          "score": 0.5512,
+          "name": "任务进展与安全约束的奖励设计",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "REL-003",
+          "score": 0.5383,
+          "name": "证据不足时的拒答与人工升级",
+          "domain": "rel"
+        },
+        {
+          "atom_id": "MULTI-001",
+          "score": 0.5074,
+          "name": "子任务职责与合同边界",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "GRAPH-001",
+          "score": 0.5028,
+          "name": "关系检索的任务适用性",
+          "domain": "graph"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::20",
+      "title": "如何让用户预览、确认、撤销和回滚 Agent 动作？",
+      "top_candidates": [
+        {
+          "atom_id": "ARCH-003",
+          "score": 0.6305,
+          "name": "存量系统渐进接入",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "SEC-005",
+          "score": 0.6269,
+          "name": "精确动作审批与时效校验",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "TRACE-002",
+          "score": 0.6232,
+          "name": "完整运行轨迹与上下文版本",
+          "domain": "trace"
+        },
+        {
+          "atom_id": "LOOP-010",
+          "score": 0.5947,
+          "name": "重复动作与无进展检测",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "UI-003",
+          "score": 0.5913,
+          "name": "瞬态进度与权威事件交付",
+          "domain": "ui"
+        },
+        {
+          "atom_id": "STREAM-001",
+          "score": 0.5837,
+          "name": "用户进度事件投影与断线续传",
+          "domain": "stream"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::22",
+      "title": "如何让 Agent 行为可解释、可追踪和可回放？",
+      "top_candidates": [
+        {
+          "atom_id": "MULTI-006",
+          "score": 0.7134,
+          "name": "控制权交接与子 Agent 工具调用",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "TRACE-002",
+          "score": 0.7067,
+          "name": "完整运行轨迹与上下文版本",
+          "domain": "trace"
+        },
+        {
+          "atom_id": "A2A-001",
+          "score": 0.6764,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        },
+        {
+          "atom_id": "LOOP-001",
+          "score": 0.6678,
+          "name": "观察驱动的动作循环",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6646,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "IDENT-002",
+          "score": 0.6508,
+          "name": "发起主体、逻辑 Agent、服务与资源区分",
+          "domain": "ident"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::26",
+      "title": "工具调用已经成功但前端断线了，重试前如何判断外部副作用是否已经发生？",
+      "top_candidates": [
+        {
+          "atom_id": "DUR-002",
+          "score": 0.6995,
+          "name": "恢复前版本与副作用核验",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "TOOL-001",
+          "score": 0.6963,
+          "name": "副作用幂等执行",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "DUR-009",
+          "score": 0.6709,
+          "name": "副作用确认窗口的故障验证",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "IDENT-006",
+          "score": 0.6553,
+          "name": "委派尝试与过期结果隔离",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "PRODUCT-002",
+          "score": 0.6544,
+          "name": "失败说明与可恢复人工接管",
+          "domain": "product"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.6408,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::32",
+      "title": "工具错误应该如何分类？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-006",
+          "score": 0.6863,
+          "name": "工具选择、参数与顺序评分",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "TOOL-004",
+          "score": 0.6756,
+          "name": "工具注册与版本化接口合同",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "TOOL-011",
+          "score": 0.6679,
+          "name": "结构化工具错误封装",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "DATA-004",
+          "score": 0.6651,
+          "name": "可验证困难负例构造",
+          "domain": "data"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.6574,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "DATA-006",
+          "score": 0.6342,
+          "name": "工具行为训练的正负轨迹分布",
+          "domain": "data"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::07_可靠性与安全/可靠性与安全.md::35",
+      "title": "进程在副作用中途崩溃时，为什么“不明确就不自动重放”？",
+      "top_candidates": [
+        {
+          "atom_id": "DUR-009",
+          "score": 0.6884,
+          "name": "副作用确认窗口的故障验证",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "TOOL-002",
+          "score": 0.6794,
+          "name": "未知副作用对账",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "DUR-002",
+          "score": 0.6721,
+          "name": "恢复前版本与副作用核验",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "TOOL-006",
+          "score": 0.6532,
+          "name": "部分副作用补偿",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "TOOL-001",
+          "score": 0.6502,
+          "name": "副作用幂等执行",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "PRODUCT-002",
+          "score": 0.6362,
+          "name": "失败说明与可恢复人工接管",
+          "domain": "product"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::6",
+      "title": "新增一个 Tool、Skill 或 Middleware 后，如何证明它真的带来收益？",
+      "top_candidates": [
+        {
+          "atom_id": "MODEL-006",
+          "score": 0.6813,
+          "name": "低精度对工具行为与长尾的影响",
+          "domain": "model"
+        },
+        {
+          "atom_id": "LLM-018",
+          "score": 0.6787,
+          "name": "带价值估计的近端策略优化",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6763,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.6691,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.6684,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LOOP-008",
+          "score": 0.6533,
+          "name": "可验证任务完成证据",
+          "domain": "loop"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::34",
+      "title": "最终答案错误，但检索、工具结果和中间步骤看起来都合理，你会如何定位第一个错误节点？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-015",
+          "score": 0.6892,
+          "name": "首个偏离节点与失败路径归因",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "HARNESS-002",
+          "score": 0.6803,
+          "name": "步骤前后条件与证据门禁",
+          "domain": "harness"
+        },
+        {
+          "atom_id": "EVAL-019",
+          "score": 0.644,
+          "name": "评测运行器与结果比较流水线",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-002",
+          "score": 0.6419,
+          "name": "证据链分层故障归因",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CODE-002",
+          "score": 0.6401,
+          "name": "最终产物版本绑定的验证证据",
+          "domain": "code"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.6391,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::35",
+      "title": "一次 Prompt 改动平均分提升，但某类长尾任务下降，如何设计回归集和灰度策略？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-001",
+          "score": 0.6892,
+          "name": "固定基线与组件消融",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.6798,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "LLM-018",
+          "score": 0.6615,
+          "name": "带价值估计的近端策略优化",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.646,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.6433,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6423,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::37",
+      "title": "如何设计可回放且不泄露秘密的 Trace？",
+      "top_candidates": [
+        {
+          "atom_id": "OBS-004",
+          "score": 0.5564,
+          "name": "事件采集到分析展示的数据管道",
+          "domain": "obs"
+        },
+        {
+          "atom_id": "TRACE-002",
+          "score": 0.5369,
+          "name": "完整运行轨迹与上下文版本",
+          "domain": "trace"
+        },
+        {
+          "atom_id": "TRACE-003",
+          "score": 0.5333,
+          "name": "审计数据隐私与留存治理",
+          "domain": "trace"
+        },
+        {
+          "atom_id": "INGEST-009",
+          "score": 0.5272,
+          "name": "文档摄取质量门禁与失败隔离",
+          "domain": "ingest"
+        },
+        {
+          "atom_id": "STATE-006",
+          "score": 0.5201,
+          "name": "持久检查点",
+          "domain": "state"
+        },
+        {
+          "atom_id": "STATE-007",
+          "score": 0.518,
+          "name": "运行热状态与历史大对象分离",
+          "domain": "state"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::08_评测与可观测/评测与可观测性.md::40",
+      "title": "如何证明一个新增 Agent 能力值得构建？",
+      "top_candidates": [
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.6655,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "MODEL-006",
+          "score": 0.6474,
+          "name": "低精度对工具行为与长尾的影响",
+          "domain": "model"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6472,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.6464,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "REASON-001",
+          "score": 0.6429,
+          "name": "任务进展与安全约束的奖励设计",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "LLM-018",
+          "score": 0.6345,
+          "name": "带价值估计的近端策略优化",
+          "domain": "llm"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::17",
+      "title": "如何设计 Trace、Event Log 和 replay？",
+      "top_candidates": [
+        {
+          "atom_id": "STREAM-001",
+          "score": 0.6399,
+          "name": "用户进度事件投影与断线续传",
+          "domain": "stream"
+        },
+        {
+          "atom_id": "STATE-005",
+          "score": 0.631,
+          "name": "不可变事件重建状态",
+          "domain": "state"
+        },
+        {
+          "atom_id": "PROV-006",
+          "score": 0.5727,
+          "name": "首事件超时与中途断流分类",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "MEM-008",
+          "score": 0.5565,
+          "name": "记忆同步与异步写回",
+          "domain": "mem"
+        },
+        {
+          "atom_id": "DATA-003",
+          "score": 0.5536,
+          "name": "反馈到可追溯回归样本的闭环",
+          "domain": "data"
+        },
+        {
+          "atom_id": "BACK-003",
+          "score": 0.5511,
+          "name": "事件时间聚合与迟到修正",
+          "domain": "back"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::20",
+      "title": "如何处理模型或工具供应商故障？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.6963,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.6958,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "DATA-006",
+          "score": 0.685,
+          "name": "工具行为训练的正负轨迹分布",
+          "domain": "data"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.6632,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "PROV-008",
+          "score": 0.6604,
+          "name": "适配器异常协议回归",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "MODEL-002",
+          "score": 0.6228,
+          "name": "能力与合同约束的模型路由",
+          "domain": "model"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::22",
+      "title": "设计一个企业级文档问答 Agent。",
+      "top_candidates": [
+        {
+          "atom_id": "TRACE-001",
+          "score": 0.6637,
+          "name": "可审计工具调用事件",
+          "domain": "trace"
+        },
+        {
+          "atom_id": "RAG-001",
+          "score": 0.6534,
+          "name": "检索增强生成的离线在线分工",
+          "domain": "rag"
+        },
+        {
+          "atom_id": "TOOL-003",
+          "score": 0.6319,
+          "name": "工具调用与结果关联合同",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "TOOL-010",
+          "score": 0.6103,
+          "name": "单一受控工具执行通道",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6052,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "CTX-001",
+          "score": 0.5945,
+          "name": "运行时上下文工作集组装",
+          "domain": "ctx"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::23",
+      "title": "设计一个带 OCR、切分、Embedding、索引和权限的知识库系统。",
+      "top_candidates": [
+        {
+          "atom_id": "ARCH-007",
+          "score": 0.6161,
+          "name": "运行数据按存储职责分配",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "INGEST-005",
+          "score": 0.6083,
+          "name": "格式分类与保结构标准化",
+          "domain": "ingest"
+        },
+        {
+          "atom_id": "INGEST-007",
+          "score": 0.6048,
+          "name": "关键区域 OCR 质量分桶",
+          "domain": "ingest"
+        },
+        {
+          "atom_id": "INGEST-008",
+          "score": 0.6035,
+          "name": "表格行列语义与数值查询",
+          "domain": "ingest"
+        },
+        {
+          "atom_id": "RAG-001",
+          "score": 0.5993,
+          "name": "检索增强生成的离线在线分工",
+          "domain": "rag"
+        },
+        {
+          "atom_id": "INGEST-002",
+          "score": 0.5969,
+          "name": "文档版本和删除权限事件传播",
+          "domain": "ingest"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::24",
+      "title": "设计一个可以执行 Python 或 SQL 的数据分析 Agent。",
+      "top_candidates": [
+        {
+          "atom_id": "CAP-003",
+          "score": 0.5908,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.5818,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "TOOL-003",
+          "score": 0.5792,
+          "name": "工具调用与结果关联合同",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.5732,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "TOOL-010",
+          "score": 0.5726,
+          "name": "单一受控工具执行通道",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.5723,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::28",
+      "title": "设计一个支持人工审批的客服 Agent。",
+      "top_candidates": [
+        {
+          "atom_id": "ARCH-003",
+          "score": 0.6022,
+          "name": "存量系统渐进接入",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "SEC-005",
+          "score": 0.5895,
+          "name": "精确动作审批与时效校验",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "OBS-001",
+          "score": 0.5591,
+          "name": "任务级指标与可执行告警",
+          "domain": "obs"
+        },
+        {
+          "atom_id": "TOOL-003",
+          "score": 0.5568,
+          "name": "工具调用与结果关联合同",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "SKILL-005",
+          "score": 0.5481,
+          "name": "反馈驱动能力变更的审核发布",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "EVAL-018",
+          "score": 0.5475,
+          "name": "可执行评测 Case 的环境与效果合同",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/生产工程与系统设计.md::29",
+      "title": "设计一个多租户 Agent 平台，支持配额、隔离、观测和回放。",
+      "top_candidates": [
+        {
+          "atom_id": "IDENT-004",
+          "score": 0.6501,
+          "name": "资源动作绑定的能力凭证",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "ARCH-005",
+          "score": 0.6462,
+          "name": "任务入口网关职责",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "ARCH-002",
+          "score": 0.6303,
+          "name": "平台通用约束与业务声明分离",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "CAP-001",
+          "score": 0.612,
+          "name": "多层配额与隔舱并发控制",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "A2A-001",
+          "score": 0.6095,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        },
+        {
+          "atom_id": "OBS-003",
+          "score": 0.6031,
+          "name": "任务成功与安全服务目标",
+          "domain": "obs"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::6",
+      "title": "高频核心路径为什么适合缓存、固定模板或直接调工具，而不是每一步都让模型重新推理？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-001",
+          "score": 0.597,
+          "name": "固定基线与组件消融",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "DATA-006",
+          "score": 0.5956,
+          "name": "工具行为训练的正负轨迹分布",
+          "domain": "data"
+        },
+        {
+          "atom_id": "REPLAY-001",
+          "score": 0.5953,
+          "name": "冻结响应的无副作用回放",
+          "domain": "replay"
+        },
+        {
+          "atom_id": "LOOP-009",
+          "score": 0.5904,
+          "name": "计划失效与局部重规划",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "REASON-005",
+          "score": 0.5895,
+          "name": "自适应与固定推理投入控制",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "MODEL-006",
+          "score": 0.5891,
+          "name": "低精度对工具行为与长尾的影响",
+          "domain": "model"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::8",
+      "title": "一个 Agent 配置了十几个 Tool，如何降低选错工具和无效并行调用？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-006",
+          "score": 0.6861,
+          "name": "工具选择、参数与顺序评分",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6663,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6613,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MULTI-006",
+          "score": 0.6581,
+          "name": "控制权交接与子 Agent 工具调用",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "PROMPT-003",
+          "score": 0.6453,
+          "name": "能力描述的可判别边界",
+          "domain": "prompt"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.6386,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::15",
+      "title": "如何设计缓存失效、版本切换和过期知识的处理？",
+      "top_candidates": [
+        {
+          "atom_id": "LLM-009",
+          "score": 0.6083,
+          "name": "自回归键值缓存与容量",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "CACHE-001",
+          "score": 0.6006,
+          "name": "权限与版本绑定的结果缓存",
+          "domain": "cache"
+        },
+        {
+          "atom_id": "DATA-003",
+          "score": 0.5589,
+          "name": "反馈到可追溯回归样本的闭环",
+          "domain": "data"
+        },
+        {
+          "atom_id": "MEM-012",
+          "score": 0.5498,
+          "name": "记忆生命周期与时间衰减",
+          "domain": "mem"
+        },
+        {
+          "atom_id": "MEM-001",
+          "score": 0.5452,
+          "name": "事实冲突与用户纠正",
+          "domain": "mem"
+        },
+        {
+          "atom_id": "MEM-008",
+          "score": 0.5414,
+          "name": "记忆同步与异步写回",
+          "domain": "mem"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::20",
+      "title": "设计一个高并发客服 Agent：既要回答知识问题，又要查询订单并处理高风险操作，如何组织链路？",
+      "top_candidates": [
+        {
+          "atom_id": "MULTI-005",
+          "score": 0.5997,
+          "name": "委派深度与通信放大控制",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.5922,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "A2A-001",
+          "score": 0.5906,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        },
+        {
+          "atom_id": "ARCH-005",
+          "score": 0.5898,
+          "name": "任务入口网关职责",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.5679,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "TOOL-003",
+          "score": 0.5562,
+          "name": "工具调用与结果关联合同",
+          "domain": "tool"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::10_模型与推理/模型与推理基础.md::17",
+      "title": "如何在模型质量、延迟和成本之间做选择？",
+      "top_candidates": [
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.6451,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.6424,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "LOOP-011",
+          "score": 0.6264,
+          "name": "任务级多维硬预算",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6228,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "MODEL-002",
+          "score": 0.6224,
+          "name": "能力与合同约束的模型路由",
+          "domain": "model"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6168,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::12",
+      "title": "如何写出一个最小但可控的 ReAct Agent Loop？",
+      "top_candidates": [
+        {
+          "atom_id": "LOOP-001",
+          "score": 0.6687,
+          "name": "观察驱动的动作循环",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.6521,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "LOOP-004",
+          "score": 0.6185,
+          "name": "计划生成与分阶段执行",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "LOOP-014",
+          "score": 0.6159,
+          "name": "循环阶段确定性中间件",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6129,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CODE-001",
+          "score": 0.6071,
+          "name": "受限工作区内的补丁与验证闭环",
+          "domain": "code"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::19",
+      "title": "混合检索、Rerank、查询扩展和 Grounding Check 分别解决什么问题？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-013",
+          "score": 0.5993,
+          "name": "稳定分组的线上对照实验",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "RAG-008",
+          "score": 0.5969,
+          "name": "证据数量与多样性预算",
+          "domain": "rag"
+        },
+        {
+          "atom_id": "METRIC-004",
+          "score": 0.5902,
+          "name": "分级相关性的折损排序收益",
+          "domain": "metric"
+        },
+        {
+          "atom_id": "EVAL-005",
+          "score": 0.5781,
+          "name": "开放式答案的多维评分",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CODE-008",
+          "score": 0.5755,
+          "name": "按变更范围选择渐进验证",
+          "domain": "code"
+        },
+        {
+          "atom_id": "PROMPT-004",
+          "score": 0.5732,
+          "name": "示例驱动的格式与边界约束",
+          "domain": "prompt"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::21",
+      "title": "手撕一个带最大轮数、工具白名单和结构化结果校验的 Agent Loop，关键状态有哪些？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.6671,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LOOP-001",
+          "score": 0.6624,
+          "name": "观察驱动的动作循环",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-016",
+          "score": 0.6515,
+          "name": "多轮状态演化与长程任务评测",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6512,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LOOP-014",
+          "score": 0.6493,
+          "name": "循环阶段确定性中间件",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "TRACE-002",
+          "score": 0.6417,
+          "name": "完整运行轨迹与上下文版本",
+          "domain": "trace"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::22",
+      "title": "手撕一个带超时、指数退避、幂等键和错误分类的 Tool Executor，如何避免重复副作用？",
+      "top_candidates": [
+        {
+          "atom_id": "REL-001",
+          "score": 0.71,
+          "name": "按错误语义选择恢复动作",
+          "domain": "rel"
+        },
+        {
+          "atom_id": "TOOL-001",
+          "score": 0.7085,
+          "name": "副作用幂等执行",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "REL-002",
+          "score": 0.6666,
+          "name": "有界退避重试与熔断",
+          "domain": "rel"
+        },
+        {
+          "atom_id": "CODE-001",
+          "score": 0.66,
+          "name": "受限工作区内的补丁与验证闭环",
+          "domain": "code"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.6564,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "DATA-003",
+          "score": 0.6501,
+          "name": "反馈到可追溯回归样本的闭环",
+          "domain": "data"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::10_模型与推理/高频八股与手撕面经补充.md::23",
+      "title": "手撕一个异步 Fan-out/Fan-in 调度器，如何处理并发上限、超时、取消和部分结果？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-016",
+          "score": 0.5735,
+          "name": "多轮状态演化与长程任务评测",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LLM-010",
+          "score": 0.5544,
+          "name": "动态连续批处理",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "MULTI-005",
+          "score": 0.5539,
+          "name": "委派深度与通信放大控制",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "DUR-003",
+          "score": 0.5483,
+          "name": "显式暂停恢复与持久等待",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "PROV-006",
+          "score": 0.5463,
+          "name": "首事件超时与中途断流分类",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "MEM-008",
+          "score": 0.5453,
+          "name": "记忆同步与异步写回",
+          "domain": "mem"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::17",
+      "title": "实现带指数退避和抖动的重试策略。",
+      "top_candidates": [
+        {
+          "atom_id": "REL-002",
+          "score": 0.6443,
+          "name": "有界退避重试与熔断",
+          "domain": "rel"
+        },
+        {
+          "atom_id": "EVAL-012",
+          "score": 0.6367,
+          "name": "随机运行的重复测量与不确定性",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MEM-008",
+          "score": 0.578,
+          "name": "记忆同步与异步写回",
+          "domain": "mem"
+        },
+        {
+          "atom_id": "EVAL-016",
+          "score": 0.5747,
+          "name": "多轮状态演化与长程任务评测",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.5691,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "REPLAY-001",
+          "score": 0.5675,
+          "name": "冻结响应的无副作用回放",
+          "domain": "replay"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::40",
+      "title": "如何做代码审查、灰度发布和回滚？",
+      "top_candidates": [
+        {
+          "atom_id": "DATA-002",
+          "score": 0.6051,
+          "name": "评测数据隔离与污染防护",
+          "domain": "data"
+        },
+        {
+          "atom_id": "CODE-008",
+          "score": 0.5809,
+          "name": "按变更范围选择渐进验证",
+          "domain": "code"
+        },
+        {
+          "atom_id": "CODE-001",
+          "score": 0.5693,
+          "name": "受限工作区内的补丁与验证闭环",
+          "domain": "code"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.565,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "INGEST-009",
+          "score": 0.5625,
+          "name": "文档摄取质量门禁与失败隔离",
+          "domain": "ingest"
+        },
+        {
+          "atom_id": "GUI-005",
+          "score": 0.537,
+          "name": "界面扰动与会话清理评测",
+          "domain": "gui"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::11_编码与后端/编码题与后端基础.md::42",
+      "title": "设计一个 Agent 任务队列：如何处理重复投递、超时、租约、取消和恢复？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6859,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "OBS-001",
+          "score": 0.6736,
+          "name": "任务级指标与可执行告警",
+          "domain": "obs"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6726,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "A2A-001",
+          "score": 0.6702,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        },
+        {
+          "atom_id": "LOOP-001",
+          "score": 0.6572,
+          "name": "观察驱动的动作循环",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "ARCH-005",
+          "score": 0.6483,
+          "name": "任务入口网关职责",
+          "domain": "arch"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10",
+      "title": "`tool_call`、工具执行结果和最终文本在一次请求中的职责有什么不同？",
+      "top_candidates": [
+        {
+          "atom_id": "TOOL-003",
+          "score": 0.6324,
+          "name": "工具调用与结果关联合同",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "PROMPT-001",
+          "score": 0.6263,
+          "name": "任务提示模板的字段合同",
+          "domain": "prompt"
+        },
+        {
+          "atom_id": "EVAL-006",
+          "score": 0.614,
+          "name": "工具选择、参数与顺序评分",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.6138,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "TOOL-007",
+          "score": 0.5823,
+          "name": "工具观察的来源与完整性验证",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "TOOL-004",
+          "score": 0.571,
+          "name": "工具注册与版本化接口合同",
+          "domain": "tool"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::14",
+      "title": "为什么生产环境不能只用内存 Checkpointer？",
+      "top_candidates": [
+        {
+          "atom_id": "DUR-001",
+          "score": 0.6892,
+          "name": "跨进程持久任务状态机",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "CODE-001",
+          "score": 0.6858,
+          "name": "受限工作区内的补丁与验证闭环",
+          "domain": "code"
+        },
+        {
+          "atom_id": "DUR-003",
+          "score": 0.6384,
+          "name": "显式暂停恢复与持久等待",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "STATE-006",
+          "score": 0.6253,
+          "name": "持久检查点",
+          "domain": "state"
+        },
+        {
+          "atom_id": "SANDBOX-002",
+          "score": 0.5994,
+          "name": "隔离环境启动、快照与回收",
+          "domain": "sandbox"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.5923,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::18",
+      "title": "选择框架时如何权衡控制力、开发速度和运维成本？",
+      "top_candidates": [
+        {
+          "atom_id": "PROV-002",
+          "score": 0.6827,
+          "name": "编排复杂度与迁移成本选型",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.6635,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.6532,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "REASON-007",
+          "score": 0.6505,
+          "name": "模型训练阶段与运行约束的行为合成",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.6315,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.6309,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+      "title": "模型、工具 Schema、Prompt 和 State Schema 升级时，兼容性应如何管理？",
+      "top_candidates": [
+        {
+          "atom_id": "OPS-002",
+          "score": 0.6603,
+          "name": "组合版本发布与运行任务兼容",
+          "domain": "ops"
+        },
+        {
+          "atom_id": "STATE-003",
+          "score": 0.6398,
+          "name": "状态字段所有权与版本化迁移",
+          "domain": "state"
+        },
+        {
+          "atom_id": "TEST-002",
+          "score": 0.614,
+          "name": "可替换依赖与分层验证",
+          "domain": "test"
+        },
+        {
+          "atom_id": "DUR-005",
+          "score": 0.5981,
+          "name": "跨区域任务归属与故障接管",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "STATE-002",
+          "score": 0.5976,
+          "name": "多轮输入的任务归属与目标变更",
+          "domain": "state"
+        },
+        {
+          "atom_id": "PROV-012",
+          "score": 0.5819,
+          "name": "工具回合 typed items 连续性",
+          "domain": "prov"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::23",
+      "title": "设计一个支持多 Provider、工具调用、流式输出和人工审批的 Agent Runtime，你会如何分层？",
+      "top_candidates": [
+        {
+          "atom_id": "MULTI-001",
+          "score": 0.6851,
+          "name": "子任务职责与合同边界",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "ARCH-005",
+          "score": 0.6836,
+          "name": "任务入口网关职责",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.672,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "ARCH-002",
+          "score": 0.6717,
+          "name": "平台通用约束与业务声明分离",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6599,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "A2A-001",
+          "score": 0.6569,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::24",
+      "title": "一个简单问答项目逐渐加入循环、持久化、并行和恢复，你会在哪些信号出现后从 Loop 升级到图编排？",
+      "top_candidates": [
+        {
+          "atom_id": "DUR-001",
+          "score": 0.6155,
+          "name": "跨进程持久任务状态机",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "LOOP-014",
+          "score": 0.6081,
+          "name": "循环阶段确定性中间件",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "DUR-003",
+          "score": 0.5783,
+          "name": "显式暂停恢复与持久等待",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "LLM-010",
+          "score": 0.5716,
+          "name": "动态连续批处理",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "EVAL-001",
+          "score": 0.5715,
+          "name": "固定基线与组件消融",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LOOP-001",
+          "score": 0.5651,
+          "name": "观察驱动的动作循环",
+          "domain": "loop"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::14",
+      "title": "如何防止 Agent 因为测试失败进入重复修复循环？",
+      "top_candidates": [
+        {
+          "atom_id": "IDENT-006",
+          "score": 0.6109,
+          "name": "委派尝试与过期结果隔离",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.5879,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "DATA-006",
+          "score": 0.5794,
+          "name": "工具行为训练的正负轨迹分布",
+          "domain": "data"
+        },
+        {
+          "atom_id": "LOOP-010",
+          "score": 0.5783,
+          "name": "重复动作与无进展检测",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "SEC-013",
+          "score": 0.5731,
+          "name": "受保护控制资源的篡改检测",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "OBS-002",
+          "score": 0.5728,
+          "name": "缺少即时标签时的质量代理信号",
+          "domain": "obs"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::17",
+      "title": "为什么“生成了代码”不等于“任务完成”？",
+      "top_candidates": [
+        {
+          "atom_id": "TEST-002",
+          "score": 0.6112,
+          "name": "可替换依赖与分层验证",
+          "domain": "test"
+        },
+        {
+          "atom_id": "LOOP-008",
+          "score": 0.5954,
+          "name": "可验证任务完成证据",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.5799,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CODE-001",
+          "score": 0.5689,
+          "name": "受限工作区内的补丁与验证闭环",
+          "domain": "code"
+        },
+        {
+          "atom_id": "SEC-001",
+          "score": 0.5645,
+          "name": "模型提案与确定性执行边界",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "CODE-008",
+          "score": 0.5534,
+          "name": "按变更范围选择渐进验证",
+          "domain": "code"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::22",
+      "title": "Computer Use 为什么应该运行在隔离的容器或虚拟机中？",
+      "top_candidates": [
+        {
+          "atom_id": "SANDBOX-002",
+          "score": 0.5294,
+          "name": "隔离环境启动、快照与回收",
+          "domain": "sandbox"
+        },
+        {
+          "atom_id": "SEC-006",
+          "score": 0.529,
+          "name": "能力可见性与运行时授权分离",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "SANDBOX-003",
+          "score": 0.5268,
+          "name": "威胁模型驱动的隔离强度选择",
+          "domain": "sandbox"
+        },
+        {
+          "atom_id": "SANDBOX-001",
+          "score": 0.5199,
+          "name": "执行环境资源与出站隔离",
+          "domain": "sandbox"
+        },
+        {
+          "atom_id": "MEM-014",
+          "score": 0.5004,
+          "name": "个性化记忆与外部知识及业务事实的边界",
+          "domain": "mem"
+        },
+        {
+          "atom_id": "GUI-004",
+          "score": 0.4942,
+          "name": "视觉交互成本与等待分解",
+          "domain": "gui"
+        }
+      ],
+      "reason": "low_similarity"
+    },
+    {
+      "question_id": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::24",
+      "title": "GUI 场景中的高风险动作如何做审批和二次验证？",
+      "top_candidates": [
+        {
+          "atom_id": "REASON-002",
+          "score": 0.5841,
+          "name": "评分捷径与真实任务偏离",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "GUI-005",
+          "score": 0.5704,
+          "name": "界面扰动与会话清理评测",
+          "domain": "gui"
+        },
+        {
+          "atom_id": "GUI-002",
+          "score": 0.5655,
+          "name": "窗口绑定的 GUI 原子动作合同",
+          "domain": "gui"
+        },
+        {
+          "atom_id": "SEC-009",
+          "score": 0.55,
+          "name": "敏感信息识别与脱敏有效性",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "SEC-007",
+          "score": 0.5471,
+          "name": "直接与间接提示注入",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "REASON-001",
+          "score": 0.5412,
+          "name": "任务进展与安全约束的奖励设计",
+          "domain": "reason"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::1",
+      "title": "Agent 长任务为什么需要显式任务状态机？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6925,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LOOP-001",
+          "score": 0.6847,
+          "name": "观察驱动的动作循环",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "MODEL-005",
+          "score": 0.6698,
+          "name": "多任务条件与旧任务回归",
+          "domain": "model"
+        },
+        {
+          "atom_id": "ARCH-005",
+          "score": 0.6656,
+          "name": "任务入口网关职责",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "DUR-001",
+          "score": 0.664,
+          "name": "跨进程持久任务状态机",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "A2A-001",
+          "score": 0.6416,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::2",
+      "title": "`pending`、`running`、`waiting_approval`、`succeeded`、`failed`、`cancelled` 和 `expired` 应如何区分？",
+      "top_candidates": [
+        {
+          "atom_id": "IDENT-006",
+          "score": 0.5781,
+          "name": "委派尝试与过期结果隔离",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "DUR-007",
+          "score": 0.5697,
+          "name": "重试耗尽后的死信保全",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "LOOP-003",
+          "score": 0.5557,
+          "name": "结构化终止原因",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "REL-001",
+          "score": 0.5438,
+          "name": "按错误语义选择恢复动作",
+          "domain": "rel"
+        },
+        {
+          "atom_id": "DUR-003",
+          "score": 0.5324,
+          "name": "显式暂停恢复与持久等待",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "EVAL-007",
+          "score": 0.5227,
+          "name": "有据回答与拒答质量评测",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::3",
+      "title": "Agent 系统为什么通常只能以至少一次执行为现实基线？",
+      "top_candidates": [
+        {
+          "atom_id": "MULTI-006",
+          "score": 0.6373,
+          "name": "控制权交接与子 Agent 工具调用",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6343,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "A2A-001",
+          "score": 0.6287,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.6074,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "CODE-006",
+          "score": 0.6016,
+          "name": "已有工作区变更与 Agent 修改归因",
+          "domain": "code"
+        },
+        {
+          "atom_id": "ARCH-003",
+          "score": 0.597,
+          "name": "存量系统渐进接入",
+          "domain": "arch"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::4",
+      "title": "幂等键应该由哪些信息组成？",
+      "top_candidates": [
+        {
+          "atom_id": "PROMPT-001",
+          "score": 0.6209,
+          "name": "任务提示模板的字段合同",
+          "domain": "prompt"
+        },
+        {
+          "atom_id": "CTX-001",
+          "score": 0.6082,
+          "name": "运行时上下文工作集组装",
+          "domain": "ctx"
+        },
+        {
+          "atom_id": "MCP-002",
+          "score": 0.6039,
+          "name": "工具、资源与提示模板三类能力",
+          "domain": "mcp"
+        },
+        {
+          "atom_id": "PROV-001",
+          "score": 0.5775,
+          "name": "Provider 无关任务合同与薄适配",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "PROMPT-002",
+          "score": 0.5615,
+          "name": "指令层级与外部数据分区",
+          "domain": "prompt"
+        },
+        {
+          "atom_id": "CTX-003",
+          "score": 0.5603,
+          "name": "上下文分区配额",
+          "domain": "ctx"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::13",
+      "title": "Agent 服务为什么需要内部队列和背压？",
+      "top_candidates": [
+        {
+          "atom_id": "CAP-001",
+          "score": 0.5716,
+          "name": "多层配额与隔舱并发控制",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.5613,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "MODEL-002",
+          "score": 0.5609,
+          "name": "能力与合同约束的模型路由",
+          "domain": "model"
+        },
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.5459,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "IDENT-002",
+          "score": 0.5441,
+          "name": "发起主体、逻辑 Agent、服务与资源区分",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "CAP-002",
+          "score": 0.541,
+          "name": "有界任务队列与背压传播",
+          "domain": "cap"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::16",
+      "title": "Agent 的一次生产发布对象为什么不只是代码？",
+      "top_candidates": [
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.6477,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "REASON-007",
+          "score": 0.6236,
+          "name": "模型训练阶段与运行约束的行为合成",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "ARCH-002",
+          "score": 0.6214,
+          "name": "平台通用约束与业务声明分离",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "MULTI-006",
+          "score": 0.6161,
+          "name": "控制权交接与子 Agent 工具调用",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "IDENT-002",
+          "score": 0.6136,
+          "name": "发起主体、逻辑 Agent、服务与资源区分",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6123,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+      "title": "Prompt、模型、工具、策略、索引和 State Schema 应如何版本化？",
+      "top_candidates": [
+        {
+          "atom_id": "STATE-003",
+          "score": 0.6924,
+          "name": "状态字段所有权与版本化迁移",
+          "domain": "state"
+        },
+        {
+          "atom_id": "OPS-002",
+          "score": 0.6915,
+          "name": "组合版本发布与运行任务兼容",
+          "domain": "ops"
+        },
+        {
+          "atom_id": "TRACE-002",
+          "score": 0.5901,
+          "name": "完整运行轨迹与上下文版本",
+          "domain": "trace"
+        },
+        {
+          "atom_id": "PROV-012",
+          "score": 0.5722,
+          "name": "工具回合 typed items 连续性",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "STATE-001",
+          "score": 0.5688,
+          "name": "运行事实与模型视图分离",
+          "domain": "state"
+        },
+        {
+          "atom_id": "STATE-004",
+          "score": 0.5617,
+          "name": "并发写集隔离与确定性合并",
+          "domain": "state"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::18",
+      "title": "稳定分组的灰度和回滚为什么重要？",
+      "top_candidates": [
+        {
+          "atom_id": "DUR-003",
+          "score": 0.5923,
+          "name": "显式暂停恢复与持久等待",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "EVAL-001",
+          "score": 0.5742,
+          "name": "固定基线与组件消融",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "SANDBOX-002",
+          "score": 0.5688,
+          "name": "隔离环境启动、快照与回收",
+          "domain": "sandbox"
+        },
+        {
+          "atom_id": "EVAL-013",
+          "score": 0.5599,
+          "name": "稳定分组的线上对照实验",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CACHE-001",
+          "score": 0.5397,
+          "name": "权限与版本绑定的结果缓存",
+          "domain": "cache"
+        },
+        {
+          "atom_id": "DUR-002",
+          "score": 0.5391,
+          "name": "恢复前版本与副作用核验",
+          "domain": "dur"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::19",
+      "title": "预算、限流和背压应该在哪些层同时控制？",
+      "top_candidates": [
+        {
+          "atom_id": "CAP-001",
+          "score": 0.6418,
+          "name": "多层配额与隔舱并发控制",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "HARNESS-001",
+          "score": 0.6357,
+          "name": "运行控制面与执行环境分离",
+          "domain": "harness"
+        },
+        {
+          "atom_id": "LOOP-011",
+          "score": 0.6268,
+          "name": "任务级多维硬预算",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "CAP-002",
+          "score": 0.625,
+          "name": "有界任务队列与背压传播",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "MULTI-005",
+          "score": 0.6126,
+          "name": "委派深度与通信放大控制",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.5615,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+      "title": "State Schema 或策略前向迁移后，为什么不能只回滚应用代码？",
+      "top_candidates": [
+        {
+          "atom_id": "STATE-003",
+          "score": 0.567,
+          "name": "状态字段所有权与版本化迁移",
+          "domain": "state"
+        },
+        {
+          "atom_id": "DUR-005",
+          "score": 0.5653,
+          "name": "跨区域任务归属与故障接管",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "LOOP-009",
+          "score": 0.5645,
+          "name": "计划失效与局部重规划",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "TOOL-011",
+          "score": 0.5641,
+          "name": "结构化工具错误封装",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "STATE-006",
+          "score": 0.5418,
+          "name": "持久检查点",
+          "domain": "state"
+        },
+        {
+          "atom_id": "ARCH-003",
+          "score": 0.5386,
+          "name": "存量系统渐进接入",
+          "domain": "arch"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::28",
+      "title": "如何设计一个能跨进程、跨机器、跨版本恢复的 Agent 任务系统？",
+      "top_candidates": [
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.6925,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "DUR-001",
+          "score": 0.6913,
+          "name": "跨进程持久任务状态机",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6667,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.6495,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "TRACE-002",
+          "score": 0.6462,
+          "name": "完整运行轨迹与上下文版本",
+          "domain": "trace"
+        },
+        {
+          "atom_id": "MODEL-005",
+          "score": 0.6412,
+          "name": "多任务条件与旧任务回归",
+          "domain": "model"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::29",
+      "title": "一个支付类 Agent 在调用下游后超时，你会如何决定重试、对账或人工介入？",
+      "top_candidates": [
+        {
+          "atom_id": "DUR-007",
+          "score": 0.5588,
+          "name": "重试耗尽后的死信保全",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "ARCH-003",
+          "score": 0.5461,
+          "name": "存量系统渐进接入",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "TOOL-002",
+          "score": 0.5457,
+          "name": "未知副作用对账",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "LOOP-005",
+          "score": 0.542,
+          "name": "结果反思",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "UI-003",
+          "score": 0.5121,
+          "name": "瞬态进度与权威事件交付",
+          "domain": "ui"
+        },
+        {
+          "atom_id": "MODEL-002",
+          "score": 0.5111,
+          "name": "能力与合同约束的模型路由",
+          "domain": "model"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::30",
+      "title": "新模型灰度后任务成功率上升，但高风险工具拒绝率下降，你会如何处置？",
+      "top_candidates": [
+        {
+          "atom_id": "MODEL-006",
+          "score": 0.6247,
+          "name": "低精度对工具行为与长尾的影响",
+          "domain": "model"
+        },
+        {
+          "atom_id": "LLM-018",
+          "score": 0.6234,
+          "name": "带价值估计的近端策略优化",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "REL-003",
+          "score": 0.6234,
+          "name": "证据不足时的拒答与人工升级",
+          "domain": "rel"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.6128,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "DATA-006",
+          "score": 0.6068,
+          "name": "工具行为训练的正负轨迹分布",
+          "domain": "data"
+        },
+        {
+          "atom_id": "REASON-001",
+          "score": 0.6052,
+          "name": "任务进展与安全约束的奖励设计",
+          "domain": "reason"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::36",
+      "title": "为什么 Replay 必须与真实执行分离？",
+      "top_candidates": [
+        {
+          "atom_id": "STATE-005",
+          "score": 0.6393,
+          "name": "不可变事件重建状态",
+          "domain": "state"
+        },
+        {
+          "atom_id": "REPLAY-001",
+          "score": 0.6347,
+          "name": "冻结响应的无副作用回放",
+          "domain": "replay"
+        },
+        {
+          "atom_id": "MEM-011",
+          "score": 0.6099,
+          "name": "记忆失效与删除传播",
+          "domain": "mem"
+        },
+        {
+          "atom_id": "DUR-003",
+          "score": 0.5944,
+          "name": "显式暂停恢复与持久等待",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "STREAM-001",
+          "score": 0.5869,
+          "name": "用户进度事件投影与断线续传",
+          "domain": "stream"
+        },
+        {
+          "atom_id": "STATE-006",
+          "score": 0.5584,
+          "name": "持久检查点",
+          "domain": "state"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::16",
+      "title": "一个检索服务合同至少要定义哪些能力和指标？",
+      "top_candidates": [
+        {
+          "atom_id": "IDENT-004",
+          "score": 0.6664,
+          "name": "资源动作绑定的能力凭证",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "TOOL-004",
+          "score": 0.6574,
+          "name": "工具注册与版本化接口合同",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "TOOL-003",
+          "score": 0.6572,
+          "name": "工具调用与结果关联合同",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "MULTI-001",
+          "score": 0.6304,
+          "name": "子任务职责与合同边界",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "ARCH-002",
+          "score": 0.6015,
+          "name": "平台通用约束与业务声明分离",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "ARCH-004",
+          "score": 0.5988,
+          "name": "业务目标到任务合同的分解",
+          "domain": "arch"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::17",
+      "title": "检索服务为什么要保留 BM25、向量和融合排序的分阶段证据？",
+      "top_candidates": [
+        {
+          "atom_id": "DATA-001",
+          "score": 0.6524,
+          "name": "代表性与长尾评测样本分层",
+          "domain": "data"
+        },
+        {
+          "atom_id": "RAG-007",
+          "score": 0.6489,
+          "name": "查询文档联合重排",
+          "domain": "rag"
+        },
+        {
+          "atom_id": "BACK-006",
+          "score": 0.627,
+          "name": "概率成员过滤与二次确认",
+          "domain": "back"
+        },
+        {
+          "atom_id": "EVAL-002",
+          "score": 0.6028,
+          "name": "证据链分层故障归因",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CTX-005",
+          "score": 0.5983,
+          "name": "查询意图保持与多维改写",
+          "domain": "ctx"
+        },
+        {
+          "atom_id": "CTX-002",
+          "score": 0.5881,
+          "name": "能力目录检索与按需展开",
+          "domain": "ctx"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::19",
+      "title": "Chunk、metadata 和权限过滤应该放在哪个阶段？",
+      "top_candidates": [
+        {
+          "atom_id": "MODEL-004",
+          "score": 0.6072,
+          "name": "固定标签分类与生成推理的取舍",
+          "domain": "model"
+        },
+        {
+          "atom_id": "SEC-002",
+          "score": 0.5939,
+          "name": "输入大小与敏感数据预处理",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "RAG-010",
+          "score": 0.5848,
+          "name": "召回前授权过滤与输出复核",
+          "domain": "rag"
+        },
+        {
+          "atom_id": "EVAL-023",
+          "score": 0.5775,
+          "name": "脱敏前后检索收益与泄漏对照",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "BACK-004",
+          "score": 0.5714,
+          "name": "大批量上传的分片与幂等导入",
+          "domain": "back"
+        },
+        {
+          "atom_id": "CTX-002",
+          "score": 0.5699,
+          "name": "能力目录检索与按需展开",
+          "domain": "ctx"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::20",
+      "title": "混合检索中为什么常用“召回 → 去重 → RRF → 重排 → TopK”？",
+      "top_candidates": [
+        {
+          "atom_id": "RAG-006",
+          "score": 0.5844,
+          "name": "多路召回融合",
+          "domain": "rag"
+        },
+        {
+          "atom_id": "LLM-002",
+          "score": 0.5713,
+          "name": "Query-Key 匹配与 Value 聚合",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "ALG-009",
+          "score": 0.5699,
+          "name": "排序后的区间合并",
+          "domain": "alg"
+        },
+        {
+          "atom_id": "METRIC-004",
+          "score": 0.545,
+          "name": "分级相关性的折损排序收益",
+          "domain": "metric"
+        },
+        {
+          "atom_id": "LLM-005",
+          "score": 0.5431,
+          "name": "前馈、残差与归一化职责",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "LLM-020",
+          "score": 0.5374,
+          "name": "查询头与键值头共享",
+          "domain": "llm"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::9",
+      "title": "人工审批合同至少要展示什么？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-018",
+          "score": 0.6232,
+          "name": "可执行评测 Case 的环境与效果合同",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "SEC-001",
+          "score": 0.6171,
+          "name": "模型提案与确定性执行边界",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "MODEL-002",
+          "score": 0.5995,
+          "name": "能力与合同约束的模型路由",
+          "domain": "model"
+        },
+        {
+          "atom_id": "PROV-003",
+          "score": 0.5967,
+          "name": "中立模型结果与分类事件",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "MULTI-001",
+          "score": 0.5927,
+          "name": "子任务职责与合同边界",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "SEC-005",
+          "score": 0.5886,
+          "name": "精确动作审批与时效校验",
+          "domain": "sec"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::16",
+      "title": "如何避免委托循环、语义漂移和错误传播？",
+      "top_candidates": [
+        {
+          "atom_id": "DUR-007",
+          "score": 0.6484,
+          "name": "重试耗尽后的死信保全",
+          "domain": "dur"
+        },
+        {
+          "atom_id": "LOOP-003",
+          "score": 0.6408,
+          "name": "结构化终止原因",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "LLM-010",
+          "score": 0.6375,
+          "name": "动态连续批处理",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.6355,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "IDENT-006",
+          "score": 0.6348,
+          "name": "委派尝试与过期结果隔离",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "CODE-001",
+          "score": 0.6318,
+          "name": "受限工作区内的补丁与验证闭环",
+          "domain": "code"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/05_身份治理与跨Agent/身份治理与跨Agent.md::18",
+      "title": "一个 Reviewer Agent 认为 Executor 的结论错误，但两者都没有完整证据，你会如何处理？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-007",
+          "score": 0.6406,
+          "name": "有据回答与拒答质量评测",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LOOP-006",
+          "score": 0.6378,
+          "name": "独立批判与验收角色",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-010",
+          "score": 0.6315,
+          "name": "模型评审偏差与人工校准",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "REASON-004",
+          "score": 0.624,
+          "name": "可见推理摘要的证据边界",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "EVAL-002",
+          "score": 0.6109,
+          "name": "证据链分层故障归因",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-011",
+          "score": 0.6099,
+          "name": "标注规范与评审一致性",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::4",
+      "title": "为什么减少 Agent 轮次和 Context 往往比先优化推理内核更重要？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6874,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MODEL-006",
+          "score": 0.6712,
+          "name": "低精度对工具行为与长尾的影响",
+          "domain": "model"
+        },
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.6342,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "REASON-005",
+          "score": 0.6341,
+          "name": "自适应与固定推理投入控制",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.6165,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6146,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::12",
+      "title": "为什么高推理预算不能弥补坏工具、缺数据或错误权限？",
+      "top_candidates": [
+        {
+          "atom_id": "RAG-008",
+          "score": 0.6189,
+          "name": "证据数量与多样性预算",
+          "domain": "rag"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.6021,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "MODEL-006",
+          "score": 0.5502,
+          "name": "低精度对工具行为与长尾的影响",
+          "domain": "model"
+        },
+        {
+          "atom_id": "LOOP-009",
+          "score": 0.5293,
+          "name": "计划失效与局部重规划",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "RAG-009",
+          "score": 0.5293,
+          "name": "假设答案辅助召回",
+          "domain": "rag"
+        },
+        {
+          "atom_id": "REASON-004",
+          "score": 0.5286,
+          "name": "可见推理摘要的证据边界",
+          "domain": "reason"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::15",
+      "title": "什么时候先改 Prompt，什么时候改 Tool Schema，什么时候改 Context？",
+      "top_candidates": [
+        {
+          "atom_id": "DATA-006",
+          "score": 0.615,
+          "name": "工具行为训练的正负轨迹分布",
+          "domain": "data"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.6016,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "TOOL-004",
+          "score": 0.5996,
+          "name": "工具注册与版本化接口合同",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "TOOL-011",
+          "score": 0.5689,
+          "name": "结构化工具错误封装",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "LOOP-014",
+          "score": 0.5687,
+          "name": "循环阶段确定性中间件",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.5602,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::14",
+      "title": "产品进度事件应该展示什么，为什么不能展示模型内部思维？",
+      "top_candidates": [
+        {
+          "atom_id": "REASON-004",
+          "score": 0.6448,
+          "name": "可见推理摘要的证据边界",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.628,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "SEC-001",
+          "score": 0.5907,
+          "name": "模型提案与确定性执行边界",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "PROV-003",
+          "score": 0.5893,
+          "name": "中立模型结果与分类事件",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.5768,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "MODEL-006",
+          "score": 0.5709,
+          "name": "低精度对工具行为与长尾的影响",
+          "domain": "model"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::17",
+      "title": "Agent 产品应关注哪些质量、效率和安全指标？",
+      "top_candidates": [
+        {
+          "atom_id": "REASON-001",
+          "score": 0.6901,
+          "name": "任务进展与安全约束的奖励设计",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.6824,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-008",
+          "score": 0.6703,
+          "name": "质量安全约束下的效率评测",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6594,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MODEL-006",
+          "score": 0.6513,
+          "name": "低精度对工具行为与长尾的影响",
+          "domain": "model"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.6408,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::19",
+      "title": "什么是渐进式披露？为什么一次把所有能力塞进 Context 会有问题？",
+      "top_candidates": [
+        {
+          "atom_id": "CTX-001",
+          "score": 0.6646,
+          "name": "运行时上下文工作集组装",
+          "domain": "ctx"
+        },
+        {
+          "atom_id": "STATE-001",
+          "score": 0.6564,
+          "name": "运行事实与模型视图分离",
+          "domain": "state"
+        },
+        {
+          "atom_id": "CTX-003",
+          "score": 0.5857,
+          "name": "上下文分区配额",
+          "domain": "ctx"
+        },
+        {
+          "atom_id": "REASON-007",
+          "score": 0.5838,
+          "name": "模型训练阶段与运行约束的行为合成",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "REASON-005",
+          "score": 0.57,
+          "name": "自适应与固定推理投入控制",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.5619,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::20",
+      "title": "一个 Skill 应该包含哪些内容？",
+      "top_candidates": [
+        {
+          "atom_id": "SKILL-003",
+          "score": 0.671,
+          "name": "Skill 版本依赖与完整卸载",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "PROMPT-003",
+          "score": 0.6547,
+          "name": "能力描述的可判别边界",
+          "domain": "prompt"
+        },
+        {
+          "atom_id": "SKILL-004",
+          "score": 0.6537,
+          "name": "Skill 生命周期评测",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "SKILL-002",
+          "score": 0.646,
+          "name": "Skill 嵌套与参数作用域",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.5445,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "CTX-001",
+          "score": 0.5311,
+          "name": "运行时上下文工作集组装",
+          "domain": "ctx"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::21",
+      "title": "Skill 可以调用 MCP 吗？Skill 是否等于权限？",
+      "top_candidates": [
+        {
+          "atom_id": "SKILL-002",
+          "score": 0.625,
+          "name": "Skill 嵌套与参数作用域",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "MCP-002",
+          "score": 0.6222,
+          "name": "工具、资源与提示模板三类能力",
+          "domain": "mcp"
+        },
+        {
+          "atom_id": "MCP-001",
+          "score": 0.5704,
+          "name": "跨宿主能力发现与调用协议",
+          "domain": "mcp"
+        },
+        {
+          "atom_id": "SKILL-003",
+          "score": 0.5575,
+          "name": "Skill 版本依赖与完整卸载",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "IDENT-004",
+          "score": 0.5326,
+          "name": "资源动作绑定的能力凭证",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "PROMPT-003",
+          "score": 0.5317,
+          "name": "能力描述的可判别边界",
+          "domain": "prompt"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::23",
+      "title": "为什么 Agent 应从 3–5 个核心能力开始逐步增加复杂度？",
+      "top_candidates": [
+        {
+          "atom_id": "MODEL-006",
+          "score": 0.633,
+          "name": "低精度对工具行为与长尾的影响",
+          "domain": "model"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6123,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "SKILL-002",
+          "score": 0.6093,
+          "name": "Skill 嵌套与参数作用域",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.6082,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "LLM-024",
+          "score": 0.591,
+          "name": "稀疏专家路由与负载均衡",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.57,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::4",
+      "title": "Agent 专项指标应关注哪些轨迹和安全信号？",
+      "top_candidates": [
+        {
+          "atom_id": "MODEL-006",
+          "score": 0.7144,
+          "name": "低精度对工具行为与长尾的影响",
+          "domain": "model"
+        },
+        {
+          "atom_id": "OBS-001",
+          "score": 0.691,
+          "name": "任务级指标与可执行告警",
+          "domain": "obs"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6534,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "DATA-006",
+          "score": 0.6372,
+          "name": "工具行为训练的正负轨迹分布",
+          "domain": "data"
+        },
+        {
+          "atom_id": "REASON-001",
+          "score": 0.6298,
+          "name": "任务进展与安全约束的奖励设计",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.6282,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6",
+      "title": "为什么程序验证优先于 LLM Judge？",
+      "top_candidates": [
+        {
+          "atom_id": "CODE-008",
+          "score": 0.6117,
+          "name": "按变更范围选择渐进验证",
+          "domain": "code"
+        },
+        {
+          "atom_id": "EVAL-010",
+          "score": 0.6099,
+          "name": "模型评审偏差与人工校准",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "REASON-004",
+          "score": 0.5984,
+          "name": "可见推理摘要的证据边界",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "EVAL-002",
+          "score": 0.5851,
+          "name": "证据链分层故障归因",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-011",
+          "score": 0.5779,
+          "name": "标注规范与评审一致性",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-007",
+          "score": 0.5681,
+          "name": "有据回答与拒答质量评测",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::8",
+      "title": "测试集如何同时覆盖正常、边界、事故和对抗样本？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-019",
+          "score": 0.615,
+          "name": "评测运行器与结果比较流水线",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "DATA-004",
+          "score": 0.6078,
+          "name": "可验证困难负例构造",
+          "domain": "data"
+        },
+        {
+          "atom_id": "TEST-001",
+          "score": 0.594,
+          "name": "执行插桩与分支覆盖范围",
+          "domain": "test"
+        },
+        {
+          "atom_id": "EVAL-013",
+          "score": 0.5783,
+          "name": "稳定分组的线上对照实验",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "DATA-001",
+          "score": 0.5749,
+          "name": "代表性与长尾评测样本分层",
+          "domain": "data"
+        },
+        {
+          "atom_id": "PROJECT-002",
+          "score": 0.5577,
+          "name": "实测、离线、估算与未观测证据分级",
+          "domain": "project"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::15",
+      "title": "一个 Agent 项目应该如何从一次调用逐步演进到服务化、图编排、Memory、RAG 和 MCP？",
+      "top_candidates": [
+        {
+          "atom_id": "A2A-001",
+          "score": 0.6706,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.6646,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "MCP-001",
+          "score": 0.6595,
+          "name": "跨宿主能力发现与调用协议",
+          "domain": "mcp"
+        },
+        {
+          "atom_id": "MULTI-006",
+          "score": 0.6525,
+          "name": "控制权交接与子 Agent 工具调用",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6515,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "ARCH-005",
+          "score": 0.6485,
+          "name": "任务入口网关职责",
+          "domain": "arch"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::18",
+      "title": "LangGraph Tool Agent 的 Planner、ToolNode 和 Final Answer 如何分工？",
+      "top_candidates": [
+        {
+          "atom_id": "TOOL-003",
+          "score": 0.6511,
+          "name": "工具调用与结果关联合同",
+          "domain": "tool"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.6443,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.6432,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "LOOP-001",
+          "score": 0.6102,
+          "name": "观察驱动的动作循环",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "MULTI-006",
+          "score": 0.5997,
+          "name": "控制权交接与子 Agent 工具调用",
+          "domain": "multi"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.5994,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::21",
+      "title": "如何把一个练习项目讲成“自己解决了什么工程问题”？",
+      "top_candidates": [
+        {
+          "atom_id": "PROJECT-001",
+          "score": 0.6634,
+          "name": "项目因果链与贡献证据",
+          "domain": "project"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.6393,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LLM-014",
+          "score": 0.5902,
+          "name": "示范监督微调",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "DATA-004",
+          "score": 0.5833,
+          "name": "可验证困难负例构造",
+          "domain": "data"
+        },
+        {
+          "atom_id": "REASON-006",
+          "score": 0.567,
+          "name": "推理投入的分桶收益曲线",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "REASON-007",
+          "score": 0.5657,
+          "name": "模型训练阶段与运行约束的行为合成",
+          "domain": "reason"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::23",
+      "title": "RAG 项目面试时应重点准备哪些追问？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.5695,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.5688,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "CTX-006",
+          "score": 0.5293,
+          "name": "最小槽位澄清",
+          "domain": "ctx"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.5218,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "LLM-014",
+          "score": 0.5203,
+          "name": "示范监督微调",
+          "domain": "llm"
+        },
+        {
+          "atom_id": "EVAL-013",
+          "score": 0.517,
+          "name": "稳定分组的线上对照实验",
+          "domain": "eval"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::24",
+      "title": "Agent 项目面试时应重点准备哪些追问？",
+      "top_candidates": [
+        {
+          "atom_id": "REASON-007",
+          "score": 0.6553,
+          "name": "模型训练阶段与运行约束的行为合成",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "CAP-003",
+          "score": 0.6511,
+          "name": "基于真实任务分布的容量与瓶颈分析",
+          "domain": "cap"
+        },
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.6497,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6385,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "A2A-001",
+          "score": 0.6219,
+          "name": "跨系统 Agent 任务委派协议",
+          "domain": "a2a"
+        },
+        {
+          "atom_id": "MULTI-006",
+          "score": 0.6212,
+          "name": "控制权交接与子 Agent 工具调用",
+          "domain": "multi"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::25",
+      "title": "Agent 系统设计题应该如何从业务目标开始回答？",
+      "top_candidates": [
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.6711,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-009",
+          "score": 0.6567,
+          "name": "端到端人工节省测量",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.6467,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "REASON-007",
+          "score": 0.6466,
+          "name": "模型训练阶段与运行约束的行为合成",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "MODEL-002",
+          "score": 0.6424,
+          "name": "能力与合同约束的模型路由",
+          "domain": "model"
+        },
+        {
+          "atom_id": "IDENT-002",
+          "score": 0.6348,
+          "name": "发起主体、逻辑 Agent、服务与资源区分",
+          "domain": "ident"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::2",
+      "title": "LLM/第三方接口超时后，如何处理可能已经执行或扣费的未知结果？",
+      "top_candidates": [
+        {
+          "atom_id": "VOICE-003",
+          "score": 0.5497,
+          "name": "用户插话的播放和运行取消",
+          "domain": "voice"
+        },
+        {
+          "atom_id": "IDENT-006",
+          "score": 0.5423,
+          "name": "委派尝试与过期结果隔离",
+          "domain": "ident"
+        },
+        {
+          "atom_id": "PROV-006",
+          "score": 0.5394,
+          "name": "首事件超时与中途断流分类",
+          "domain": "prov"
+        },
+        {
+          "atom_id": "EVAL-017",
+          "score": 0.5336,
+          "name": "容量压测与故障注入",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "OBS-002",
+          "score": 0.5318,
+          "name": "缺少即时标签时的质量代理信号",
+          "domain": "obs"
+        },
+        {
+          "atom_id": "TOOL-009",
+          "score": 0.528,
+          "name": "端到端取消传播",
+          "domain": "tool"
+        }
+      ],
+      "reason": "low_similarity"
+    },
+    {
+      "question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::5",
+      "title": "如何区分“RAG 没召回”“召回了但没用上”和“模型推理错”？",
+      "top_candidates": [
+        {
+          "atom_id": "METRIC-005",
+          "score": 0.6912,
+          "name": "上下文证据实际利用",
+          "domain": "metric"
+        },
+        {
+          "atom_id": "EVAL-002",
+          "score": 0.6786,
+          "name": "证据链分层故障归因",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "EVAL-010",
+          "score": 0.6254,
+          "name": "模型评审偏差与人工校准",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "MODEL-003",
+          "score": 0.5965,
+          "name": "按失败类型选择模型干预",
+          "domain": "model"
+        },
+        {
+          "atom_id": "EVAL-007",
+          "score": 0.5939,
+          "name": "有据回答与拒答质量评测",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "PROJECT-002",
+          "score": 0.5866,
+          "name": "实测、离线、估算与未观测证据分级",
+          "domain": "project"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::6",
+      "title": "已有 Agent 平台能力时，为什么还要做定制开发？",
+      "top_candidates": [
+        {
+          "atom_id": "SKILL-001",
+          "score": 0.7131,
+          "name": "可加载能力流程资产",
+          "domain": "skill"
+        },
+        {
+          "atom_id": "ARCH-002",
+          "score": 0.7117,
+          "name": "平台通用约束与业务声明分离",
+          "domain": "arch"
+        },
+        {
+          "atom_id": "LOOP-002",
+          "score": 0.6874,
+          "name": "动态决策与固定流程的选型边界",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "MODEL-002",
+          "score": 0.6873,
+          "name": "能力与合同约束的模型路由",
+          "domain": "model"
+        },
+        {
+          "atom_id": "REASON-007",
+          "score": 0.6426,
+          "name": "模型训练阶段与运行约束的行为合成",
+          "domain": "reason"
+        },
+        {
+          "atom_id": "IDENT-004",
+          "score": 0.6296,
+          "name": "资源动作绑定的能力凭证",
+          "domain": "ident"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    },
+    {
+      "question_id": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::11",
+      "title": "当前 AI 案例只有设计文档或源码审计时，如何回答“你真的做过吗”？",
+      "top_candidates": [
+        {
+          "atom_id": "EVAL-024",
+          "score": 0.6031,
+          "name": "编程辅助的团队交付收益",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "LOOP-008",
+          "score": 0.5868,
+          "name": "可验证任务完成证据",
+          "domain": "loop"
+        },
+        {
+          "atom_id": "EVAL-004",
+          "score": 0.5843,
+          "name": "组件、任务与产品的分层验收",
+          "domain": "eval"
+        },
+        {
+          "atom_id": "SEC-001",
+          "score": 0.5832,
+          "name": "模型提案与确定性执行边界",
+          "domain": "sec"
+        },
+        {
+          "atom_id": "RAG-009",
+          "score": 0.56,
+          "name": "假设答案辅助召回",
+          "domain": "rag"
+        },
+        {
+          "atom_id": "PROMPT-005",
+          "score": 0.5573,
+          "name": "结构化输出与业务校验",
+          "domain": "prompt"
+        }
+      ],
+      "reason": "cross_domain_near_tie"
+    }
+  ]
+}
