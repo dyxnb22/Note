@@ -6,6 +6,7 @@
 - Candidate adjudication: **47/47**
 - Lost atoms: **0**
 - Bridge rewrites: **5**
+- Bridge targets checked: **5**
 - Source files changed: **4**
 - Integrated/system-design deletions: **0**
 

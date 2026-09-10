@@ -13,6 +13,8 @@
   "adjudicated_edges": 47,
   "lost_atoms": [],
   "rewritten_bridge_entries": 5,
+  "bridge_targets_checked": 5,
+  "bridge_target_errors": [],
   "modified_source_files": [
     "04_Tool与协议/Tool Calling与MCP.md",
     "08_评测与可观测/评测、轨迹与线上故障面经补充.md",
