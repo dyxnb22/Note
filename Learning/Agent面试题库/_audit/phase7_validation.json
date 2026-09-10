@@ -1,0 +1,24 @@
+{
+  "phase": 7,
+  "status": "passed",
+  "questions_before": 736,
+  "questions_after": 736,
+  "question_ids_preserved": true,
+  "active_atoms": 319,
+  "covered_active_atoms": 319,
+  "uncovered_active_atoms": [],
+  "unknown_atom_refs": [],
+  "deprecated_atom_refs": [],
+  "candidate_edges": 47,
+  "adjudicated_edges": 47,
+  "lost_atoms": [],
+  "rewritten_bridge_entries": 5,
+  "modified_source_files": [
+    "04_Tool与协议/Tool Calling与MCP.md",
+    "08_评测与可观测/评测、轨迹与线上故障面经补充.md",
+    "09_工程化与系统设计/系统设计与取舍面经补充.md",
+    "12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md"
+  ],
+  "integrated_questions_modified": false,
+  "errors": []
+}
