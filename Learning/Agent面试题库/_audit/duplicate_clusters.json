@@ -1,0 +1,1426 @@
+{
+  "phase": 4,
+  "question_count": 736,
+  "candidate_edge_count": 47,
+  "cluster_count": 38,
+  "clusters": [
+    {
+      "cluster_id": "C001",
+      "questions": [
+        "Q::01_基础架构/Agent基础与架构.md::10",
+        "Q::10_模型与推理/高频八股与手撕面经补充.md::13"
+      ],
+      "edge_count": 1,
+      "max_score": 0.7728,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C002",
+      "questions": [
+        "Q::01_基础架构/Agent基础与架构.md::13",
+        "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8125,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C003",
+      "questions": [
+        "Q::01_基础架构/Agent基础与架构.md::2",
+        "Q::01_基础架构/Agent基础与架构.md::7",
+        "Q::01_基础架构/Agent基础与架构.md::9"
+      ],
+      "edge_count": 2,
+      "max_score": 0.7985,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C004",
+      "questions": [
+        "Q::01_基础架构/Agent基础与架构.md::29",
+        "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::2"
+      ],
+      "edge_count": 1,
+      "max_score": 0.6762,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C005",
+      "questions": [
+        "Q::03_Memory与状态/Memory与State.md::22",
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+        "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+        "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+        "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35"
+      ],
+      "edge_count": 5,
+      "max_score": 0.8548,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C006",
+      "questions": [
+        "Q::03_Memory与状态/Memory与State.md::24",
+        "Q::03_Memory与状态/Memory与State.md::32"
+      ],
+      "edge_count": 1,
+      "max_score": 0.6756,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C007",
+      "questions": [
+        "Q::03_Memory与状态/Memory与State.md::6",
+        "Q::03_Memory与状态/Memory与State.md::7",
+        "Q::03_Memory与状态/Memory与State.md::9"
+      ],
+      "edge_count": 2,
+      "max_score": 0.7538,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C008",
+      "questions": [
+        "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+        "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10"
+      ],
+      "edge_count": 2,
+      "max_score": 0.856,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C009",
+      "questions": [
+        "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+        "Q::07_可靠性与安全/可靠性与安全.md::20"
+      ],
+      "edge_count": 1,
+      "max_score": 0.7667,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C010",
+      "questions": [
+        "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+        "Q::07_可靠性与安全/可靠性与安全.md::26"
+      ],
+      "edge_count": 1,
+      "max_score": 0.7487,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C011",
+      "questions": [
+        "Q::04_Tool与协议/Tool Calling与MCP.md::20",
+        "Q::04_Tool与协议/Tool Calling与MCP.md::24"
+      ],
+      "edge_count": 1,
+      "max_score": 0.725,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C012",
+      "questions": [
+        "Q::04_Tool与协议/Tool Calling与MCP.md::22",
+        "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19"
+      ],
+      "edge_count": 1,
+      "max_score": 0.7036,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C013",
+      "questions": [
+        "Q::04_Tool与协议/Tool Calling与MCP.md::7",
+        "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::9"
+      ],
+      "edge_count": 1,
+      "max_score": 0.7145,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C014",
+      "questions": [
+        "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17",
+        "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::23"
+      ],
+      "edge_count": 1,
+      "max_score": 0.844,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C015",
+      "questions": [
+        "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+        "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+        "Q::08_评测与可观测/评测与可观测性.md::37"
+      ],
+      "edge_count": 2,
+      "max_score": 0.8235,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C016",
+      "questions": [
+        "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+        "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::9"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8475,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C017",
+      "questions": [
+        "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9",
+        "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::10"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8565,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C018",
+      "questions": [
+        "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+        "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6",
+        "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18"
+      ],
+      "edge_count": 2,
+      "max_score": 0.8317,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C019",
+      "questions": [
+        "Q::06_RAG与知识库/RAG与检索.md::27",
+        "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7"
+      ],
+      "edge_count": 1,
+      "max_score": 0.4721,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C020",
+      "questions": [
+        "Q::07_可靠性与安全/可靠性与安全.md::14",
+        "Q::07_可靠性与安全/可靠性与安全.md::15"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8385,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C021",
+      "questions": [
+        "Q::07_可靠性与安全/可靠性与安全.md::31",
+        "Q::07_可靠性与安全/可靠性与安全.md::9"
+      ],
+      "edge_count": 1,
+      "max_score": 0.727,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C022",
+      "questions": [
+        "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1",
+        "Q::08_评测与可观测/评测与可观测性.md::38"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8404,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C023",
+      "questions": [
+        "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::7",
+        "Q::08_评测与可观测/评测与可观测性.md::10"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8385,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C024",
+      "questions": [
+        "Q::08_评测与可观测/评测与可观测性.md::14",
+        "Q::08_评测与可观测/评测与可观测性.md::31"
+      ],
+      "edge_count": 1,
+      "max_score": 0.86,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C025",
+      "questions": [
+        "Q::08_评测与可观测/评测与可观测性.md::24",
+        "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::5"
+      ],
+      "edge_count": 1,
+      "max_score": 0.7013,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C026",
+      "questions": [
+        "Q::08_评测与可观测/评测与可观测性.md::33",
+        "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::15"
+      ],
+      "edge_count": 1,
+      "max_score": 0.7224,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C027",
+      "questions": [
+        "Q::09_工程化与系统设计/生产工程与系统设计.md::18",
+        "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11"
+      ],
+      "edge_count": 1,
+      "max_score": 0.7621,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C028",
+      "questions": [
+        "Q::09_工程化与系统设计/生产工程与系统设计.md::8",
+        "Q::11_编码与后端/编码题与后端基础.md::15"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8714,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C029",
+      "questions": [
+        "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::1",
+        "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9"
+      ],
+      "edge_count": 1,
+      "max_score": 0.6788,
+      "hint_only": true
+    },
+    {
+      "cluster_id": "C030",
+      "questions": [
+        "Q::10_模型与推理/高频八股与手撕面经补充.md::20",
+        "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6"
+      ],
+      "edge_count": 1,
+      "max_score": 0.7389,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C031",
+      "questions": [
+        "Q::11_编码与后端/编码题与后端基础.md::32",
+        "Q::11_编码与后端/编码题与后端基础.md::33"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8412,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C032",
+      "questions": [
+        "Q::11_编码与后端/编码题与后端基础.md::37",
+        "Q::11_编码与后端/编码题与后端基础.md::44"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8347,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C033",
+      "questions": [
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::13",
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8376,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C034",
+      "questions": [
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::21",
+        "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::33"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8412,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C035",
+      "questions": [
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1",
+        "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8714,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C036",
+      "questions": [
+        "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+        "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::6"
+      ],
+      "edge_count": 1,
+      "max_score": 0.7539,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C037",
+      "questions": [
+        "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30",
+        "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8333,
+      "hint_only": false
+    },
+    {
+      "cluster_id": "C038",
+      "questions": [
+        "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14",
+        "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19"
+      ],
+      "edge_count": 1,
+      "max_score": 0.8459,
+      "hint_only": false
+    }
+  ],
+  "edges": [
+    {
+      "a": "Q::09_工程化与系统设计/生产工程与系统设计.md::8",
+      "b": "Q::11_编码与后端/编码题与后端基础.md::15",
+      "score": 0.8714,
+      "title_similarity": 0.5714,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "BACK-001"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::1",
+      "b": "Q::12_课程深化/02_代码Agent与ComputerUse/代码Agent与ComputerUse.md::5",
+      "score": 0.8714,
+      "title_similarity": 0.5714,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "CODE-004"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "deepening",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::08_评测与可观测/评测与可观测性.md::14",
+      "b": "Q::08_评测与可观测/评测与可观测性.md::31",
+      "score": 0.86,
+      "title_similarity": 0.5333,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "EVAL-012"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::9",
+      "b": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::10",
+      "score": 0.8565,
+      "title_similarity": 0.5217,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "IDENT-001"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "supplement"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::1",
+      "b": "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+      "score": 0.856,
+      "title_similarity": 0.52,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "SEC-001",
+        "TOOL-003"
+      ],
+      "same_primary": false,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::03_Memory与状态/Memory与State.md::22",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+      "score": 0.8548,
+      "title_similarity": 0.5161,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "OPS-002",
+        "STATE-003"
+      ],
+      "same_primary": false,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::7",
+      "b": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::9",
+      "score": 0.8475,
+      "title_similarity": 0.4918,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "MULTI-005"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "supplement"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::14",
+      "b": "Q::12_课程深化/06_推理与模型行为/推理与模型行为.md::19",
+      "score": 0.8459,
+      "title_similarity": 0.4865,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "DATA-006"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "deepening",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::17",
+      "b": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::23",
+      "score": 0.844,
+      "title_similarity": 0.48,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "CACHE-001"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "supplement",
+        "supplement"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::11_编码与后端/编码题与后端基础.md::32",
+      "b": "Q::11_编码与后端/编码题与后端基础.md::33",
+      "score": 0.8412,
+      "title_similarity": 0.4706,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "BACK-016"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::21",
+      "b": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::33",
+      "score": 0.8412,
+      "title_similarity": 0.4706,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "PROV-008"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "deepening",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::1",
+      "b": "Q::08_评测与可观测/评测与可观测性.md::38",
+      "score": 0.8404,
+      "title_similarity": 0.4681,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "EVAL-014"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "supplement",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::07_可靠性与安全/可靠性与安全.md::14",
+      "b": "Q::07_可靠性与安全/可靠性与安全.md::15",
+      "score": 0.8385,
+      "title_similarity": 0.4615,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "SEC-009"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::08_评测与可观测/评测、轨迹与线上故障面经补充.md::7",
+      "b": "Q::08_评测与可观测/评测与可观测性.md::10",
+      "score": 0.8385,
+      "title_similarity": 0.4615,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "EVAL-010"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "supplement",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::13",
+      "b": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::17",
+      "score": 0.8376,
+      "title_similarity": 0.4587,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "PROV-009"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "deepening",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set"
+      ]
+    },
+    {
+      "a": "Q::11_编码与后端/编码题与后端基础.md::37",
+      "b": "Q::11_编码与后端/编码题与后端基础.md::44",
+      "score": 0.8347,
+      "title_similarity": 0.449,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "TEST-002"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set"
+      ]
+    },
+    {
+      "a": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::30",
+      "b": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::33",
+      "score": 0.8333,
+      "title_similarity": 0.4444,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "GRAPH-001"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "deepening",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set"
+      ]
+    },
+    {
+      "a": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+      "b": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6",
+      "score": 0.8317,
+      "title_similarity": 0.439,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "SKILL-001"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "supplement",
+        "supplement"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set"
+      ]
+    },
+    {
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::2",
+      "b": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::10",
+      "score": 0.83,
+      "title_similarity": 0.4333,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "SEC-001",
+        "TOOL-003"
+      ],
+      "same_primary": false,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_atom_set",
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md::18",
+      "b": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+      "score": 0.8235,
+      "title_similarity": 0.4118,
+      "jaccard": 1.0,
+      "containment": 1.0,
+      "shared_atoms": [
+        "REPLAY-001",
+        "TRACE-002"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "supplement",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::01_基础架构/Agent基础与架构.md::13",
+      "b": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::3",
+      "score": 0.8125,
+      "title_similarity": 1.0,
+      "jaccard": 0.25,
+      "containment": 1.0,
+      "shared_atoms": [
+        "MULTI-002"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::01_基础架构/Agent基础与架构.md::2",
+      "b": "Q::01_基础架构/Agent基础与架构.md::7",
+      "score": 0.7985,
+      "title_similarity": 0.6061,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "LOOP-003",
+        "LOOP-008",
+        "SEC-001",
+        "STATE-001"
+      ],
+      "same_primary": false,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::17",
+      "score": 0.7911,
+      "title_similarity": 0.5814,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "OPS-002",
+        "STATE-003"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "deepening",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment",
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::01_基础架构/Agent基础与架构.md::10",
+      "b": "Q::10_模型与推理/高频八股与手撕面经补充.md::13",
+      "score": 0.7728,
+      "title_similarity": 0.5205,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "LOOP-004",
+        "LOOP-009"
+      ],
+      "same_primary": false,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "supplement"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::10",
+      "b": "Q::07_可靠性与安全/可靠性与安全.md::20",
+      "score": 0.7667,
+      "title_similarity": 0.5,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "SEC-005",
+        "TOOL-006"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment",
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::09_工程化与系统设计/生产工程与系统设计.md::18",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::11",
+      "score": 0.7621,
+      "title_similarity": 0.4848,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "CAP-001",
+        "SEC-004"
+      ],
+      "same_primary": false,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::21",
+      "b": "Q::08_评测与可观测/评测与可观测性.md::37",
+      "score": 0.7542,
+      "title_similarity": 0.4583,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "REPLAY-001",
+        "TRACE-002"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::6",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::34",
+      "score": 0.7539,
+      "title_similarity": 0.5965,
+      "jaccard": 0.5,
+      "containment": 1.0,
+      "shared_atoms": [
+        "DUR-004"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "deepening",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::03_Memory与状态/Memory与State.md::6",
+      "b": "Q::03_Memory与状态/Memory与State.md::9",
+      "score": 0.7538,
+      "title_similarity": 0.4571,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "MEM-009",
+        "MEM-014"
+      ],
+      "same_primary": false,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::03_Memory与状态/Memory与State.md::22",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::27",
+      "score": 0.7535,
+      "title_similarity": 0.4561,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "OPS-002",
+        "STATE-003"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::14",
+      "b": "Q::07_可靠性与安全/可靠性与安全.md::26",
+      "score": 0.7487,
+      "title_similarity": 0.44,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "TOOL-001",
+        "TOOL-002"
+      ],
+      "same_primary": false,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::03_Memory与状态/Memory与State.md::22",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::35",
+      "score": 0.7391,
+      "title_similarity": 0.4082,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "OPS-002",
+        "STATE-003"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::10_模型与推理/高频八股与手撕面经补充.md::20",
+      "b": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::6",
+      "score": 0.7389,
+      "title_similarity": 0.4074,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "EVAL-010",
+        "TEST-002"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "supplement",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::03_Memory与状态/Memory与State.md::22",
+      "b": "Q::12_课程深化/01_Provider与框架/Provider适配与框架选型.md::20",
+      "score": 0.7367,
+      "title_similarity": 0.4,
+      "jaccard": 0.6667,
+      "containment": 1.0,
+      "shared_atoms": [
+        "OPS-002",
+        "STATE-003"
+      ],
+      "same_primary": false,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::07_可靠性与安全/可靠性与安全.md::9",
+      "b": "Q::07_可靠性与安全/可靠性与安全.md::31",
+      "score": 0.727,
+      "title_similarity": 0.5067,
+      "jaccard": 0.5,
+      "containment": 1.0,
+      "shared_atoms": [
+        "SEC-007"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::20",
+      "b": "Q::04_Tool与协议/Tool Calling与MCP.md::24",
+      "score": 0.725,
+      "title_similarity": 0.5,
+      "jaccard": 0.5,
+      "containment": 1.0,
+      "shared_atoms": [
+        "MCP-001"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::08_评测与可观测/评测与可观测性.md::33",
+      "b": "Q::12_课程深化/03_Durable与生产运维/Durable与生产运维.md::15",
+      "score": 0.7224,
+      "title_similarity": 0.4912,
+      "jaccard": 0.5,
+      "containment": 1.0,
+      "shared_atoms": [
+        "OBS-003"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::7",
+      "b": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::9",
+      "score": 0.7145,
+      "title_similarity": 0.4651,
+      "jaccard": 0.5,
+      "containment": 1.0,
+      "shared_atoms": [
+        "TOOL-005"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "supplement"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::04_Tool与协议/Tool Calling与MCP.md::22",
+      "b": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::19",
+      "score": 0.7036,
+      "title_similarity": 0.5676,
+      "jaccard": 0.3333,
+      "containment": 1.0,
+      "shared_atoms": [
+        "MCP-002"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment",
+        "core_deepening_bridge"
+      ]
+    },
+    {
+      "a": "Q::08_评测与可观测/评测与可观测性.md::24",
+      "b": "Q::12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md::5",
+      "score": 0.7013,
+      "title_similarity": 0.4211,
+      "jaccard": 0.5,
+      "containment": 1.0,
+      "shared_atoms": [
+        "REPLAY-001",
+        "TRACE-002"
+      ],
+      "same_primary": false,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::09_工程化与系统设计/系统设计与取舍面经补充.md::1",
+      "b": "Q::13_跨主题综合题/新增题簇_Agent与AI后端.md::9",
+      "score": 0.6788,
+      "title_similarity": 0.4848,
+      "jaccard": 0.3333,
+      "containment": 1.0,
+      "shared_atoms": [
+        "PROJECT-001"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "supplement",
+        "integrated"
+      ],
+      "hint_only": true,
+      "reasons": [
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::01_基础架构/Agent基础与架构.md::29",
+      "b": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::2",
+      "score": 0.6762,
+      "title_similarity": 0.4762,
+      "jaccard": 0.3333,
+      "containment": 1.0,
+      "shared_atoms": [
+        "LOOP-002"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::03_Memory与状态/Memory与State.md::24",
+      "b": "Q::03_Memory与状态/Memory与State.md::32",
+      "score": 0.6756,
+      "title_similarity": 0.6269,
+      "jaccard": 0.6,
+      "containment": 0.75,
+      "shared_atoms": [
+        "DUR-002",
+        "STATE-006",
+        "TOOL-002"
+      ],
+      "same_primary": false,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::1",
+      "b": "Q::12_课程深化/07_实时交互与产品/实时交互与产品.md::18",
+      "score": 0.6725,
+      "title_similarity": 0.4638,
+      "jaccard": 0.3333,
+      "containment": 1.0,
+      "shared_atoms": [
+        "SKILL-001"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "supplement",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_primary_containment"
+      ]
+    },
+    {
+      "a": "Q::01_基础架构/Agent基础与架构.md::2",
+      "b": "Q::01_基础架构/Agent基础与架构.md::9",
+      "score": 0.5842,
+      "title_similarity": 0.4651,
+      "jaccard": 0.4286,
+      "containment": 0.75,
+      "shared_atoms": [
+        "LOOP-003",
+        "LOOP-008",
+        "LOOP-011"
+      ],
+      "same_primary": false,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "multi_atom_containment"
+      ]
+    },
+    {
+      "a": "Q::06_RAG与知识库/RAG与检索.md::27",
+      "b": "Q::12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md::7",
+      "score": 0.4721,
+      "title_similarity": 0.6154,
+      "jaccard": 0.25,
+      "containment": 0.5,
+      "shared_atoms": [
+        "INGEST-002"
+      ],
+      "same_primary": true,
+      "same_domain": false,
+      "kinds": [
+        "core",
+        "deepening"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "core_deepening_bridge"
+      ]
+    },
+    {
+      "a": "Q::03_Memory与状态/Memory与State.md::6",
+      "b": "Q::03_Memory与状态/Memory与State.md::7",
+      "score": 0.4045,
+      "title_similarity": 0.6818,
+      "jaccard": 0.2,
+      "containment": 0.3333,
+      "shared_atoms": [
+        "MEM-014"
+      ],
+      "same_primary": true,
+      "same_domain": true,
+      "kinds": [
+        "core",
+        "core"
+      ],
+      "hint_only": false,
+      "reasons": [
+        "same_domain_primary_title"
+      ]
+    }
+  ]
+}

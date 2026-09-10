@@ -1,0 +1,9 @@
+{
+  "phase": 4,
+  "status": "passed",
+  "question_count": 736,
+  "candidate_edge_count": 47,
+  "cluster_count": 38,
+  "duplicate_edge_keys_unique": true,
+  "errors": []
+}
