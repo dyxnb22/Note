@@ -1,0 +1,25 @@
+{
+  "id": "conv-1788158882089-0zjgzcil2",
+  "providerId": "opencode",
+  "title": "这里你看下，是不是很多内容重复度很高",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1788158882100,
+  "lastActivityAt": 1788368025028,
+  "sessionId": "ses_fa96cca03ffeE2qEIvOntZICbj",
+  "selectedModel": "opencode:opencode-go/mimo-v2.5",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 15453,
+    "contextWindow": 1000000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 2
+  }
+}

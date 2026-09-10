@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788079077684-mwd0swheo",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788079077772-enjdxvg",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788079077678-b9ydtv3",
+      "timestamp": 1788079077678,
+      "rawDisplayText": "这个通用的意思是什么",
+      "canonicalText": "这个通用的意思是什么",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
+          "mode": "selection",
+          "selectedText": "Schema",
+          "lineCount": 1,
+          "startLine": 101
+        }
+      },
+      "images": [],
+      "contentDigest": "6810b44f266fa4cb0f23aa6ae2c6f4592871ef2e5efef957b2218310e7016830",
+      "providerAssistantMessageId": "msg_051d197de0019lhTsi30fsB5YF"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788081450885-sh4ilg7",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1788081450878-t53mcgn",
+      "timestamp": 1788081450878,
+      "rawDisplayText": "这几个和MCP区别在哪",
+      "canonicalText": "这几个和MCP区别在哪",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
+          "mode": "selection",
+          "selectedText": "**单应用内部函数优先直接 Tool Calling**",
+          "lineCount": 1,
+          "startLine": 109
+        }
+      },
+      "images": [],
+      "contentDigest": "fbe9bcd9eaaac770680e5d7f9bc3512099467105d52de0d6fef4ddaec6f9736e",
+      "providerAssistantMessageId": "msg_051f5afe0001umDoSqDBO8O9Y5"
+    }
+  ]
+}

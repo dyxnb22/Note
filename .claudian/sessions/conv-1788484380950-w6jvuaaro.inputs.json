@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788484380950-w6jvuaaro",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788484381025-ygo6v8w",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788484380942-28ivxah",
+      "timestamp": 1788484380942,
+      "rawDisplayText": "这一章节是不是重复内容很多",
+      "canonicalText": "这一章节是不是重复内容很多",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "c10d439c7be49ba7c5b93176d451074baf9987b099a2d67a0e24beacba3bf571"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788484411455-wdvthfy",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1788484411451-oktodz5",
+      "timestamp": 1788484411451,
+      "rawDisplayText": "不要修改，先看",
+      "canonicalText": "不要修改，先看",
+      "images": [],
+      "contentDigest": "268d51677c8613feb68f5ed82dba23ae25c248e1d69bd50fb87edc5913973ef2",
+      "providerAssistantMessageId": "msg_069fa721e0010ire612Nf5qanL"
+    }
+  ]
+}

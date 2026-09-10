@@ -14,7 +14,7 @@
     "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
     "workspaceDependencyToolVersion": 1
   },
-  "currentNote": "Learning/Agent/01_LLM调用基础.md",
+  "linkedContentPath": "Learning/Agent/01_LLM调用基础.md",
   "usage": {
     "inputTokens": 16235,
     "cacheCreationInputTokens": 0,

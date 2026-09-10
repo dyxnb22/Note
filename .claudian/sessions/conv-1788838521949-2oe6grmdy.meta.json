@@ -1,0 +1,25 @@
+{
+  "id": "conv-1788838521949-2oe6grmdy",
+  "providerId": "opencode",
+  "title": "这个什么意思",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1788838521958,
+  "lastActivityAt": 1788838546119,
+  "sessionId": "ses_f80ea4ff8ffepwLqHZvtJ1Sjg0",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Agent面试题库/06_RAG与知识库/RAG与检索.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 11610,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 6
+  }
+}

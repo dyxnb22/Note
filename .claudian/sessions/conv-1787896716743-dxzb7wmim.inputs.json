@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787896716743-dxzb7wmim",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787896716777-oxnzf6x",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787896716738-flka62n",
+      "timestamp": 1787896716738,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
+          "mode": "selection",
+          "selectedText": "Loop 的**重复检测",
+          "lineCount": 1,
+          "startLine": 63
+        }
+      },
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerUserMessageId": "01a046f3-2909-75a0-aa51-df76806021aa",
+      "providerAssistantMessageId": "msg_031fc9a6dc88a197016a9123b0420087d1a41df73bdc09d7cf"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787931400468-ndqdh3o",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787931400465-p0bry58",
+      "timestamp": 1787931400465,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
+          "mode": "selection",
+          "selectedText": "混淆矩阵和不必要调用率评估",
+          "lineCount": 1,
+          "startLine": 79
+        }
+      },
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerUserMessageId": "01a04904-2d6a-77f0-8cbf-aa08ecb5f9c2",
+      "providerAssistantMessageId": "msg_031fc9a6dc88a197016a91ab1f5ba087d19e733f5307aecf51"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787991098754-kyymkrg",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1787991098751-veu4fu8",
+      "timestamp": 1787991098751,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
+          "mode": "selection",
+          "selectedText": "关键槽位**",
+          "lineCount": 1,
+          "startLine": 83
+        }
+      },
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerUserMessageId": "01a04c93-1a02-79b1-80dd-c9b7f4943c77",
+      "providerAssistantMessageId": "msg_031fc9a6dc88a197016a92944fb5ec87d19386142a693b50d5"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "conv-1788686576482-v4xe9j67r",
+  "providerId": "opencode",
+  "title": "你看下这个章节，是不是很多和 /Users/diaoyuxuan/Library/Mobile Do...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1788686576490,
+  "lastActivityAt": 1788686622041,
+  "sessionId": "ses_f89f8cfc3ffeKHp9YHb0G5YMyE",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Agent面试题库/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 17470,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 9
+  }
+}

@@ -4,24 +4,69 @@
     "type": "split",
     "children": [
       {
-        "id": "6f27c138c9d6d478",
+        "id": "685f83110ab3b834",
         "type": "tabs",
         "children": [
           {
-            "id": "17301ef439ed2f82",
+            "id": "46fd98ba62435a7e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Learning/秋招进度.md",
+                "mode": "preview",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "秋招进度"
+            }
+          },
+          {
+            "id": "837ba5e8c8eb680a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+                "file": "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Prompt与Context Engineering"
+              "title": "可靠性与安全"
+            }
+          },
+          {
+            "id": "28086f4ee65a4461",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Learning/CS/算法/字符串.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "字符串"
+            }
+          },
+          {
+            "id": "cc6b29a11fa4908b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Learning/CS/算法/贪心.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "贪心"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -41,7 +86,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
+                "autoReveal": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -158,7 +203,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+                "file": "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
@@ -172,7 +217,19 @@
             "type": "leaf",
             "state": {
               "type": "claudian-view",
-              "state": {},
+              "state": {
+                "tabWorkspace": {
+                  "version": 1,
+                  "openTabs": [
+                    {
+                      "tabId": "tab-1788838509215-f5p2o7t",
+                      "conversationId": null,
+                      "draftModel": "opencode:opencode/mimo-v2.5-free"
+                    }
+                  ],
+                  "activeTabId": "tab-1788838509215-f5p2o7t"
+                }
+              },
               "icon": "bot",
               "title": "Claudian"
             }
@@ -188,11 +245,11 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 320.171875
+    "width": 372.36328125
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -207,9 +264,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "510e7e02b7dc54d5",
+  "active": "69a2bc9ea88f98e7",
   "lastOpenFiles": [
+    "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全_表格.md",
+    "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全.md",
+    "Learning/CS/算法/字符串.md",
+    "Learning/秋招进度.md",
+    "Learning/CS/算法/贪心.md",
+    "Learning/Agent面试题库/06_RAG与知识库/RAG与检索.md",
+    "Learning/CS/VPN.md",
     "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
+    "Learning/Agent面试题库/03_Memory与状态/Memory与State.md",
+    "Learning/Agent面试题库/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md",
+    "Learning/Agent面试题库/05_Multi-Agent与Workflow/Skill编排与协作面经补充.md",
+    "Learning/Agent面试题库/05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md",
+    "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
+    "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
     "Interview/Agent-LLM/02_Context、Memory与Tool.md",
     "Interview/Agent-LLM/01_Agent架构与Prompt.md",
     "Learning/Agent面试题库/12_课程深化/01_Provider与框架/Provider适配与框架选型.md",
@@ -223,24 +293,11 @@
     "Interview/Java后端/README.md",
     "Interview/Java后端/06_Redis、消息队列与系统设计.md",
     "Interview/Java后端/05_工程化、MySQL与Redis.md",
-    "Interview/Java后端/04_Spring、Tomcat与生产排障.md",
-    "Interview/Java后端/03_JUC、设计模式与数据访问.md",
-    "Interview/Java后端/02_集合、JVM与内存.md",
-    "Interview/Java后端/01_Java语言、I-O与集合.md",
     "Interview/Java后端",
     "Interview/_build.mjs",
     "Interview",
-    "Learning/Cpp/面试题库/01_语言、内存与工程.md",
-    "Learning/Cpp/README.md",
-    "Learning/References/小林Coding与JavaGuide知识体系提炼.md",
     "Learning/Cpp/面试题库",
     "Learning/Cpp",
-    "Learning/Agent面试题库/12_课程深化/09_代码Agent通用机制与安全补充.md",
-    "Learning/Python/面试题库/04_项目驱动的Python工程补充.md",
-    "Learning/Finance/14_Fraud_and_Pitfalls/README.md",
-    "Learning/Finance/13_Research_Workflow/README.md",
-    "Learning/Finance/12_Math_and_Statistics/README.md",
-    "Learning/Finance/11_Quant/README.md",
     "Learning/AI/面试题库",
     "Learning/Agent面试题库/13_跨主题综合题",
     "Learning/Backend/Java/面试题库",

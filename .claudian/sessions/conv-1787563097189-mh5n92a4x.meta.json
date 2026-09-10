@@ -1,0 +1,28 @@
+{
+  "id": "conv-1787563097189-mh5n92a4x",
+  "providerId": "codex",
+  "title": "这是模型本身就有的能力吗",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787563097196,
+  "lastActivityAt": 1787563147951,
+  "sessionId": "01a03310-465a-7262-a9f2-945533c8c1d9",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "01a03310-465a-7262-a9f2-945533c8c1d9",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/24/rollout-2026-08-24T17-18-19-01a03310-465a-7262-a9f2-945533c8c1d9.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "linkedContentPath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+  "usage": {
+    "inputTokens": 18581,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 18581,
+    "percentage": 7,
+    "model": "gpt-5.6-luna"
+  }
+}

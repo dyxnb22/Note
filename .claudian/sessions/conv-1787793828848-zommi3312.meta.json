@@ -1,0 +1,28 @@
+{
+  "id": "conv-1787793828848-zommi3312",
+  "providerId": "codex",
+  "title": "这句话什么意思？",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787793828855,
+  "lastActivityAt": 1787802995415,
+  "sessionId": "01a040d1-00b4-7702-b7e3-2362351c7d2c",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "01a040d1-00b4-7702-b7e3-2362351c7d2c",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/27/rollout-2026-08-27T09-23-54-01a040d1-00b4-7702-b7e3-2362351c7d2c.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "linkedContentPath": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md",
+  "usage": {
+    "inputTokens": 17188,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 16128,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 17188,
+    "percentage": 7,
+    "model": "gpt-5.6-luna"
+  }
+}

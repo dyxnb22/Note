@@ -1,0 +1,27 @@
+{
+  "id": "conv-1787803932014-l040gpg84",
+  "providerId": "codex",
+  "title": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787803932017,
+  "lastActivityAt": 1787804203817,
+  "sessionId": "01a0416b-293f-7802-9758-93e75e4c3b73",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "01a0416b-293f-7802-9758-93e75e4c3b73",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/27/rollout-2026-08-27T12-12-17-01a0416b-293f-7802-9758-93e75e4c3b73.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "usage": {
+    "inputTokens": 62183,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 61184,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 62183,
+    "percentage": 24,
+    "model": "gpt-5.6-luna"
+  }
+}

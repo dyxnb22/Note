@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787803364685-r6ly0dd5j",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787803364702-nnj4apa",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787803364683-ai431e7",
+      "timestamp": 1787803364683,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md",
+          "mode": "selection",
+          "selectedText": "事件溯源**保存不可变事件**，再按顺序重建 State",
+          "lineCount": 1,
+          "startLine": 105
+        }
+      },
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerUserMessageId": "01a04162-c152-7b31-9441-c0850614dc9b",
+      "providerAssistantMessageId": "msg_0bc97a580797f710016a8fb70bf59887d18643b321ca1f476c"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "conv-1788837268897-bb4yyowkn",
+  "providerId": "opencode",
+  "title": "06 RAG：RAG 和 Memory 的边界是什么？03 Memory：Memory 与 RAG ...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1788837268907,
+  "lastActivityAt": 1788838500568,
+  "sessionId": "ses_f80fd6d3effe05kZR4A66iNq2o",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 22715,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 11
+  }
+}

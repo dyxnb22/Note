@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787803932014-l040gpg84",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787803932034-zc8lirz",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787803932012-7smx3hz",
+      "timestamp": 1787803932012,
+      "rawDisplayText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Learning/Agent面试题库 你觉得目前这个题库结构合理吗",
+      "canonicalText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Learning/Agent面试题库 你觉得目前这个题库结构合理吗",
+      "images": [],
+      "contentDigest": "3b598015d121c9edff30f2644ca9ac229d73117017b1348825076b01369f893f",
+      "providerUserMessageId": "01a0416b-7972-7b02-933f-89d3dda2dbe9",
+      "providerAssistantMessageId": "msg_0029470e1cd9e896016a8fba185d3487d1beb342251c3e28d6"
+    }
+  ]
+}

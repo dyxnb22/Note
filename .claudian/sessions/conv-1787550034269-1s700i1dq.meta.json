@@ -1,0 +1,28 @@
+{
+  "id": "conv-1787550034269-1s700i1dq",
+  "providerId": "codex",
+  "title": "这里上下文的编排、组织、优先级（Q14-Q19），是不是可以放在一起讲，这样更加有层次",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787550034275,
+  "lastActivityAt": 1787558005600,
+  "sessionId": "01a03248-e9ea-74e0-b9ee-903178acb8dc",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "01a03248-e9ea-74e0-b9ee-903178acb8dc",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/24/rollout-2026-08-24T13-40-34-01a03248-e9ea-74e0-b9ee-903178acb8dc.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "linkedContentPath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+  "usage": {
+    "inputTokens": 66108,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 65280,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 66108,
+    "percentage": 26,
+    "model": "gpt-5.6-luna"
+  }
+}

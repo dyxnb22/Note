@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787793828848-zommi3312",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787793828890-xakddrw",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787793828844-14wp7wh",
+      "timestamp": 1787793828844,
+      "rawDisplayText": "这句话什么意思？",
+      "canonicalText": "这句话什么意思？",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md",
+          "mode": "selection",
+          "selectedText": "Memory 可以引用这些系统，但不能成为订单、权限或审计事实的唯一来源。",
+          "lineCount": 1,
+          "startLine": 33
+        }
+      },
+      "images": [],
+      "contentDigest": "a572692212977da3bf9d72a84239e684d5c792255457a023afefbab19509035b",
+      "providerUserMessageId": "01a040d1-018c-7b82-979f-071e91ec0b38",
+      "providerAssistantMessageId": "msg_06b31b73e1cf7808016a8f91bcd7e087d1b72b8c0fe47e53b5"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787795671867-7gb7h9r",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787795671862-vg9e8ac",
+      "timestamp": 1787795671862,
+      "rawDisplayText": "这里归档是不是就是把这个内容移除memory",
+      "canonicalText": "这里归档是不是就是把这个内容移除memory",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md",
+          "mode": "selection",
+          "selectedText": "归档**",
+          "lineCount": 1,
+          "startLine": 47
+        }
+      },
+      "images": [],
+      "contentDigest": "12cadc3c6ddd44cf637cba77f47e919c913c6d854419d8cde7b6490649657543",
+      "providerUserMessageId": "01a040ed-0b7f-7c82-9f3d-89e603d5f450",
+      "providerAssistantMessageId": "msg_06b31b73e1cf7808016a8f98e1c57487d1b2bfe650e8f45504"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787801340166-nxv24rg",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1787801340152-5sx4gzl",
+      "timestamp": 1787801340152,
+      "rawDisplayText": "这个是不是在其他章节下也出现过类似的，我感觉整个题库 重复率很高",
+      "canonicalText": "这个是不是在其他章节下也出现过类似的，我感觉整个题库 重复率很高",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md",
+          "mode": "selection",
+          "selectedText": "### 20. State 与 Checkpoint 有什么区别？\n\n答：State 是任务当前的结构化事实和进度，Checkpoint 是在可恢复边界上持久化的 State 快照及版本/事件信息。State 可以在内存中变化，Checkpoint 用于进程重启、暂停、审计和重放，因此必须有 Schema 和一致性边界。",
+          "lineCount": 3,
+          "startLine": 87
+        }
+      },
+      "images": [],
+      "contentDigest": "42e1f7086c016b483efbabcf9558c68c139c252da5dd405f4b1e3f880ef2f7f2"
+    }
+  ]
+}

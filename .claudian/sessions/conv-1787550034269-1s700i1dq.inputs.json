@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787550034269-1s700i1dq",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787550034355-myzhxkr",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787550034267-aiua8iv",
+      "timestamp": 1787550034267,
+      "rawDisplayText": "这里上下文的编排、组织、优先级（Q14-Q19），是不是可以放在一起讲，这样更加有层次",
+      "canonicalText": "这里上下文的编排、组织、优先级（Q14-Q19），是不是可以放在一起讲，这样更加有层次",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "a5845455960a64e4ce50c09ced7f673a4500cd1df0c681e78824b03e5b104e6c",
+      "providerUserMessageId": "01a03249-031a-7fb2-9855-56e81e2533e7",
+      "providerAssistantMessageId": "msg_0289c0b52fbcc7b5016a8bd99c90f887d1b51ff09c42aed7f8"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787556823063-xu6elc5",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787556823058-mommcdd",
+      "timestamp": 1787556823058,
+      "rawDisplayText": "你来串起来，进行优化整合吧",
+      "canonicalText": "你来串起来，进行优化整合吧",
+      "images": [],
+      "contentDigest": "b8606b5af3c94f558b8c8099fc137d963631b92bf4fed8915992299c61840a0c",
+      "providerUserMessageId": "01a032b0-8d45-7a51-878b-ec1090988dea",
+      "providerAssistantMessageId": "msg_0289c0b52fbcc7b5016a8bf43e3b5087d19bf9e920c2421808"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787557174131-3plgoyq",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1787557174128-oubsdlk",
+      "timestamp": 1787557174128,
+      "rawDisplayText": "不是，我是希望整合在一起啊，弄成一道题，这样不是更好吗",
+      "canonicalText": "不是，我是希望整合在一起啊，弄成一道题，这样不是更好吗",
+      "images": [],
+      "contentDigest": "e9c51ee26ada69682007cf8ef346d8049545d4acb67ca98c9772acacc2c1014b",
+      "providerUserMessageId": "01a032b5-dbb3-75b3-86ad-b160348a8fe6",
+      "providerAssistantMessageId": "msg_0289c0b52fbcc7b5016a8bf606a6c487d1b57edd9d14759d76"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787557772234-aghhglc",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1787557772231-dp8be3i",
+      "timestamp": 1787557772231,
+      "rawDisplayText": "我的意思是，按照每个部分（例如不可变规则），串起来。你看是不是弄成表格更合适（先别急着改，你先评估下）",
+      "canonicalText": "我的意思是，按照每个部分（例如不可变规则），串起来。你看是不是弄成表格更合适（先别急着改，你先评估下）",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+          "mode": "selection",
+          "selectedText": "不可变规则",
+          "lineCount": 1,
+          "startLine": 65
+        }
+      },
+      "images": [],
+      "contentDigest": "907ac33c3ad214f5cbc0feeb67b9d20013c7981470b0d9b33c483847f134ad86",
+      "providerUserMessageId": "01a032be-fc11-7150-9dba-a5dab06f59ad",
+      "providerAssistantMessageId": "msg_0289c0b52fbcc7b5016a8bf7ad602487d19a355ef2530ccdb3"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787557906817-6noawpf",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1787557906814-klexubn",
+      "timestamp": 1787557906814,
+      "rawDisplayText": "你来完成吧，确保不要遗漏内容，丢失",
+      "canonicalText": "你来完成吧，确保不要遗漏内容，丢失",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+          "mode": "selection",
+          "selectedText": "不可变规则",
+          "lineCount": 1,
+          "startLine": 65
+        }
+      },
+      "images": [],
+      "contentDigest": "fa280e1a79e1ec459cee5d925137ce4c9b59c466e1b6e1b4e376885ca2a658d0",
+      "providerUserMessageId": "01a032c1-09b9-7d31-93f9-e800c12df7f5",
+      "providerAssistantMessageId": "msg_0289c0b52fbcc7b5016a8bf872e95c87d184b0e4f46d6ccee4"
+    }
+  ]
+}

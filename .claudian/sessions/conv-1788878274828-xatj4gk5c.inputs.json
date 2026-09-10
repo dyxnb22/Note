@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788878274828-xatj4gk5c",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788878274863-dy51gqc",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788878274822-deje46g",
+      "timestamp": 1788878274822,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/06_RAG与知识库/RAG与检索.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/06_RAG与知识库/RAG与检索.md",
+          "mode": "selection",
+          "selectedText": "金标准",
+          "lineCount": 1,
+          "startLine": 89
+        }
+      },
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerAssistantMessageId": "msg_081746699001gOMmlwnpTbZTH4"
+    }
+  ]
+}

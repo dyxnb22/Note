@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787803061433-hcj2bpo5g",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787803061477-9z6zb22",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787803061428-ncatubl",
+      "timestamp": 1787803061428,
+      "rawDisplayText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Learning/Agent面试题库 你重新全量看一遍底下的文档，看看哪里重复度比较高？先不要修改",
+      "canonicalText": "/Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Learning/Agent面试题库 你重新全量看一遍底下的文档，看看哪里重复度比较高？先不要修改",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "b329141e27804e6bff3fea40c9af6f2e4cc367a1bed382a68c1cf34c85a1b1d7",
+      "providerUserMessageId": "01a0415e-377d-7fc3-be74-c718175003cd",
+      "providerAssistantMessageId": "msg_08c39dbc68ba2c6e016a8fb796d09887d1a1016b8958767e7d"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "conv-1787808099838-p876vnefj",
+  "providerId": "codex",
+  "title": "这个是什么",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1787808099840,
+  "lastActivityAt": 1787808258603,
+  "sessionId": "01a041aa-c1cf-70a3-8f7a-4e1f2ca652f8",
+  "selectedModel": "gpt-5.6-luna",
+  "providerState": {
+    "threadId": "01a041aa-c1cf-70a3-8f7a-4e1f2ca652f8",
+    "nativeConversationContextEstablished": true,
+    "sessionFilePath": "/Users/diaoyuxuan/.codex/sessions/2026/08/27/rollout-2026-08-27T13-21-44-01a041aa-c1cf-70a3-8f7a-4e1f2ca652f8.jsonl",
+    "transcriptRootPath": "/Users/diaoyuxuan/.codex/sessions",
+    "workspaceDependencyToolVersion": 1
+  },
+  "linkedContentPath": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md",
+  "usage": {
+    "inputTokens": 15113,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 14080,
+    "contextWindow": 258400,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 15113,
+    "percentage": 6,
+    "model": "gpt-5.6-luna"
+  }
+}

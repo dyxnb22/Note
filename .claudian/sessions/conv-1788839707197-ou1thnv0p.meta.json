@@ -1,0 +1,24 @@
+{
+  "id": "conv-1788839707197-ou1thnv0p",
+  "providerId": "opencode",
+  "title": "01 基础：Planner、Executor、Critic 分别负责什么？05 Multi-Agen...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1788839707200,
+  "lastActivityAt": 1788867880384,
+  "sessionId": "ses_f80d83a6dffeFzVU6goXhUVdzn",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 130043,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 65
+  }
+}

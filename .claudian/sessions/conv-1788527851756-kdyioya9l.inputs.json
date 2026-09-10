@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788527851756-kdyioya9l",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788527851803-h2aqixu",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788527851744-hyktjnz",
+      "timestamp": 1788527851744,
+      "rawDisplayText": "这三个是不是要讲的更加清楚点",
+      "canonicalText": "这三个是不是要讲的更加清楚点",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md",
+          "mode": "selection",
+          "selectedText": "### 5. PreTurn、MidTurn、PostTurn Middleware 分别能解决什么问题？\n\n答：PreTurn 适合做身份与权限检查、预算检查、Context 装配和输入脱敏；MidTurn 适合拦截模型输出、Tool Call、敏感动作和需要人工审批的节点；PostTurn 适合验收结果、写 Trace、压缩上下文、更新 Memory 和决定下一状态。它们不是把规则塞进 Prompt，而是在模型前后建立可执行的确定性边界。",
+          "lineCount": 3,
+          "startLine": 23
+        }
+      },
+      "images": [],
+      "contentDigest": "74772bc673df4875b7deab1aa23b2103aedfab0ba696dfb00f6f4d7ce28fb486",
+      "providerAssistantMessageId": "msg_06c917019001eaMfCH2lcg88WL"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788528156666-2pwayir",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1788528156652-yxkoz3k",
+      "timestamp": 1788528156652,
+      "rawDisplayText": "你来用一个表格来替代吧",
+      "canonicalText": "你来用一个表格来替代吧",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md",
+          "mode": "selection",
+          "selectedText": "### 5. PreTurn、MidTurn、PostTurn Middleware 分别能解决什么问题？\n\n答：PreTurn 适合做身份与权限检查、预算检查、Context 装配和输入脱敏；MidTurn 适合拦截模型输出、Tool Call、敏感动作和需要人工审批的节点；PostTurn 适合验收结果、写 Trace、压缩上下文、更新 Memory 和决定下一状态。它们不是把规则塞进 Prompt，而是在模型前后建立可执行的确定性边界。",
+          "lineCount": 3,
+          "startLine": 23
+        }
+      },
+      "images": [],
+      "contentDigest": "c60d344c712ad50dc714577a567a744459fdd280031e7a14b15c484c499f7372",
+      "providerAssistantMessageId": "msg_06c965164001G3E0TTdXzdYV0v"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788671014263-e7yi6au",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1788671014255-my2nlwh",
+      "timestamp": 1788671014255,
+      "rawDisplayText": "在同一个会话里，skills是怎么卸载的？这个不会污染上下文吗",
+      "canonicalText": "在同一个会话里，skills是怎么卸载的？这个不会污染上下文吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md",
+          "mode": "selection",
+          "selectedText": "卸载阶段移除上下文候选、工具映射、临时文件、进程、缓存和订阅",
+          "lineCount": 1,
+          "startLine": 81
+        }
+      },
+      "images": [],
+      "contentDigest": "dc2fc334310cc01b13a887adb03552e16de958ea866028d115c05d269b041f85",
+      "providerAssistantMessageId": "msg_07519d011001mEQxJkh4IXgjXZ"
+    }
+  ]
+}

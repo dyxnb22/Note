@@ -1,0 +1,25 @@
+{
+  "id": "conv-1788484380950-w6jvuaaro",
+  "providerId": "opencode",
+  "title": "这一章节是不是重复内容很多",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1788484380961,
+  "lastActivityAt": 1788484455305,
+  "sessionId": "ses_f96060f78ffe6AUeWqcj77r3vc",
+  "selectedModel": "opencode:opencode-go/mimo-v2.5",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 13915,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": false,
+    "inputTokens": 0,
+    "model": "opencode:opencode-go/mimo-v2.5",
+    "percentage": 7
+  }
+}

@@ -6,7 +6,7 @@
   "createdAt": 1787291035841,
   "lastActivityAt": 1787305364079,
   "sessionId": "ses_fdd271370ffeFYn4j6OOQ9QKV9",
-  "selectedModel": "opencode:opencode/x-preview-f-free",
+  "selectedModel": "opencode:opencode-go/mimo-v2.5",
   "providerState": {
     "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
     "nativeConversationContextEstablished": true

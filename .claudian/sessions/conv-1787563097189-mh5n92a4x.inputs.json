@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787563097189-mh5n92a4x",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787563097219-tiareag",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787563097185-hcgfocd",
+      "timestamp": 1787563097185,
+      "rawDisplayText": "这是模型本身就有的能力吗",
+      "canonicalText": "这是模型本身就有的能力吗",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+          "mode": "selection",
+          "selectedText": "Todo List",
+          "lineCount": 1,
+          "startLine": 81
+        }
+      },
+      "images": [],
+      "contentDigest": "90cec156a798be01b7bf671a73bb763b81db4ff3e20dc0afd8fcb9999d7f7c8e",
+      "providerUserMessageId": "01a03310-5b00-77c1-a650-a9e01e8f6b14",
+      "providerAssistantMessageId": "msg_0999c28c235fa9cf016a8c0c8b7f8c87d1a2f2dc2453498236"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788686576482-v4xe9j67r",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788686576537-0vt6grd",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788686576474-kefplsb",
+      "timestamp": 1788686576474,
+      "rawDisplayText": "你看下这个章节，是不是很多和 /Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Learning/Agent面试题库/01_基础架构/Agent基础与架构.md 重复了",
+      "canonicalText": "你看下这个章节，是不是很多和 /Users/diaoyuxuan/Library/Mobile Documents/iCloud~md~obsidian/Documents/Notes/Learning/Agent面试题库/01_基础架构/Agent基础与架构.md 重复了",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "616e488ed7a2e4782e5d52851bdb24b03798e0070466cbb11057bb3b9a2c75e4",
+      "providerAssistantMessageId": "msg_076074e58001FZ6kxbNEWSxLYS"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788837268897-bb4yyowkn",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788837268938-2uylvo1",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788837268887-qqml95t",
+      "timestamp": 1788837268887,
+      "rawDisplayText": "06 RAG：RAG 和 Memory 的边界是什么？03 Memory：Memory 与 RAG 的边界是什么？ 你先看下这两个，先不要改",
+      "canonicalText": "06 RAG：RAG 和 Memory 的边界是什么？03 Memory：Memory 与 RAG 的边界是什么？ 你先看下这两个，先不要改",
+      "images": [],
+      "contentDigest": "16b1eac9543e41aa005974c5d65c61a98b8c55b9e0e49d2779b1bb6fa6017edd",
+      "providerAssistantMessageId": "msg_07f02c1ce001SrPV1glq544Oig"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788837309746-dir9exm",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1788837309742-ncio49k",
+      "timestamp": 1788837309742,
+      "rawDisplayText": "你觉得有必要整合吗",
+      "canonicalText": "你觉得有必要整合吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/05_Multi-Agent与Workflow/Skill编排与协作面经补充.md",
+          "mode": "selection",
+          "selectedText": "边界描述重叠、候选集过大、上下文缺少关键字段还是模型本身能力不足",
+          "lineCount": 1,
+          "startLine": 81
+        }
+      },
+      "images": [],
+      "contentDigest": "99a95f1d5f5f9e98062c016cbbc87d3227c6aceed18295c3ac39170906eb3424",
+      "providerAssistantMessageId": "msg_07f032d56001MzBWn6I57MaQcO"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788837448119-ggr3yfr",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1788837448116-mjtoxqd",
+      "timestamp": 1788837448116,
+      "rawDisplayText": "是不是用一个表格来进行统一的整理比较好",
+      "canonicalText": "是不是用一个表格来进行统一的整理比较好",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/05_Multi-Agent与Workflow/Skill编排与协作面经补充.md",
+          "mode": "selection",
+          "selectedText": "边界描述重叠、候选集过大、上下文缺少关键字段还是模型本身能力不足",
+          "lineCount": 1,
+          "startLine": 81
+        }
+      },
+      "images": [],
+      "contentDigest": "fcc9ac472b12f131ae3d716947be7e68f4524d38dc69b15c9a9048ec11c91999",
+      "providerAssistantMessageId": "msg_07f0549eb001ZeyiK2MfYVRfyj"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788838219043-02v62wr",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1788838219034-fh52w2d",
+      "timestamp": 1788838219034,
+      "rawDisplayText": "06 RAG：RAG 和 Memory 的边界是什么？03 Memory：Memory 与 RAG 的边界是什么？ 你确定下这个表格是否覆盖全面了？",
+      "canonicalText": "06 RAG：RAG 和 Memory 的边界是什么？03 Memory：Memory 与 RAG 的边界是什么？ 你确定下这个表格是否覆盖全面了？",
+      "images": [],
+      "contentDigest": "a175bc0cdccf612d2690656b401c8ffe2b065f2ccf1e12f5aba1a3fd0b359a6e",
+      "providerAssistantMessageId": "msg_07f110d67001pM3vSa6ZFMpnv1"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788838371079-6yipkqw",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1788838371074-4dpukop",
+      "timestamp": 1788838371074,
+      "rawDisplayText": "06. ### 26. RAG 和 Memory 的边界是什么？ 这个你删掉吧，后面的编号也更新",
+      "canonicalText": "06. ### 26. RAG 和 Memory 的边界是什么？ 这个你删掉吧，后面的编号也更新",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/06_RAG与知识库/RAG与检索.md",
+          "mode": "selection",
+          "selectedText": "### 26. RAG 和 Memory 的边界是什么？",
+          "lineCount": 1,
+          "startLine": 111
+        }
+      },
+      "images": [],
+      "contentDigest": "dc6c61dfdea249d8e34650069186fa641bef4e06cfad9bdcf5ce466343a81dc2",
+      "providerAssistantMessageId": "msg_07f152ed6001x7SrytwDZjL63j"
+    }
+  ]
+}

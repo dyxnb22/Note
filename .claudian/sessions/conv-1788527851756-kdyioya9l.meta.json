@@ -1,0 +1,25 @@
+{
+  "id": "conv-1788527851756-kdyioya9l",
+  "providerId": "opencode",
+  "title": "这三个是不是要讲的更加清楚点",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1788527851770,
+  "lastActivityAt": 1788671049468,
+  "sessionId": "ses_f936ec217ffeHKTSpI9t5FLmVy",
+  "selectedModel": "opencode:opencode-go/mimo-v2.5",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Agent面试题库/05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 15131,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": false,
+    "inputTokens": 0,
+    "model": "opencode:opencode-go/mimo-v2.5",
+    "percentage": 8
+  }
+}

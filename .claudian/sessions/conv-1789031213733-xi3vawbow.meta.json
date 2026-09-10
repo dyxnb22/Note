@@ -1,0 +1,25 @@
+{
+  "id": "conv-1789031213733-xi3vawbow",
+  "providerId": "opencode",
+  "title": "这个是不是弄成表格比较好",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1789031213742,
+  "lastActivityAt": 1789039912672,
+  "sessionId": "ses_f7532927fffeKuvYPih4FzK1zO",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 38099,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 19
+  }
+}

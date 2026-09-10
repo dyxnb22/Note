@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787808099838-p876vnefj",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787808099857-eladml3",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787808099837-7eiuuzq",
+      "timestamp": 1787808099837,
+      "rawDisplayText": "这个是什么",
+      "canonicalText": "这个是什么",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md",
+          "mode": "selection",
+          "selectedText": "多角色对话系统",
+          "lineCount": 1,
+          "startLine": 137
+        }
+      },
+      "images": [],
+      "contentDigest": "8e8b681521a42c6874c8e183efb4dd7b844a2b2091677f72360ec8560d20f9b1",
+      "providerUserMessageId": "01a041ab-1fd8-7d02-9fb8-57722a843948",
+      "providerAssistantMessageId": "msg_00c8ee537c2c4852016a8fc9956d4c87d186926dcb1b26a5d7"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787808239245-z7v2u0h",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787808239244-agj4xck",
+      "timestamp": 1787808239244,
+      "rawDisplayText": "是不是类似多agent",
+      "canonicalText": "是不是类似多agent",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/03_Memory与状态/Memory与State.md",
+          "mode": "selection",
+          "selectedText": "多角色对话系统",
+          "lineCount": 1,
+          "startLine": 137
+        }
+      },
+      "images": [],
+      "contentDigest": "7a9240c7b3599ee881ff67ec6b3575911a707e919ad16b1a9a93014e1902861d",
+      "providerUserMessageId": "01a041ac-f5f0-7df3-b76d-ca334eb42db9",
+      "providerAssistantMessageId": "msg_00c8ee537c2c4852016a8fc9fe70ec87d18ccf27bcb5e63bec"
+    }
+  ]
+}

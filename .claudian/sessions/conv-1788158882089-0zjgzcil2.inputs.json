@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788158882089-0zjgzcil2",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788158882133-ima3szg",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788158882084-opm42qp",
+      "timestamp": 1788158882084,
+      "rawDisplayText": "这里你看下，是不是很多内容重复度很高",
+      "canonicalText": "这里你看下，是不是很多内容重复度很高",
+      "context": {
+        "currentNote": {
+          "path": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "9337bde8f6c5049bdde3ff264dbdf9f4665d7c6e5c306324891b8ce6560be1bd",
+      "providerAssistantMessageId": "msg_05693475b001mXWCkvYVIVD6i0"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788367999701-qicjum0",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1788367999692-k49tq75",
+      "timestamp": 1788367999692,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
+          "mode": "selection",
+          "selectedText": "TOCTOU 风险？",
+          "lineCount": 1,
+          "startLine": 191
+        }
+      },
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerAssistantMessageId": "msg_0630a1346001zKPXuiscrm7HQU"
+    }
+  ]
+}

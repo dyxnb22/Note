@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789031213733-xi3vawbow",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789031213767-k4e38w0",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789031213729-69jfkt7",
+      "timestamp": 1789031213729,
+      "rawDisplayText": "这个是不是弄成表格好",
+      "canonicalText": "这个是不是弄成表格好",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全.md",
+          "mode": "selection",
+          "selectedText": "### 17. Docker、容器、虚拟机和专用沙箱如何选择？\n\n答：容器启动快、适合受控同机隔离，但内核共享；虚拟机隔离强、成本和启动时间更高；专用沙箱根据代码/浏览器威胁模型提供更严格的系统调用和网络控制。选择取决于攻击面、租户信任、性能、成本和合规要求，不能只看部署方便。",
+          "lineCount": 3,
+          "startLine": 105
+        },
+        "linkedContent": {
+          "path": "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "098f4b0834f67c35f397e30e0431dbe8abb6c8dc405a2bea1201d51578747a9e"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789035112894-psrn0su",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789035112791-65zmmhh",
+      "timestamp": 1789035112791,
+      "rawDisplayText": "这个是不是弄成表格比较好",
+      "canonicalText": "这个是不是弄成表格比较好",
+      "context": {
+        "linkedContent": {
+          "path": "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "b8fbcf7ed1ca5585e412ac3ff368ad105143c391fca29bf9787a8fd344d88b25"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789035126136-qeintxk",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1789035126133-x51x5ly",
+      "timestamp": 1789035126133,
+      "rawDisplayText": "这个是不是弄成表格比较好",
+      "canonicalText": "这个是不是弄成表格比较好",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全.md",
+          "mode": "selection",
+          "selectedText": "### 17. Docker、容器、虚拟机和专用沙箱如何选择？\n\n答：容器启动快、适合受控同机隔离，但内核共享；虚拟机隔离强、成本和启动时间更高；专用沙箱根据代码/浏览器威胁模型提供更严格的系统调用和网络控制。选择取决于攻击面、租户信任、性能、成本和合规要求，不能只看部署方便。",
+          "lineCount": 3,
+          "startLine": 105
+        }
+      },
+      "images": [],
+      "contentDigest": "b8fbcf7ed1ca5585e412ac3ff368ad105143c391fca29bf9787a8fd344d88b25",
+      "providerAssistantMessageId": "msg_08b16893c001D4U57HMYZvTUcR"
+    }
+  ]
+}

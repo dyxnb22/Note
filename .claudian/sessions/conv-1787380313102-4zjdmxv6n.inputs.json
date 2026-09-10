@@ -25,7 +25,136 @@
       },
       "images": [],
       "contentDigest": "1ecb00862dc210dd529314633c5e5ab4fddc87bebe9b6b0eb40c73c5e64932c6",
-      "providerUserMessageId": "01a0282b-4ca3-7093-aa32-367f3f33b3c3"
+      "providerUserMessageId": "01a0282b-3870-7ab2-b93d-9c8af17a1ea8",
+      "providerAssistantMessageId": "msg_085bcb97b7d4e2c8016a89426e055487d1873574f4567f2cf9"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787410302157-knbwpiu",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1787410302145-37dep7r",
+      "timestamp": 1787410302145,
+      "rawDisplayText": "这里few shot回答了吗",
+      "canonicalText": "这里few shot回答了吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+          "mode": "selection",
+          "selectedText": "### 6. Prompt 中应该放示例吗？Few-shot 什么时候有效？\n\n答：当任务有稳定格式、边界案例或不容易口头描述的风格时，**少量高质量示例有帮助**；示例不能代替规则，**也要覆盖负例和异常输入**。示例会占上下文预算，必须通过评测验证它提升了目标任务而不是造成过拟合。",
+          "lineCount": 3,
+          "startLine": 27
+        }
+      },
+      "images": [],
+      "contentDigest": "b0819471e73af887f3a8832cfd149278f6928d15ef31f6cbc7f1e72eed1c0921",
+      "providerUserMessageId": "01a029f4-c520-7f12-b33f-230d50158eb7",
+      "providerAssistantMessageId": "msg_085bcb97b7d4e2c8016a89b78a717487d195cf7e4564b6a88e"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787415294788-swnq4s6",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1787415294783-5802n0x",
+      "timestamp": 1787415294783,
+      "rawDisplayText": "这里什么意思",
+      "canonicalText": "这里什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+          "mode": "selection",
+          "selectedText": "优先使用 Provider 支持的结构化输出或 Grammar，再用服务端 Schema 校验字段、类型、枚举和业务约束；失败时带最小错误信息重试，超过次数就返回可解释错误。合法 JSON 只表示格式正确，不表示事实正确或动作有权限。",
+          "lineCount": 1,
+          "startLine": 37
+        }
+      },
+      "images": [],
+      "contentDigest": "be8efef7427a454789965f5a96d9673ad10647bcb9a3aedd9dae174d766b8a68",
+      "providerUserMessageId": "01a02a40-f386-7c13-8ec2-f9e05ad97558",
+      "providerAssistantMessageId": "msg_085bcb97b7d4e2c8016a89cb0b893c87d191f2d29595489220"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787422622506-vzaatcc",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1787422622501-eheks6d",
+      "timestamp": 1787422622501,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+          "mode": "selection",
+          "selectedText": "可以把**冲突规则拆成路由、工具约束或验证器**，避免一个全局 Prompt 同时承担所有场景",
+          "lineCount": 1,
+          "startLine": 45
+        }
+      },
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerUserMessageId": "01a02ab0-c369-75c1-baff-3f2e2d2d8d82",
+      "providerAssistantMessageId": "msg_085bcb97b7d4e2c8016a89e7a8a88087d1952349c0295523a5"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787497628370-8cq30uq",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1787497628360-8gi56hy",
+      "timestamp": 1787497628360,
+      "rawDisplayText": "什么意思",
+      "canonicalText": "什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+          "mode": "selection",
+          "selectedText": "采样随机性",
+          "lineCount": 1,
+          "startLine": 49
+        }
+      },
+      "images": [],
+      "contentDigest": "96e2670d0598107cbff9b65251fc6b616872e0ddec1aa7e2e5835fecca2ecf29",
+      "providerUserMessageId": "01a02f29-4330-71c0-bf73-621f1833727c",
+      "providerAssistantMessageId": "msg_085bcb97b7d4e2c8016a8b0ca5058087d19181bdc4f5fa0abb"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787497663682-pn0y6ml",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1787497663678-xenlord",
+      "timestamp": 1787497663678,
+      "rawDisplayText": "什么意思",
+      "canonicalText": "什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
+          "mode": "selection",
+          "selectedText": "SFT",
+          "lineCount": 1,
+          "startLine": 49
+        }
+      },
+      "images": [],
+      "contentDigest": "96e2670d0598107cbff9b65251fc6b616872e0ddec1aa7e2e5835fecca2ecf29",
+      "providerUserMessageId": "01a02f29-ccd4-7980-a14a-9a039345047e",
+      "providerAssistantMessageId": "msg_085bcb97b7d4e2c8016a8b0cc7aaa887d19e3d0a59df599f0d"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787549923725-xneyn0d",
+      "userTurnOrdinal": 7,
+      "state": "accepted",
+      "localMessageId": "msg-1787549923713-2khj6f4",
+      "timestamp": 1787549923713,
+      "rawDisplayText": "这里上下文的编排、组织、优先级（Q14-Q19），是不是可以放在一起讲，这样更加有层次",
+      "canonicalText": "这里上下文的编排、组织、优先级（Q14-Q19），是不是可以放在一起讲，这样更加有层次",
+      "images": [],
+      "contentDigest": "a5845455960a64e4ce50c09ced7f673a4500cd1df0c681e78824b03e5b104e6c",
+      "providerUserMessageId": "01a03247-39d7-7930-a09b-5cc655b08d8c"
     }
   ]
 }

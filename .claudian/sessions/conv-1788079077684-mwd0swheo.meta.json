@@ -1,0 +1,25 @@
+{
+  "id": "conv-1788079077684-mwd0swheo",
+  "providerId": "opencode",
+  "title": "这个通用的意思是什么",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1788079077694,
+  "lastActivityAt": 1788081466426,
+  "sessionId": "ses_fae2e81f2ffekEKcW0HHjqVDjX",
+  "selectedModel": "opencode:opencode-go/mimo-v2.5",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 13850,
+    "contextWindow": 256000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 5
+  }
+}

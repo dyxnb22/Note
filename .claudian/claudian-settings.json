@@ -33,6 +33,7 @@
       "enableChrome": false,
       "enableBangBash": false,
       "customModels": "",
+      "defaultModel": "opus",
       "lastModel": "haiku",
       "modelEnvironmentType": "",
       "titleModelEnvironmentType": "",
@@ -288,8 +289,8 @@
       "enableUltraEffort": false,
       "reasoningSummary": "detailed",
       "environmentVariables": "",
-      "environmentHash": "",
-      "catalogTimestamp": 1787307654331,
+      "environmentHash": "runtime-input:v1:ed54f4f5238abeec7f65a5da1e468c9a639e157a7d1c7753b53f54ba1196e8a0",
+      "catalogTimestamp": 1787550026255,
       "catalogFingerprint": "2:b849c92561cd4d851b6422d432141511469cfd42d164dffa38115a4e33889840",
       "installationMethodsByHost": {},
       "wslDistroOverridesByHost": {}
@@ -309,7 +310,7 @@
     "opencode": {
       "cliPath": "",
       "cliPathsByHost": {
-        "device:f857fc16-5fd4-4e0f-8089-a14e8d13a737": "/Users/diaoyuxuan/.nvm/versions/node/v22.22.3/bin/opencode"
+        "device-61d16173040ca45b883146773d969c88fedcba2c372571ac68ed0735a49d96c3": "/Users/diaoyuxuan/.nvm/versions/node/v22.22.3/bin/opencode"
       },
       "enabled": true,
       "environmentHash": "runtime-input:v1:7c750d6485019833911586bf6c26263821f20423cc650385e616fc0f183a2e39",
@@ -319,25 +320,10 @@
         "opencode-go/muse-spark-1.2-contributor": "xhigh"
       },
       "selectedMode": "",
-      "thinkingOptionsByModel": {
-        "opencode-go/hy3": [
-          {
-            "label": "None",
-            "value": "none"
-          },
-          {
-            "label": "Low",
-            "value": "low"
-          },
-          {
-            "label": "High",
-            "value": "high"
-          }
-        ]
-      },
+      "thinkingOptionsByModel": {},
       "visibleModels": [
         "opencode-go/mimo-v2.5",
-        "opencode-go/hy3"
+        "opencode/mimo-v2.5-free"
       ]
     },
     "pi": {
@@ -354,14 +340,18 @@
     }
   },
   "settingsProvider": "claude",
+  "lastSelectedChatModel": {
+    "providerId": "opencode",
+    "model": "opencode:opencode/mimo-v2.5-free"
+  },
   "savedProviderModel": {
     "claude": "haiku",
-    "codex": "gpt-5.6-luna",
+    "codex": "gpt-5.6-sol",
     "opencode": "opencode:opencode-go/mimo-v2.5"
   },
   "savedProviderEffort": {
     "claude": "high",
-    "codex": "max",
+    "codex": "medium",
     "opencode": "high"
   },
   "savedProviderServiceTier": {
@@ -382,8 +372,12 @@
   "chatViewPlacement": "right-sidebar",
   "enableDualPane": true,
   "dualPaneSide": "right",
+  "restoreTabsOnStartup": true,
+  "collabEnabled": false,
+  "collabProjectsFolder": "workspace",
+  "collabGitPath": "",
   "sessionManagerOrganization": "list",
   "sessionManagerSort": "last-updated",
-  "pinnedLinkedNotePaths": [],
+  "pinnedLinkedContentPaths": [],
   "hiddenProviderCommands": {}
 }
