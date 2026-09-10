@@ -798,7 +798,7 @@
     "title": "多 Agent 并行更新共享 State 时，如何避免覆盖？",
     "layer": "core",
     "status": "active",
-    "answer_sha256": "67dc8b0f6bafca714a3f74addfd45f0fa139736f569afa2ce9d4b46e34507abe"
+    "answer_sha256": "3c677045a2b425e75207ed3022eb21acdb01a32cb4e456a3faad4f7d7c212957"
   },
   {
     "question_id": "Q::03_Memory与状态/Memory与State.md::22",
@@ -1032,7 +1032,7 @@
     "title": "并行 Tool Calling 如何提升吞吐，同时保证一致性、顺序和可回放？",
     "layer": "core",
     "status": "active",
-    "answer_sha256": "f16559ff4f2d0c3d0a745358759da4837feeb423ccdaf1d7ef320ace9a762d03"
+    "answer_sha256": "8c17132ccd46d1fe4d99f575aa8316eb6ae7059d58b614e8b4eaa46560c5d924"
   },
   {
     "question_id": "Q::04_Tool与协议/Tool Calling与MCP.md::18",
@@ -1509,7 +1509,7 @@
     "title": "如何避免多 Agent 之间重复劳动、循环调用和责任不清？",
     "layer": "core",
     "status": "active",
-    "answer_sha256": "3a39e9f4df82654d0b762141887711655b2445178028960d7691971d26dcc21e"
+    "answer_sha256": "aef4b5a38d8d5c0af023062725f0d867bec45ea14bc7de5478751fdbae764757"
   },
   {
     "question_id": "Q::05_Multi-Agent与Workflow/Multi-Agent与Workflow.md::8",
@@ -1698,7 +1698,7 @@
     "title": "Skill、Prompt、Tool、Workflow 和 Agent 的边界分别是什么？",
     "layer": "supplement",
     "status": "active",
-    "answer_sha256": "8bf8fb81cc76fcf5570e0a4a99fb70c8d84ae5f3b0afb59e56e6e9a136dce9eb"
+    "answer_sha256": "6b752373c68eecace7ff30cd41e59b0585ccdbdad5a62045e88fab8037a6cb6e"
   },
   {
     "question_id": "Q::05_Multi-Agent与Workflow/Skill编排与协作面经补充.md::6",
@@ -2319,7 +2319,7 @@
     "title": "如何防止恢复流程本身再次产生副作用？",
     "layer": "core",
     "status": "active",
-    "answer_sha256": "067fcc9a49d06cfde725591a18d61d1906ff7df5a9c90b6f6a0c6f677728196b"
+    "answer_sha256": "b9ec63ba5752c49f975c0428fe42e91936bb0c5d7b63ede351fd7b4170cb6668"
   },
   {
     "question_id": "Q::07_可靠性与安全/可靠性与安全.md::36",
@@ -2589,7 +2589,7 @@
     "title": "如何避免评测集泄漏、重复和过拟合？",
     "layer": "core",
     "status": "active",
-    "answer_sha256": "599e9d4417f087162971ad73dd83c2092f539ce8afe67996407672daaa1e63ee"
+    "answer_sha256": "b5d2da7346d1c706e97b5ad059ace30c46ca29db2ae77aac50ca76b13b645db7"
   },
   {
     "question_id": "Q::08_评测与可观测/评测与可观测性.md::14",
@@ -3327,7 +3327,7 @@
     "title": "Attention 的时间和空间复杂度是什么？",
     "layer": "core",
     "status": "active",
-    "answer_sha256": "8e91a5aba9ef29db2c2becb7b9853578b024dd8af81f03c30852b555481fdcaf"
+    "answer_sha256": "8b03ef572e8cdfee82b4bf374250592579053bb1d0bc796359c688d9bd4c6a69"
   },
   {
     "question_id": "Q::10_模型与推理/模型与推理基础.md::5",

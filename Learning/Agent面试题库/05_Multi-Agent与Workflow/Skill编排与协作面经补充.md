@@ -22,7 +22,7 @@
 
 ### 5. Skill、Prompt、Tool、Workflow 和 Agent 的边界分别是什么？
 
-答：Tool、Skill 和 MCP Server 的完整定义见 [[../12_课程深化/07_实时交互与产品/实时交互与产品#18. Tool、Skill 和 MCP Server 的边界是什么？|实时交互与产品第 18 题]]。本题只保留其它层次的差分：Prompt 是给模型的规则和上下文，Workflow 是代码确定节点和分支的编排，Agent 则围绕目标动态选择和执行。Prompt 不等于验证，Skill 不等于权限，Tool 也不等于完整任务的成功判定。
+答：Tool、Skill 和 MCP Server 的完整定义见 [[../12_课程深化/07_实时交互与产品/实时交互与产品#18. Tool、Skill 和 MCP Server 的边界是什么？|实时交互与产品第 18 题]]。本题只保留其它层次的差分：Prompt 是给模型的规则和上下文，Skill 是可发现、按需加载和独立版本化的能力流程，Workflow 是代码确定节点和分支的编排，Agent 则围绕目标动态选择和执行。Prompt 不等于验证，Skill 不等于权限，Tool 也不等于完整任务的成功判定。
 
 ## Level 2｜多 Agent 协作模式
 
