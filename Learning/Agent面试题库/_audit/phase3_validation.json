@@ -8,7 +8,7 @@
   "covered_active_atoms": 319,
   "uncovered_active_atoms": [],
   "unknown_atom_refs": [],
-  "pending_semantic_reviews": 0,
+  "pending_semantic_reviews": 216,
   "errors": [],
-  "note": "Phase2 scope lists constrain semantic candidates. Similarity proposes mappings only; duplicate adjudication remains Phase4/5. Freeze requires pending_semantic_reviews=0 or explicit manual overrides."
+  "note": "Every question without Phase2 provenance requires an explicit manual shard mapping before freeze. Similarity output is provisional candidate evidence only."
 }
