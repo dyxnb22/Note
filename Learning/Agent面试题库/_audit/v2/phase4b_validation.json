@@ -1,0 +1,90 @@
+{
+  "phase": "4B",
+  "status": "passed",
+  "candidate_pair_count": 2928,
+  "candidate_cluster_count": 26,
+  "known_seed_recall": 1.0,
+  "known_seed_results": {
+    "state_concurrent_write": {
+      "required_pairs": 1,
+      "recalled_pairs": 1,
+      "missing": []
+    },
+    "memory_correction_conflict": {
+      "required_pairs": 2,
+      "recalled_pairs": 2,
+      "missing": []
+    },
+    "checkpoint_unknown_effect": {
+      "required_pairs": 1,
+      "recalled_pairs": 1,
+      "missing": []
+    },
+    "tool_retry_idempotency": {
+      "required_pairs": 3,
+      "recalled_pairs": 3,
+      "missing": []
+    },
+    "api_mcp_a2a": {
+      "required_pairs": 1,
+      "recalled_pairs": 1,
+      "missing": []
+    },
+    "tool_result_trust": {
+      "required_pairs": 1,
+      "recalled_pairs": 1,
+      "missing": []
+    },
+    "multi_agent_arbitration": {
+      "required_pairs": 1,
+      "recalled_pairs": 1,
+      "missing": []
+    },
+    "trace_replay_harness": {
+      "required_pairs": 2,
+      "recalled_pairs": 2,
+      "missing": []
+    },
+    "skill_productization": {
+      "required_pairs": 2,
+      "recalled_pairs": 2,
+      "missing": []
+    },
+    "unknown_effect_recovery": {
+      "required_pairs": 2,
+      "recalled_pairs": 2,
+      "missing": []
+    },
+    "eval_metrics_harness": {
+      "required_pairs": 2,
+      "recalled_pairs": 2,
+      "missing": []
+    },
+    "production_durable_overview": {
+      "required_pairs": 1,
+      "recalled_pairs": 1,
+      "missing": []
+    },
+    "semantic_audit_expansion": {
+      "required_pairs": 3,
+      "recalled_pairs": 3,
+      "missing": []
+    }
+  },
+  "candidate_source_breakdown": {
+    "answer_semantic_similarity": 2,
+    "cross_layer_overlap": 1519,
+    "high_atom_containment": 378,
+    "high_atom_jaccard": 745,
+    "known_regression_seed": 22,
+    "ownership_corridor": 1655,
+    "same_atom_set": 272,
+    "same_domain_proximity": 244,
+    "same_primary_atom": 996,
+    "title_semantic_similarity": 63
+  },
+  "duplicate_pair_keys_unique": true,
+  "all_qids_valid": true,
+  "all_atom_refs_valid": true,
+  "errors": []
+}

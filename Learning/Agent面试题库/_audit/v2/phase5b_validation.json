@@ -1,0 +1,26 @@
+{
+  "phase": "5B",
+  "status": "passed",
+  "candidate_pairs": 2928,
+  "adjudicated_pairs": 2928,
+  "relation_counts": {
+    "ALREADY_BRIDGED": 41,
+    "RELATED_DISTINCT": 2078,
+    "PARTIAL_OVERLAP": 771,
+    "SEMANTIC_DUPLICATE": 11,
+    "OWNERSHIP_CONFLICT": 5,
+    "SUBSUMED": 22
+  },
+  "action_counts": {
+    "KEEP": 2890,
+    "MERGE": 9,
+    "MOVE_OR_BRIDGE": 5,
+    "CONVERT_TO_FOLLOWUP": 22,
+    "DELETE": 2
+  },
+  "destructive_actions_reviewed": 38,
+  "adversarial_keep_reviews": 30,
+  "lost_atom_decisions": 0,
+  "lost_intent_decisions": 0,
+  "errors": []
+}
