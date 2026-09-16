@@ -1,0 +1,25 @@
+{
+  "id": "conv-1789394080554-pcm6jleoi",
+  "providerId": "opencode",
+  "title": "leetcode 36",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1789394080561,
+  "lastActivityAt": 1789458102525,
+  "sessionId": "ses_f5fcd2800ffeTzfOyvG6bhHDI4",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/CS/算法/矩阵.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 14720,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": false,
+    "inputTokens": 0,
+    "model": "opencode:opencode/mimo-v2.5-free",
+    "percentage": 7
+  }
+}

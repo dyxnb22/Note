@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789377769510-yp22a0t3l",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789377769554-qs5x5oi",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789377769506-i2abkji",
+      "timestamp": 1789377769506,
+      "rawDisplayText": "// 和 / 是两种不同的除法运算符 这个在我的这个学习笔记里有提到吗",
+      "canonicalText": "// 和 / 是两种不同的除法运算符 这个在我的这个学习笔记里有提到吗",
+      "images": [],
+      "contentDigest": "d052070ebc9e155c1025bfbb8dd5375215bc12c45236d2a7178370cb42e13152"
+    }
+  ]
+}

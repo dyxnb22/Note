@@ -1,0 +1,15 @@
+{
+  "id": "conv-1789378713769-l4s5peuip",
+  "providerId": "opencode",
+  "title": "// 和 / 是两种不同的除法运算符 python知识库里有写到吗",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1789378713771,
+  "lastActivityAt": 1789378714874,
+  "sessionId": "ses_f60b7a34effeqE4imhOjswhG1t",
+  "selectedModel": "opencode:opencode-go/mimo-v2.5",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Python/面试题库/00_复习路线与答题模板.md"
+}

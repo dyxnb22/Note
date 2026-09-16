@@ -1,0 +1,25 @@
+{
+  "id": "conv-1789097753094-qgcyg06sp",
+  "providerId": "opencode",
+  "title": "你看下这个章节可以删除吗？避免断链（先不要修改）",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1789097753115,
+  "lastActivityAt": 1789097965974,
+  "sessionId": "ses_f7176c0e9ffetbPZ6TxZpFKqzo",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Backend/Java/面试题库/00_复习路线与答题模板.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 15354,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 8
+  }
+}

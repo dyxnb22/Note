@@ -1,0 +1,25 @@
+{
+  "id": "conv-1789111668130-ny11winz8",
+  "providerId": "opencode",
+  "title": "这句话对吗",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1789111668138,
+  "lastActivityAt": 1789142694840,
+  "sessionId": "ses_f70a26e50ffeaCIA60qRq6yMP2",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Backend/Java/01_语言与运行时.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 16781,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": false,
+    "inputTokens": 0,
+    "model": "opencode:opencode/mimo-v2.5-free",
+    "percentage": 8
+  }
+}

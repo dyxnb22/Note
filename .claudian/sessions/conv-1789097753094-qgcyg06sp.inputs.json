@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789097753094-qgcyg06sp",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789097753221-9sjjoae",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789097753082-8ksdf4y",
+      "timestamp": 1789097753082,
+      "rawDisplayText": "你看下这个章节可以删除吗？避免断链（先不要修改）",
+      "canonicalText": "你看下这个章节可以删除吗？避免断链（先不要修改）",
+      "context": {
+        "linkedContent": {
+          "path": "Learning/Backend/Java/面试题库/00_复习路线与答题模板.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "c6a9dead7511895e064ed73d7986568ac8e4c7853864781dc3d57c13cca82ad4",
+      "providerAssistantMessageId": "msg_08e896846001O1AgIfySUSNECp"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789097825983-96myqlq",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1789097825981-7pyur77",
+      "timestamp": 1789097825981,
+      "rawDisplayText": "处理吧，引用直接删除吧",
+      "canonicalText": "处理吧，引用直接删除吧",
+      "images": [],
+      "contentDigest": "839a837ec292aa4ce5a33e670bc1762cd552c9a60f3fa0d3937b8f32a23cbd4b",
+      "providerAssistantMessageId": "msg_08e8c6e39001Mjb9b26sPaO2rb"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "conv-1789441803891-aitqupw8f",
+  "providerId": "opencode",
+  "title": "为什么图1 正常渲染了，图二没有正常渲染",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1789441803907,
+  "lastActivityAt": 1789443258081,
+  "sessionId": "ses_f5cf4f442ffezybvw4ugt9G9kZ",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/CS/算法/Hash.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 20354,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": false,
+    "inputTokens": 0,
+    "model": "opencode:opencode/mimo-v2.5-free",
+    "percentage": 10
+  }
+}

@@ -45,12 +45,12 @@
 
 | 主题 | 两站知识点提炼 | 本地归属 |
 | --- | --- | --- |
-| Java 基础 | 类型、String、equals/hashCode、泛型、异常、反射、注解、序列化、代理、SPI、BigDecimal、Unsafe、Lambda/Stream 与语法糖 | [Java 题库](../Backend/Java/面试题库/README.md) |
-| Java 集合 | List/Set/Map/Queue 选型；ArrayList、LinkedList、HashMap、ConcurrentHashMap 等实现、扩容、冲突和并发边界 | [集合与容器](../Backend/Java/面试题库/03_集合与容器.md) |
-| Java I/O | 字节/字符流、BIO/NIO/AIO、Buffer/Channel/Selector、文件与网络 I/O、序列化边界 | [IO 与网络编程](../Backend/Java/面试题库/02_IO与网络编程.md) |
-| Java 并发 | 线程状态、线程池、volatile、synchronized、CAS/Atomic、AQS、Lock、ThreadLocal、并发集合和 CompletableFuture | [并发与 JUC](../Backend/Java/面试题库/05_并发与JUC.md) |
-| JVM | 内存区域、对象与引用、类文件/类加载器/双亲委派、GC 与参数、OOM/泄漏/StackOverflow、诊断工具；Java 8 至 25 的版本差异按需核对 | [JVM](../Backend/Java/面试题库/04_JVM.md) |
-| Maven/Gradle | 坐标、依赖图、生命周期、插件、多模块和私服；Gradle Task/Plugin、初始化/配置/执行阶段、Wrapper 与可复现构建 | [Maven 与 Gradle](../Backend/Java/面试题库/16_Maven.md) |
+| Java 基础 | 类型、String、equals/hashCode、泛型、异常、反射、注解、序列化、代理、SPI、BigDecimal、Unsafe、Lambda/Stream 与语法糖 | [Java 题库](../Backend/Java/README.md) |
+| Java 集合 | List/Set/Map/Queue 选型；ArrayList、LinkedList、HashMap、ConcurrentHashMap 等实现、扩容、冲突和并发边界 | [集合与容器](../Backend/Java/03_集合与容器.md) |
+| Java I/O | 字节/字符流、BIO/NIO/AIO、Buffer/Channel/Selector、文件与网络 I/O、序列化边界 | [IO 与网络编程](../Backend/Java/02_IO与网络编程.md) |
+| Java 并发 | 线程状态、线程池、volatile、synchronized、CAS/Atomic、AQS、Lock、ThreadLocal、并发集合和 CompletableFuture | [并发与 JUC](../Backend/Java/05_并发与JUC.md) |
+| JVM | 内存区域、对象与引用、类文件/类加载器/双亲委派、GC 与参数、OOM/泄漏/StackOverflow、诊断工具；Java 8 至 25 的版本差异按需核对 | [JVM](../Backend/Java/04_JVM.md) |
+| Maven/Gradle | 坐标、依赖图、生命周期、插件、多模块和私服；Gradle Task/Plugin、初始化/配置/执行阶段、Wrapper 与可复现构建 | [Maven 与 Gradle](../Backend/Java/16_Maven.md) |
 | Go | 类型、接口、切片/Map、Goroutine/Channel/Context、GC、网络服务、测试、性能和生产边界 | [Go 题库](../Backend/Go/面试题库/README.md) |
 | C++ | 指针/引用/const/static；编译链接；对象模型、虚函数；值类别和移动语义；STL、智能指针、内存管理、新特性和问题排查 | [C++ 题库](../Cpp/面试题库/01_语言、内存与工程.md) |
 | Python | 对象模型、迭代/生成、装饰器、GIL、进程/线程/协程、asyncio、包测试、FastAPI/ASGI 和自动化测试 | [Python 题库](../Python/面试题库/README.md) |
@@ -75,9 +75,9 @@
 
 | 主题 | 两站知识点提炼 | 本地归属 |
 | --- | --- | --- |
-| Spring | IoC/AOP、Bean 生命周期、循环依赖、代理、事务传播/隔离/自调用、MVC、常用注解和设计模式 | [Spring 题库](../Backend/Java/面试题库/09_Spring核心.md) |
-| Spring Boot | 自动配置、条件装配、启动流程、配置绑定、Web 线程模型、异常处理、监控和生产排障 | [Spring Web 与 Boot](../Backend/Java/面试题库/10_SpringWeb与Boot.md) |
-| MyBatis/JPA/JDBC | 参数绑定、映射、一级/二级缓存、批处理、N+1、事务边界和数据访问选型 | [Java 数据访问](../Backend/Java/面试题库/08_Java数据访问.md) |
+| Spring | IoC/AOP、Bean 生命周期、循环依赖、代理、事务传播/隔离/自调用、MVC、常用注解和设计模式 | [Spring 题库](../Backend/Java/09_Spring核心.md) |
+| Spring Boot | 自动配置、条件装配、启动流程、配置绑定、Web 线程模型、异常处理、监控和生产排障 | [Spring Web 与 Boot](../Backend/Java/10_SpringWeb与Boot.md) |
+| MyBatis/JPA/JDBC | 参数绑定、映射、一级/二级缓存、批处理、N+1、事务边界和数据访问选型 | [Java 数据访问](../Backend/Java/08_Java数据访问.md) |
 | API 与实时推送 | REST、版本/分页/错误合同；轮询、长轮询、SSE、WebSocket 的连接、重连和状态边界 | [API 与事件契约](../Backend/Architecture/09_API与事件契约.md)、[HTTP 与 Web](../CS/04_HTTP与Web协议.md) |
 | 软件工程 | 命名、重构、单元测试、代码审查、设计模式、技术债、ADR 和演进式架构 | [软件工程与演进式架构](../Backend/SoftwareEngineering.md) |
 | 认证授权 | Session、JWT、OAuth/OIDC、SSO、RBAC/ABAC、对象级权限、多租户和审计 | [认证、授权与多租户](../Backend/Architecture/认证、授权与多租户.md) |
@@ -132,7 +132,7 @@
 
 两站相关内容可压缩为四个动作：按岗位 JD 建能力矩阵；用题目暴露缺口而不是无差别背诵；项目表达必须给出问题、约束、方案、指标、失败和复盘；简历中的每个技术名词都应能接受原理、边界和故障追问。学习顺序不应被网站目录绑死，当前项目和目标岗位决定优先级。
 
-本地归属：[Career](../Career/README.md)、[Java 复习路线](../Backend/Java/面试题库/00_复习路线与答题模板.md)、[Agent 复习路线](../Agent面试题库/00_复习路线与答题模板.md)。来源入口：[小林 Coding 学习和面试心得](https://xiaolincoding.com/cs_learn/)、[JavaGuide 面试准备目录](https://javaguide.cn/home.html#%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87)。
+本地归属：[Career](../Career/README.md)、[Agent 复习路线](../Agent面试题库/00_复习路线与答题模板.md)。来源入口：[小林 Coding 学习和面试心得](https://xiaolincoding.com/cs_learn/)、[JavaGuide 面试准备目录](https://javaguide.cn/home.html#%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87)。
 
 ## 使用与维护规则
 

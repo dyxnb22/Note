@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789109850121-j99gep2vd",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789109850155-8r8imy3",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789109850118-u11qxnh",
+      "timestamp": 1789109850118,
+      "rawDisplayText": "你看下我这篇，一级标题是不是和标题没区分，例如这个",
+      "canonicalText": "你看下我这篇，一级标题是不是和标题没区分，例如这个",
+      "context": {
+        "linkedContent": {
+          "path": "Learning/Backend/Java/01_语言与运行时.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## Java 基础与执行模型\n\n## Java 的优势和劣势",
+          "lineCount": 3,
+          "startLine": 3
+        }
+      },
+      "images": [],
+      "contentDigest": "1dd6987000f4093ea13fef369ad9405a4b9ec77a2f45918686a19d36f3194ac2",
+      "providerAssistantMessageId": "msg_08f41effb001008x8Xo0pUFDwB"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789110348657-fyljtx9",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1789110348649-rmxds3l",
+      "timestamp": 1789110348649,
+      "rawDisplayText": "# Java → H1，作为整篇笔记的标题 这个不是没必要吗",
+      "canonicalText": "# Java → H1，作为整篇笔记的标题 这个不是没必要吗",
+      "images": [],
+      "contentDigest": "8844bb15f47de03e15fd0085441e743d391adbf73d6bf563cafac34455e67298",
+      "providerAssistantMessageId": "msg_08f496b9b001dRiwC615LYsV32"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789110687912-7gjq78f",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1789110687909-mf4yi81",
+      "timestamp": 1789110687909,
+      "rawDisplayText": "你来全部修改掉吧。其他的一二级标题区分好",
+      "canonicalText": "你来全部修改掉吧。其他的一二级标题区分好",
+      "images": [],
+      "contentDigest": "d652d8783aab3da6da476462eae23ba9590b66e5e971bce01f0a2cbca1e9447c",
+      "providerAssistantMessageId": "msg_08f5cea23001t0Hdc4SYaU4agC"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "conv-1789108548478-v3c1ep200",
+  "providerId": "opencode",
+  "title": "这个是不是一个表格写清楚好",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1789108548485,
+  "lastActivityAt": 1789108580906,
+  "sessionId": "ses_f70d20842ffepTd0bk8rhasVwg",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Backend/Java/01_语言与运行时.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 11192,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 6
+  }
+}

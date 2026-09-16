@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789111668130-ny11winz8",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789111668164-eeeuysw",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789111668128-qn52hxu",
+      "timestamp": 1789111668128,
+      "rawDisplayText": "这句话对吗",
+      "canonicalText": "这句话对吗",
+      "context": {
+        "linkedContent": {
+          "path": "Learning/Backend/Java/01_语言与运行时.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "局部变量没有默认值，使用前必须显式初始化",
+          "lineCount": 1,
+          "startLine": 52
+        }
+      },
+      "images": [],
+      "contentDigest": "ee0d3312198cf2336434a3c39fe7fd29d434646141b4c750f45cebf688e07a45",
+      "providerAssistantMessageId": "msg_08f5db5c10018ss46Q7G7a0CER"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789115283680-0pdkqsp",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1789115283675-h5g549b",
+      "timestamp": 1789115283675,
+      "rawDisplayText": "第一个和第三个是不是可以合并",
+      "canonicalText": "第一个和第三个是不是可以合并",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## 抽象类和接口有什么区别？\n\n| 特性   | 抽象类              | 接口                                                     |\n| ---- | ---------------- | ------------------------------------------------------ |\n| 继承关系 | 类只能继承一个父类        | 类可以实现多个接口                                              |\n| 成员变量 | 可以有**实例变量和静态变量** | 字段默认是 **`public static final` 常量**                     |\n| 构造方法 | 可以有              | 没有构造方法                                                 |\n| 方法   | 可以有抽象方法和具体方法     | 可有抽象、`default`、`static` 方法；**Java 9 起可有 `private` 方法** |\n| 适用场景 | 表达**一组共享状态和实现**  | 表达**行为规范或能力**                                          |\n\n\n## 抽象类可以使用 final 修饰吗？\n\n不能。抽象类需要被继承，`**final` 类禁止继承**，二者语义冲突。\n\n## 接口中可以定义哪些方法？\n\n- 抽象方法：由实现类提供实现。\n- `default` 方法：提供默认实现，便于接口向后兼容。\n- `static` 方法：属于接口本身，通过接口名调用。\n- `private` 方法：Java 9 起用于复用接口内部的辅助逻辑。\n\n```java\ndefault void sleep() {\n    System.out.println(\"Sleeping...\");\n}\n```\n",
+          "lineCount": 28,
+          "startLine": 122
+        }
+      },
+      "images": [],
+      "contentDigest": "e0464b5bd177b8f4272c7046217513d831057c657e0ca498ee4b30f970d3cd21",
+      "providerAssistantMessageId": "msg_08f94b934001Y2FCETM77WKmRq"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789116654883-gbfwqft",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1789116654878-bqi3dw7",
+      "timestamp": 1789116654878,
+      "rawDisplayText": "改一下，确保不要遗漏信息",
+      "canonicalText": "改一下，确保不要遗漏信息",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## 抽象类和接口有什么区别？\n\n| 特性   | 抽象类              | 接口                                                     |\n| ---- | ---------------- | ------------------------------------------------------ |\n| 继承关系 | 类只能继承一个父类        | 类可以实现多个接口                                              |\n| 成员变量 | 可以有**实例变量和静态变量** | 字段默认是 **`public static final` 常量**                     |\n| 构造方法 | 可以有              | 没有构造方法                                                 |\n| 方法   | 可以有抽象方法和具体方法     | 可有抽象、`default`、`static` 方法；**Java 9 起可有 `private` 方法** |\n| 适用场景 | 表达**一组共享状态和实现**  | 表达**行为规范或能力**                                          |\n\n\n## 抽象类可以使用 final 修饰吗？\n\n不能。抽象类需要被继承，`**final` 类禁止继承**，二者语义冲突。\n\n## 接口中可以定义哪些方法？\n\n- 抽象方法：由实现类提供实现。\n- `default` 方法：提供默认实现，便于接口向后兼容。\n- `static` 方法：属于接口本身，通过接口名调用。\n- `private` 方法：Java 9 起用于复用接口内部的辅助逻辑。\n\n```java\ndefault void sleep() {\n    System.out.println(\"Sleeping...\");\n}\n```\n",
+          "lineCount": 28,
+          "startLine": 122
+        }
+      },
+      "images": [],
+      "contentDigest": "2ff28a2345253031b25f52fed175780eea7a078a03f42c3cdd03db64a9ff0ed9",
+      "providerAssistantMessageId": "msg_08faa5ccd0014ztSXhjrcG1pOu"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789119362705-08dtqzp",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1789119362700-d2s3drw",
+      "timestamp": 1789119362700,
+      "rawDisplayText": "举个例子",
+      "canonicalText": "举个例子",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "只能被隐藏",
+          "lineCount": 1,
+          "startLine": 152
+        }
+      },
+      "images": [],
+      "contentDigest": "e871da391100f10186bc78433b14209b1e6fd077eb7c749d12dedf760a84fc55",
+      "providerAssistantMessageId": "msg_08fd2f6be0012VH8VVKfah1d9V"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789119644636-azyfhl2",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1789119644630-5d3v5t9",
+      "timestamp": 1789119644630,
+      "rawDisplayText": "这种是表格更好吗",
+      "canonicalText": "这种是表格更好吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## 类初始化与对象初始化顺序是什么？\n\n类第一次被主动使用时，先初始化父类，再初始化子类；同一个类中的静态变量和静态代码块按源码出现顺序执行。编译期常量可能被内联，读取它不一定触发类初始化。\n\n创建子类对象时，实例字段会先取得默认零值，然后执行父类的实例字段初始化和初始化块、父类构造方法，再执行子类自己的实例字段初始化、初始化块和构造方法。需要区分：静态初始化每个类只执行一次，实例初始化每次创建对象都会执行。",
+          "lineCount": 5,
+          "startLine": 155
+        }
+      },
+      "images": [],
+      "contentDigest": "59d4fd1f0932522e85415da04050839f5c7b0c274031ba4227718a2844556bc8",
+      "providerAssistantMessageId": "msg_08fd7440d001DjVaI2xype0iem"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789119688301-2bhenwt",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1789119688298-y9raebt",
+      "timestamp": 1789119688298,
+      "rawDisplayText": "改",
+      "canonicalText": "改",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## 类初始化与对象初始化顺序是什么？\n\n类第一次被主动使用时，先初始化父类，再初始化子类；同一个类中的静态变量和静态代码块按源码出现顺序执行。编译期常量可能被内联，读取它不一定触发类初始化。\n\n创建子类对象时，实例字段会先取得默认零值，然后执行父类的实例字段初始化和初始化块、父类构造方法，再执行子类自己的实例字段初始化、初始化块和构造方法。需要区分：静态初始化每个类只执行一次，实例初始化每次创建对象都会执行。",
+          "lineCount": 5,
+          "startLine": 155
+        }
+      },
+      "images": [],
+      "contentDigest": "214d5e3d3bd946786e93b07e9d97717456b524245cf2a831e2ee7f3d158e9c64",
+      "providerAssistantMessageId": "msg_08fd8337a0010g18d0t4yVOpYe"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789124229865-y667ndx",
+      "userTurnOrdinal": 7,
+      "state": "accepted",
+      "localMessageId": "msg-1789124229857-w43ursv",
+      "timestamp": 1789124229857,
+      "rawDisplayText": "什么意思",
+      "canonicalText": "什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "编译期常量可能被内联，读取它不一定触发类初始化。",
+          "lineCount": 1,
+          "startLine": 166
+        }
+      },
+      "images": [],
+      "contentDigest": "96e2670d0598107cbff9b65251fc6b616872e0ddec1aa7e2e5835fecca2ecf29",
+      "providerAssistantMessageId": "msg_0901d3b1d0019jT3rDnY34jXS4"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789142686722-n53dd5n",
+      "userTurnOrdinal": 8,
+      "state": "accepted",
+      "localMessageId": "msg-1789142686711-7rp08rb",
+      "timestamp": 1789142686711,
+      "rawDisplayText": "你能简单地把上面的例子写成一段话吗？我补充到笔记里",
+      "canonicalText": "你能简单地把上面的例子写成一段话吗？我补充到笔记里",
+      "images": [],
+      "contentDigest": "0315b05260216c1c641f1139683e5fdfc46189a1418059ab4318b2bbcab50340",
+      "providerAssistantMessageId": "msg_09136dcbc001qkpxRTb6Xs672P"
+    }
+  ]
+}

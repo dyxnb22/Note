@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789378713769-l4s5peuip",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789378713790-u2mn3mj",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789378713767-kq3pj5h",
+      "timestamp": 1789378713767,
+      "rawDisplayText": "// 和 / 是两种不同的除法运算符 python知识库里有写到吗",
+      "canonicalText": "// 和 / 是两种不同的除法运算符 python知识库里有写到吗",
+      "context": {
+        "linkedContent": {
+          "path": "Learning/Python/面试题库/00_复习路线与答题模板.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "89cbd23db430e9a63bde9c95d6171633fa2aa79822b2213c0673da5951a572e7"
+    }
+  ]
+}

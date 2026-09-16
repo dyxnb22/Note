@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789108170734-mmmjsnnii",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789108170769-qdn3td8",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789108170731-oajlb1t",
+      "timestamp": 1789108170731,
+      "rawDisplayText": "这个是不是可以整合",
+      "canonicalText": "这个是不是可以整合",
+      "context": {
+        "linkedContent": {
+          "path": "Learning/Backend/Java/01_语言与运行时.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## Java 有哪些特点、优势和局限？\n\nJava 的主要特点：\n\n- 平台无关：源码经 `javac` 编译为字节码，由不同平台的 JVM 执行。\n- 面向对象：支持封装、继承、多态和抽象。\n- 自动内存管理：由 JVM 和垃圾回收器管理对象生命周期。\n- 生态成熟：拥有 Spring、MyBatis、Maven、JUC 等丰富生态。\n- 类型安全和兼容性较好：有字节码校验、异常机制和强类型检查。\n\n优势是跨平台、生态成熟、内存管理自动化、并发工具丰富；局限是 JVM 启动和运行存在开销、内存占用较高、语法相对冗长，不太适合极小型运行环境和简单脚本。",
+          "lineCount": 11,
+          "startLine": 5
+        }
+      },
+      "images": [],
+      "contentDigest": "d0758e149f9bb8cf1336cc1a3724aefb13dc57011cf3ea160bfc9d3ea712b3a9",
+      "providerAssistantMessageId": "msg_08f2857380016GYKkGdrHWnVUT"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789108432834-43qsi9u",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1789108432827-exp5de5",
+      "timestamp": 1789108432827,
+      "rawDisplayText": "是不是分为优势 和 劣势比较好",
+      "canonicalText": "是不是分为优势 和 劣势比较好",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## Java 有哪些特点、优势和局限？\n\nJava 的主要特点：\n\n- 平台无关：源码经 `javac` 编译为字节码，由不同平台的 JVM 执行。\n- 面向对象：支持封装、继承、多态和抽象。\n- 自动内存管理：由 JVM 和垃圾回收器管理对象生命周期。\n- 生态成熟：拥有 Spring、MyBatis、Maven、JUC 等丰富生态。\n- 类型安全和兼容性较好：有字节码校验、异常机制和强类型检查。\n\n优势是跨平台、生态成熟、内存管理自动化、并发工具丰富；局限是 JVM 启动和运行存在开销、内存占用较高、语法相对冗长，不太适合极小型运行环境和简单脚本。",
+          "lineCount": 11,
+          "startLine": 5
+        }
+      },
+      "images": [],
+      "contentDigest": "b69ba3b3fff9a488fbb19bd64c8c2068170e3aa030f6fffb5ddeef1f7e9b1890",
+      "providerAssistantMessageId": "msg_08f2c2ffa001QNcSZRleqciFJk"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789108476559-wzcwhrr",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1789108476556-0wyd45c",
+      "timestamp": 1789108476556,
+      "rawDisplayText": "就不要特点，只要优点和缺点",
+      "canonicalText": "就不要特点，只要优点和缺点",
+      "images": [],
+      "contentDigest": "075c8b45472c26b98ddffe4be522d5f6f08ec5a830d67ab6bbb58986a09ac5da",
+      "providerAssistantMessageId": "msg_08f2cfbad001dmKY6c796tpEx9"
+    }
+  ]
+}

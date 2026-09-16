@@ -24,21 +24,21 @@
             }
           },
           {
-            "id": "28086f4ee65a4461",
+            "id": "1da7f5831f770076",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning/CS/算法/字符串.md",
+                "file": "Learning/Backend/Java/04_JVM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "字符串"
+              "title": "04_JVM"
             }
           },
           {
-            "id": "cc6b29a11fa4908b",
+            "id": "e7cd8038fad928e8",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -52,7 +52,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -72,7 +72,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": true,
+                "autoReveal": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -111,7 +111,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 230.5
+    "width": 204.2578125
   },
   "right": {
     "id": "9b63ea93b6cd710f",
@@ -189,8 +189,8 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全.md",
-                "followCursor": true,
+                "file": "Learning/Backend/Java/04_JVM.md",
+                "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -208,12 +208,11 @@
                   "version": 1,
                   "openTabs": [
                     {
-                      "tabId": "tab-1788838509215-f5p2o7t",
-                      "conversationId": null,
-                      "draftModel": "opencode:opencode/mimo-v2.5-free"
+                      "tabId": "tab-1789394050406-i5r0yfs",
+                      "conversationId": "conv-1789225888614-fnd6b0jhx"
                     }
                   ],
-                  "activeTabId": "tab-1788838509215-f5p2o7t"
+                  "activeTabId": "tab-1789394050406-i5r0yfs"
                 }
               },
               "icon": "bot",
@@ -235,7 +234,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 372.36328125
+    "width": 458.92578125
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -250,43 +249,43 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b55c65997e2b1b75",
+  "active": "69a2bc9ea88f98e7",
   "lastOpenFiles": [
-    "Learning/Agent面试题库/_audit/question_inventory.json",
-    "Learning/Agent面试题库/_audit/question_atom_map.json",
-    "Learning/Agent面试题库/_audit/phase7_validation.json",
-    "Learning/Agent面试题库/_audit/phase7_validate.py",
-    "Learning/Agent面试题库/_audit/phase6_validation.json",
-    "Learning/Agent面试题库/_audit/phase6_rewrite.py",
-    "Learning/Agent面试题库/_audit/phase5_validation.json",
-    "Learning/Agent面试题库/_audit/phase5_adjudicate.py",
-    "Learning/Agent面试题库/_audit/phase4_validation.json",
-    "Learning/Agent面试题库/_audit/phase4_cluster.py",
-    "Learning/Agent面试题库/_audit/phase3_validation.json",
-    "Learning/Agent面试题库/_audit/PHASE7_REPORT.md",
-    "Learning/Agent面试题库/_audit/PHASE6_REPORT.md",
-    "Learning/Agent面试题库/_audit/PHASE5_REPORT.md",
-    "Learning/Agent面试题库/_audit/PHASE4_REPORT.md",
-    "Learning/Agent面试题库/_audit/PHASE3_REPORT.md",
-    "Learning/Agent面试题库/_audit/PHASE3_COMPACT_REVIEW.md",
-    "Learning/Agent面试题库/_audit/PHASE2_REPORT.md",
-    "Learning/Agent面试题库/_audit/PHASE1_REPORT.md",
-    "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全.md",
-    "Learning/Agent面试题库/08_评测与可观测/评测、轨迹与线上故障面经补充.md",
-    "Learning/秋招进度.md",
-    "Learning/CS/算法/字符串.md",
-    "Learning/Agent面试题库/07_可靠性与安全/可靠性与安全_表格.md",
     "Learning/CS/算法/贪心.md",
-    "Learning/Agent面试题库/06_RAG与知识库/RAG与检索.md",
-    "Learning/CS/VPN.md",
-    "Learning/Agent面试题库/01_基础架构/Agent基础与架构.md",
-    "Learning/Agent面试题库/03_Memory与状态/Memory与State.md",
-    "Learning/Agent面试题库/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md",
-    "Learning/Agent面试题库/05_Multi-Agent与Workflow/Skill编排与协作面经补充.md",
-    "Learning/Agent面试题库/05_Multi-Agent与Workflow/Loop控制与Harness面经补充.md",
-    "Learning/Agent面试题库/04_Tool与协议/Tool Calling与MCP.md",
-    "Learning/Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md",
-    "Interview/Agent-LLM/02_Context、Memory与Tool.md",
-    "Interview/Agent-LLM/01_Agent架构与Prompt.md"
+    "Learning/Backend/Java/03_集合与容器.md",
+    "Learning/秋招进度.md",
+    "Learning/CS/算法/动态规划.md",
+    "Learning/CS/算法/Hash.md",
+    "Learning/CS/算法/README.md",
+    "Learning/CS/算法/矩阵.md",
+    "Learning/Python学习/00_收件箱.md",
+    "Learning/Python学习/03_标准库.md",
+    "Learning/Python学习/05_后端服务.md",
+    "Learning/Python学习/04_工程基础.md",
+    "Learning/Python学习/06_Agent开发.md",
+    "Learning/Python学习/07_生产与交付.md",
+    "Learning/Python学习/06_生产与交付.md",
+    "Learning/Python学习/05_Agent开发.md",
+    "Learning/Python学习/04_后端服务.md",
+    "Learning/Python学习/03_工程基础.md",
+    "Learning/Python学习/02_语言进阶与异步.md",
+    "Learning/Python学习/README.md",
+    "Learning/Python学习/01_语言核心.md",
+    "Learning/Python学习",
+    "Learning/Python/面试题库/00_复习路线与答题模板.md",
+    "Learning/Backend/Java/01_语言与运行时.md",
+    "Learning/CS/算法/字符串.md",
+    "Learning/Backend/Java/02_IO与网络编程.md",
+    "Learning/Backend/Java/04_JVM.md",
+    "Learning/Agent面试题库/_audit/PHASE7_REPORT.md",
+    "Learning/Agent面试题库/_audit/v2/question_inventory_v2.json",
+    "Learning/Agent面试题库/_audit/v2/question_id_migration.json",
+    "Learning/Agent面试题库/_audit/v2/question_atom_coverage_v2.json",
+    "Learning/Agent面试题库/_audit/v2/phase8b_audit.py",
+    "Learning/Agent面试题库/_audit/v2/phase8b_adversarial_audit.json",
+    "Learning/Agent面试题库/_audit/v2/phase7b_validation.json",
+    "Learning/Agent面试题库/_audit/v2/phase7b_validate.py",
+    "Learning/Agent面试题库/_audit/v2/phase6b_validation.json",
+    "Learning/Agent面试题库/_audit/v2/phase5b_validation.json"
   ]
 }

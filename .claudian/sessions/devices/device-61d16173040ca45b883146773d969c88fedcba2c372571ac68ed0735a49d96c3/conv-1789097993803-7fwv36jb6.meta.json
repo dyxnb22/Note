@@ -1,0 +1,25 @@
+{
+  "id": "conv-1789097993803-7fwv36jb6",
+  "providerId": "opencode",
+  "title": "这个可以删除吗",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1789097993805,
+  "lastActivityAt": 1789107730619,
+  "sessionId": "ses_f7173162fffeXcfuuewji0yysY",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Backend/Java/面试题库/00_主题速答卡.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 46325,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 23
+  }
+}

@@ -1,0 +1,1665 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789225888614-fnd6b0jhx",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789225888656-0hv1a2y",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789225888607-00s87xc",
+      "timestamp": 1789225888607,
+      "rawDisplayText": "这个啥意思，我没咋看懂",
+      "canonicalText": "这个啥意思，我没咋看懂",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "ava 泛型为什么会类型擦除？`? extends` 和 `? super` 怎么选？\n\nJava 泛型主要在编译期提供类型检查，**普通类型参数编译后通常擦除为上界**，必要处由编译器插入强制转换或桥接方法。因此运行时不能可靠地写 `new T()`、`T.class`、`new List<String>[10]`，也不能用 `instanceof List<String>` 判断实际类型参数。\n\n通配符按 PECS 记忆：数据源只负责“生产” `T` 时用 `? extends T`，可以安全读取为 `T`，但除 `null` 外不能随意写入；目标只负责“消费” `T` 时用 `? super T`，可以写入 `T` 及其子类，但读取时通常只能按 `Object` 处理。\n\n```java\nstatic <T> void copy(List<? extends T> src, List<? super T> dst) {\n    for (T item : src) {\n        dst.add(item);\n    }\n}\n```\n\n易错点是把 `List<Integer>` 当成 `List<Number>` 的子类型；泛型默认不协变，否则向后者写入 `Double` 会破坏前者的类型安全。需要在运行时保留复杂泛型信息时，应显式传入 `Class<T>`/类型令牌，或读取反射中的声明类型；不能把擦除后的对象强转当成可靠校验。",
+          "lineCount": 15,
+          "startLine": 246
+        },
+        "linkedContent": {
+          "path": "Learning/Backend/Java/01_语言与运行时.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "bc9c0e0bb9742d543ff40d553220f2105bd23295755f56a22b5b43fc4c1e382b",
+      "providerAssistantMessageId": "msg_0962cb9df001uP0XHC3LVuAiFC",
+      "providerUserMessageId": "msg_0962c6fcc001nyXqBsVRg96Zg9"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789267797189-cko2wtk",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1789267797182-xnfo3jt",
+      "timestamp": 1789267797182,
+      "rawDisplayText": "你看下这道题的回答是否可以写的更加易懂",
+      "canonicalText": "你看下这道题的回答是否可以写的更加易懂",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "Java 泛型主要在编译期提供类型检查，**普通类型参数编译后通常擦除为上界**，必要处由编译器插入强制转换或桥接方法。因此运行时不能可靠地写 `new T()`、`T.class`、`new List<String>[10]`，也不能用 `instanceof List<String>` 判断实际类型参数。",
+          "lineCount": 1,
+          "startLine": 248
+        }
+      },
+      "images": [],
+      "contentDigest": "63f3d55ae40b0570492813297de511631062207825cd5254802fd77037490793",
+      "providerAssistantMessageId": "msg_0990aa2e6001SsXR2ajQUd9WAX",
+      "providerUserMessageId": "msg_098abe4fa00190uH2gWj4RsNAI"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789274290618-4akopzn",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1789274290614-ja87abj",
+      "timestamp": 1789274290614,
+      "rawDisplayText": "这是啥",
+      "canonicalText": "这是啥",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "通配符",
+          "lineCount": 1,
+          "startLine": 250
+        }
+      },
+      "images": [],
+      "contentDigest": "a4ecbf8c93522c6db84305d8c7e15c35386cbef2745c7ddee85a9d88d613e6a3",
+      "providerAssistantMessageId": "msg_0990ef9e9001cawnZrI4OVZn02",
+      "providerUserMessageId": "msg_0990ef9e0001jclNJyDpNowclS"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789274317422-dudv472",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1789274317420-klrx7va",
+      "timestamp": 1789274317420,
+      "rawDisplayText": "这里是不是也不像人话",
+      "canonicalText": "这里是不是也不像人话",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "通配符按 PECS 记忆：数据源只负责“生产” `T` 时用 `? extends T`，可以安全读取为 `T`，但除 `null` 外不能随意写入；目标只负责“消费” `T` 时用 `? super T`，可以写入 `T` 及其子类，但读取时通常只能按 `Object` 处理。",
+          "lineCount": 1,
+          "startLine": 250
+        }
+      },
+      "images": [],
+      "contentDigest": "44599186f1ddc3afd21558487b9b855e4d46202b03f302f5872b1a56efb4e385",
+      "providerAssistantMessageId": "msg_0992b2242001fAWJYSIx6MOqmq",
+      "providerUserMessageId": "msg_0990f62860014YZF6D6A0VqZig"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789278234044-52ag3d3",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1789278234039-lq9aak8",
+      "timestamp": 1789278234039,
+      "rawDisplayText": "对于一个 面试题库而已，这个是不是内容比较冗余了，你觉得怎么改好？",
+      "canonicalText": "对于一个 面试题库而已，这个是不是内容比较冗余了，你觉得怎么改好？",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## Java 泛型为什么会类型擦除？`? extends` 和 `? super` 怎么选？\n\nJava 泛型只在**编译期**帮你检查类型，**编译后类型信息会被擦除**（比如 `List<String>` 编译后变成 `List`，`String` 没了）。这是 Java 为了兼容 1.5 之前的老代码做出的妥协。擦除后，编译器会**自动插入强制转换来保证代码能跑**，但这意味着运行时你拿不到泛型的真实类型——不能 `new T()`、不能用 `T.class`、不能 `new List<String>[10]`，`instanceof List<String>` 也判断不了。\n\n通配符记住 **PECS** 口诀就行：**Producer Extends, Consumer Super**。\n\n- **你从里面读东西**（数据源/生产者）→ 用 `? extends T`。比如 `List<? extends Number>`，你能安全地读出 `Number`，但不能往里加元素（编译器怕你类型搞混）。\n- **你往里面写东西**（目标/消费者）→ 用 `? super T`。比如 `List<? super Integer>`，你可以往里加 `Integer`，但读出来只能当 `Object`（因为里面可能存的是 `Number`，不一定能当 `Integer` 用）。\n\n```java\nstatic <T> void copy(List<? extends T> src, List<? super T> dst) {\n    for (T item : src) {\n        dst.add(item);\n    }\n}\n```\n\n易错点是把 `List<Integer>` 当成 `List<Number>` 的子类型；泛型默认不协变，否则向后者写入 `Double` 会破坏前者的类型安全。需要在运行时保留复杂泛型信息时，应显式传入 `Class<T>`/类型令牌，或读取反射中的声明类型；不能把擦除后的对象强转当成可靠校验。",
+          "lineCount": 18,
+          "startLine": 246
+        }
+      },
+      "images": [],
+      "contentDigest": "e48ebaadc7037e91c4663d4f66b6aa2357a000dcc19438c4fd5eeb72e42dc007",
+      "providerAssistantMessageId": "msg_0994b53df001ysW7kpCE8n9q0f",
+      "providerUserMessageId": "msg_0994b260e001VBnxQ4wxO6WRbB"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789278301062-lrhxo9h",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1789278301058-2hromwe",
+      "timestamp": 1789278301059,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerAssistantMessageId": "msg_0994c2ba9001jmjUIzVPQ6zR5a",
+      "providerUserMessageId": "msg_0994c2ba3001w7g1srsSOZUj8z"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789278319159-ppb45iy",
+      "userTurnOrdinal": 7,
+      "state": "accepted",
+      "localMessageId": "msg-1789278319156-4y8qnao",
+      "timestamp": 1789278319156,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "| 场景            | 用法            | 原因                         |\n| ------------- | ------------- | -------------------------- |\n| 从集合**读**（生产者） | `? extends T` | 能安全读为 `T`，但不能写入            |\n| 往集合**写**（消费者） | `? super T`   | 能写入 `T` 及其子类，读只能当 `Object` |\n\n**易错点：** `List<Integer>` **不是** `List<Number>` 的子类型（泛型默认不协变）。需要运行时保留泛型信息时，用 `Class<T>` 类型令牌。",
+          "lineCount": 6,
+          "startLine": 252
+        }
+      },
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerAssistantMessageId": "msg_0994c7261001HZ0UmbPs0cRpgm",
+      "providerUserMessageId": "msg_0994c725800163KfYc7HFo0H9p"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789278554928-eff6mmm",
+      "userTurnOrdinal": 8,
+      "state": "accepted",
+      "localMessageId": "msg-1789278554923-5ibh86m",
+      "timestamp": 1789278554923,
+      "rawDisplayText": "这句话什么意思",
+      "canonicalText": "这句话什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "需要运行时保留泛型信息时，用 `Class<T>` 类型令牌。\n",
+          "lineCount": 2,
+          "startLine": 257
+        }
+      },
+      "images": [],
+      "contentDigest": "a9a36996436344c7e674f986295c1f0b02a2d4b7b0a2392f70cc60d8e34d61c4",
+      "providerAssistantMessageId": "msg_099500b5c001IRae6PNxFo8dvf",
+      "providerUserMessageId": "msg_099500b4d001qsKcTqoHXKK0y4"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789279015796-iy4c3ky",
+      "userTurnOrdinal": 9,
+      "state": "accepted",
+      "localMessageId": "msg-1789279015792-mqn8p7s",
+      "timestamp": 1789279015792,
+      "rawDisplayText": "这句话是不是也要写的像人话",
+      "canonicalText": "这句话是不是也要写的像人话",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "泛型默认不协变",
+          "lineCount": 1,
+          "startLine": 257
+        }
+      },
+      "images": [],
+      "contentDigest": "157e95924571703012ba1113046a816ea7076cc27e333f8753d8bb292cfce888",
+      "providerAssistantMessageId": "msg_099572f62001HfTaSA6dn5KOq0",
+      "providerUserMessageId": "msg_0995713a2001vNfBAXvFVn7Ii9"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789279045200-crsznl9",
+      "userTurnOrdinal": 10,
+      "state": "accepted",
+      "localMessageId": "msg-1789279045196-mrt4xmh",
+      "timestamp": 1789279045196,
+      "rawDisplayText": "这个能给个具体例子吗",
+      "canonicalText": "这个能给个具体例子吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "场景",
+          "lineCount": 1,
+          "startLine": 252
+        }
+      },
+      "images": [],
+      "contentDigest": "18e63082ed2f05c158af5c37a2591c22a6a8128463d8b132755e85adf9dd91a6",
+      "providerAssistantMessageId": "msg_09957df48001WAkS13G8bYpRm0",
+      "providerUserMessageId": "msg_09957866c001B2NRpboeZpaMYQ"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789279432536-q2o7gsm",
+      "userTurnOrdinal": 11,
+      "state": "accepted",
+      "localMessageId": "msg-1789279432532-rfdefay",
+      "timestamp": 1789279432532,
+      "rawDisplayText": "这段话有重复出现过类似的吗",
+      "canonicalText": "这段话有重复出现过类似的吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## 反射有哪些应用？动态代理和反射有什么关系？\n\n反射常用于：\n\n- 动态加载类和数据库驱动。\n- 根据配置文件创建对象、注入属性。\n- Spring 扫描注解并注册 Bean。\n- JDK 动态代理和框架方法调用。\n\nJDK 动态代理基于接口，核心 API 是 `Proxy.newProxyInstance()` 和 `InvocationHandler`；调用代理方法时会转发到 `invoke()`，其中可以通过 `Method.invoke()` 调用目标方法。Spring AOP 通常在有接口时使用 JDK 代理，没有接口时使用 CGLIB 子类代理。",
+          "lineCount": 10,
+          "startLine": 290
+        }
+      },
+      "images": [],
+      "contentDigest": "44e279c8f3038b625f2dc39fb360e59a1378b9252dc25f7eb6d3796a1f234270",
+      "providerAssistantMessageId": "msg_0995d8d6b001RLOm42Ee3gZ4ts",
+      "providerUserMessageId": "msg_0995d6f7d001JZpQqlKalQKxFG"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789279494646-bwapie2",
+      "userTurnOrdinal": 12,
+      "state": "accepted",
+      "localMessageId": "msg-1789279494641-zfi3deg",
+      "timestamp": 1789279494641,
+      "rawDisplayText": "你来精简下，不要遗漏内容",
+      "canonicalText": "你来精简下，不要遗漏内容",
+      "images": [],
+      "contentDigest": "2ad6365381c3e89352f3c562af81472cd0bf81dc77af8b6423d17bdd5379309b",
+      "providerAssistantMessageId": "msg_0995eaf37001XcPPdOWMHddLlB",
+      "providerUserMessageId": "msg_0995e62220015WmjvrBzSnZjVN"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789279585227-r12ees1",
+      "userTurnOrdinal": 13,
+      "state": "accepted",
+      "localMessageId": "msg-1789279585223-um8z6vw",
+      "timestamp": 1789279585223,
+      "rawDisplayText": "这段删掉是不是也行",
+      "canonicalText": "这段删掉是不是也行",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "**动态代理与反射：** JDK 动态代理基于接口（`Proxy.newProxyInstance()` + `InvocationHandler`），方法调用转发到 `invoke()`，内部通过 `Method.invoke()` 调用目标方法。Spring AOP 有接口用 JDK 代理，无接口用 CGLIB 子类代理。详见 [Spring 核心](09_Spring核心.md)",
+          "lineCount": 1,
+          "startLine": 294
+        }
+      },
+      "images": [],
+      "contentDigest": "46ba2d54cca35096cd2b1fbb3d23e1c105a300f5332df79b40959e019a0205f2",
+      "providerAssistantMessageId": "msg_0995fec2f001zfLnL2iV9Y3NoR",
+      "providerUserMessageId": "msg_0995fc3f8001b8YTQQPZibLtHR"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789279633167-turz5pz",
+      "userTurnOrdinal": 14,
+      "state": "accepted",
+      "localMessageId": "msg-1789279633163-78amkcb",
+      "timestamp": 1789279633163,
+      "rawDisplayText": "我不想留",
+      "canonicalText": "我不想留",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "**动态代理与反射：** JDK 动态代理基于接口（`Proxy.newProxyInstance()` + `InvocationHandler`），方法调用转发到 `invoke()`，内部通过 `Method.invoke()` 调用目标方法。Spring AOP 有接口用 JDK 代理，无接口用 CGLIB 子类代理。详见 [Spring 核心](09_Spring核心.md)",
+          "lineCount": 1,
+          "startLine": 294
+        }
+      },
+      "images": [],
+      "contentDigest": "d33d25e1a5951d22e2003412aa96cadafb911d5d41c1030b2936294da2412a0a",
+      "providerAssistantMessageId": "msg_09960aad5001TfDz7VKBgJoNs2",
+      "providerUserMessageId": "msg_099607f26001jpoXJeL025D22X"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789280001971-j4mk13i",
+      "userTurnOrdinal": 15,
+      "state": "accepted",
+      "localMessageId": "msg-1789280001964-2qfemro",
+      "timestamp": 1789280001964,
+      "rawDisplayText": "这个有重复吗",
+      "canonicalText": "这个有重复吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## Java 注解的原理是什么？\n\n注解本质上是继承 `java.lang.annotation.Annotation` 的特殊接口，用于给类、方法、字段等程序元素添加元数据。\n\n`@Retention` 决定保留阶段：\n\n- `SOURCE`：只保留在源码中，例如 `@Override`。\n- `CLASS`：保留在 `.class` 文件中，运行时默认不可见。\n- `RUNTIME`：保留到运行时，可通过反射读取。\n\n`@Target` 用于限制注解可以作用于类、方法、字段、构造器或局部变量等位置。\n\n运行时注解会作为字节码元数据被 JVM 加载，`Class`、`Method`、`Field`、`Constructor` 等实现了 `AnnotatedElement`，可通过以下方法读取：\n\n```java\nMyLog log = method.getAnnotation(MyLog.class);\nboolean present = method.isAnnotationPresent(MyLog.class);\n```\n\nJDK 返回的注解对象是注解接口的代理对象，调用属性方法时会读取注解中保存的属性值。框架可以据此注册 Bean、生成代理或开启事务。\n",
+          "lineCount": 21,
+          "startLine": 294
+        }
+      },
+      "images": [],
+      "contentDigest": "b07dae8e1000b54b71a4e51c233e33b871757adc37f15c62e45aecf55e4d9d3f",
+      "providerAssistantMessageId": "msg_0996640250013DzBPBfr1pbU4i",
+      "providerUserMessageId": "msg_099662000001rPHTBkYRB8xorf"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789280081097-h6ga1g4",
+      "userTurnOrdinal": 16,
+      "state": "accepted",
+      "localMessageId": "msg-1789280081094-5oa0qa7",
+      "timestamp": 1789280081094,
+      "rawDisplayText": "注解是给类信息的 还是实例的",
+      "canonicalText": "注解是给类信息的 还是实例的",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "字节码元数据被 JVM 加载",
+          "lineCount": 1,
+          "startLine": 306
+        }
+      },
+      "images": [],
+      "contentDigest": "5d7e8cabf9f04b4880415d8eb32e20ce87ae274334019d7aaddeb4eb849681e4",
+      "providerAssistantMessageId": "msg_0996754f0001r7mIZLLD2duq5T",
+      "providerUserMessageId": "msg_0996754e2001j8fiMxADdYuMFX"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789280113488-im0fekt",
+      "userTurnOrdinal": 17,
+      "state": "accepted",
+      "localMessageId": "msg-1789280113484-yp5krfe",
+      "timestamp": 1789280113484,
+      "rawDisplayText": "这是干什么的",
+      "canonicalText": "这是干什么的",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "isAnnotationPresent",
+          "lineCount": 1,
+          "startLine": 310
+        }
+      },
+      "images": [],
+      "contentDigest": "196e700ff69cc7850171549ad42b606f19a5f81e23a2bf72aed64184d2c03038",
+      "providerAssistantMessageId": "msg_09967d37a001nRA2z4nCGT6JbM",
+      "providerUserMessageId": "msg_09967d36c001HA7EIvq8Cbus45"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789295547417-nt7jnm8",
+      "userTurnOrdinal": 18,
+      "state": "accepted",
+      "localMessageId": "msg-1789295547409-syvx3vd",
+      "timestamp": 1789295547409,
+      "rawDisplayText": "这个像人话吗",
+      "canonicalText": "这个像人话吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## try-with-resources 如何关闭资源？异常被覆盖了怎么办？\n\n实现 `AutoCloseable` 的资源应优先放进 try-with-resources；编译器会按**声明的逆序关闭资源，即使业务代码抛异常也会执行关闭**。若业务代码和 `close()` 都抛异常，**业务异常作为主异常**，关闭异常进入 `getSuppressed()`，不会像手写 `finally` 那样轻易覆盖根因。\n\n```java\ntry (InputStream in = Files.newInputStream(path);\n     BufferedInputStream buffered = new BufferedInputStream(in)) {\n    return buffered.readAllBytes();\n} catch (IOException e) {\n    // 记录路径、操作和异常链；不要只打印 message 后吞掉。\n    throw new UncheckedIOException(\"read failed: \" + path, e);\n}\n```\n\n工程边界：只捕获当前层能恢复、转换或补充上下文的异常；回滚、重试和错误码要区分参数错误、暂时性依赖失败、权限拒绝与未知结果。`finally` 中不要 `return`，否则可能吞掉原异常；批量关闭或补偿时也要保留所有失败证据。",
+          "lineCount": 15,
+          "startLine": 349
+        }
+      },
+      "images": [],
+      "contentDigest": "77db180cdea89e0dbc483385ee536f16d62371e1ab92b3608aa40fad8101e9f1",
+      "providerAssistantMessageId": "msg_09a5393d2001tlwpgnVe6mOTkt",
+      "providerUserMessageId": "msg_09a5354520016rok5fLLabLZfX"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789298575270-tafmwwu",
+      "userTurnOrdinal": 19,
+      "state": "accepted",
+      "localMessageId": "msg-1789298575261-6rlfkrc",
+      "timestamp": 1789298575261,
+      "rawDisplayText": "这个是不是就是相当于test模块的简化版",
+      "canonicalText": "这个是不是就是相当于test模块的简化版",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## `assert` 什么时候适合使用？\n\n`assert condition` 用于检查开发者**假设的不变量**；通常需要用 `-ea` 显式开启，**失败时抛出 `AssertionError`**，生产环境可能默认关闭。因此它适合开发、测试和内部状态检查，不应承担用户输入校验、权限校验或必须执行的业务规则。",
+          "lineCount": 3,
+          "startLine": 365
+        }
+      },
+      "images": [],
+      "contentDigest": "194b22bfd45f4cf1b006819389e61dff0e12b74eb01c9874552fc9520b57c2d3",
+      "providerAssistantMessageId": "msg_09a81881b001qQYgHlN5mp7y5f",
+      "providerUserMessageId": "msg_09a8187ef001IU6iSWre2Kgogm"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789299205437-n1ikkdt",
+      "userTurnOrdinal": 20,
+      "state": "accepted",
+      "localMessageId": "msg-1789299205419-xkvabw2",
+      "timestamp": 1789299205419,
+      "rawDisplayText": "这里的颜色怎么去除啊",
+      "canonicalText": "这里的颜色怎么去除啊",
+      "images": [
+        {
+          "id": "img-1789299199374-mbpxrbx1t",
+          "name": "image.png",
+          "mediaType": "image/png",
+          "data": "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",
+          "size": 20616,
+          "source": "paste"
+        }
+      ],
+      "contentDigest": "635bcb14f86e1f65b8aa8567c6771ad5a73456e86ec5c018cbb471bcb2382e1d",
+      "providerAssistantMessageId": "msg_09a8b9d34001EDyQWBDlcnV34G",
+      "providerUserMessageId": "msg_09a8b25940016wLrkBaKcl80J2"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789299649531-5ftiz1d",
+      "userTurnOrdinal": 21,
+      "state": "accepted",
+      "localMessageId": "msg-1789299649527-8idyt9s",
+      "timestamp": 1789299649527,
+      "rawDisplayText": "这里是不是没必要这么复杂啊？你先不要改",
+      "canonicalText": "这里是不是没必要这么复杂啊？你先不要改",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## \\==、equals 和 hashCode 有什么区别？\n\n核心回答：`==` 对基本类型比较值，对引用比较对象身份；`equals()` 表达业务上的逻辑相等；`hashCode()` 只用于把对象快速缩小到候选桶，不能单独证明相等。只要重写 `equals()`，就必须同时重写 `hashCode()`，保证相等对象得到相同哈希值。\n\n`equals()` 合同包括自反、对称、传递、一致，并且对 `null` 返回 `false`；`hashCode()` 在参与相等判断的字段不变时也应稳定。反方向不成立：哈希值相同的对象可以不相等，集合仍会继续调用 `equals()` 解决碰撞。\n\n工程上不要把会变化的字段作为 `HashMap` key 的相等性依据。对象入表后若这些字段变化，后续可能在原桶中找不到它；实体还要谨慎使用数据库自增 ID 实现相等性，因为持久化前后的 ID 生命周期不同。值对象可优先使用不可变字段、record 或 IDE 生成的一致实现。",
+          "lineCount": 7,
+          "startLine": 369
+        }
+      },
+      "images": [],
+      "contentDigest": "d3bad689c875bdffc21ea7d50b39e504a81a283fc8ff508fa472a81ec221a697",
+      "providerAssistantMessageId": "msg_09a91ec31001hl1vh3KuJzLu5G",
+      "providerUserMessageId": "msg_09a91ec1b001XGWs0q23aWqOPY"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789304095298-nb4jut7",
+      "userTurnOrdinal": 22,
+      "state": "accepted",
+      "localMessageId": "msg-1789304095285-an9o2c9",
+      "timestamp": 1789304095285,
+      "rawDisplayText": "你来改，而且是不是表格好",
+      "canonicalText": "你来改，而且是不是表格好",
+      "images": [],
+      "contentDigest": "c458114c2ee50a64908858d8a7519426b53fe1c3934e73cf09e8ae5d583e5c79",
+      "providerAssistantMessageId": "msg_09ad604f7001cFfI5UAJ72FBTi",
+      "providerUserMessageId": "msg_09ad5c2890013b5cdk9dZeJADr"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789306345651-uhgnwwm",
+      "userTurnOrdinal": 23,
+      "state": "accepted",
+      "localMessageId": "msg-1789306345644-4me0n99",
+      "timestamp": 1789306345644,
+      "rawDisplayText": "以前是怎么做的",
+      "canonicalText": "以前是怎么做的",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "JDK 9 之后 `String` 内部使用 `byte[] + coder`",
+          "lineCount": 1,
+          "startLine": 390
+        }
+      },
+      "images": [],
+      "contentDigest": "615b3169a8da4686b17c96e306cef26f4a8a7d0ceacf6f57311c93c4b25ae1b8",
+      "providerAssistantMessageId": "msg_09af81907001GrMNurSy6NNY4y",
+      "providerUserMessageId": "msg_09af818e6001CdEX2qRZVTrkSa"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789308459210-pf9kcss",
+      "userTurnOrdinal": 24,
+      "state": "accepted",
+      "localMessageId": "msg-1789308459201-ggeufw3",
+      "timestamp": 1789308459201,
+      "rawDisplayText": "这啥意思，你举个例子",
+      "canonicalText": "这啥意思，你举个例子",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## 常见函数式接口有哪些？\n\n`@FunctionalInterface` 用于让编译器检查接口是否只有一个抽象方法（`default`、`static` 方法不计入）。常见接口可以这样记：\n\n| 接口 | 输入/输出 | 典型用途 |\n| --- | --- | --- |\n| `Predicate<T>` | `T -> boolean` | 条件判断、过滤 |\n| `Function<T, R>` | `T -> R` | 转换、映射 |\n| `Consumer<T>` | `T -> void` | 消费、遍历处理 |\n| `Supplier<T>` | `() -> T` | 延迟提供对象或数据 |\n\n它们常与 Stream、集合处理和异步任务组合使用。",
+          "lineCount": 12,
+          "startLine": 426
+        }
+      },
+      "images": [],
+      "contentDigest": "04a140b9e651cb6f6c449bf3c60a2ba144ba1ffa97327edcc066aee6ef97ecb7",
+      "providerAssistantMessageId": "msg_09b18847e001jR6jgiQlkEtZ64",
+      "providerUserMessageId": "msg_09b1859250017qE40VnKJSaYbD"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789308984078-0g4gezl",
+      "userTurnOrdinal": 25,
+      "state": "accepted",
+      "localMessageId": "msg-1789308984074-f1otca6",
+      "timestamp": 1789308984074,
+      "rawDisplayText": "你来加上去吧",
+      "canonicalText": "你来加上去吧",
+      "images": [],
+      "contentDigest": "5bc5ace4a9f92c6252a19f183be985823fc97f0e584599e9af4980ce73695ae7",
+      "providerAssistantMessageId": "msg_09b20bc41001413I6OxprisDPy",
+      "providerUserMessageId": "msg_09b205b30001SqfwtJC3xzB6EG"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789309151622-addv94q",
+      "userTurnOrdinal": 26,
+      "state": "accepted",
+      "localMessageId": "msg-1789309151617-u7f2lb4",
+      "timestamp": 1789309151617,
+      "rawDisplayText": "这个歌是表格好吗",
+      "canonicalText": "这个歌是表格好吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## `java.time` 相比 `Date`/`Calendar` 有什么优势？\n\n`java.time` 类型不可变且线程安全，职责更清晰，适合替代旧日期 API：\n\n- `LocalDate`、`LocalTime`、`LocalDateTime`：不含时区的日期和时间。\n- `Instant`：时间线上的瞬时点，适合记录时间戳。\n- `ZonedDateTime`、`ZoneId`：需要时区时使用。\n- `Duration`、`Period`：分别表示时间量和日期量。\n- `DateTimeFormatter`：线程安全的格式化工具。\n\n涉及跨时区或系统边界时，不要把 `LocalDateTime` 当作时间戳；应明确使用 `Instant` 或带时区的类型。",
+          "lineCount": 11,
+          "startLine": 449
+        }
+      },
+      "images": [],
+      "contentDigest": "ed5b2b0c695025dbcec416f63937185d727430931f31c93af3f8ad32168a3f01",
+      "providerAssistantMessageId": "msg_09b233621001CJHn4oxGOmMqEC",
+      "providerUserMessageId": "msg_09b22e9a4001QKdokrNNeY1CT3"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789309709513-hfmopi9",
+      "userTurnOrdinal": 27,
+      "state": "accepted",
+      "localMessageId": "msg-1789309709511-sb0ekx1",
+      "timestamp": 1789309709511,
+      "rawDisplayText": "02_IO与网络编程  这一张的1 2级标题是不是也没弄好，你看下",
+      "canonicalText": "02_IO与网络编程  这一张的1 2级标题是不是也没弄好，你看下",
+      "images": [],
+      "contentDigest": "e0f7b6e223ed979f9cd6024740c125400baa596820c24886a2ac4c4b39f8be8c",
+      "providerAssistantMessageId": "msg_09b2be0100011e6yJut72J4VPH",
+      "providerUserMessageId": "msg_09b2b6ce5001gyH61FowMKVbYA"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789309808711-lwkogzx",
+      "userTurnOrdinal": 28,
+      "state": "accepted",
+      "localMessageId": "msg-1789309808709-7m9g1bn",
+      "timestamp": 1789309808709,
+      "rawDisplayText": "你先不要改，先列个方案",
+      "canonicalText": "你先不要改，先列个方案",
+      "images": [],
+      "contentDigest": "7c28987cc3c4d2996a1b326379ff94092d7ddf2a950d27091abf92b742a3d86a",
+      "providerAssistantMessageId": "msg_09b2cf0a3001a7zINjxgpF8K0w",
+      "providerUserMessageId": "msg_09b2cf096001ADKssrWAXtlbNR"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789309906903-3d778ed",
+      "userTurnOrdinal": 29,
+      "state": "accepted",
+      "localMessageId": "msg-1789309906896-p62dx2g",
+      "timestamp": 1789309906896,
+      "rawDisplayText": "# Java I/O 与网络编程 这个是不是直接去掉比较好，然后剩下的标题升一级",
+      "canonicalText": "# Java I/O 与网络编程 这个是不是直接去掉比较好，然后剩下的标题升一级",
+      "images": [],
+      "contentDigest": "877c2cc4b74c150ca78003d9da3047242c0c399df7decfeee37e8589f45c6617",
+      "providerAssistantMessageId": "msg_09b2e7010001birURucbAQcXMj",
+      "providerUserMessageId": "msg_09b2e6ff2001uGQeopq3j81ffW"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789313176857-hq896wn",
+      "userTurnOrdinal": 30,
+      "state": "accepted",
+      "localMessageId": "msg-1789313176852-kpras8a",
+      "timestamp": 1789313176852,
+      "rawDisplayText": "但 Obsidian 搜索里少了个入口 可以标题不就是 IO与网络编程 吗",
+      "canonicalText": "但 Obsidian 搜索里少了个入口 可以标题不就是 IO与网络编程 吗",
+      "images": [],
+      "contentDigest": "cd7851ea3674259b7eca133ee8201e443b6db28c9218a3c88c0090c21e23c33d",
+      "providerAssistantMessageId": "msg_09b60556c001VrMvnv7ADLnemV",
+      "providerUserMessageId": "msg_09b605544001X0ywaS7TiS4bZb"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789313852981-mlb6uxt",
+      "userTurnOrdinal": 31,
+      "state": "accepted",
+      "localMessageId": "msg-1789313852977-o393d8u",
+      "timestamp": 1789313852977,
+      "rawDisplayText": "你来修改，确定不要多删误删内容",
+      "canonicalText": "你来修改，确定不要多删误删内容",
+      "images": [],
+      "contentDigest": "b73ce7ffd83ea9af84a0e1c8c5c43862c2f03c7ab2460f5a989a308ed67c3582",
+      "providerAssistantMessageId": "msg_09b6bd07e0012DbDGYaFy6K53i",
+      "providerUserMessageId": "msg_09b6aa65a001N2TeA8ky9MaiTT"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789317267221-jfnulwt",
+      "userTurnOrdinal": 32,
+      "state": "accepted",
+      "localMessageId": "msg-1789317267212-k79lqch",
+      "timestamp": 1789317267212,
+      "rawDisplayText": "这是什么？解释下",
+      "canonicalText": "这是什么？解释下",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": " RPC",
+          "lineCount": 1,
+          "startLine": 7
+        }
+      },
+      "images": [],
+      "contentDigest": "8d1ecc64143cb6dba049b444be356ee3d0452fd813ffc2b5bcb953e24fd30b43",
+      "providerAssistantMessageId": "msg_09b9ebf82001fxN1RuaxkIQx3L",
+      "providerUserMessageId": "msg_09b9ebf4c001xQO7o9wyQrTu7V"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789317308879-647j2mz",
+      "userTurnOrdinal": 33,
+      "state": "accepted",
+      "localMessageId": "msg-1789317308876-87gvkvg",
+      "timestamp": 1789317308876,
+      "rawDisplayText": "这个是不是也能通过json来传递对象",
+      "canonicalText": "这个是不是也能通过json来传递对象",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "消息传递：通过 MQ 或网络协议传输序列化后的数据",
+          "lineCount": 1,
+          "startLine": 6
+        }
+      },
+      "images": [],
+      "contentDigest": "8380410d8c957693fd0505640eef6a4acfaf1c09aa985b1dc365d61011d75690",
+      "providerAssistantMessageId": "msg_09b9f61f2001MfQXUd15wT5QbR",
+      "providerUserMessageId": "msg_09b9f61e3001kbaiP4uMFxcTVQ"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789352535821-6xq8v2g",
+      "userTurnOrdinal": 34,
+      "state": "accepted",
+      "localMessageId": "msg-1789352535816-pt2xg83",
+      "timestamp": 1789352535816,
+      "rawDisplayText": "这个是什么",
+      "canonicalText": "这个是什么",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "serialVersionUID",
+          "lineCount": 1,
+          "startLine": 18
+        }
+      },
+      "images": [],
+      "contentDigest": "8e8b681521a42c6874c8e183efb4dd7b844a2b2091677f72360ec8560d20f9b1",
+      "providerAssistantMessageId": "msg_09db8e7560018zWDSdhwpYYS4m",
+      "providerUserMessageId": "msg_09db8e7270016ZEAewnqFq7DgR"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789352634220-j6n0t9v",
+      "userTurnOrdinal": 35,
+      "state": "accepted",
+      "localMessageId": "msg-1789352634217-4fmfzl3",
+      "timestamp": 1789352634217,
+      "rawDisplayText": "如果我想在这个笔记里加上，怎么加好",
+      "canonicalText": "如果我想在这个笔记里加上，怎么加好",
+      "images": [],
+      "contentDigest": "3a1f0db38af77f72386d3d0d79f2139417d20c405d49bb808986fda65e4f75c8",
+      "providerAssistantMessageId": "msg_09dbaa40e001R4clySkn2awDh1",
+      "providerUserMessageId": "msg_09dba6782001x7usl86wM4HQTi"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789352694741-wtn9ok0",
+      "userTurnOrdinal": 36,
+      "state": "accepted",
+      "localMessageId": "msg-1789352694737-gayvn8u",
+      "timestamp": 1789352694737,
+      "rawDisplayText": "是不是这样声明后，类修改了 serialVersionUID 就会变",
+      "canonicalText": "是不是这样声明后，类修改了 serialVersionUID 就会变",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "serialVersionUID",
+          "lineCount": 1,
+          "startLine": 23
+        }
+      },
+      "images": [],
+      "contentDigest": "5d67af14953fb25440bee48907c576da5717f8c6fb1052fa33fa81b3e30333a2",
+      "providerAssistantMessageId": "msg_09dbb540f001tvXXz9TpE6FG3v",
+      "providerUserMessageId": "msg_09dbb53ed001Pgy2wG07l85XOJ"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789352728469-y522f7f",
+      "userTurnOrdinal": 37,
+      "state": "accepted",
+      "localMessageId": "msg-1789352728464-o9atyg4",
+      "timestamp": 1789352728464,
+      "rawDisplayText": "这两个是什么",
+      "canonicalText": "这两个是什么",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "Protobuf 或 Avro",
+          "lineCount": 1,
+          "startLine": 21
+        }
+      },
+      "images": [],
+      "contentDigest": "1a992d50381dae61d30676bb380b476a278f27c74cd717133def15e02905192d",
+      "providerAssistantMessageId": "msg_09dbbd7d60013f9njrG7Q0z92X",
+      "providerUserMessageId": "msg_09dbbd7b0001uBm0tWyg82MPsa"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789354712246-lzkccy6",
+      "userTurnOrdinal": 38,
+      "state": "accepted",
+      "localMessageId": "msg-1789354712240-cb7xoir",
+      "timestamp": 1789354712240,
+      "rawDisplayText": "NIO你能画个图让我理解下Channel、Buffer、Selector吗",
+      "canonicalText": "NIO你能画个图让我理解下Channel、Buffer、Selector吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "Channel、Buffer、Selector",
+          "lineCount": 1,
+          "startLine": 30
+        }
+      },
+      "images": [],
+      "contentDigest": "8aca5101af336b867d69e4e889669a67ff0bf9fd759e2ae92a6763004d188f8f",
+      "providerAssistantMessageId": "msg_09dda1d11001GbGRMTBZwmXPd4",
+      "providerUserMessageId": "msg_09dda1ce2001HmcU9WqeDv7r72"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789355069165-65syfii",
+      "userTurnOrdinal": 39,
+      "state": "accepted",
+      "localMessageId": "msg-1789355069156-38f1id1",
+      "timestamp": 1789355069156,
+      "rawDisplayText": "1. Selector 盯着 Channel 1、2、3...\n2. Channel 2 有数据来了 → Selector 通知应用\n3. 应用从 Channel 2 读数据 → 先放进 Buffer\n4. 应用从 Buffer 取出来处理 是不是加这段话就足够了",
+      "canonicalText": "1. Selector 盯着 Channel 1、2、3...\n2. Channel 2 有数据来了 → Selector 通知应用\n3. 应用从 Channel 2 读数据 → 先放进 Buffer\n4. 应用从 Buffer 取出来处理 是不是加这段话就足够了",
+      "images": [],
+      "contentDigest": "6a614ab3b3a935c033a3a998ea257159e2bee5277eacf4e9892f79a6f6dc032b",
+      "providerAssistantMessageId": "msg_09ddf8f5d001Cc9hcoxzdvqhjd",
+      "providerUserMessageId": "msg_09ddf8f20001I9tXVpxhqHYw0E"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789355090836-uwj1x6j",
+      "userTurnOrdinal": 40,
+      "state": "accepted",
+      "localMessageId": "msg-1789355090831-p2wnrlo",
+      "timestamp": 1789355090831,
+      "rawDisplayText": "加上去",
+      "canonicalText": "加上去",
+      "images": [],
+      "contentDigest": "5c56e073c7bb216c5ea396c8204d3e579b8d9da9a2e3c43c6f2629000844a99a",
+      "providerAssistantMessageId": "msg_09de02f34001k2SUbsIpkBBB9p",
+      "providerUserMessageId": "msg_09ddfe3aa001tAu7ZMBRsSBG1t"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789355213879-cbej85q",
+      "userTurnOrdinal": 41,
+      "state": "accepted",
+      "localMessageId": "msg-1789355213874-tl9lwpc",
+      "timestamp": 1789355213874,
+      "rawDisplayText": "为什么我这里没显示，你改到哪了",
+      "canonicalText": "为什么我这里没显示，你改到哪了",
+      "images": [],
+      "contentDigest": "146e07a576e99decf8857a26021e0a51481c2369d4ab7e1c852e29bc2c99919a",
+      "providerAssistantMessageId": "msg_09de246fe0013PGhJW26xbvWIH",
+      "providerUserMessageId": "msg_09de1c4560011p5onLbzy7Z6r0"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789355488452-np4jpd4",
+      "userTurnOrdinal": 42,
+      "state": "accepted",
+      "localMessageId": "msg-1789355488448-2888tpl",
+      "timestamp": 1789355488448,
+      "rawDisplayText": "是不是直接改这个比较好",
+      "canonicalText": "是不是直接改这个比较好",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "### Stream、Channel、Buffer 和 Selector 分别解决什么问题？\n\n字节流处理二进制数据，字符流在字节与字符之间进行编码转换。使用字符流时必须显式确定字符集，不能依赖机器默认编码。\n\n装饰器组合是 Java I/O 的核心结构：底层流负责数据源，缓冲流提高效率，数据流或对象流提供更高层编码。所有资源优先使用 `try-with-resources` 关闭。",
+          "lineCount": 5,
+          "startLine": 38
+        }
+      },
+      "images": [],
+      "contentDigest": "5f9345dfecc90df1bdbd8d0e13dec651459115735309e40719153439e670ef7a",
+      "providerAssistantMessageId": "msg_09de657fc001pcvtCAYUN7hnDZ",
+      "providerUserMessageId": "msg_09de5f4f5001aaQgsynamofMzv"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789357980225-fegke52",
+      "userTurnOrdinal": 43,
+      "state": "accepted",
+      "localMessageId": "msg-1789357980217-s81q659",
+      "timestamp": 1789357980217,
+      "rawDisplayText": "这里的内容是不是需要优化下",
+      "canonicalText": "这里的内容是不是需要优化下",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "### Stream、Channel、Buffer 和 Selector 分别解决什么问题？\n\n**Stream（流）：** 字节流处理二进制数据，字符流在**字节与字符之间进行编码转换**。使用字符流时必须**显式确定字符集**，不能依赖机器默认编码。装饰器组合是 Java I/O 的核心结构：底层流负责数据源，缓冲流提高效率，数据流或对象流提供更高层编码。所有资源优先使用 `try-with-resources` 关闭。\n\n**Channel、Buffer、Selector（NIO 三件套）：** Channel 是数据传输通道，Buffer 是数据容器，Selector 是多路复用器。\n\n工作流程：\n1. Selector 盯着多个 Channel\n2. 某个 Channel 有事件就绪 → Selector 通知应用\n3. 应用从 Channel 读数据 → 先放进 Buffer\n4. 应用从 Buffer 取出来处理",
+          "lineCount": 11,
+          "startLine": 38
+        }
+      },
+      "images": [],
+      "contentDigest": "dd1abc32d23641e588176e5aef1a876fc1e8e58582d895e2ca8d6853009eba03",
+      "providerAssistantMessageId": "msg_09e0bfac1001VPNXsIqKgYl2yi",
+      "providerUserMessageId": "msg_09e0bfa8a001GsAmYSpA6N4njR"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789358001807-lrrdu0o",
+      "userTurnOrdinal": 44,
+      "state": "accepted",
+      "localMessageId": "msg-1789358001803-dxl0f9m",
+      "timestamp": 1789358001803,
+      "rawDisplayText": "改",
+      "canonicalText": "改",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "### Stream、Channel、Buffer 和 Selector 分别解决什么问题？\n\n**Stream（流）：** 字节流处理二进制数据，字符流在**字节与字符之间进行编码转换**。使用字符流时必须**显式确定字符集**，不能依赖机器默认编码。装饰器组合是 Java I/O 的核心结构：底层流负责数据源，缓冲流提高效率，数据流或对象流提供更高层编码。所有资源优先使用 `try-with-resources` 关闭。\n\n**Channel、Buffer、Selector（NIO 三件套）：** Channel 是数据传输通道，Buffer 是数据容器，Selector 是多路复用器。\n\n工作流程：\n1. Selector 盯着多个 Channel\n2. 某个 Channel 有事件就绪 → Selector 通知应用\n3. 应用从 Channel 读数据 → 先放进 Buffer\n4. 应用从 Buffer 取出来处理",
+          "lineCount": 11,
+          "startLine": 38
+        }
+      },
+      "images": [],
+      "contentDigest": "214d5e3d3bd946786e93b07e9d97717456b524245cf2a831e2ee7f3d158e9c64",
+      "providerAssistantMessageId": "msg_09e0c8121001fVuaGX2H1vcNuw",
+      "providerUserMessageId": "msg_09e0c4ead001sPAtzFomxKKHrH"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789358580999-7khxpag",
+      "userTurnOrdinal": 45,
+      "state": "accepted",
+      "localMessageId": "msg-1789358580995-ttx66l1",
+      "timestamp": 1789358580995,
+      "rawDisplayText": "什么意思",
+      "canonicalText": "什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "装饰器组合：底层流 + 缓冲流 + 数据流，逐层增强",
+          "lineCount": 1,
+          "startLine": 43
+        }
+      },
+      "images": [],
+      "contentDigest": "96e2670d0598107cbff9b65251fc6b616872e0ddec1aa7e2e5835fecca2ecf29",
+      "providerAssistantMessageId": "msg_09e152561001vtTCL3m81CTgLR",
+      "providerUserMessageId": "msg_09e152539001taIxTof7LGEf1o"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789358819464-lo9w475",
+      "userTurnOrdinal": 46,
+      "state": "accepted",
+      "localMessageId": "msg-1789358819460-2blc6qc",
+      "timestamp": 1789358819460,
+      "rawDisplayText": "这段话有必要再补充下吗",
+      "canonicalText": "这段话有必要再补充下吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "装饰器组合：底层流 + 缓冲流 + 数据流，逐层增强",
+          "lineCount": 1,
+          "startLine": 43
+        }
+      },
+      "images": [],
+      "contentDigest": "2f2f5643226689e38b3726e227099c305ba9b585977c60ca19821ca51b2f80bd",
+      "providerAssistantMessageId": "msg_09e18c8db001z7sqIgBLjhSWcy",
+      "providerUserMessageId": "msg_09e18c8aa0018z4zYTPEMSxMbD"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789359621104-l5xddv5",
+      "userTurnOrdinal": 47,
+      "state": "accepted",
+      "localMessageId": "msg-1789359621100-9fkm0mw",
+      "timestamp": 1789359621100,
+      "rawDisplayText": "我是说三个流的作用，用() 补充下",
+      "canonicalText": "我是说三个流的作用，用() 补充下",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "装饰器组合：底层流 + 缓冲流 + 数据流，逐层增强",
+          "lineCount": 1,
+          "startLine": 43
+        }
+      },
+      "images": [],
+      "contentDigest": "095fd7e70a6e2655d2f36f7d3e84f303ffe89e9c93609e380f542a1a78c3c0a6",
+      "providerAssistantMessageId": "msg_09e252c26001099pcgG45fxxVt",
+      "providerUserMessageId": "msg_09e250410001GpWBz0s9zEfh0w"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789359862488-1w2l6bk",
+      "userTurnOrdinal": 48,
+      "state": "accepted",
+      "localMessageId": "msg-1789359862484-fl6ezgl",
+      "timestamp": 1789359862484,
+      "rawDisplayText": "这里是不是得有花香",
+      "canonicalText": "这里是不是得有花香",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "### NIO 如何处理半包和短写？\n\n非阻塞读写必须正确处理：\n\n- 一次读不到完整消息。\n- 一次写不完全部 Buffer。\n- 返回 0 不等于连接关闭。\n- 返回 -1 表示对端正常关闭输入流。\n- 消息边界需要长度字段、分隔符或固定长度协议。",
+          "lineCount": 9,
+          "startLine": 56
+        }
+      },
+      "images": [],
+      "contentDigest": "362c5806a4fdd92e9b235991aa6a5f93cd3d04318ed2eb3ec7c6479fa6c5f82a",
+      "providerUserMessageId": "msg_09e28b30c001xw7azFBXJIjWqk",
+      "providerAssistantMessageId": "msg_09e28b336001EZFv3Dw1iSVkLD"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789359874995-3lu7yht",
+      "userTurnOrdinal": 49,
+      "state": "accepted",
+      "localMessageId": "msg-1789359874992-41tsboh",
+      "timestamp": 1789359874992,
+      "rawDisplayText": "这里是不是得优化下",
+      "canonicalText": "这里是不是得优化下",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "### NIO 如何处理半包和短写？\n\n非阻塞读写必须正确处理：\n\n- 一次读不到完整消息。\n- 一次写不完全部 Buffer。\n- 返回 0 不等于连接关闭。\n- 返回 -1 表示对端正常关闭输入流。\n- 消息边界需要长度字段、分隔符或固定长度协议。",
+          "lineCount": 9,
+          "startLine": 56
+        }
+      },
+      "images": [],
+      "contentDigest": "d1db80a1b3b181abbd98fabe5007cc0adde597e8906150a7615f8b9cdc392ea6",
+      "providerAssistantMessageId": "msg_09e28e7e3001CtNahRDGDr6JdP",
+      "providerUserMessageId": "msg_09e28e7d1001Pe9IwejP6FILSU"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789360433549-jrydfd5",
+      "userTurnOrdinal": 50,
+      "state": "accepted",
+      "localMessageId": "msg-1789360433536-58z0kd8",
+      "timestamp": 1789360433536,
+      "rawDisplayText": "我怎么感觉还是比较晦涩，你先给我讲解下",
+      "canonicalText": "我怎么感觉还是比较晦涩，你先给我讲解下",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "### NIO 如何处理半包和短写？\n\n非阻塞读写必须正确处理：\n\n- 一次读不到完整消息。\n- 一次写不完全部 Buffer。\n- 返回 0 不等于连接关闭。\n- 返回 -1 表示对端正常关闭输入流。\n- 消息边界需要长度字段、分隔符或固定长度协议。",
+          "lineCount": 9,
+          "startLine": 56
+        }
+      },
+      "images": [],
+      "contentDigest": "45f1543f96007f02e385a77e2294ba3aceadd0d76e0640daa15726e51ce1a7bc",
+      "providerAssistantMessageId": "msg_09e316a14001ELJtpayLU6sc85",
+      "providerUserMessageId": "msg_09e3169da0011JNGTSlqtnmg5O"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789363171928-on2vrj6",
+      "userTurnOrdinal": 51,
+      "state": "accepted",
+      "localMessageId": "msg-1789363171922-oulxbbl",
+      "timestamp": 1789363171922,
+      "rawDisplayText": "那这段你来优化下吧，就是你上上个回复的那个",
+      "canonicalText": "那这段你来优化下吧，就是你上上个回复的那个",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "### NIO 如何处理半包和短写？\n\n非阻塞读写必须正确处理：\n\n- 一次读不到完整消息。\n- 一次写不完全部 Buffer。\n- 返回 0 不等于连接关闭。\n- 返回 -1 表示对端正常关闭输入流。\n- 消息边界需要长度字段、分隔符或固定长度协议。",
+          "lineCount": 9,
+          "startLine": 56
+        }
+      },
+      "images": [],
+      "contentDigest": "13049b2c2a205686e37f5dc9f6d8475e63fa4e4f366a130d60b99571fcf6f249",
+      "providerAssistantMessageId": "msg_09e600f5a001Su0e1vTbFQ0bzW",
+      "providerUserMessageId": "msg_09e5b32a10016gcCxnbPTqa3Gh"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789365947463-6iul9mj",
+      "userTurnOrdinal": 52,
+      "state": "accepted",
+      "localMessageId": "msg-1789365947460-1wuperj",
+      "timestamp": 1789365947460,
+      "rawDisplayText": "这里有必要优化吗",
+      "canonicalText": "这里有必要优化吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "### 网络服务线程模型怎么设计？\n\n典型 Reactor 模型把接收连接、I/O 事件和业务执行分开。事件循环线程不应执行阻塞数据库查询、远程调用或长时间 CPU 任务，否则会拖慢同一循环上的其他连接。\n\n需要明确：\n\n- Acceptor 和 I/O Worker 数量。\n- 编解码和业务逻辑在哪个线程池执行。\n- 写队列上限和背压。\n- 空闲连接、读写和请求级超时。\n- 半关闭、断线和重连策略。",
+          "lineCount": 11,
+          "startLine": 80
+        }
+      },
+      "images": [],
+      "contentDigest": "c28f8f7241e3e431eefa1f3a27488119780ec14be43a2507b61c70dfa0f7e69c",
+      "providerAssistantMessageId": "msg_09e858cc8001pZYspHAZanHZof",
+      "providerUserMessageId": "msg_09e858c81001dAAZiX1sYBQJjJ"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789366770271-9c2301r",
+      "userTurnOrdinal": 53,
+      "state": "accepted",
+      "localMessageId": "msg-1789366770266-m5utnel",
+      "timestamp": 1789366770266,
+      "rawDisplayText": "改",
+      "canonicalText": "改",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "### 网络服务线程模型怎么设计？\n\n典型 Reactor 模型把接收连接、I/O 事件和业务执行分开。事件循环线程不应执行阻塞数据库查询、远程调用或长时间 CPU 任务，否则会拖慢同一循环上的其他连接。\n\n需要明确：\n\n- Acceptor 和 I/O Worker 数量。\n- 编解码和业务逻辑在哪个线程池执行。\n- 写队列上限和背压。\n- 空闲连接、读写和请求级超时。\n- 半关闭、断线和重连策略。",
+          "lineCount": 11,
+          "startLine": 80
+        }
+      },
+      "images": [],
+      "contentDigest": "214d5e3d3bd946786e93b07e9d97717456b524245cf2a831e2ee7f3d158e9c64",
+      "providerAssistantMessageId": "msg_09e92931a001bicDDbHrosoKrW",
+      "providerUserMessageId": "msg_09e921a96001Z57QoF9mh1XpdX"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789367726442-ruquics",
+      "userTurnOrdinal": 54,
+      "state": "accepted",
+      "localMessageId": "msg-1789367726434-k1kgqqe",
+      "timestamp": 1789367726434,
+      "rawDisplayText": "什么意思",
+      "canonicalText": "什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "背压策略",
+          "lineCount": 1,
+          "startLine": 86
+        }
+      },
+      "images": [],
+      "contentDigest": "96e2670d0598107cbff9b65251fc6b616872e0ddec1aa7e2e5835fecca2ecf29",
+      "providerAssistantMessageId": "msg_09ea0b1ee001UnNU3sUZFM62LH",
+      "providerUserMessageId": "msg_09ea0b19f0018tWYXN2IB3ahGp"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789367810704-6g47nf7",
+      "userTurnOrdinal": 55,
+      "state": "accepted",
+      "localMessageId": "msg-1789367810699-khh10rg",
+      "timestamp": 1789367810699,
+      "rawDisplayText": "这是啥",
+      "canonicalText": "这是啥",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/02_IO与网络编程.md",
+          "mode": "selection",
+          "selectedText": "虚拟线程",
+          "lineCount": 1,
+          "startLine": 90
+        }
+      },
+      "images": [],
+      "contentDigest": "a4ecbf8c93522c6db84305d8c7e15c35386cbef2745c7ddee85a9d88d613e6a3",
+      "providerAssistantMessageId": "msg_09ea1fad4001WpMht7aJejnGU6",
+      "providerUserMessageId": "msg_09ea1faa8001HyxNwnh9i6b3j9"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789378734759-saho8f8",
+      "userTurnOrdinal": 56,
+      "state": "accepted",
+      "localMessageId": "msg-1789378734754-c8cp3fv",
+      "timestamp": 1789378734754,
+      "rawDisplayText": "这个你看有必要写吗",
+      "canonicalText": "这个你看有必要写吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "常用集合：\n\n- `ArrayList`：动态数组，随机访问快，尾部追加通常较快。\n- `LinkedList`：双向链表，实现了 `List` 和 `Deque`，适合两端操作，不适合随机访问。\n- `HashSet`：基于 `HashMap`，用于去重，不保证遍历顺序。\n- `LinkedHashSet`：去重并保持插入顺序。\n- `TreeSet`：基于红黑树，按自然顺序或比较器排序。\n- `HashMap`：哈希表键值映射。\n- `LinkedHashMap`：在 `HashMap` 上维护链表，可保持插入顺序或访问顺序。\n- `TreeMap`：按 key 排序，适合范围查询。\n- `PriorityQueue`：基于堆，保证队头是最高优先级元素，但遍历结果不等于完整排序结果。",
+          "lineCount": 11,
+          "startLine": 14
+        }
+      },
+      "images": [],
+      "contentDigest": "89f58a5240e61f140a8f4eb80e8f986065f516869937f7dee9282da5124f077b",
+      "providerAssistantMessageId": "msg_09f48d726001YtBT0Vgh6jA3zr",
+      "providerUserMessageId": "msg_09f48aaee001dDNhyoHlKBPofz"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789378910557-jpwrfm4",
+      "userTurnOrdinal": 57,
+      "state": "accepted",
+      "localMessageId": "msg-1789378910550-l0obko2",
+      "timestamp": 1789378910550,
+      "rawDisplayText": "不对，你先看下 03_集合与容器 Java 集合 这个一级标题是否可以去除，其他的二三级标题往上提一级",
+      "canonicalText": "不对，你先看下 03_集合与容器 Java 集合 这个一级标题是否可以去除，其他的二三级标题往上提一级",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "Java 集合",
+          "lineCount": 1,
+          "startLine": 1
+        }
+      },
+      "images": [],
+      "contentDigest": "913018deddc32d30a420c877d2ba652ac620345468a21f8190ad099d39ce3af0",
+      "providerAssistantMessageId": "msg_09f62e1ef001UA5Mv85JSxA6dg",
+      "providerUserMessageId": "msg_09f4b5989001WmRVZb0hUamOeI"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789380510718-rkjzph0",
+      "userTurnOrdinal": 58,
+      "state": "accepted",
+      "localMessageId": "msg-1789380510705-r16tx7a",
+      "timestamp": 1789380510705,
+      "rawDisplayText": "这个不是一类的吗？你先规划好",
+      "canonicalText": "这个不是一类的吗？你先规划好",
+      "images": [
+        {
+          "id": "img-1789380501376-pxxop7o3s",
+          "name": "image.png",
+          "mediaType": "image/png",
+          "data": "iVBORw0KGgoAAAANSUhEUgAABNgAAADuCAYAAADr2rrfAAAMS2lDQ1BJQ0MgUHJvZmlsZQAASImVVwdYU8kWnltSIQQIREBK6E0QkRJASggtgPQiiEpIAoQSY0JQsaOLCq5dRLCiqyCKHRCxYV9ZFLtrWSyoKOtiwa68CQF02Ve+d75v7v3vP2f+OefcuWUAoLfzpdIcVBOAXEmeLCbYnzUuKZlFeg7IgAIQYAY8+QK5lBMVFQ6gDZz/bu9uQE9oVx2UWv/s/6+mJRTJBQAgURCnCeWCXIgPAoA3CaSyPACIUsibT82TKvFqiHVkMECIq5Q4Q4WblDhNhS/3+cTFcCF+DABZnc+XZQCg0Q15Vr4gA+rQYbbASSIUSyD2g9gnN3eyEOK5ENtAHzgnXanPTvtBJ+NvmmmDmnx+xiBW5dJn5ACxXJrDn/5/luN/W26OYmAOa9jUM2UhMcqcYd0eZ08OU2J1iD9I0iIiIdYGAMXFwj5/JWZmKkLiVf6ojUDOhTUDTIjHyHNief18jJAfEAaxIcTpkpyI8H6fwnRxkNIH1g8tE+fx4iDWg7hKJA+M7fc5IZscMzDvjXQZl9PPP+PL+mJQ6n9TZMdzVPqYdqaI16+PORZkxiVCTIU4IF+cEAGxBsQR8uzYsH6flIJMbsSAj0wRo8zFAmKZSBLsr9LHStNlQTH9/jtz5QO5YycyxbyIfnwlLzMuRFUr7LGA3xc/zAXrFkk48QM6Ivm48IFchKKAQFXuOFkkiY9V8bieNM8/RjUWt5PmRPX74/6inGAlbwZxnDw/dmBsfh5cnCp9vEiaFxWnihMvz+KHRqniwfeCcMAFAYAFFLClgckgC4hbu+q74JWqJwjwgQxkABFw6GcGRiT29UjgMRYUgD8hEgH54Dj/vl4RyIf81yGskhMPcqqjA0jv71OqZIMnEOeCMJADrxV9SpLBCBLAY8iI/xERHzYBzCEHNmX/v+cH2O8MBzLh/YxiYEYWfcCTGEgMIIYQg4i2uAHug3vh4fDoB5szzsY9BvL47k94QmgjPCRcJ7QTbk8SF8qGRDkWtEP9oP76pP1YH9wKarri/rg3VIfKOBM3AA64C5yHg/vCmV0hy+2PW1kV1hDtv2Xwwx3q96M4UVDKMIofxWboSA07DddBFWWtf6yPKta0wXpzB3uGzs/9ofpCeA4b6oktwg5g57CT2AWsCasHLOw41oC1YEeVeHDFPe5bcQOzxfTFkw11hq6Z73dWWUm5U41Tp9MXVV+eaFqe8mHkTpZOl4kzMvNYHPjFELF4EoHjCJazk7MbAMrvj+r19ia677uCMFu+c/P/AMD7eG9v75HvXOhxAPa5w1fC4e+cDRt+WtQAOH9YoJDlqzhceSDANwcdPn36wBiYAxuYjzNwA17ADwSCUBAJ4kASmAijz4TrXAamgplgHigCJWA5WAPKwSawFVSB3WA/qAdN4CQ4Cy6Cy+A6uANXTwd4AbrBO/AZQRASQkMYiD5iglgi9ogzwkZ8kEAkHIlBkpBUJAORIApkJjIfKUFWIuXIFqQa2YccRk4iF5A25DbyAOlEXiOfUAxVR3VQI9QKHYmyUQ4ahsahE9AMdApagC5Al6JlaCW6C61DT6IX0etoO/oC7cEApoYxMVPMAWNjXCwSS8bSMRk2GyvGSrFKrBZrhPf5KtaOdWEfcSLOwFm4A1zBIXg8LsCn4LPxJXg5XoXX4afxq/gDvBv/RqARDAn2BE8CjzCOkEGYSigilBK2Ew4RzsBnqYPwjkgkMonWRHf4LCYRs4gziEuIG4h7iCeIbcRHxB4SiaRPsid5kyJJfFIeqYi0jrSLdJx0hdRB+kBWI5uQnclB5GSyhFxILiXvJB8jXyE/JX+maFIsKZ6USIqQMp2yjLKN0ki5ROmgfKZqUa2p3tQ4ahZ1HrWMWks9Q71LfaOmpmam5qEWrSZWm6tWprZX7bzaA7WP6trqdupc9RR1hfpS9R3qJ9Rvq7+h0WhWND9aMi2PtpRWTTtFu0/7oMHQcNTgaQg15mhUaNRpXNF4SafQLekc+kR6Ab2UfoB+id6lSdG00uRq8jVna1ZoHta8qdmjxdAapRWplau1RGun1gWtZ9okbSvtQG2h9gLtrdqntB8xMIY5g8sQMOYztjHOMDp0iDrWOjydLJ0Snd06rTrdutq6LroJutN0K3SP6rYzMaYVk8fMYS5j7mfeYH4aZjSMM0w0bPGw2mFXhr3XG67npyfSK9bbo3dd75M+Sz9QP1t/hX69/j0D3MDOINpgqsFGgzMGXcN1hnsNFwwvHr5/+O+GqKGdYYzhDMOthi2GPUbGRsFGUqN1RqeMuoyZxn7GWcarjY8Zd5owTHxMxCarTY6bPGfpsjisHFYZ6zSr29TQNMRUYbrFtNX0s5m1WbxZodkes3vmVHO2ebr5avNm824LE4uxFjMtaix+t6RYsi0zLddanrN8b2VtlWi10Kre6pm1njXPusC6xvquDc3G12aKTaXNNVuiLds223aD7WU71M7VLtOuwu6SPWrvZi+232DfNoIwwmOEZETliJsO6g4ch3yHGocHjkzHcMdCx3rHlyMtRiaPXDHy3MhvTq5OOU7bnO6M0h4VOqpwVOOo1852zgLnCudro2mjg0bPGd0w+pWLvYvIZaPLLVeG61jXha7Nrl/d3N1kbrVune4W7qnu691vsnXYUewl7PMeBA9/jzkeTR4fPd088zz3e/7l5eCV7bXT69kY6zGiMdvGPPI28+Z7b/Fu92H5pPps9mn3NfXl+1b6PvQz9xP6bfd7yrHlZHF2cV76O/nL/A/5v+d6cmdxTwRgAcEBxQGtgdqB8YHlgfeDzIIygmqCuoNdg2cEnwghhISFrAi5yTPiCXjVvO5Q99BZoafD1MNiw8rDHobbhcvCG8eiY0PHrhp7N8IyQhJRHwkieZGrIu9FWUdNiToSTYyOiq6IfhIzKmZmzLlYRuyk2J2x7+L845bF3Ym3iVfENyfQE1ISqhPeJwYkrkxsHzdy3KxxF5MMksRJDcmk5ITk7ck94wPHrxnfkeKaUpRyY4L1hGkTLkw0mJgz8egk+iT+pAOphNTE1J2pX/iR/Ep+TxovbX1at4ArWCt4IfQTrhZ2irxFK0VP073TV6Y/y/DOWJXRmembWZrZJeaKy8WvskKyNmW9z47M3pHdm5OYsyeXnJuae1iiLcmWnJ5sPHna5DapvbRI2j7Fc8qaKd2yMNl2OSKfIG/I04E/+i0KG8VPigf5PvkV+R+mJkw9ME1rmmRay3S76YunPy0IKvhlBj5DMKN5punMeTMfzOLM2jIbmZ02u3mO+ZwFczrmBs+tmkedlz3vt0KnwpWFb+cnzm9cYLRg7oJHPwX/VFOkUSQrurnQa+GmRfgi8aLWxaMXr1v8rVhY/GuJU0lpyZclgiW//jzq57Kfe5emL21d5rZs43LicsnyGyt8V1St1FpZsPLRqrGr6lazVhevfrtm0poLpS6lm9ZS1yrWtpeFlzWss1i3fN2X8szy6xX+FXvWG65fvP79BuGGKxv9NtZuMtpUsunTZvHmW1uCt9RVWlWWbiVuzd/6ZFvCtnO/sH+p3m6wvWT71x2SHe1VMVWnq92rq3ca7lxWg9Yoajp3pey6vDtgd0OtQ+2WPcw9JXvBXsXe5/tS993YH7a/+QD7QO1By4PrDzEOFdchddPruusz69sbkhraDocebm70ajx0xPHIjibTpoqjukeXHaMeW3Cs93jB8Z4T0hNdJzNOPmqe1Hzn1LhT105Hn249E3bm/Nmgs6fOcc4dP+99vumC54XDv7J/rb/odrGuxbXl0G+uvx1qdWutu+R+qeGyx+XGtjFtx674Xjl5NeDq2Wu8axevR1xvuxF/49bNlJvtt4S3nt3Ouf3q9/zfP9+Ze5dwt/ie5r3S+4b3K/+w/WNPu1v70QcBD1oexj6880jw6MVj+eMvHQue0J6UPjV5Wv3M+VlTZ1Dn5efjn3e8kL743FX0p9af61/avDz4l99fLd3jujteyV71vl7yRv/Njrcub5t7onruv8t99/l98Qf9D1Uf2R/PfUr89PTz1C+kL2Vfbb82fgv7drc3t7dXypfx+34FMKDc2qQD8HoHALQkABhw30gdr9of9hmi2tP2IfCfsGoP2Wfwz6UW/tNHd8G/m5sA7N0GgBXUp6cAEEUDIM4DoKNHD7aBvVzfvlNpRLg32Dzxa1puGvg3ptqT/hD30DNQqrqAoed/AYzagzJidK7NAAAABGNJQ1AMDQABbgPj7wAAAIplWElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAACQAAAAAQAAAJAAAAABAAOShgAHAAAAEgAAAHigAgAEAAAAAQAABNigAwAEAAAAAQAAAO4AAAAAQVNDSUkAAABTY3JlZW5zaG90d5BMCQAAAAlwSFlzAAAWJQAAFiUBSVIk8AAAAddpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDYuMC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iPgogICAgICAgICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+MjM4PC9leGlmOlBpeGVsWURpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjEyNDA8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpVc2VyQ29tbWVudD5TY3JlZW5zaG90PC9leGlmOlVzZXJDb21tZW50PgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KKzlFTgAAABxpRE9UAAAAAgAAAAAAAAB3AAAAKAAAAHcAAAB3AAArjUVilRoAACtZSURBVHgB7N1//E71/cfxd5LSGNrMyPwaSrXI0vysxVDE/EqlqbFI1lIj5keRTORHohCR/Ep+tBaWX1tLfqUwNa0aytxEyCZG1PT1PN/OdTvXud7nXOf6nM/H54fH+3bTda5zzvucc92v6/NHz9vr/X6f8/XpZmgIIIAAAggggAACCCCAAAIIIIAAAgggkCWBcwjYsuRGJwQQQAABBBBAAAEEEEAAAQQQQAABBBwBAjZ+CAgggAACCCCAAAIIIIAAAggggAACCMQQIGCLgUdXBBBAAAEEEEAAAQQQQAABBBBAAAEECNj4DSCAAAIIIIAAAggggAACCCCAAAIIIBBDgIAtBh5dEUAAAQQQQAABBBBAAAEEEEAAAQQQIGDjN4AAAggggAACCCCAAAIIIIAAAggggEAMAQK2GHh0RQABBBBAAAEEEEAAAQQQQAABBBBAgICN3wACCCCAAAIIIIAAAggggAACCCCAAAIxBAjYYuDRFQEEEEAAAQQQQAABBBBAAAEEEEAAAQI2fgMIIIAAAggggAACCCCAAAIIIIAAAgjEECBgi4FHVwQQQAABBBBAAAEEEEAAAQQQQAABBAjY+A0ggAACCCCAAAIIIIAAAggggAACCCAQQ4CALQYeXRFAAAEEEEAAAQQQQAABBBBAAAEEECBg4zeAAAIIIIAAAggggAACCCCAAAIIIIBADAECthh4dEUAAQQQQAABBBBAAAEEEEAAAQQQQICAjd8AAggggAACCCCAAAIIIIAAAggggAACMQQI2GLg0RUBBBBAAAEEEEAAAQQQQAABBBBAAAECNn4DCCCAAAIIIIAAAggggAACCCCAAAIIxBAgYIuBR1cEEEAAAQQQQAABBBBAAAEEEEAAAQQI2PgNIIAAAggggAACCCCAAAIIIIAAAgggEEOAgC0GHl0RQAABBBBAAAEEEEAAAQQQQAABBBAgYOM3gAACCCCAAAIIIIAAAggggAACCCCAQAwBArYYeHRFAAEEEEAAAQQQQAABBBBAAAEEEECAgI3fAAIIIIAAAggggAACCCCAAAIIIIAAAjEECNhi4NEVAQQQQAABBBBAAAEEEEAAAQQQQAABAjZ+AwgggAACCCCAAAIIIIAAAggggAACCMQQIGCLgUdXBBBAAAEEEEAAAQQQQAABBBBAAAEECNj4DSCAAAIIIIAAAggggAACCCCAAAIIIBBDgIAtBh5dEUAAAQQQQAABBBBAAAEEEEAAAQQQIGDjN4AAAggggAACCCCAAAIIIIAAAggggEAMAQK2GHh0RQABBBBAAAEEEEAAAQQQQAABBBBAgICN3wACCCCAAAIIIIAAAggggAACCCCAAAIxBAjYYuDRFQEEEEAAAQQQQAABBBBAAAEEEEAAAQI2fgMIIIAAAggggAACCCCAAAIIIIAAAgjEECBgi4FHVwQQQAABBBBAAAEEEEAAAQQQQAABBAjY+A0ggAACCCCAAAIIIIAAAggggAACCCAQQ4CALQYeXRFAAAEEEEAAAQQQQAABBBBAAAEEECBg4zeAAAIIIIAAAggggAACCCCAAAIIIIBADAECthh4dEUAAQQQQAABBBBAAAEEEEAAAQQQQICAjd8AAggggAACCCCAAAIIIIAAAggggAACMQQI2GLg0RUBBBBAAAEEEEAAAQQQQAABBBBAAAECNn4DCCCAAAIIIIAAAggggAACCCCAAAIIxBAgYIuBR1cEEEAAAQQQQAABBBBAAAEEEEAAAQQI2PgNIIAAAggggAACCCCAAAIIIIAAAgggEEOAgC0GHl0RQAABBBBAAAEEEEAAAQQQQAABBBAgYOM3gAACCCCAAAIIIIAAAggggAACCCCAQAwBArYYeHRFAAEEEEAAAQQQQAABBBBAAAEEEECAgI3fAAIIIIAAAggggAACCCCAAAIIIIAAAjEECNhi4NEVAQQQQAABBBBAAAEEEEAAAQQQQAABAjZ+AwgggAACCCCAAAIIIIAAAggggAACCMQQIGCLgUdXBBBAAAEEEEAAAQQQQAABBBBAAAEECNj4DSCAAAIIIIAAAggggAACCCCAAAIIIBBDgIAtBh5dowscOnTIFCpUyJQsWTJyp//+979m586dZt++faZp06aR++XmicePHzcnTpxIPELx4sXNueeem3h/pjd27dplypUrZ84777yMb/3FF1+k9NF1cvPzpDwQOxBAAAEEEEAAAQQQQAABBBDIAwIEbHngSyjoj/C///3PtG7d2rz//vumQoUKpk6dOuaqq64y9evXNxUrVkz6+IsXLzb6t23bNidYcw8uWLDA1K5d232bJ1+nTZtmhg8fnvRs119/vZk4caIpUqRI0v4z8ebUqVOmbt26zq3uvfde0759e/Otb30r0q2//PJLc+mll6acO2XKFNOkSZOU/flph1w+/fRTo/Dxo48+ckLcMt/7nrmrW7f89DF4VgQQQAABBBBAAAEEEEAAgTwkQMCWh76MgvooS5YsMb169Ur5eH369DH33HNP0v6gc9u2bWtGjx6ddG5eejNr1iwzZMgQ6yOp+m7ChAlZqiKzXjDizi1btpgOHTokzla41u10iNSlSxdTrFixxH7bRn4O2BToHjx40Hz22WfmwIEDzj8FagrTPvzwQye8tX3mP/7xj+aKK66wHWIfAggggAACCCCAAAIIIIAAAqECBGyhPByMK3Dy5EmjKi4N8/S3tWvXmu9///tJu1Vd1LFjR6NwyN82btxovvOd7/h35/r7F1980QwYMCD0OVq0aGHGjRt3RodXPv744+aZZ55Jea6lS5daq9O8J56JgO3rr782x44dM1999ZXR9657el+1X/8UmGm48NGjRxOvR48cMUe/2ff5558b/VOItmfPHidY836WqNuqqpw/f74zlDlqH85DAAEEEEAAAQQQQAABBBBAQAIEbPwOclRg9uzZZvDgwSn3qFevnpk0aVLKfu3YvHmz6dq1a8qx3r17m86dO6fsT7ejcOHCpmjRoulOy9LxP/zhD0aVeFGahsmqCu9MzGGm8Kphw4YpwWblypXNqlWr0j7umQjYFIop1MpLbcyYMaZNmzZ56ZF4FgQQQAABBBBAAAEEEEAAgXwgQMCWD76k/PqIqjpSkKbX3G4rV640VapUydbHULVT//79M7qmhrqOGDHCKPTLybZ161bTrl27lFvYhuWmnHR6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AiIgAiIgAiIgAg0EJLA1ANJiERABERABERABERABERABERABERABERABEcgRkMCWo6NlIiACIiACIiACIiACIiACIiACIiACIiACItBAQAJbAyAtFgEREAEREAEREAEREAEREAEREAEREAEREIEcAQlsOTpaJgIiIAIiIAIiIAIiIAIiIAIiIAIiIAIiIAINBCSwNQDSYhEQAREQAREQAREQAREQAREQAREQAREQARHIEZDAlqOjZSIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiLQQEACWwMgLRYBERABERABERABERABERABERABERABERCBHAEJbDk6WiYCIiACIiACIiACIiACIiACIiACIiACIiACDQQksDUA0mIREAEREAEREAEREAEREAEREAEREAEREAERyBGQwJajo2UiIAIiIAIiIAIiIAIiIAIiIAIiIAIiIAIi0EBAAlsDIC0WAREQAREQAREQAREQAREQAREQAREQAREQgRwBCWw5OlomAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAg0EJLA1ANJiERABERABERABERABERABERABERABERABEcgRkMCWo6NlIiACIiACIiACIiACIiACIiACIiACIiACItBAQAJbAyAtFgEREAEREAEREAEREAEREAEREAEREAEREIEcAQlsOTpaJgIiIAIiIAIiIAIiIAIiIAIiIAIiIAIiIAINBCSwNQDSYhEQAREQAREQAREQAREQAREQAREQAREQARHIEZDAlqOjZSIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiLQQEACWwMgLRYBERABERABERABERABERABERABERABERCBHAEJbDk6WiYCIiACIiACIiACIiACIiACIiACIiACIiACDQQksDUA0mIREAEREAEREAEREAEREAEREAEREAEREAERyBGQwJajo2UiIAIiIAIiIAIiIAIiIAIiIAIiIAIiIAIi0EBAAlsDIC0WAREQAREQAREQAREQAREQAREQAREQAREQgRyBQQlsuQPVMhEQAREQAREQAREQAREQAREQAREQAREQAREYIgEJbEO8KjomERABERABERABERABERABERABERABERCBhSEggW1hLpUOVAREQAREQAREQAREQAREQAREQAREQAREYIgEJLAN8aromERABERABERABERABERABERABERABERABBaGgAS2hblUOlAREAEREAEREAEREAEREAEREAEREAEREIEhEpDANsSromMSAREQAREQAREQAREQAREQAREQAREQARFYGAIS2BbmUulARUAEREAEREAEREAEREAEREAEREAEREAEhkhAAtsQr4qOSQREQAREQAREQAREQAREQAREQAREQAREYGEISGBbmEulAxUBERABERABERABERABERABERABERABERgiAQlsQ7wqOiYREAEREAEREAEREAEREAEREAEREAEREIGFISCBbY6X6p577qk22WST6nu+53vmuNeVu6v/+Z//qb71rW9V22+/fTGE+++/v/r6179e3XTTTdWTn/zkavPNNy9ed6kK/t///V/17W9/e7T7jTbaqL7PRjMGNHHDDTdU//u//1tfky222GJAR7b+UK6++upq1apV1QYbbDC4Y+t6QNwf11xzTbXddttV2267bdfNaD0RGDwB7vVvfOMb1QMPPDB2rDvvvHP1yEc+cmyevqQJ3HnnnfUzsM0z+r//+7+rG2+8sfr3f//36pnPfGZ64wNacu+991b33Xff6Ige85jHDLZ+dtVVV1Wbbrpp/e783u/93tExa0IEREAEREAERGBYBBZCYLvrrrsqxKmddtppRO83f/M3qz/5kz8Zfd9www2r3/u936t++Id/eDTv+uuvrxuUKZHkKU95Si1E0KDefffdq912263ae++9q6222mq0jb4mvvOd71T77bdftfHGG1cveclLqp/6qZ8aO5++9rMU2/mP//iP6m/+5m+qyy67rHr+859fHXrooUtxGBP7fNOb3lT9wR/8QUVllGu9zz77VPvuu2/1Iz/yI2Nlv/jFL9blECG+9rWvjZb94i/+YvVzP/dzo+9DnPjHf/zH6vjjj69o3AT7/u///urP/uzPWgmLYd1Zfn73u9+tDj744Orf/u3fRrv5wR/8wfq399u//dujeUs18aUvfalas2ZNxTGdeOKJ1U/+5E+2apSfdNJJFdcjNp5H73znO+NZc5/+4z/+4+qXf/mX6/1yb/Bb+NEf/dH697DrrrvO/Xi0w3YEEM9/5md+ZmwlRPS3vOUt1Q477DA2fzl/+a//+q/q1ltvrZ74xCcmT/OTn/xk/du1BT796U9XO+64o51df+c3+w//8A/V4YcfXiHErXRDpHzOc55TffWr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ls3lHmBUVzp4uFYryciRZtMjnHjiia1yE07LC883vMtiI4KAzoA+jXoQ78nY6PRFUOrL8GT9zGc+M7Y53teHHnro2LzUF0QlOoOtIbiSW5MOkS5Cqt1e7ju/PwaPwcs2fkffcccdtZcmgzEgpiII0/lt6+E8e/FMD8b7mFyApYJrWE+fIiACIiACIrAUBAYrsC0FDO1TBERABERABERABERABERABERABERABERABNoSkMDWlpjKi4AIiIAIiIAIiIAIiIAIiIAIiIAIiIAIiEBEQAJbBEOTIiACIiACIiACIiACIiACIiACIiACIiACItCWgAS2tsRUXgREQAREQAREQAREQAREQAREQAREQAREQAQiAhLYIhiaFAEREAEREAEREAEREAEREAEREAEREAEREIG2BCSwtSWm8iIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIQEZDAFsHQpAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAi0JSCBrS0xlRcBERABERABERABERABERABERABERABERCBiIAEtgiGJkVABERABERABERABERABERABERABERABESgLQEJbG2JqbwIiIAIiIAIiIAIiIAIiIAIiIAIiIAIiIAIRAQksEUwNCkCIiACIiACIiACIiACIiACIiACIiACIiACbQlIYGtLTOVFQAREQAREQAREQAREQAREQAREQAREQAREICIggS2CoUkREAEREAEREAEREAEREAEREAEREAEREAERaEtAAltbYiovAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAhEBCWwRDE2KgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIQFsCEtjaElN5ERABERABERABERABERABERABERABERABEYgISGCLYGhSBERABERABERABERABERABERABERABERABNoSkMDWlpjKi4AIiIAIiIAIiIAIiIAIiIAIiIAIiIAIiEBEQAJbBEOTIiACIiACIiACIiACIiACIiACIiACIiACItCWgAS2tsRUXgREQAREQAREQAREQAREQAREQAREQAREQAQiAhLYIhiaFAEREAEREAEREAEREAEREAEREAEREAEREIG2BCSwtSWm8iIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIQEZDAFsHQpAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAi0JSCBrS0xlRcBERABERABERABERABERABERABERABERCBiIAEtgiGJkVABERABERABERABERABERABERABERABESgLQEJbG2JqbwIiIAIiIAIiIAIiIAIiIAIiIAIiIAIiIAIRAQksEUwNCkCIiACIiACIiACIiACIiACIiACIiACIiACbQlIYGtLTOVFQAREQAREQAREQAREQAREQAREQAREQAREICIggS2CoUkREAEREAEREAEREAEREAEREAEREAEREAERaEtAAltbYiovAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAhEBCWwRDE2KgAiIgAiIgAiIgAiIgAiIgAiIgAiIgAiIQFsCEtjaElN5ERABERABERABERABERABERABERABERABEYgISGCLYGhSBERABERABERABERABERABERABERABERABNoSkMDWlpjKi4AIiIAIiIAIiIAIiIAIiIAIiIAIiIAIiEBEQAJbBEOTIiACIiACIiACIiACIiACIiACIiACIiACItCWgAS2tsRUXgREQAREQAREQAREQAREQAREQAREQAREQAQiAv8P1TgFFddU/hEAAAAASUVORK5CYII=",
+          "size": 35561,
+          "source": "paste"
+        }
+      ],
+      "contentDigest": "4de4a3f692c02619b499d35441107ac18daafd4178a00605c4424b4941af2a96",
+      "providerAssistantMessageId": "msg_09f63c49c00108zYN68mPMfsq5",
+      "providerUserMessageId": "msg_09f63c43b001aK1WR0dFNgVDXh"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789380804360-a000o4a",
+      "userTurnOrdinal": 59,
+      "state": "accepted",
+      "localMessageId": "msg-1789380804339-qjr4nps",
+      "timestamp": 1789380804339,
+      "rawDisplayText": "不是， 数组和集合有什么区别？常用集合有哪些？ 不是属于  ## Java 集合体系 吗？只是它们之前都归为二级标题里",
+      "canonicalText": "不是， 数组和集合有什么区别？常用集合有哪些？ 不是属于  ## Java 集合体系 吗？只是它们之前都归为二级标题里",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "## Java 集合体系",
+          "lineCount": 1,
+          "startLine": 3
+        }
+      },
+      "images": [],
+      "contentDigest": "0e9fdeae50a95460c6134a9e57017e28ac164f1011fecef8b0aaf80043b318c6",
+      "providerAssistantMessageId": "msg_09f6a46450014TLD8t5L61np0n"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789380993225-ag3hxb8",
+      "userTurnOrdinal": 60,
+      "state": "accepted",
+      "localMessageId": "msg-1789380993215-ocvmhv6",
+      "timestamp": 1789380993215,
+      "rawDisplayText": "## 变成 # 吧。变为1 2 级标题",
+      "canonicalText": "## 变成 # 吧。变为1 2 级标题",
+      "images": [],
+      "contentDigest": "a6fd8b4b2d3d9e7dc604974f1ba51897b03e7b4fe7ee34f11e4b55adb6fbe1ac",
+      "providerAssistantMessageId": "msg_09f6bb0fd001QPpwz4VMsFKVro"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789381239718-5xxmzb7",
+      "userTurnOrdinal": 61,
+      "state": "accepted",
+      "localMessageId": "msg-1789381239714-92nm8js",
+      "timestamp": 1789381239714,
+      "rawDisplayText": "你来处理吧",
+      "canonicalText": "你来处理吧",
+      "images": [],
+      "contentDigest": "43648292b501dc4e1245d1da529a8031f13cb046a6e7fabe5e6a7db68094d8fa",
+      "providerAssistantMessageId": "msg_09f6f89a7001U8qdWMox1BojuM"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789390645871-k556q0t",
+      "userTurnOrdinal": 62,
+      "state": "accepted",
+      "localMessageId": "msg-1789390645865-9fov8t1",
+      "timestamp": 1789390645865,
+      "rawDisplayText": "这些内容在下面都包含了吗？是否有必要",
+      "canonicalText": "这些内容在下面都包含了吗？是否有必要",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "常用集合：\n\n- `ArrayList`：动态数组，随机访问快，尾部追加通常较快。\n- `LinkedList`：双向链表，实现了 `List` 和 `Deque`，适合两端操作，不适合随机访问。\n- `HashSet`：基于 `HashMap`，用于去重，不保证遍历顺序。\n- `LinkedHashSet`：去重并保持插入顺序。\n- `TreeSet`：基于红黑树，按自然顺序或比较器排序。\n- `HashMap`：哈希表键值映射。\n- `LinkedHashMap`：在 `HashMap` 上维护链表，可保持插入顺序或访问顺序。\n- `TreeMap`：按 key 排序，适合范围查询。\n- `PriorityQueue`：基于堆，保证队头是最高优先级元素，但遍历结果不等于完整排序结果。",
+          "lineCount": 11,
+          "startLine": 12
+        }
+      },
+      "images": [],
+      "contentDigest": "f69f5afab828ac018bed993993dcba75eb5529d21ef1853b447ddb018452f05d",
+      "providerAssistantMessageId": "msg_09ffe6b0c001lmKIgEbMavNdWp"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789461875538-q848qrr",
+      "userTurnOrdinal": 63,
+      "state": "accepted",
+      "localMessageId": "msg-1789461875534-t6q4jgn",
+      "timestamp": 1789461875534,
+      "rawDisplayText": "这个有必要吗",
+      "canonicalText": "这个有必要吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "常用集合：\n\n- `ArrayList`：动态数组，随机访问快，尾部追加通常较快。\n- `LinkedList`：双向链表，实现了 `List` 和 `Deque`，适合两端操作，不适合随机访问。\n- `HashSet`：基于 `HashMap`，用于去重，不保证遍历顺序。\n- `LinkedHashSet`：去重并保持插入顺序。\n- `TreeSet`：基于红黑树，按自然顺序或比较器排序。\n- `HashMap`：哈希表键值映射。\n- `LinkedHashMap`：在 `HashMap` 上维护链表，可保持插入顺序或访问顺序。\n- `TreeMap`：按 key 排序，适合范围查询。\n- `PriorityQueue`：基于堆，保证队头是最高优先级元素，但遍历结果不等于完整排序结果。",
+          "lineCount": 11,
+          "startLine": 12
+        }
+      },
+      "images": [],
+      "contentDigest": "548429c694074160ad67386845d0392f503226f9f632b3e23d6552b9fc98221e",
+      "providerAssistantMessageId": "msg_0a4424ed0001L9D9z0VzuFDPMk"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789462842659-47fs2m9",
+      "userTurnOrdinal": 64,
+      "state": "accepted",
+      "localMessageId": "msg-1789462842652-46oyupm",
+      "timestamp": 1789462842652,
+      "rawDisplayText": "举个例子",
+      "canonicalText": "举个例子",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "- `Arrays.asList(array)` 返回的是**数组的定长视图**：可以 `set()`，但不能 `add()`/`remove()`；需要可变列表时使用 `new ArrayList<>(Arrays.asList(array))`。",
+          "lineCount": 1,
+          "startLine": 20
+        }
+      },
+      "images": [],
+      "contentDigest": "e871da391100f10186bc78433b14209b1e6fd077eb7c749d12dedf760a84fc55",
+      "providerAssistantMessageId": "msg_0a44c765d0013Dgbl4nKnIGWVB"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789465082384-tlxqpyc",
+      "userTurnOrdinal": 65,
+      "state": "accepted",
+      "localMessageId": "msg-1789465082375-efxs4il",
+      "timestamp": 1789465082375,
+      "rawDisplayText": "这个什么意思",
+      "canonicalText": "这个什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "避免使用原始类型集合（如 `List list`），使用泛型让类型错误尽早暴露，并减少强制类型转换。",
+          "lineCount": 1,
+          "startLine": 33
+        }
+      },
+      "images": [],
+      "contentDigest": "2a8ed9c4d9ab9aaf5fd27ec087c9c673f82b051fb8e7b968dc85bd33378f3ee1",
+      "providerAssistantMessageId": "msg_0a46e3ad8001yVntFdbvWPzdW6"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789465169550-dw1lh7l",
+      "userTurnOrdinal": 66,
+      "state": "accepted",
+      "localMessageId": "msg-1789465169547-46osizv",
+      "timestamp": 1789465169547,
+      "rawDisplayText": "这句话是不是多余了",
+      "canonicalText": "这句话是不是多余了",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "\n增强 `for` 中直接调用集合的 `add()` 或 `remove()` 做结构性修改，通常会触发 `ConcurrentModificationException`。需要删除时使用迭代器自己的 `remove()`。",
+          "lineCount": 2,
+          "startLine": 55
+        }
+      },
+      "images": [],
+      "contentDigest": "8fbb27e146b3f7d115f830d45c1a2ee052fb55717d46de4b5c8df2ffa8b5ffa7",
+      "providerAssistantMessageId": "msg_0a46fd94b001fkNvRwcfQm0ASd"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789466011642-d2fbr51",
+      "userTurnOrdinal": 67,
+      "state": "accepted",
+      "localMessageId": "msg-1789466011634-27tdq2u",
+      "timestamp": 1789466011634,
+      "rawDisplayText": "这里要不要移到下一题去",
+      "canonicalText": "这里要不要移到下一题去",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "- 遍历时删除元素使用 `Iterator.remove()` 或 `removeIf()`，**不要直接调用集合的 `remove()`**；否则可能触发 `ConcurrentModificationException` 或跳过元素。",
+          "lineCount": 1,
+          "startLine": 32
+        }
+      },
+      "images": [],
+      "contentDigest": "0a9a69e6c5cbe613f5f3b271a2bb0e2d9c15daba064c22a00ec199cdf2fe5bcf",
+      "providerAssistantMessageId": "msg_0a47cc0dc001e0kYFZfpxXNG7a"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789467125780-fivl2p0",
+      "userTurnOrdinal": 68,
+      "state": "accepted",
+      "localMessageId": "msg-1789467125777-g21skqs",
+      "timestamp": 1789467125777,
+      "rawDisplayText": "这个是不是也和后面的重复了",
+      "canonicalText": "这个是不是也和后面的重复了",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "- `CopyOnWriteArrayList` 的迭代器基于创建时的数组快照，不会看到之后的修改。",
+          "lineCount": 1,
+          "startLine": 60
+        }
+      },
+      "images": [],
+      "contentDigest": "75e7a789f5a8ffba8ff7b1b95df753fe9768277f337f576073629c6f4e336653",
+      "providerAssistantMessageId": "msg_0a48d831c001kl6C5qbwt8q7HD"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789467209053-sfu0hk4",
+      "userTurnOrdinal": 69,
+      "state": "accepted",
+      "localMessageId": "msg-1789467209050-zeu79f4",
+      "timestamp": 1789467209050,
+      "rawDisplayText": "这是啥",
+      "canonicalText": "这是啥",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "需要队列或栈时通常优先考虑 **`ArrayDeque`**",
+          "lineCount": 1,
+          "startLine": 73
+        }
+      },
+      "images": [],
+      "contentDigest": "a4ecbf8c93522c6db84305d8c7e15c35386cbef2745c7ddee85a9d88d613e6a3",
+      "providerAssistantMessageId": "msg_0a48eb1c7001peaqRjA2dJNmC8"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789480520593-5n0sbmn",
+      "userTurnOrdinal": 70,
+      "state": "accepted",
+      "localMessageId": "msg-1789480520587-1gdkrok",
+      "timestamp": 1789480520587,
+      "rawDisplayText": "这个你觉得有必要和上面那道类似的题合并吗",
+      "canonicalText": "这个你觉得有必要和上面那道类似的题合并吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "## List 可以一边遍历一边修改吗？\n\n- 修改元素值：普通下标遍历或 `ListIterator.set()` 都可以。\n- 删除当前元素：使用 `Iterator.remove()`。\n- 添加或双向修改：使用 `ListIterator.add()`、`set()`。\n- 直接使用集合的 `add()`/`remove()`：增强 `for` 遍历时通常会触发 fail-fast。",
+          "lineCount": 6,
+          "startLine": 100
+        }
+      },
+      "images": [],
+      "contentDigest": "b871cf5cf9ee73c56186596675151cb7c0b33c9079ed068a6dd337fa2b885a61",
+      "providerAssistantMessageId": "msg_0a559cc3500138UEzMGnegDAMe"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789480545031-7mec688",
+      "userTurnOrdinal": 71,
+      "state": "accepted",
+      "localMessageId": "msg-1789480545028-6mk1a7z",
+      "timestamp": 1789480545028,
+      "rawDisplayText": "合并吧",
+      "canonicalText": "合并吧",
+      "images": [],
+      "contentDigest": "69147b970bfeae53de7089f74d5824b6f6f95ca7be210190e07b2ae9744170e7",
+      "providerAssistantMessageId": "msg_0a561c9be001t6xqCZHp4vqlJw"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789481579039-84viwi4",
+      "userTurnOrdinal": 72,
+      "state": "accepted",
+      "localMessageId": "msg-1789481579032-foka3np",
+      "timestamp": 1789481579032,
+      "rawDisplayText": "这几个问题 你觉得有必要扩充一下吗？",
+      "canonicalText": "这几个问题 你觉得有必要扩充一下吗？",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "`add()` 涉及**容量检查、数组写入和 size 更新，并不是一个原子操作**。多个线程同时写入时可能出现**元素覆盖、数据丢失和 size 不准确**；并发扩容还可能导致更严重的数据问题。\n",
+          "lineCount": 2,
+          "startLine": 91
+        }
+      },
+      "images": [],
+      "contentDigest": "15711a21f523dacb2f9a9764f7fa10913e5cc60a20f41e29bd8a71b002cf6c93",
+      "providerAssistantMessageId": "msg_0a569f300001cEUmlOYGqlwkk0"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789484941907-3bzidxr",
+      "userTurnOrdinal": 73,
+      "state": "accepted",
+      "localMessageId": "msg-1789484941899-al9h6p8",
+      "timestamp": 1789484941899,
+      "rawDisplayText": "这两个是一回事吗",
+      "canonicalText": "这两个是一回事吗",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "1. 对 key 的 `hashCode()` 做扰动计算。\n2. 通过 `(n - 1) & hash` 定位桶下标。",
+          "lineCount": 2,
+          "startLine": 133
+        }
+      },
+      "images": [],
+      "contentDigest": "d086eb652fee9472861c15026ed281d227d505f8385173bc780ab496e6c81630",
+      "providerAssistantMessageId": "msg_0a59d4312001sd1KYafd0C0TIX"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789490606825-3m881j3",
+      "userTurnOrdinal": 74,
+      "state": "accepted",
+      "localMessageId": "msg-1789490606818-apo6j7w",
+      "timestamp": 1789490606818,
+      "rawDisplayText": "这句话什么意思",
+      "canonicalText": "这句话什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "**避免严重哈希冲突时链表退化**",
+          "lineCount": 1,
+          "startLine": 160
+        }
+      },
+      "images": [],
+      "contentDigest": "a9a36996436344c7e674f986295c1f0b02a2d4b7b0a2392f70cc60d8e34d61c4",
+      "providerAssistantMessageId": "msg_0a5f3b3b6001it9M26qtIbEifo"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789491897471-onxndkw",
+      "userTurnOrdinal": 75,
+      "state": "accepted",
+      "localMessageId": "msg-1789491897468-xkhi91e",
+      "timestamp": 1789491897468,
+      "rawDisplayText": "什么意思",
+      "canonicalText": "什么意思",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "还要手动同步",
+          "lineCount": 1,
+          "startLine": 190
+        }
+      },
+      "images": [],
+      "contentDigest": "96e2670d0598107cbff9b65251fc6b616872e0ddec1aa7e2e5835fecca2ecf29",
+      "providerAssistantMessageId": "msg_0a607650a0017SgMsNd497APPn"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789531046714-835mnh4",
+      "userTurnOrdinal": 76,
+      "state": "accepted",
+      "localMessageId": "msg-1789531046705-sd10w0q",
+      "timestamp": 1789531046705,
+      "rawDisplayText": "区别在哪",
+      "canonicalText": "区别在哪",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "- `Deque`：**双端队列**，支持从头尾两端插入和删除，也可以实现栈。\n- `ArrayDeque`：**基于循环数组**，通常比 `LinkedList` 更适合作为栈或普通双端队列；不支持 null 元素。",
+          "lineCount": 2,
+          "startLine": 236
+        }
+      },
+      "images": [],
+      "contentDigest": "15a0856efe681296d6ca0ab56bf6ee96220d8378447bf3f8c581c545f93ed2e5",
+      "providerAssistantMessageId": "msg_0a85cc436001NP0jk3kWZ3l7es"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789531072321-48wm5h4",
+      "userTurnOrdinal": 77,
+      "state": "accepted",
+      "localMessageId": "msg-1789531072317-uxrvnud",
+      "timestamp": 1789531072317,
+      "rawDisplayText": "这里是不是可以优化",
+      "canonicalText": "这里是不是可以优化",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "## Queue、Deque、ArrayDeque 和 PriorityQueue 有什么区别？\n\n- `Queue`：通常表示先进先出的队列。\n- `Deque`：**双端队列**，支持从头尾两端插入和删除，也可以实现栈。\n- `ArrayDeque`：**基于循环数组**，通常比 `LinkedList` 更适合作为栈或普通双端队列；不支持 null 元素。\n- `PriorityQueue`：基于**堆**，队头是最小或最高优先级元素；它只保证队头顺序，遍历并不会得到完整排序结果。",
+          "lineCount": 6,
+          "startLine": 233
+        }
+      },
+      "images": [],
+      "contentDigest": "8a8678760460d0d47320d096eb8343effee619c8417f279a96fc9769d1fe4a55",
+      "providerAssistantMessageId": "msg_0a85d40040016BVEtPn3JQQ08n"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789531110032-b4swxqy",
+      "userTurnOrdinal": 78,
+      "state": "accepted",
+      "localMessageId": "msg-1789531110028-45x0bgs",
+      "timestamp": 1789531110028,
+      "rawDisplayText": "queue 和 deque的区别",
+      "canonicalText": "queue 和 deque的区别",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/03_集合与容器.md",
+          "mode": "selection",
+          "selectedText": "## Queue、Deque、ArrayDeque 和 PriorityQueue 有什么区别？\n\n- `Queue`：通常表示先进先出的队列。\n- `Deque`：**双端队列**，支持从头尾两端插入和删除，也可以实现栈。\n- `ArrayDeque`：**基于循环数组**，通常比 `LinkedList` 更适合作为栈或普通双端队列；不支持 null 元素。\n- `PriorityQueue`：基于**堆**，队头是最小或最高优先级元素；它只保证队头顺序，遍历并不会得到完整排序结果。",
+          "lineCount": 6,
+          "startLine": 233
+        }
+      },
+      "images": [],
+      "contentDigest": "eb2b3dd841a3a42192c8ce3321156f463715b2088ff731862dec4bbb7dee5a9e",
+      "providerAssistantMessageId": "msg_0a85dbb390014NC0BBLglJF5de"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789531203674-7bv3tzs",
+      "userTurnOrdinal": 79,
+      "state": "accepted",
+      "localMessageId": "msg-1789531203650-2nv74bo",
+      "timestamp": 1789531203650,
+      "rawDisplayText": "Learning/Backend/Java/04_JVM 这里的一、二、三级标题是不是也是乱的 # JVM 是不是也能去掉",
+      "canonicalText": "Learning/Backend/Java/04_JVM 这里的一、二、三级标题是不是也是乱的 # JVM 是不是也能去掉",
+      "images": [],
+      "contentDigest": "74fd416de37ca74f497a6fe965f1f6f08de73b1f449d9b49a19066b2a8684798",
+      "providerAssistantMessageId": "msg_0a8606cdc0012u7LQdoOBI6aqq"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789531304575-x48q7gn",
+      "userTurnOrdinal": 80,
+      "state": "accepted",
+      "localMessageId": "msg-1789531304573-2qqpk3h",
+      "timestamp": 1789531304573,
+      "rawDisplayText": "改吧",
+      "canonicalText": "改吧",
+      "images": [],
+      "contentDigest": "86c7caca35e52eb92e668abd7a2ae8d76901ab6d1f44b3a1da4bb645cd893997",
+      "providerAssistantMessageId": "msg_0a8615d05001B6WEgbWBSVpzbd"
+    }
+  ]
+}

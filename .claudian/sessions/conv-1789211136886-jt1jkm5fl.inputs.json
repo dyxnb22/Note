@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789211136886-jt1jkm5fl",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789211136968-ehaivpo",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789211136878-4jvv74p",
+      "timestamp": 1789211136878,
+      "rawDisplayText": "这块内容有在这个知识库里重复吗",
+      "canonicalText": "这块内容有在这个知识库里重复吗",
+      "context": {
+        "linkedContent": {
+          "path": "Learning/Backend/Java/01_语言与运行时.md"
+        },
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "## Java 对象什么时候会被回收？\n\n主流 JVM 通过**可达性分析判断对象**是否仍然存活，而不是简单依赖引用计数。\n\n1. 从 **GC Roots 沿引用链**查找对象。\n2. 不可达对象具备被回收的条件，但不保证立即回收。\n3. 强引用通常不会被回收；软引用内存不足时可能回收；弱引用在下一次 GC 时通常回收；虚引用用于跟踪回收。\n\n常见 GC Roots 包括虚拟机栈局部变量、类静态字段、常量引用和 JNI 引用。`finalize()` 不推荐使用，资源应通过显式关闭或 `try-with-resources` 管理。",
+          "lineCount": 9,
+          "startLine": 214
+        }
+      },
+      "images": [],
+      "contentDigest": "aa983b6acbc2f83d052ef5c46863268299bae1daa4629123cf94c573fe9c6919",
+      "providerAssistantMessageId": "msg_0954be327001x29PL3p3WnR47d"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789211341069-os8a584",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1789211341064-saohwi4",
+      "timestamp": 1789211341064,
+      "rawDisplayText": "是不是去除比较好？去除的话会有信息遗漏吗",
+      "canonicalText": "是不是去除比较好？去除的话会有信息遗漏吗",
+      "images": [],
+      "contentDigest": "cbdda1336e9da1d55148720275d68957efe5384d3af92d295e62e110ee9a808b",
+      "providerAssistantMessageId": "msg_0954e7169001PVguAWmJXz9Yj4"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789222840808-kgjzfht",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1789222840795-2jrm4ke",
+      "timestamp": 1789222840795,
+      "rawDisplayText": "啥意思，我没咋看懂",
+      "canonicalText": "啥意思，我没咋看懂",
+      "context": {
+        "editorSelection": {
+          "notePath": "Learning/Backend/Java/01_语言与运行时.md",
+          "mode": "selection",
+          "selectedText": "Java 泛型为什么会类型擦除？`? extends` 和 `? super` 怎么选？\n\nJava 泛型主要在编译期提供类型检查，**普通类型参数编译后通常擦除为上界**，必要处由编译器插入强制转换或桥接方法。因此运行时不能可靠地写 `new T()`、`T.class`、`new List<String>[10]`，也不能用 `instanceof List<String>` 判断实际类型参数。\n\n通配符按 PECS 记忆：数据源只负责“生产” `T` 时用 `? extends T`，可以安全读取为 `T`，但除 `null` 外不能随意写入；目标只负责“消费” `T` 时用 `? super T`，可以写入 `T` 及其子类，但读取时通常只能按 `Object` 处理。\n\n```java\nstatic <T> void copy(List<? extends T> src, List<? super T> dst) {\n    for (T item : src) {\n        dst.add(item);\n    }\n}\n```\n\n易错点是把 `List<Integer>` 当成 `List<Number>` 的子类型；泛型默认不协变，否则向后者写入 `Double` 会破坏前者的类型安全。需要在运行时保留复杂泛型信息时，应显式传入 `Class<T>`/类型令牌，或读取反射中的声明类型；不能把擦除后的对象强转当成可靠校验。",
+          "lineCount": 15,
+          "startLine": 246
+        }
+      },
+      "images": [],
+      "contentDigest": "69a525a2384562d0c643fe3e500ed6d492b8d689625d5705234bcff45aa83a71",
+      "providerAssistantMessageId": "msg_095fe2557001mTsdjQ5rwaiOtd"
+    }
+  ]
+}

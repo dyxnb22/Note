@@ -4,7 +4,7 @@
 补数，`complement = target - nums[i];`
 `return new int[]{map.get(target - nums[i]), i};`
 
-**LeetCode 49. 字母异位词分组（eat、tea、ate）分组问题常用 Map<Key, List<Value>>**
+**LeetCode 49. 字母异位词分组（eat、tea、ate）分组问题常用 `Map<Key, List<Value>>`**
 `String key = new String(sortedS);`
 `return new ArrayList<List<String>>(m.values());`
 
@@ -31,3 +31,10 @@ HashSet 快速判断某一个数的上一个数是否存在，为了找到连续
 最短删除长度，没有就 `-1`。
 `totalX - delX = targetX`。
 遍历过程存储前缀和，key 为 `String key = x + "," + y;`，value 为最新索引。
+
+**LeetCode 36. 有效的数独（判断 9×9 数独是否合法）**
+用 HashSet 分别记录行、列、宫格中出现过的数字（`rows = [set() for _ in range(9)]`）。宫格索引 `k = (i/3)*3 + j/3`。遍历每个格子，若当前数字已存在（`num in rows[i]`）则返回 false，否则标记为已访问。
+
+**LeetCode 202. 快乐数（不断求各位数字平方和，最终是否为 1）**
+用 HashSet 记录出现过的中间和，若出现重复则进入死循环、不是快乐数。
+`n = sum(int(digit) ** 2 for digit in str(n))`

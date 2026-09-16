@@ -1,0 +1,25 @@
+{
+  "id": "conv-1789225888614-fnd6b0jhx",
+  "providerId": "opencode",
+  "title": "这个啥意思，我没咋看懂",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1789225888622,
+  "lastActivityAt": 1789531355084,
+  "sessionId": "ses_f69d39050ffeRGhxeoE1M8rJst",
+  "selectedModel": "opencode:opencode/mimo-v2.5-free",
+  "providerState": {
+    "databasePath": "/Users/diaoyuxuan/.local/share/opencode/opencode.db",
+    "nativeConversationContextEstablished": true
+  },
+  "linkedContentPath": "Learning/Backend/Java/01_语言与运行时.md",
+  "usage": {
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextTokens": 97503,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "inputTokens": 0,
+    "model": "haiku",
+    "percentage": 49
+  }
+}
