@@ -521,3 +521,66 @@ public final class Singleton {
 ```
 
 `volatile` 保证实例引用的**可见性**，并禁止“分配内存、初始化对象、发布引用”发生危险重排序。没有延迟加载要求时，可直接使用静态初始化或枚举单例，减少实现和反序列化风险。
+
+## 如何让三个线程交替打印 ABC？
+
+手撕高频题。核心是“轮到谁”这个状态必须原子可见、唤醒要精确。用 `Semaphore` 传递许可是最短写法：
+
+```java
+Semaphore sa = new Semaphore(1), sb = new Semaphore(0), sc = new Semaphore(0);
+
+// 线程 A：拿 sa，打印后把许可交给 B
+sa.acquire();
+System.out.print("A");
+sb.release();
+// 线程 B：sb.acquire() → 打印 B → sc.release()
+// 线程 C：sc.acquire() → 打印 C → sa.release()
+```
+
+另两种等价写法：`ReentrantLock` + 每个线程一个 `Condition`，`signal` 精确唤醒下一个；`synchronized` + `wait/notifyAll`，单一通知队列只能全员唤醒，靠共享 state 判断是否轮到自己（有惊群开销）。
+
+易错点：等待条件用 `if` 而不是 `while`（虚假唤醒后继续跑）；`state++` 没在锁内做（原子性、可见性都不保证）；异常路径漏掉 `release/signal`，其余线程永久等待。`wait/notify` 代码找错题考的就是这几处。
+
+## 如何手写一个并发安全的 LRU 缓存？
+
+基线版本：`LinkedHashMap` 开启 access-order，重写 `removeEldestEntry`，访问加同一把锁：
+
+```java
+class LruCache<K, V> {
+    private final Map<K, V> map;
+
+    LruCache(int capacity) {
+        this.map = new LinkedHashMap<>(capacity, 0.75f, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
+                return size() > capacity;
+            }
+        };
+    }
+
+    synchronized V get(K key) { return map.get(key); }
+    synchronized void put(K key, V value) { map.put(key, value); }
+}
+```
+
+写完必被追问“你的 LRU 线程安全吗？锁在哪几行？”——上面答案整表一把锁，正确但吞吐差。进阶方向：
+
+- **缩小锁粒度**：按 key 哈希拆多个桶，每桶独立 `LinkedHashMap` + 锁。
+- **读写路径分离**：`ConcurrentHashMap` 存数据承担并发读写，访问顺序链表单独同步；顺序维护本身仍有竞争，常见折中是缓冲访问记录、定期批量修剪。
+- **TTL 淘汰**：节点带过期时间戳，读时惰性检查过期，再配后台清扫，避免定时线程全表扫描。
+
+同一思想在其他层的实现：Redis 的近似 LRU 与淘汰池见 [Redis](../Data/Redis.md)，纯数据结构版手撕见 [编码题与后端基础](../Agent面试题库/11_编码与后端/编码题与后端基础.md)。
+
+## 手撕并发高频清单
+
+面经手撕环节的并发题集中在五个，全部能从本文件题面推导：
+
+| 题目 | 核心机制 | 易错点 |
+|---|---|---|
+| 交替打印 ABC / 1~100 | Condition 精确唤醒、Semaphore 传递、wait/notifyAll + 状态 | 用 if 判断状态；漏 signal/release |
+| 生产者消费者 | `BlockingQueue` 或手写有界队列 | 停止语义（中断还是毒丸对象）没说清 |
+| 手写有界阻塞队列 | `ReentrantLock` + notFull/notEmpty 两个 Condition | 满队 put、空队 take 的阻塞边界 |
+| 并发安全 LRU | access-order + 锁粒度演进 | 只答数据结构，说不出锁在哪 |
+| 令牌桶/滑动窗口限流器 | CAS 更新时间戳与令牌数 | 时间回拨、惰性补发令牌的边界 |
+
+算法类手撕（纯数据结构版 LRU/LFU、链表与堆类）见 [编码题与后端基础](../Agent面试题库/11_编码与后端/编码题与后端基础.md)。
