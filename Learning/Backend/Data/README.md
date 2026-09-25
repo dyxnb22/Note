@@ -19,6 +19,7 @@
 - [Redis](Redis.md)：数据结构、缓存设计、持久化、高可用、集群
 - [MongoDB](MongoDB.md)：文档模型、索引、复制、分片与聚合
 - [Cassandra](Cassandra.md)：宽列模型、分区键、复制、Gossip 和读写路径
+- [ClickHouse](ClickHouse.md)：列式 OLAP、MergeTree 读写路径、稀疏主键索引、物化视图、复制与分片
 - [大数据基础](大数据基础.md)：HDFS、MapReduce、Hive、HBase、Spark、YARN
 - [数据工程与流处理](数据工程与流处理.md)：CDC、仓库/湖仓、批流计算、事件时间、编排、质量与血缘
 - [海量数据处理](海量数据处理.md)：海量数据下的分片、Top K、Bitmap、Bloom Filter 和外部处理
@@ -40,7 +41,7 @@
 
 - 核心主线：数据库系统原理、SQL、`MySQL/PostgreSQL`、Redis、消息队列，内容覆盖原理、工程使用和排障。
 - 关系数据库扩展：PostgreSQL，用于补齐另一套主流 MVCC、日志、索引和复制模型。
-- 专项系统：MongoDB、Cassandra、`搜索与 Elasticsearch` 已覆盖建模、索引/存储、扩展、容量和故障恢复。
+- 专项系统：MongoDB、Cassandra、ClickHouse、`搜索与 Elasticsearch` 已覆盖建模、索引/存储、扩展、容量和故障恢复。
 - 数据平台：大数据基础用于组件地图，数据工程与流处理负责 CDC、批流、仓库/湖仓、编排和治理主线。
 - 海量数据处理负责算法型场景；向量索引和混合检索以 Agent 题库下的检索系统工程题为唯一主文档。
 
