@@ -22,9 +22,9 @@
 - Prompt 与 Context Engineering：Prompt、Context Engineering、查询改写和上下文压缩。
 - Memory 与 State：短期/长期/任务记忆、State、Checkpoint 和恢复。
 - Tool Calling 与 MCP：Function Calling、Tool、MCP、A2A 和工具治理。
-- Multi-Agent 与 Workflow：多 Agent、Workflow、Supervisor、Harness 和并行协作；另有 [[05_Multi-Agent与Workflow/Loop控制与Harness面经补充]]、[[05_Multi-Agent与Workflow/Skill编排与协作面经补充]]。
+- Multi-Agent 与 Workflow：多 Agent、Workflow、Supervisor、Harness 和并行协作；另有 [[05_Multi-Agent与Workflow/Loop控制与Harness面经补充]]、[[05_Multi-Agent与Workflow/Skill编排与协作面经补充]]。跨 Agent 委托/Handoff 的合同与身份传播深入内容主入口在 [[05_Multi-Agent与Workflow/Skill编排与协作面经补充]] Q7（05 主文件没有 handoff 专题）。
 - RAG 与检索：文档处理、混合检索、Rerank、评测和知识更新。
-- 可靠性与安全：幻觉、死循环、Prompt Injection、沙箱、权限和人工接管。
+- 可靠性与安全：幻觉、死循环、Prompt Injection、沙箱、权限和人工接管；死循环/无进展循环的深入分析在 [[05_Multi-Agent与Workflow/Loop控制与Harness面经补充]]（题19）。
 - 评测与可观测性：指标、数据集、Badcase、Trace、回归和线上监控；另有 [[08_评测与可观测/评测、轨迹与线上故障面经补充]]。
 - 生产工程与系统设计：并发、流式、限流、队列、部署、成本和高可用；另有 [[09_工程化与系统设计/系统设计与取舍面经补充]]。
 - 模型与推理基础：Transformer、Attention、KV Cache、SFT、RL 和推理优化；另有 [[10_模型与推理/高频八股与手撕面经补充]]。
