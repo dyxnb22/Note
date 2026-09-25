@@ -5,6 +5,7 @@
 ## 进入方式
 
 - 面试与系统化复习：先读 [Python 面试题库](./面试题库/README.md)。
+- 系统学习教程：按 [Python 学习路线](./学习路线/README.md) 从语言核心走到后端与 Agent 开发。
 - 可运行练习：进入 [Python 基础练习](./实践/Python基础练习/README.md)。
 - Agent、RAG 和工具协议：进入 [Agent 面试题库](../Agent面试题库/README.md)。
 
