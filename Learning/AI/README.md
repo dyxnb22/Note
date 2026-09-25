@@ -61,7 +61,7 @@
 → 直接读 `AI工具与编程助手.md`，其余两篇可以之后补
 
 **把模型部署成生产服务**
-→ `DeepLearning/` 或 `DeepLearning.md` → `ML系统与MLOps.md` → `Backend/Delivery/07_生产系统工程.md`
+→ `DeepLearning/` 或 `DeepLearning.md` → `ML系统与MLOps.md` → `Delivery/07_生产系统工程.md`
 
 ## 最小入口与按需分支
 

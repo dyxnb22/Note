@@ -8,7 +8,7 @@
 
 - 面试与系统化复习：从 [[01_语言与运行时]] 开始，按推荐顺序阅读。
 - 语言、JVM、集合、并发、Spring、Tomcat、数据访问和日志问题，都在本目录按问答形式组织。
-- 数据库、分布式、部署、测试和跨语言可靠性回到 [Backend](../README.md) 的公共能力目录。
+- 数据库与缓存见 [Data](../Data/README.md)，分布式与系统设计见 [Architecture](../Architecture/README.md)，部署交付见 [Delivery](../Delivery/README.md)，测试体系见 [Testing](../Testing.md)。
 
 ## Java 的边界
 

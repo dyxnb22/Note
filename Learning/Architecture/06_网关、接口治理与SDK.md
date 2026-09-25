@@ -52,6 +52,6 @@ AI MCP Gateway 需要额外管理工具元数据、参数 schema、Session 生�
 - 接口和工具是否最小授权、可审计、可取消？
 - 是否有版本、灰度、回滚和兼容策略？
 
-案例：[AI MCP Gateway](../../Case_Studies/AI/AI-MCP-Gateway.md)。
+案例：[AI MCP Gateway](../Case_Studies/AI/AI-MCP-Gateway.md)。
 
 来源：`xfg-planet/02-AI应用范式/Tool与MCP`、`04-系统设计与组件/网关与接口治理`、`08-术语与参考/技术术语`。

@@ -22,7 +22,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 G0：语言入口
 
-阅读：[Go 面试题库](../Backend/Go/面试题库/README.md)。
+阅读：[Go 面试题库](../Go/面试题库/README.md)。
 
 产物：文本统计 CLI、带超时 HTTP Client、内存 Todo Service。
 
@@ -40,7 +40,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 阅读 Go 面试题库。
 
-实践：[go-backend-service](../Backend/Go/实践/go-backend-service/README.md) 阶段 0–3。
+实践：[go-backend-service](../Go/实践/go-backend-service/README.md) 阶段 0–3。
 
 验收：订单 API 支持超时、幂等、PostgreSQL 事务、迁移、下游客户端和优雅关闭；重复与响应丢失不会产生重复事实。
 
@@ -60,7 +60,7 @@ Go 负责业务服务、数据库、事务、接口、部署和生产排障；Ru
 
 ### 阶段 R1：Rust 语言核心
 
-按 [Rust 面试题库](../Backend/Rust/面试题库/README.md) 完成语言核心；重点是所有权、借用、Enum、Trait、Result、模块和测试。
+按 [Rust 面试题库](../Rust/面试题库/README.md) 完成语言核心；重点是所有权、借用、Enum、Trait、Result、模块和测试。
 
 产物：CLI、文本处理库、带单元/集成测试的 Tool Registry。
 
@@ -108,7 +108,7 @@ Go 是主线，Rust 是专项支线。没有固定周数要求，但同一时间
 | 共同主题 | 主入口 | 在语言项目中验证 |
 |---|---|---|
 | HTTP、API、错误码 | Go 网络服务工程 / Agent LLM 调用 | Go Handler；Rust Provider Adapter |
-| 数据库、事务、幂等 | Backend/Data 与可靠性 | Go 订单；Rust Checkpoint/事件表 |
+| 数据库、事务、幂等 | Data 与可靠性 | Go 订单；Rust Checkpoint/事件表 |
 | 超时、取消、背压 | Go 并发 / Rust Tokio | Worker Pool；Tool Executor |
 | 测试与故障 | 后端测试体系 / Agent Eval | Race/Fuzz；Scripted Model/任务集 |
 | 观测与 SLO | 生产系统工程 / Agent 可观测性 | HTTP RED；Run/Step/Tool Trace |

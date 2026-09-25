@@ -9,7 +9,14 @@
 | 主题 | 什么时候进入 |
 |---|---|
 | [CS](./CS/README.md) | 补计算机系统、网络、操作系统、算法与理论基础 |
-| [Backend](./Backend/README.md) | 做服务、数据库、中间件、系统设计和交付 |
+| [Java](./Java/README.md) | Java 语言、JVM、并发、Spring 与工程排障题库 |
+| [Go](./Go/README.md) | Go 语言路线、并发服务与后端项目实战 |
+| [Rust](./Rust/README.md) | Rust 所有权、并发安全、异步服务与 Agent Runtime |
+| [Data](./Data/README.md) | 数据库、缓存、消息队列、搜索与 OLAP 的原理和工程 |
+| [Architecture](./Architecture/README.md) | 分布式、可靠性、DDD 与系统设计取舍 |
+| [Delivery](./Delivery/README.md) | Git、容器、部署上线、CI/CD 与生产运维 |
+| [后端测试体系](./Testing.md) | 单元、集成、契约、端到端、性能与韧性测试 |
+| [软件工程与演进式架构](./SoftwareEngineering.md) | 模块化、重构、ADR、技术债和遗留系统迁移 |
 | [Python](./Python/README.md) | 项目需要 Python 语言、HTTP、异步或服务能力 |
 | [C++](./Cpp/README.md) | 查指针、对象模型、STL、智能指针、内存和系统编程面试边界 |
 | [AI](./AI/README.md) | 需要理解模型、训练、表示和 LLM 原理 |

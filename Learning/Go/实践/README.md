@@ -13,4 +13,4 @@
 3. 数据库、消息、容器和负载实验使用固定环境；不把本机一次通过泛化为生产结论。
 4. 同一订单项目持续演进，不为每个知识点创建新的演示仓库。
 
-整体学习顺序见 [Go README](../README.md) 和 [Rust Agent 与 Go 后端学习地图](../../../00_Navigation/Rust-Agent与Go后端学习地图.md)。
+整体学习顺序见 [Go README](../README.md) 和 [Rust Agent 与 Go 后端学习地图](../../00_Navigation/Rust-Agent与Go后端学习地图.md)。
