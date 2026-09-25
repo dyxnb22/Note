@@ -100,7 +100,7 @@
 
 ### 19. 模型、工具 Schema、Prompt 和 State Schema 升级时，兼容性应如何管理？
 
-答：各对象如何单独版本化、记录组合版本、做迁移以及处理运行中的旧任务，统一见 [[../12_课程深化/03_Durable与生产运维/Durable与生产运维|Durable 与生产运维]] 题 17/25/34。Adapter 侧的差异点是 Tool Schema 变更必须校验旧任务和审批动作是否兼容，避免旧 Checkpoint 恢复后按新 Schema 误执行。
+答：各对象如何单独版本化、记录组合版本、做迁移以及处理运行中的旧任务，统一见 [[../03_Durable与生产运维/Durable与生产运维|Durable 与生产运维]] 题 17/25/34。Adapter 侧的差异点是 Tool Schema 变更必须校验旧任务和审批动作是否兼容，避免旧 Checkpoint 恢复后按新 Schema 误执行。
 
 ### 20. Adapter 层应该测试哪些异常和边界？
 
