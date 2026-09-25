@@ -1,4 +1,3 @@
-# Spring Web 与 Spring Boot
 
 Spring MVC 负责 HTTP 请求处理，Spring Boot 负责应用装配、默认配置和启动体验。两者经常一起使用，但不是同一个概念。
 
@@ -32,7 +31,7 @@ Spring MVC 负责 HTTP 请求处理，Spring Boot 负责应用装配、默认配
 
 ## Spring Web 接口合同应该包含哪些边界？
 
-- 使用请求 DTO 和响应 DTO，不直接暴露持久化实体。
+- **使用请求 DTO 和响应 DTO**，不直接暴露持久化实体。
 - 对外部输入做类型、格式、范围和业务约束校验。
 - 统一错误结构，但保留可定位的错误码和 TraceId。
 - 分页、排序和过滤字段使用白名单。
@@ -52,11 +51,31 @@ Spring Boot 不替代 Spring Framework。它主要提供：
 - Actuator 等生产能力。
 - 统一的启动与打包方式。
 
+## @SpringBootApplication 组合了哪些注解？
+
+`@SpringBootApplication` 是一个组合注解，核心由三部分组成：
+
+```java
+@SpringBootApplication
+// 等价于：
+@SpringBootConfiguration  // 本质是 @Configuration，标记配置类
+@EnableAutoConfiguration  // 开启自动配置（核心）
+@ComponentScan            // 扫描当前包及子包下的 @Component 等注解
+```
+
+| 注解 | 作用 | 说明 |
+| --- | --- | --- |
+| `@SpringBootConfiguration` | 标记为配置类 | 本质就是 `@Configuration`，Spring Boot 加了一层语义 |
+| `@EnableAutoConfiguration` | 开启自动配置 | 根据 classpath、已有 Bean 和配置属性，**条件化地**注册组件 |
+| `@ComponentScan` | 包扫描 | 扫描当前包及其子包下的 `@Component`、`@Service`、`@Repository` 等 |
+
+**笔试考点：** 自动配置的重点在 `@EnableAutoConfiguration`，它通过 `spring.factories`（或 Spring Boot 2.7+ 的 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`）加载候选配置类，再用 `@Conditional` 系列注解决定是否生效。
+
 自动配置通常根据 classpath、已有 Bean、配置属性和运行环境决定是否注册组件。自己的 Bean 覆盖默认组件时，要确认条件注解和加载顺序。
 
 ## Spring Boot 配置应该如何管理和排障？
 
-配置应按环境外置，密钥不进入仓库。配置属性优先绑定到类型明确的对象，并在启动时校验必要字段。需要动态刷新时，要判断哪些 Bean 可以安全更新，避免同一请求读取到前后不一致的配置。
+配置应按环境外置，密钥不进入仓库。**配置属性优先绑定到类型明确的对象，并在启动时校验必要字段**。需要动态刷新时，要判断哪些 Bean 可以安全更新，避免同一请求读取到前后不一致的配置。
 
 常见配置优先级较多，排障时先确认配置来源、激活 Profile 和最终绑定结果，不要只看某一个 `application.yml`。
 

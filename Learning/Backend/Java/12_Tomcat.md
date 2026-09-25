@@ -1,4 +1,3 @@
-# Tomcat
 
 Tomcat 是 Java Servlet/JSP 容器，负责接收 HTTP 请求、定位 Web 应用并调用 Servlet。Spring Boot 常以内嵌 Tomcat 运行，但核心的连接器、线程池和请求链路仍适用。
 

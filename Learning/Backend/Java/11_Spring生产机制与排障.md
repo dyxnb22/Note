@@ -1,6 +1,5 @@
-# Spring 生产机制与排障
 
-本篇把 Spring 容器、Web、事务、数据访问、安全与生产排障连接起来。基础定义见[Spring 核心](09_Spring核心.md)、[Spring Web 与 Boot](10_SpringWeb与Boot.md)和[Java 数据访问](08_Java数据访问.md)。
+本篇把 Spring 容器、Web、事务、数据访问、安全与生产排障连接起来。基础定义见[Spring 核心](08_Spring核心.md)、[Spring Web 与 Boot](09_SpringWeb与Boot.md)和[Java 数据访问](07_Java数据访问.md)。
 
 ## Spring 应用启动与刷新流程是什么？
 
