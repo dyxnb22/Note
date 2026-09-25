@@ -1,4 +1,6 @@
 
+# Spring 生产机制与排障
+
 本篇把 Spring 容器、Web、事务、数据访问、安全与生产排障连接起来。基础定义见[Spring 核心](08_Spring核心.md)、[Spring Web 与 Boot](09_SpringWeb与Boot.md)和[Java 数据访问](07_Java数据访问.md)。
 
 ## Spring 应用启动与刷新流程是什么？
@@ -52,7 +54,7 @@ Filter 适合协议和容器层能力，Interceptor 适合 MVC 上下文，AOP �
 
 `@Async` 同样依赖代理；自调用可能不生效。必须显式配置线程池、队列、拒绝策略、线程命名和上下文传播。
 
-无界队列会隐藏过载。MDC、SecurityContext 和 Trace 上下文不会天然安全传播到任意线程，需要受控装配并清理。
+无界队列会隐藏过载。MDC、SecurityContext 和 Trace 上下文不会天然安全传播到任意线程，需要受控装配并清理；MDC 的传递与清理细节见 [Java 日志与可观测性](16_Java日志与可观测性.md)。
 
 ## 生产环境如何排查 Spring 声明式事务问题？
 

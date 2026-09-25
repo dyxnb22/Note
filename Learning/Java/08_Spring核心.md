@@ -1,4 +1,6 @@
 
+# Spring 核心
+
 ## IoC 和 DI 分别是什么，为什么优先使用构造器注入？
 
 IoC 是把对象创建和依赖管理**从业务代码交给容器**；DI 是容器把依赖传给对象的**实现方式**。优先使用**构造器注入**，因为依赖显式、对象可保持完整状态，也便于单元测试。
@@ -247,9 +249,9 @@ public class OrderPersistence {
     public void save(OrderDTO dto) { /* ... */ }
 }
 
-// 修复方式二：**注入自身代理**
+// 修复方式二：注入自身代理
 @Autowired @Lazy
-private self;  // 注入的是代理对象
+private OrderService self;  // 注入的是代理对象
 public void createOrder(OrderDTO dto) {
     self.saveOrder(dto);           // 走代理，事务生效
 }

@@ -1,4 +1,6 @@
 
+# Tomcat
+
 Tomcat 是 Java Servlet/JSP 容器，负责接收 HTTP 请求、定位 Web 应用并调用 Servlet。Spring Boot 常以内嵌 Tomcat 运行，但核心的连接器、线程池和请求链路仍适用。
 
 ## Tomcat 的核心层次是什么？
@@ -14,6 +16,8 @@ Tomcat 是 Java Servlet/JSP 容器，负责接收 HTTP 请求、定位 Web 应�
 - BIO：连接和线程绑定，模型简单，但连接数大时线程和阻塞成本高。
 - NIO：基于 Selector 的多路复用，少量线程处理大量连接，Tomcat 常用。
 - NIO2/AIO：由操作系统完成异步 I/O 后通知应用，实际收益取决于平台和工作负载。
+
+Selector、Buffer 与 Reactor 线程模型的 Java 侧细节见 [IO 与网络编程](02_IO与网络编程.md)。
 
 ## Tomcat 线程和连接参数怎么理解？
 
