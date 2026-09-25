@@ -6,7 +6,7 @@
 
 ## 进入方式
 
-- 面试与系统化复习：从 [[01_语言与运行时]] 开始，按推荐顺序阅读。
+- 面试与系统化复习：从 [01_语言与运行时](./01_语言与运行时.md) 开始，按推荐顺序阅读。
 - 语言、JVM、集合、并发、Spring、Tomcat、数据访问和日志问题，都在本目录按问答形式组织。
 - 数据库与缓存见 [Data](../Data/README.md)，分布式与系统设计见 [Architecture](../Architecture/README.md)，部署交付见 [Delivery](../Delivery/README.md)，测试体系见 [Testing](../Testing.md)。
 

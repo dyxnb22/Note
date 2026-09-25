@@ -4,7 +4,7 @@
 
 ## 推荐刷题顺序
 
-1. [[00_复习路线与答题模板]]、[[00_主题速答卡]]
+1. [00_复习路线与答题模板](00_复习路线与答题模板.md)、[00_主题速答卡](00_主题速答卡.md)
 2. [[01_基础架构/Agent基础与架构]]
 3. [[02_Prompt与上下文/Prompt与Context Engineering]]、[[03_Memory与状态/Memory与State]]
 4. [[04_Tool与协议/Tool Calling与MCP]]、[[05_Multi-Agent与Workflow/Multi-Agent与Workflow]]
