@@ -1,5 +1,7 @@
 # PE、PB、PS 与 EV/EBITDA
 
+> 本篇来源与证据边界见[来源索引中的对应条目](../来源索引.md#finance-source-058)。
+
 ## 1. 核心概念与详细解析
 
 **PE（市盈率，Price-to-Earnings）**

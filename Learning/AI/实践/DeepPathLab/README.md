@@ -1,152 +1,21 @@
 # DeepPath Lab
 
-> A project-based roadmap for learning modern deep learning from scratch through implementations, reproductions, experiments, visualizations, and reports.
+A project-first route through deep learning fundamentals to practical NLP. Use public material such as D2L, CS231n, and CS224N as references; keep this repository focused on original notes, implementations, experiments, and reports rather than copied textbook chapters.
 
-DeepPath Lab is a long-term learning repository built around doing the work, not just reading about it. Each module is meant to become a small but real standalone project that teaches one core idea through personal notes, a reproduction baseline, a from-scratch implementation, targeted experiments, and a short report.
+## Start here
 
-This repository is not a textbook mirror. It uses public resources such as Dive into Deep Learning (D2L), CS231n, and CS224N as references, then stores only original scaffolding, code, notes, experiments, and summaries created in this repo.
+1. Use the [roadmap](./docs/roadmap.md) to see the learning path.
+2. Follow [TASKS.md](./TASKS.md) for the active implementation queue. Only the current module gets a full working layout; later modules stay as scope cards until earlier work has code, experiments, and conclusions.
+3. For each module, connect a reference baseline, a from-scratch implementation, a diagnostic or ablation, and a short evidence-based report. The [module template](./docs/module-template.md) and [report template](./docs/report-template.md) hold the checklists and recording format.
 
-## Learning Workflow
+## Project layout
 
-```text
-Read reference chapter
--> write personal notes
--> reproduce baseline experiment
--> implement core idea from scratch
--> run ablation experiments
--> write final report
-```
+- `modules/`: module notes and working artifacts. The active module uses `notes.md`, `reproduce/`, `from_scratch/`, `experiments/`, and `report.md`.
+- [Reference sources](./docs/learning-sources.md) and [D2L mapping](./docs/d2l-mapping.md): external reading links and their relation to the project modules.
+- [AGENTS.md](./AGENTS.md) and [agent execution notes](./docs/agent-execution.md): project rules for assisted implementation.
 
-This workflow keeps the repository grounded in understanding:
+## Connect to Notes
 
-- Reference material provides the reading path.
-- Personal notes capture what was actually learned.
-- Reproduction work checks whether the baseline can be rebuilt.
-- From-scratch implementations force contact with the core mechanics.
-- Ablations turn "it runs" into "I know why it behaves this way."
-- Reports make the result reviewable and reusable later.
+[与 Notes 的对应关系](./与%20Notes%20的对应关系.md) links theory notes to practical modules. Use it to find a project for a concept, then use `TASKS.md` to choose the next concrete step.
 
-## Learning Goal
-
-The end goal is a coherent learning path from deep learning fundamentals to practical NLP work.
-
-That means the repository should help you:
-
-- understand the mechanics of modern deep learning from first principles,
-- build confidence by finishing one concrete project per module,
-- transition from low-level neural network concepts to sequence models and transformers,
-- arrive at NLP with enough implementation depth to understand embeddings, pretraining, fine-tuning, and downstream applications.
-
-## What This Repository Produces
-
-The original project description had a strong learning philosophy that is worth keeping: each module should become a runnable, inspectable learning artifact rather than a one-off demo. In practice, that means we prioritize:
-
-- from-scratch implementations of the core idea,
-- framework-based reproduction for comparison,
-- visualizations that expose internal behavior,
-- experiments with clear hypotheses,
-- reports that record results, failures, and takeaways.
-
-AI tooling can help with scaffolding, tests, refactors, and documentation, but it should not replace understanding or invent conclusions.
-
-The complete track definitions and staged learning route live in [docs/roadmap.md](./docs/roadmap.md). This README focuses on the project scope, workflow, and current module state.
-
-## Current Modules
-
-The first four modules are the foundation route, but only one module should be
-expanded at a time. A queued module keeps a scope card; its working folders are
-created when the previous module has a runnable artifact and a report.
-
-| Module | Status | Practical project | Current boundary |
-|---|---|---|---|
-| 01 Preliminaries & Autograd | **Current iteration** | mini autograd engine | full working scaffold is kept |
-| 02 Linear Models | Queued | linear-model playground | scope card only; starts after 01 |
-| 03 Multilayer Perceptrons | Queued | tiny MLP trainer | scope card only; starts after 02 |
-| 04 Convolutional Neural Networks | Queued | LeNet-style image classifier | scope card only; starts after 03 |
-
-The current module follows the full structure under [modules](./modules):
-
-- `notes.md` for personal notes
-- `report.md` for the final summary
-- `reproduce/` for baseline recreations
-- `from_scratch/` for original implementations
-- `experiments/` for ablations and analysis
-
-Do not create these folders for a queued module in advance. This keeps the
-project navigable and prevents empty templates from looking like completed
-learning work.
-
-Each module should also have a clear practical project identity. The queued
-scope cards define the next projects:
-
-- `01 Preliminaries & Autograd`: build a mini autograd engine
-- `02 Linear Models`: build a compact linear-model playground
-- `03 Multilayer Perceptrons`: build a tiny MLP trainer with diagnostics
-- `04 Convolutional Neural Networks`: build a LeNet-style image classifier with visual analysis
-
-Later modules should continue the same pattern, especially for NLP:
-
-- RNN or LSTM text generator
-- attention visualization project
-- mini transformer language model
-- text classification or retrieval project
-- lightweight pretraining or fine-tuning study
-
-## Clean Reference Policy
-
-DeepPath Lab does not copy external textbook chapters. It only links to external resources and stores my own implementations, experiments, notes, and reports.
-
-See the supporting docs:
-
-- [AGENTS.md](./AGENTS.md)
-- [TASKS.md](./TASKS.md)
-- [docs/learning-sources.md](./docs/learning-sources.md)
-- [docs/d2l-mapping.md](./docs/d2l-mapping.md)
-- [docs/agent-execution.md](./docs/agent-execution.md)
-- docs/roadmap.md
-- [docs/module-template.md](./docs/module-template.md)
-- [docs/report-template.md](./docs/report-template.md)
-
-## Suggested Standard For Module Completion
-
-Useful guidance from the previous README is preserved here in a cleaner form. A module is in good shape when it has:
-
-1. original notes on the concept and its purpose,
-2. a clearly defined standalone project outcome,
-3. a working baseline reproduction,
-4. a from-scratch implementation of the main mechanism,
-5. at least one meaningful visualization or diagnostic,
-6. experiments or ablations with recorded observations,
-7. a concise report with conclusions and open questions.
-
-That keeps the lab focused on understanding, not just API usage.
-
-## Notes Integration
-
-This project is connected to the Chinese theory notes through [与 Notes 的对应关系](./与%20Notes%20的对应关系.md). Use that page to move between a concept and its corresponding module; use TASKS.md to choose the next smallest implementation task.
-
-## Evidence Record
-
-每个模块完成时不要只勾选“代码能运行”。建议在模块目录保存一份简短记录：
-
-```yaml
-module: "模块名称"
-environment:
-  python: "版本"
-  framework: "版本"
-  device: "cpu/cuda"
-baseline:
-  command: "可复现命令"
-  seed: 0
-  result: "指标与输出位置"
-implementation:
-  command: "从零实现命令"
-  tests: ["形状", "梯度", "数值对照"]
-ablation:
-  changed_variable: "一次只改一个变量"
-  observation: "结果与解释"
-limitations:
-  - "尚未验证的边界"
-```
-
-代码注释优先解释张量形状、数值稳定性、设备/随机种子和实验假设；不要把显而易见的 Python 语法写成噪声注释。报告中的指标必须能回到命令、数据版本和原始输出。
+AI tools can help with scaffolding, tests, refactors, and documentation; understanding and conclusions should come from the implementation and recorded evidence.

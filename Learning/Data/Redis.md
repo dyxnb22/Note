@@ -1,5 +1,11 @@
 # Redis
 
+## 默认端口
+
+Redis 服务端默认监听 TCP 端口 `6379`，可通过配置项 `port` 修改；部署时仍应以实际配置和网络策略为准。
+
+面试速记：默认端口 `6379`；常见核心数据类型是 **String、Hash、List、Set、Sorted Set（Zset）**。Redis 还提供 Bitmap、HyperLogLog、GEO、Stream 等扩展类型。
+
 ## 数据结构与编码
 
 ## Redis 有哪些常见数据类型？分别适合什么场景？

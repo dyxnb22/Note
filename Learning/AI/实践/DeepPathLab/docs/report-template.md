@@ -20,6 +20,27 @@ Link to the external reference chapters or papers used for study.
 - What was implemented from scratch?
 - What was intentionally skipped?
 
+## Reproducibility Record
+
+```yaml
+environment:
+  python: "version"
+  framework: "version"
+  device: "cpu/cuda"
+baseline:
+  command: "reproducible command"
+  seed: 0
+  result: "metrics and output location"
+implementation:
+  command: "from-scratch command"
+  checks: ["shapes", "gradients", "numerical comparison"]
+ablation:
+  changed_variable: "change one variable at a time"
+  observation: "result and explanation"
+limitations:
+  - "unverified boundary"
+```
+
 ## Experimental Setup
 
 - Dataset

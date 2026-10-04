@@ -1,10 +1,12 @@
 
 # Java 线程基础
 
-## Java 线程和操作系统线程是什么关系？
+## 线程与生命周期
+
+### Java 线程和操作系统线程是什么关系？
 
 在主流 HotSpot JVM 中，Java 平台线程通常与操作系统内核线程**一对一映射**，线程的调度、阻塞和唤醒最终依赖操作系统
-## 多线程主要解决哪些问题？
+### 多线程主要解决哪些问题？
 
 线程安全通常从三个维度理解：
 
@@ -14,7 +16,7 @@
 
 如果共享状态可以改为局部变量、不可变对象或线程隔离数据，应优先减少共享，而不是一开始就加锁。
 
-## Java 线程有哪些创建方式？
+### Java 线程有哪些创建方式？
 
 | 方式            | 特点               | 适用场景        |
 | ------------- | ---------------- | ----------- |
@@ -33,7 +35,7 @@ Integer result = futureTask.get();
 
 生产环境一般不频繁手动 `new Thread()`，而是使用自定义 `ThreadPoolExecutor`。
 
-## 直接调用 `run()` 和调用 `start()` 有什么区别？
+### 直接调用 `run()` 和调用 `start()` 有什么区别？
 
 - `run()` 只是**普通方法调用**，在当前线程中同步执行，不会创建新线程。
 - `start()` 才会**创建并启动新线程**，由 JVM 在新线程中调用 `run()`；**同一个 `Thread` 只能成功调用一次 `start()`。**
@@ -46,7 +48,7 @@ t.start(); // 新线程执行；只能调用一次
 
 线程**已经结束后再次调用 `start()` 会抛出 `IllegalThreadStateException`**。
 
-## Java 线程有哪些状态？
+### Java 线程有哪些状态？
 
 | 状态              | 含义                      |
 | --------------- | ----------------------- |
@@ -59,7 +61,7 @@ t.start(); // 新线程执行；只能调用一次
 
 **`RUNNABLE` 不等于一定正在 CPU 上运行，也可能正在等待操作系统调度**。
 
-## BLOCKED、WAITING 和 TIMED_WAITING 有什么区别？
+### BLOCKED、WAITING 和 TIMED_WAITING 有什么区别？
 
 - `BLOCKED`：抢不到 `synchronized` 的 **monitor 锁，等待其他线程释放**。
 - `WAITING`：**主动等待其他线程动作**，例如 `wait()`、`join()`、`LockSupport.park()`。
@@ -67,7 +69,7 @@ t.start(); // 新线程执行；只能调用一次
 
 **`wait()` 会释放当前 monitor；`sleep()` 不释放锁；`park()` 不依赖 monitor。**
 
-## 如何优雅停止线程？中断机制是什么？
+### 如何优雅停止线程？中断机制是什么？
 
 不要使用 `Thread.stop()`、`suspend()`、`resume()`。它们可能**强制释放锁**、破坏共享状态或造成死锁。
 
@@ -80,15 +82,15 @@ t.start(); // 新线程执行；只能调用一次
 
 `interrupt()` 不会强行杀死线程。线程在 `sleep()`、`wait()`、`join()`、`Condition.await()` 等**可中断阻塞方法**中通常会收到 `InterruptedException`；**否则只是设置中断标志**，需要业务代码主动检查。
 
-## 守护线程和未捕获异常怎么处理？
+### 守护线程和未捕获异常怎么处理？
 
 守护线程只适合执行随进**程生命周期结束即可丢弃的后台辅助工作**。所有非守护线程结束后，JVM 可以退出，**不会等待守护线程完成**；必须在 `start()` 前调用 `setDaemon(true)`。需要**持久化、提交事务或保证最终执行的任务不能依赖守护线程**。
 
 线程未捕获异常时，该线程会终止，可以通过 `Thread.UncaughtExceptionHandler` 记录和告警。在线程池中还要注意：`execute()` 的异常通常会交给**线程的未捕获异常处理器**，而 `submit()` 会把异常**封装在 `Future` 中，需要调用 `Future.get()` 才能观察到**。
 
-# Java 内存模型与线程安全
+## Java 内存模型与线程安全
 
-## 如何保证多线程安全？
+### 如何保证多线程安全？
 
 | 思路        | 代表技术                                                       | 适用场景        |
 | --------- | ---------------------------------------------------------- | ----------- |
@@ -101,7 +103,7 @@ t.start(); // 新线程执行；只能调用一次
 
 业务数据**跨线程、跨进程或跨服务**时，还要结合数据库事务、唯一约束、版本号、幂等和最终一致性方案，不能只依赖 Java 锁。
 
-## 指令重排序和 happens-before 是什么？
+### 指令重排序和 happens-before 是什么？
 
 编译器和 CPU 可能为了优化调整指令顺序。单线程下这无所谓——最终结果一定和代码写的顺序一致。但多线程中，线程之间共享数据时，**没有同步约束的话，一个线程可能看到另一个线程"执行到一半"的中间状态**。
 
@@ -117,7 +119,7 @@ t.start(); // 新线程执行；只能调用一次
 - **中断**：`interrupt()` 调用，对被中断线程后续检测到中断的代码可见。
 - **传递性**：A→B、B→C，则 A→C。（可以串联。）
 
-## volatile 有什么作用？
+### volatile 有什么作用？
 
 `volatile` 主要提供：
 
@@ -128,7 +130,7 @@ t.start(); // 新线程执行；只能调用一次
 
 典型场景是**停止标志、配置开关、状态发布和双重检查锁中的实例**引用。
 
-## CAS 是什么？有什么缺点？
+### CAS 是什么？有什么缺点？
 
 CAS（Compare And Swap）包含**内存值 V、预期值 A 和新值 B：只有 V 等于 A 时，才把 V 更新为 B**。它是 Java 原子类和许多无锁算法的基础。
 
@@ -138,7 +140,7 @@ CAS（Compare And Swap）包含**内存值 V、预期值 A 和新值 B：只有 
 - 自旋开销：竞争激烈时 **CAS 反复失败，会浪费 CPU**。
 - **多变量**一致性有限：需要用 `AtomicReference` **封装对象或使用锁**。
 
-## AtomicLong 和 LongAdder 如何选择？LongAdder 为什么不适合生成序列号？
+### AtomicLong 和 LongAdder 如何选择？LongAdder 为什么不适合生成序列号？
 
 **核心回答**：`AtomicLong` 对单个值做 CAS，`incrementAndGet()` **能返回本次操作确定的结果**。`LongAdder` 在竞争时把**更新分散到多个 Cell，读取时再求和**，通常能降低高竞争计数的热点，但 `sum()` 不是与所有并发更新处于同一个原子快照。
 
@@ -152,7 +154,7 @@ CAS（Compare And Swap）包含**内存值 V、预期值 A 和新值 B：只有 
 
 **常见追问**：低竞争时两者差距可能很小，选择要用目标 JDK、线程数和读写比例压测。
 
-## 悲观锁和乐观锁有什么区别？
+### 悲观锁和乐观锁有什么区别？
 
 | 对比项 | 悲观锁                                  | 乐观锁              |
 | --- | ------------------------------------ | ---------------- |
@@ -161,9 +163,9 @@ CAS（Compare And Swap）包含**内存值 V、预期值 A 和新值 B：只有 
 | 优点  | 逻辑简单，适合强互斥                           | 无阻塞，低冲突时性能好      |
 | 缺点  | 可能阻塞和上下文切换                           | **冲突高时重试成本高**    |
 
-# Java 锁机制与 AQS
+## Java 锁机制与 AQS
 
-## synchronized 的工作原理是什么？
+### synchronized 的工作原理是什么？
 
 `synchronized` 是 JVM 内置的 monitor 锁，可以保证**互斥、可见性和有序性**：
 
@@ -172,7 +174,7 @@ CAS（Compare And Swap）包含**内存值 V、预期值 A 和新值 B：只有 
 - 获取不到锁的线程进入**等待队列**；**调用 `wait()` 的线程进入 WaitSet**。
 - 解锁时会建立相应的内存可见性关系。
 
-## synchronized 的实例锁、类锁和代码块锁有什么区别？
+### synchronized 的实例锁、类锁和代码块锁有什么区别？
 
 | 场景 | 锁对象 | 互斥范围 |
 | --- | --- | --- |
@@ -186,13 +188,13 @@ public static synchronized void staticMethod() {}
 synchronized (lock) {}
 ```
 
-## synchronized 支持重入吗？
+### synchronized 支持重入吗？
 
 支持。同一线程已经持有某把锁时，可以再次进入由同一把锁保护的同步代码，不会被自己阻塞。
 
 **monitor 会记录持锁线程和重入次数**；每进入一次计数加 1，每退出一次计数减 1，计数归零后才真正释放锁。
 
-## synchronized 的锁升级和 JVM 优化是什么？
+### synchronized 的锁升级和 JVM 优化是什么？
 
 历史上常用“**无锁 → 偏向锁 → 轻量级锁 → 重量级锁**”描述锁状态变化。偏向锁是旧版本 HotSpot 的优化，JDK 15 起默认关闭并逐步废弃；现代 JDK 更应理解为无竞争或轻竞争时使用轻量级路径，竞争激烈时膨胀为重量级 monitor。
 
@@ -204,7 +206,7 @@ JIT 还可能进行：
 
 这些属于具体 JVM 实现优化，不应当作 Java 语言层面的绝对保证。
 
-## ReentrantLock 的工作原理和特点是什么？
+### ReentrantLock 的工作原理和特点是什么？
 
 `ReentrantLock` 是**基于 AQS 的显式锁**。AQS 中的 **`state` 表示锁状态和重入次数**，owner 表示当前持锁线程，获取失败的线程会进入等待队列并通过 `LockSupport.park()` 挂起。
 
@@ -216,7 +218,7 @@ JIT 还可能进行：
 
 它支持公平/非公平模式、可中断获取、超时获取和多个 `Condition` 等待队列。使用时必须在 `finally` 中释放锁。
 
-## synchronized 和 ReentrantLock 有什么区别？
+### synchronized 和 ReentrantLock 有什么区别？
 
 | 对比项  | `synchronized` | `ReentrantLock`            |
 | ---- | -------------- | -------------------------- |
@@ -229,19 +231,19 @@ JIT 还可能进行：
 
 简单同步优先使用 `synchronized`；需要超时、可中断、公平锁或多个条件队列时使用 `ReentrantLock`。
 
-## 公平锁和非公平锁有什么区别？
+### 公平锁和非公平锁有什么区别？
 
 公平锁按等待队列顺序获取锁；非公平锁允许新线程直接尝试抢锁，失败后再排队。
 
 非公平锁**通常吞吐更高**，因为**新线程可能直接 CAS 成功，减少线程唤醒和上下文切换；代价是可能造成饥饿**。`ReentrantLock` 默认是非公平锁。
 
-## ReadWriteLock 和 StampedLock 适合什么场景？
+### ReadWriteLock 和 StampedLock 适合什么场景？
 
 读写锁的规则是：**读读共享，读写互斥，写写互斥**。`ReentrantReadWriteLock` 适合读多写少的缓存、配置和路由表；写操作频繁时，锁管理成本可能抵消收益。
 
 `StampedLock` 支持**乐观读**：读时不加互斥锁，**读取后通过版本戳验证期间是否发生写入，适合读多写少但使用复杂度更高**的场景。
 
-## AQS 是什么？
+### AQS 是什么？
 
 AQS（`AbstractQueuedSynchronizer`）是构建锁和同步工具的基础框架。它解决“获取不到资源时如何排队、阻塞和唤醒”，具体资源含义由子类定义。
 
@@ -254,7 +256,7 @@ AQS（`AbstractQueuedSynchronizer`）是构建锁和同步工具的基础框架�
 
 不同工具对 `state` 的含义不同：`ReentrantLock` 表示锁和重入次数，`Semaphore` 表示许可证数量，`CountDownLatch` 表示剩余倒计数。
 
-## 如何用 AQS 实现可重入公平锁？
+### 如何用 AQS 实现可重入公平锁？
 
 实现步骤：
 
@@ -282,9 +284,9 @@ protected boolean tryAcquire(int acquires) {
 }
 ```
 
-# Java 线程协作与 ThreadLocal
+## Java 线程协作与 ThreadLocal
 
-## sleep、wait 和 notify 有什么区别？
+### sleep、wait 和 notify 有什么区别？
 
 | 对比项   | `sleep()` | `wait()`                     |
 | ----- | --------- | ---------------------------- |
@@ -304,7 +306,7 @@ synchronized (lock) {
 }
 ```
 
-## 不同线程之间如何通信？
+### 不同线程之间如何通信？
 
 - **共享变量**：使用 `volatile` 或锁保证可见性和安全性。
 - `wait/notify/notifyAll`：基于 monitor 的等待和唤醒。
@@ -313,7 +315,7 @@ synchronized (lock) {
 - `CountDownLatch`、`CyclicBarrier`、`Semaphore`：控制线程协作和并发数量。
 - `Future`、`CompletableFuture`：通过异步结果传递信息。
 
-## CountDownLatch、CyclicBarrier 和 Semaphore 有什么区别？
+### CountDownLatch、CyclicBarrier 和 Semaphore 有什么区别？
 
 | 工具               | 核心作用            | 是否可复用 | 典型场景       |
 | ---------------- | --------------- | ----- | ---------- |
@@ -323,7 +325,7 @@ synchronized (lock) {
 
 记忆方式：Latch 是“别人完成后我继续”，Barrier 是“大家到齐再继续”，Semaphore 是“控制同时进入的人数”。
 
-## ThreadLocal 的作用、原理和内存泄漏是什么？
+### ThreadLocal 的作用、原理和内存泄漏是什么？
 
 `ThreadLocal` 为每个线程保存**独立变量副本，常用于用户上下文、traceId 和线程内资源上下文**。
 
@@ -340,9 +342,9 @@ try {
 }
 ```
 
-# Java 线程池与异步编程
+## Java 线程池与异步编程
 
-## ThreadPoolExecutor 提交任务的流程是什么？
+### ThreadPoolExecutor 提交任务的流程是什么？
 
 1. 当前线程数小于 `corePoolSize`：创建核心线程执行任务。
 2. 核心线程已满：任务进入 **`workQueue`**。
@@ -351,7 +353,7 @@ try {
 
 记忆顺序：**核心线程 → 队列 → 最大线程 → 拒绝**。
 
-## 线程池有哪些核心参数？
+### 线程池有哪些核心参数？
 
 | 参数                | 含义              |
 | ----------------- | --------------- |
@@ -364,7 +366,7 @@ try {
 
 调用 `allowCoreThreadTimeOut(true)` 后，核心线程空闲超时也可以回收。
 
-## 线程池有哪些拒绝策略？
+### 线程池有哪些拒绝策略？
 
 - `AbortPolicy`：默认策略，抛出 `RejectedExecutionException`。
 - `CallerRunsPolicy`：提交任务的线程自己执行，形成**反压**。
@@ -373,7 +375,7 @@ try {
 
 生产环境**可以自定义拒绝策略**，记录日志、告警、持久化任务或返回明确失败。
 
-## 线程池参数如何设置？核心线程数可以是 0 吗？
+### 线程池参数如何设置？核心线程数可以是 0 吗？
 
 常见经验：
 
@@ -388,7 +390,7 @@ try {
 
 `corePoolSize = 0` 是允许的，任务通常先进入队列，再由非核心线程执行；**适合任务零散、希望空闲时回收线程的场景**，但**不适合对延迟敏感**的稳定服务。
 
-## 为什么不建议直接使用 Executors？
+### 为什么不建议直接使用 Executors？
 
 - `newFixedThreadPool` 和 `newSingleThreadExecutor` 使用无界队列，**任务积压可能导致 OOM**。
 - `newCachedThreadPool` **最大线程数接近无限**，高并发下可能创建过多线程。
@@ -396,7 +398,7 @@ try {
 
 生产中通常手动创建 `ThreadPoolExecutor`，明确线程数、队列、线程工厂和拒绝策略。
 
-## 线程池如何关闭？任务可以撤回吗？
+### 线程池如何关闭？任务可以撤回吗？
 
 | 方法              | 行为                             |
 | --------------- | ------------------------------ |
@@ -414,7 +416,7 @@ if (!executor.awaitTermination(30, TimeUnit.SECONDS)) {
 
 通过 `submit()` 得到 `Future` 后可以**调用 `cancel(true)`**：未开始的任务可以取消，执行中的任务只会收到中断信号，是否停止取决于任务是否响应中断。
 
-## Future、FutureTask 和 CompletableFuture 有什么区别？
+### Future、FutureTask 和 CompletableFuture 有什么区别？
 
 | 类型                  | 作用                    | 特点                        |
 | ------------------- | --------------------- | ------------------------- |
@@ -441,7 +443,7 @@ CompletableFuture<Integer> future = CompletableFuture
 
 默认异步任务可能使用公共 `ForkJoinPool.commonPool()`。生产环境应根据任务类型指定自定义线程池，尤其要避免阻塞 I/O 任务耗尽公共线程池。
 
-## CompletableFuture 上线时如何处理异常、超时、取消和线程池隔离？
+### CompletableFuture 上线时如何处理异常、超时、取消和线程池隔离？
 
 核心回答：先为不同依赖使用有界且可观测的执行器，再让每个外部调用自己有 deadline；组合层显式规定“一个失败是否取消兄弟任务、能否返回部分结果、fallback 是否掩盖错误”。`orTimeout` 只会让 Future 以超时异常完成，不保证底层阻塞 I/O 已经停止，因此还要向客户端/任务传播取消并配置底层连接与读取超时。
 
@@ -461,9 +463,9 @@ return left.thenCombine(right, this::merge)
 易错点：在 `exceptionally` 中无条件返回空对象会把依赖故障伪装成业务成功；在异步阶段依赖 ThreadLocal 可能丢失认证或 Trace 上下文；`allOf()` 只返回完成信号，仍需逐个读取结果并处理异常。验收时应覆盖单分支失败、整体超时、队列满、取消和服务关闭，观测活跃线程、队列长度、拒绝数与端到端 P95/P99。
 
 
-# Java 并发场景题
+## Java 并发场景题
 
-## 什么情况下会产生死锁？如何避免？
+### 什么情况下会产生死锁？如何避免？
 
 死锁需要同时满足：**互斥、持有并等待、不可剥夺、循环等待**。
 
@@ -474,7 +476,7 @@ return left.thenCombine(right, this::merge)
 - **缩小锁粒度**，减少竞争。
 - 使用 `jstack` 或线程 dump 排查 `BLOCKED` 和死锁信息。
 
-## 如何设计生产者消费者模型？
+### 如何设计生产者消费者模型？
 
 优先使用 **`BlockingQueue`，让队列负责线程安全、容量控制和等待唤醒**：
 
@@ -491,7 +493,7 @@ handle(task);
 
 停止消费者可以使用中断，或放入特殊结束标记。
 
-## 高并发计数器如何实现？
+### 高并发计数器如何实现？
 
 - 低并发或需要精确即时值：`AtomicInteger`、`AtomicLong`。
 - **高并发热点计数：`LongAdder`**，通过**分散到多个分段降低 CAS 冲突**。
@@ -499,7 +501,7 @@ handle(task);
 
 `LongAdder` 的吞吐量通常高于 `AtomicLong`，但 `sum()` 是多个分段的汇总，不适合要求每次读取都具备严格线性一致性的场景。
 
-## 双重检查锁为什么需要 volatile？
+### 双重检查锁为什么需要 volatile？
 
 ```java
 public final class Singleton {
@@ -522,7 +524,7 @@ public final class Singleton {
 
 `volatile` 保证实例引用的**可见性**，并禁止“分配内存、初始化对象、发布引用”发生危险重排序。没有延迟加载要求时，可直接使用静态初始化或枚举单例，减少实现和反序列化风险。
 
-## 如何让三个线程交替打印 ABC？
+### 如何让三个线程交替打印 ABC？
 
 手撕高频题。核心是“轮到谁”这个状态必须原子可见、唤醒要精确。用 `Semaphore` 传递许可是最短写法：
 
@@ -541,7 +543,7 @@ sb.release();
 
 易错点：等待条件用 `if` 而不是 `while`（虚假唤醒后继续跑）；`state++` 没在锁内做（原子性、可见性都不保证）；异常路径漏掉 `release/signal`，其余线程永久等待。`wait/notify` 代码找错题考的就是这几处。
 
-## 如何手写一个并发安全的 LRU 缓存？
+### 如何手写一个并发安全的 LRU 缓存？
 
 基线版本：`LinkedHashMap` 开启 access-order，重写 `removeEldestEntry`，访问加同一把锁：
 
@@ -571,7 +573,7 @@ class LruCache<K, V> {
 
 同一思想在其他层的实现：Redis 的近似 LRU 与淘汰池见 [Redis](../Data/Redis.md)，纯数据结构版手撕见 [编码题与后端基础](../Agent面试题库/11_编码与后端/编码题与后端基础.md)。
 
-## 手撕并发高频清单
+### 手撕并发高频清单
 
 面经手撕环节的并发题集中在五个，全部能从本文件题面推导：
 

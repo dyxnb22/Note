@@ -34,6 +34,10 @@ Use this template when creating a new module.
 - [ ] Summarize results in `report.md`
 - [ ] Confirm the module has a standalone project identity
 
+## Implementation Notes
+
+Code comments should clarify tensor shapes, numerical stability, device or random-seed behavior, and experiment assumptions. Avoid comments that only restate obvious language syntax.
+
 ## Suggested Questions
 
 - What problem does this method solve?

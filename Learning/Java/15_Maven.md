@@ -84,8 +84,8 @@ Wrapper 只固定 Gradle 本身，不能自动固定 JDK、插件、仓库中的
 
 ## 来源与版本边界
 
-- [JavaGuide：Maven 核心概念总结](https://javaguide.cn/tools/maven/maven-core-concepts.html)
-- [JavaGuide：Maven 最佳实践](https://javaguide.cn/tools/maven/maven-best-practices.html)
-- [JavaGuide：Gradle 核心概念总结](https://javaguide.cn/tools/gradle/gradle-core-concepts.html)
+- [Maven 核心概念总结](https://javaguide.cn/tools/maven/maven-core-concepts.html)
+- [Maven 最佳实践](https://javaguide.cn/tools/maven/maven-best-practices.html)
+- [Gradle 核心概念总结](https://javaguide.cn/tools/gradle/gradle-core-concepts.html)
 
 Gradle 的缓存、配置缓存、依赖锁定和校验能力会随版本变化；面试回答应先讲 Task/Plugin/Wrapper 和三阶段模型，具体选项以项目 Wrapper 对应版本为准。

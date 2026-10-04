@@ -1,5 +1,7 @@
 # DCF 估值
 
+> 本篇来源与证据边界见[来源索引中的对应条目](../来源索引.md#finance-source-057)。
+
 ## 1. 核心概念
 
 **DCF（Discounted Cash Flow）**

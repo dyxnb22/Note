@@ -23,3 +23,7 @@ node_modules/
 dist/
 build/
 target/
+
+# Tool session state (noise)
+.claudian/
+Users/

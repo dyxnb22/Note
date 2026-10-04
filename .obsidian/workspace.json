@@ -24,31 +24,45 @@
             }
           },
           {
-            "id": "1da7f5831f770076",
+            "id": "932acf0fc5a43e35",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning/Backend/Java/04_JVM.md",
+                "file": "Learning/CS/03_Network.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "04_JVM"
+              "title": "03_Network"
             }
           },
           {
-            "id": "e7cd8038fad928e8",
+            "id": "92ba45a54ad73d38",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning/CS/算法/贪心.md",
+                "file": "Projects/BigMarket/BigMarket学习笔记.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "贪心"
+              "title": "BigMarket学习笔记"
+            }
+          },
+          {
+            "id": "04168c3c45f37c73",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Learning/CS/算法/动态规划.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "动态规划"
             }
           }
         ],
@@ -72,7 +86,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
+                "autoReveal": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -111,7 +125,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 204.2578125
+    "width": 273.7265625
   },
   "right": {
     "id": "9b63ea93b6cd710f",
@@ -189,9 +203,9 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Learning/Backend/Java/04_JVM.md",
+                "file": "Learning/CS/03_Network.md",
                 "followCursor": false,
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
@@ -208,11 +222,11 @@
                   "version": 1,
                   "openTabs": [
                     {
-                      "tabId": "tab-1789394050406-i5r0yfs",
-                      "conversationId": "conv-1789225888614-fnd6b0jhx"
+                      "tabId": "tab-1790516317796-udya7mf",
+                      "conversationId": "conv-1791036234565-eydpzq8n8"
                     }
                   ],
-                  "activeTabId": "tab-1789394050406-i5r0yfs"
+                  "activeTabId": "tab-1790516317796-udya7mf"
                 }
               },
               "icon": "bot",
@@ -230,11 +244,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 458.92578125
+    "width": 321.99609375
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -249,43 +263,43 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "69a2bc9ea88f98e7",
+  "active": "932acf0fc5a43e35",
   "lastOpenFiles": [
-    "Learning/CS/算法/贪心.md",
-    "Learning/Backend/Java/03_集合与容器.md",
-    "Learning/秋招进度.md",
+    "Learning/CS/03_Network.md.tmp.35372.58805ed89c31",
     "Learning/CS/算法/动态规划.md",
-    "Learning/CS/算法/Hash.md",
-    "Learning/CS/算法/README.md",
-    "Learning/CS/算法/矩阵.md",
-    "Learning/Python学习/00_收件箱.md",
-    "Learning/Python学习/03_标准库.md",
-    "Learning/Python学习/05_后端服务.md",
-    "Learning/Python学习/04_工程基础.md",
-    "Learning/Python学习/06_Agent开发.md",
-    "Learning/Python学习/07_生产与交付.md",
-    "Learning/Python学习/06_生产与交付.md",
-    "Learning/Python学习/05_Agent开发.md",
-    "Learning/Python学习/04_后端服务.md",
-    "Learning/Python学习/03_工程基础.md",
-    "Learning/Python学习/02_语言进阶与异步.md",
-    "Learning/Python学习/README.md",
-    "Learning/Python学习/01_语言核心.md",
-    "Learning/Python学习",
-    "Learning/Python/面试题库/00_复习路线与答题模板.md",
-    "Learning/Backend/Java/01_语言与运行时.md",
-    "Learning/CS/算法/字符串.md",
-    "Learning/Backend/Java/02_IO与网络编程.md",
-    "Learning/Backend/Java/04_JVM.md",
-    "Learning/Agent面试题库/_audit/PHASE7_REPORT.md",
-    "Learning/Agent面试题库/_audit/v2/question_inventory_v2.json",
-    "Learning/Agent面试题库/_audit/v2/question_id_migration.json",
-    "Learning/Agent面试题库/_audit/v2/question_atom_coverage_v2.json",
-    "Learning/Agent面试题库/_audit/v2/phase8b_audit.py",
-    "Learning/Agent面试题库/_audit/v2/phase8b_adversarial_audit.json",
-    "Learning/Agent面试题库/_audit/v2/phase7b_validation.json",
-    "Learning/Agent面试题库/_audit/v2/phase7b_validate.py",
-    "Learning/Agent面试题库/_audit/v2/phase6b_validation.json",
-    "Learning/Agent面试题库/_audit/v2/phase5b_validation.json"
+    "Learning/CS/03_Network.md",
+    "Learning/CS/03_Network.md.tmp.35372.801c83d7ca60",
+    "Projects/BigMarket/BigMarket学习笔记.md",
+    "Learning/秋招进度.md",
+    "Learning/CS/算法/普通数组.md",
+    "Learning/Delivery/03_Linux 命令详解指南.md",
+    "Learning/Data/Redis.md",
+    "Projects/BigMarket/08-治理-鉴权配置与可观测性.md",
+    "Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com/dyx/market/auth/AuthAccessController.java.md",
+    "Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com/dyx/market/auth",
+    "Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com/dyx/market",
+    "Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com/dyx",
+    "Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com",
+    "Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java",
+    "Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main",
+    "Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src",
+    "Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service",
+    "Users/diaoyuxuan/big-market-ai-platform",
+    "Projects/BigMarket/11-运营流程-上架预热配置与查询.md",
+    "Learning/References/产品文档与需求分析.md",
+    "Learning/Case_Studies/Source_Audits/开源项目阅读方法.md",
+    "Learning/Case_Studies/Source_Audits/资料阅读、源码审计与复现.md",
+    "Projects/源码课程组合.md",
+    "Learning/Case_Studies/开源项目能力索引.md",
+    "Learning/Architecture/技术术语与设计决策.md",
+    "Learning/Java/技术小册与能力迁移.md",
+    "Learning/Product_and_Decision/产品文档与需求分析.md",
+    "Learning/References/技术术语与设计决策.md",
+    "Learning/References/技术小册与能力迁移.md",
+    "Learning/References/README.md",
+    "Learning/References/小林Coding与JavaGuide知识体系提炼.md",
+    "Learning/References/科技资料正文提炼.md",
+    "Learning/References/开源项目源码课程组合.md",
+    "Learning/References/开源项目阅读方法.md"
   ]
 }

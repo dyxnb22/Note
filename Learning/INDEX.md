@@ -26,7 +26,6 @@
 | [产品与业务决策](./Product_and_Decision/README.md) | 处理需求、指标、实验、定价和反馈闭环 |
 | [安全、隐私与治理](./Security_and_Governance/README.md) | 真实系统出现身份、数据、供应链或治理风险 |
 | [Case Studies](./Case_Studies/README.md) | 用项目、源码或实验验证主题知识 |
-| [References](./References/README.md) | 查产品文档、技术资料、开源项目和证据方法 |
 | [Career](./Career/README.md) | 求职、项目表达、协作和职业阶段问题 |
 
 技术主线不是固定课程。常见关系是：
@@ -49,10 +48,6 @@
 | [写作与表达](./Writing_and_Expression/INDEX.md) | 为正在交付的汇报、方案、沟通或演示服务 |
 
 这些主题彼此并列，不是技术主线之后的额外必修。
-
-## 跨目录路线
-
-- [小林 Coding 与 JavaGuide 知识体系提炼](./References/小林Coding与JavaGuide知识体系提炼.md)：按两站公开目录检查本地覆盖和直接来源。
 
 ## 使用规则
 
