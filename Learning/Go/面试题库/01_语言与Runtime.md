@@ -111,7 +111,3 @@
 ### 26. Go 的构建与发布如何证明“运行的就是构建的内容”？
 
 答：构建脚本固定 Go/toolchain、module 依赖、build tags、目标平台和嵌入资源，通过 `-ldflags` 写入版本、commit 和构建时间；制品生成后记录 hash，启动日志和健康接口暴露可追踪版本。发布验收还要覆盖配置、迁移、回滚和跨平台差异，不能只看本地 `go build` 成功。
-
-## 验证边界
-
-- slice、interface、逃逸、调度器和 GC 的实现细节必须以目标 Go 版本和 benchmark/profile 为准。

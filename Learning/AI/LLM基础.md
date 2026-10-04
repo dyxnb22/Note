@@ -9,19 +9,6 @@
 - 做出合理的系统设计决策
 - 在面试中清楚解释 tokenization、generation、alignment、fine-tuning
 
-## 配套实践
-
-| 主题 | 实践入口 |
-|---|---|
-| Token、Transformer 与注意力 | [self_attention_demo.py](./实践/llm_learning/00_transformer_foundation/project/self_attention_demo.py) |
-| SFT、LoRA 与推理 | [prepare_sft_dataset.py](./实践/llm_learning/05_finetune_and_inference/project/prepare_sft_dataset.py) |
-| MoE、MLA 与 KV Cache 估算 | [architecture_budget_estimator.py](./实践/llm_learning/07_open_llm_deepseek_study/project/architecture_budget_estimator.py) |
-| DPO 与推理模型 | [tiny_dpo_loss.py](./实践/llm_learning/09_alignment_reasoning_research/project/tiny_dpo_loss.py) |
-
-实践代码用于建立直觉和验证流程；模型规格、API 限制和训练配置仍应以具体 Provider/框架文档为准。
-
----
-
 ## 1. 从文本到 Token
 
 ### Tokenization 是什么

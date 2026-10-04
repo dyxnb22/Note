@@ -15,7 +15,3 @@ Fashion-MNIST 等数据集的图像先转 tensor，必要时归一化；使用 D
 ## 数值稳定性
 
 直接计算 `exp(1000)` 会溢出。稳定 softmax 会先减去每行最大值，概率不变。实际项目优先使用框架提供的 fused loss。
-
-## 配套实践
-
-- [DeepPath Lab Module 02：Linear Models](../../实践/DeepPathLab/modules/02_linear_models/README.md)：在回归基础上补充 softmax 分类和优化行为实验。

@@ -6,25 +6,6 @@
 2. **解释 LLM 工作原理**：能在面试中清楚讲清 tokenization、generation、fine-tuning、alignment
 3. **为应用工程提供判断依据**：理解模型能力边界，才能做出合理的系统设计决策
 
-## 文档地图
-
-| 文档 | 定位 | 适合什么时候看 |
-|------|------|----------------|
-| `LLM基础.md` | LLM 工作原理全链路：从 token 到 generation 到 alignment | 遇到模型原理问题或准备面试时查阅 |
-| `面试题库/` | 模型、训练、推理和 AI 系统的问答题 | 需要按题目复习或准备模型相关面试时 |
-| `DeepLearning/` | 以 D2L 路线系统学习训练原理、CNN、RNN、Transformer、视觉与 NLP | 需要系统补模型训练基础时 |
-| `DeepLearning.md` | 深度学习到 LLM 的工程桥接速览 | 想快速补训练循环、Transformer、LoRA 和 HuggingFace 时 |
-| `ML系统与MLOps.md` | 数据、实验、模型注册、推理服务、漂移、灰度与回滚 | 需要把训练结果做成可运营系统时 |
-| `AI工具与编程助手.md` | AI 编程工具的能力、边界、协作方式、风险 | 开始使用 AI Coding Agent 时；思考人机协作时 |
-
-通用数据科学的入口见 [数据科学](../Data_Science/README.md)：它补充问题定义、Python 数据分析、EDA、经典机器学习、特征泄漏、实验、时间序列和端到端项目；本目录继续负责深度学习与模型训练原理。
-
-## 配套实践
-
-- [LLM 课程实践](./实践/llm_learning/README.md)：00–11 课程，从深度学习和 Transformer 到 Agent、RAG、评测、微调、生产系统与研究方法。
-- [DeepPath Lab](./实践/DeepPathLab/README.md)：以项目制方式从自动微分、线性模型、MLP 和 CNN 开始，逐步走向序列模型、Transformer 与 NLP。
-- [Agent 实践与项目表达题](../Agent面试题库/12_课程深化/08_评测实验与项目表达/评测实验与项目表达.md)：提炼 Agent Loop、工具、Context、可靠性和 MCP 的实践要点。
-
 ## 与 xfg-planet 案例的连接
 
 - [AI MCP Gateway](../Case_Studies/AI/AI-MCP-Gateway.md)：协议转换、JSON-RPC、Session 和工具治理。

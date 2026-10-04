@@ -29,14 +29,6 @@
 - 这里的 NLP 止于理解 BERT/Transformer；RAG、Agent、评测和部署在 `Learning/Agent面试题库/`。
 - 默认采用 PyTorch。每个实验记录数据集、随机种子、指标、超参数和失败原因。
 
-## 配套实践
-
-- [深度学习到 LLM 学习文档](../实践/llm_learning/00_deep_learning_for_llm/学习文档.md) 与 [tiny next-token model](../实践/llm_learning/00_deep_learning_for_llm/project/tiny_next_token_model.py)：把 token、logits、softmax、loss 和梯度下降串起来。
-- [Transformer 学习文档](../实践/llm_learning/00_transformer_foundation/学习文档.md) 与 [self-attention demo](../实践/llm_learning/00_transformer_foundation/project/self_attention_demo.py)：运行最小 Q/K/V 注意力实验。
-- [DeepPath Lab 对应关系](../实践/DeepPathLab/与%20Notes%20的对应关系.md)：把本目录的理论章节落到 01–04 四个项目模块，统一记录实现、实验和报告。
-
-可运行验证统一放在这些实践中；本目录正文只解释概念、机制和边界，不再重复安排每篇课后练习。选择一个与当前目标对应的实验即可。
-
 ## 当前目标的完成标准
 
 完成标准由所选目标决定，而不是“读完目录”：例如训练入门阶段能独立跑通一个训练循环并解释 loss、梯度和过拟合；进入 Transformer 时再要求解释注意力和序列表示；进入训练系统时再处理恢复、混合精度与多卡。
