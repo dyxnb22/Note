@@ -141,19 +141,3 @@ Ingress/Gateway 处理南北向路由；Service Mesh 处理服务间身份、策
 4. GitOps 部署 Canary。
 5. 接入成本和可观测性。
 6. 模拟区域故障并按 Runbook 恢复。
-
-## 验收清单
-
-- 云账户、网络、身份和环境隔离明确。
-- IaC State、Plan、Apply 和 Drift 受控。
-- GitOps 与数据库迁移边界清楚。
-- 多集群/多区域有数据和流量故障模型。
-- 成本可归属且不牺牲 SLO。
-
-## 来源与验证边界
-
-资源语义以使用的云平台、Terraform Provider、Kubernetes/Gateway/GitOps 工具官方文档为准。IAM、网络和托管服务默认值可能变化，生产变更必须审阅 Plan 并在隔离环境验证。
-
-## 标签
-
-`#cloud-native #terraform #iac #gitops #iam`

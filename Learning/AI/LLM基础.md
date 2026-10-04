@@ -375,14 +375,6 @@ def attention(query, key, value):
 
 ---
 
-## 来源与验证边界
-
-- Vaswani et al., *Attention Is All You Need*：Transformer 与 Self-Attention 的原始论文。
-- Hugging Face Course：Tokenization、Transformer、微调和推理的实践入口。
-- PyTorch 文档：张量、Autograd、训练和推理 API。
-
-模型结构、上下文长度、量化能力和 Provider 参数会随版本变化；本文的公式和教学代码用于建立机制直觉，具体模型规格与 API 以锁定版本文档和本地实验为准。
-
 ## 何时回到本页
 
 当当前项目需要解释 tokenization、embedding、attention、generation、采样参数、对齐方法、幻觉、KV Cache，或需要在 Prompt、RAG 和 Fine-tuning 之间选型时，再打开对应章节。做 Agent 应用不需要把这些主题预先全部复习一遍。

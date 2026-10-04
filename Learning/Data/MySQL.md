@@ -537,8 +537,6 @@ mysqldump --single-transaction -u root -p database_name > backup.sql
 
 **恢复与增量的区别：**物理增量备份是相对于某个全备的文件/页变更，需要按顺序合并到全备并 prepare；binlog 回放则用于把已恢复的备份继续推进到指定时间点。常见时间点恢复路径是：恢复最近的全备（物理备份需先 prepare）→ 从备份记录的 binlog 位置开始回放 binlog → 停在目标时间点。使用 XtraBackup 前应确认工具与备份源的版本、引擎和功能兼容；恢复前应在隔离环境演练并验证数据。
 
-> 参考：[Percona XtraBackup 备份流程](https://docs.percona.com/percona-xtrabackup/8.0/backup-overview.html)、[增量备份 prepare](https://docs.percona.com/percona-xtrabackup/8.4/prepare-incremental-backup.html)、[恢复备份](https://docs.percona.com/percona-xtrabackup/8.0/restore-a-backup.html)。
-
 ## 日志
 
 ### MySQL 日志

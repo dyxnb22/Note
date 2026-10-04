@@ -131,14 +131,3 @@ PodDisruptionBudget 约束自愿中断期间的可用副本，但不能防止节
 5. 检查 Service、EndpointSlice、DNS 和 NetworkPolicy。
 6. 对比最近发布、配置、Secret 和数据库迁移。
 7. 必要时进入临时调试容器，不直接修改生产容器状态。
-
-## Kubernetes 最小实践
-
-部署一个带数据库依赖的 API：
-
-- 配置 requests/limits 与三类探针。
-- 使用 ConfigMap、Secret 和 ServiceAccount。
-- 配置滚动发布、PDB 与 HPA。
-- 加入 NetworkPolicy。
-- 模拟 Pod 崩溃、节点中断和错误配置。
-- 记录发现证据、恢复步骤和回滚条件。

@@ -217,7 +217,3 @@ def release_gate(candidate, baseline, *, hard_limits, required_artifacts):
 - 发布门禁同时覆盖质量、性能、安全和兼容性。
 - 线上监控区分系统、数据、模型和业务。
 - 漂移、再训练、灰度和回滚有明确触发条件。
-
-## 来源与验证边界
-
-课程框架参考 Google《Rules of ML》、Chip Huyen《Designing Machine Learning Systems》和主流 ML 平台的生命周期模型。工具、硬件与服务行为会变化；质量、成本和性能必须以具体模型、数据和生产流量验证。
