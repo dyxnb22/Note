@@ -9,7 +9,6 @@
 | 主题 | 什么时候进入 |
 |---|---|
 | [CS](./CS/Network.md) | 计算机组成、网络、OS、算法与理论基础；目录内平铺，无阅读顺序 |
-| [算法题型索引](./CS/算法/README.md) | 按数据结构、区间技巧、搜索和动态规划组织的题目卡片 |
 | [Java](./Java/README.md) | Java 语言、JVM、并发、Spring 与工程排障题库 |
 | [Go](./Go/README.md) | Go 语言路线、并发服务与后端项目实战 |
 | [Rust](./Rust/README.md) | Rust 所有权、并发安全、异步服务与 Agent Runtime |

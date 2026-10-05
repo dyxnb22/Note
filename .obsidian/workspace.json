@@ -29,12 +29,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Learning/CS/Network.md",
+                "file": "Learning/CS/算法/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Network"
+              "title": "README"
             }
           }
         ],
@@ -175,7 +175,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Learning/CS/Network.md",
+                "file": "Learning/CS/算法/README.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
@@ -235,8 +235,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "92ba45a54ad73d38",
+  "active": "b55c65997e2b1b75",
   "lastOpenFiles": [
+    "Learning/CS/Network.md",
     "Projects/BigMarket/BigMarket学习笔记.md",
     "Learning/CS/03_Network.md",
     "Learning/CS/人机交互.md",
@@ -249,7 +250,6 @@
     "Learning/CS/离散数学与证明方法.md",
     "Learning/CS/OS.md",
     "Learning/CS/HTTP与Web协议.md",
-    "Learning/CS/Network.md",
     "Learning/CS/数据结构.md",
     "Learning/CS/计算机组成.md",
     "Learning/CS/04_HTTP与Web协议.md",
