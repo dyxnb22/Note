@@ -31,3 +31,7 @@ Users/
 # Obsidian 插件代码可从市场重装，不跟踪；插件设置(data.json)与 manifest 保留
 .obsidian/plugins/*/main.js
 .obsidian/plugins/*/styles.css
+
+# Obsidian 窗口状态，纯本地噪音
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
