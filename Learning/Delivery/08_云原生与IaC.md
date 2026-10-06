@@ -127,9 +127,9 @@ Ingress/Gateway 处理南北向路由；Service Mesh 处理服务间身份、策
 
 ## 15. 安全
 
-镜像签名、Admission Policy、Secret 管理、Runtime Policy、网络隔离、主机加固和供应链共同构成防线。
+镜像签名、Admission Policy、Secret 管理、Runtime Policy、网络隔离、主机加固和供应链共同构成防线：镜像签名保证运行的是可信构建产物；Admission Policy 在准入时拦截不合规工作负载；Secret 管理避免密钥进代码和环境变量；Runtime Policy 限制容器运行时行为；网络隔离限制东西向流量；主机加固收缩宿主机攻击面；供应链覆盖依赖与构建过程。
 
-禁止公开控制面、特权工作负载和无审计紧急权限。
+禁止公开控制面、特权工作负载和无审计紧急权限——三者分别对应控制面暴露、容器逃逸和操作不可追责三类典型事故。
 
 ## 最小项目
 
