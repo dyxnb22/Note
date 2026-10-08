@@ -1,7 +1,4 @@
-
-# Spring 核心
-
-## IoC 和 DI 分别是什么，为什么优先使用构造器注入？
+# IoC 和 DI 分别是什么，为什么优先使用构造器注入？
 
 IoC 是把对象创建和依赖管理**从业务代码交给容器**；DI 是容器把依赖传给对象的**实现方式**。优先使用**构造器注入**，因为依赖显式、对象可保持完整状态，也便于单元测试。
 
@@ -22,11 +19,11 @@ IoC 是把对象创建和依赖管理**从业务代码交给容器**；DI 是容
 
 BeanDefinition 是“如何创建对象”的元数据，Bean 是创建完成的实例。不要把容器理解成一个普通 `Map<Class, Object>`：它还要处理**作用域、生命周期、代理、扩展点和依赖关系**。
 
-## Spring Bean 的作用域和生命周期如何理解？
+# Spring Bean 的作用域和生命周期如何理解？
 
 常见作用域包括 singleton、prototype、request 和 session。Spring singleton 是"每个容器一个实例"，不是 JVM 全局单例；单例 Bean 仍需自行保证可变状态的线程安全。
 
-### 单例 Bean 为什么仍可能有线程安全问题？
+## 单例 Bean 为什么仍可能有线程安全问题？
 
 Spring 容器对每个 Bean 只创建一个实例，但**线程安全不由容器保证**。多线程并发访问同一个对象，如果对象内部有可变状态（成员变量被修改），就会出现数据竞争。
 
@@ -67,11 +64,11 @@ public class OrderCalculator {
 
 prototype Bean 的创建由容器负责，但完整销毁通常由调用方负责。Web 作用域依赖请求上下文，不能在普通线程中随意使用。
 
-## Spring 循环依赖为什么会发生，三级缓存能解决什么？
+# Spring 循环依赖为什么会发生，三级缓存能解决什么？
 
 **循环依赖**暴露了对象职责互相纠缠。Spring 对部分单例、Setter/字段注入的循环依赖可以通过**提前暴露引用解决**，但**构造器循环依赖无法靠三级缓存绕过**。
 
-### 三级缓存解决的是什么问题？
+## 三级缓存解决的是什么问题？
 
 Spring 创建单例 Bean 时有三级缓存：
 
@@ -99,7 +96,7 @@ public class B {
 
 流程：`创建 A → 实例化后放入三级缓存 → 填充属性时发现需要 B → 创建 B → B 从缓存拿到 A → B 完成 → A 注入 B → A 完成`
 
-### 为什么构造器循环依赖无法解决？
+## 为什么构造器循环依赖无法解决？
 
 构造器注入要求**实例化时就必须提供所有依赖**——对象还没创建出来，没有引用可以暴露给缓存。
 
@@ -126,7 +123,7 @@ public class B {
 
 本质矛盾：**构造器语义要求对象创建即完整，而缓存机制依赖"先给引用再补属性"**。二者不可兼得。
 
-### 工程上怎么解决？
+## 工程上怎么解决？
 
 优先**消除循环**，而不是依赖容器兜底：
 
@@ -171,7 +168,7 @@ public class InventoryListener {
 
 三级缓存的意义不只是“提前放一个对象”，**还要保证其他 Bean 取得的早期引用与最终 AOP 代理保持一致**。工程上优先通过拆分职责、引入领域事件或中间服务消除循环，而不是依赖容器兜底。
 
-## Spring AOP 如何通过代理实现，哪些调用会失效？
+# Spring AOP 如何通过代理实现，哪些调用会失效？
 
 AOP 把**日志、事务、鉴权、指标**等横切逻辑织入业务方法。Spring AOP 主要基于运行时代理：
 
@@ -182,7 +179,7 @@ AOP 把**日志、事务、鉴权、指标**等横切逻辑织入业务方法。
 
 代理只拦截“经过代理对象”的调用。对象内部 `this.method()` 通常不会再次经过代理，因此 `@Transactional`、`@Async`、`@Cacheable` 等都可能失效。
 
-### BeanPostProcessor 为什么能生成 AOP 代理？
+## BeanPostProcessor 为什么能生成 AOP 代理？
 
 AOP 代理不是在 Bean 实例化时就生成的，而是在**初始化阶段**由 `BeanPostProcessor` 拦截并包装的。
 
@@ -222,11 +219,11 @@ public Object postProcessAfterInitialization(Object bean, String beanName) {
 
 这也解释了为什么 `@Async`、`@Transactional` 等注解要放在**公开方法**上——它们需要被 `BeanPostProcessor` 扫描到才能生成对应的代理逻辑。
 
-## Spring 声明式事务为什么会失效，边界如何设计？
+# Spring 声明式事务为什么会失效，边界如何设计？
 
 声明式事务由代理在方法前后打开、提交或回滚事务。重点不是记注解参数，而是确认以下六种常见失效场景。
 
-### 1. 自调用绕开代理
+## 1. 自调用绕开代理
 
 同类内部方法调用走的是 `this.method()`，**不经过代理对象**，`@Transactional` 完全失效。
 
@@ -257,7 +254,7 @@ public void createOrder(OrderDTO dto) {
 }
 ```
 
-### 2. 异常被吞掉，事务拦截器收不到回滚信号
+## 2. 异常被吞掉，事务拦截器收不到回滚信号
 
 `try-catch` 吞掉**异常后**，拦截器认为方法正常完成，直接提交——**即使数据库已经部分写入。**
 
@@ -286,7 +283,7 @@ public void transfer(Long from, Long to, BigDecimal amount) {
 }
 ```
 
-### 3. Checked Exception 不触发默认回滚
+## 3. Checked Exception 不触发默认回滚
 
 Spring 默认只对 `RuntimeException` 和 `Error` 回滚，**checked Exception（如 `IOException`）会直接提交**。
 
@@ -302,7 +299,7 @@ public void importData(File file) throws IOException {
 public void importData(File file) throws IOException { /* ... */ }
 ```
 
-### 4. 多数据源配错事务管理器
+## 4. 多数据源配错事务管理器
 
 `@Transactional` 默认按名称查找 `transactionManager`，多数据源时容易**指向错误的管理器**。
 
@@ -319,7 +316,7 @@ public class OrderService {
 }
 ```
 
-### 5. 异步线程丢失事务上下文
+## 5. 异步线程丢失事务上下文
 
 `TransactionSynchronizationManager` 基于 `ThreadLocal` 绑定，**新线程拿不到原事务**。
 
@@ -348,7 +345,7 @@ public void process() {
 }
 ```
 
-### 6. 事务覆盖远程调用，持锁时间过长
+## 6. 事务覆盖远程调用，持锁时间过长
 
 事务内做 HTTP/RPC 调用，**数据库连接一直被占着**，锁等待时间随网络延迟线性增长。
 
@@ -373,14 +370,14 @@ public void markPaidInTransaction(Long id) {
 }
 ```
 
-### 设计原则
+## 设计原则
 
 - 事务尽量**短小**：只包含数据库操作，不掺杂远程调用和文件 I/O。
 - 异常**不要吞**：catch 之后要么 rethrow，要么手动 `setRollbackOnly`。
 - 多数据源**显式指定**事务管理器名称。
 - 数据库事务只能保证本地资源，不能直接保证消息和远程服务的一致性——跨服务一致性用**本地事务表、事务消息或 Saga** 解决。
 
-## Spring 事务传播和数据库隔离级别分别解决什么问题？
+# Spring 事务传播和数据库隔离级别分别解决什么问题？
 
 核心回答：**传播行为解决“一个带事务的方法调用另一个事务方法时如何组合”**，**隔离级别解决“多个数据库事务并发时能看到什么”**。二者不在同一层，`REQUIRES_NEW` 不能替代更高隔离级别，`SERIALIZABLE` 也不能自动决定内部方法是否新开事务。
 
@@ -397,7 +394,7 @@ public void markPaidInTransaction(Long id) {
 
 自调用失效的首选修复是拆分 Bean，让调用真正经过代理，或把事务边界上移到公开用例方法；不建议为了绕过设计问题普遍使用 `AopContext.currentProxy()`。测试至少覆盖代理类型、回滚规则、内外层组合、连接池容量和并发冲突。
 
-## Spring 常用扩展点分别在什么时候执行？
+# Spring 常用扩展点分别在什么时候执行？
 
 | 扩展点                             | 适用场景              |
 | ------------------------------- | ----------------- |
@@ -410,7 +407,7 @@ public void markPaidInTransaction(Long id) {
 
 扩展点要有清晰的执行顺序和失败策略，避免把关键业务逻辑藏在隐式生命周期回调里。
 
-## 如何验收 Spring Core 基础？
+# 如何验收 Spring Core 基础？
 
 - IoC、DI、BeanDefinition 和 Bean 分别是什么？
 - BeanPostProcessor 为什么能生成 AOP 代理？
