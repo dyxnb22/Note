@@ -37,6 +37,48 @@ OpenFeign 提供声明式 HTTP 客户端，减少样板代码；它不会替你�
 
 网关适合做**路由、认证入口、限流**、协议适配和通用观测，不适合承载核心业务编排。规则应可测试、可灰度、可回滚；上传下载、SSE 和 WebSocket 等流式场景要单独验证超时和背压。
 
+## Spring Cloud Gateway 为什么常用 WebFlux 响应式栈？
+
+Spring Cloud Gateway 的 WebFlux 版本基于 Spring WebFlux 和 Reactor，通常由 Reactor Netty 承载。网关主要等待网络 I/O、转发请求，非阻塞模型可以让少量事件循环线程处理大量并发连接。它不是“每个请求开一个线程”，也不意味着自动更快；下游服务、连接池和超时配置仍会决定整体表现。
+
+### 阻塞与非阻塞：等待期间线程做什么？
+
+传统 Servlet/MVC 的常见阻塞模型里，请求线程调用下游服务后会等结果；等待时，这个线程通常不能去处理别的请求。WebFlux 发起非阻塞 I/O 后，事件循环线程可以先处理其他就绪事件，等响应到达再继续当前处理链。可以把前者想成服务员下单后站在厨房门口等菜，后者则是下单后先去服务别的桌。
+
+这类模型对“请求多、主要时间花在等网络响应”的网关有帮助；对 CPU 密集计算不会自动提速。也要看完整调用链：只要在事件循环线程上调用了阻塞式 JDBC/HTTP 客户端，线程仍会被占住。
+
+- `Mono<T>` 表示 0 或 1 个结果，`Flux<T>` 表示 0 到多个结果；网关过滤器通常返回 `Mono<Void>`，表示异步处理链何时完成。它们是数据流/完成信号的描述，不是线程或异步任务本身。
+- 响应式链路要尽量保持非阻塞。同步 JDBC、阻塞式 HTTP 客户端、`Thread.sleep()`、`.block()` 等若跑在事件循环上，会占住处理连接的线程，拖慢其他请求。优先使用贯穿调用链的非阻塞客户端；必须调用阻塞代码时，应隔离到有并发上限、可监控的专用线程池。
+- 在 Controller 或过滤器中通常应**返回** `Mono`/`Flux`，让框架管理订阅、取消、错误和上下文传播；不要为了“启动异步”而随手调用 `subscribe()`。采用 Gateway WebFlux 时，也不要无意引入 `spring-boot-starter-web`，以免 Servlet/MVC 与响应式栈配置冲突。
+- SSE、WebSocket 和大响应流要检查背压、缓冲、断连取消、超时及重试行为；响应式不等于可以无限缓存或无限并发。
+
+### 最小例子：返回的是结果，还是结果的描述？
+
+阻塞式调用会等下游 HTTP 响应后才拿到 `User`：
+
+```java
+User user = restTemplate.getForObject(url, User.class); // 当前线程等待
+return user;
+```
+
+WebFlux 控制器通常返回一个 `Mono<User>`，描述“响应到达后会有一个 User”：
+
+```java
+@GetMapping("/users/{id}")
+Mono<User> getUser(@PathVariable String id) {
+    return webClient.get()
+        .uri("/users/{id}", id)
+        .retrieve()
+        .bodyToMono(User.class);
+}
+```
+
+这里返回的 `Mono` 不是 `User`，而是描述后续结果的发布者。HTTP 请求场景下由 WebFlux 框架订阅并把结果写入响应，因此通常不要在控制器里手动 `subscribe()`。注意，`Mono.just(blockingCall())` 也不会把 `blockingCall()` 变成非阻塞：调用发生时仍会同步等待。
+
+背压（backpressure）可以先理解为：数据消费者处理不过来时，向上游表达需求/速度，避免生产者无节制地推送数据。流式接口仍需检查缓冲区和具体客户端行为，不能只因用了 `Flux` 就认为内存和并发天然有上限。
+
+选型上，WebFlux 很适合以高并发网络 I/O 为主的 Gateway；这不要求所有业务服务也改成响应式。若业务大量依赖阻塞式数据库访问，Spring MVC 往往更简单，关键是不要把阻塞调用放到响应式事件循环里。
+
 # 负载均衡、限流、熔断、降级和重试如何配合？
 
 轮询、随机、最少连接和一致性 Hash 各有适用前提。用户黏性会形成局部状态和热点，优先把会话状态外置；确需黏性时要设计实例故障后的恢复。

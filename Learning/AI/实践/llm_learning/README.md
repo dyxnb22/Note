@@ -58,4 +58,4 @@ export LLM_MODEL="deepseek-chat"
 | 10 可解释性与评测 | [eval_significance.py](./10_interpretability_and_evaluation/project/eval_significance.py) | Agent Eval 题 |
 | 11 研究作品集 | [research_idea_scorer.py](./11_phd_research_portfolio/project/research_idea_scorer.py) | 项目表达与面试题 |
 
-课程中的 `workflow_report.md`、`sft_dataset.jsonl`、`lora_config.json` 和论文模板是实验产物/示例，不是理论主文档；重新运行脚本可能覆盖它们。
+工具调用工作流报告、SFT 数据集、LoRA 配置和论文模板是实验产物/示例，不是理论主文档；重新运行脚本可能重新生成或覆盖输出。

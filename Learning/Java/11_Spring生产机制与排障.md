@@ -4,6 +4,22 @@
 
 应用启动大致经历环境准备、配置加载、ApplicationContext 创建、BeanDefinition 注册、后处理器执行、单例创建、Web Server 启动和就绪事件。
 
+## ApplicationRunner 是做什么的？
+
+`ApplicationRunner` 是 Spring Boot 的启动回调：`ApplicationContext` 刷新后，Spring Boot 在 `SpringApplication.run(...)` 返回前调用它的 `run()` 方法；所有 Runner 执行完后才发布 `ApplicationReadyEvent`。通常每次应用启动执行一次，适合做轻量初始化或启动检查，不是处理每个 HTTP 请求的入口。
+
+```java
+@Component
+class StartupRunner implements ApplicationRunner {
+    @Override
+    public void run(ApplicationArguments args) {
+        // 读取启动参数，或执行轻量启动检查
+    }
+}
+```
+
+`ApplicationRunner` 接收解析后的 `ApplicationArguments`；相近的 `CommandLineRunner` 接收原始 `String... args`。长时间或不可控的阻塞任务会拖延应用就绪；若启动回调抛出未处理异常，通常会导致启动失败。它与 `@PostConstruct` 不同：后者在单个 Bean 初始化阶段执行，Runner 则在容器启动阶段之后统一回调。
+
 排查启动慢或失败时按阶段记录：
 
 - 配置与条件装配。
