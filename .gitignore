@@ -24,7 +24,7 @@ dist/
 build/
 target/
 
-# Tool session state (noise)
+# Claudian 原始配置含环境变量、本机路径和会话；可复用偏好另存 config-templates/
 .claudian/
 Users/
 
@@ -32,6 +32,9 @@ Users/
 .obsidian/plugins/*/main.js
 .obsidian/plugins/*/styles.css
 
-# Obsidian 窗口状态，纯本地噪音
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
+# Obsidian 窗口状态（包括独立的手机配置目录）
+.obsidian*/workspace.json
+.obsidian*/workspace-mobile.json
+
+# 可重新生成的练习执行报告
+/Learning/AI/实践/llm_learning/03_tool_calling_workflow/project/workflow_report.md

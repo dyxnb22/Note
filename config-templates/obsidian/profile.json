@@ -1,0 +1,148 @@
+{
+  "formatVersion": 1,
+  "obsidian": {
+    "app.json": {
+      "promptDelete": false
+    },
+    "appearance.json": {},
+    "core-plugins.json": {
+      "file-explorer": true,
+      "global-search": true,
+      "switcher": true,
+      "graph": true,
+      "backlink": true,
+      "canvas": true,
+      "outgoing-link": true,
+      "tag-pane": true,
+      "footnotes": false,
+      "properties": true,
+      "page-preview": true,
+      "daily-notes": true,
+      "templates": true,
+      "note-composer": true,
+      "command-palette": true,
+      "slash-command": false,
+      "editor-status": true,
+      "bookmarks": true,
+      "markdown-importer": false,
+      "zk-prefixer": false,
+      "random-note": false,
+      "outline": true,
+      "word-count": true,
+      "slides": false,
+      "audio-recorder": false,
+      "workspaces": false,
+      "file-recovery": true,
+      "publish": false,
+      "sync": true,
+      "bases": true,
+      "webviewer": true
+    },
+    "community-plugins.json": [
+      "realclaudian",
+      "obsidian-git"
+    ]
+  },
+  "claudian": {
+    "model": "haiku",
+    "thinkingBudget": "off",
+    "effortLevel": "high",
+    "serviceTier": "default",
+    "enableAutoTitleGeneration": true,
+    "titleGenerationLocale": "",
+    "titleGenerationModel": "",
+    "keyboardNavigation": {
+      "scrollUpKey": "w",
+      "scrollDownKey": "s",
+      "focusInputKey": "i"
+    },
+    "requireCommandOrControlEnterToSend": false,
+    "locale": "zh-CN",
+    "settingsProvider": "claude",
+    "savedProviderModel": {
+      "claude": "haiku",
+      "codex": "gpt-6-luna",
+      "opencode": "opencode:opencode/mimo-v2.6-flash-free"
+    },
+    "savedProviderEffort": {
+      "claude": "high",
+      "codex": "max",
+      "opencode": "high"
+    },
+    "savedProviderServiceTier": {
+      "codex": "default"
+    },
+    "savedProviderThinkingBudget": {
+      "opencode": "high"
+    },
+    "maxWarmAgentProcesses": 5,
+    "enableAutoScroll": true,
+    "deferMathRenderingDuringStreaming": true,
+    "expandFileEditsByDefault": false,
+    "chatViewPlacement": "right-sidebar",
+    "enableDualPane": true,
+    "dualPaneSide": "right",
+    "restoreTabsOnStartup": true,
+    "sessionManagerOrganization": "list",
+    "sessionManagerSort": "last-updated",
+    "providerConfigs": {
+      "claude": {
+        "enabled": true,
+        "loadUserSettings": true,
+        "defaultModel": "opus",
+        "lastModel": "haiku"
+      },
+      "codex": {
+        "enabled": true,
+        "modelAliases": {},
+        "visibleModels": [
+          "gpt-6-luna"
+        ],
+        "enableUltraEffort": false,
+        "reasoningSummary": "detailed"
+      },
+      "grok": {
+        "enabled": false,
+        "modelAliases": {},
+        "preferredReasoningByModel": {},
+        "visibleModels": null
+      },
+      "opencode": {
+        "enabled": true,
+        "modelAliases": {},
+        "preferredThinkingByModel": {
+          "opencode-go/muse-spark-1.2-contributor": "xhigh"
+        },
+        "selectedMode": "claudian-yolo",
+        "visibleModels": [
+          "opencode/mimo-v2.6-flash-free"
+        ]
+      },
+      "pi": {
+        "enabled": false,
+        "modelAliases": {},
+        "preferredThinkingByModel": {},
+        "toolMode": "all",
+        "visibleModels": []
+      }
+    }
+  },
+  "plugins": {
+    "realclaudian": {
+      "version": "2.2.6",
+      "files": {
+        "main.js": "eec8ebaa8b20a6e4c3966218786868bcc73f323a70e5dc21a539988e85913cc0",
+        "manifest.json": "03daf2c5d330768f4b5b28f8426a4a9c2061c1f05137455d40ff95077199059a",
+        "styles.css": "e9e77a6d919ab4d30aa0dc21bcaaed3f92d66640a73437b5920c1958796fdf21"
+      }
+    },
+    "obsidian-git": {
+      "version": "2.39.0",
+      "files": {
+        "main.js": "5e55853666689a27949cbf36031051cfee653585215532568fbe290f1cb0aecc",
+        "manifest.json": "270410edd6e64f51d974343c6e29ec8399502f6e057ae5d6264d259b104f625c",
+        "styles.css": "f5ab93f4d5b4dd1bd1e577864c5c79087f7adfd448ac346e0489e5847ce6922d"
+      }
+    }
+  }
+}

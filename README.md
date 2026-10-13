@@ -15,3 +15,8 @@
 
 - [Learning 总索引](./Learning/INDEX.md)
 - [Projects](./Projects/README.md)
+
+## 配置复用与备份
+
+- [Obsidian / Claudian 配置模板与换库步骤](./config-templates/obsidian/README.md)
+- Git 保存笔记、通用配置模板和插件版本信息；完整目录备份另外保存插件程序、本机环境和会话。

@@ -1,6 +1,6 @@
 # Web3 安全速查
 
-本页只做威胁定位；合约细节见 [Solidity 合约](../03_Smart_Contracts_and_Development/Solidity%20合约到底在解决什么问题.md)，高级治理见 [Web3 高级工程与协议安全](../08_Advanced_Engineering/Web3高级工程与协议安全.md)。
+本页只做威胁定位；合约细节见 [合约工程与权限控制](../03_Smart_Contracts_and_Development/合约工程与权限控制.md)，高级治理见 [Web3 高级工程与协议安全](../08_Advanced_Engineering/Web3高级工程与协议安全.md)。
 
 | 攻击面 | 最小防线 |
 |---|---|
