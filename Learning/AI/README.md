@@ -6,11 +6,9 @@
 2. **解释 LLM 工作原理**：能在面试中清楚讲清 tokenization、generation、fine-tuning、alignment
 3. **为应用工程提供判断依据**：理解模型能力边界，才能做出合理的系统设计决策
 
-## 与 xfg-planet 案例的连接
+## 案例
 
-- [AI MCP Gateway](../Case_Studies/AI/AI-MCP-Gateway.md)：协议转换、JSON-RPC、Session 和工具治理。
-- [WaLiSSH](../Case_Studies/AI/WaLiSSH.md)：工具化执行、Agent Loop、SSH 和安全边界。
-- [Agent 脚手架与可编排 RAG](../Case_Studies/AI/Agent脚手架与可编排RAG.md)：Workflow、MCP、Skills、Session 和知识库配置。
+项目专属结构和证据见 [AI 案例索引](../Case_Studies/AI/README.md)；通用模型原理仍以本目录正文为准。
 
 ## 与 Python / Agent 目录的边界
 
@@ -21,38 +19,17 @@
 - 可运行的课程实验、样例输入和实验输出 → 放 `Learning/AI/实践/`
 - 边界案例：context window 的原理（这里）vs 如何管理 context 窗口（Agent）
 
-## 按场景选文档
+## 按目标选择入口
 
-**准备面试**
-→ 按岗位范围阅读 `LLM基础.md` 和 [AI 面试题库](./面试题库/README.md)，不默认扩展到全部深度学习章节
-→ 按需按 `DeepLearning/README.md` 顺序学习
-→ 然后去 `Agent面试题库/` 刷工程应用题
+| 当前目标 | 先看 | 按需补充 |
+|---|---|---|
+| 准备模型面试 | [LLM 基础](./LLM基础.md)、[AI 面试题库](./面试题库/README.md) | 需要训练或 Transformer 细节时进入 [DeepLearning](./DeepLearning/README.md) |
+| 做 Agent/RAG 项目 | [Agent 面试题库](../Agent面试题库/README.md) | 遇到模型机制问题再回到 LLM 基础；可运行实验见 [AI 实践](./实践/README.md) |
+| 补模型理论 | [DeepLearning 路线](./DeepLearning/README.md) → [LLM 基础](./LLM基础.md) | 侧重理解，不要求手推所有公式 |
+| 使用 AI 编程工具 | [AI 工具与编程助手](./AI工具与编程助手.md) | 其他模型理论按需补 |
+| 部署模型服务 | [DeepLearning](./DeepLearning/README.md) / [LLM 基础](./LLM基础.md) | [ML 系统与 MLOps](./ML系统与MLOps.md) → [生产系统工程](../Delivery/07_生产系统工程.md) |
 
-**开始做 AI 项目**
-→ 直接进入 `Agent面试题库/01_基础架构/Agent基础与架构.md`
-→ 遇到 tokenization、context window 或 generation 参数问题时，再回到 `LLM基础.md` 对应章节
-
-**补 LLM 理论短板**
-→ 顺序读：`DeepLearning/README.md` → `LLM基础.md`
-→ 侧重理解，不追求手推公式
-
-**开始用 AI 编程工具**
-→ 直接读 `AI工具与编程助手.md`，其余两篇可以之后补
-
-**把模型部署成生产服务**
-→ `DeepLearning/` 或 `DeepLearning.md` → `ML系统与MLOps.md` → `Delivery/07_生产系统工程.md`
-
-## 最小入口与按需分支
-
-| 文档 | 分类 | 说明 |
-|------|------|------|
-| `LLM基础.md` | 核心参考 | Agent 应用不要求先通读；模型原理和面试问题出现时进入 |
-| `面试题库/` | 问答复习 | 将模型原理、训练、推理和 AI 系统问题按题目集中复习 |
-| `DeepLearning/` | 按需 | 需要系统理解训练过程、Transformer 或微调时读 |
-| `ML系统与MLOps.md` | 按需 | 自己训练、注册、部署和监控模型时读 |
-| `AI工具与编程助手.md` | 按需 | 开始用 AI Coding Agent 时读 |
-
-这里没有全员必读清单。当前问题若是 Agent 应用，从 [Agent 面试题库](../Agent面试题库/README.md) 选择入口；只有自己训练模型时，才把 `DeepLearning/` 当作系统路线。
+没有全员必读清单；从当前问题进入相应主题即可。
 
 ## 常见混淆边界
 

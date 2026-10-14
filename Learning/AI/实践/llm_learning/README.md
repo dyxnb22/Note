@@ -4,21 +4,13 @@
 
 ## 推荐学习顺序
 
-1. [学习计划](./00_learning_plan/学习计划.md)：总路线、时间安排、产出标准。
-2. [00 深度学习基础](./00_deep_learning_for_llm/学习文档.md)：从深度学习、softmax、loss、next-token prediction 学起。
-3. [00 Transformer 基础](./00_transformer_foundation/学习文档.md)：从 token、embedding、self-attention、Transformer Block 学起。
-4. [01 Agent 基础](./01_agent_basics/学习文档.md)：Agent 基础、工具调用、ReAct 思路。
-5. [02 RAG 知识库](./02_rag_knowledge_base/学习文档.md)：RAG 检索增强生成。
-6. [03 工作流](./03_tool_calling_workflow/学习文档.md)：多步骤工作流、状态机、确认式执行。
-7. [04 评测](./04_llm_evaluation/学习文档.md)：Prompt 与 Agent 评测。
-8. [05 微调与推理](./05_finetune_and_inference/学习文档.md)：微调数据、LoRA、推理优化。
-9. [06 生产系统](./06_production_llm_system/学习文档.md)：生产级 LLM 网关、缓存、重试、观测。
-10. [07 开源 LLM](./07_open_llm_deepseek_study/学习文档.md)：开源 LLM 架构与 DeepSeek V3/R1 学习。
-11. [08 研究方法与复现](./08_research_methods_and_reproduction/学习文档.md)：论文精读、复现、ablation 和研究报告。
-12. [09 对齐与推理研究](./09_alignment_reasoning_research/学习文档.md)：SFT、DPO、RL、reasoning model 和 CoT 研究。
-13. [10 可解释性与评测](./10_interpretability_and_evaluation/学习文档.md)：可解释性、评测、安全与鲁棒性。
-14. [11 研究作品集](./11_phd_research_portfolio/学习文档.md)：PhD 申请作品集、研究路线和选题筛选。
-15. [AI 面试题库](../../面试题库/README.md)：统一维护模型、训练、推理和 AI 系统问答。
+[学习计划](./00_learning_plan/学习计划.md) 维护阶段目标和产出标准；课程顺序：
+
+- **基础**：[深度学习](./00_deep_learning_for_llm/学习文档.md) → [Transformer](./00_transformer_foundation/学习文档.md)
+- **应用**：[Agent](./01_agent_basics/学习文档.md) → [RAG](./02_rag_knowledge_base/学习文档.md) → [工作流](./03_tool_calling_workflow/学习文档.md) → [评测](./04_llm_evaluation/学习文档.md)
+- **工程与研究**：[微调推理](./05_finetune_and_inference/学习文档.md) → [生产系统](./06_production_llm_system/学习文档.md) → [开源 LLM](./07_open_llm_deepseek_study/学习文档.md) → [研究复现](./08_research_methods_and_reproduction/学习文档.md) → [对齐与推理](./09_alignment_reasoning_research/学习文档.md) → [可解释性](./10_interpretability_and_evaluation/学习文档.md) → [研究作品集](./11_phd_research_portfolio/学习文档.md)
+
+复习问答见 [AI 面试题库](../../面试题库/README.md)。
 
 ## 运行环境
 
@@ -40,22 +32,6 @@ export LLM_MODEL="deepseek-chat"
 
 ## 在 Notes 中的位置
 
-这是 `Learning/AI` 下的课程实践快照：课程说明和可运行项目放在这里，模型原理以 `Learning/AI` 的理论笔记和 AI 面试题库为准，Agent Runtime、工具治理和生产可靠性以 `Learning/Agent面试题库` 为准。不要把本目录的课程说明再复制成新的理论主文档。
-
-| 课程 | 实践入口 | 对齐方向 |
-|---|---|---|
-| 00 深度学习 | [tiny_next_token_model.py](./00_deep_learning_for_llm/project/tiny_next_token_model.py) | DeepLearning |
-| 00 Transformer | [self_attention_demo.py](./00_transformer_foundation/project/self_attention_demo.py) | Transformer 从结构到实现 |
-| 01 Agent | [simple_agent.py](./01_agent_basics/project/simple_agent.py) | Agent 架构题 |
-| 02 RAG | [mini_rag.py](./02_rag_knowledge_base/project/mini_rag.py) | RAG 题、知识系统题 |
-| 03 Workflow | [workflow_agent.py](./03_tool_calling_workflow/project/workflow_agent.py) | Workflow 题、LangGraph 题 |
-| 04 评测 | [prompt_eval.py](./04_llm_evaluation/project/prompt_eval.py) | Agent Eval 题 |
-| 05 微调与推理 | [prepare_sft_dataset.py](./05_finetune_and_inference/project/prepare_sft_dataset.py) | LLM 基础 |
-| 06 生产系统 | [llm_gateway.py](./06_production_llm_system/project/llm_gateway.py) | Agent 部署与生产化题 |
-| 07 开源 LLM | [architecture_budget_estimator.py](./07_open_llm_deepseek_study/project/architecture_budget_estimator.py) | LLM 基础 |
-| 08 研究复现 | [paper_review_generator.py](./08_research_methods_and_reproduction/project/paper_review_generator.py) | LLM 学习计划 |
-| 09 对齐与推理 | [tiny_dpo_loss.py](./09_alignment_reasoning_research/project/tiny_dpo_loss.py) | LLM 基础 |
-| 10 可解释性与评测 | [eval_significance.py](./10_interpretability_and_evaluation/project/eval_significance.py) | Agent Eval 题 |
-| 11 研究作品集 | [research_idea_scorer.py](./11_phd_research_portfolio/project/research_idea_scorer.py) | 项目表达与面试题 |
+这是 `Learning/AI` 下的课程实践快照：课程说明和可运行项目放在这里；模型原理以 `Learning/AI` 为准，Agent Runtime、工具治理和生产可靠性以 `Learning/Agent面试题库` 为准。阶段产物见学习计划，各课程目录保存代码与实验记录；不要复制成新的理论主文档。
 
 工具调用工作流报告、SFT 数据集、LoRA 配置和论文模板是实验产物/示例，不是理论主文档；重新运行脚本可能重新生成或覆盖输出。

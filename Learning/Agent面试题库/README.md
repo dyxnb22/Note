@@ -14,23 +14,14 @@
 8. [[11_编码与后端/编码题与后端基础]]
 9. [[12_课程深化/README]]：刷完主线后，按课程特有方向补充 Provider、代码 Agent、生产运维、知识治理、跨 Agent、推理、实时交互和项目表达。
 10. [[13_跨主题综合题/新增题簇_Agent与AI后端]]：集中练习 AI 后端、RAG 安全、平台取舍、SRE 和项目表达。
-11. 各主分类下标注“面经高频补充”的子题单：集中刷近期面经和公开题库提炼的 Loop、Harness、Skill、评测、系统设计及高频八股。
+11. 近期面经补充：针对 Loop、Harness、Skill、评测、系统设计和模型高频题，按需进入下方补充题单。
 
-## 知识分类
+## 面经补充题单
 
-- Agent 基础与架构：Agent 定义、生命周期、ReAct、规划、路由和架构选型。
-- Prompt 与 Context Engineering：Prompt、Context Engineering、查询改写和上下文压缩。
-- Memory 与 State：短期/长期/任务记忆、State、Checkpoint 和恢复。
-- Tool Calling 与 MCP：Function Calling、Tool、MCP、A2A 和工具治理。
-- Multi-Agent 与 Workflow：多 Agent、Workflow、Supervisor、Harness 和并行协作；另有 [[05_Multi-Agent与Workflow/Loop控制与Harness面经补充]]、[[05_Multi-Agent与Workflow/Skill编排与协作面经补充]]。跨 Agent 委托/Handoff 的合同与身份传播深入内容主入口在 [[05_Multi-Agent与Workflow/Skill编排与协作面经补充]] Q7（05 主文件没有 handoff 专题）。
-- RAG 与检索：文档处理、混合检索、Rerank、评测和知识更新。
-- 可靠性与安全：幻觉、死循环、Prompt Injection、沙箱、权限和人工接管；死循环/无进展循环的深入分析在 [[05_Multi-Agent与Workflow/Loop控制与Harness面经补充]]（题19）。
-- 评测与可观测性：指标、数据集、Badcase、Trace、回归和线上监控；另有 [[08_评测与可观测/评测、轨迹与线上故障面经补充]]。
-- 生产工程与系统设计：并发、流式、限流、队列、部署、成本和高可用；另有 [[09_工程化与系统设计/系统设计与取舍面经补充]]。
-- 模型与推理基础：Transformer、Attention、KV Cache、SFT、RL 和推理优化；另有 [[10_模型与推理/高频八股与手撕面经补充]]。
-- 编码题与后端基础：手撕题、数据库、Redis、消息系统和后端系统设计。
-- 课程深化：从原课程拆出的进阶专题，按递进层次继续刷题。
-- 跨主题综合题：新增的 AI 后端、RAG 安全、平台取舍、SRE 与项目表达题。
+- Loop、Harness 与 Skill：[[05_Multi-Agent与Workflow/Loop控制与Harness面经补充]]、[[05_Multi-Agent与Workflow/Skill编排与协作面经补充]]。跨 Agent Handoff 的合同与身份传播见 Skill 编排补充 Q7。
+- 评测轨迹与线上故障：[[08_评测与可观测/评测、轨迹与线上故障面经补充]]。
+- 系统设计取舍：[[09_工程化与系统设计/系统设计与取舍面经补充]]。
+- 模型高频题：[[10_模型与推理/高频八股与手撕面经补充]]。
 
 ## 权威归属与去重规则
 
