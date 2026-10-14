@@ -1,7 +1,5 @@
 # A股港股美股差异
 
-> 本篇来源与证据边界见[来源索引中的对应条目](../来源索引.md#finance-source-025)。
-
 ## 1. 核心概念
 
 **A 股（Shanghai/Shenzhen A-Share）**
