@@ -2,17 +2,6 @@
 
 **Status: Queued** · prerequisite: [03 Multilayer Perceptrons](../03_mlp/README.md)
 
-This module studies convolutions, pooling, local receptive fields, and image classification basics.
+Scope: convolutions, pooling, local receptive fields, and image classification. The project will be a LeNet-style classifier with visual diagnostics.
 
-## Planned Project
-
-Build a LeNet-style image-classification project with small from-scratch convolution/pooling components and visual error analysis.
-
-## Planned Outputs
-
-- personal notes on convolution, padding, stride, pooling, and feature maps;
-- a minimal convolution or pooling implementation;
-- a runnable LeNet baseline;
-- visual diagnostics, error analysis, and a short report.
-
-The working folders (`notes.md`, `reproduce/`, `from_scratch/`, `experiments/`, and `report.md`) will be created after Module 03 is complete. See [TASKS.md](../../TASKS.md) for the activation condition.
+The implementation queue, expected artifacts, and activation condition live in [TASKS.md](../../TASKS.md). Create the working layout only after Module 03 has code, experiments, and conclusions.

@@ -2,17 +2,6 @@
 
 **Status: Queued** · prerequisite: [01 Preliminaries & Autograd](../01_preliminaries_autograd/README.md)
 
-This module studies linear regression, softmax regression, and basic optimization behavior.
+Scope: linear regression, softmax regression, and basic optimization. The project will compare a compact from-scratch implementation with a framework baseline.
 
-## Planned Project
-
-Build a compact linear-model playground that compares a from-scratch implementation with a framework baseline.
-
-## Planned Outputs
-
-- personal notes on regression, classification, losses, softmax, and optimization;
-- `linear_regression.py` and a softmax-regression implementation;
-- a runnable framework baseline;
-- an optimization comparison and a short report.
-
-The working folders (`notes.md`, `reproduce/`, `from_scratch/`, `experiments/`, and `report.md`) will be created when Module 01 has a runnable artifact and report. See [TASKS.md](../../TASKS.md) for the activation condition.
+The implementation queue, expected artifacts, and activation condition live in [TASKS.md](../../TASKS.md). Create the working layout only after Module 01 has code, experiments, and conclusions.

@@ -10,9 +10,7 @@ PRD 的共用分析方法见[产品文档与需求分析](../Product_and_Decisio
 
 ## AI 案例
 
-- [AI MCP Gateway](./AI/AI-MCP-Gateway.md)：协议转换、工具治理和分布式 Session。
-- [WaLiSSH](./AI/WaLiSSH.md)：SSH 工具化、Agent Loop、凭证保护和服务端边界。
-- [Agent 脚手架与可编排 RAG](./AI/Agent脚手架与可编排RAG.md)：Workflow、MCP、Skills、Session 和动态 Agent。
+- [AI 案例索引](./AI/README.md)：协议转换、工具治理、Agent Loop、Workflow、MCP 与 RAG 案例。
 
 ## 源码审计
 
@@ -22,7 +20,7 @@ PRD 的共用分析方法见[产品文档与需求分析](../Product_and_Decisio
 
 ## 系统实验
 
-- [系统实验路线](./System_Labs/README.md)：小型数据库、解释器、Raft、HNSW、性能/SLO、ML 交付、三语言服务对照和数据流处理。
+- [系统实验路线](./System_Labs/系统实验路线.md)：小型数据库、解释器、Raft、HNSW、性能/SLO、ML 交付、三语言服务对照和数据流处理。
 
 ## 使用方式
 
