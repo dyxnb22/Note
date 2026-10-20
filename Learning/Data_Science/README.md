@@ -8,10 +8,10 @@
 |---|---|
 | 数据库、数仓、CDC、批流系统怎么工作 | [数据工程与流处理](../Data/数据工程与流处理.md) |
 | 数据库如何存储、索引、恢复 | [数据库系统原理](../Data/数据库系统原理.md) |
-| 概率、回归、统计检验的基础 | [金融数学与统计](../Finance/12_Math_and_Statistics/统计检验基础.md) |
+| 概率、回归、统计检验的基础 | [金融数学与统计](../../Life_and_Society/Finance/12_Math_and_Statistics/统计检验基础.md) |
 | 深度学习模型如何训练 | [DeepLearning](../AI/DeepLearning/README.md) |
 | 模型如何注册、部署、监控 | [ML 系统与 MLOps](../AI/ML系统与MLOps.md) |
-| 金融市场中的数据研究 | [量化投资](../Finance/11_Quant/量化投资是什么.md) |
+| 金融市场中的数据研究 | [量化投资](../../Life_and_Society/Finance/11_Quant/量化投资是什么.md) |
 | 通用数据科学工作流、分析和经典机器学习 | 本目录 |
 
 ## 主线

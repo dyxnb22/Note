@@ -29,7 +29,7 @@ PostgreSQL 可保存向量数据，Redis 适合标签、配置和快速状态；
 - RAG 解决知识缺失和更新问题；不能替代权限校验、业务规则和结果验证。
 - 动态配置必须有版本、发布、回滚、权限和审计，不应把所有逻辑藏在拖拉拽流程里。
 
-相关：[Agent 架构题](../../Agent面试题库/01_基础架构/Agent基础与架构.md)、[RAG 题](../../Agent面试题库/06_RAG与知识库/RAG与检索.md)、[知识系统题](../../Agent面试题库/12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md)、[Workflow 与编排题](../../Agent面试题库/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md)、[LangGraph 题](../../Agent面试题库/12_课程深化/01_Provider与框架/Provider适配与框架选型.md)。
+相关：[Agent 架构题](../../Agent/01_基础架构/Agent基础与架构.md)、[RAG 题](../../Agent/06_RAG与知识库/RAG与检索.md)、[知识系统题](../../Agent/06_RAG与知识库/知识摄取与GraphRAG.md)、[Workflow 与编排题](../../Agent/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md)、[LangGraph 题](../../Agent/10_模型与推理/02_Provider适配与框架选型.md)。
 
 来源：`xfg-planet/02-AI应用范式/Agent与工作流/AI-Agent脚手架-知识提炼.md`、`RAG与知识库/可编排Agent-知识提炼.md`。
 

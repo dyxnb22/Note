@@ -20,7 +20,7 @@
 | [Python](./Python/README.md) | 项目需要 Python 语言、HTTP、异步或服务能力 |
 | [C++](./Cpp/README.md) | 查指针、对象模型、STL、智能指针、内存和系统编程面试边界 |
 | [AI](./AI/README.md) | 需要理解模型、训练、表示和 LLM 原理 |
-| [Agent 面试题库](./Agent面试题库/README.md) | 构建模型调用、工具、状态、编排和治理系统 |
+| [Agent 模块](./Agent/README.md) | Agent 系统知识、生产实践与按主题组织的面试问答 |
 | [TypeScript](./TypeScript/README.md) | 做 Node、前端或 AI 产品界面 |
 | [数据科学](./Data_Science/README.md) | 从数据问题、基线和实验形成决策 |
 | [产品与业务决策](./Product_and_Decision/README.md) | 处理需求、指标、实验、定价和反馈闭环 |
@@ -40,10 +40,7 @@
 
 | 主题 | 使用方式 |
 |---|---|
-| [金融与经济学](./Finance/README.md) | 围绕真实研究、投资或个人财务问题查询 |
-| [健康与精力](./Health_and_Energy/INDEX.md) | 从当前最影响日常功能的问题进入 |
-| [历史、制度与组织](./History_and_Society/INDEX.md) | 解释长期因果、制度与组织问题 |
-| [哲学](./Philosophy/README.md) | 需要澄清概念、重构论证或对照多个伦理与政治立场 |
+| [生活与社会](../Life_and_Society/INDEX.md) | 金融、哲学、健康与精力、历史与社会等长期主题，按问题进入 |
 | [Web3](./Web3/INDEX.md) | 理解链上状态、交易、合约、协议和风险 |
 | [写作与表达](./Writing_and_Expression/INDEX.md) | 为正在交付的汇报、方案、沟通或演示服务 |
 

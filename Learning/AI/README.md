@@ -14,7 +14,7 @@
 
 - 模型是什么、怎么工作、为什么这样设计 → 放这里
 - Python 语言和服务工程 → 放 `Learning/Python/`
-- 如何调用模型、如何构建 Agent、如何做 RAG → 刷 `Learning/Agent面试题库/`
+- 如何调用模型、构建 Agent、设计 RAG → 进入 [Agent 模块](../Agent/README.md)，知识点和面试问答按主题组织
 - 训练数据、实验追踪、模型注册、模型服务与漂移 → 放 `ML系统与MLOps.md`
 - 可运行的课程实验、样例输入和实验输出 → 放 `Learning/AI/实践/`
 - 边界案例：context window 的原理（这里）vs 如何管理 context 窗口（Agent）
@@ -24,7 +24,7 @@
 | 当前目标 | 先看 | 按需补充 |
 |---|---|---|
 | 准备模型面试 | [LLM 基础](./LLM基础.md)、[AI 面试题库](./面试题库/README.md) | 需要训练或 Transformer 细节时进入 [DeepLearning](./DeepLearning/README.md) |
-| 做 Agent/RAG 项目 | [Agent 面试题库](../Agent面试题库/README.md) | 遇到模型机制问题再回到 LLM 基础；可运行实验见 [AI 实践](./实践/README.md) |
+| 做 Agent/RAG 项目 | [Agent 模块](../Agent/README.md) | 遇到模型机制问题再回到 LLM 基础；可运行实验见 [AI 实践](./实践/README.md) |
 | 补模型理论 | [DeepLearning 路线](./DeepLearning/README.md) → [LLM 基础](./LLM基础.md) | 侧重理解，不要求手推所有公式 |
 | 使用 AI 编程工具 | [AI 工具与编程助手](./AI工具与编程助手.md) | 其他模型理论按需补 |
 | 部署模型服务 | [DeepLearning](./DeepLearning/README.md) / [LLM 基础](./LLM基础.md) | [ML 系统与 MLOps](./ML系统与MLOps.md) → [生产系统工程](../Delivery/07_生产系统工程.md) |
@@ -35,7 +35,7 @@
 
 | 问题 | 答案 |
 |------|------|
-| context window 放哪里？ | 原理放这里（`LLM基础.md`）；如何在代码里管理刷 `Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md` |
-| tokenization 放哪里？ | 放这里；Context 的实际管理刷 `Agent面试题库/02_Prompt与上下文/Prompt与Context Engineering.md` |
-| fine-tuning 放哪里？ | 原理（LoRA 数学、训练流程）放这里；模型行为训练的工程判断刷 [推理与模型行为](../Agent面试题库/12_课程深化/06_推理与模型行为/推理与模型行为.md) |
-| RAG 是理论还是工程？ | 检索与生成链路刷 [RAG 与检索](../Agent面试题库/06_RAG与知识库/RAG与检索.md)，来源、权限和版本治理刷 [知识摄取与 GraphRAG](../Agent面试题库/12_课程深化/04_知识摄取与GraphRAG/知识摄取与GraphRAG.md)；为什么 RAG 能减少幻觉的原理放 `LLM基础.md` |
+| context window 放哪里？ | 原理放这里（`LLM基础.md`）；如何在代码里管理刷 `Agent/02_Prompt与上下文/Prompt与Context Engineering.md` |
+| tokenization 放哪里？ | 放这里；Context 的实际管理刷 `Agent/02_Prompt与上下文/Prompt与Context Engineering.md` |
+| fine-tuning 放哪里？ | 原理（LoRA 数学、训练流程）放这里；模型行为训练的工程判断刷 [推理与模型行为](../Agent/10_模型与推理/03_推理与模型行为.md) |
+| RAG 是理论还是工程？ | 检索与生成链路刷 [RAG 与检索](../Agent/06_RAG与知识库/RAG与检索.md)，来源、权限和版本治理刷 [知识摄取与 GraphRAG](../Agent/06_RAG与知识库/知识摄取与GraphRAG.md)；为什么 RAG 能减少幻觉的原理放 `LLM基础.md` |

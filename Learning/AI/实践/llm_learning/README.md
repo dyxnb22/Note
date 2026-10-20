@@ -32,6 +32,6 @@ export LLM_MODEL="deepseek-chat"
 
 ## 在 Notes 中的位置
 
-这是 `Learning/AI` 下的课程实践快照：课程说明和可运行项目放在这里；模型原理以 `Learning/AI` 为准，Agent Runtime、工具治理和生产可靠性以 `Learning/Agent面试题库` 为准。阶段产物见学习计划，各课程目录保存代码与实验记录；不要复制成新的理论主文档。
+这是 `Learning/AI` 下的课程实践快照：课程说明和可运行项目放在这里；模型原理以 `Learning/AI` 为准，Agent Runtime、工具治理和生产可靠性以 `Learning/Agent` 为准。阶段产物见学习计划，各课程目录保存代码与实验记录；不要复制成新的理论主文档。
 
 工具调用工作流报告、SFT 数据集、LoRA 配置和论文模板是实验产物/示例，不是理论主文档；重新运行脚本可能重新生成或覆盖输出。

@@ -43,6 +43,6 @@
 ## 关联
 
 - [数据科学](../Data_Science/README.md)
-- [Agent 产品与人机协同题](../Agent面试题库/12_课程深化/07_实时交互与产品/实时交互与产品.md)
+- [Agent 产品与人机协同题](../Agent/09_工程化与系统设计/05_实时交互与产品.md)
 - [BigMarket 项目](../../Projects/BigMarket/00-项目学习地图.md)
 - [职业发展全流程](../Career/职业发展全流程.md)

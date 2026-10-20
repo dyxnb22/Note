@@ -1,0 +1,660 @@
+# Java 语言与运行时
+
+## Java 的优势和劣势
+
+**优势：**
+
+- 跨平台：源码经 `javac` 编译为字节码，由不同平台的 JVM 执行。
+- 面向对象：支持封装、继承、多态和抽象。
+- 内存管理自动化：由 JVM 和垃圾回收器管理对象生命周期。
+- 生态成熟：拥有 Spring、MyBatis、Maven、JUC 等丰富生态。
+- 类型安全：字节码校验、异常机制和强类型检查。
+
+**劣势：**
+
+- 冷启动较慢，JVM **启动和类加载**会带来额外耗时。
+- 运行时内存占用较高。
+- 语法相对冗长。
+- 不太适合极小型运行环境和简单脚本。
+
+## JDK、JRE 和 JVM 的关系
+
+| 组件 | 包含 | 职责 |
+|------|------|------|
+| **JDK** | JRE + 开发工具（javac、javadoc 等） | Java 开发 |
+| **JRE** | JVM + 核心类库（java.lang、java.util 等） | Java 运行环境 |
+| **JVM** | — | 加载、验证、执行字节码 |
+
+
+## Java 是编译型语言还是解释型语言
+
+Java 是**混合执行模型**：
+
+1. `.java` 源码由 `javac` 编译为平台无关的 `.class` 字节码。
+2. JVM 运行时可以通过**解释器执行字节码**。
+3. JVM 会识别热点代码，并通过 JIT **编译为本地机器码**，后续直接执行。
+
+# Java 类型系统
+
+## Java 有哪些基本数据类型？
+
+| 类型        | 占用空间      | 默认值（成员变量） | 说明                  |
+| --------- | --------- | --------- | ------------------- |
+| `byte`    | 1 字节      | `0`       | 8 位整数               |
+| `short`   | 2 字节      | `0`       | 16 位整数              |
+| `int`     | 4 字节      | `0`       | 常用整数类型              |
+| `long`    | 8 字节      | `0L`      | 字面量建议加 `L`          |
+| `float`   | 4 字节      | `0.0f`    | 单精度，字面量需加 `f`       |
+| `double`  | 8 字节      | `0.0d`    | 默认浮点类型              |
+| `char`    | 2 字节      | `\u0000`  | UTF-16 代码单元         |
+| `boolean` | JVM 规范未固定 | `false`   | 只有 `true` 和 `false` |
+
+**局部变量没有默认值，使用前必须显式初始化**
+`char` 的 2 字节表示一个 UTF-16 代码单元，**不一定等于一个完整 Unicode 字符**。
+
+## 为什么金额计算使用 BigDecimal，而不是 double？
+
+`double` 是二进制浮点数，无法精确表示很多十进制小数，例如 `0.1`，可能产生精度误差。`BigDecimal` 使用任意精度的十进制表示，适合金额等精确计算。
+
+创建 `BigDecimal` 时优先使用字符串或 `BigDecimal.valueOf()`：
+
+```java
+BigDecimal a = new BigDecimal("0.1");
+BigDecimal b = BigDecimal.valueOf(0.1);
+```
+
+## BigDecimal 的运算与比较
+
+### 基本运算
+
+`BigDecimal` 的四则运算方法**不会修改原对象**（不可变），而是返回新的 `BigDecimal`：
+
+```java
+BigDecimal a = new BigDecimal("10.25");
+BigDecimal b = new BigDecimal("2.50");
+
+a.add(b);        // 12.75
+a.subtract(b);   // 7.75
+a.multiply(b);   // 25.6250
+a.divide(b, 2, RoundingMode.HALF_UP); // 4.10，四舍五入
+```
+
+注意 `divide()` 需要指定**精度和舍入模式**，否则当结果是无限小数时会抛出 `ArithmeticException`。
+
+### 比较金额：用 compareTo()，不要用 equals()
+
+| 方法 | 比较内容 | `1.0` vs `1.00` | 推荐 |
+| --- | --- | --- | --- |
+| `compareTo()` | 数值是否相等 | 返回 `0`（相等） | ✅ 金额比较用这个 |
+| `equals()` | 值 **和 scale** 都相等 | 返回 `false` | ❌ 金额场景勿用 |
+| `==` | 引用地址 | `false` | ❌ 永远不要用 |
+
+```java
+BigDecimal a = new BigDecimal("10.25");
+BigDecimal b = new BigDecimal("2.50");
+
+a.compareTo(b) // -1：a < b
+//  a > b → 1
+//  a == b → 0
+```
+
+## Java 如何进行类型转换
+
+- 自动转换：小范围类型转大范围类型，例如 `int` 转 `long`。
+- 强制转换：大范围类型转小范围类型，可能**溢出**；**浮点转整数**会截断小数，**`int` 转 `float`** 也可能**损失有效数字**。
+- 字符串转换：使用 `Integer.parseInt()`、`Double.parseDouble()`、`String.valueOf()` 等方法。
+
+## Java 的对象引用如何转换
+
+- 向上转型：子类转父类，自动且安全。
+
+  ```java
+  Animal animal = new Dog();
+  ```
+
+- 向下转型：父类转子类，需要**显式转换**；如果实际对象不是目标类型，会抛出 `ClassCastException`。
+
+  ```java
+  if (animal instanceof Dog) {
+      Dog dog = (Dog) animal;
+  }
+  ```
+
+## 基本类型和包装类有什么区别？Integer 缓存是什么？
+
+基本类型直接保存值，性能和内存开销较小，**不能为 `null`，也不能直接用于泛型**。包装类是对象，可以为 `null`，能用于集合和泛型，并提供工具方法。
+
+自动装箱通常调用 `Integer.valueOf()`，自动拆箱通常调用 **`intValue()`**。包装类为 `null` 时自动拆箱会抛出 `NullPointerException`，频繁装箱也可能带来额外开销。
+
+`Integer.valueOf()` 对 **`-128` 到 `127` 的缓存是规范保证的**，超出范围是否缓存不能依赖。因此**比较包装类内容应使用 `equals()`，不要使用 `==`**。
+
+# Java 面向对象与关键字
+
+## 面向对象的三大特性是什么？
+
+- 封装：隐藏内部实现，通过公开接口交互。
+- 继承：复用和扩展父类行为。
+- 多态：同一接口或父类引用可以表现出不同子类行为；**重载属于编译期多态，重写属于运行时多态**。
+
+## 多态中成员变量和重写方法的绑定规则是什么？
+
+**成员变量看引用类型，重写方法看实际对象**。
+
+```java
+class A {
+    int x = 1;
+    void show() { System.out.println("A"); }
+}
+class B extends A {
+    int x = 2;
+    void show() { System.out.println("B"); }
+}
+A a = new B();
+a.x    // 1 —— 成员变量：编译期看引用类型 A
+a.show() // B —— 重写方法：运行时动态绑定，看实际对象 B
+```
+
+**原因：**
+
+- 成员变量**没有多态**，编译器在编译期根据**引用类型**决定访问哪个字段。
+- 被重写的实例方法**在运行时动态绑定**，JVM 根据实际对象类型查找方法表。
+- **静态方法不参与多态，同样由引用类型决定（方法隐藏）**。
+
+### 静态方法为什么是隐藏而不是重写？
+
+父类和子类声明了**同名、同参数的静态方法**时，**子类的方法会隐藏父类的方法**；调用哪个版本在编译期按引用类型决定，不会根据实际对象动态分派。
+
+```java
+class Parent {
+    static void who() { System.out.println("Parent"); }
+    void say() { System.out.println("Parent"); }
+}
+class Child extends Parent {
+    static void who() { System.out.println("Child"); }
+    @Override void say() { System.out.println("Child"); }
+}
+
+Parent ref = new Child();
+ref.who(); // Parent：静态方法按引用类型 Parent 决定
+ref.say(); // Child：实例方法重写按实际对象 Child 决定
+
+Parent.who(); // Parent
+Child.who();  // Child
+```
+
+静态方法**不能用 `@Override` 标注**；子类定义同签名的静态方法不是重写，而是隐藏。实际代码中建议通过类名调用静态方法（如 `Parent.who()`），避免通过对象引用调用造成误解。
+
+## 面向对象有哪些设计原则？
+
+- 单一职责原则：一个类尽量只负责一类职责。
+- 开放封闭原则：对扩展开放，对修改封闭。
+- 里氏替换原则：子类应能替换父类而不破坏程序正确性。
+- 接口隔离原则：**接口应该小而专**，客户端不依赖不需要的方法。
+- 依赖倒置原则：高层和低层都**依赖抽象**，细节依赖抽象。
+- 最少知识原则：对象**只与必要的直接对象交互**。
+
+## 抽象类和普通类有什么区别？
+
+| 特性   | 普通类        | 抽象类                |
+| ---- | ---------- | ------------------ |
+| 实例化  | 可以直接 `new` | 不能直接实例化            |
+| 抽象方法 | 不能包含抽象方法   | 可以包含抽象方法，也可以没有     |
+| 构造方法 | 可以有        | **可以有，用于子类初始化**    |
+| 子类要求 | 没有特殊要求     | 子类需要**实现继承到的抽象方法** |
+
+## 抽象类和接口有什么区别？
+
+| 特性   | 抽象类              | 接口                                                     |
+| ---- | ---------------- | ------------------------------------------------------ |
+| 继承关系 | 类只能继承一个父类        | 类可以实现多个接口                                              |
+| 成员变量 | 可以有**实例变量和静态变量** | 字段默认是 **`public static final` 常量**                     |
+| 构造方法 | 可以有              | 没有构造方法                                                 |
+| 方法   | 可以有抽象方法和具体方法     | 可有抽象、`default`、`static` 方法；**Java 9 起可有 `private` 方法** |
+| 适用场景 | 表达**一组共享状态和实现**  | 表达**行为规范或能力**                                          |
+
+其中接口的方法类型：
+
+- **抽象方法**：由实现类提供实现。
+- **`default` 方法**：提供默认实现，便于接口向后兼容。
+- **`static` 方法**：属于接口本身，通过接口名调用。
+- **`private` 方法**：Java 9 起用于**复用接口内部的辅助逻辑**。
+
+## 抽象类可以使用 final 修饰吗？
+
+不能。抽象类需要被继承，**`final` 类禁止继承**，二者语义冲突。
+
+## static 变量、static 方法和 static 代码块有什么特点？
+
+- 静态变量属于类，在类初始化时**分配并初始化一次**，推荐通过类名访问。
+- 静态方法不依赖对象，**不能直接访问实例成员**；**不支持重写，只能被隐藏（静态方法用父类引用指向子类对象时，调用的是父类的方法，而不是子类的）**
+- 静态代码块在**类初始化时执行**，多个静态代码块按定义顺序执行，常用于初始化静态成员。
+
+## 类初始化与对象初始化顺序是什么？
+
+### 类初始化
+
+类第一次被主动使用时触发，每个类只执行一次。
+
+| 顺序 | 内容 |
+| ---- | ---- |
+| 1 | 初始化父类 |
+| 2 | 初始化子类 |
+
+同一个类中，**静态变量和静态代码块**按源码出现顺序执行。这里的“编译期常量”有严格含义：通常是 `static final` 的基本类型或 `String` 字段，且初始值能在编译时确定，例如 `static final int PORT = 8080`。`final` 本身不够：`static final Integer PORT = 8080`（引用类型）或 `static final int PORT = loadPort()`（运行时调用方法）都不是编译期常量。
+
+其他类读取编译期常量时，编译器可能把**常量值直接写进使用方的字节码**（称为**内联**），运行时就不必读取声明类的静态字段。因此，这次读取**本身不触发声明类初始化**，该类的静态代码块也不会因此执行。比如：
+
+```java
+class Config {
+    static { System.out.println("Config 初始化"); }
+    static final int PORT = 8080; // 编译期常量
+    static int TIMEOUT = 1000;    // 非编译期常量
+}
+
+class Demo {
+    public static void main(String[] args) {
+        System.out.println(Config.PORT);    // 输出 8080；仅读 PORT 不触发 Config 初始化
+        System.out.println(Config.TIMEOUT); // 先触发初始化，再读取 TIMEOUT
+    }
+}
+```
+
+准备阶段，静态字段先取得默认值，因此 `TIMEOUT` 初始为 `0`；首次主动使用 `Config` 时才触发类初始化。本例先执行静态代码块，再执行 `TIMEOUT = 1000`，所以读取到的是 `1000`。
+
+这不代表 `Config` 永远不会初始化：**创建它的实例、调用它的静态方法，或读取/写入非编译期常量的静态字段，仍会触发类初始化**。注意：常量被内联后，若只更新了声明常量的库而没有重新编译使用方，使用方可能仍保留旧值。
+
+### 实例初始化
+
+每次创建对象时执行。
+
+| 顺序  | 内容                 |
+| --- | ------------------ |
+| 1   | 实例字段取得**默认零值**     |
+| 2   | 父类实例**字段初始化和初始化块** |
+| 3   | 父类构造方法             |
+| 4   | 子类实例字段初始化和初始化块     |
+| 5   | 子类构造方法             |
+
+|      | 类初始化    | 实例初始化  |
+| ---- | ------- | ------ |
+| 触发时机 | 类第一次被使用 | 每次 new |
+| 执行次数 | 一次      | 每次都执行  |
+
+## final 有什么作用？
+
+- 修饰类：类不能被继承。
+- 修饰方法：方法不能被子类重写。
+- 修饰变量：变量只能赋值一次；如果变量保存对象引用，引用不能改变，但对象内容仍可能改变。
+
+## 静态内部类和非静态内部类有什么区别？
+
+| 特性     | 非静态内部类                           | 静态内部类                     |
+| ------ | -------------------------------- | ------------------------- |
+| 外部类实例  | 依赖外部类实例                          | 不依赖外部类实例                  |
+| 外部成员访问 | 可直接访问**外部类实例和静态成员**              | 只能直接访问外部类静态成员             |
+| 隐藏引用   | **持有 `Outer.this`**，可能延长外部对象生命周期 | 不持有外部实例引用                 |
+| 实例化    | `new Outer().new Inner()`        | `new Outer.StaticInner()` |
+
+非静态内部类可以直接访问外部类方法，是因为编译器会为它维护**一个外部类实例引用**；发生同名冲突时**可使用 `Outer.this.method()`**。
+
+# Java 对象模型与泛型
+
+## Java 创建对象有哪些方式？
+
+| 方式        | 是否调用构造器                          | 特点           |
+| --------- | -------------------------------- | ------------ |
+| `new`     | 是                                | 最常用，编译期确定类型  |
+| 反射        | 是，使用 `Constructor.newInstance()` | 运行时动态创建，框架常用 |
+| `clone()` | 否                                | 基于已有对象复制     |
+| 反序列化      | 否                                | 从字节流恢复对象     |
+| 工厂方法      | 通常是                              | 封装创建逻辑、降低耦合  |
+
+## 如何获取对象的私有字段？
+
+优先使用**公开访问器**；确有需要时可通过反射读取：
+
+```java
+Class<?> clazz = obj.getClass();
+Field field = clazz.getDeclaredField("privateField");
+field.setAccessible(true);
+String value = (String) field.get(obj);
+```
+
+模块系统和访问权限可能限制反射访问，框架代码应谨慎使用。
+
+## 什么是浅拷贝和深拷贝？
+
+- 浅拷贝复制对象本身和基本类型字段，引用类型字段**仍然指向原对象**。
+- 深拷贝会递归复制引用类型字段，使副本不与原对象**共享内部对象**。
+
+常见实现方式：手动递归复制、序列化/反序列化、实现 `Cloneable` 并递归处理引用字段。`Cloneable` 方案**容易维护困难**，实际项目通常优先**使用明确的复制构造器或工厂方法**。
+
+## 为什么需要泛型？
+
+泛型用类型参数表达一组可复用的代码：
+
+```java
+class Box<T> {
+    private T value;
+}
+```
+
+使用泛型可以**复用同一套逻辑**，并由**编译器**进行类型检查，**减少强制类型转换和运行时类型错误**。
+
+## Java 泛型为什么会类型擦除？`? extends` 和 `? super` 怎么选？
+
+**类型擦除：** **泛型只在编译期生效**，编译后 `List<String>` → `List`，类型信息被擦除（为了兼容 JDK 1.5 前的老代码）。因此运行时不能 `new T()`、`T.class`、`instanceof List<String>` 等操作。
+
+**PECS 口诀：Producer Extends, Consumer Super。** 它描述的是方法如何通过泛型参数和外部集合交换数据：集合向方法提供数据，是 Producer；方法向集合放入数据，是 Consumer。**元素类型**上 生产者是消费者的子类
+
+| 角色                 | 泛型写法                | 能做什么                                      | 为什么                                 |
+| ------------------ | ------------------- | ----------------------------------------- | ----------------------------------- |
+| Producer：方法从集合读取数据 | `List<? extends T>` | 可以安全地把读出的元素当作 `T`；不能安全地放入 `T`（除 `null` 外） | 实际集合可能是 `List<T>` 的某个子类型，无法确定具体是哪一种 |
+| Consumer：方法向集合写入数据 | `List<? super T>`   | 可以放入 `T` 及其子类；读取时只能保证是 `Object`           | 实际集合可能是 `List<T>` 或它的某个父类型          |
+
+例如，复制方法从 `src` 读取元素，再写入 `dst`：
+
+```java
+import java.util.*;
+
+class CopyExample {
+    static <T> void copy(List<? extends T> src, List<? super T> dst) {
+        for (T item : src) {
+            dst.add(item);
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Integer> src = List.of(1, 2, 3);
+        List<Number> dst = new ArrayList<>();
+        copy(src, dst); // T 可推断为 Integer：src 提供 Integer，dst 能接收 Integer
+    }
+}
+```
+
+这里 `src` 是 Producer，所以用 `? extends T`；`dst` 是 Consumer，所以用 `? super T`。`List<? extends Number>` 可能实际是 `List<Integer>`，因此不能往里放一个任意 `Number`（例如 `Double`）；`List<? super Integer>` 可能实际是 `List<Object>`，所以读出的元素不能保证是 `Integer`，只能按 `Object` 处理。
+
+**易错点：** `List<Integer>` **不是** `List<Number>` 的子类型（即使 `Integer` 是 `Number` 的子类，`List` 也不会跟着继承）。需要运行时**保留泛型信息时**，用 `Class<T>` 类型令牌。
+```java
+// 有类型令牌 —— 运行时知道 T 是啥
+public <T> T create(Class<T> clazz) {
+    return clazz.newInstance(); 
+}
+```
+
+# Java 反射与注解
+
+## 什么是 Java 反射？
+
+反射允许程序在运行时获取类的**名称、父类、接口、构造器、方法和字段**等信息，并**动态创建对象、调用方法、读取或修改字段**。
+
+### 反射的原理是什么？
+
+类加载器将 `.class` **字节码加载并定义到 JVM** 后，JVM 会用对应的 `Class` 对象表示这个类。`Class` 是反射的入口：程序可以通过它获取表示构造器、方法和字段的 `Constructor`、`Method`、`Field` 对象，再用反射 API 在运行时创建对象、调用方法或访问字段。反射操作的是 **JVM 已加载的类信息**，不是读取 `.java` 源码；成员访问仍受 Java 访问控制和模块边界等规则约束。
+
+建议使用 `Constructor.newInstance()` 创建对象，不再使用已过时的 `Class.newInstance()`：
+
+```java
+Constructor<MyClass> constructor =
+        MyClass.class.getDeclaredConstructor();
+constructor.setAccessible(true);
+MyClass obj = constructor.newInstance();
+```
+
+## 反射有哪些应用场景？
+
+反射常用于**程序运行时才知道具体类、成员或注解信息**的场景：
+
+- **根据配置创建实现**：配置文件保存实现类的全限定名，再按类名加载并创建对象；换实现时可以只改配置。
+
+  ```java
+  Class<?> type = Class.forName(config.getProperty("handler.class"));
+  Object handler = type.getDeclaredConstructor().newInstance();
+  ```
+
+- **加载 JDBC 驱动**：`Class.forName("com.mysql.cj.jdbc.Driver")` 按类名加载驱动类，是动态加载的经典示例。
+- **Spring 扫描并注册 Bean**：扫描类上的 `@Component`、`@Service` 等注解，读取构造器或注入点信息，创建对象并装配依赖。
+- **测试框架发现测试方法**：查找带 `@Test` 的方法，再用反射调用并收集运行结果或异常。
+- **动态代理做横切逻辑**：代理收到接口方法调用后，可在调用目标方法前后加入日志、计时或事务逻辑；底层会用到 `Method` 和 `InvocationHandler`。
+
+## Java 注解的原理是什么？
+
+注解本质上是继承 `java.lang.annotation.Annotation` 的特殊接口，用于给类、方法、字段等程序元素**添加元数据**。
+
+`@Retention` 决定**保留阶段**：
+
+- `SOURCE`：只保留在源码中，例如 `@Override`。
+- `CLASS`：保留在 `.class` 文件中，运行时默认不可见。
+- `RUNTIME`：保留到运行时，**可通过反射读取**。
+
+`@Target` 用于**限制注解可以作用于类、方法、字段、构造器或局部变量等位置**。
+
+运行时注解会作为**字节码元数据被 JVM 加载**，`Class`、`Method`、`Field`、`Constructor` 等实现了 `AnnotatedElement`，可通过以下方法读取：
+
+```java
+MyLog log = method.getAnnotation(MyLog.class);
+boolean present = method.isAnnotationPresent(MyLog.class);
+```
+
+JDK 返回的注解对象是注解接口的**代理对象**，调用属性方法时会读取注解中保存的属性值。框架可以**据此注册 Bean、生成代理或开启事务**。
+
+## API 和 SPI 有什么区别？
+
+API 是功能提供方暴露**给调用方使用的接口**，调用方依赖并调用它；SPI 则是**框架**或调用方定义扩展契约，**由实现方提供实现**，**框架在运行时发现并加载实现**。
+
+```text
+API：调用方 -> 使用 -> 提供方
+SPI：框架定义契约 <- 实现方接入，框架负责发现和调用
+```
+
+**JDBC 驱动**、日志实现和 Java `ServiceLoader` 都体现了 SPI 思想。SPI 能**降低框架与具体实现的耦合**，但需要处理实现发现、版本兼容、加载失败和生命周期管理。
+
+# Java 异常与常用类
+
+## Java 的异常体系是怎样的？
+
+```text
+Throwable
+├── Error
+│   ├── OutOfMemoryError
+│   └── StackOverflowError
+└── Exception
+    ├── RuntimeException
+    │   ├── NullPointerException
+    │   ├── ClassCastException
+    │   └── IndexOutOfBoundsException
+    └── Checked Exception
+        ├── IOException
+        └── SQLException
+```
+
+- `Error`：**JVM 或运行环境**层面的严重错误，通常不应由业务捕获。
+- `RuntimeException`：编译器**不强制处理**，通常表示程序逻辑错误。
+- Checked Exception：**编译器**要求捕获或声明抛出，常表示文件、网络、数据库等外部环境问题。
+
+## try-with-resources 如何关闭资源？异常被覆盖了怎么办？
+
+**关闭规则：** 实现 `AutoCloseable` 的资源放进 try()，编译器按**声明逆序**自动关闭，即使业务代码抛异常也会关。
+
+**异常不被覆盖：** 业务异常和 `close()` 异常同时抛时，业务异常是主异常，`close()` 异常进入 `getSuppressed()`，**不会像手写 `finally` 那样覆盖根因**。
+
+```java
+try (InputStream in = Files.newInputStream(path);
+     BufferedInputStream buffered = new BufferedInputStream(in)) {
+    return buffered.readAllBytes();
+} catch (IOException e) {
+    throw new UncheckedIOException("read failed: " + path, e);
+}
+```
+
+**注意：** `finally` 里不要 `return`，会吞掉**原异常**。
+## `assert` 什么时候适合使用？
+
+`assert condition` 用于检查开发者**假设的不变量**；通常需要用 `-ea` 显式开启，**失败时抛出 `AssertionError`**，生产环境可能默认关闭。因此它适合开发、测试和内部状态检查，不应承担用户输入校验、权限校验或必须执行的业务规则。
+
+## \=\=、equals 和 hashCode 有什么区别？
+
+|              | 比较的是           | 典型场景                          |
+| ------------ | -------------- | ----------------------------- |
+| `==`         | 基本类型比值，引用比地址   | `a == b` 判断是否同一个对象            |
+| `equals()`   | 业务上的内容相等       | `list.contains(obj)` 判断内容是否相同 |
+| `hashCode()` | 对象的哈希值，用于快速定位桶 | HashMap 中缩小查找范围               |
+
+**核心规则：** 重写 `equals()` 必须同时重写 `hashCode()`，保证相等的对象哈希值相同。哈希值相同不代表相等（可能碰撞），集合会再调 `equals()` 确认。
+
+**易错点：** **不要用会变化的字段**做 `HashMap` 的 key，对象入表后字段变了就找不到它了。**实体类慎用数据库生成的自增 ID 作为 `equals()` / `hashCode()` 的依据**：新实体的 ID 通常为空，按 ID 比较可能让两个未持久化实体被误判为相等；持久化后 ID 生成又可能改变 `hashCode()`，导致已放入 `HashSet` / `HashMap` 的对象无法正确查找。
+
+## String、StringBuilder 和 StringBuffer 有什么区别？
+
+| 特性   | String      | StringBuilder | StringBuffer |
+| ---- | ----------- | ------------- | ------------ |
+| 可变性  | 不可变         | 可变            | 可变           |
+| 线程安全 | 不可变，因此可安全共享 | 不保证线程安全       | 主要方法使用同步     |
+| 适用场景 | 常量、只读字符串    | 单线程频繁拼接       | 需要同步的动态字符串   |
+
+- `String` 拼接可能创建新对象。
+- JDK 9 之后 `String` 内部使用 `byte[] + coder`，对 Latin-1 字符更节省内存。
+
+# Java 8+ 新特性
+
+## Java 8 有哪些重要新特性？
+
+| 特性 | 作用 |
+| --- | --- |
+| Lambda | 简化函数式接口的实现 |
+| 函数式接口 | 只有一个抽象方法的接口 |
+| Stream | 链式处理集合数据 |
+| Optional | 封装可能为空的值 |
+| 方法引用 | 简化 Lambda |
+| 接口默认/静态方法 | 增强接口的扩展能力 |
+| CompletableFuture | 支持异步任务组合 |
+| 重复注解和类型注解 | 扩大注解使用能力 |
+
+## Lambda 和函数式接口如何使用？
+
+Lambda 是函数式接口的简洁实现形式，常见语法：
+
+```java
+(parameters) -> expression
+(parameters) -> { statements; }
+```
+
+```java
+interface Calculator {
+    int calculate(int a, int b);
+}
+
+int result = ((Calculator) (a, b) -> a + b).calculate(3, 5);
+```
+
+Lambda 可以减少匿名内部类的样板代码，但嵌套过深时会降低可读性和调试体验。
+
+## 常见函数式接口有哪些？
+
+`@FunctionalInterface` 用于让编译器检查接口是否只有一个抽象方法（`default`、`static` 方法不计入）。常见接口可以这样记：
+
+| 接口               | 输入/输出          | 典型用途      | 举例                           |
+| ---------------- | -------------- | --------- | ---------------------------- |
+| `Predicate<T>`   | `T -> boolean` | 条件判断、过滤   | `s -> s.length() > 3`        |
+| `Function<T, R>` | `T -> R`       | 转换、映射     | `s -> s.length()`            |
+| `Consumer<T>`    | `T -> void`    | 消费、遍历处理   | `s -> System.out.println(s)` |
+| `Supplier<T>`    | `() -> T`      | 延迟提供对象或数据 | `() -> new ArrayList<>()`    |
+
+```java
+List<String> list = List.of("a", "bb", "ccc", "dddd");
+
+list.stream().filter(s -> s.length() > 2);       // Predicate → [ccc, dddd]
+list.stream().map(s -> s.length());               // Function → [1, 2, 3, 4]
+list.stream().forEach(s -> System.out.println(s)); // Consumer → 打印每个元素
+Supplier<List<String>> factory = () -> new ArrayList<>(); // Supplier → 延迟创建
+```
+
+它们常与 Stream、集合处理和异步任务组合使用。
+
+
+## `java.time` 相比 `Date`/`Calendar` 有什么优势？
+
+`java.time` 不可变、线程安全、职责清晰，替代旧日期 API。
+
+| 类型                                          | 用途            | 举例                                              |
+| ------------------------------------------- | ------------- | ----------------------------------------------- |
+| `LocalDate` / `LocalTime` / `LocalDateTime` | 不含时区的日期和时间    | `LocalDate.now()`                               |
+| `Instant`                                   | 时间戳（时间线上的瞬时点） | `Instant.now()`                                 |
+| `ZonedDateTime` / `ZoneId`                  | 需要时区时         | `ZonedDateTime.now(ZoneId.of("Asia/Shanghai"))` |
+| `Duration` / `Period`                       | 时间量 / 日期量     | `Duration.ofHours(2)`                           |
+| `DateTimeFormatter`                         | 线程安全的格式化      | `DateTimeFormatter.ofPattern("yyyy-MM-dd")`     |
+
+**易错点：** 不要把 `LocalDateTime` 当时间戳用，跨时区或系统边界应该用 `Instant`。
+
+## Stream API 如何使用？
+
+Stream 用于对数据进行**过滤、映射、排序、聚合**等链式处理：
+
+```java
+List<String> result = originalList.stream()
+        .filter(s -> s.length() > 3)
+        .collect(Collectors.toList());
+
+int sum = numbers.stream()
+        .mapToInt(Integer::intValue)
+        .sum();
+```
+
+Stream 不直接存储数据，通常由数据源、多个中间操作和一个终止操作组成。
+
+## Parallel Stream 有什么特点和问题？
+
+Parallel Stream 会把数据拆成多个子任务，使用通用 **`ForkJoinPool` 并行处理**，再合并结果。
+
+- 更适合计算量**较大的 CPU 密集型任务**。
+- 对 I/O 密集型任务、任务量很小的场景通常不合适。
+- 会使用公共线程池，阻塞或任务过重可能**影响进程中的其他并行任务**。
+- 需要注意线程安全、顺序、拆分和合并成本，不能默认比串行 Stream 快。
+
+## Java 9 到 Java 25 有哪些常见新特性？
+
+| 版本 | 代表特性 |
+| --- | --- |
+| Java 9 | JPMS 模块系统、接口私有方法、try-with-resources 改进 |
+| Java 10 | `var` 局部变量类型推断 |
+| Java 14/16 | Record |
+| Java 17 LTS | Sealed Class、模式匹配持续演进 |
+| Java 21 LTS | 虚拟线程、Record Pattern、Pattern Matching for switch、Sequenced Collections |
+| Java 25 | Scoped Values、Module Import Declarations、Compact Source Files、Flexible Constructor Bodies；LTS 期限看发行商 |
+
+# Java 基础代码验证
+
+## Comparable 和 Comparator 有什么区别？如何定义多字段排序？
+
+| | `Comparable` | `Comparator` |
+| --- | --- | --- |
+| 定义位置 | **类内部**，实现接口 | **类外部**，独立比较器 |
+| 方法 | `compareTo(T o)` | `compare(T o1, T o2)` |
+| 排序含义 | **自然排序**（类天生的排序能力） | **定制排序**（外部指定规则） |
+| 典型场景 | `Student implements Comparable<Student>` | `Collections.sort(list, comparator)` |
+
+**笔试结论：** 如果希望一个类天然具有排序能力（比如放进 `TreeSet` / `TreeMap` 自动有序），就让它实现 **`Comparable`**；需要其他排序规则时，用 `Comparator` 在类外定义。
+
+```java
+import java.util.Comparator;
+
+class Student implements Comparable<Student> {
+    private int id;
+    private int score;
+    private String name;
+
+    @Override
+    public int compareTo(Student other) {
+        int byScore = Integer.compare(other.score, score); // 分数降序
+        return byScore != 0 ? byScore : Integer.compare(id, other.id); // 学号升序
+    }
+
+    public String getName() { return name; }
+}
+
+class StudentSortExample {
+    static final Comparator<Student> byName = Comparator.comparing(Student::getName);
+}
+```
+
+这里 `Comparable` 定义了分数降序、学号升序的自然顺序；按姓名等其他规则排序时，可以使用外部 `Comparator`，不必把所有规则都写进 `compareTo()`。

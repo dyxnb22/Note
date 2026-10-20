@@ -161,7 +161,7 @@ Market 不会在每次业务请求时远程调用 Auth 验证。**它使用相�
 吊销针对**当前这一个 Token**，不会同时注销这个用户的其他登录会话。部署方式决定吊销状态能否跨服务共享：
 - Redis 写入失败时，服务端会报错，不会假装注销成功；Redis 查询异常时按吊销处理，拒绝该 Token。
 
-前端退出逻辑会忽略注销请求失败，然后清除本地 Token。因此，如果服务端注销失败，浏览器看起来已经退出，但旧 Token 仍可能使用到过期。
+前端退出逻辑会忽略注销请求失败，然后**清除本地 Token**。因此，如果服务端注销失败，浏览器看起来已经退出，但旧 Token 仍可能使用到过期。
 
 # Market Service（市场服务）
 
@@ -189,6 +189,8 @@ RaffleActivityController
 
 Controller 负责 HTTP 参数绑定、身份入口和响应包装；Facade 统一分发用例；应用服务负责流程编排；领域服务处理活动参与、抽奖策略和奖品规则；Port/Repository 把领域操作接到本地数据库、Redis、Account RPC 或消息发布实现。
 
+Market 除了接收 HTTP，也通过 `@EnableDubbo` 注册 Dubbo Provider：[`RaffleActivityServiceRPC.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/rpc/RaffleActivityServiceRPC.java)、[`RaffleStrategyServiceRPC.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/rpc/RaffleStrategyServiceRPC.java)、[`ErpOperateServiceRPC.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/rpc/ErpOperateServiceRPC.java)。它们实现 `big-market-api` 中的共享契约，并委托同一批应用服务。需要用户身份的 RPC 方法从传入 Token 解析用户；ERP RPC 校验管理员 Token；部分不带 Token 的调用会由 `DubboRpcAuthSupport` 拒绝。这里是 **Market 对外提供 RPC**，和 Market 调用 Account RPC 是两个方向。
+
 ## 2. 用户身份与接口权限
 
 用户接口从 `Authorization` Token 中取得身份。受拦截器保护的路径会先由 [`TokenAuthInterceptor.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-market-service/src/main/java/com/dyx/market/market/config/TokenAuthInterceptor.java) 本地验证签名、有效期和吊销状态，**再把 `userId` 写入请求属性**。Controller 通过 [`AuthenticatedUserSupport.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/support/AuthenticatedUserSupport.java) 取出该身份；需要用户身份的接口不能相信请求体里客户端传入的 `userId`。
@@ -201,6 +203,8 @@ Controller 负责 HTTP 参数绑定、身份入口和响应包装；Facade 统�
 - **全局降级**：抽奖方法内部读取 `system.degradeSwitch`。该开关打开时，所有抽奖请求都会返回降级错误；关闭时才调用 `RaffleApplicationService.executeDraw()` 进入领域流程。
 
 因此，“限流开关打开”不等于所有请求都会被拒绝：只有超过该用户限流速率的请求才会被拦截；“降级开关打开”才表示抽奖整体暂停。
+
+运行时配置由 Admin 管理端发布到 Nacos 的默认 DataId `big-market-runtime-switches`（可由配置覆盖）；Market 启动时读取当前快照并注册 Nacos 监听。Admin 确认配置写入 Nacos 后，在 Redis 可用时还会通过 Topic `big-market:config:runtime` 广播变更，Market 收到后刷新本地 `RuntimeConfigHolder`；Nacos 监听和启动读取仍作为兜底。非法配置会恢复安全默认值。相关实现见 [`NacosRuntimeConfigSubscriberConfig.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-market-service/src/main/java/com/dyx/market/market/config/NacosRuntimeConfigSubscriberConfig.java) 和 [`NacosConfigSyncService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-management/src/main/java/com/dyx/market/management/config/NacosConfigSyncService.java)。
 
 ## 3. 活动运营、上架与预热
 
@@ -229,12 +233,12 @@ Controller 负责 HTTP 参数绑定、身份入口和响应包装；Facade 统�
 1. **取得可信用户身份。** `RaffleActivityController` 从 Token 得到 `userId` 并覆盖请求中的用户标识，然后交给 [`RaffleActivityFacade.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/application/RaffleActivityFacade.java)。
 2. **检查流量与运行开关。** 先由限流切面按 `userId` 检查许可速率，超限时返回限流错误；通过后进入 [`RaffleDrawApplicationService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/application/RaffleDrawApplicationService.java)，再检查全局降级开关。降级开关打开时返回降级错误；两项检查都通过后才进入抽奖领域流程。
 3. **创建或复用参与单。** [`RaffleApplicationService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-domain/src/main/java/com/dyx/market/domain/activity/application/RaffleApplicationService.java) 调用 `RaffleActivityPartakeService`。它检查活动状态和起止时间；如果用户已有同一活动未使用的参与单，就复用它，避免再次扣额度；否则检查总/月/日额度并创建带有 `orderId`、`strategyId` 的参与单。
-4. **扣减活动额度。** `dev`、`local`、`test` 使用进程内的 [`LocalActivityAccountPort.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-infrastructure/src/main/java/com/dyx/market/infrastructure/adapter/port/LocalActivityAccountPort.java)，在本地持久化路径处理额度和参与单。Docker 使用 [`RemoteActivityAccountPort.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/account/RemoteActivityAccountPort.java)，以 Dubbo 调用 Account 扣减额度，再由 Market 保存参与单；远程写入结果不确定时会记录待对账/补偿任务。
+4. **扣减活动额度。** `dev`、`local`、`test` 使用进程内的 [`LocalActivityAccountPort.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-infrastructure/src/main/java/com/dyx/market/infrastructure/adapter/port/LocalActivityAccountPort.java)，在本地持久化路径处理额度和参与单。Docker 使用 [`RemoteActivityAccountPort.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/account/RemoteActivityAccountPort.java)，以 Dubbo 调用 Account 扣减额度，再由 Market 保存参与单。Docker 路径跨 Account 和 Market 两个服务，没有一个共同的本地事务；远程写入结果不确定时，Market 把原业务号和用户信息写入 `big_market.pending_remote_write_task`，由 Message-Job 后续对账/补偿，不能把 UNKNOWN 当成普通失败直接丢弃。
 5. **执行抽奖策略。** Market 根据参与单中的策略 ID 调用本地策略实现（[`LocalStrategyDecisionPort.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-infrastructure/src/main/java/com/dyx/market/infrastructure/adapter/port/LocalStrategyDecisionPort.java)），得到奖品；如果策略预占了奖品库存，后续还需要确认预占，失败时进入补偿。
 6. **同步保存中奖事实。** [`AwardService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-domain/src/main/java/com/dyx/market/domain/award/service/AwardService.java) 构造中奖记录和 `send_award` Outbox 任务；[`AwardDispatchSupport.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-infrastructure/src/main/java/com/dyx/market/infrastructure/adapter/repository/AwardDispatchSupport.java) 在同一事务中保存中奖记录和任务，并把参与单标为已使用，避免出现“有中奖记录却没有待发消息”或订单重复使用。
 7. **发布异步发奖消息并返回。** 事务提交后，Market 尝试发布 `send_award` 消息。发布成功就更新任务状态；发布失败则保留失败任务供补偿重试。HTTP 响应返回奖品 ID、标题和序号，实际发奖不要求在这次 HTTP 请求里完成。消息消费入口是 Message-Job 的 [`SendAwardConsumer.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/listener/SendAwardConsumer.java)。
 
-参与单创建后，如果策略执行或中奖记录保存失败，Market 会尝试释放已预占的奖品库存，并补偿参与额度；中奖记录已经落库后则保留中奖事实，不再退还参与额度。异步消费者和重试由 Message-Job 负责，Market 不扫描 `trigger.listener` 或 `trigger.job`。中奖记录状态也不等同于积分已入账；积分奖需要继续看 Message-Job 的发奖任务和 Account 积分流水。
+参与单创建后，如果策略执行或中奖记录保存失败，Market 会尝试释放已预占的奖品库存，并补偿参与额度；中奖记录已经落库后则保留中奖事实，不再退还参与额度。异步消费者和重试由 Message-Job 负责，Market 不扫描 `trigger.listener` 或 `trigger.job`。`user_award_record.award_state` 中 `create` 表示待发奖；Message-Job 消费后推进本地发奖状态，查询结果可能看到 `complete`、历史值 `completed` 或 `fail`。对随机积分奖，`complete/completed` 表示本地发奖逻辑已把任务写入 `credit_award_task`，**不代表积分已入账**；最终闭环还要确认任务已派发，并检查 Account 的积分流水/余额。
 
 ## 6. 日历签到返利
 
@@ -267,9 +271,9 @@ Chatbot 调用 `POST /api/v1/raffle/activity/chat_credit_deduct_by_token` 扣减
 
 ## 10. Market 与其他服务的边界
 
-- **Market 自己负责：** 活动参与与抽奖编排、策略决策、返利订单创建、用户端业务 HTTP API、中奖记录和待发消息的持久化。
+- **Market 自己负责：** 活动参与与抽奖编排、策略决策、返利订单创建、用户端 HTTP API 和 Dubbo Provider；创建中奖记录及待发消息任务。中奖记录的后续履约状态会由 Message-Job 按发奖结果推进。
 - **Account 负责：** 积分账户和活动配额。Market 通过 `IActivityAccountPort`、账户读写 Adapter 等契约调用；本地 Profile 可进程内处理，Docker Profile 通过 RPC 调用 Account Service。
-- **Message-Job 负责：** 消费 `send_award`、返利等消息，执行异步发奖和后台重试任务。Market 创建消息任务并发布，不负责消费这些消息。
+- **Message-Job 负责：** 消费 `send_award`、返利等消息，执行异步发奖、任务重试、远程写入对账/补偿，以及库存相关 XXL-Job（如 `UpdateActivitySkuStockJob`、`UpdateAwardStockJob`、`StrategyAwardStockConfirmJob`）。这些处理器虽然放在共享模块 `big-market-trigger`，实际由 Message-Job 扫描运行；Market 只扫描 HTTP、RPC 和业务编排组件，不扫描 `trigger.listener` / `trigger.job`。Market 创建并发布消息，不负责消费。
 
 所以抽奖 HTTP 请求的同步部分止于“中奖事实与发奖任务已可靠记录”；后续异步消息、奖品履约和积分最终入账是跨服务闭环，详见后续 Message-Job 与 Account 章节。
 

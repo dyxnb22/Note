@@ -98,7 +98,7 @@ Spring AI 把大模型调用接入 Spring 生态：`ChatClient`/`ChatModel` 屏�
 
 - 核心链路：Prompt → Model → 响应结构化；流式输出走 SSE（`Flux<String>`），要处理客户端断开与取消。
 - LLM 输出不可信：结构化校验、超时/重试、token 与成本观测必须由应用层兜底。
-- RAG、Tool Calling、MCP 的原理与工程化是独立专题，深入见 Agent 题库：[生产工程与系统设计](../Agent面试题库/09_工程化与系统设计/生产工程与系统设计.md)、[Tool Calling 与 MCP](../Agent面试题库/04_Tool与协议/Tool%20Calling与MCP.md)、[RAG 与检索](../Agent面试题库/06_RAG与知识库/RAG与检索.md)。
+- RAG、Tool Calling、MCP 的原理与工程化是独立专题，深入见 Agent 题库：[生产工程与系统设计](../Agent/09_工程化与系统设计/01_生产工程与系统设计.md)、[Tool Calling 与 MCP](../Agent/04_Tool与协议/Tool%20Calling与MCP.md)、[RAG 与检索](../Agent/06_RAG与知识库/RAG与检索.md)。
 
 与 LangChain4j 的差异主要是生态位置：Spring AI 深度整合 Boot 自动装配与可观测性，LangChain4j 更中立、可脱离 Spring 使用。选型先看现有技术栈，不要为了框架换框架。
 
