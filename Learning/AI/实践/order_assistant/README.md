@@ -79,4 +79,4 @@ python3 agent.py A --provider compatible --max-rounds 6 --trace /tmp/order-agent
 
 [原 Agent 入门示例](../llm_learning/01_agent_basics/学习文档.md)展示计算、时间与本地记事，用文本 JSON 约定动作。本案例补充原生工具调用消息、可信查询范围、逐轮轨迹和提交结果校验，沿用两组理论笔记中的订单场景。
 
-进一步阅读：[Python 路线](../../../Python/00_阅读路线.md)、[Agent 路线](../../../Agent/00_02_阅读路线.md)。业务写入、异步取消、持久化恢复、MCP、RAG 与生产部署分别在对应专题中展开。
+进一步阅读：[Python 语言核心](../../../Python/01_语言核心.md)、[Agent 路线](../../../Agent/00_02_阅读路线.md)。业务写入、异步取消、持久化恢复、MCP、RAG 与生产部署分别在对应专题中展开。
