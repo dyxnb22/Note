@@ -23,7 +23,7 @@ else:
     raise AssertionError("年龄不能为负数")
 ```
 
-`Person` 是类，`person` 是校验后的实例。字段注解给出类型，`Field` 补充约束，`BaseModel` 在构造时执行校验；普通 Python 类型提示本身不做这一步。
+`Person` 是类，`person` 是校验后的实例。字段注解给出类型，`Field` 补充约束，`BaseModel` 在构造时执行校验；普通 Python 类型提示本身不执行这类检查。
 
 `model_dump()` 返回普通字典，不会保存文件或数据库；默认 `mode="python"` 保留部分 Python 类型，`mode="json"` 返回适合 JSON 编码的数据结构。`model_dump_json()` 才直接返回 JSON 字符串。
 
@@ -154,7 +154,7 @@ else:
 
 JSON 没有原生 date 类型，所以严格模式下，`model_validate_json` 仍可接收规定格式的日期字符串。用 `model_validate` 校验 Python 对象时，则可要求输入本身就是 date。
 
-测试要使用真实接口采用的输入方式，在另一种方式下通过，不代表行为相同。[严格模式与输入来源](https://docs.pydantic.dev/latest/concepts/strict_mode/)
+测试要和真实接口用同一种输入方式；在另一种方式下能通过，不等于行为相同。[严格模式与输入来源](https://docs.pydantic.dev/latest/concepts/strict_mode/)
 
 validate_assignment 主要检查字段重新赋值，不会拦截字段中 list 的每次 append。原地修改后，内容可能不再符合模型约束。共享只读快照可使用 tuple 等不可变内容，跨边界重新接收数据时再校验。
 
@@ -247,6 +247,7 @@ else:
 ```
 
 - 字段验证器的 `before` 模式接收类型转换前的原始输入，适合清洗；`after` 模式接收字段校验后的值，适合进一步检查。两者接收到的数据类型可能不同。
+
 model_validator 可以做跨字段校验，不同模式接收到的内容不同：
 
 | 模式 | 接收到什么、怎样处理 |
@@ -254,6 +255,7 @@ model_validator 可以做跨字段校验，不同模式接收到的内容不同�
 | before | 接收原始输入，不一定是 dict |
 | after | 接收已构造的实例，通常返回 `self` |
 | wrap | 拿到默认校验函数，可以在调用前处理输入、调用后处理结果 |
+
 - `ValidationInfo.data` 提供当前字段之前已经校验完成的字段值。因此，读取其他字段时要考虑声明顺序。复杂的跨字段关系通常更适合模型级验证器。
 - 上例的模型级 after 验证器检查整个区间，所以报错位置 `loc=()`。模型嵌套在其他字段中时，错误位置还会带上外层字段路径。错误能定位到哪里，取决于验证器放在哪里；跨字段检查也可以定位到具体字段。
 - 在 Annotated 中使用 BeforeValidator / AfterValidator，可以让多个字段复用同一个带校验规则的类型。field_validator 将规则写在模型上，指定要校验的字段。两种写法都能通过相应接口读取校验上下文。
@@ -262,6 +264,7 @@ model_validator 可以做跨字段校验，不同模式接收到的内容不同�
 ## `ValidationError`
 
 - 输入不符合模型约束时，通常会抛出 `ValidationError`，验证器里的编程错误不一定会转成这个异常。`str(exc)` 用于显示多行错误文本；程序要逐项处理错误时，使用 `exc.errors()`。
+
 每条错误记录包含这些字段：
 
 | 字段 | 含义或例子 |
@@ -272,6 +275,7 @@ model_validator 可以做跨字段校验，不同模式接收到的内容不同�
 | `input` | 触发错误的原始值 |
 | `url` | 对应的官方文档链接 |
 | `ctx` | 部分错误附带的参数 |
+
 - 对外错误用 `loc`、`type` 等字段映射成稳定格式。返回前过滤 `input`、`msg` 和 `ctx` 中的敏感值及内部信息，不直接暴露完整异常对象。
 - FastAPI 的请求校验错误通常返回 422；内部或响应校验失败通常属于服务器错误，不会把任意 `ValidationError` 都自动转换为 422。自定义错误响应要自己捕获转换。
 
