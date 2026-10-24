@@ -1,10 +1,13 @@
 # Git
 
+先理解快照、引用、工作区和暂存区，再学习分支协作、冲突与恢复。命令的含义要对应到具体修改了哪个状态。
+
+
 Git 是分布式版本控制系统。它的核心价值是记录代码历史、支持多人协作、支持分支并行开发，并且每个开发者本地都有一份完整仓库历史。
 
 ## 核心概念
 
-## 版本控制有哪些类型？Git 和 SVN 有什么区别？
+### 集中式与分布式版本控制
 
 版本控制主要分为三类：
 
@@ -20,7 +23,7 @@ Git 和 SVN 的核心区别：
 - Git 可以离线 commit，SVN 通常需要连接服务器才能提交。
 - Git 更适合现代团队的分支开发、Pull Request / Merge Request 和 CI 流程。
 
-## 工作区、暂存区、本地仓库和远程仓库是什么？
+### 工作区、索引与仓库
 
 | 区域       | 含义                                                         |
 | ---------- | ------------------------------------------------------------ |
@@ -37,7 +40,7 @@ Git 和 SVN 的核心区别：
 - git fetch：远程仓库 → 本地远程追踪分支。
 - git pull：下载远程更新，并合并或变基到当前分支。
 
-## Git 文件有哪些状态？
+### 文件的跟踪状态
 
 - Untracked：未跟踪，Git 还没有管理这个文件。
 - Modified：已修改，工作区内容和上一次提交不同，但还没放入暂存区。
@@ -54,13 +57,13 @@ git diff --cached
 
 git diff 查看工作区和暂存区的差异；git diff --cached 查看暂存区和最近一次提交的差异。
 
-## git add 和 git commit 分别做了什么？
+### 暂存与创建提交
 
 git add 把工作区修改加入暂存区，表示这些修改准备进入下一次提交。git commit 把暂存区内容生成一次提交，保存到本地仓库历史中；提交后还需要 git push 才会同步到远程。
 
-一句话：add 是选择本次提交什么，commit 是真正生成一个版本快照。
+add选择本次提交的内容；commit根据暂存区生成版本快照。
 
-## 什么是 HEAD、main 和 origin/main？
+### HEAD、分支与远程跟踪引用
 
 - HEAD：当前所在位置，通常指向当前分支的最新提交。
 - main：本地分支。
@@ -70,7 +73,7 @@ git add 把工作区修改加入暂存区，表示这些修改准备进入下一
 
 ## 基础配置
 
-## 新电脑上使用 Git 前需要配置什么？
+### 身份与基础配置
 
 配置用户名和邮箱：
 
@@ -97,7 +100,7 @@ git config --global core.autocrlf input
 
 global 是当前用户级配置，local 是当前仓库配置，优先级高于 global。user.name 和 user.email 会写入提交记录。
 
-## SSH Key 如何配置？
+### SSH 身份验证
 
 生成 SSH Key：
 
@@ -114,7 +117,7 @@ ssh -T git@github.com
 
 如果公司环境不支持 SSH，也可以使用 HTTPS 远程地址配合访问令牌。
 
-## .gitignore 有什么用？已经提交过的文件还能忽略吗？
+### 忽略规则与已跟踪文件
 
 .gitignore 用来声明不需要 Git 跟踪的文件，例如依赖目录、构建产物、日志、环境变量文件：
 
@@ -135,7 +138,7 @@ git commit -m "chore: stop tracking env file"
 
 ## 分支与远程协作
 
-## Git 分支为什么轻量？适合解决什么问题？
+### 分支引用与并行开发
 
 Git 分支本质上是指向某个提交对象的指针，创建和切换成本很低。
 
@@ -155,7 +158,7 @@ git push -u origin feature/login
 ## 提交 PR/MR，合并到主分支
 ~~~
 
-## 本地已有项目，第一次推送到远程仓库怎么做？
+### 现有项目关联远程
 
 远程先创建一个空仓库，避免自动初始化 README 造成无关历史；本地执行：
 
@@ -170,7 +173,7 @@ git push -u origin main
 
 -u 会设置当前本地分支和远程分支的上游关系，设置后可以直接使用 git push 和 git pull。
 
-## 日常开发的标准流程是什么？
+### 从同步到提交的协作流程
 
 ~~~bash
 git switch main
@@ -192,7 +195,7 @@ git fetch origin
 git rebase origin/main
 ~~~
 
-## fetch、pull、merge 和 rebase 有什么区别？
+### Fetch、Pull、Merge 与 Rebase
 
 git fetch 只下载远程最新提交并更新本地远程追踪分支，不直接修改当前工作分支。
 
@@ -220,7 +223,7 @@ git rebase 会把当前分支提交搬到目标分支最新提交之后，让历
 - 已经推送并被别人基于它开发的公共分支，不要随意 rebase。
 - 主干合并功能分支时，可采用 merge、squash merge 或 rebase merge，按团队规范执行。
 
-## 什么是冲突？如何解决 Git 冲突？
+### 冲突标记与语义合并
 
 冲突通常发生在 merge、rebase、pull 或 cherry-pick 时：两个分支修改了同一个文件的同一部分，Git 无法自动判断保留哪一边。
 
@@ -239,7 +242,7 @@ git rebase --abort
 git cherry-pick --abort
 ~~~
 
-## 远程仓库更新了，但本地也改了代码怎么办？
+### 本地修改与上游同步
 
 本地修改未提交且要保留：
 
@@ -268,7 +271,7 @@ git push
 git pull origin 当前分支名
 ~~~
 
-## 本地提交后 push 失败，提示 rejected / non-fast-forward 怎么办？
+### 非快进推送与历史分歧
 
 原因通常是远程分支有本地没有的新提交，Git 不允许直接覆盖远程历史。
 
@@ -288,7 +291,7 @@ git push --force-with-lease
 
 不要随便使用 git push --force。force-with-lease 也不是绝对安全，执行前仍要确认远程分支状态。
 
-## 写到一半需要临时切分支怎么办？
+### Stash 与临时切换
 
 使用 stash 临时保存现场：
 
@@ -307,7 +310,7 @@ git stash pop
 
 ## 提交与历史整理
 
-## reset、revert、restore 和 checkout 有什么区别？
+### 恢复文件、移动引用与反向提交
 
 | 命令     | 作用                                                         | 典型场景                              |
 | -------- | ------------------------------------------------------------ | ------------------------------------- |
@@ -318,7 +321,7 @@ git stash pop
 
 新版本更推荐：切分支用 git switch，恢复文件用 git restore。
 
-## 提交错了，怎么撤销？
+### 撤销方式与影响范围
 
 只修改提交信息：
 
@@ -354,7 +357,7 @@ git push
 
 简单记忆：公共历史用 revert，本地未推送历史才考虑 reset。
 
-## reset 的 soft、mixed、hard 有什么区别？
+### Reset 的三种状态范围
 
 三者都会把当前分支指针移动到目标提交，但对暂存区和工作区的处理不同：
 
@@ -368,7 +371,7 @@ git reset --mixed HEAD~1
 git reset --hard HEAD~1
 ~~~
 
-## 误删文件或想恢复某个文件怎么办？
+### 恢复指定文件
 
 恢复工作区文件到最近一次提交：
 
@@ -394,7 +397,7 @@ git restore --staged 文件名
 git checkout commit_id -- 文件名
 ~~~
 
-## 如何只提交部分修改？
+### 按修改块暂存
 
 按文件提交：
 
@@ -412,7 +415,7 @@ git commit -m "fix: xxx"
 
 git add -p 适合一个文件里同时包含多个不相关修改时使用，可以让提交更干净。
 
-## 如何合并多个零散提交？
+### 整理局部提交
 
 本地未推送的提交可以使用交互式 rebase：
 
@@ -426,7 +429,7 @@ git rebase -i HEAD~3
 git push --force-with-lease
 ~~~
 
-## 如何把某个提交复制到当前分支？
+### Cherry-pick 与提交迁移
 
 使用 cherry-pick：
 
@@ -440,7 +443,7 @@ git cherry-pick commit_id
 git cherry-pick --abort
 ~~~
 
-## 如何查看谁改了某一行代码？
+### Blame 与历史定位
 
 ~~~bash
 git blame 文件名
@@ -449,7 +452,7 @@ git blame -L 10,30 文件名
 
 它会显示每一行最后由哪个提交、哪个作者修改，实际工作中用于追踪 bug 来源，不是甩锅工具。
 
-## 如何临时保存补丁或在不同仓库间转移修改？
+### 补丁导出与应用
 
 只转移工作区差异：
 
@@ -465,7 +468,7 @@ git format-patch -1 commit_id
 git am 0001-xxx.patch
 ~~~
 
-## 如何找回误删的分支或误 reset 的提交？
+### Reflog 与引用恢复
 
 使用 git reflog 查看 HEAD 移动历史：
 
@@ -489,7 +492,7 @@ reflog 是本地记录，远程仓库不一定有。
 
 ## 提交规范
 
-## Conventional Commits 常见类型有哪些？
+### Conventional Commits 的提交类型
 
 - feat：新增功能。
 - fix：修复问题。
@@ -508,7 +511,7 @@ chore: update dependencies
 
 ## 命令速查
 
-## 初始化与基础操作
+### 初始化与基础操作
 
 ~~~bash
 git init
@@ -521,7 +524,7 @@ git commit -m "type: message"
 git commit --amend
 ~~~
 
-## 分支操作
+### 分支操作
 
 ~~~bash
 git branch
@@ -542,7 +545,7 @@ git checkout 分支名
 git checkout -b 新分支名
 ~~~
 
-## 远程仓库
+### 远程仓库
 
 ~~~bash
 git remote -v
@@ -555,7 +558,7 @@ git push origin 分支名
 git push -u origin 分支名
 ~~~
 
-## 差异与历史
+### 差异与历史
 
 ~~~bash
 git diff
@@ -569,7 +572,7 @@ git blame 文件名
 git reflog
 ~~~
 
-## 撤销与恢复
+### 撤销与恢复
 
 ~~~bash
 git restore 文件名
@@ -581,7 +584,7 @@ git reset --hard HEAD~1
 git revert commit_id
 ~~~
 
-## 合并、变基与冲突
+### 合并、变基与冲突
 
 ~~~bash
 git merge 分支名
@@ -594,7 +597,7 @@ git cherry-pick --continue
 git cherry-pick --abort
 ~~~
 
-## Stash 临时保存
+### Stash 临时保存
 
 ~~~bash
 git stash
@@ -606,7 +609,7 @@ git stash drop stash@{0}
 git stash clear
 ~~~
 
-## 清理与排查
+### 清理与排查
 
 ~~~bash
 git clean -n

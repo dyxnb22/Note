@@ -1,46 +1,72 @@
-# ClickHouse
+# ClickHouse：从列扫描到可见性与去重
 
-> 定位：选型概览。本文用于理解列式 OLAP 的存储模型、MergeTree 读写路径、集群扩展和 OLTP/OLAP 分工；需要生产使用时，应继续补容量规划、ZooKeeper/Keeper 运维和查询调优实验。
+ClickHouse 以列式分析为中心：少量列、大量行、聚合与压缩常能获得很高吞吐。布局、批处理与执行路径决定优势；点查、更新和事务范围则需要按表引擎、版本与操作分别分析。
 
-ClickHouse 是面向大规模分析查询的列式 OLAP 数据库，以高扫描吞吐和低聚合延迟著称，适合事件、日志和时序类数据；它不追求 OLTP 式的点查和强事务。
+## 列式布局与访问范围
 
-## 列式存储为什么适合分析？
+只读取需要的列，可减少宽表分析的输入；同列编码与压缩也更有机会利用重复和局部性。向量化按批处理数据，减少逐对象开销；实际收益仍取决于类型、分布、过滤和查询形状。
 
-按列组织数据后，一次聚合查询只读涉及的列，I/O 大幅下降；同列数据类型一致，压缩率远高于行存，进一步减少磁盘和网络开销；向量化执行按批处理列数据，充分利用 CPU 流水线和 SIMD。
+主键点查、整行读取与高频状态更新有另一套成本，应按需要的事务范围与延迟验证。典型协作是把订单事实留在事务库，将版本化事件送入分析存储，而非让两者对相同状态各自作互相矛盾的决定。
 
-代价是行级随机读和整行取出变慢，所以它天然偏重"少量列、大量行"的聚合场景，而不是"取整行、按主键点查"的事务场景。
+## MergeTree 的 Part 与索引
 
-## MergeTree 引擎是怎么工作的？
+写入生成相应数据 part，后台合并整理 part。成功写入的数据可以在合并前查询，不能把“后台去重尚未发生”理解成“新数据一律还不可见”。异步插入缓冲、副本读取与确认设置另有各自条件。
 
-写入按批生成不可变的 part 文件，后台把小 part 不断合并成大 part：
+ORDER BY 定义排序键；PRIMARY KEY 定义稀疏主索引，允许采用排序键前缀。它们不是 OLTP 的唯一约束：相同键可以有多行，稀疏索引主要裁剪 granule 范围，不为每行维护 B+Tree 指针。[MergeTree](https://clickhouse.com/docs/engines/table-engines/mergetree-family/mergetree)
 
-```text
-INSERT → 内存排序 → 生成 part → 后台 Merge → 逐渐合并成大 part
+PARTITION BY 决定数据组织和生命周期范围。小批量频繁写入、多分区扇出容易产生大量小 part，后台合并追不上时会形成压力；更多分区也不是让所有查询更快的通用索引。
+
+## 用版本例子理解 ReplacingMergeTree
+
+```sql
+CREATE TABLE course_orders (
+    tenant_id String,
+    order_id String,
+    revision UInt64,
+    event_day Date,
+    amount_cents Int64
+)
+ENGINE = ReplacingMergeTree(revision)
+PARTITION BY toYYYYMM(event_day)
+PRIMARY KEY (tenant_id)
+ORDER BY (tenant_id, order_id);
+
+INSERT INTO course_orders VALUES
+    ('t1', 'o1', 1, '2026-10-22', 10000),
+    ('t1', 'o1', 2, '2026-10-22', 12000),
+    ('t1', 'o2', 1, '2026-10-22', 5000);
+
+SELECT tenant_id, order_id, revision, amount_cents
+FROM course_orders FINAL
+ORDER BY tenant_id, order_id;
 ```
 
-- **ORDER BY 主键**：part 内数据按主键有序，主键索引是稀疏索引（每 granule 一条），定位后顺序扫描一段数据，不是 B+ 树式的逐行定位。
-- **分区（PARTITION BY）**：通常按时间分区，查询时按分区裁剪掉无关数据；分区也是 TTL 和数据生命周期管理（DROP PARTITION）的抓手。
-- **表引擎族**：ReplacingMergeTree/CollapsingMergeTree 用后台合并去重或对消记录，SummingMergeTree 预聚合——它们都是"最终生效"，不是即时更新的事务语义。
-- **物化视图**：写入时同步或异步触发聚合到目标表，用预聚合换查询延迟。
+有效结果是 o1 的版本 2、12000，以及 o2 的版本 1、5000。合并前普通查询可能仍看到三条原始记录；后台何时整理不确定，部分数据也不应假定一定很快再次合并。
 
-**工程含义**：小批量高频写入会生成大量小 part，合并压力剧增（too many parts），要按大批次、低频率写入；幂等和去重要靠业务键 + ReplacingMergeTree/Collapsing 语义设计，不能用"先查再改"的 OLTP 思路。
+Replacing 按完整 ORDER BY 键识别相同逻辑行，不按另写的 PRIMARY KEY 自动唯一。revision 需有可靠业务顺序，同版本的冲突内容不能靠后台替应用决定。FINAL 在查询时应用相应归并语义，带来查询成本，不等于强制把所有文件物理重写。[ReplacingMergeTree](https://clickhouse.com/docs/engines/table-engines/mergetree-family/replacingmergetree)
 
-## 为什么它不适合 OLTP？
+同一逻辑行的分区字段也应稳定：后台合并不跨分区，查询时跨分区处理又受设置影响。把分区日期随更新移动，可能让版本永远留在不同后台合并范围。
 
-- 事务能力弱，没有跨表的多语句强事务和回滚语义。
-- 点查/更新走"读整段 + 重写 part"的路径，高并发小事务的延迟和吞吐都不可接受。
-- 数据可见性和去重依赖后台合并，是最终一致的；主键查询是范围扫描，不是低延迟键值查找。
+## 引擎语义不能互换
 
-因此典型架构是：事务事实（账户、任务状态、幂等记录）留在 MySQL/PostgreSQL，事件流水异步批量进 ClickHouse 做分析，两侧用 CDC 或批量抽取衔接。
+SummingMergeTree 聚合相应数值，Collapsing 系列按符号等规则对消，Replacing 选择相应版本。它们需要不同的数据约定，不是任选一种就获得业务幂等。
 
-## 集群怎么复制和扩展？
+插入重试去重还可能依赖块、token 与保留窗口，不等于永远按订单 ID 去重。跨表、多语句、跨节点提交与回滚也需查看具体支持，不能把单次写入的某个保证扩展成通用 OLTP 事务。
 
-- **Replicated\*MergeTree + ClickHouse Keeper（ZooKeeper）**：同分片多副本，副本间同步插入日志，保证副本一致；Keeper 只管元数据协调，不承载数据。
-- **分片（Shard）+ Distributed 表**：按分片键把数据水平拆到多个分片，Distributed 表做透明路由和跨分片聚合。
-- 扩容涉及分片重平衡和数据搬迁，通常按时间分区设计降低迁移粒度。
+## 物化视图与重复输入
 
-## 什么时候适合使用 ClickHouse？
+增量物化视图处理插入的数据块，把转换结果写入目标；源表后来后台合并，不会自动让目标表撤销此前累计。如果 o1 的两个版本都贡献了一次收入，不能期待源表去重后收入汇总自然变成只算一次。
 
-适合：事件/日志/Trace/时序数据的大规模聚合与下钻、准实时报表和监控看板、用户行为漏斗分析、需要秒级响应的 OLAP ad-hoc 查询。
+刷新型视图定期重算相应查询，是另一类模型。选择时明确输出是追加事实、最新版本还是可替换快照，再决定去重与聚合在哪一层执行，不能泛称“写时同步或异步做一下”。
 
-不适合：高频单行更新、强事务、按主键点查的业务事实存储——这些回到 MySQL/PostgreSQL；文档/宽列和全文检索场景分别看 MongoDB、Cassandra 与搜索与 Elasticsearch。
+## 副本、分片与查询
+
+Replicated MergeTree 系列在同分片副本间协调和复制，Keeper/ZooKeeper 主要保存相应协调元数据，不替代数据文件。复制通常有异步窗口，确认与 quorum 设置不能直接理解成所有副本立刻返回相同查询结果。
+
+Distributed 表提供跨分片路由与汇总，目标表和分片键决定数据落点。增加节点不自动均匀迁移全部旧数据，重分片还需明确写入路由、历史搬迁、重复与查询完整性。
+
+## 分析性能的证据
+
+观察扫描行与字节、裁剪效果、解压与聚合成本、内存、part 数、合并队列、复制积压与磁盘余量。索引减少扫描，预聚合减少在线工作，批量写入减少 part 压力，各自解决不同瓶颈。
+
+更新、删除和 mutation 的同步/异步行为随版本、引擎与操作方式变化，不能统一写成“都立即可见”或“都不可接受”。保留周期、TTL、冷存储与回灌还需连到真实数据恢复流程，而非只验证一条报表查询够快。

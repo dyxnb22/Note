@@ -4,7 +4,7 @@ tags: [BigMarket, DDD, 设计模式]
 
 # DDD：领域模型与设计模式
 
-## 1. 用项目代码理解 DDD 对象
+## 用项目代码理解 DDD 对象
 
 ### Entity（实体）
 
@@ -62,7 +62,7 @@ tags: [BigMarket, DDD, 设计模式]
 | `BehaviorRebateAggregate` | 返利订单 + 返利消息任务 |
 | `GiveOutPrizesAggregate` | 一次奖品履约所需的业务信息 |
 
-## 2. Domain Service 与 Application Service
+## Domain Service 与 Application Service
 
 | | Application Service | Domain Service |
 |---|---|---|
@@ -73,7 +73,7 @@ tags: [BigMarket, DDD, 设计模式]
 
 `RaffleApplicationService.executeDraw` 是跨 Activity/Strategy/Award 的用例编排；`AbstractRaffleStrategy.performRaffle` 则是策略域内的领域流程。
 
-## 3. 设计模式不是目标，是业务变化的结果
+## 设计模式不是目标，是业务变化的结果
 
 ### 模板方法：固定骨架，开放步骤
 
@@ -135,7 +135,7 @@ flowchart TD
 - `RemoteActivityAccountPort` 把额度操作适配到 account Dubbo API。
 - Domain 不需要理解 Dubbo 的泛化调用、超时或网络细节。
 
-## 4. 本地事务与领域边界
+## 本地事务与领域边界
 
 | 场景 | 能否本地事务 | 保障方式 |
 |---|---|---|
@@ -147,7 +147,7 @@ flowchart TD
 
 DDD 里的聚合边界不会自动解决分布式一致性。跨边界后需要将“必须同时成功”改成“有可持久的中间状态，最终可收敛”。
 
-## 5. 代码走读任务
+## 代码走读任务
 
 - [ ] 打开 `CreatePartakeOrderAggregate`，写出聚合内每个对象的职责。
 - [ ] 从 `AwardService` 跟到 `AwardDispatchSupport`，找到事务边界。
@@ -156,23 +156,9 @@ DDD 里的聚合边界不会自动解决分布式一致性。跨边界后需要�
 - [ ] 跟踪 `DecisionTreeEngine.process` 如何根据边条件选下一节点。
 - [ ] 找出 O(1) 与 O(log n) 算法的选择阈值和 Redis key。
 
-## 6. 本篇面试快答
 
-**Q：聚合根有什么用？**
-
-> 聚合根把需要在同一业务一致性边界中修改的对象组织起来，对外提供唯一修改入口。项目中 `UserAwardRecordAggregate` 用中奖记录和 task 保证“有中奖事实就有可恢复的发奖任务”。
-
-**Q：责任链和决策树为什么两层？**
-
-> 责任链处理抽前的线性分流，回答“从哪张概率表抽什么”；决策树处理抽后的多分支过滤，回答“这个候选奖品能不能真正发”。将两种变化原因分开，新增规则时不需要改抽奖主流程。
-
-**Q：为什么 Domain 可以定义 Repository 接口，却不能依赖 MyBatis？**
-
-> Domain 需要表达“我需要保存/查询这种领域对象”，但不需要知道它是通过 MyBatis、Redis 还是 RPC 实现。由 Domain 定义能力、Infrastructure 实现，依赖方向才会指向业务核心。
-
-## 7. 关联
+## 关联
 
 - 上一篇：[[01-DDD-战略设计与分层]]
 - 下一篇：[[03-微服务-服务边界与通信]]
 - 业务落地：[[04-业务流程-核心抽奖闭环]]
-

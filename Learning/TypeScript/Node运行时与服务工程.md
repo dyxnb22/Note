@@ -118,7 +118,7 @@ npm、pnpm、yarn 都解决依赖安装和脚本执行，但锁文件语义和�
 
 - 纯函数和领域规则：单元测试。
 - Schema、数据库、缓存和 HTTP Client：集成测试。
-- API 合同：契约测试。
+- API约定：契约测试。
 - 核心用户路径：少量端到端测试。
 - Stream、取消和优雅退出：故障测试。
 
@@ -148,7 +148,7 @@ npm、pnpm、yarn 都解决依赖安装和脚本执行，但锁文件语义和�
 
 ## 服务项目需要这些边界时
 
-可在正在开发的 TypeScript API 中逐项落地：
+可在正在开发的 TypeScript API 中按需要验证以下行为：
 
 1. 使用 Schema 校验输入和配置。
 2. 为所有下游调用设置 Timeout/AbortSignal。

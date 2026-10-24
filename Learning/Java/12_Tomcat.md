@@ -1,39 +1,53 @@
-Tomcat 是 Java Servlet/JSP 容器，负责接收 HTTP 请求、定位 Web 应用并调用 Servlet。Spring Boot 常以内嵌 Tomcat 运行，但核心的连接器、线程池和请求链路仍适用。
+# 12 Tomcat：从连接到 Servlet 调用
 
-# Tomcat 的核心层次是什么？
+Tomcat 把网络连接上的 HTTP 数据转换为 Servlet 请求，再把结果写回连接。连接、请求、工作线程与 Web 应用是不同层次：一个长连接可承载多次请求，等待下一次请求的连接也不必一直占用业务线程。本章按 Tomcat 10.1 的平台线程与 NIO 连接器说明。
 
-`Connector → Service → Engine → Host → Context → Wrapper/Servlet`。
+## 容器层次与请求路径
 
-- Connector 监听端口、解析协议并接收请求。
-- Engine 根据虚拟主机分发，Host 表示一个域名，Context 表示一个 Web 应用。
-- Context 根据 URL 映射到具体 Servlet，构造 request/response 并调用 `service`。
+一个 Service 组合多个 Connector 和一个 Engine；Engine 下包含 Host，Host 下包含 Web 应用 Context，Context 通过 Wrapper 管理具体 Servlet。Service 表达组件组合，不是业务请求必须逐级调用的一段处理代码。
 
-# BIO、NIO、NIO2 有什么区别？
+```text
+Service
+  ├─ Connector：端口、协议与连接处理
+  └─ Engine → Host → Context → Wrapper → Servlet
+```
 
-三种模型的完整对比（同步/异步、阻塞/非阻塞、Selector 的角色）见 [IO 与网络编程](02_IO与网络编程_done.md)。Tomcat 侧的差异点：模型由连接器实现——8.5 起 BIO 连接器移除，默认 NIO 连接器，poller 线程多路复用事件、工作线程池处理请求；NIO2 连接器提供异步模式，实际收益取决于平台和工作负载，通常不构成选型理由。连接器的实际容量上限落在下一题的线程与队列参数上。
+连接器完成协议处理后，请求沿容器管线与映射进入目标应用，再调用 Servlet.service。应用过滤器与 Servlet 承担相应处理；Spring MVC 的 DispatcherServlet 是其中一种 Servlet，不会替代容器的连接管理。
 
-# Tomcat 线程和连接参数怎么理解？
+## I/O 就绪与业务执行是两件事
 
-- `maxThreads`：处理请求的工作线程上限。
-- `acceptCount`：工作线程满后，连接进入等待队列的上限，超过后可能拒绝连接。
-- `connectionTimeout`：连接等待超时。
+NIO 连接器用多路复用管理连接事件，工作线程执行协议处理与同步 Servlet 业务。NIO2 的异步 I/O 接口改变等待网络完成的方式，但不自动把阻塞的数据库、文件或 RPC 调用变成异步业务。
 
-调优不能只增大 `maxThreads`：线程过多会导致上下文切换、内存和下游连接池耗尽。应结合 CPU、请求耗时、队列长度、数据库连接池和压测结果设置。
+Servlet 异步处理还需要应用显式建立异步生命周期并最终完成响应。它与选择 NIO/NIO2 连接器不是同一个开关。I/O 模型的基础见[I/O 与网络编程](02_IO与网络编程.md)。
 
-# Servlet 生命周期是什么？
+## 线程、连接与队列参数
 
-容器加载并实例化 Servlet 后调用 `init`，每次请求调用 `service`（再分发到 `doGet`/`doPost`），应用卸载时调用 `destroy`。`load-on-startup` 可让 Servlet 在启动阶段初始化，否则可能在第一次请求时初始化。
+| 参数 | 限制或等待的对象 | 判断边界 |
+|---|---|---|
+| maxThreads | Connector 内部执行器的平台工作线程 | 使用外部 Executor 时需看其配置，不能只改此值 |
+| maxConnections | 连接器接收并处理的连接数 | 不等于同时执行业务的线程数 |
+| acceptCount | 连接数达到上限后，操作系统连接等待队列的请求容量 | 实际行为还受操作系统影响，不是通用业务任务队列长度 |
+| connectionTimeout | 接收连接后等待请求行等相应读阶段的超时 | 不覆盖任意业务方法的总执行时长 |
+| keepAliveTimeout | 持久连接等待下一次请求的空闲时间 | 与单次业务处理超时不同 |
 
-# Tomcat 的类加载器有什么特点？
+工作线程耗尽时，已接受请求可在执行侧等待；达到 maxConnections 后，新连接又可能停在操作系统队列。观察到“排队”时，先确定是哪一层，才能知道要调整线程、连接还是下游容量。[Tomcat HTTP Connector](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html)
 
-Tomcat 通常为每个 Web 应用创建独立的 `WebappClassLoader`：
+例如数据库池只有 20 个连接，单纯把工作线程从 100 增到 500，可能增加等待数据库的线程与内存，未必提高完成速率。应同时测量连接数、工作线程活跃数、队列、请求时长、数据库等待和拒绝情况，给各层设置匹配的上限。
 
-- `Common` 类加载器加载容器和多个 Web 应用共享的类，通常对应 `$CATALINA_BASE/lib`。
-- `WebappClassLoader` 加载当前应用的 `WEB-INF/classes` 和 `WEB-INF/lib`，使不同应用可以使用不同版本的依赖。
-- Web 应用类默认具有一定的子优先特征，但 Java/Jakarta 等核心 API 会优先委托父加载器；可通过 `delegate` 配置改变委托顺序。
+## Servlet 的创建、服务与销毁
 
-应用停止或热部署后，只有该类加载器不再被线程、静态变量、缓存等引用时，相关类元数据才可能卸载。因此不要把应用专属依赖随意放进共享目录，并注意线程池、ThreadLocal 和 JDBC 驱动造成的 ClassLoader 泄漏。
+容器实例化 Servlet 后调用 init，请求到来时调用 service，卸载时调用 destroy。load-on-startup 可以提前初始化，否则可能在首次使用时创建。多个请求可能并发进入同一个 Servlet 实例，因此请求特有数据应保存在局部变量或明确的请求作用域，不应直接写入共享字段。
 
-# Tomcat 集群如何处理 Session？
+应用停止时还要结束自己创建的线程与任务；destroy 是生命周期回调，不能保证强制终止或进程崩溃时仍能完成所有外部动作。
 
-常见方案是集中式 Session（Redis 等）、无状态 Token，或容器 Session 复制/粘性会话。Session 复制会带来网络和一致性成本；能无状态化时优先无状态，必须保留 Session 时使用集中存储并设置过期与故障策略。
+## Web 应用的类加载隔离
+
+每个 Web 应用通常有独立的 WebappClassLoader，加载 WEB-INF/classes 与 WEB-INF/lib；Common 加载器提供容器和应用共享的类。应用加载器有子优先规则，但 Java/Jakarta 等核心 API 存在委派例外，可配置的 delegate 也会影响选择。
+
+隔离允许两个应用使用不同依赖版本，随意把应用专属库放进共享目录会改变这个边界。卸载后，旧线程、ThreadLocal、驱动注册与全局缓存若仍引用应用类加载器，类元数据就可能继续存活；类加载与卸载机制见[JVM](04_JVM.md)。
+
+## 多实例与 Session 状态
+
+若 Session 只在实例 A 内存，后续请求到 B 可能找不到同一状态。粘性路由减少跨实例访问，却仍面对节点故障；Session 复制与共享存储分别引入复制流量或外部存储依赖，需要设计过期与故障行为。
+
+自包含 Token 可以减少每次会话读取，但即时撤销、权限变化和密钥轮换仍需机制支持。选择依据是状态与失效要求，不能仅把“无状态”当成所有服务更优的答案。

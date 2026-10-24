@@ -1,9 +1,14 @@
-# 线程与生命周期
+# 05 并发与 JUC
 
-## Java 线程和操作系统线程是什么关系？
+线程生命周期解释工作何时开始和结束，内存模型解释共享状态何时可见，锁与队列负责协调，线程池把资源约束落到执行过程。
+
+## 线程与生命周期
+
+任务是需要完成的工作，线程是运行工作的一种执行资源。启动、等待、取消和退出必须形成完整协议。
+### 平台线程与操作系统线程
 
 在主流 HotSpot JVM 中，Java 平台线程通常与操作系统内核线程**一对一映射**，线程的调度、阻塞和唤醒最终依赖操作系统
-## 多线程主要解决哪些问题？
+### 并发、并行与等待
 
 线程安全通常从三个维度理解：
 
@@ -13,7 +18,7 @@
 
 如果共享状态可以改为局部变量、不可变对象或线程隔离数据，应优先减少共享，而不是一开始就加锁。
 
-## Java 线程有哪些创建方式？
+### 任务与线程的创建
 
 | 方式            | 特点               | 适用场景        |
 | ------------- | ---------------- | ----------- |
@@ -32,7 +37,7 @@ Integer result = futureTask.get();
 
 生产环境一般不频繁手动 `new Thread()`，而是使用自定义 `ThreadPoolExecutor`。
 
-## 直接调用 `run()` 和调用 `start()` 有什么区别？
+### Run 与 Start 的执行方式
 
 - `run()` 只是**普通方法调用**，在当前线程中同步执行，不会创建新线程。
 - `start()` 才会**创建并启动新线程**，由 JVM 在新线程中调用 `run()`；**同一个 `Thread` 只能成功调用一次 `start()`。**
@@ -45,7 +50,7 @@ t.start(); // 新线程执行；只能调用一次
 
 线程**已经结束后再次调用 `start()` 会抛出 `IllegalThreadStateException`**。
 
-## Java 线程有哪些状态？
+### 线程状态与转移
 
 | 状态              | 含义                      |
 | --------------- | ----------------------- |
@@ -58,7 +63,7 @@ t.start(); // 新线程执行；只能调用一次
 
 **`RUNNABLE` 不等于一定正在 CPU 上运行，也可能正在等待操作系统调度**。
 
-## BLOCKED、WAITING 和 TIMED_WAITING 有什么区别？
+### 阻塞、等待与定时等待
 
 - `BLOCKED`：抢不到 `synchronized` 的 **monitor 锁，等待其他线程释放**。
 - `WAITING`：**主动等待其他线程动作**，例如 `wait()`、`join()`、`LockSupport.park()`。
@@ -66,7 +71,7 @@ t.start(); // 新线程执行；只能调用一次
 
 **`wait()` 会释放当前 monitor；`sleep()` 不释放锁；`park()` 不依赖 monitor。**
 
-## 如何优雅停止线程？中断机制是什么？
+### 中断与协作停止
 
 不要使用 `Thread.stop()`、`suspend()`、`resume()`。它们可能**强制释放锁**、破坏共享状态或造成死锁。
 
@@ -74,24 +79,28 @@ t.start(); // 新线程执行；只能调用一次
 
 - 使用 `volatile` 标志位。
 - 调用 `interrupt()`，让**线程检查中断状态并退出**。
-- 使用 `Future.cancel(true)` **发送中断信号**。
+- 对支持执行线程中断的 Future 实现使用 cancel(true)，例如 Executor 提交任务对应的 FutureTask；取消结果与线程退出仍需分别确认。
 - **关闭阻塞中的资源，使线程从 I/O 调用返回**。
 
-`interrupt()` 不会强行杀死线程。线程在 `sleep()`、`wait()`、`join()`、`Condition.await()` 等**可中断阻塞方法**中通常会收到 `InterruptedException`；**否则只是设置中断标志**，需要业务代码主动检查。
+Thread.stop 可能在任意位置终止并释放监视器，suspend 则可能让持锁线程暂停，这也是这些旧 API 不能用于正常取消协议的原因。
 
-## 守护线程和未捕获异常怎么处理？
+interrupt 不会强行杀死线程，响应方式取决于所在 API。sleep、wait、join、Condition.await 等可中断等待会按相应API的约定抛出InterruptedException；可中断通道可能关闭并抛出相关 I/O 异常。普通计算代码需要检查中断标志并协作退出，不能假设任意阻塞操作都能被中断唤醒。[Thread中断行为](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html#interrupt())
 
-守护线程只适合执行随进**程生命周期结束即可丢弃的后台辅助工作**。所有非守护线程结束后，JVM 可以退出，**不会等待守护线程完成**；必须在 `start()` 前调用 `setDaemon(true)`。需要**持久化、提交事务或保证最终执行的任务不能依赖守护线程**。
+### 守护线程与未捕获异常
+
+守护线程只适合执行随进程生命周期结束即可丢弃的后台辅助工作。所有非守护线程结束后，JVM 可以退出，**不会等待守护线程完成**；必须在 `start()` 前调用 `setDaemon(true)`。需要**持久化、提交事务或保证最终执行的任务不能依赖守护线程**。
 
 线程未捕获异常时，该线程会终止，可以通过 `Thread.UncaughtExceptionHandler` 记录和告警。在线程池中还要注意：`execute()` 的异常通常会交给**线程的未捕获异常处理器**，而 `submit()` 会把异常**封装在 `Future` 中，需要调用 `Future.get()` 才能观察到**。
 
-# Java 内存模型与线程安全
+## Java 内存模型与线程安全
 
-## 如何保证多线程安全？
+多线程同时访问共享可变状态时，既要保护复合操作，也要建立可见性。原子性、可见性和顺序性需要分别分析。
+### 共享状态与线程安全
 
 | 思路        | 代表技术                                                       | 适用场景        |
 | --------- | ---------------------------------------------------------- | ----------- |
-| **不共享**   | 局部变量、不可变对象、`ThreadLocal`                                   | 从根源避免竞争     |
+| 状态隔离 | 独占状态、ThreadLocal 独立绑定 | 减少共享可变状态，仍要分析引用对象 |
+| 不可变共享 | 正确构造和发布的不可变对象 | 安全共享只读内容，引用替换另需协议 |
 | **互斥访问**  | `synchronized`、`ReentrantLock`                             | 保护共享读写      |
 | **可见性控制** | `volatile`                                                 | 状态标记、配置开关   |
 | 原子更新      | `AtomicInteger`、`AtomicReference`、`LongAdder`              | 计数和 CAS 更新  |
@@ -100,34 +109,49 @@ t.start(); // 新线程执行；只能调用一次
 
 业务数据**跨线程、跨进程或跨服务**时，还要结合数据库事务、唯一约束、版本号、幂等和最终一致性方案，不能只依赖 Java 锁。
 
-## 指令重排序和 happens-before 是什么？
+### 重排序与 happens-before
 
-编译器和 CPU 可能为了优化调整指令顺序。单线程下这无所谓——最终结果一定和代码写的顺序一致。但多线程中，线程之间共享数据时，**没有同步约束的话，一个线程可能看到另一个线程"执行到一半"的中间状态**。
+JMM 规定的是可观察行为与同步关系，不要求机器逐行照源码顺序执行。同一线程必须保持相应程序语义；跨线程读取共享状态则需要 happens-before 关系，不能用“我大概先写完了”或日志先后建立保证。
 
-那怎么保证"我能看到你写完的结果"？Java 内存模型给出了 happens-before 这个承诺：**前一个操作 happens-before 后一个操作 = 前者的写对后者一定可见**，同时 JVM 不会对两者之间的指令做违规重排序。
+同一 monitor 的解锁与后续加锁、对同一 volatile 的写与同步顺序中后续读、线程 start 与新线程中的操作，以及成功检测到线程终止，都能形成相应关系，再通过传递性发布之前的普通字段。带超时的 join 如果只是超时返回，不能据此认为线程已结束。
 
-常见规则：
+下面先写普通字段，再发布 volatile 标志；读者观察到标志后才读取字段。末尾 join 负责收尾，并没有被用来代替标志读取之前的发布协议。
 
-- **程序次序**：同一线程内，代码从上往下执行，**前面的对后面的可见**。（这是基本保证，不然线程自己都看不懂自己。）
-- **volatile 写读**：写一个 volatile 变量后，后续任何线程读它都能拿到最新值。（常用于停止标志、状态开关。）
-- **锁的释放→获取**：释放一把锁之前的写入，**对另一个线程获取这把锁后的读取可见**。（synchronized/ReentrantLock 都靠这个。）
-- **线程启动**：**`start()` 之前的写入，对新线程内的操作可见**。
-- **线程终止**：线程内的**所有写入，对另一个线程 `join()` 返回后的操作可见**。（join 返回 = 我能看到你跑完。）
-- **中断**：`interrupt()` 调用，对被中断线程后续检测到中断的代码可见。
-- **传递性**：A→B、B→C，则 A→C。（可以串联。）
+```java
+import java.util.concurrent.TimeUnit;
 
-## volatile 有什么作用？
+public class PublicationDemo {
+    static int value;
+    static volatile boolean ready;
 
-`volatile` 主要提供：
+    public static void main(String[] args) throws InterruptedException {
+        Thread writer = new Thread(() -> {
+            value = 42;
+            ready = true;
+        });
+        writer.start();
+        long started = System.nanoTime();
+        while (!ready) {
+            if (System.nanoTime() - started > TimeUnit.SECONDS.toNanos(5))
+                throw new AssertionError("等待发布超时");
+            Thread.onSpinWait();
+        }
+        int observed = value;
+        writer.join();
+        assert observed == 42;
+    }
+}
+```
 
-1. **可见性**：一个线程写入后，其他线程能按 JMM 规则观察到最新值。
-2. **有序性**：通过内存屏障限制特定的指令重排序。
+这个例子使用短暂自旋说明内存语义；长期任务协调通常用锁、条件或阻塞队列，避免持续占用 CPU。volatile 保证相应读写关系，不保证线程会按期得到调度，也不提供整组字段的原子事务。
 
-它不保证复合操作的原子性
+### Volatile 与可见性
 
-典型场景是**停止标志、配置开关、状态发布和双重检查锁中的实例**引用。
+volatile 适合发布状态或不可变快照引用。读者需要通过同一变量的相应读写关系观察之前的普通写入，不能把它理解成“任意字段随时自动同步到最新”。
 
-## CAS 是什么？有什么缺点？
+volatile 的单次读写与复合操作不同：counter++ 包含读、计算、写，仍可能丢更新。多个字段需要共同保持不变量时，使用同一锁或完整状态的原子替换；双重检查锁中的实例引用也是发布协议，而不是把所有对象字段都变成线程安全。
+
+### CAS、竞争与 ABA
 
 CAS（Compare And Swap）包含**内存值 V、预期值 A 和新值 B：只有 V 等于 A 时，才把 V 更新为 B**。它是 Java 原子类和许多无锁算法的基础。
 
@@ -137,21 +161,43 @@ CAS（Compare And Swap）包含**内存值 V、预期值 A 和新值 B：只有 
 - 自旋开销：竞争激烈时 **CAS 反复失败，会浪费 CPU**。
 - **多变量**一致性有限：需要用 `AtomicReference` **封装对象或使用锁**。
 
-## AtomicLong 和 LongAdder 如何选择？LongAdder 为什么不适合生成序列号？
+### 原子计数与分片累加
 
-**核心回答**：`AtomicLong` 对单个值做 CAS，`incrementAndGet()` **能返回本次操作确定的结果**。`LongAdder` 在竞争时把**更新分散到多个 Cell，读取时再求和**，通常能降低高竞争计数的热点，但 `sum()` 不是与所有并发更新处于同一个原子快照。
+AtomicLong.incrementAndGet 为单个实例分配本次原子更新后的值；在未溢出、未重置的区间内，可形成不同的序号。调用者完成顺序、业务成功顺序与序号分配顺序仍可能不同，也不提供进程重启后的持久全局编号。
 
-**为什么 `LongAdder` 不适合生成序列号？** 序列号要求每次加一都拿到唯一的确定值，而 `sum()` 可能**漏掉其他线程刚做完的增量**——比如两个线程各 increment 一次，第三个线程 `sum()` 可能只看到其中一个。`AtomicLong.incrementAndGet()` 能保证每次调用拿到不同且连续的值。
+LongAdder 把竞争更新分散到多个单元，sum 在并发更新期间不是原子快照。所有写线程完成并经 join 等方式交接后，sum 可以准确读取最终总和；不能把这种情况写成“线程已经完成仍必然少计”。它不返回每次增量专属的新序号，increment 后再 sum 也可能与别人拿到相同结果。[LongAdder API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/LongAdder.html)
 
-**选型参考**：
-- **用 `AtomicLong`**：订单序列、配额扣减、状态版本等需要"每次**更新的精确返回值或条件更新**"的场景。
-- **用 `LongAdder`**：请求数、命中数等**允许短暂统计偏差的高并发指标**。
+```java
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.LongAdder;
 
-**注意**：二者都不能自动维护多个字段的不变量。`LongAdder.sumThenReset()` 与并发写组合时也不能当作无损结算边界。
+public class CountingSemanticsDemo {
+    public static void main(String[] args) throws InterruptedException {
+        AtomicLong sequence = new AtomicLong();
+        LongAdder total = new LongAdder();
+        Set<Long> ids = ConcurrentHashMap.newKeySet();
+        Runnable work = () -> {
+            for (int i = 0; i < 1000; i++) {
+                long id = sequence.incrementAndGet();
+                ids.add(id);
+                total.increment();
+            }
+        };
+        Thread first = new Thread(work), second = new Thread(work);
+        first.start(); second.start();
+        first.join(); second.join();
+        assert sequence.get() == 2000;
+        assert total.sum() == 2000;
+        assert ids.size() == 2000;
+    }
+}
+```
 
-**常见追问**：低竞争时两者差距可能很小，选择要用目标 JDK、线程数和读写比例压测。
+AtomicLong 适合需要更新返回值或条件修改的单点状态，LongAdder 常用于允许采集期间统计偏差的热点指标。两者的收益取决于竞争与读写比例，sumThenReset 也不能直接作为并发无损结算边界。
 
-## 悲观锁和乐观锁有什么区别？
+### 悲观与乐观并发控制
 
 | 对比项 | 悲观锁                                  | 乐观锁              |
 | --- | ------------------------------------ | ---------------- |
@@ -160,9 +206,9 @@ CAS（Compare And Swap）包含**内存值 V、预期值 A 和新值 B：只有 
 | 优点  | 逻辑简单，适合强互斥                           | 无阻塞，低冲突时性能好      |
 | 缺点  | 可能阻塞和上下文切换                           | **冲突高时重试成本高**    |
 
-# Java 锁机制与 AQS
+## Java 锁机制与 AQS
 
-## synchronized 的工作原理是什么？
+### Monitor 与 synchronized
 
 `synchronized` 是 JVM 内置的 monitor 锁，可以保证**互斥、可见性和有序性**：
 
@@ -171,7 +217,7 @@ CAS（Compare And Swap）包含**内存值 V、预期值 A 和新值 B：只有 
 - 获取不到锁的线程进入**等待队列**；**调用 `wait()` 的线程进入 WaitSet**。
 - 解锁时会建立相应的内存可见性关系。
 
-## synchronized 的实例锁、类锁和代码块锁有什么区别？
+### 实例锁、类锁与锁对象
 
 | 场景 | 锁对象 | 互斥范围 |
 | --- | --- | --- |
@@ -185,13 +231,13 @@ public static synchronized void staticMethod() {}
 synchronized (lock) {}
 ```
 
-## synchronized 支持重入吗？
+### 可重入与持有计数
 
-支持。同一线程已经持有某把锁时，可以再次进入由同一把锁保护的同步代码，不会被自己阻塞。
+可重入意味着同一线程已经持有某把锁时，可以再次进入由同一把锁保护的同步代码，不会被自己阻塞。
 
 **monitor 会记录持锁线程和重入次数**；每进入一次计数加 1，每退出一次计数减 1，计数归零后才真正释放锁。
 
-## synchronized 的锁升级和 JVM 优化是什么？
+### 锁实现演进与编译优化
 
 历史上常用“**无锁 → 偏向锁 → 轻量级锁 → 重量级锁**”描述锁状态变化。偏向锁是旧版本 HotSpot 的优化，JDK 15 起默认关闭并逐步废弃；现代 JDK 更应理解为无竞争或轻竞争时使用轻量级路径，竞争激烈时膨胀为重量级 monitor。
 
@@ -203,7 +249,7 @@ JIT 还可能进行：
 
 这些属于具体 JVM 实现优化，不应当作 Java 语言层面的绝对保证。
 
-## ReentrantLock 的工作原理和特点是什么？
+### ReentrantLock 与显式解锁
 
 `ReentrantLock` 是**基于 AQS 的显式锁**。AQS 中的 **`state` 表示锁状态和重入次数**，owner 表示当前持锁线程，获取失败的线程会进入等待队列并通过 `LockSupport.park()` 挂起。
 
@@ -215,7 +261,7 @@ JIT 还可能进行：
 
 它支持公平/非公平模式、可中断获取、超时获取和多个 `Condition` 等待队列。使用时必须在 `finally` 中释放锁。
 
-## synchronized 和 ReentrantLock 有什么区别？
+### 内置锁与显式锁的选择
 
 | 对比项  | `synchronized` | `ReentrantLock`            |
 | ---- | -------------- | -------------------------- |
@@ -228,62 +274,52 @@ JIT 还可能进行：
 
 简单同步优先使用 `synchronized`；需要超时、可中断、公平锁或多个条件队列时使用 `ReentrantLock`。
 
-## 公平锁和非公平锁有什么区别？
+### 公平性与吞吐
 
 公平锁按等待队列顺序获取锁；非公平锁允许新线程直接尝试抢锁，失败后再排队。
 
 非公平锁**通常吞吐更高**，因为**新线程可能直接 CAS 成功，减少线程唤醒和上下文切换；代价是可能造成饥饿**。`ReentrantLock` 默认是非公平锁。
 
-## ReadWriteLock 和 StampedLock 适合什么场景？
+### 读写锁与乐观读
 
-读写锁的规则是：**读读共享，读写互斥，写写互斥**。`ReentrantReadWriteLock` 适合读多写少的缓存、配置和路由表；写操作频繁时，锁管理成本可能抵消收益。
+ReentrantReadWriteLock 允许多个读者共享，写入则排斥其他读者和写者。收益取决于读写比例、临界区长度与争用，读多也不保证比普通锁快；持有读锁再升级写锁尤其需要避免等待死锁。
 
-`StampedLock` 支持**乐观读**：读时不加互斥锁，**读取后通过版本戳验证期间是否发生写入，适合读多写少但使用复杂度更高**的场景。
+StampedLock 的乐观读先把字段读入局部变量，再验证 stamp；验证失败时重新加读锁获取一致值，不能在验证前就拿可能不一致的字段执行不可撤销动作。它不提供与 ReentrantLock 相同的可重入语义，不能机械替换原有锁。
 
-## AQS 是什么？
+### AQS 的状态与等待队列
 
-AQS（`AbstractQueuedSynchronizer`）是构建锁和同步工具的基础框架。它解决“获取不到资源时如何排队、阻塞和唤醒”，具体资源含义由子类定义。
+AQS 为同步器提供状态、等待、取消与唤醒框架，子类定义 tryAcquire/tryRelease 等方法。volatile state 的含义由具体同步器决定：可重入锁表示占用计数，Semaphore 表示许可证，CountDownLatch 表示剩余计数。
 
-核心组成：
+等待节点用前后链接组织，取消或链接暂时不完整时可辅助寻找前驱与后继。队列具有先后关系，不代表所有同步器必然公平；是否允许新请求插队由获取策略决定，hasQueuedPredecessors 等检查用于相应策略，不应简化成每次公平判断都从 tail 遍历到 head。
 
-- `volatile int state`：**同步状态**。
-- 基于 CLH 思想的 **FIFO 双向等待队列**。每个节点有 `next` 和 `prev` 指针，双向主要是为了：① **线程取消等待时能直接摘掉自己**（绕过当前节点把前后接上）；② 公平锁判断队列中**是否有更早的排队者**（从 `tail` 往 `head` 方向遍历）。
-- **CAS：原子修改 `state`**。
-- 模板方法：子类实现 `tryAcquire`、`tryRelease` 等方法。
+### 可重入公平锁的状态设计
 
-不同工具对 `state` 的含义不同：`ReentrantLock` 表示锁和重入次数，`Semaphore` 表示许可证数量，`CountDownLatch` 表示剩余倒计数。
-
-## 如何用 AQS 实现可重入公平锁？
-
-实现步骤：
-
-1. 内部类继承 `AbstractQueuedSynchronizer`。
-2. 用 **`state` 表示重入次数，用 owner 记录持锁线程**。
-3. **`tryAcquire` 中**，`state == 0` 时先用 **`hasQueuedPredecessors()` 保证公平**，再 CAS 抢锁；当前线程已持锁时增加 `state`。
-4. `**tryRelease` 中减少 `state`，归零时清空 owner**。
-5. 外部 `lock()` 调用 `acquire(1)`，`unlock()` 调用 `release(1)`。
+获取逻辑需要同时解释空闲状态、排队者与重入：空闲时先检查更早等待者，再 CAS；当前线程已持有时增加计数，且检查溢出。下面仅为 AQS 子类中的获取片段，并非完整锁实现。
 
 ```java
 protected boolean tryAcquire(int acquires) {
     Thread current = Thread.currentThread();
-    int state = getState();
-    if (state == 0) {
-        if (!hasQueuedPredecessors()
-                && compareAndSetState(0, acquires)) {
+    int held = getState();
+    if (held == 0) {
+        if (!hasQueuedPredecessors() && compareAndSetState(0, acquires)) {
             setExclusiveOwnerThread(current);
             return true;
         }
     } else if (current == getExclusiveOwnerThread()) {
-        setState(state + acquires);
+        int next = held + acquires;
+        if (next < 0) throw new Error("重入计数溢出");
+        setState(next);
         return true;
     }
     return false;
 }
 ```
 
-# Java 线程协作与 ThreadLocal
+完整实现还需校验释放者、逐次减少计数、归零清空 owner，并实现条件等待需要的持锁判断等协议。实际使用优先选择已验证的 ReentrantLock；即便启用公平模式，也不意味着操作系统调度绝对公平，不带超时的 tryLock 还允许直接尝试获取。
 
-## sleep、wait 和 notify 有什么区别？
+## Java 线程协作与 ThreadLocal
+
+### 休眠、等待与唤醒
 
 | 对比项   | `sleep()` | `wait()`                     |
 | ----- | --------- | ---------------------------- |
@@ -303,7 +339,7 @@ synchronized (lock) {
 }
 ```
 
-## 不同线程之间如何通信？
+### 线程通信与条件队列
 
 - **共享变量**：使用 `volatile` 或锁保证可见性和安全性。
 - `wait/notify/notifyAll`：基于 monitor 的等待和唤醒。
@@ -312,7 +348,7 @@ synchronized (lock) {
 - `CountDownLatch`、`CyclicBarrier`、`Semaphore`：控制线程协作和并发数量。
 - `Future`、`CompletableFuture`：通过异步结果传递信息。
 
-## CountDownLatch、CyclicBarrier 和 Semaphore 有什么区别？
+### Latch、Barrier 与 Semaphore
 
 | 工具               | 核心作用            | 是否可复用 | 典型场景       |
 | ---------------- | --------------- | ----- | ---------- |
@@ -322,13 +358,13 @@ synchronized (lock) {
 
 记忆方式：Latch 是“别人完成后我继续”，Barrier 是“大家到齐再继续”，Semaphore 是“控制同时进入的人数”。
 
-## ThreadLocal 的作用、原理和内存泄漏是什么？
+### ThreadLocal 与生命周期
 
-`ThreadLocal` 为每个线程保存**独立变量副本，常用于用户上下文、traceId 和线程内资源上下文**。
+ThreadLocal 为每个线程保存独立的值绑定，常用于用户上下文或线程内资源。它不会自动深拷贝值；若两个线程 set 同一个可变对象，仍共享该对象并需要同步。
 
-每个 `Thread` 内部有一个 `ThreadLocalMap`，key 是 **`ThreadLocal` 的弱引用**，value 是当前**线程保存的副本**。外部强引用消失后，key 可能被回收，但 value 仍可能被线程持有；在线程池中线程长期复用时，可能造成 value 长时间不释放。
+每个 `Thread` 内部有一个 `ThreadLocalMap`，key 是 **`ThreadLocal` 的弱引用**，value 是当前线程绑定的对象引用。外部强引用消失后，key 可能被回收，但 value 仍可能被线程持有；在线程池中线程长期复用时，可能造成 value 长时间不释放。
 
-**使用完必须在 `finally` 中清理**：
+在线程池任务边界通常需要在 finally 清理；若存在嵌套上下文或调用方线程内执行，还应保存并恢复旧值。下面是本任务独占该绑定时的清理片段：
 
 ```java
 try {
@@ -339,9 +375,10 @@ try {
 }
 ```
 
-# Java 线程池与异步编程
+## Java 线程池与异步编程
 
-## ThreadPoolExecutor 提交任务的流程是什么？
+线程池复用执行资源，队列缓冲任务，但也会把过载变成排队。资源上限、拒绝策略与超时需要一起设计。
+### 线程池的任务接收流程
 
 1. 当前线程数小于 `corePoolSize`：创建核心线程执行任务。
 2. 核心线程已满：任务进入 **`workQueue`**。
@@ -350,7 +387,7 @@ try {
 
 记忆顺序：**核心线程 → 队列 → 最大线程 → 拒绝**。
 
-## 线程池有哪些核心参数？
+### 线程池容量与核心参数
 
 | 参数                | 含义              |
 | ----------------- | --------------- |
@@ -363,39 +400,32 @@ try {
 
 调用 `allowCoreThreadTimeOut(true)` 后，核心线程空闲超时也可以回收。
 
-## 线程池有哪些拒绝策略？
+### 饱和后的拒绝策略
 
 - `AbortPolicy`：默认策略，抛出 `RejectedExecutionException`。
-- `CallerRunsPolicy`：提交任务的线程自己执行，形成**反压**。
+- CallerRunsPolicy：执行器尚未关闭时由提交线程运行，形成背压；关闭后会丢弃，不能当成总会执行的承诺。
 - `DiscardPolicy`：直接丢弃，**不抛异常**。
-- `DiscardOldestPolicy`：丢弃队列中**最老任务**，再尝试提交。
+- DiscardOldestPolicy：未关闭时丢弃队头并重试提交。FIFO 队列的队头通常最早入队，优先队列的队头则可能是最高优先级任务。
 
-生产环境**可以自定义拒绝策略**，记录日志、告警、持久化任务或返回明确失败。
+拒绝必须形成可观察结果。使用 submit 却静默丢弃其 FutureTask 时，调用方的 Future 可能一直未完成；需要明确失败、取消或持久化重试，不能只记录一行日志就让调用者永久等待。
 
-## 线程池参数如何设置？核心线程数可以是 0 吗？
+### 线程数、队列与负载模型
 
-常见经验：
+平台线程池的规模可从可用 CPU、目标利用率和等待/计算时间比估算，但只是负载模型的起点。CPU 密集工作受可用核数约束，阻塞较多的工作可用更多线程隐藏等待，最终仍受到连接池、下游配额、内存与超时约束。
 
-- CPU 密集型：线程数约为 CPU 核数或核数 + 1。
-- I/O 密集型：线程数可以大于 CPU 核数，可按等待时间与计算时间估算：
+无界队列几乎总能接受任务，线程池便很少走 maximumPoolSize 的扩容分支；corePoolSize=0 配无界队列还可能只补出一个工作线程排空任务。SynchronousQueue、有限容量队列与无界队列会形成不同调度行为，不能只看核心线程数判断容量。
 
-```text
-线程数 = CPU 核数 × (1 + 等待时间 / 计算时间)
-```
+用目标负载比较活跃线程、排队时间、拒绝数和完成速率，再决定上限与等待预算。增加线程只会增加排队者的场景，不应继续用经验公式放大并发。
 
-实践中应使用 `availableProcessors()`，优先使用有界队列，设置线程名，并监控活跃线程、队列长度、拒绝次数和任务耗时。
-
-`corePoolSize = 0` 是允许的，任务通常先进入队列，再由非核心线程执行；**适合任务零散、希望空闲时回收线程的场景**，但**不适合对延迟敏感**的稳定服务。
-
-## 为什么不建议直接使用 Executors？
+### Executors 工厂与默认策略
 
 - `newFixedThreadPool` 和 `newSingleThreadExecutor` 使用无界队列，**任务积压可能导致 OOM**。
 - `newCachedThreadPool` **最大线程数接近无限**，高并发下可能创建过多线程。
-- 定时线程池也**隐藏了关键参数**，难以统一管理队列和拒绝策略。
+- 定时线程池也需要观察待执行任务、周期任务失败与关闭策略；工厂方法的便捷不等于资源与故障边界已经设计完成。
 
 生产中通常手动创建 `ThreadPoolExecutor`，明确线程数、队列、线程工厂和拒绝策略。
 
-## 线程池如何关闭？任务可以撤回吗？
+### 线程池关闭与任务取消
 
 | 方法              | 行为                             |
 | --------------- | ------------------------------ |
@@ -411,38 +441,65 @@ if (!executor.awaitTermination(30, TimeUnit.SECONDS)) {
 }
 ```
 
-通过 `submit()` 得到 `Future` 后可以**调用 `cancel(true)`**：未开始的任务可以取消，执行中的任务只会收到中断信号，是否停止取决于任务是否响应中断。
+awaitTermination 被中断时需按调用约定传播或恢复中断标志，并触发适当停止；升级到 shutdownNow 后还要再次有界等待，才能确认执行器是否终止。返回的未开始任务也要进入取消或恢复流程，尤其是关联 Future 的任务不能永远悬空。
 
-## Future、FutureTask 和 CompletableFuture 有什么区别？
+Executor 常见 FutureTask 的 cancel(true) 会尝试中断执行线程，但取消成功不等于动作已退出；CompletableFuture 的取消则有不同语义，见下节。
 
-| 类型                  | 作用                    | 特点                        |
-| ------------------- | --------------------- | ------------------------- |
-| `Future`            | 异步结果接口                | 可获取结果、取消、判断完成，但编排能力弱      |
-| `FutureTask`        | `Runnable` + `Future` | **可包装 `Callable` 交给线程执行** |
-| `CompletableFuture` | 异步编排                  | 支持链式转换、组合、超时和异常处理         |
+### Future 与异步组合
 
-常用 API：
+Future 表达一个结果的等待与取消，FutureTask 还能作为 Runnable 执行；CompletableFuture 增加转换、组合和异常完成。thenApply 转换结果，thenCompose 展开下一异步阶段，thenCombine 合并两个结果；allOf 提供全体完成信号，本身不自动收集结果值。
 
-- `supplyAsync`/`runAsync`：异步执行。
-- `thenApply`/`thenAccept`/`thenRun`：处理前一步结果。
-- `thenCompose`：串联返回另一个 Future 的异步任务。
-- `thenCombine`：合并两个任务结果。
-- `allOf`/`anyOf`：等待全部或任意任务。
-- `exceptionally`/`handle`：处理异常。
-- Java 9+ 的 `orTimeout`/`completeOnTimeout`：处理超时。
+非 Async 的后续操作可能在完成前一阶段的线程中运行，也可能在附加操作的调用线程中运行；Async 版本再按配置选择执行器。阻塞工作、上下文与容量需按这些执行边界安排。
+
+CompletableFuture.cancel(true) 将阶段标为取消，不会因为 true 自动中断其底层计算。下面用两个闩锁分开“任务已开始”“允许任务完成”，观察取消之后任务仍需自己走完。
 
 ```java
-CompletableFuture<Integer> future = CompletableFuture
-        .supplyAsync(this::query)
-        .thenApply(result -> result + 1)
-        .exceptionally(e -> 0);
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class CompletableCancellationDemo {
+    public static void main(String[] args) throws Exception {
+        var executor = Executors.newSingleThreadExecutor();
+        CountDownLatch entered = new CountDownLatch(1);
+        CountDownLatch release = new CountDownLatch(1);
+        AtomicBoolean interrupted = new AtomicBoolean();
+        try {
+            CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
+                entered.countDown();
+                try {
+                    release.await();
+                    return 42;
+                } catch (InterruptedException error) {
+                    interrupted.set(true);
+                    Thread.currentThread().interrupt();
+                    throw new CompletionException(error);
+                }
+            }, executor);
+            if (!entered.await(5, TimeUnit.SECONDS))
+                throw new AssertionError("任务未启动");
+            boolean cancelled = future.cancel(true);
+            assert cancelled && future.isCancelled();
+            release.countDown();
+            executor.shutdown();
+            boolean stopped = executor.awaitTermination(5, TimeUnit.SECONDS);
+            assert stopped && !interrupted.get();
+        } finally {
+            release.countDown();
+            executor.shutdownNow();
+        }
+    }
+}
 ```
 
-默认异步任务可能使用公共 `ForkJoinPool.commonPool()`。生产环境应根据任务类型指定自定义线程池，尤其要避免阻塞 I/O 任务耗尽公共线程池。
+这段代码只提交一个受控任务，用单线程执行器观察 API 行为。实际外部调用还需自己的超时和协作取消；阶段完成、计算结束、业务终态是三件事。[CompletableFuture 取消语义](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html#cancel(boolean))
 
-## CompletableFuture 上线时如何处理异常、超时、取消和线程池隔离？
+### 异步异常、超时与线程隔离
 
-核心回答：先为不同依赖使用有界且可观测的执行器，再让每个外部调用自己有 deadline；组合层显式规定“一个失败是否取消兄弟任务、能否返回部分结果、fallback 是否掩盖错误”。`orTimeout` 只会让 Future 以超时异常完成，不保证底层阻塞 I/O 已经停止，因此还要向客户端/任务传播取消并配置底层连接与读取超时。
+先为不同依赖使用有界且可观测的执行器，再让每个外部调用自己有 deadline；组合层显式规定“一个失败是否取消兄弟任务、能否返回部分结果、fallback 是否掩盖错误”。`orTimeout` 只会让 Future 以超时异常完成，不保证底层阻塞 I/O 已经停止，因此还要向客户端/任务传播取消并配置底层连接与读取超时。
 
 ```java
 CompletableFuture<Result> left = CompletableFuture
@@ -457,12 +514,18 @@ return left.thenCombine(right, this::merge)
         .whenComplete((value, error) -> recordOutcome(requestId, error));
 ```
 
-易错点：在 `exceptionally` 中无条件返回空对象会把依赖故障伪装成业务成功；在异步阶段依赖 ThreadLocal 可能丢失认证或 Trace 上下文；`allOf()` 只返回完成信号，仍需逐个读取结果并处理异常。验收时应覆盖单分支失败、整体超时、队列满、取消和服务关闭，观测活跃线程、队列长度、拒绝数与端到端 P95/P99。
+在 `exceptionally` 中无条件返回空对象，会把依赖故障伪装成业务成功。异步阶段若依赖ThreadLocal，还可能丢失认证或Trace上下文。
+
+`allOf()`只返回完成信号，调用方仍需逐个读取结果并处理异常。
+
+验证这些行为时，覆盖单分支失败、整体超时、队列满、取消与服务关闭，并观察活跃线程、队列长度、拒绝数和端到端P95/P99。
 
 
-# Java 并发场景题
+## 并发约束的组合应用
 
-## 什么情况下会产生死锁？如何避免？
+锁、队列和线程池分别解决局部协调问题。多个机制组合后，还需要检查资源等待顺序、任务取消和业务状态是否能够一起收敛。
+
+### 死锁条件与资源顺序
 
 死锁需要同时满足：**互斥、持有并等待、不可剥夺、循环等待**。
 
@@ -473,7 +536,7 @@ return left.thenCombine(right, this::merge)
 - **缩小锁粒度**，减少竞争。
 - 使用 `jstack` 或线程 dump 排查 `BLOCKED` 和死锁信息。
 
-## 如何设计生产者消费者模型？
+### 生产者消费者与背压
 
 优先使用 **`BlockingQueue`，让队列负责线程安全、容量控制和等待唤醒**：
 
@@ -490,15 +553,13 @@ handle(task);
 
 停止消费者可以使用中断，或放入特殊结束标记。
 
-## 高并发计数器如何实现？
+### 并发计数与精确快照
 
-- 低并发或需要精确即时值：`AtomicInteger`、`AtomicLong`。
-- **高并发热点计数：`LongAdder`**，通过**分散到多个分段降低 CAS 冲突**。
-- 强一致业务计数：**数据库事务、行锁或版本号**。
+单个原子字段的读取不等于一组业务数据的同一时刻快照。例如 count 与 total 各自是 AtomicLong，分别读取时仍可能跨过一次更新，得到彼此不对应的两个值。
 
-`LongAdder` 的吞吐量通常高于 `AtomicLong`，但 `sum()` 是多个分段的汇总，不适合要求每次读取都具备严格线性一致性的场景。
+需要共同不变量时，可在同一锁下读写，或用 AtomicReference 发布完整不可变状态；跨进程时再选择共享存储与事务协议。对 CAS 更新函数还要避免不可重试的外部副作用，因为竞争失败后的计算可能再次执行。
 
-## 双重检查锁为什么需要 volatile？
+### 单例发布与双重检查
 
 ```java
 public final class Singleton {
@@ -521,9 +582,9 @@ public final class Singleton {
 
 `volatile` 保证实例引用的**可见性**，并禁止“分配内存、初始化对象、发布引用”发生危险重排序。没有延迟加载要求时，可直接使用静态初始化或枚举单例，减少实现和反序列化风险。
 
-## 如何让三个线程交替打印 ABC？
+### 许可交接与顺序执行
 
-手撕高频题。核心是“轮到谁”这个状态必须原子可见、唤醒要精确。用 `Semaphore` 传递许可是最短写法：
+这个例子连接了同步与执行顺序。核心是“轮到谁”这个状态必须原子可见、唤醒要精确。用 `Semaphore` 传递许可是最短写法：
 
 ```java
 Semaphore sa = new Semaphore(1), sb = new Semaphore(0), sc = new Semaphore(0);
@@ -538,9 +599,9 @@ sb.release();
 
 另两种等价写法：`ReentrantLock` + 每个线程一个 `Condition`，`signal` 精确唤醒下一个；`synchronized` + `wait/notifyAll`，单一通知队列只能全员唤醒，靠共享 state 判断是否轮到自己（有惊群开销）。
 
-易错点：等待条件用 `if` 而不是 `while`（虚假唤醒后继续跑）；`state++` 没在锁内做（原子性、可见性都不保证）；异常路径漏掉 `release/signal`，其余线程永久等待。`wait/notify` 代码找错题考的就是这几处。
+易错点：等待条件用 `if` 而不是 `while`（虚假唤醒后继续跑）；`state++` 没在锁内做（原子性、可见性都不保证）；异常路径没有组级退出协议，其余线程可能永久等待。中断导致 acquire 失败时不能无条件释放一个从未取得的许可；失败应触发整体取消或明确终止状态，而非继续按成功顺序交接。
 
-## 如何手写一个并发安全的 LRU 缓存？
+### 并发 LRU 的一致不变量
 
 基线版本：`LinkedHashMap` 开启 access-order，重写 `removeEldestEntry`，访问加同一把锁：
 
@@ -562,24 +623,24 @@ class LruCache<K, V> {
 }
 ```
 
-写完必被追问“你的 LRU 线程安全吗？锁在哪几行？”——上面答案整表一把锁，正确但吞吐差。进阶方向：
+上面的实现用一把锁保护整个 Map 与访问链，get 也会调整顺序，所以不能仅把它当只读操作放开同步。不同 Key 也竞争同一把锁；进一步优化要同时说明成本与淘汰语义的变化：
 
-- **缩小锁粒度**：按 key 哈希拆多个桶，每桶独立 `LinkedHashMap` + 锁。
-- **读写路径分离**：`ConcurrentHashMap` 存数据承担并发读写，访问顺序链表单独同步；顺序维护本身仍有竞争，常见折中是缓冲访问记录、定期批量修剪。
+- 分片维护 LinkedHashMap 与锁可减少竞争，但得到的是分片内 LRU；热点分片可能已淘汰，其他分片仍有空余，不能继续声称严格全局 LRU。
+- **读写路径分离**：`ConcurrentHashMap` 存数据承担并发读写，访问顺序链表单独同步；顺序维护本身仍有竞争，缓冲访问记录、批量修剪还会延迟顺序更新，需要说明是否接受近似淘汰。
 - **TTL 淘汰**：节点带过期时间戳，读时惰性检查过期，再配后台清扫，避免定时线程全表扫描。
 
-同一思想在其他层的实现：Redis 的近似 LRU 与淘汰池见 [Redis](../Data/Redis.md)，纯数据结构版手撕见 [编码题与后端基础](../Agent/11_编码与后端/编码题与后端基础.md)。
+同一思想在其他层的实现：Redis 的近似 LRU 与淘汰池见 [Redis](../Data/Redis.md)，纯数据结构的实现思路见 [数据结构](../CS/数据结构.md)。
 
-## 手撕并发高频清单
+### 并发模式的行为与边界
 
-面经手撕环节的并发题集中在五个，全部能从本文件题面推导：
+这些并发模式共享同一套推理过程：确定状态、不变量、等待条件与退出路径，再选择同步原语。
 
-| 题目 | 核心机制 | 易错点 |
+| 使用场景 | 核心机制 | 易错点 |
 |---|---|---|
 | 交替打印 ABC / 1~100 | Condition 精确唤醒、Semaphore 传递、wait/notifyAll + 状态 | 用 if 判断状态；漏 signal/release |
 | 生产者消费者 | `BlockingQueue` 或手写有界队列 | 停止语义（中断还是毒丸对象）没说清 |
-| 手写有界阻塞队列 | `ReentrantLock` + notFull/notEmpty 两个 Condition | 满队 put、空队 take 的阻塞边界 |
-| 并发安全 LRU | access-order + 锁粒度演进 | 只答数据结构，说不出锁在哪 |
+| 有界任务交接 | `ReentrantLock` + notFull/notEmpty 两个 Condition | 满队 put、空队 take 的阻塞边界 |
+| 并发安全 LRU | access-order + 锁粒度演进 | 只保护 Map，遗漏访问顺序的同步 |
 | 令牌桶/滑动窗口限流器 | CAS 更新时间戳与令牌数 | 时间回拨、惰性补发令牌的边界 |
 
-算法类手撕（纯数据结构版 LRU/LFU、链表与堆类）见 [编码题与后端基础](../Agent/11_编码与后端/编码题与后端基础.md)。
+算法类实现（纯数据结构版 LRU/LFU、链表与堆类）见 [数据结构](../CS/数据结构.md)。

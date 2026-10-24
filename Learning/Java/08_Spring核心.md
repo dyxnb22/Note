@@ -1,416 +1,173 @@
-# IoC 和 DI 分别是什么，为什么优先使用构造器注入？
+# 08 Spring 核心：对象图、代理与事务
 
-IoC 是把对象创建和依赖管理**从业务代码交给容器**；DI 是容器把依赖传给对象的**实现方式**。优先使用**构造器注入**，因为依赖显式、对象可保持完整状态，也便于单元测试。
+Spring 容器按定义创建和装配对象，代理再在调用边界加入事务、异步或审计等行为。对象是由谁取得的、方法经过哪个引用调用，比单独记住一个注解更能解释实际运行结果。本章以 Spring Framework 6.2、JDK 17 的命令式应用为例，Boot 装配与 Web 请求另见下一章。
 
-容器的核心流程可以概括为：
+## IoC、DI 与构造器注入
 
-```text
-读取配置与扫描
-→ 注册 BeanDefinition
-→ 实例化
-→ 属性填充
-→ Aware 回调
-→ BeanPostProcessor 前置处理
-→ 初始化
-→ BeanPostProcessor 后置处理/生成代理
-→ 对外提供 Bean
-→ 容器关闭时执行销毁回调
-```
+IoC 把对象创建与依赖管理交给容器，DI 则通过构造器、方法或字段将依赖交给对象。构造器注入让必要依赖明确，也便于直接构造对象测试；复杂职责仍需由业务设计划分，容器不会自动修正相互纠缠的对象图。
 
-BeanDefinition 是“如何创建对象”的元数据，Bean 是创建完成的实例。不要把容器理解成一个普通 `Map<Class, Object>`：它还要处理**作用域、生命周期、代理、扩展点和依赖关系**。
+BeanDefinition 是创建方式、作用域等元数据，Bean 是取得的实例。典型流程是注册定义、实例化、属性填充、初始化前后处理、对外提供对象；Aware 与初始化回调分别在对应阶段执行，代理和早期引用会使实际流程出现分支，不能把容器当成单纯的类型到对象 Map。
 
-# Spring Bean 的作用域和生命周期如何理解？
+## Bean 作用域与生命周期
 
-常见作用域包括 singleton、prototype、request 和 session。Spring singleton 是"每个容器一个实例"，不是 JVM 全局单例；单例 Bean 仍需自行保证可变状态的线程安全。
+singleton 是每个容器中每份 Bean 定义对应一个实例，不是某个 Java 类在 JVM 中只能有一个对象。同类可以有多个不同 Bean 定义，单例里的共享可变状态也仍需同步保护。
 
-## 单例 Bean 为什么仍可能有线程安全问题？
+prototype 在每次向容器请求该 Bean 时创建新实例，不是每调用一次业务方法就创建。把它直接注入 singleton 时，依赖通常只在装配时解析一次；需要运行中反复获取，应使用 ObjectProvider 等明确获取机制。request/session 则依赖相应 Web 上下文。[Bean 作用域](https://docs.spring.io/spring-framework/reference/6.2/core/beans/factory-scopes.html)
 
-Spring 容器对每个 Bean 只创建一个实例，但**线程安全不由容器保证**。多线程并发访问同一个对象，如果对象内部有可变状态（成员变量被修改），就会出现数据竞争。
+下面是使用 spring-context 6.2 的完整示例，需要该库及其依赖；它只演示对象身份，没有外部服务。
 
 ```java
-@Service  // 默认 singleton
-public class CounterService {
-    private int count = 0;        // 可变状态，所有线程共享
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
-    public int increment() {
-        return ++count;           // 非原子操作，线程不安全
+public class SpringScopeDemo {
+    static class Token {}
+    record Holder(Token token) {}
+
+    @Configuration(proxyBeanMethods = false)
+    static class Config {
+        @Bean @Scope("prototype")
+        Token token() { return new Token(); }
+        @Bean
+        Holder holder(Token token) { return new Holder(token); }
     }
-}
 
-// 三个线程各调用 1000 次，结果可能 < 3000
-```
-
-常见修复策略：
-
-| 策略 | 适用场景 | 示例 |
-|------|---------|------|
-| **无状态设计** | 最佳方案，去掉成员变量 | 方法内用局部变量，依赖注入的都是无状态 Bean |
-| `@Scope("prototype")` | 每次调用创建新实例 | 有状态的计算器、上下文对象 |
-| `ThreadLocal` | 线程隔离，如用户上下文 | `UserContext.get()` |
-| `synchronized` / 锁 | 低并发简单场景 | 计数器、缓存同步 |
-| 并发容器 | 集合类共享状态 | `ConcurrentHashMap`、`AtomicLong` |
-
-```java
-// 无状态设计：每次调用都返回新结果，不修改成员变量
-@Service
-public class OrderCalculator {
-    public BigDecimal calculateTotal(List<Item> items) {
-        return items.stream()       // 局部变量，无线程问题
-            .map(Item::getPrice)
-            .reduce(BigDecimal.ZERO, BigDecimal::add);
-    }
-}
-```
-
-prototype Bean 的创建由容器负责，但完整销毁通常由调用方负责。Web 作用域依赖请求上下文，不能在普通线程中随意使用。
-
-# Spring 循环依赖为什么会发生，三级缓存能解决什么？
-
-**循环依赖**暴露了对象职责互相纠缠。Spring 对部分单例、Setter/字段注入的循环依赖可以通过**提前暴露引用解决**，但**构造器循环依赖无法靠三级缓存绕过**。
-
-## 三级缓存解决的是什么问题？
-
-Spring 创建单例 Bean 时有三级缓存：
-
-| 缓存 | 作用 |
-|------|------|
-| `singletonObjects` (一级) | 完全初始化好的 Bean |
-| `earlySingletonObjects` (二级) | 提前暴露的早期引用（可能是代理） |
-| `singletonFactories` (三级) | Bean 工厂，用于生成早期引用 |
-
-Setter 注入的循环依赖能解决，关键在于**对象可以先半成品创建**：
-
-```java
-@Service
-public class A {
-    @Autowired private B b;      // A 先创建，b 字段先空着
-    // 容器把 A 的引用提前暴露到三级缓存
-}
-
-@Service
-public class B {
-    @Autowired private A a;      // B 创建时从缓存拿到 A 的早期引用
-    // B 创建完成后，A 再注入 b
-}
-```
-
-流程：`创建 A → 实例化后放入三级缓存 → 填充属性时发现需要 B → 创建 B → B 从缓存拿到 A → B 完成 → A 注入 B → A 完成`
-
-## 为什么构造器循环依赖无法解决？
-
-构造器注入要求**实例化时就必须提供所有依赖**——对象还没创建出来，没有引用可以暴露给缓存。
-
-```java
-@Service
-public class A {
-    public A(B b) {  // 创建 A 需要 B，但 A 还没实例化完成
-        this.b = b;  // 没有半成品可以暴露
-    }
-}
-
-@Service
-public class B {
-    public B(A a) {  // 创建 B 需要 A，同样卡住
-        this.a = a;
-    }
-}
-
-// 容器启动时直接报错：
-// BeanCurrentlyInCreationException:
-// Requested bean is currently in creation: Is there an
-// unresolvable circular reference?
-```
-
-本质矛盾：**构造器语义要求对象创建即完整，而缓存机制依赖"先给引用再补属性"**。二者不可兼得。
-
-## 工程上怎么解决？
-
-优先**消除循环**，而不是依赖容器兜底：
-
-```java
-// 方案一：抽取公共逻辑到第三个 Bean
-@Service
-public class PermissionChecker {
-    public boolean check(User user, Resource resource) { /* ... */ }
-}
-
-@Service
-public class UserService {
-    @Autowired private PermissionChecker checker;  // 不再依赖 RoleService
-}
-
-@Service
-public class RoleService {
-    @Autowired private PermissionChecker checker;  // 不再依赖 UserService
-}
-```
-
-```java
-// 方案二：用事件解耦
-@Service
-public class OrderService {
-    @Autowired private ApplicationEventPublisher publisher;
-
-    public void createOrder(OrderDTO dto) {
-        // ... 创建订单
-        publisher.publishEvent(new OrderCreatedEvent(dto.getId()));
-    }
-}
-
-@Component
-public class InventoryListener {
-    @EventListener
-    public void onOrderCreated(OrderCreatedEvent event) {
-        // 扣库存，不再直接依赖 OrderService
-    }
-}
-```
-
-三级缓存的意义不只是“提前放一个对象”，**还要保证其他 Bean 取得的早期引用与最终 AOP 代理保持一致**。工程上优先通过拆分职责、引入领域事件或中间服务消除循环，而不是依赖容器兜底。
-
-# Spring AOP 如何通过代理实现，哪些调用会失效？
-
-AOP 把**日志、事务、鉴权、指标**等横切逻辑织入业务方法。Spring AOP 主要基于运行时代理：
-
-| 方式       | 特点      | 典型限制                |
-| -------- | ------- | ------------------- |
-| JDK 动态代理 | 基于接口    | 调用方通常面向接口           |
-| CGLIB    | 生成目标类子类 | `final` 类或方法不能被覆盖增强 |
-
-代理只拦截“经过代理对象”的调用。对象内部 `this.method()` 通常不会再次经过代理，因此 `@Transactional`、`@Async`、`@Cacheable` 等都可能失效。
-
-## BeanPostProcessor 为什么能生成 AOP 代理？
-
-AOP 代理不是在 Bean 实例化时就生成的，而是在**初始化阶段**由 `BeanPostProcessor` 拦截并包装的。
-
-Spring 容器启动时会注册一系列 `BeanPostProcessor`，其中 `AbstractAutoProxyCreator` 负责 AOP 代理。它的工作时机是在 Bean 初始化完成之后（`init-method` 执行完、`@PostConstruct` 调用完）：
-
-```java
-// 简化后的流程
-Object bean = instantiateBean(bd);           // 1. 反射创建原始对象
-bean = initializeBean(bean, beanName, bd);   // 2. 属性填充、Aware、初始化
-// ↓ 在 initializeBean 内部 ↓
-for (BeanPostProcessor processor : processors) {
-    Object result = processor.postProcessAfterInitialization(bean, beanName);
-    if (result != bean) {
-        bean = result;  // 3. AbstractAutoProxyCreator 在这里返回代理对象
-    }
-}
-```
-
-`AbstractAutoProxyCreator` 的判断逻辑：
-
-```java
-public Object postProcessAfterInitialization(Object bean, String beanName) {
-    if (bean != null) {
-        // 检查是否需要代理（有没有匹配的 Advisor/切面）
-        Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);
-        if (specificInterceptors != DO_NOT_PROXY) {
-            // 创建代理并返回，容器后续使用的都是这个代理
-            Object proxy = createProxy(bean.getClass(), beanName, specificInterceptors, new SingletonTargetSource(bean));
-            return proxy;
+    public static void main(String[] args) {
+        try (var context = new AnnotationConfigApplicationContext(Config.class)) {
+            Token first = context.getBean(Token.class);
+            Token second = context.getBean(Token.class);
+            assert first != second;
+            Holder holder = context.getBean(Holder.class);
+            assert context.getBean(Holder.class) == holder;
+            Token injected = holder.token();
+            assert holder.token() == injected;
+            ObjectProvider<Token> provider = context.getBeanProvider(Token.class);
+            Token third = provider.getObject();
+            Token fourth = provider.getObject();
+            assert third != fourth;
         }
     }
-    return bean;  // 不需要代理，返回原始对象
 }
 ```
 
-所以 BeanPostProcessor 能生成代理的关键在于：**它在初始化完成后介入，用代理对象替换原始对象**。容器后续拿到的 Bean 引用已经是代理了，调用方完全无感知。
+无状态服务避免把某次请求的累计值写进共享字段，但输入与依赖对象本身也需满足访问约定；局部变量引用一个共享可变 List，不会让这个 List 自动安全。计数可用相应原子 API，多字段不变量用同一同步协议，ThreadLocal 还需要生命周期与跨线程策略。
 
-这也解释了为什么 `@Async`、`@Transactional` 等注解要放在**公开方法**上——它们需要被 `BeanPostProcessor` 扫描到才能生成对应的代理逻辑。
+容器管理 singleton 的相应销毁回调，prototype 通常由取用方负责后续清理，不能因它来自容器就假设所有昂贵资源都会在容器关闭时自动释放。
 
-# Spring 声明式事务为什么会失效，边界如何设计？
+## 循环依赖与早期引用
 
-声明式事务由代理在方法前后打开、提交或回滚事务。重点不是记注解参数，而是确认以下六种常见失效场景。
+### 三级缓存的作用范围
 
-## 1. 自调用绕开代理
+普通构造器循环 A→B→A 在实例化之前就缺少必要对象，不能靠提前缓存一个尚不存在的实例解决。允许相应循环策略时，部分 singleton 的字段或 Setter 循环可在实例化后通过早期引用完成；prototype 循环等情况不适用。
 
-同类内部方法调用走的是 `this.method()`，**不经过代理对象**，`@Transactional` 完全失效。
+| 内部缓存 | 保存的角色 |
+|---|---|
+| singletonObjects | 完成创建的单例对象 |
+| earlySingletonObjects | 已取出的早期引用 |
+| singletonFactories | 按需取得早期引用的工厂 |
 
-```java
-@Service
-public class OrderService {
-    public void createOrder(OrderDTO dto) {
-        this.saveOrder(dto);       // this 调用，事务不生效
-        this.sendNotification(dto);
-    }
+这些是理解相应实现的工具，不是任意对象图都能启动的保证。Spring Boot 的循环引用默认策略与 Framework 容器本身也要区分；工程中优先拆清职责，避免在半初始化对象上调用业务方法。
 
-    @Transactional
-    public void saveOrder(OrderDTO dto) { /* ... */ }
-}
+### 从对象职责消除循环
 
-// 修复方式一：抽取到另一个 Bean
-@Service
-public class OrderPersistence {
-    @Transactional
-    public void save(OrderDTO dto) { /* ... */ }
-}
+若 UserService 与 RoleService 因同一权限规则互相依赖，可以将规则提取为 PermissionChecker，由两者共同依赖。若通过应用事件解除类型依赖，也要明确默认事件分发通常仍在发布线程同步执行，并不会自动变成提交后、跨进程或可靠持久的消息。
 
-// 修复方式二：注入自身代理
-@Autowired @Lazy
-private OrderService self;  // 注入的是代理对象
-public void createOrder(OrderDTO dto) {
-    self.saveOrder(dto);           // 走代理，事务生效
-}
-```
+## AOP 代理与调用边界
 
-## 2. 异常被吞掉，事务拦截器收不到回滚信号
+JDK 动态代理面向接口，类代理通过子类增强，final、private 或不可覆盖的方法会限制增强范围。具体选哪一种取决于框架与配置，不能只看到类实现了接口就判断最终代理类型。
 
-`try-catch` 吞掉**异常后**，拦截器认为方法正常完成，直接提交——**即使数据库已经部分写入。**
+代理只处理经过代理引用的调用。对象内部 this.method 不会再次穿过同一代理；直接 new 出来的普通对象也不因方法上有注解就自动受容器增强。[Spring 代理机制](https://docs.spring.io/spring-framework/reference/6.2/core/aop/proxying.html)
 
-```java
-@Transactional
-public void transfer(Long from, Long to, BigDecimal amount) {
-    try {
-        accountDao.deduct(from, amount);
-        accountDao.add(to, amount);
-    } catch (Exception e) {
-        log.error("转账失败", e);    // 吞掉了，事务不会回滚
-    }
-}
+### BeanPostProcessor 与代理生成
 
-// 修复：让异常传播，或手动标记回滚
-@Transactional
-public void transfer(Long from, Long to, BigDecimal amount) {
-    try {
-        accountDao.deduct(from, amount);
-        accountDao.add(to, amount);
-    } catch (Exception e) {
-        log.error("转账失败", e);
-        TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
-        // 或者直接 throw，不要 catch
-    }
-}
-```
+典型自动代理器通过初始化后处理包装对象；需要早期引用的循环场景，还可能经 getEarlyBeanReference 提前建立代理。最终暴露引用需要与早期使用的引用协调，因此不能一边解释三级缓存，一边又断言代理永远只能在初始化完成后出现。
 
-## 3. Checked Exception 不触发默认回滚
+初始化回调通常发生在目标对象准备阶段，不应依赖经最终代理触发的事务或异步。注解还要满足相应处理器和代理的调用条件：Spring 6 起类代理的事务方法默认还可支持 protected 与包可见方法，接口代理则要求接口中的 public 方法；不是因为扫描器“看不到非 public 方法”。[事务方法可见性](https://docs.spring.io/spring-framework/reference/6.2/data-access/transaction/declarative/annotations.html)
 
-Spring 默认只对 `RuntimeException` 和 `Error` 回滚，**checked Exception（如 `IOException`）会直接提交**。
+## 声明式事务的调用条件
+
+本节讨论 JDBC 等命令式事务：资源通常绑定到执行线程。响应式事务另以 Reactor 上下文组织，不能把所有 Spring 事务都简化为同一个 ThreadLocal 模型。
+
+### 自调用绕开代理
+
+| 调用路径 | 实际事务语义 |
+|---|---|
+| 无事务入口直接 this 调用带注解方法 | 不会凭该内部注解新建事务 |
+| 已有事务的外层方法 this 调用内部方法 | 内部数据库操作仍可参加外层事务，但内部传播、隔离等配置不会重新应用 |
+| 通过另一 Bean 的事务代理调用 | 由该边界的事务属性与管理器决定加入或新建 |
+
+常见修复是把事务边界放在被外部调用的用例方法，或拆为独立 Bean；不能把方法移到同一个类的另一个位置，就宣称已经新开事务。AspectJ 等其他织入模式有不同机制，本章不将其与代理模式混用。
+
+### 异常被吞掉，事务拦截器收不到回滚信号
+
+异常没有越过事务拦截边界，且事务未被其他路径标记 rollback-only 时，正常返回可能导致部分修改提交。但数据库错误、内层事务或 ORM 也可能已将资源标记回滚，不能断言“catch 后一定提交”。
+
+先定义失败是否需要原子回滚，再选择传播异常、配置回滚规则或显式标记 rollback-only。外层 catch 住内层异常也不一定清除已有回滚标记，最终仍可能得到 UnexpectedRollbackException。
+
+### Checked Exception 不触发默认回滚
+
+常见默认规则对 RuntimeException、Error 回滚，受检异常需按业务配置 rollbackFor 等规则；项目还可能统一改写默认行为。受检异常不是必然提交的指令，实际还要看事务状态与资源能否提交。
+
+### 多数据源配错事务管理器
+
+事务管理器的默认解析受配置、类型、主候选与限定符等影响，不能统一说成只按 transactionManager 这个名称查找。多数据源时明确指定管理器，并确认它管理的是实际访问的同一资源。
 
 ```java
-@Transactional
-public void importData(File file) throws IOException {
-    validate(file);       // 抛 IOException → 事务提交，不回滚
-    bulkInsert(file);
-}
-
-// 修复：指定回滚规则
-@Transactional(rollbackFor = Exception.class)
-public void importData(File file) throws IOException { /* ... */ }
-```
-
-## 4. 多数据源配错事务管理器
-
-`@Transactional` 默认按名称查找 `transactionManager`，多数据源时容易**指向错误的管理器**。
-
-```java
+// 配置片段：导入 Spring JDBC、事务与依赖注入相关类型。
 @Bean("orderTx")
-public PlatformTransactionManager orderTx(DataSource orderDs) {
-    return new DataSourceTransactionManager(orderDs);
+PlatformTransactionManager orderTx(@Qualifier("orderDs") DataSource source) {
+    return new DataSourceTransactionManager(source);
 }
 
-@Service
-public class OrderService {
-    @Transactional("orderTx")        // 必须显式指定，否则用默认的
-    public void create() { /* ... */ }
-}
+// 对应的服务方法使用：
+// @Transactional(transactionManager = "orderTx")
 ```
 
-## 5. 异步线程丢失事务上下文
+### 异步线程丢失事务上下文
 
-`TransactionSynchronizationManager` 基于 `ThreadLocal` 绑定，**新线程拿不到原事务**。
+提交到其他线程的任务不会自动参加调用线程的命令式事务，甚至可能在原事务提交前读取旧数据。仅复制 ThreadLocal 或 MDC 也不能安全地把数据库事务搬到另一线程。
 
-```java
-@Transactional
-public void process() {
-    orderDao.save(order);
-    executor.submit(() -> {
-        // 这里没有事务，order 可能还没提交
-        notificationService.send(order.getId());
-    });
-}
+afterCommit 回调可以在本地提交后触发动作，但回调失败不会撤销已经提交的数据库事实，也存在提交后崩溃而未投递的窗口。要求可靠交付时，将业务事实与 Outbox 等待办记录写在同一本地事务，再由独立执行者投递、去重和恢复。
 
-// 修复：把事务内的结果带出去，异步操作放在事务提交后
-@Transactional
-public void process() {
-    orderDao.save(order);
-    // 在事务同步回调中执行，保证提交后才跑
-    TransactionSynchronizationManager.registerSynchronization(
-        new TransactionSynchronization() {
-            @Override
-            public void afterCommit() {
-                notificationService.send(order.getId());
-            }
-        });
-}
+### 事务覆盖远程调用，持锁时间过长
+
+事务已经取得连接或锁后，再等远端响应，会延长资源占用并放大排队。缩短事务时要保留“本地已记录、远端结果未知、结果已确认”等事实，而非只把注解删掉。
+
+```text
+CheckoutService.submit
+  → OrderWriter.savePending：经过另一 Bean 的短事务代理
+  → PaymentGateway.charge：事务外调用，使用业务幂等键
+  → OrderWriter.recordResult：再次经过事务代理保存确认结果
+未知结果 → 查询、对账或补偿，保留恢复依据
 ```
 
-## 6. 事务覆盖远程调用，持锁时间过长
+跨这三个阶段不再具有一个本地数据库事务的原子性，所以需要状态机和幂等来维持业务正确性。调用图清楚说明了边界，也避免“修复示例”又在同类内部自调用事务方法。
 
-事务内做 HTTP/RPC 调用，**数据库连接一直被占着**，锁等待时间随网络延迟线性增长。
+## 事务传播与数据库隔离
 
-```java
-@Transactional
-public void submit(OrderDTO dto) {
-    orderDao.save(dto);             // 拿到连接，开始持锁
-    paymentGateway.charge(dto);     // 网络调用 2s，连接空等
-    orderDao.markPaid(dto.getId()); // 还在事务内
-}
+传播决定调用之间如何组合事务，隔离决定并发数据库事务能观察哪些现象。REQUIRES_NEW 不等于更高隔离，SERIALIZABLE 也不会自动让内部方法另开事务。
 
-// 修复：远程调用放在事务外
-public void submit(OrderDTO dto) {
-    orderDao.save(dto);             // 短事务，快速释放连接
-    paymentGateway.charge(dto);     // 事务外调用
-    markPaidInTransaction(dto.getId()); // 新开事务处理结果
-}
+| 传播 | 资源关系 | 必须保留的后果 |
+|---|---|---|
+| REQUIRED | 加入已有事务或新建 | 内层回滚标记可能影响外层最终提交 |
+| REQUIRES_NEW | 挂起外层，使用独立物理事务 | 可能需额外连接，内层提交不随外层回滚撤销 |
+| NESTED | 在支持的同一物理事务中建立保存点 | 局部回滚依赖支持，外层最终回滚仍撤销整体 |
+| SUPPORTS / NOT_SUPPORTED | 可参加已有事务 / 挂起后无事务执行 | 语义依实际上下文，不因名字自动保证一致读 |
 
-@Transactional
-public void markPaidInTransaction(Long id) {
-    orderDao.markPaid(id);
-}
-```
+DEFAULT 隔离沿用资源默认配置；加入已有事务时，内部声明也不一定重新改变其隔离属性。唯一约束、条件更新和版本仍负责具体业务不变量，传播设置不能替代它们。
 
-## 设计原则
+## 容器启动中的扩展点
 
-- 事务尽量**短小**：只包含数据库操作，不掺杂远程调用和文件 I/O。
-- 异常**不要吞**：catch 之后要么 rethrow，要么手动 `setRollbackOnly`。
-- 多数据源**显式指定**事务管理器名称。
-- 数据库事务只能保证本地资源，不能直接保证消息和远程服务的一致性——跨服务一致性用**本地事务表、事务消息或 Saga** 解决。
+| 扩展点 | 修改或处理的对象 |
+|---|---|
+| BeanFactoryPostProcessor | Bean 定义等元数据 |
+| BeanPostProcessor | 创建与初始化相应阶段的实例 |
+| ApplicationContextInitializer | refresh 前的上下文 |
+| ApplicationListener | 相应应用事件 |
+| FactoryBean | 通过工厂提供的目标对象 |
+| ImportSelector | 需导入的配置类型 |
 
-# Spring 事务传播和数据库隔离级别分别解决什么问题？
-
-核心回答：**传播行为解决“一个带事务的方法调用另一个事务方法时如何组合”**，**隔离级别解决“多个数据库事务并发时能看到什么”**。二者不在同一层，`REQUIRES_NEW` 不能替代更高隔离级别，`SERIALIZABLE` 也不能自动决定内部方法是否新开事务。
-
-高频传播行为：
-
-| 行为                           | 语义                 | 主要边界                                                                 |
-| ---------------------------- | ------------------ | -------------------------------------------------------------------- |
-| `REQUIRED`                   | 有事务就加入，**没有就新建**   | 内层标记 rollback-only 后，外层即使捕获异常也可能在提交时得到 `UnexpectedRollbackException` |
-| `REQUIRES_NEW`               | 挂起外层，**开启独立物理事务**  | 需要额外连接；内层提交后外层回滚也撤不回内层效果                                             |
-| `NESTED`                     | **同一物理事务内建立保存点**   | 依赖事务管理器和数据库保存点支持；外层最终回滚仍会撤销全部                                        |
-| `SUPPORTS` / `NOT_SUPPORTED` | 可加入事务 / 挂起事务后无事务执行 | 适合明确的只读或非事务边界，不能凭名称假设一致性                                             |
-
-隔离级别应从**脏读、不可重复读、幻读和写冲突**的业务风险出发，`DEFAULT` 表示沿用数据库默认值。即使使用较高隔离，也要通过唯一约束、条件更新、版本号或显式锁保护业务不变量；长事务和外部 RPC 会放大锁等待与连接池占用。
-
-自调用失效的首选修复是拆分 Bean，让调用真正经过代理，或把事务边界上移到公开用例方法；不建议为了绕过设计问题普遍使用 `AopContext.currentProxy()`。测试至少覆盖代理类型、回滚规则、内外层组合、连接池容量和并发冲突。
-
-# Spring 常用扩展点分别在什么时候执行？
-
-| 扩展点                             | 适用场景              |
-| ------------------------------- | ----------------- |
-| `BeanFactoryPostProcessor`      | Bean 实例化前修改定义元数据  |
-| `BeanPostProcessor`             | Bean 初始化前后包装或增强实例 |
-| `ApplicationContextInitializer` | 容器刷新前调整上下文        |
-| `ApplicationListener`           | 监听应用事件            |
-| `FactoryBean`                   | 用复杂逻辑创建特定对象       |
-| `ImportSelector`                | 按条件导入配置，常用于自动装配   |
-
-扩展点要有清晰的执行顺序和失败策略，避免把关键业务逻辑藏在隐式生命周期回调里。
-
-# 如何验收 Spring Core 基础？
-
-- IoC、DI、BeanDefinition 和 Bean 分别是什么？
-- BeanPostProcessor 为什么能生成 AOP 代理？
-- 构造器循环依赖为什么不能用三级缓存解决？
-- `this` 调用为什么绕过声明式事务？
-- 单例 Bean 为什么仍可能有线程安全问题？
+扩展点应保留清晰的阶段、依赖与失败结果。把关键业务动作藏进隐式启动回调，会使重试、事务和运行归属难以解释；对象生命周期与一次业务用例应各有边界。

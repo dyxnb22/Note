@@ -1,93 +1,79 @@
-# Cassandra
+# Cassandra：查询决定分区，一致性决定等待
 
-> 定位：选型概览。本文用于理解宽列数据模型、分区、副本和读写路径；需要生产使用时，应继续补一致性级别实验、Compaction、Repair、Tombstone 和容量运维。
+Cassandra 的宽列模型围绕分区访问与多副本组织。学习时先确定一次查询必须读哪些键，再推导分区、状态大小、确认和后台整理，而不是把它当成能任意 JOIN 的关系库。本章以 Cassandra 5.0 的核心机制为背景。
 
-Cassandra 是面向高写入吞吐和水平扩展的分布式宽列数据库。它按查询设计数据模型，不追求关系数据库式的自由 JOIN 和全局事务。
+## 从用户事件查询建表
 
-## Cassandra 的数据模型是什么？
+“某租户某用户某月的事件，按时间倒序”可以设计成：
 
-可以按以下层次理解：
+```sql
+CREATE TABLE events_by_user_month (
+    tenant_id text,
+    user_id text,
+    bucket text,
+    occurred_at timestamp,
+    event_id text,
+    payload text,
+    PRIMARY KEY ((tenant_id, user_id, bucket), occurred_at, event_id)
+) WITH CLUSTERING ORDER BY (occurred_at DESC, event_id DESC);
 
-```text
-Keyspace → Table → Partition → Row/Clustering columns
+SELECT occurred_at, event_id, payload
+FROM events_by_user_month
+WHERE tenant_id = 't1' AND user_id = 'u1' AND bucket = '2026-10'
+  AND occurred_at >= '2026-10-22T00:00:00Z'
+LIMIT 100;
 ```
 
-- **Partition key** 决定数据落在哪个节点，是分布和查询路由的核心。
-- **Clustering columns** 决定同一分区内的排序和范围查询。
-- 一次查询通常必须带 partition key；否则可能退化为跨节点扫描。
+括号里的组合是 Partition Key，确定分区及相应副本集合；后两列是 Clustering Columns，定义分区内次序。bucket 的月份规则由应用统一生成，数据库不会自动校验事件时间属于该月。
 
-建模顺序应从查询开始：先列出访问模式，再为每种高频查询设计表和主键，必要时接受数据冗余。要控制单个 Partition 的大小，避免热点分区和超大分区。
+普通 INSERT 具有 upsert 语义，不是关系库式的“主键重复必报错”。跨用户搜索或跨月汇总需要额外表、有限分区合并或分析路径，不能靠 ALLOW FILTERING 消除扫描成本。
 
-## 一致性 Hash、虚拟节点和副本怎么配合？
+## 时间桶不自动保证小分区
 
-Cassandra 把节点映射到 Token Ring，数据 Key 根据分区键 Hash 后落到环上的位置，再由后续节点承担副本。虚拟节点把一台物理机拆成多个 Token，可以改善数据分布和扩缩容时的迁移均衡。
+若一个用户每月有一百万条事件、每条约 500 字节，仅原始内容已约 500 MB，尚未计算编码、索引与版本开销。月份不再是合适的小桶，应结合峰值选择更细时间或确定分片规则。
 
-复制因子决定每个分区保存多少副本；协调节点根据一致性级别等待部分或全部副本确认。写入更偏向高可用和吞吐，读取时再通过版本、读修复或反熵同步收敛数据。
+拆桶会增加查询扇出，多张反规范化表也增加写入与修复。要明确同一事实的更新、删除和对账来源，不能把“按查询建表”理解为冗余永远没有一致性代价。
 
-## Gossip 协议解决什么问题？
+## Token、副本与故障域
 
-节点通过周期性地交换成员状态、Token 和版本信息，逐步传播集群拓扑和存活状态。Gossip 没有单点协调者，扩展性好，但状态传播需要时间；节点刚故障时，不同机器可能暂时看到不同的成员视图。
+分区键经分区器映射到 Token，节点拥有 Token 范围；虚拟节点使一台物理机承担多个范围，但同一热分区仍由相应固定副本承受。
 
-## Cassandra 的写入和读取路径是什么？
+NetworkTopologyStrategy 还按数据中心、机架等策略放副本，不能简化为“环上随后几台机器就是副本”。协调节点组织请求，复制因子定义每个相关范围的副本数量，Gossip 等成员信息传播也不等同于业务写入的共识协议。
 
-写入通常经过：协调节点定位副本 → 追加 CommitLog → 写入 MemTable → 按一致性级别返回确认 → MemTable 刷成 SSTable。CommitLog 用于故障恢复，SSTable 是不可变文件，后台 Compaction 负责合并、清理旧版本和墓碑。
+## 写入路径与确认
 
-读取通常检查 MemTable 和多个 SSTable，并结合 Bloom Filter、分区索引和摘要索引减少无效磁盘访问；多个版本可能需要合并，后台读修复帮助副本逐步一致。
+副本把修改写入 CommitLog 与 Memtable，后续刷成不可变 SSTable。确认等多少副本，与这些副本是否已把日志同步到稳定存储是两条独立轴。
 
-## 什么时候适合使用 Cassandra？
+periodic 日志模式可能在对应 fsync 前确认，batch 等策略有不同等待条件；不能只因“先写 CommitLog”就宣称任何崩溃都不丢确认写入。内存表刷盘后，相应恢复日志才逐步释放。[存储引擎与同步策略](https://cassandra.apache.org/doc/stable/cassandra/architecture/storage-engine.html)
 
-适合：写入量大、数据按 Key 访问、需要多节点扩展和跨机房副本的场景，例如时间序列、事件流水和用户行为记录。
+读取合并 Memtable、缓存和有关 SSTable 中的版本。Bloom Filter 用于减少不必要访问，有旧版本与删除标记时仍需协调；读修复及反熵 Repair 也有不同触发、范围和版本配置，不是一条必然后台执行的万能修复线。
 
-不适合：临时多条件查询、复杂 JOIN、强依赖跨分区事务或频繁修改主键的场景。应先验证查询模型、分区大小、热点分布、修复和 Compaction 成本，再决定是否引入。
+## Quorum 提供交集而非全部业务语义
 
-## Query-first 建模
+RF=3 时，QUORUM 通常要求 2 个相应副本响应；一个副本不可用仍可能成功，只有一个可达就无法满足该级别。LOCAL_QUORUM 按本地数据中心的相关副本计算，不能直接当成跨中心所有写入已完成。
 
-Cassandra 按查询建表，通常接受反规范化。Partition Key 决定数据落在哪些节点，Clustering Column 决定分区内排序和范围查询。
+R+W>RF 在固定集合内提供交集，还需处理版本、并发写、时间戳、成员和失败条件。普通写的冲突选择不能凭较大墙上时钟就证明符合业务发生顺序，时钟与无条件更新都可能让旧业务事实占上风。
 
-设计目标：
+### LWT 的条件边界
 
-- 一次查询尽量命中少量分区。
-- 分区大小有上限。
-- 写入和读取分布均匀。
-- 不依赖 `ALLOW FILTERING` 扫描大量数据。
+需要相应范围的 Compare-And-Set 时，可用 IF NOT EXISTS 或 IF 条件的 LWT，相关 Paxos 协调与 SERIAL/LOCAL_SERIAL 有独立语义和成本。条件操作不等于跨任意分区的一般事务，旁路无条件写也可能绕过应用不变量。
 
-## 一致性级别
+BATCH 同样不能仅凭名字被理解成通用跨分区隔离事务。应按原子性、隔离范围与失败恢复逐项检查，而非寻找一个“事务开关”。
 
-读写可选择 ONE、QUORUM、ALL、LOCAL_QUORUM 等级。`R + W > RF` 只提供副本集合交集，仍需时间戳、冲突与故障假设。
+## 删除、TTL 与数据复活
 
-跨数据中心通常使用 LOCAL_QUORUM 控制延迟，并明确远端副本恢复和容灾切换。
+删除或过期以 Tombstone 参与版本合并。达到 gc_grace_seconds 不等于立即物理清理，还需合适的 Compaction 与重叠数据条件；大量墓碑会增加读取工作。
 
-## Tombstone
+若某副本离线期间没收到删除，其他副本又过早清掉删除证据，旧值可能在恢复同步时重新出现。Repair 周期、离线窗口、保留与压缩策略必须一起设计，不能只调小 grace 降磁盘。
 
-删除和 TTL 会产生 Tombstone，在 Compaction 和 Grace Period 后才可安全清理。大量 Tombstone 会增加读取扫描和延迟。
+## Compaction 的资源交换
 
-若副本长时间未修复就过早清理 Tombstone，旧数据可能“复活”。TTL、Repair 和 `gc_grace` 必须共同设计。
+Size-tiered 在大小相近文件间合并，Leveled 约束层内重叠，Time-window 利用时间分布；它们在读放大、写放大、额外空间与过期清理上有不同交换。5.0 引入的 UCS 还提供统一的调整路径，应结合版本和负载评估。[UCS](https://cassandra.apache.org/doc/stable/cassandra/managing/operating/compaction/ucs.html)
 
-## Compaction
+合并不只在空闲时免费发生。写入高峰、Repair、Streaming 与 Compaction 会竞争磁盘和带宽，磁盘接近满时还可能缺少生成新文件的空间。
 
-- Size-tiered：适合写入密集，可能占用更多空间。
-- Leveled：控制读放大，Compaction 写放大较高。
-- Time-window：适合时间序列和 TTL 数据。
+## 维护围绕可恢复副本展开
 
-选择依赖读写模式、时间分布和删除策略，不能只按默认值。
+观察分区大小、墓碑扫描、读写尾延迟、待合并量、Repair 完成范围、Hint 积压与一致性错误，并把它们对应到具体查询。扩容和替换节点要测量范围迁移与剩余恢复能力，而非只看机器已经加入集群。
 
-## Repair 与运维
-
-副本通过 Repair 比较并同步数据。监控：
-
-- Repair 完成周期。
-- Pending Compaction。
-- Tombstone 和大分区。
-- P99 读写延迟。
-- 节点磁盘与流式迁移。
-- Hinted Handoff 和一致性错误。
-
-替换节点、扩容和跨机房操作前要估算 Streaming 带宽。
-
-## Lightweight Transaction
-
-LWT 使用 Paxos 提供条件更新，延迟和协调成本明显高于普通写。只用于真正需要 Compare-And-Set 的小范围不变量。
-
-## 最小实验
-
-设计一张按用户和月份分区的事件表，压测热点与大分区；制造节点离线、Tombstone 和 Repair 延迟，验证读取与恢复。
+Cassandra 适合查询可预先设计、按分区扩展的事件与宽列负载；自由关联、跨资源约束或长期忽略修复的运行方式，会让原本的吞吐优势被查询和维护成本抵消。

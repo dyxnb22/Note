@@ -2,6 +2,8 @@
 
 这个目录是一套从 Agent 入门到 LLM 工程精通的学习工程。前半部分服务于“能做 Agent/RAG 项目并找实习或初级岗位”，后半部分服务于“理解训练、评测、推理、部署、系统可靠性，能应对更深入的大模型工程岗位”。
 
+已有 Python 基础、希望先理解工具循环时，可以直接阅读[Agent 路线](../../../Agent/00_02_阅读路线.md)与相邻的[完整订单案例](../order_assistant/README.md)。它从普通 Python 查询脚本开始，提供工具调用消息、逐轮轨迹和失败处理；模型训练内容可沿本页路线另行深入。
+
 ## 推荐学习顺序
 
 [学习计划](./00_learning_plan/学习计划.md) 维护阶段目标和产出标准；课程顺序：
@@ -10,7 +12,7 @@
 - **应用**：[Agent](./01_agent_basics/学习文档.md) → [RAG](./02_rag_knowledge_base/学习文档.md) → [工作流](./03_tool_calling_workflow/学习文档.md) → [评测](./04_llm_evaluation/学习文档.md)
 - **工程与研究**：[微调推理](./05_finetune_and_inference/学习文档.md) → [生产系统](./06_production_llm_system/学习文档.md) → [开源 LLM](./07_open_llm_deepseek_study/学习文档.md) → [研究复现](./08_research_methods_and_reproduction/学习文档.md) → [对齐与推理](./09_alignment_reasoning_research/学习文档.md) → [可解释性](./10_interpretability_and_evaluation/学习文档.md) → [研究作品集](./11_phd_research_portfolio/学习文档.md)
 
-复习问答见 [AI 面试题库](../../面试题库/README.md)。
+模型原理与课程入口见 [AI 课程](../../DeepLearning.md)。
 
 ## 运行环境
 

@@ -2,6 +2,8 @@
 
 这类项目把模型、工具、上下文、工作流、会话和观测抽成可复用底座，再通过管理端配置具体 Agent。
 
+同一条运行链路会经过输入、上下文装配、模型提案、工具执行和结果持久化，再由反馈决定是否继续。模型提出动作，执行器依据权限与预算决定能否执行；记忆同时受范围、过期与隐私约束。多模态输入还需要从协议、模型适配一路保留到结果渲染，不能只在入口接受一张图片。
+
 ## 三层结构
 
 1. **模型与工具底座**：Spring AI、LangChain4j、Google ADK、MCP 和模型适配。
@@ -29,7 +31,7 @@ PostgreSQL 可保存向量数据，Redis 适合标签、配置和快速状态；
 - RAG 解决知识缺失和更新问题；不能替代权限校验、业务规则和结果验证。
 - 动态配置必须有版本、发布、回滚、权限和审计，不应把所有逻辑藏在拖拉拽流程里。
 
-相关：[Agent 架构题](../../Agent/01_基础架构/Agent基础与架构.md)、[RAG 题](../../Agent/06_RAG与知识库/RAG与检索.md)、[知识系统题](../../Agent/06_RAG与知识库/知识摄取与GraphRAG.md)、[Workflow 与编排题](../../Agent/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md)、[LangGraph 题](../../Agent/10_模型与推理/02_Provider适配与框架选型.md)。
+相关：[Agent 基础与架构](../../Agent/01_基础架构/Agent基础与架构.md)、[RAG 与检索](../../Agent/06_RAG与知识库/RAG与检索.md)、[知识摄取与 GraphRAG](../../Agent/06_RAG与知识库/知识摄取与GraphRAG.md)、[Workflow 与编排](../../Agent/05_Multi-Agent与Workflow/Multi-Agent与Workflow.md)、[Provider 适配与框架选型](../../Agent/10_模型与推理/02_Provider适配与框架选型.md)。
 
 来源：`xfg-planet/02-AI应用范式/Agent与工作流/AI-Agent脚手架-知识提炼.md`、`RAG与知识库/可编排Agent-知识提炼.md`。
 

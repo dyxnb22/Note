@@ -1,50 +1,58 @@
-本页只回答 Java 侧的日志门面、实现、MDC 和异步上下文问题。语言无关的日志、指标、Trace 和采集链路见 [日志与可观测性](../Delivery/日志与可观测性.md)。
+# 16 Java 日志与可观测性
 
-# SLF4J、Logback 和 Log4j 怎么分工？
+Java 应用通过日志门面记录事件，由具体实现负责级别、格式、缓冲与输出。一次请求穿过线程池、回调和消息后，还需要维持关联上下文；否则日志即使齐全，也可能无法说明哪些事件属于同一次工作。
 
-- **SLF4J**：日志门面，业务代码依赖统一 API，不直接绑定具体实现。
-- **Logback**：常见的 SLF4J 原生实现。
-- **Log4j2**：另一套日志实现，适合有特定性能、异步日志或生态需求的项目。
+## 日志门面、实现与桥接
 
-应用通常只保留一个实际绑定，避免多个绑定包同时存在导致配置混乱。业务代码优先依赖 SLF4J，日志实现留给部署和工程配置决定。
+SLF4J 提供统一 API，Logback 或适配后的 Log4j2 等实现负责实际输出。应用应检查 API、provider/binding 与桥接包的兼容关系，避免多个实现竞争，或两个相反方向的桥接形成循环。
 
-# Java 生产日志如何选择字段、级别和参数化写法？
+门面降低业务代码对实现的耦合，并不自动统一依赖版本与配置。启动日志和实际依赖树应能解释最终采用了哪个实现；字段、采集与存储机制见[日志与可观测性](../Delivery/日志与可观测性.md)。
 
-通用字段、脱敏和保留规则统一见 [日志与可观测性](../Delivery/日志与可观测性.md#生产日志应该记录什么？)。Java 侧重点是让 SLF4J 参数化日志、异常堆栈和 MDC 上下文保持一致：
+## 参数化日志延迟了什么
 
-- 时间、级别、服务名、实例 ID 和环境。
-- `trace_id`、`request_id`、用户/租户标识等关联信息。
-- 接口、业务动作、耗时、结果状态和错误类型。
-- 必要的业务主键，例如订单号；不要记录密码、Token、身份证号等敏感信息。
+log.info("order created, orderId={}", orderId) 避免无条件拼接输出字符串，但 Java 仍会先求值参数表达式。因此 log.debug("value={}", expensive()) 即使 DEBUG 关闭，也可能执行 expensive；昂贵计算应先检查级别，或按所用 API 采用惰性参数方式。
 
-使用 `log.info("order created, orderId={}", orderId)` 延迟格式化，避免在热路径无条件拼接大对象；记录异常时把异常对象作为参数保留完整根因链。`ERROR` 表示需要处理的失败，`WARN` 表示异常但系统仍可运行，`INFO` 记录关键业务节点，`DEBUG` 只用于开发和短期排查。不要在多个层级重复打印同一异常。
+记录异常时传递异常对象，保留原因链和受抑异常。业务边界决定由哪一层记录，避免同一个失败在每层重复输出；级别表达影响与处理责任，不能只看异常类名机械选择 ERROR。
 
-# MDC 和 TraceId 有什么作用？
+## MDC 绑定上下文，不复制业务对象
 
-MDC 可以把 TraceId、RequestId 等上下文绑定到当前线程，使日志自动带上关联字段。跨线程、线程池、异步回调和消息消费时，必须显式传递并在任务结束后清理上下文，否则可能出现串号或线程复用污染。
+常见 MDC 实现按线程保存关联字段。线程池复用意味着上一项任务的值可能遗留到下一项；把当前请求 ID 写入 ThreadLocal，也不会自动传给另一个线程，更不会把可变对象深拷贝。
 
-TraceId 应通过 HTTP Header、RPC Metadata 或消息 Header 传递；日志里的 TraceId 要能和链路追踪系统中的 Trace/Span 关联起来。
+传播分为两个时点：提交时捕获调用方上下文，执行时保存执行线程原上下文、安装捕获值，并在 finally 恢复。下面的辅助类使用 SLF4J API，需要工程已配置兼容的日志依赖；它处理日志上下文，不传播数据库事务或授权结果。
 
-# ELK/EFK 日志链路怎么设计？
+```java
+import java.util.Map;
+import org.slf4j.MDC;
 
-```text
-应用 stdout/文件
-      ↓
-Fluent Bit/Filebeat
-      ↓
-Logstash/Fluentd（可选：解析、脱敏、路由）
-      ↓
-Elasticsearch/OpenSearch
-      ↓
-Kibana/OpenSearch Dashboards
+public final class MdcTasks {
+    private MdcTasks() {}
+
+    public static Runnable wrap(Runnable task) {
+        Map<String, String> captured = MDC.getCopyOfContextMap();
+        return () -> {
+            Map<String, String> previous = MDC.getCopyOfContextMap();
+            try {
+                install(captured);
+                task.run();
+            } finally {
+                install(previous);
+            }
+        };
+    }
+
+    private static void install(Map<String, String> context) {
+        if (context == null) MDC.clear();
+        else MDC.setContextMap(context);
+    }
+}
 ```
 
-重点不是组件名称，而是数据治理：统一字段和时间格式，限制单条日志大小，配置索引生命周期与保留时间，处理采集失败和重复写入，并对敏感字段做脱敏。容器环境通常优先输出到标准输出，由平台统一采集。
+提交方式为 executor.execute(MdcTasks.wrap(work))。恢复旧值而非一律清空，也能处理 CallerRunsPolicy 在调用线程执行任务的情况；捕获动作若放到工作线程才做，取到的就不是提交方上下文。方法语义见[SLF4J MDC API](https://www.slf4j.org/apidocs/org/slf4j/MDC.html)。
 
-# 日志配置有哪些常见风险？
+Trace/Span 还应通过所用观测库传播完整上下文，不能仅把一个 trace_id 写进日志就认为链路已经正确连接。HTTP、RPC、消息和响应式执行边界各自需要相应传播机制。
 
-- 生产环境不要长期使用 `DEBUG`，避免磁盘、网络和索引成本失控。
-- 配置滚动策略、保留周期和磁盘告警，防止日志打满磁盘。
-- 异步日志可以降低业务线程等待，但缓冲区满时要明确丢弃、阻塞还是降级策略。
-- 异常要保留根因堆栈，但避免同一异常在多层重复打印。
-- 日志系统故障不能阻塞核心业务；必要时本地落盘并等待采集系统恢复。
+## 输出失败与业务事实
+
+普通诊断日志可以按明确策略降级，异步缓冲满时也需决定丢弃还是阻塞，并观察丢失量。落盘与采集各有容量、轮转和保留边界，单靠异步输出不能承诺事件已持久化。
+
+业务或安全审计若要求可靠保存，应使用满足该承诺的记录机制，例如与业务事实同事务保存的审计表或待投递记录；不能把可丢弃的诊断日志当成唯一凭据。日志记录内容与关联字段也要遵循数据分类和脱敏规则。

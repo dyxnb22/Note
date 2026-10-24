@@ -4,7 +4,7 @@ tags: [BigMarket, DDD]
 
 # DDD：战略设计与分层
 
-## 1. 先区分两个层次
+## 先区分两个层次
 
 ### 战略设计：先划分业务边界
 
@@ -21,13 +21,13 @@ tags: [BigMarket, DDD]
 | Task     | 失败任务如何重试         | 按任务状态和时间有界重试           | `domain/task`     |
 
 > [!note] 子域与微服务不是一对一
-> 限界上下文是模型和语言边界，微服务是部署边界。Strategy 和 Rebate 是独立业务边界，但当前部署在 market 进程内。
+限界上下文是模型和语言边界，微服务是部署边界。Strategy 和 Rebate 是独立业务边界，但当前部署在 market 进程内。
 
 ### 战术设计：再组织边界内模型
 
 战术设计回答：边界内的实体、值对象、聚合、领域服务和仓储怎么协作？见 [[02-DDD-领域模型与设计模式]]。
 
-## 2. 本项目的分层
+## 本项目的分层
 
 ```text
 HTTP / RPC / MQ / XXL-Job
@@ -103,7 +103,7 @@ saveUserAwardRecord();         // Award Port
 - `CreditRepository`
 - `LocalStrategyDecisionPort` / `RemoteActivityAccountPort`
 
-## 3. Repository 与 Port 的区别
+## Repository 与 Port 的区别
 
 | | Repository | Port |
 |---|---|---|
@@ -127,7 +127,7 @@ flowchart LR
 
 Port 带来的真实价值：当额度从 market 本地实现切换到 account RPC 时，编排逻辑仍面向 `IActivityAccountPort`，切换点留在适配器和 Profile 配置。
 
-## 4. 限界上下文的协作
+## 限界上下文的协作
 
 ```mermaid
 sequenceDiagram
@@ -146,7 +146,7 @@ sequenceDiagram
 
 边界之间不共享内部 DAO，而是传递明确的 Entity/DTO/业务号。当前项目仍共享物理 MySQL，因此这种数据归属主要是逻辑约束，不是物理强隔离。
 
-## 5. 学习时要带着的问题
+## 学习时要带着的问题
 
 1. 这个类在做业务决策，还是仅仅在调度？
 2. 它依赖的是具体中间件，还是 Domain 定义的抽象？
@@ -154,20 +154,7 @@ sequenceDiagram
 4. 这个事务边界是一个聚合，还是跨聚合用例？
 5. 异常后应该回滚本地事务，还是创建补偿事实？
 
-## 6. 本篇面试快答
 
-**Q：你们的 DDD 是怎么落地的？**
-
-> 我们先按业务语言划分 Activity、Strategy、Award、Credit、Rebate 等限界上下文，再在边界内用实体、值对象、聚合和领域服务实现不变量。Domain 只依赖 Repository/Port 抽象，MyBatis、Redis、MQ 和 RPC 放在 Infrastructure。抽奖用例由 Activity Application Service 编排，核心规则则在各自领域内。
-
-**Q：DDD 是不是只是复杂的分包？**
-
-> 不是。分包只是表象，真正价值是明确业务语言、不变量和事务边界，以及通过依赖倒置使领域规则不被中间件绑定。
-
-**Q：为什么不是一个领域对应一个微服务？**
-
-> 领域边界和部署边界的变化原因不同。本项目把 Strategy/Rebate 保留为独立模型边界，但为了控制学习拓扑和运维成本，由 market 本地承载，不为了“看起来像微服务”而过度拆分。
-
-## 7. 下一步
+## 下一步
 
 继续：02-DDD-领域模型与设计模式

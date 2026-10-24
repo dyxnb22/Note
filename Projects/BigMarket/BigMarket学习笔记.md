@@ -1,6 +1,28 @@
-# 网关（Gateway Service） done
+# BigMarket 服务与业务串讲
 
-## 一句话定位
+BigMarket 是一个营销抽奖学习平台，当前记录基于 Java 17、Spring Boot 3.5.x 和本地七服务拓扑。Activity、Strategy、Award、Credit 与 Rebate 按业务规则分工；Redis 承担概率表与库存热路径，数据库保存业务事实，消息与补偿任务连接跨服务的履约过程。
+
+## 从用户操作到服务协作
+
+用户先登录，再签到获得积分、兑换活动次数，最后消耗额度抽奖。一次抽奖的同步请求止于中奖事实和发奖任务可靠落库；奖品履约与积分到账继续由 Message-Job 和 Account 推进。因此，理解服务协作要同时沿请求路径和业务号观察状态，HTTP 返回只说明其中一个阶段。
+
+```mermaid
+flowchart LR
+    Login[登录与身份] --> Sign[签到获积分]
+    Sign --> Exchange[兑换参与次数]
+    Exchange --> Draw[消耗额度并抽奖]
+    Draw --> Record[中奖记录与 Outbox]
+    Record --> Fulfill[异步发奖与账户入账]
+    Login --> Chat[Chat 扣积分]
+    Chat --> Reconcile[失败退款与对账]
+```
+
+下面沿 Gateway、身份、业务编排和持久化接管点展开。具体机制与代码引用用于解释现有实现；生产高可用、容量和灾备需要另有运行证据。
+
+
+## 网关（Gateway Service）
+
+### 一句话定位
 
 Gateway 是系统对外的统一 HTTP 入口，监听 **8080**，按请求路径把流量转给 Auth、Admin、Chatbot 或 Market。客户端只需使用 Gateway 地址，不必直接依赖各微服务的地址和端口；Gateway 不处理抽奖、积分等业务。
 
@@ -8,7 +30,7 @@ Gateway 是系统对外的统一 HTTP 入口，监听 **8080**，按请求路径
 
 一次正常 API 请求的处理顺序是：客户端请求 Gateway :8080 → WebFlux 收到请求 → CORS WebFilter → Path Predicate 匹配 Route → GlobalFilter 和路由级 GatewayFilter → 下游服务 → Gateway 返回响应。CORS 预检 OPTIONS 请求可能在 CORS 阶段直接得到响应。
 
-## 1. 技术栈与运行配置
+### 技术栈与运行配置
 
 入口类 GatewayApplication 启动 Spring Boot。模块使用 Spring Cloud Gateway 和 WebFlux，并集成 Reactor Resilience4j、Actuator 和 Prometheus。
 
@@ -22,13 +44,13 @@ Gateway 基于 **WebFlux 响应式栈**，**用 Mono 和过滤器链异步处理
 
 本地默认激活 dev；Compose 激活 docker。路由由 YAML 静态配置，目标是固定 host/port；当前没有使用 lb:// 地址或 Nacos 动态发现 Gateway 路由。
 
-## 2. 请求进入 Gateway：CORS 检查
+### 请求进入 Gateway：CORS 检查
 
 URL 到达 Gateway 后，浏览器跨域请求先由 WebFlux Web 层的 WebFilter 处理；本项目使用 CorsWebFilter：默认允许来源为 *，允许所有方法和请求头，但 allowCredentials=false，也就是不允许跨域携带凭证。secure profile 默认把来源收紧为 http://127.0.0.1:5173，可用 APP_CORS_ALLOWED_ORIGINS 覆盖。
 
 浏览器的 CORS 预检 OPTIONS 请求可由 Gateway 直接响应，不必转发到业务服务；如果前端与 API 经同源反向代理提供，浏览器通常不会触发跨域检查。
 
-## 3. 按 URL 匹配路由
+### 按 URL 匹配路由
 
 CORS 检查后，Gateway 根据 URL 的 Path 条件选择 Route。每条路由有四个要素：
 
@@ -45,7 +67,7 @@ CORS 检查后，Gateway 根据 URL 的 Path 条件选择 Route。每条路由�
 | Market | <code>/api/**</code> | localhost:8083 | big-market-market-service:8083 |
 
 Path 中单星号匹配一个路径片段，双星号匹配后续路径
-## 4. 路由匹配后执行过滤器
+### 路由匹配后执行过滤器
 
 路由选中后，Gateway 执行全局过滤器和当前 Route 配置的过滤器：
 
@@ -54,21 +76,21 @@ Path 中单星号匹配一个路径片段，双星号匹配后续路径
 
 WebFilter 在 WebFlux Web 层处理请求；Predicate 决定“请求是否走这条路由”；Filter 决定“选中路由后请求如何处理”。GlobalFilter 面向 Gateway 路由链，GatewayFilter 由具体路由配置。
 
-### 4.1 Trace ID
+#### Trace ID
 
 TraceIdGlobalFilter 读取 X-Trace-Id：请求已有就沿用，没有就生成 UUID。它把 ID 传给下游，并在**响应提交前写回响应头**，便于按同一个 ID 关联网关和下游日志。Trace ID 是日志关联标识，不是身份凭证。
 
-### 4.2 熔断与降级
+#### 熔断与降级
 
 每条服务路由使用独立的 Resilience4j CircuitBreaker 实例：auth-cb、admin-cb、chatbot-cb、market-cb。
 
 熔断器有三个状态：Closed 正常放行并统计结果；Open 快速失败，避免继续压向故障下游；Half-open 在**等待后放少量探测请求，判断下游是否恢复**。
 
-### 4.3 限流
+#### 限流
 
 本项目使用内存令牌桶，按来源 IP 和路径前缀限流；没有令牌时返回 HTTP 429。仅 Auth、Market 路由接入，默认关闭，secure profile 开启。限流状态只保存在当前 Gateway 实例中，多实例不会共享；如果 Gateway 位于反向代理后，还要确认识别到的来源 IP 是否为真实客户端 IP。
 
-## 5. 转发下游并返回响应
+### 转发下游并返回响应
 
 过滤器放行后，Gateway 把请求转发到选中 Route 的 uri。路由没有配置 StripPrefix 或 RewritePath，因此**不会显式改写请求路径**；例如 Market 会收到完整 API 路径。下游响应再经 Gateway 返回客户端。
 
@@ -76,27 +98,19 @@ TraceIdGlobalFilter 读取 X-Trace-Id：请求已有就沿用，没有就生成 
 
 下游调用触发熔断降级时，fallback 使用 forward:/fallback/{service}，在 Gateway 应用内转到 FallbackController，不会再发起网络请求。它返回 HTTP 503 和统一错误体：code=0007、info=网关接口调用失败、data=null。当前配置了熔断和 fallback，没有配置 Gateway Retry；熔断不是重试，也不能保证业务成功。
 
-## 6. 运维与观测
+### 运维与观测
 
 Gateway 暴露 Actuator 的 health、info、circuitbreakers 和 prometheus 端点，并启用 Prometheus 指标导出。Compose 健康检查访问 /actuator/health。
 
-## 7. 常见追问速记
+### 网关行为与实例边界
 
-**问：Predicate 和 Filter 有什么区别？**  
-Predicate 负责匹配 Route；Filter 在路由选中后处理请求或响应。
+Predicate 负责匹配 Route；Filter 处理已匹配路由的请求或响应。GlobalFilter 参加网关路由链，GatewayFilter 由具体 Route 配置。两者都不能代替下游的业务授权和幂等。
 
-**问：GlobalFilter 和 GatewayFilter 有什么区别？**  
-GlobalFilter 加入 Gateway **路由过滤器链**；GatewayFilter 由**具体 Route 配置**。本项目 Trace ID 使用 GlobalFilter，限流使用路由级 GatewayFilter。
+当前令牌桶位于各实例内存，因此一次扩容会改变总放行量。共享限流需要显式共享状态；熔断只根据下游结果停止或恢复调用，本地 fallback 返回 503，不会把原业务调用变成重试。
 
-**问：下游服务故障时怎么办？**  
-CircuitBreaker 根据**调用结果打开熔断**，路由 fallback 转到本地 Controller 返回 503；它不是重试。
+## 登录、鉴权与注销
 
-**问：当前限流能覆盖多个 Gateway 实例吗？**  
-不能。桶在**各实例的 JVM 内存中**；要做跨实例统一限流，需要**共享状态或分布式限流方案**。
-
-# 登录、鉴权与注销
-
-## 业务流程总览
+### 业务流程总览
 
 Auth 管理账号凭证并签发、校验和吊销 JWT。一次完整的用户会话大致经过以下步骤：
 
@@ -108,13 +122,13 @@ Auth 启动时准备演示账号
   → 用户退出，Auth 吊销当前 Token 的 jti
 ```
 
-## 1. 启动准备：演示账号写入数据库
+### 启动准备：演示账号写入数据库
 
 本地和验收配置可通过 `app.auth.seed-users` 提供演示账号。Auth 启动时，`AuthUserSeedRunner` 会使用 Argon2id 对配置的密码做哈希，再通过 MyBatis 写入或更新 MySQL 的 `big_market.auth_user` 表。登录时也通过 MyBatis 查询数据库，不直接使用配置中的明文密码。
 
 相关实现见 [`AuthUserSeedRunner.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com/dyx/market/auth/user/AuthUserSeedRunner.java)、[`AuthUserRepository.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com/dyx/market/auth/user/AuthUserRepository.java)、[`MyBatisAuthUserRepository.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com/dyx/market/auth/user/MyBatisAuthUserRepository.java)、[`AuthUserMapper.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com/dyx/market/auth/user/mapper/AuthUserMapper.java) 和 [auth_user_mapper.xml](/Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/resources/mybatis/mapper/mysql/auth_user_mapper.xml)。
 
-## 2. 登录：账号密码换成 JWT
+### 登录：账号密码换成 JWT
 
 前端登录页通过 `loginWithPassword` 发送 `POST /api/v1/auth/login`。请求经过 Gateway 转发到 Auth 服务，由 [`AuthAccessController.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com/dyx/market/auth/AuthAccessController.java) 接收。Controller 检查必填参数后，把登录用例交给 `LoginApplicationService`。
 
@@ -132,13 +146,13 @@ JWT 使用 Auth 和业务服务共享的密钥做 HS256 签名，用于验证 To
 
 登录响应包含 `userId`、JWT 和有效期。前端将 Token 和 `userId` 存入 `sessionStorage`；后续 API 请求会在 `Authorization` 请求头中携带 Token。相关实现见 [`LoginApplicationService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-auth-service/src/main/java/com/dyx/market/auth/login/LoginApplicationService.java) 和 [`api-client.js`](/Users/diaoyuxuan/big-market-ai-platform/big-market-web/api-client.js)。
 
-## 3. 恢复会话：Auth 的 `/verify`
+### 恢复会话：Auth 的 `/verify`
 
 用户重新进入页面时，前端可以调用 `GET /api/v1/auth/verify`，在 `Authorization` 请求头中提交已有 Token。Auth 检查签名、有效期和吊销状态；通过后返回 Token 中的用户标识，失败时返回业务码 `0009`。
 
 这个接口用于前端检查已有会话。真正调用抽奖、签到等受保护接口时，业务请求会继续由 Gateway 转发到 Market。
 
-## 4. 业务鉴权：Market 本地验证 Token
+### 业务鉴权：Market 本地验证 Token
 
 Market 通过 [`TokenAuthInterceptor.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-market-service/src/main/java/com/dyx/market/market/config/TokenAuthInterceptor.java) 拦截受保护路径。它会：
 
@@ -154,7 +168,7 @@ Market 不会在每次业务请求时远程调用 Auth 验证。**它使用相�
 
 错误响应也有区别：Auth 的 `/verify` 失败时返回业务码 `0009`；Market 拦截器验证失败时返回 HTTP 401，并带鉴权错误信息。
 
-## 5. 退出登录：吊销当前 Token
+### 退出登录：吊销当前 Token
 
 退出时，前端调用 `POST /api/v1/auth/logout`，并在 `Authorization` 请求头中提交 Token。Auth 提取 Token 的 `jti` 和过期时间，把 `jwt:revoked:{jti}` 写入吊销存储，TTL 设置到 Token 到期为止。重复吊销同一个 `jti` 是幂等的。之后 Market 请求再次检查这个 `jti` 时会拒绝该 Token。
 
@@ -163,15 +177,15 @@ Market 不会在每次业务请求时远程调用 Auth 验证。**它使用相�
 
 前端退出逻辑会忽略注销请求失败，然后**清除本地 Token**。因此，如果服务端注销失败，浏览器看起来已经退出，但旧 Token 仍可能使用到过期。
 
-# Market Service（市场服务）
+## Market Service（市场服务）
 
-## 一句话定位
+### 一句话定位
 
 Market 是系统的核心业务 HTTP 服务，监听 **8083**。用户请求经过 Gateway 后，在 Market 完成活动查询、抽奖、签到返利、积分兑换等业务编排。抽奖策略和返利能力仍由 Market 进程内的领域服务实现；账户额度和积分通过 Account 端口访问；抽奖后的实际发奖由 Message-Job 异步处理。
 
 “微服务全链路串讲”中的“抽奖请求入口”会说明客户端如何经 Gateway 到达 Market；本节聚焦请求进入 Market 后的身份处理和业务编排。
 
-## 1. Market 收到请求后的处理层次
+### Market 收到请求后的处理层次
 
 HTTP Controller 实际定义在共享模块 `big-market-trigger` 中，由 [`MarketServiceApplication.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-market-service/src/main/java/com/dyx/market/market/MarketServiceApplication.java) 扫描启用。这样其他启动器可以复用 API 契约和适配层；Market 启动器只扫描它需要的 HTTP、RPC、应用编排、领域和基础设施组件。
 
@@ -191,7 +205,7 @@ Controller 负责 HTTP 参数绑定、身份入口和响应包装；Facade 统�
 
 Market 除了接收 HTTP，也通过 `@EnableDubbo` 注册 Dubbo Provider：[`RaffleActivityServiceRPC.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/rpc/RaffleActivityServiceRPC.java)、[`RaffleStrategyServiceRPC.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/rpc/RaffleStrategyServiceRPC.java)、[`ErpOperateServiceRPC.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/rpc/ErpOperateServiceRPC.java)。它们实现 `big-market-api` 中的共享契约，并委托同一批应用服务。需要用户身份的 RPC 方法从传入 Token 解析用户；ERP RPC 校验管理员 Token；部分不带 Token 的调用会由 `DubboRpcAuthSupport` 拒绝。这里是 **Market 对外提供 RPC**，和 Market 调用 Account RPC 是两个方向。
 
-## 2. 用户身份与接口权限
+### 用户身份与接口权限
 
 用户接口从 `Authorization` Token 中取得身份。受拦截器保护的路径会先由 [`TokenAuthInterceptor.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-market-service/src/main/java/com/dyx/market/market/config/TokenAuthInterceptor.java) 本地验证签名、有效期和吊销状态，**再把 `userId` 写入请求属性**。Controller 通过 [`AuthenticatedUserSupport.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/support/AuthenticatedUserSupport.java) 取出该身份；需要用户身份的接口不能相信请求体里客户端传入的 `userId`。
 
@@ -206,7 +220,7 @@ Market 除了接收 HTTP，也通过 `@EnableDubbo` 注册 Dubbo Provider：[`Ra
 
 运行时配置由 Admin 管理端发布到 Nacos 的默认 DataId `big-market-runtime-switches`（可由配置覆盖）；Market 启动时读取当前快照并注册 Nacos 监听。Admin 确认配置写入 Nacos 后，在 Redis 可用时还会通过 Topic `big-market:config:runtime` 广播变更，Market 收到后刷新本地 `RuntimeConfigHolder`；Nacos 监听和启动读取仍作为兜底。非法配置会恢复安全默认值。相关实现见 [`NacosRuntimeConfigSubscriberConfig.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-market-service/src/main/java/com/dyx/market/market/config/NacosRuntimeConfigSubscriberConfig.java) 和 [`NacosConfigSyncService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-management/src/main/java/com/dyx/market/management/config/NacosConfigSyncService.java)。
 
-## 3. 活动运营、上架与预热
+### 活动运营、上架与预热
 
 运营人员可通过 ERP 接口查询活动阶段、将活动上架或设为过期。上架时 Market 先装配活动 SKU 和抽奖策略缓存，确认两者都成功后才把阶段和活动状态改为生效；下架时则把阶段设为过期并关闭活动。这样新活动不会在必要数据未装配时进入可抽奖状态。
 
@@ -220,13 +234,13 @@ Market 除了接收 HTTP，也通过 `@EnableDubbo` 注册 Dubbo Provider：[`Ra
 
 这些运维和预热接口由 `OperationalAuthInterceptor` 检查管理员身份。上架与下架编排见 [`ErpOperateApplicationService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/application/ErpOperateApplicationService.java)，活动与策略预热入口见 [`RaffleActivityFacade.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/application/RaffleActivityFacade.java)。
 
-## 4. 活动展示与奖品查询
+### 活动展示与奖品查询
 
 用户端先用 `GET /api/v1/raffle/activity/query_stage_activity_id?channel=...&source=...` 查询当前上架的活动，再用 `POST /api/v1/raffle/activity/query_sku_product_list_by_activity_id` 读取活动商品和可兑换额度。查询奖品列表使用 `POST /api/v1/raffle/strategy/query_raffle_award_list_by_token`，用户身份从 Token 中取得；抽奖策略和奖品列表查询由 Market 内部策略适配器处理。
 
 相关入口是 [`RaffleActivityController.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/http/RaffleActivityController.java) 与 [`RaffleStrategyController.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/http/RaffleStrategyController.java)，查询用例由 [`RaffleActivityQueryApplicationService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/application/RaffleActivityQueryApplicationService.java) 和 [`RaffleStrategyQueryApplicationService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/application/RaffleStrategyQueryApplicationService.java) 承接。
 
-## 5. 抽奖与异步发奖
+### 抽奖与异步发奖
 
 以 `POST /api/v1/raffle/activity/draw_by_token` 为例：
 
@@ -240,13 +254,13 @@ Market 除了接收 HTTP，也通过 `@EnableDubbo` 注册 Dubbo Provider：[`Ra
 
 参与单创建后，如果策略执行或中奖记录保存失败，Market 会尝试释放已预占的奖品库存，并补偿参与额度；中奖记录已经落库后则保留中奖事实，不再退还参与额度。异步消费者和重试由 Message-Job 负责，Market 不扫描 `trigger.listener` 或 `trigger.job`。`user_award_record.award_state` 中 `create` 表示待发奖；Message-Job 消费后推进本地发奖状态，查询结果可能看到 `complete`、历史值 `completed` 或 `fail`。对随机积分奖，`complete/completed` 表示本地发奖逻辑已把任务写入 `credit_award_task`，**不代表积分已入账**；最终闭环还要确认任务已派发，并检查 Account 的积分流水/余额。
 
-## 6. 日历签到返利
+### 日历签到返利
 
 `POST /api/v1/raffle/activity/calendar_sign_rebate_by_token` 从 Token 取得用户 ID 后执行签到；`POST /api/v1/raffle/activity/is_calendar_sign_rebate_by_token` 查询当天是否已签到。Market 用当天日期作为业务号，先检查是否已有签到，再读取签到返利配置并创建返利订单。一次签到可以按配置产生积分或活动额度等不同类型的权益。
 
 返利订单用“用户 ID + 返利类型 + 日期”做幂等标识；重复签到或并发重复提交会返回“今日已签到”，不会重复发放。Market 会保存返利订单和 `send_rebate` 消息任务，实际增加积分或活动额度由 Message-Job 异步处理。签到用例见 [`CalendarSignApplicationService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/application/CalendarSignApplicationService.java) 和 [`BehaviorRebateService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-domain/src/main/java/com/dyx/market/domain/rebate/service/BehaviorRebateService.java)。
 
-## 7. 用户额度、余额与记录查询
+### 用户额度、余额与记录查询
 
 以下接口都是 `POST /api/v1/raffle/activity/{接口名}`，需要用户身份时从 Token 取 `userId`，不接受客户端自行指定其他用户：
 
@@ -257,19 +271,19 @@ Market 除了接收 HTTP，也通过 `@EnableDubbo` 注册 Dubbo Provider：[`Ra
 
 活动额度、积分余额和积分流水经 `IAccountReadAdapter` 读取；中奖记录由 Market 的 Award 领域查询。不同 Profile 可以使用进程内适配器或 Docker 下的 Account RPC 适配器。实现入口见 [`RaffleActivityQueryApplicationService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/application/RaffleActivityQueryApplicationService.java)。
 
-## 8. 积分兑换活动 SKU
+### 积分兑换活动 SKU
 
 `POST /api/v1/raffle/activity/credit_pay_exchange_sku_by_token` 用用户积分兑换活动 SKU（例如活动参与次数）。请求中的用户 ID 来自 Token，`requestId` 与用户、SKU 一起组成业务幂等号。
 
 [`CreditPayExchangeApplicationService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/application/CreditPayExchangeApplicationService.java) 按顺序创建兑换/额度订单、调用 Account 扣积分，再推进发货状态。重复扣积分会复用既有交易并继续补偿发货；明确扣费失败时恢复已预占的 SKU；远程结果不确定时保留订单和库存预占等待续作。积分已扣成功但发货状态更新失败时，不会错误地退回积分，而是交给后续补偿处理。
 
-## 9. Chat 积分扣费与退款
+### Chat 积分扣费与退款
 
 Chatbot 调用 `POST /api/v1/raffle/activity/chat_credit_deduct_by_token` 扣减当前用户积分，传入 `requestId` 作为幂等 ID。Market 会先记录扣费意图，再调用 Account 扣款；重复请求不会重复扣费。明确拒绝会标记失败，远程结果不确定时保留处理中状态，供对账或补偿使用。
 
 退款入口 `POST /api/v1/internal/raffle/activity/chat_credit_refund_by_token` 和待补偿标记接口只供内部调用：除用户 Token 外，还校验 `X-Chat-Internal-Token`。退款金额从 Market 已保存的扣费会话读取，不信任调用方传来的金额；会话状态和原始 `requestId` 用于防止重复退款。退款异常会标记待补偿，由后续任务继续处理。相关用例见 [`ChatCreditApplicationService.java`](/Users/diaoyuxuan/big-market-ai-platform/big-market-trigger/src/main/java/com/dyx/market/trigger/application/ChatCreditApplicationService.java)。
 
-## 10. Market 与其他服务的边界
+### Market 与其他服务的边界
 
 - **Market 自己负责：** 活动参与与抽奖编排、策略决策、返利订单创建、用户端 HTTP API 和 Dubbo Provider；创建中奖记录及待发消息任务。中奖记录的后续履约状态会由 Message-Job 按发奖结果推进。
 - **Account 负责：** 积分账户和活动配额。Market 通过 `IActivityAccountPort`、账户读写 Adapter 等契约调用；本地 Profile 可进程内处理，Docker Profile 通过 RPC 调用 Account Service。
@@ -277,14 +291,29 @@ Chatbot 调用 `POST /api/v1/raffle/activity/chat_credit_deduct_by_token` 扣减
 
 所以抽奖 HTTP 请求的同步部分止于“中奖事实与发奖任务已可靠记录”；后续异步消息、奖品履约和积分最终入账是跨服务闭环，详见后续 Message-Job 与 Account 章节。
 
-# 平台配置同步（Admin / Nacos）
-# 运营订单检索（Canal / ES）
+## 平台配置同步（Admin / Nacos）
 
-# 微服务全链路串讲（学完各服务后）
+Admin 接收运营变更，Nacos 保存权威配置。发布前用 contentHash 检查旧版本，发布完整 DataId 成功后才视为提交。消费者监听器先解析并校验新内容，再整体替换不可变配置快照，使一次请求读取的配置保持内部一致。
 
-这一章放在各服务章节之后，用来把入口、业务编排、账户调用和异步消息处理串起来。本笔记已记录 Gateway 到 Market 的 HTTP 入口和 Market 的同步抽奖编排；待 Account、Message-Job 等章节补齐后，再把抽奖订单、配额、中奖记录、Outbox/MQ 发奖和最终积分入账接成完整闭环。
+删除、缺少或非法配置按安全默认值处理；不同实例收到通知的时间仍可能不同，运行指标需要同时带上配置版本。完整链路见 [治理与配置](./08-治理-鉴权配置与可观测性.md)。
 
-## 抽奖请求入口：客户端 → Gateway → Market
+## 运营订单检索（Canal / ES）
+
+MySQL 按用户分片维护写入事实，运营按活动跨用户查询。Canal 订阅 binlog，将变更异步汇总到 Elasticsearch，形成适合检索的读模型。这个投影不参与原业务事务，查询暂时缺少新订单不代表下单失败。
+
+定位差异时按 MySQL 记录、binlog、Canal 位点、adapter 和 ES 文档的顺序检查；重复同步需要稳定文档 ID，重建索引还要处理历史回灌与增量衔接。具体上架、预热和查询过程见 [运营流程](./11-运营流程-上架预热配置与查询.md)。
+
+## 账户与异步履约（Account / Message-Job）
+
+Account 维护账户与流水的权威结果。Market 的实时请求只完成活动编排与本地持久化接管；Message-Job 承担消息消费、二级 Outbox、重试与对账，再用原业务号调用 Account。共享 JAR 中有同一份类，不代表每个服务都应该扫描并执行消费者和定时任务。
+
+沿积分奖查看三次交接：中奖记录与一级 task 同事务落库；消费消息后持久化 credit_award_task；调用 Account 后按原业务号核对账户订单和流水。RPC 超时表示结果未知，下一次恢复先查终态，再决定是否用同一业务号重试。完整状态关系见 [消息、库存与补偿](./06-一致性-消息库存幂等与补偿.md)。
+
+## 一次抽奖请求的同步入口
+
+同步链路连接入口、身份、活动配额与抽奖决策，异步链路连接中奖事实、Outbox/MQ、Message-Job 和 Account。按上面的持久化接管点可以逐段定位失败。
+
+### 抽奖请求入口：客户端 → Gateway → Market
 
 以 POST /api/v1/raffle/activity/draw_by_token 为例：
 
@@ -300,9 +329,26 @@ Chatbot 调用 `POST /api/v1/raffle/activity/chat_credit_deduct_by_token` 扣减
 
 
 
-# 简历内容
-- **活动域**负责活动状态、参与单和活动名额，也负责把抽奖步骤串起来。
-“创建或复用参与单”是说：用户重复提交时，先看是否已有对应参与记录；有就复用，避免重复参与。只有新建参与单时才扣活动名额。
-- **策略域**负责抽奖规则和奖品选择，比如先检查资格，再按概率挑奖品。
-- **奖品域**负责中奖后要执行什么发奖动作。
-- **积分域**负责积分账户和积分相关操作。
+抽奖进入领域层后，Activity 先创建或复用参与单，只有新建参与单才扣活动额度；Strategy 决定候选奖品并检查规则与库存；Award 保存中奖事实和履约任务。重复请求继续沿原参与单收敛，避免重新扣减额度。完整执行过程见[核心抽奖闭环](./04-业务流程-核心抽奖闭环.md)。
+
+
+## 构建与运行验证
+
+以下命令在 `big-market-ai-platform` 仓库根目录执行。构建、静态配置检查和实际链路验证观察的是不同层面：编译通过不能证明数据库、消息或远程服务已经协作完成。
+
+### 构建与静态检查
+```bash
+mvn -B verify -DfailIfNoTests=false
+./scripts/validate-microservices-stack.sh
+./scripts/smoke-security.sh
+```
+
+### 容器启动后的链路验证
+
+```bash
+./scripts/acceptance.sh --reuse
+./scripts/smoke-raffle-award-e2e.sh
+./scripts/smoke-chat-refund-e2e.sh
+```
+
+不要未经明确授权直接跑 `--fresh --confirm-destroy-volumes`，因为会删除学习数据卷。

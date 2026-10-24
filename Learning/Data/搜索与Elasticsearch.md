@@ -1,92 +1,108 @@
-# 搜索与 Elasticsearch
+# 搜索与 Elasticsearch：从词项到可恢复索引
 
-> 定位：选型概览。本文用于理解搜索与数据库的边界、倒排索引和分片；需要生产使用时，应继续补 Mapping 演进、Analyzer、相关性评估、集群恢复和容量实验。
+搜索引擎把文本转换成可检索结构，再按相关性与过滤条件返回结果。作为数据库事实的派生索引，它需要明确分词、版本、可见性、权限与重建方式。以下 REST 示例采用 Elasticsearch 8.x 的常见语法。
 
-## 搜索与数据库的边界
+## 倒排索引与字段语义
 
-关系数据库擅长事务与精确查询；搜索引擎擅长全文检索、相关性排序、聚合和模糊匹配。不要因“查询慢”就同步复制整套数据到 ES；先明确检索需求、延迟、一致性和回源策略。
+倒排结构把词项连到包含它的文档和相应信息。Analyzer 的字符处理、分词与 Token Filter 改变索引词项，搜索时必须使用兼容语义；中文、同义词与停用词应以实际查询验证。
 
-## 倒排索引
+创建演示索引使用 PUT /course_articles_v1，正文为：
 
-倒排索引从 term 指向包含它的文档及位置，因而能高效查词。analyzer 决定字符如何变 token；中文分词、同义词、停用词和词干处理会直接改变召回。mapping 一旦投入生产不宜随意改，字段应区分 `text`（分析、全文）与 `keyword`（精确过滤/聚合）。
-
-## 查询与排序
-
-先过滤（filter）再评分（query）：filter 可缓存且不影响相关性，query 产生 score。BM25 是常用词项相关性基础；排序还可能叠加业务权重、时间衰减和权限过滤。召回、排序、重排是不同阶段，指标也不同。
-
-## 数据同步与运维
-
-常用数据库变更日志/消息队列异步同步到 ES，接受最终一致；必须处理重复、乱序、重建索引和删除。使用 alias 实现零停机 reindex；监控写入拒绝、segment、堆内存、查询延迟和热点分片。
-
-## Elasticsearch 写入和查询的核心流程是什么？
-
-写入时，客户端请求先路由到目标索引的 primary shard；写入内存缓冲区并记录 translog，达到 refresh 条件后形成可搜索的 segment，再由 replica shard 复制。`refresh` 影响“能否被搜索”，`flush` 主要负责把事务日志整理到持久化结构，不能把两者混为一谈。
-
-查询时，协调节点把请求转发到相关分片，各分片返回局部结果，协调节点再合并、排序和截取最终结果。分片数、字段 mapping、分词、查询类型和副本数量都会影响延迟与资源消耗。
-
-## Elasticsearch 深分页怎么处理？
-
-`from + size` 需要每个分片保留并排序较多数据，页码很深时成本高且受 `max_result_window` 限制。大批量遍历优先使用 `search_after`，并配合 PIT 固定查询视图；需要按桶遍历聚合时考虑 `composite aggregation`。不要用不断增大的 `from` 模拟批处理。
-
-## 最小练习
-
-为“文章搜索”设计 mapping、分词策略、按标题/正文加权的 query，以及数据库更新到索引的失败补偿方案。
-
-## Mapping 与 Analyzer
-
-`text` 字段经过 Analyzer 用于全文检索，`keyword` 保存完整值用于精确过滤、聚合和排序。日期、数字和布尔值应使用对应类型。
-
-Analyzer 包含字符过滤、Tokenizer 和 Token Filter。索引时与查询时 Analyzer 可以不同，但必须用 `_analyze` 和真实查询验证。错误 Mapping 上线后通常需要新索引重建，不能期待原地改变所有历史字段语义。
-
-## Lucene Segment
-
-Shard 底层由多个不可变 Segment 组成。Refresh 让新 Segment 可搜索，Merge 后台合并 Segment 并清理删除标记。
-
-- Refresh 太频繁增加小 Segment 和开销。
-- Merge 消耗 CPU、磁盘和 I/O。
-- Delete/Update 实际会标记旧文档并写新版本。
-- Force Merge 不适合频繁写入的在线索引常规使用。
-
-## 相关性与查询
-
-区分：
-
-- Query Context：计算相关性。
-- Filter Context：是/否匹配，适合缓存。
-- `must/should/filter/must_not` 的布尔语义。
-- Match、Term、Phrase、Range 和 Multi-match。
-
-搜索质量需要 Query 集、相关性标注、Recall/NDCG 和线上指标；不能只看某个示例排第一。
-
-## 聚合
-
-聚合会在各 Shard 计算局部结果再合并。高基数 Terms、深层嵌套和大范围 Cardinality 可能消耗大量内存。
-
-字段用于聚合时优先 Keyword/Numeric Doc Values。Composite Aggregation 适合分页遍历桶。
-
-## 分片与容量
-
-Shard 过多增加 Heap、文件句柄和集群状态；过大则恢复、迁移和查询成本高。估算文档量、索引体积、写入率、保留期、查询并发和副本。
-
-使用 Rollover、ILM 和冷热层管理时间序列数据。扩容不仅加节点，还要验证磁盘水位、Shard 均衡和恢复带宽。
-
-## 数据同步
-
-数据库到索引通常最终一致：
-
-```text
-数据库事务/Outbox → CDC/MQ → 索引消费者
-→ 版本检查 → 写入 → 对账与重建
+```json
+{
+  "mappings": {
+    "properties": {
+      "article_id": {"type": "keyword"},
+      "tenant_id": {"type": "keyword"},
+      "status": {"type": "keyword"},
+      "title": {"type": "text", "analyzer": "standard"},
+      "updated_at": {"type": "date"}
+    }
+  }
+}
 ```
 
-文档携带业务版本，拒绝旧事件覆盖新状态。保留全量重建和原子 Alias 切换能力。
+text 面向分析和全文匹配，keyword 面向完整值的筛选、排序和聚合，数值与日期也应按对应类型建模。许多字段类型或分析规则不能原地重解释全部历史数据，需要新索引重建，不是修改 Mapping 就已迁移完成。
 
-## 集群故障
+## 写入确认、复制与搜索可见性
 
-理解 Master-eligible、Data、Ingest 和 Coordinating 角色。脑裂防护和选主由当前集群协调机制负责；运维重点是多数派、Shard Allocation、磁盘水位和恢复。
+用 PUT /course_articles_v1/_doc/a1?refresh=wait_for 写入：
 
-故障演练：节点退出、磁盘满、热点 Shard、Mapping 冲突、重建切换和快照恢复。
+```json
+{
+  "article_id": "a1",
+  "tenant_id": "t1",
+  "status": "published",
+  "title": "Database transaction boundaries",
+  "updated_at": "2026-10-22T09:00:00Z"
+}
+```
 
-## 安全与多租户
+主分片执行写入并将操作复制给相应副本，按协议与配置确认。复制不必等到先生成可搜索 Segment 才发生；把“主分片 refresh 后再复制副本”画成固定写入链是错误的。[写入与复制](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/docs-replication.html)
 
-按索引/文档/字段控制访问，避免把权限过滤交给最终模型。多租户需要在共享索引、独立索引和独立集群之间权衡隔离、Shard 数和运维成本。
+Refresh 使相应新内容进入搜索视图，不等于完成所有持久化；translog 的同步策略与 Lucene 提交影响恢复。Flush 建立相应持久提交并滚动 translog，不是“让搜索立刻看见”的同义词。副本各自也有搜索可见性阶段。[刷新](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/near-real-time.html)、[Translog](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/index-modules-translog.html)
+
+wait_for 等待相应刷新，不等于每次都强制立即刷新。按 ID 读取与 Search 还有不同实时性约定，因此“写成功但没搜到”要先判断访问路径，而不是直接认定写入丢失。
+
+## Query、Filter 与相关性
+
+对 GET /course_articles_v1/_search 发送：
+
+```json
+{
+  "query": {
+    "bool": {
+      "must": [{"match": {"title": "database"}}],
+      "filter": [
+        {"term": {"tenant_id": "t1"}},
+        {"term": {"status": "published"}}
+      ]
+    }
+  },
+  "sort": [{"_score": "desc"}, {"article_id": "asc"}],
+  "size": 20
+}
+```
+
+Query Context 计算相应相关性，Filter Context 表达是否匹配并可能按策略缓存。这是语义区别，不是所有请求必定“先执行 filter 再执行 query”的时间线。match 分析文本，term 匹配词项或完整 keyword 值，不能随意互换。
+
+BM25、字段加权、时间与业务信号共同影响排序，should 是否必须满足也要显式设计。查询集、相关性标注、Recall/NDCG 与线上反馈用于评估质量，单个例子第一名不构成正确性证据。
+
+租户过滤在这里表达查询范围；若调用方还能任意改 DSL 或直连索引，它并不是完整授权边界。数据访问必须由相应服务和权限机制约束。
+
+## 分片查询与聚合
+
+协调节点把查询分发到相关分片，收集局部候选后合并。分片越多，局部工作与结果传输也越多；副本能帮助相应读负载，不会把一个主分片的写入自动切成多个主分片。
+
+聚合通常依赖 Keyword/Numeric 的 Doc Values。Terms 的分布式候选与分片大小会影响精度，Cardinality 通常为近似值，高基数与深嵌套还会消耗内存；需要分页遍历桶时可考虑 Composite，而不是把 size 无限调大。
+
+## 深分页、游标与稳定视图
+
+from+size 需要各分片提供更大的候选集合，深页成本高且受结果窗口限制。search_after 根据上一页最后一行的完整 sort 值继续，要求相同查询和稳定的补充排序键。
+
+只换成 search_after 不会固定变化中的索引。需要稳定遍历时配合 PIT，并使用响应提供的完整排序数组与相应新 PIT ID，管理存活期并完成后关闭；它也不是任意跳页的索引。[分页与 PIT](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/paginate-search-results.html)
+
+## 数据同步与删除
+
+```text
+数据库事实与 Outbox/CDC → 事件消费者
+→ 对应业务版本与删除判断 → 索引写入 → 对账
+```
+
+旧事件不能覆盖新状态，相同版本的重试也要有内容等价的约定。外部版本、乐观并发等机制各有条件，不能只带一个 updated_at 就证明乱序已处理；删除墓碑的保留与历史重放窗口同样需要设计。
+
+搜索通常允许派生数据延迟，关键状态可按合同回源确认。Change Log 的位置、索引消费进度与数据库提交是不同事实，不能用请求成功率代替同步完整性。
+
+## Alias 切换与重建
+
+Alias 能原子更新逻辑名称的索引指向，但不会替重建过程补齐并发变更。可靠流程需要固定基线、持续捕获增量、重建并追平到明确边界，再切换读写和处理残留事件。
+
+若只启动 Reindex，结束后立刻切 Alias，构建期间的更新或删除可能未被正确交接。校验还应覆盖数量、版本、抽样内容、权限与排序，旧索引保留需与回滚和成本窗口一致。
+
+## Segment、容量与恢复
+
+更新与删除会留下旧版本或删除标记，后台 Merge 整理 Segment，并消耗 CPU、磁盘与 I/O。频繁 Refresh 会增加小 Segment，Force Merge 也不是活跃索引日常提速按钮。
+
+分片太多放大元数据与调度，太大增加迁移和恢复时间。按写入率、体积、保留、查询并发、磁盘余量与恢复带宽估算，Rollover/ILM 与冷热层只是具体执行手段。
+
+Master-eligible、Data、Ingest、Coordinating 各有职责，选主看相应投票配置，不是所有数据节点随便选多数。故障验证应包含分片不可用、磁盘水位、映射冲突、切换与快照恢复，才能确认索引不仅能查，也能重新建起来。

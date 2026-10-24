@@ -1,69 +1,102 @@
-# MongoDB
+# MongoDB：从文档边界到一致性合同
 
-> 定位：选型概览。本文用于理解文档模型、索引、复制和分片边界；需要作为生产主存储时，应继续补 Schema 演进、事务、变更流、备份恢复和真实执行计划实验。
+MongoDB 以 BSON 文档组织数据。文档模型让一起访问和更新的有界内容形成明确聚合；跨文档事务、关联和索引则承担其他成本。本章示例采用 MongoDB 8.0 的常用 mongosh 语法，从未分片的订单集合开始。
 
-MongoDB 是面向文档的 NoSQL 数据库，数据以 BSON 文档存储在 Collection 中。它适合结构变化较多、读写模型以文档为中心、需要水平扩展的场景；复杂关联、强事务和成熟报表查询通常优先考虑 MySQL。
+## 嵌入与引用围绕生命周期
 
-## 文档模型怎么设计？
+订单中的少量商品快照适合嵌入，因为它们随订单一起读取，历史价格也应独立于当前商品价格。不断增长的浏览、评论或审计记录则更适合单独集合，避免无界数组。
 
-- 嵌入：把强关联、一起读取且规模可控的数据放进同一文档，读取简单并可对单文档原子更新。
-- 引用：把大集合、独立生命周期或多对多关系拆开，通过 ID 关联，避免文档无限膨胀。
-- MongoDB Schema 灵活不等于不需要约束，仍应明确字段类型、大小上限、索引和版本兼容策略。
+引用节省重复并允许独立演进，却把关联和一致性移到查询或业务协议。一个 BSON 文档有 16 MiB 上限，规模更小时也可能已出现更新竞争与传输成本，不能把上限当成设计目标。
 
-## MongoDB 索引和 MySQL 有什么相似点？
+## 给灵活 Schema 明确约束
 
-MongoDB 支持单字段、复合、数组、多键和文本等索引。复合索引要按高选择性、等值条件、排序和范围查询设计字段顺序；通过 `explain()` 检查是否走索引，避免索引过多导致写放大和内存占用。
+下面限制必要字段、金额类型、状态与明细数量；100 条是演示中的业务上限。
 
-## 复制和分片分别解决什么问题？
+```javascript
+db.createCollection("course_orders", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["_id", "tenant_id", "status", "version", "amount_cents", "created_at", "items"],
+      properties: {
+        _id: { bsonType: "string" },
+        tenant_id: { bsonType: "string" },
+        status: { enum: ["pending", "paid", "cancelled"] },
+        version: { bsonType: "int", minimum: 1 },
+        amount_cents: { bsonType: "long", minimum: 0 },
+        created_at: { bsonType: "date" },
+        items: { bsonType: "array", maxItems: 100 }
+      }
+    }
+  }
+});
+db.course_orders.insertOne({
+  _id: "t1:o1", tenant_id: "t1", status: "pending", version: NumberInt(1),
+  amount_cents: NumberLong("9900"), created_at: ISODate("2026-10-22T09:00:00Z"),
+  items: [{ sku: "p1", quantity: 1 }]
+});
+```
 
-- 复制集由 Primary 和 Secondary 组成，Secondary 通过 oplog 回放 Primary 的操作；Primary 故障时可重新选主，主要解决高可用和读扩展。
-- 分片把数据按 shard key 水平拆到多个 Shard，通常由 `mongos` 路由、Config Server 保存元数据；主要解决单机容量和吞吐瓶颈。
-- 复制解决“同一份数据多副本”，分片解决“数据分布到多台机器”，生产上通常组合使用。
+结构校验不自动限制合法状态迁移，也未验证每条明细的完整业务约束。新增字段时还需约定缺失、默认值和读写版本，既有文档不会因验证器更新而自动完成迁移。
 
-## MongoDB 如何保证写入可靠性？
+## 单文档原子更新与条件
 
-通过 write concern 控制写入确认级别，通过 read concern 控制读取的一致性语义；不能只看“写命令返回成功”，还要结合副本确认、故障切换和业务可接受的数据丢失窗口。单文档更新具备原子性；跨文档事务可以使用，但会增加锁、协调和性能成本，应优先调整文档模型减少事务范围。
+```javascript
+const result = db.course_orders.updateOne(
+  { _id: "t1:o1", tenant_id: "t1", status: "pending", version: NumberInt(1) },
+  { $set: { status: "paid" }, $inc: { version: NumberInt(1) } }
+);
+```
 
-## 聚合怎么做？
+状态和版本与修改在同一单文档操作中判断；成功后为 paid、version=2。重复相同调用通常匹配零条，零条也可能表示不存在或版本冲突，因此应重查必要事实，不能一律宣布“重复成功”。[原子性与事务](https://www.mongodb.com/docs/manual/core/write-operations-atomicity/)
 
-Aggregation Pipeline 通过 `$match`、`$project`、`$group`、`$sort`、`$lookup` 等阶段处理数据。通常尽早用 `$match` 过滤并利用索引，控制中间结果和 `$lookup` 规模；复杂聚合要用 `explain()` 和真实数据压测。
+跨文档事务可组合多条修改，但仍有失败、重试与提交结果未知的情况。普通 updateMany 也不能仅因是一个 API 调用就推断全部文档组成同一原子事务，外部支付更不会自动回滚。
 
-## 嵌入还是引用
+## 由查询形状选择索引
 
-嵌入适合一起读取、生命周期一致且数量有界的数据；引用适合独立增长、被多处共享或经常单独访问的数据。
+```javascript
+db.course_orders.createIndex({ tenant_id: 1, status: 1, created_at: -1, _id: -1 });
+db.course_orders.find({ tenant_id: "t1", status: "paid" })
+  .sort({ created_at: -1, _id: -1 }).limit(20).explain("executionStats");
+```
 
-设计前写出主要查询与更新。无界数组会导致文档增长、搬移、并发冲突和 16MB 文档上限问题。
+等值前缀收窄范围，后续键服务排序。ESR 是常用分析方法，不是“高选择性字段永远第一”；范围极窄、排序代价较小时也可能选别的顺序。检查扫描键、扫描文档、返回量与排序阶段，而非只看出现 IXSCAN。[ESR 指南](https://www.mongodb.com/docs/manual/tutorial/equality-sort-range-guideline/)
 
-## Shard Key
+数组会形成多键索引，条目规模、复合限制与覆盖条件需另外分析。增加索引也增加写入与工作集成本，不应把每个可查询字段都独立建一遍。
 
-Shard Key 决定数据分布、路由和扩容：
+## 聚合流水线与中间粒度
 
-- 高基数。
-- 写入分布均匀。
-- 支持主要查询定位。
-- 避免单调递增造成热点。
-- 一旦选择，修改成本高。
+```javascript
+db.course_orders.aggregate([
+  { $match: { tenant_id: "t1", status: "paid" } },
+  { $group: { _id: "$tenant_id", paid_cents: { $sum: "$amount_cents" } } }
+]);
+```
 
-Hash Key 均匀但不支持范围局部性；Range Key 支持范围但可能热点。Zone Sharding 用于地域或合规放置。
+match 过滤、project 选字段、group 改变粒度，lookup 引入关联。unwind 明细后再汇总订单总额也可能重复计数，原理与 SQL 一对多 JOIN 相同。优化器可能调整可安全移动的阶段，不能把“永远先 match”当成所有流水线的合法改写。
 
-## 一致性与选主
+## 复制集与读写关注
 
-Write Concern、Read Concern 和 Read Preference 共同决定延迟、可见性和故障风险。选主期间写入可能短暂失败，客户端必须处理可重试错误和未知结果。
+Primary 接受相应写入，Secondary 通过复制历史跟进，切换可能造成暂时错误或未知结果。三个设置分别回答不同问题：
 
-使用重试写仍需业务幂等，因为外部副作用和复合流程不在数据库重试范围内。
+| 设置 | 决定什么 |
+|---|---|
+| Write Concern | 写入确认等待哪些副本或持久化条件 |
+| Read Concern | 允许读取哪类已确认/快照状态 |
+| Read Preference | 选择到哪类成员读取 |
 
-## Change Stream
+majority 读取不等于每次必读到整个系统最新值，secondary 也不因叫副本就已同步当前写。因果会话、线性一致读和事务快照有额外条件，应按各机制的适用条件组合；重试写的去重范围也不能替代跨资源业务幂等。
 
-Change Stream 基于 Oplog 提供变更订阅。消费者保存 Resume Token，处理重复、Token 失效、Schema 演进和全量重建。
+## 分片键决定局部性与热点
 
-它适合驱动缓存/索引同步，但不自动成为高质量领域事件。
+mongos 按元数据路由，Config Server 保存相应集群元数据，各 Shard 又可由复制集承担。复制增加同一事实的副本，分片拆开不同键，两者并非替代方案。
 
-## 运维
+租户键有利于定位租户查询，但一个超大热租户仍可能集中；哈希能分散不同键，不能自动拆散相同键的流量。范围键有局部性，单调写入又可能追逐末尾区间。要同时分析基数、频率、查询定位和迁移成本。
 
-观察 Working Set、Page Fault、慢查询、锁、复制延迟、Oplog 窗口、Chunk 分布和迁移。
+重新分片、更改键与全局唯一索引有版本和结构限制。不能把未分片集合的唯一性推断直接搬到分片集合，尤其要核对 shard key 与唯一约束的关系。
 
-备份需要与副本集和分片元数据一致，并实际做恢复演练。
+## Change Stream 与重建
 
-## 最小实验
+消费者保存 Resume Token，恢复需依赖仍可用的变更历史；保存进度与完成下游修改不原子时，仍会产生重复或丢失窗口。Token 不是永久备份，失效后需有重新快照、衔接增量与对账的路径。[Change Stream](https://www.mongodb.com/docs/manual/changestreams/)
 
-为用户订单历史分别设计嵌入和引用模型，构造热点 Shard Key，模拟 Primary 切换，并验证 Change Stream 消费恢复。
+数据库变更也不等于已经设计好的领域事件。订阅索引、缓存或仓库时，分别处理删除、版本、乱序与业务字段演进；备份恢复还要覆盖复制/分片元数据并验证真实恢复结果。

@@ -1,0 +1,5 @@
+[
+  {"order_id": "A", "tenant_id": "demo", "status": "pending", "version": 1},
+  {"order_id": "B", "tenant_id": "demo", "status": "shipped", "version": 2},
+  {"order_id": "X", "tenant_id": "private", "status": "pending", "version": 1}
+]
